@@ -1,0 +1,12 @@
+name: 'Install & cache dependencies'
+
+runs:
+  using: 'composite'
+  steps:
+    - uses: actions/setup-node@v3
+      with:
+        node-version: 20.1.0 # Should match the version declared in client/.tool-versions
+        cache: 'yarn'
+    - name: Install dependencies
+      run: yarn install --frozen-lockfile
+      shell: bash

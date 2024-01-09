@@ -1,0 +1,38 @@
+name: Check PR & Deploy
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  benchmark-web:
+    name: Test & Benchmark
+    uses: ./.github/workflows/benchmark.yml
+    with:
+      directory: 'www'
+
+  #
+  # ----- Dagwood -----
+  #
+  deploy-web:
+    name: Deploy Vercel
+    needs: [benchmark-web]
+    uses: ./.github/workflows/deploy-vercel.yml
+    secrets:
+      vercel-token: ${{ secrets.VERCEL_TOKEN }}
+      github-token: ${{ secrets.GITHUB_TOKEN }}
+    with:
+      vercel-project-id: 'prj_guK7d7SBZgYAGH8oBRT8keCDPUld'
+      vercel-org-id: 'team_hzG58Ba6BWCqqa0LYWizX449'
+      directory: 'www'
+
+  deploy-dagwood-cms:
+    name: Deploy CMS
+    if: github.ref == 'refs/heads/main'
+    needs: [benchmark-web]
+    uses: ./.github/workflows/deploy-sanity.yml
+    secrets:
+      sanity-auth-token: ${{ secrets.DAGWOOD_SANITY_DEPLOY_TOKEN }}
+    with:
+      directory: 'sanity'
