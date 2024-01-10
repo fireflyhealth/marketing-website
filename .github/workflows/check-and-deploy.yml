@@ -26,7 +26,7 @@ jobs:
 
   deploy-cms:
     name: Deploy CMS
-    if: github.ref == 'refs/heads/main'
+    if: github.ref == 'refs/heads/production'
     needs: [benchmark-web]
     uses: ./.github/workflows/deploy-sanity.yml
     secrets:
