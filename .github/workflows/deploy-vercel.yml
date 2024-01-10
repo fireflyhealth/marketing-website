@@ -13,6 +13,9 @@ on:
       vercel-project-id:
         required: true
         type: string
+      vercel-storybook-project-id:
+        required: true
+        type: string
       vercel-org-id:
         required: true
         type: string
@@ -39,6 +42,26 @@ jobs:
           vercel-token: ${{ secrets.vercel-token }}
           github-token: ${{ secrets.github-token }}
 
+  deploy-storybook-preview:
+    name: Storybook Preview
+    if: github.ref != 'refs/head/main' && github.ref != 'refs/head/production'
+    runs-on: ubuntu-latest
+    outputs:
+      preview-url: ${{ steps.vercel.outputs.preview-url }}
+    defaults:
+      run:
+        working-directory: ${{ inputs.directory }}
+    steps:
+      - uses: actions/checkout@v2
+      - uses: amondnet/vercel-action@v20
+        id: vercel-storybook
+        with:
+          vercel-project-id: ${{ inputs.vercel-storybook-project-id }}
+          vercel-org-id: ${{ inputs.vercel-org-id }}
+          scope: ${{ inputs.vercel-org-id }}
+          vercel-token: ${{ secrets.vercel-token }}
+          github-token: ${{ secrets.github-token }}
+
   # Create an aliased deployment on pushes to main
   deploy-staging:
     name: Staging
@@ -57,6 +80,36 @@ jobs:
           vercel-token: ${{ secrets.vercel-token }}
           github-token: ${{ secrets.github-token }}
           alias-domains: 'firefly-staging.vercel.app'
+      - uses: amondnet/vercel-action@v20
+        id: vercel-storybook
+        with:
+          vercel-project-id: ${{ inputs.vercel-storybook-project-id }}
+          vercel-org-id: ${{ inputs.vercel-org-id }}
+          scope: ${{ inputs.vercel-org-id }}
+          vercel-token: ${{ secrets.vercel-token }}
+          github-token: ${{ secrets.github-token }}
+          alias-domains: 'firefly-storybook.vercel.app'
+
+  deploy-storybook:
+    name: Storybook
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    outputs:
+      preview-url: ${{ steps.vercel.outputs.preview-url }}
+    defaults:
+      run:
+        working-directory: ${{ inputs.directory }}
+    steps:
+      - uses: actions/checkout@v2
+      - uses: amondnet/vercel-action@v20
+        id: vercel-storybook
+        with:
+          vercel-project-id: ${{ inputs.vercel-storybook-project-id }}
+          vercel-org-id: ${{ inputs.vercel-org-id }}
+          scope: ${{ inputs.vercel-org-id }}
+          vercel-token: ${{ secrets.vercel-token }}
+          github-token: ${{ secrets.github-token }}
+          alias-domains: 'firefly-storybook.vercel.app'
 
   # Create a prod deployment on pushes to production
   deploy-production:
