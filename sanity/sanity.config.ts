@@ -1,10 +1,10 @@
-import { defineConfig } from '@sanity-typed/types';
+import { InferSchemaValues, defineConfig } from '@sanity-typed/types';
 import { deskTool } from 'sanity/desk';
 import { visionTool } from '@sanity/vision';
 import { schemaTypes } from './schemas';
 import { structure } from './schemas/structure';
 
-export default defineConfig({
+const config = defineConfig({
   name: 'default',
   title: 'Firefly',
 
@@ -17,3 +17,7 @@ export default defineConfig({
     types: schemaTypes,
   },
 });
+
+export type SanityTypes = InferSchemaValues<typeof config>;
+
+export default config;
