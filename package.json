@@ -1,27 +1,37 @@
 {
-  "name": "firefly-health-website",
-  "version": "0.1.0",
+  "name": "firefly",
+  "version": "1.0.0",
+  "description": "Monorepo root for Firefly",
+  "main": "index.js",
+  "repository": "git@github.com:sanctuarycomputer/firefly-health-website",
+  "author": "Sanctuary Computer",
+  "license": "UNLICENSED",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "prepare": "husky install"
   },
-  "dependencies": {
-    "react": "^18",
-    "react-dom": "^18",
-    "next": "14.0.4"
-  },
+  "workspaces": [
+    "www",
+    "sanity"
+  ],
   "devDependencies": {
-    "typescript": "^5",
-    "@types/node": "^20",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
-    "autoprefixer": "^10.0.1",
-    "postcss": "^8",
-    "tailwindcss": "^3.3.0",
-    "eslint": "^8",
-    "eslint-config-next": "14.0.4"
+    "@typescript-eslint/eslint-plugin": "^6.18.1",
+    "@typescript-eslint/parser": "^6.18.1",
+    "eslint": "^8.56.0",
+    "eslint-import-resolver-typescript": "^3.6.1",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-no-only-tests": "^3.1.0",
+    "husky": "^8.0.3",
+    "lint-staged": "^15.2.0",
+    "prettier": "^3.1.1",
+    "typescript": "^5.3.3"
+  },
+  "lint-staged": {
+    "*.(json|js|jsx|ts|tsx|html|css|md)": [
+      "prettier --write"
+    ],
+    "*(.js|jsx|ts|tsx)": [
+      "eslint --fix"
+    ]
   }
 }

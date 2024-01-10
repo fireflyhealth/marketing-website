@@ -1,0 +1,57 @@
+name: 'Benchmarks (web)'
+on:
+  workflow_call:
+    inputs:
+      directory:
+        required: true
+        type: string
+jobs:
+  benchmark:
+    name: Benchmark
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ${{ inputs.directory }}
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ./.github/workflows/yarn-setup
+
+      # Consistency benchmarks
+      - name: Check Formatting
+        id: check_formatting
+        run: yarn test:prettier
+        continue-on-error: false
+
+      # Our linter ensures we're meeting Safety, Accessibility, and Consistency benchmarks,
+      # using a suite of ESLint plugins
+      - name: Run Linter
+        id: run_linter
+        run: yarn test:lint
+        continue-on-error: false
+
+      # Correctness benchmarks
+      - name: Check Type Correctness
+        id: check_type_correctness
+        run: yarn test:types
+        continue-on-error: false
+
+      - name: Run Test Suite
+        id: run_test_suite
+        run: yarn run test:jest --ci
+        continue-on-error: false
+
+      # Wrap up
+      - name: Print Summary
+        run: |
+          echo "| Benchmark | Metric | Result |" >> $GITHUB_STEP_SUMMARY
+          echo "| :-- | :-- | :-: |" >> $GITHUB_STEP_SUMMARY
+          echo "| Correctness | | |" >> $GITHUB_STEP_SUMMARY
+          echo "| | Test Suite | ${{ steps.run_test_suite.outcome == 'success' && '✅' || '❌' }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| | Type Correctness | ${{ steps.check_type_correctness.outcome == 'success' && '✅' || '❌' }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| Security | | |" >> $GITHUB_STEP_SUMMARY
+          echo "| | Static Analysis | ${{ steps.run_linter.outcome == 'success' && '✅' || '❌' }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| Accessibility | | |" >> $GITHUB_STEP_SUMMARY
+          echo "| | Static Analysis | ${{ steps.run_linter.outcome == 'success' && '✅' || '❌' }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| Consistency | | |" >> $GITHUB_STEP_SUMMARY
+          echo "| | Formatting | ${{ steps.check_formatting.outcome == 'success' && '✅' || '❌' }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| | Linting | ${{ steps.run_linter.outcome == 'success' && '✅' || '❌' }} |" >> $GITHUB_STEP_SUMMARY
