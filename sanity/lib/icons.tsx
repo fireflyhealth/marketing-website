@@ -8,9 +8,10 @@ import { AiOutlineHome } from 'react-icons/ai';
  * Browse Sanity icons:
  * https://icons.sanity.build
  */
-/* import { Foo } from '@sanity/icons' */
+import { DocumentIcon } from '@sanity/icons';
 
 export const icons = {
   /* Document Icons */
   Home: AiOutlineHome,
+  Page: DocumentIcon,
 };

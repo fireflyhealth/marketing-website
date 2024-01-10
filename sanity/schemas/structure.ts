@@ -18,4 +18,9 @@ export const structure: StructureResolver = (S) =>
         //   S.view.component(Components.PagePreview).title('Preview'),
         // ]),
       ),
+      S.divider(),
+      S.listItem()
+        .title('Pages')
+        .icon(icons.Page)
+        .child(S.documentTypeList('genericPage')),
     ]);
