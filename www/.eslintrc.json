@@ -1,3 +1,18 @@
 {
-  "extends": ["next/core-web-vitals", "../.eslintrc.shared.json"]
+  "extends": [
+    "plugin:storybook/recommended",
+    "next/core-web-vitals",
+    "../.eslintrc.shared.json"
+  ],
+  "rules": {
+    "import/no-default-export": "error"
+  },
+  "overrides": [
+    {
+      "files": ["src/pages/**/*", "src/**/*.stories.*"],
+      "rules": {
+        "import/no-default-export": "off"
+      }
+    }
+  ]
 }
