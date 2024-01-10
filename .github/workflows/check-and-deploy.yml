@@ -12,9 +12,6 @@ jobs:
     with:
       directory: 'www'
 
-  #
-  # ----- Dagwood -----
-  #
   deploy-web:
     name: Deploy Vercel
     needs: [benchmark-web]
@@ -23,16 +20,16 @@ jobs:
       vercel-token: ${{ secrets.VERCEL_TOKEN }}
       github-token: ${{ secrets.GITHUB_TOKEN }}
     with:
-      vercel-project-id: 'prj_guK7d7SBZgYAGH8oBRT8keCDPUld'
-      vercel-org-id: 'team_hzG58Ba6BWCqqa0LYWizX449'
+      vercel-project-id: ${{ vars.VERCEL_PROJECT_ID }}
+      vercel-org-id: ${{ vars.VERCEL_ORG_ID }}
       directory: 'www'
 
-  deploy-dagwood-cms:
+  deploy-cms:
     name: Deploy CMS
     if: github.ref == 'refs/heads/main'
     needs: [benchmark-web]
     uses: ./.github/workflows/deploy-sanity.yml
     secrets:
-      sanity-auth-token: ${{ secrets.DAGWOOD_SANITY_DEPLOY_TOKEN }}
+      sanity-auth-token: ${{ secrets.SANITY_DEPLOY_TOKEN }}
     with:
       directory: 'sanity'
