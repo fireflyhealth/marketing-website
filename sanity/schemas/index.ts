@@ -8,6 +8,7 @@ import {
   NotFoundPage,
   PressKitPage,
 } from './documents/specialPages';
+import { ClientPage } from './documents/clientPage';
 
 export const schemaTypes = [
   /* Document Types */
@@ -19,6 +20,7 @@ export const schemaTypes = [
   NotFoundPage,
   FAQPage,
   PressKitPage,
+  ClientPage,
 
   /* Field Types */
   SEO,

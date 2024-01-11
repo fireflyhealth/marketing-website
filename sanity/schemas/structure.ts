@@ -1,7 +1,7 @@
 import { StructureBuilder, StructureResolver } from 'sanity/desk';
+import { ComponentType, ReactNode } from 'react';
 
 import { icons } from '../lib/icons';
-import { ComponentType, ReactNode } from 'react';
 
 type CreateSingletonPageConfig = {
   title: string;
@@ -75,4 +75,9 @@ export const structure: StructureResolver = (S) =>
         schemaType: 'faqPage',
         icon: icons.Question,
       }),
+      S.divider(),
+      S.listItem()
+        .title('Clients')
+        .icon(icons.Client)
+        .child(S.documentTypeList('clientPage')),
     ]);
