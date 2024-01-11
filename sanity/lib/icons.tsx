@@ -2,7 +2,14 @@
  * Browse react-icons:
  * https://react-icons.github.io/react-icons/
  */
-import { AiOutlineHome } from 'react-icons/ai';
+import {
+  GrAnnounce,
+  GrCloudDownload,
+  GrMailOption,
+  GrHomeRounded,
+  GrCircleQuestion,
+  GrDocumentMissing,
+} from 'react-icons/gr';
 
 /*
  * Browse Sanity icons:
@@ -11,7 +18,11 @@ import { AiOutlineHome } from 'react-icons/ai';
 import { DocumentIcon } from '@sanity/icons';
 
 export const icons = {
-  /* Document Icons */
-  Home: AiOutlineHome,
+  Home: GrHomeRounded,
   Page: DocumentIcon,
+  Download: GrCloudDownload,
+  Contact: GrMailOption,
+  NotFound: GrDocumentMissing,
+  Question: GrCircleQuestion,
+  Press: GrAnnounce,
 };
