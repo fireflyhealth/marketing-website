@@ -32,11 +32,48 @@ type FileAsset = {
   size: number;
 };
 
+/**
+ * Linkable Documents
+ */
+
+export type GenericPageLinkInfo = Pick<GenericPage, '_type' | 'slug'>;
+
 /*
  * Documents
  * */
 export type Homepage = SanityDocument & {
   _type: 'homepage';
+  seo: Seo;
+};
+
+/* Special pages */
+export type DownloadPage = SanityDocument & {
+  _type: 'downloadPage';
+  title: string;
+  seo: Seo;
+};
+
+export type ContactPage = SanityDocument & {
+  _type: 'contactPage';
+  title: string;
+  seo: Seo;
+};
+
+export type NotFoundPage = SanityDocument & {
+  _type: 'notFoundPage';
+  title: string;
+  seo: Seo;
+};
+
+export type PressKitPage = SanityDocument & {
+  _type: 'pressKitPage';
+  title: string;
+  seo: Seo;
+};
+
+export type FAQPage = SanityDocument & {
+  _type: 'faqPage';
+  title: string;
   seo: Seo;
 };
 
@@ -51,6 +88,7 @@ export type GenericPage = CommonPage & {
   _type: 'genericPage';
   subPages?: SubPage[];
 };
+
 export type SubPage = CommonPage & {
   _type: 'subPage';
   parentPage: GenericPageLinkInfo;

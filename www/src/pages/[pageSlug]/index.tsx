@@ -3,7 +3,7 @@ import { GetStaticPaths, GetStaticProps } from 'next';
 
 import { GenericPage } from '@/types/sanity';
 import * as Sanity from '@/lib/sanity';
-import { PageView } from '@/views/PageView/PageView';
+import { PageView } from '@/views/PageView';
 
 type PageProps = {
   page: GenericPage;

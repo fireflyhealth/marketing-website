@@ -3,7 +3,7 @@ import { GetStaticProps } from 'next';
 
 import { Homepage } from '@/types/sanity';
 import * as Sanity from '@/lib/sanity';
-import { HomeView } from '../views/HomeView/HomeView';
+import { HomeView } from '../views/HomeView';
 
 type HomeProps = {
   homepage: Homepage;
