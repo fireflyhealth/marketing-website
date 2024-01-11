@@ -6,7 +6,6 @@ import {
   DownloadPage,
   FAQPage,
   NotFoundPage,
-  PressKitPage,
 } from './documents/specialPages';
 import { ClientPage } from './documents/clientPage';
 import { BlogArticle } from './documents/blogArticle';
@@ -21,7 +20,6 @@ export const schemaTypes = [
   ContactPage,
   NotFoundPage,
   FAQPage,
-  PressKitPage,
   ClientPage,
   Blog,
   BlogArticle,

@@ -89,12 +89,6 @@ export const structure: StructureResolver = async (S, context) => {
                 schemaType: 'notFoundPage',
                 icon: icons.NotFound,
               }),
-              createSingletonPage(S, {
-                title: 'Press Kit',
-                id: 'pressKitPage',
-                schemaType: 'pressKitPage',
-                icon: icons.Press,
-              }),
             ]),
         ),
 

@@ -9,7 +9,6 @@ import {
   GenericPage,
   Homepage,
   NotFoundPage,
-  PressKitPage,
   SubPage,
 } from '@/types/sanity';
 
@@ -78,11 +77,6 @@ export const contactPage = {
 export const notFoundPage = {
   get: (): Promise<NotFoundPage | null> =>
     client.fetch(`*[_type == "notFoundPage" && _id == "notFoundPage"][0]`),
-};
-
-export const pressKitPage = {
-  get: (): Promise<PressKitPage | null> =>
-    client.fetch(`*[_type == "pressKitPage" && _id == "pressKitPage"][0]`),
 };
 
 export const faqPage = {

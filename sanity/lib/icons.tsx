@@ -3,7 +3,6 @@
  * https://react-icons.github.io/react-icons/
  */
 import {
-  GrAnnounce,
   GrCloudDownload,
   GrMailOption,
   GrHomeRounded,
@@ -28,7 +27,6 @@ export const icons = {
   Contact: GrMailOption,
   NotFound: GrDocumentMissing,
   Question: GrCircleQuestion,
-  Press: GrAnnounce,
   Client: GrAidOption,
   Blog: GrArticle,
   Article: GrTextWrap,

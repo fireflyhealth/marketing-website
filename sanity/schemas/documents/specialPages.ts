@@ -80,23 +80,3 @@ export const FAQPage = defineType({
     }),
   ],
 });
-
-export const PressKitPage = defineType({
-  name: 'pressKitPage',
-  type: 'document',
-  title: 'Press Kit',
-  icon: icons.Press,
-  fields: [
-    defineField({
-      name: 'title',
-      type: 'string',
-      title: 'Title',
-      validation: (Rule) => Rule.required(),
-    }),
-    defineField({
-      name: 'seo',
-      type: 'seo',
-      title: 'SEO',
-    }),
-  ],
-});

@@ -4,5 +4,4 @@ export const SingletonPageSlugs = {
   Download: 'download',
   Contact: 'contact',
   FAQ: 'faq',
-  PressKit: 'press-kit',
 };

@@ -65,12 +65,6 @@ export type NotFoundPage = SanityDocument & {
   seo?: Seo;
 };
 
-export type PressKitPage = SanityDocument & {
-  _type: 'pressKitPage';
-  title: string;
-  seo?: Seo;
-};
-
 export type FAQPage = SanityDocument & {
   _type: 'faqPage';
   title: string;
