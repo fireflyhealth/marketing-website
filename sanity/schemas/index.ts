@@ -9,6 +9,8 @@ import {
   PressKitPage,
 } from './documents/specialPages';
 import { ClientPage } from './documents/clientPage';
+import { BlogArticle } from './documents/blogArticle';
+import { Blog } from './documents/blog';
 
 export const schemaTypes = [
   /* Document Types */
@@ -21,6 +23,8 @@ export const schemaTypes = [
   FAQPage,
   PressKitPage,
   ClientPage,
+  Blog,
+  BlogArticle,
 
   /* Field Types */
   SEO,

@@ -80,4 +80,9 @@ export const structure: StructureResolver = (S) =>
         .title('Clients')
         .icon(icons.Client)
         .child(S.documentTypeList('clientPage')),
+      S.divider(),
+      S.listItem()
+        .title('Blogs')
+        .icon(icons.Blog)
+        .child(S.documentTypeList('blog')),
     ]);

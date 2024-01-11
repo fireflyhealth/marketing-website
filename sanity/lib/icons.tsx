@@ -10,6 +10,8 @@ import {
   GrCircleQuestion,
   GrDocumentMissing,
   GrAidOption,
+  GrArticle,
+  GrTextWrap,
 } from 'react-icons/gr';
 
 /*
@@ -27,4 +29,6 @@ export const icons = {
   Question: GrCircleQuestion,
   Press: GrAnnounce,
   Client: GrAidOption,
+  Blog: GrArticle,
+  Article: GrTextWrap,
 };
