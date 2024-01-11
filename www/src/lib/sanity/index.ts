@@ -1,5 +1,6 @@
 import { createClient } from '@sanity/client';
 import {
+  ClientPage,
   ContactPage,
   DownloadPage,
   FAQPage,
@@ -85,4 +86,16 @@ export const pressKitPage = {
 export const faqPage = {
   get: (): Promise<FAQPage | null> =>
     client.fetch(`*[_type == "faqPage" && _id == "faqPage"][0]`),
+};
+
+/* Client Page */
+export const clientPage = {
+  get: (clientSlug: string): Promise<ClientPage | null> =>
+    client.fetch(`*[_type == "clientPage" && slug.current == $clientSlug][0]`, {
+      clientSlug,
+    }),
+  getSlugInfo: (): Promise<GenericPage[]> =>
+    client.fetch(`*[_type == "clientPage"]{
+        slug,
+      }`),
 };

@@ -43,44 +43,44 @@ export type GenericPageLinkInfo = Pick<GenericPage, '_type' | 'slug'>;
  * */
 export type Homepage = SanityDocument & {
   _type: 'homepage';
-  seo: Seo;
+  seo?: Seo;
 };
 
 /* Special pages */
 export type DownloadPage = SanityDocument & {
   _type: 'downloadPage';
   title: string;
-  seo: Seo;
+  seo?: Seo;
 };
 
 export type ContactPage = SanityDocument & {
   _type: 'contactPage';
   title: string;
-  seo: Seo;
+  seo?: Seo;
 };
 
 export type NotFoundPage = SanityDocument & {
   _type: 'notFoundPage';
   title: string;
-  seo: Seo;
+  seo?: Seo;
 };
 
 export type PressKitPage = SanityDocument & {
   _type: 'pressKitPage';
   title: string;
-  seo: Seo;
+  seo?: Seo;
 };
 
 export type FAQPage = SanityDocument & {
   _type: 'faqPage';
   title: string;
-  seo: Seo;
+  seo?: Seo;
 };
 
 /* Properties common to both GenericPage & SubPage */
 type CommonPage = SanityDocument & {
   title: string;
-  seo: Seo;
+  seo?: Seo;
   slug: Slug;
 };
 
@@ -92,6 +92,14 @@ export type GenericPage = CommonPage & {
 export type SubPage = CommonPage & {
   _type: 'subPage';
   parentPage: GenericPageLinkInfo;
+};
+
+/* Client Page */
+export type ClientPage = SanityDocument & {
+  _type: 'clientPage';
+  clientName: string;
+  slug: Slug;
+  seo?: Seo;
 };
 
 /*
