@@ -3,14 +3,14 @@ import { GetStaticPaths, GetStaticProps } from 'next';
 
 import { GenericPage } from '@/types/sanity';
 import { Sanity } from '@/lib/sanity/client';
-import { PageView } from '../views/PageView/PageView';
+import { PageView } from '@/views/PageView/PageView';
 
 type PageProps = {
   page: GenericPage;
 };
 
 type PageParams = {
-  slug: string;
+  pageSlug: string;
 };
 
 const Page: FC<PageProps> = ({ page }) => {
@@ -20,12 +20,19 @@ const Page: FC<PageProps> = ({ page }) => {
 export const getStaticProps: GetStaticProps<PageProps, PageParams> = async ({
   params,
 }) => {
-  const slug = params?.slug;
-  if (!slug || typeof slug !== 'string') {
+  const pageSlug = params?.pageSlug;
+  if (!pageSlug || typeof pageSlug !== 'string') {
     /* This will never happen, but keeps typescript happy */
-    throw new Error('Slug param is not a string');
+    throw new Error('pageSlug param is not a string');
   }
-  const page = await Sanity.page.get(slug);
+
+  const page = await Sanity.page.get(pageSlug);
+  if (!page) {
+    return {
+      notFound: true,
+    };
+  }
+
   return {
     props: {
       page,
@@ -34,9 +41,9 @@ export const getStaticProps: GetStaticProps<PageProps, PageParams> = async ({
 };
 
 export const getStaticPaths: GetStaticPaths<PageParams> = async () => {
-  const pages = await Sanity.page.getSlugs();
+  const pages = await Sanity.page.getSlugInfo();
   const paths = pages.map((page) => ({
-    params: { slug: page.slug.current },
+    params: { pageSlug: page.slug.current },
   }));
   return {
     paths,

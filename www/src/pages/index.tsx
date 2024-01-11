@@ -13,7 +13,7 @@ const Home: FC<HomeProps> = ({ homepage }) => {
   return <HomeView homepage={homepage} />;
 };
 
-export const getStaticProps: GetStaticProps = async (ctx) => {
+export const getStaticProps: GetStaticProps = async () => {
   const homepage = await Sanity.homepage.get();
   return {
     props: { homepage },
