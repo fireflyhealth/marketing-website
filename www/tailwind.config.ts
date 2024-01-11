@@ -7,6 +7,10 @@ const config: Config = {
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
+    fontFamily: {
+      'trust-1a': ['Trust 1a', 'sans-serf'],
+      roobert: ['Roobert', 'sans-serif'],
+    },
     screens: {
       sm: '320px',
       md: '600px',

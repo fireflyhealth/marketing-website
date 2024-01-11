@@ -1,0 +1,10 @@
+/* Tailwind Base */
+@import 'tailwindcss/base';
+@import 'base/globals.css';
+
+/* Tailwind Components */
+@import 'tailwindcss/components';
+
+/* Tailwind Utilities */
+@import 'tailwindcss/utilities';
+@import 'utilities/type-styles.css';
