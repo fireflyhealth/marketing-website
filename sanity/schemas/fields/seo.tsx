@@ -1,4 +1,4 @@
-import { defineType, defineField } from '@sanity-typed/types';
+import { defineType, defineField } from 'sanity';
 
 export const SEO = defineType({
   name: 'seo',

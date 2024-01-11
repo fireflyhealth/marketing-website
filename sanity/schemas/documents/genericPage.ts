@@ -1,8 +1,4 @@
-import {
-  defineField,
-  defineType,
-  defineArrayMember,
-} from '@sanity-typed/types';
+import { defineField, defineType, defineArrayMember } from 'sanity';
 import { icons } from '../../lib/icons';
 import { API_VERSION, SingletonPageSlugs } from '../../lib/constants';
 
@@ -115,7 +111,7 @@ export const GenericPage = defineType({
       of: [
         defineArrayMember({
           type: 'reference',
-          to: [{ type: 'subPage' as const }],
+          to: [{ type: SubPage.name }],
         }),
       ],
     }),

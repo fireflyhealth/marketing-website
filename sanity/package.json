@@ -24,7 +24,6 @@
     "styled-components": "^6.0.7"
   },
   "devDependencies": {
-    "@sanity-typed/types": "^6.3.0",
     "@sanity/eslint-config-studio": "^3.0.1",
     "@types/react": "^18.0.25"
   }

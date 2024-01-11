@@ -1,4 +1,4 @@
-import { InferSchemaValues, defineConfig } from '@sanity-typed/types';
+import { defineConfig } from 'sanity';
 import { deskTool } from 'sanity/desk';
 import { visionTool } from '@sanity/vision';
 import { schemaTypes } from './schemas';
@@ -17,7 +17,5 @@ const config = defineConfig({
     types: schemaTypes,
   },
 });
-
-export type SanityTypes = InferSchemaValues<typeof config>;
 
 export default config;
