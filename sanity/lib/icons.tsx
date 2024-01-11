@@ -12,6 +12,7 @@ import {
   GrAidOption,
   GrArticle,
   GrTextWrap,
+  GrTrash,
 } from 'react-icons/gr';
 
 /*
@@ -31,4 +32,5 @@ export const icons = {
   Client: GrAidOption,
   Blog: GrArticle,
   Article: GrTextWrap,
+  Trash: GrTrash,
 };

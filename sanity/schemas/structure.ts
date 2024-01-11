@@ -2,6 +2,7 @@ import { StructureBuilder, StructureResolver } from 'sanity/desk';
 import { ComponentType, ReactNode } from 'react';
 
 import { icons } from '../lib/icons';
+import { API_VERSION } from '../lib/constants';
 
 type CreateSingletonPageConfig = {
   title: string;
@@ -19,8 +20,37 @@ const createSingletonPage = (
     .icon(icon || null)
     .child(S.editor().id(id).schemaType(schemaType).id(id).title(title));
 
-export const structure: StructureResolver = (S) =>
-  S.list()
+export const structure: StructureResolver = async (S, context) => {
+  const client = context.getClient({ apiVersion: API_VERSION });
+  const [orphanSubpages, orphanArticles] = await Promise.all([
+    client.fetch(`
+      *[
+        _type == "subPage"
+        && !(_id in path('drafts.**'))
+      ]{
+        _id,
+        "parentPages": *[
+          _type == "genericPage"
+          && ^._id in subPages[]._ref
+        ]
+      }[count(parentPages) < 1]
+    `),
+    client.fetch(`
+     *[
+        _type == "blogArticle"
+        && !(_id in path('drafts.**'))
+      ]{
+        _id,
+        "parentBlogs": *[
+          _type == "blog"
+          && ^._id in articles[]._ref
+        ]
+      }[count(parentBlogs) < 1]
+    `),
+  ]);
+  const orphanSubpageIds = orphanSubpages.map((page) => page._id);
+  const orphanArticleIds = orphanArticles.map((article) => article._id);
+  return S.list()
     .title('Content')
     .items([
       createSingletonPage(S, {
@@ -85,4 +115,36 @@ export const structure: StructureResolver = (S) =>
         .title('Blogs')
         .icon(icons.Blog)
         .child(S.documentTypeList('blog')),
+      S.divider(),
+      S.listItem()
+        .title('Housekeeping')
+        .icon(icons.Trash)
+        .child(
+          S.list()
+            .title('Housekeeping')
+            .id('housekeeping')
+            .items([
+              S.listItem()
+                .title('Orphan Articles')
+                .child(
+                  S.documentList()
+                    .id('orphanArticles')
+                    .title('Orphan Articles')
+                    .filter(
+                      '_type == "blogArticle" && _id in $orphanArticleIds',
+                    )
+                    .params({ orphanArticleIds }),
+                ),
+              S.listItem()
+                .title('Orphan Subpages')
+                .child(
+                  S.documentList()
+                    .id('orphanSubpages')
+                    .title('Orphan Subpages')
+                    .filter('_type == "subPage" && _id in $orphanSubpageIds')
+                    .params({ orphanSubpageIds }),
+                ),
+            ]),
+        ),
     ]);
+};
