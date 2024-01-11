@@ -8,14 +8,13 @@ const config: Config = {
   ],
   theme: {
     fontFamily: {
-      'trust-1a': ['Trust 1a', 'sans-serf'],
+      trust: ['Trust', 'sans-serf'],
       roobert: ['Roobert', 'sans-serif'],
     },
     screens: {
-      sm: '320px',
-      md: '600px',
-      lg: '1200px',
-      xl: '1920px',
+      sm: '600px',
+      md: '1200px',
+      lg: '1920px',
     },
     colors: {
       black: '#131D2B',

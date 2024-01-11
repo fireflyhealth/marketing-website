@@ -1,6 +1,6 @@
 /* Trust 1A Regular */
 @font-face {
-  font-family: 'Trust 1A';
+  font-family: 'Trust';
   src: url('../../public/fonts/Trust1A-Regular.woff2') format('woff2');
   font-style: normal;
   font-weight: 400;
@@ -9,7 +9,7 @@
 
 /* Trust 1A Regular Italic */
 @font-face {
-  font-family: 'Trust 1A';
+  font-family: 'Trust';
   src: url('../../public/fonts/Trust1A-RegularItalic.woff2') format('woff2');
   font-style: italic;
   font-weight: 400;
@@ -18,7 +18,7 @@
 
 /* Trust 1A Medium */
 @font-face {
-  font-family: 'Trust 1A';
+  font-family: 'Trust';
   src: url('../../public/fonts/Trust1A-Medium.woff2') format('woff2');
   font-style: normal;
   font-weight: 500;
@@ -27,7 +27,7 @@
 
 /* Trust 1A Medium Italic */
 @font-face {
-  font-family: 'Trust 1A';
+  font-family: 'Trust';
   src: url('../../public/fonts/Trust1A-MediumItalic.woff2') format('woff2');
   font-style: italic;
   font-weight: 500;
