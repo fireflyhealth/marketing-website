@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import { GetStaticPaths, GetStaticProps } from 'next';
 
 import { GenericPage } from '@/types/sanity';
-import { Sanity } from '@/lib/sanity/client';
+import * as Sanity from '@/lib/sanity';
 import { PageView } from '@/views/PageView/PageView';
 
 type PageProps = {

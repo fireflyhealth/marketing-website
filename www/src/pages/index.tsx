@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import { GetStaticProps } from 'next';
 
 import { Homepage } from '@/types/sanity';
-import { Sanity } from '@/lib/sanity/client';
+import * as Sanity from '@/lib/sanity';
 import { HomeView } from '../views/HomeView/HomeView';
 
 type HomeProps = {
