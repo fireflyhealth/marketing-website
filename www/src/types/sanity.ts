@@ -42,6 +42,7 @@ export type Homepage = SanityDocument & {
 
 /* Properties common to both GenericPage & SubPage */
 type CommonPage = SanityDocument & {
+  title: string;
   seo: Seo;
   slug: Slug;
 };
@@ -52,6 +53,7 @@ export type GenericPage = CommonPage & {
 };
 export type SubPage = CommonPage & {
   _type: 'subPage';
+  parentPage: GenericPageLinkInfo;
 };
 
 /*

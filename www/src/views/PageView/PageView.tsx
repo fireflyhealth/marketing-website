@@ -1,8 +1,8 @@
 import React, { FC } from 'react';
-import { GenericPage } from '@/types/sanity';
+import { GenericPage, SubPage } from '@/types/sanity';
 
 type PageViewProps = {
-  page: GenericPage;
+  page: GenericPage | SubPage;
 };
 
 export const PageView: FC<PageViewProps> = ({ page }) => {
