@@ -102,6 +102,23 @@ export type ClientPage = SanityDocument & {
   seo?: Seo;
 };
 
+/* Blogs */
+export type Blog = SanityDocument & {
+  _type: 'blog';
+  title: string;
+  slug: Slug;
+  articles?: BlogArticle[];
+  seo?: Seo;
+};
+
+export type BlogArticle = SanityDocument & {
+  _type: 'blogArticle';
+  title: string;
+  slug: Slug;
+  parentBlog: Pick<Blog, 'title' | 'slug' | '_type'>;
+  seo?: Seo;
+};
+
 /*
  * Fields
  */

@@ -1,5 +1,7 @@
 import { createClient } from '@sanity/client';
 import {
+  BlogArticle,
+  Blog,
   ClientPage,
   ContactPage,
   DownloadPage,
@@ -98,4 +100,40 @@ export const clientPage = {
     client.fetch(`*[_type == "clientPage"]{
         slug,
       }`),
+};
+/* Blogs */
+export const blog = {
+  get: (blogSlug: string): Promise<Blog | null> =>
+    client.fetch(`*[_type == "blog" && slug.current == $blogSlug][0]`, {
+      blogSlug,
+    }),
+  getSlugInfo: (): Promise<Blog[]> =>
+    client.fetch(`*[_type == "blog"]{
+    slug,
+    articles[]->{
+      slug
+    }
+  }`),
+  getArticle: async (
+    blogSlug: string,
+    articleSlug: string,
+  ): Promise<BlogArticle | null> => {
+    const article = await client.fetch(
+      `*[
+          _type == "blogArticle"
+          && slug.current == $articleSlug
+        ]{
+          ...,
+          "parentBlog": *[
+           ^._id in articles[]._ref
+            && _type == "blog"
+             && slug.current == $blogSlug
+          ] {
+            slug,
+          }[0]
+        }[parentBlog != null][0]`,
+      { blogSlug, articleSlug },
+    );
+    return article || null;
+  },
 };
