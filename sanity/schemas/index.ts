@@ -1,11 +1,12 @@
 import { Homepage } from './documents/homepage';
-import { GenericPage } from './documents/genericPage';
+import { GenericPage, SubPage } from './documents/genericPage';
 import { SEO } from './fields/seo';
 
 export const schemaTypes = [
   /* Document Types */
   Homepage,
   GenericPage,
+  SubPage,
 
   /* Field Types */
   SEO,
