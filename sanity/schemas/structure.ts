@@ -22,6 +22,8 @@ const createSingletonPage = (
 
 export const structure: StructureResolver = async (S, context) => {
   const client = context.getClient({ apiVersion: API_VERSION });
+  /* BUG: orphan articles do not disappear from the list after
+   * they have been assigned a category (the studio needs a refresh) */
   const [orphanSubpages, orphanArticles] = await Promise.all([
     client.fetch(`
       *[
@@ -41,11 +43,8 @@ export const structure: StructureResolver = async (S, context) => {
         && !(_id in path('drafts.**'))
       ]{
         _id,
-        "parentBlogs": *[
-          _type == "blog"
-          && ^._id in articles[]._ref
-        ]
-      }[count(parentBlogs) < 1]
+        category
+      }[!defined(category)]
     `),
   ]);
   const orphanSubpageIds = orphanSubpages.map((page) => page._id);
@@ -109,6 +108,10 @@ export const structure: StructureResolver = async (S, context) => {
         .title('Blogs')
         .icon(icons.Blog)
         .child(S.documentTypeList('blog')),
+      S.listItem()
+        .title('Articles')
+        .icon(icons.Blog)
+        .child(S.documentTypeList('blogArticle')),
       S.divider(),
       S.listItem()
         .title('Housekeeping')

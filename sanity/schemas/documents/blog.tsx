@@ -23,13 +23,6 @@ export const Blog = defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
-      name: 'articles',
-      type: 'array',
-      of: [
-        defineArrayMember({ type: 'reference', to: [{ type: 'blogArticle' }] }),
-      ],
-    }),
-    defineField({
       name: 'seo',
       type: 'seo',
       title: 'SEO',
