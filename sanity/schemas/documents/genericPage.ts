@@ -13,9 +13,13 @@ const sharedPageFields = [
     name: 'slug',
     type: 'slug',
     title: 'Slug',
-    options: {
-      source: 'title',
-      isUnique: async (currentSlug, { document, getClient }) => {
+    validation: (Rule) =>
+      Rule.custom(async (value, { getClient, document }) => {
+        const currentSlug = value?.current;
+        if (!currentSlug) {
+          return 'Required';
+        }
+
         const client = getClient({ apiVersion: API_VERSION });
         if (!document) {
           /* Keep TS happy */
@@ -24,7 +28,7 @@ const sharedPageFields = [
         if (document._type === 'genericPage') {
           /* Validate pages are unique amongst special pages */
           if (Object.values(SingletonPageSlugs).includes(currentSlug)) {
-            return false;
+            return 'This slug is already in use';
           }
           /* Validate pages are unique amongst other generic pages & hard-coded pages */
           const otherPages = await client.fetch(
@@ -37,15 +41,16 @@ const sharedPageFields = [
           );
           const otherPageSlugs = otherPages.map((page) => page.slug.current);
           if (otherPageSlugs.includes(currentSlug)) {
-            return false;
+            return 'This slug is already in use';
           }
           return true;
         } else {
           /* Validate sub-pages are unique amongst siblings */
           const parentPage = await client.fetch(
             `*[_type == "genericPage" && $subPageId in subPages[]._ref]{
-            subPages[]->{ _id, title, slug }
-          }[0]`,
+              title,
+              subPages[]->{ _id, title, slug }
+            }[0]`,
             { subPageId: document._id },
           );
 
@@ -55,13 +60,14 @@ const sharedPageFields = [
             .map((subPage) => subPage.slug.current);
 
           if (siblingSlugs.includes(currentSlug)) {
-            return false;
+            return `The page "${parentPage.title}" already has a sub-page with this slug`;
           }
           return true;
         }
-      },
+      }),
+    options: {
+      source: 'title',
     },
-    validation: (Rule) => Rule.required(),
   }),
   defineField({
     name: 'seo',
