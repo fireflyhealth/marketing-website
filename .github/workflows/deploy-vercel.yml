@@ -201,7 +201,7 @@ jobs:
             ].join('\n');
             core.setOutput("comment", comment);
       - name: Add comment to PR
-        uses: mshick/add-pr-comment@v1
+        uses: mshick/add-pr-comment@v2
         with:
           message: |
             ${{ steps.format_lighthouse_score.outputs.comment }}
