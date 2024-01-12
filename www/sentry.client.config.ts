@@ -10,6 +10,9 @@ Sentry.init({
 
   beforeSend(event, hint) {
     const error = hint.originalException;
+    if (process.env.NODE_ENV === 'development') {
+      return null;
+    }
     if (error instanceof AppError) {
       event.tags = { category: error.category };
       event.extra = error.context;
