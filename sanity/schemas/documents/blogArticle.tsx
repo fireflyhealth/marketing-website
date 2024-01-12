@@ -69,9 +69,9 @@ export const BlogArticle = defineType({
       },
     }),
     defineField({
-      name: 'seo',
-      type: 'seo',
-      title: 'SEO',
+      name: 'metadata',
+      type: 'metadata',
+      title: 'Metadata',
     }),
   ],
   preview: {

@@ -23,9 +23,9 @@ export const ClientPage = defineType({
       },
     }),
     defineField({
-      title: 'SEO',
-      name: 'seo',
-      type: 'seo',
+      title: 'Metadata',
+      name: 'metadata',
+      type: 'metadata',
     }),
   ],
   preview: {

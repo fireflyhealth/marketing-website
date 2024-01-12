@@ -70,9 +70,9 @@ const sharedPageFields = [
     },
   }),
   defineField({
-    name: 'seo',
-    title: 'SEO',
-    type: 'seo',
+    name: 'metadata',
+    title: 'Metadata',
+    type: 'metadata',
   }),
 ] as const;
 

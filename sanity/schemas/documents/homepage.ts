@@ -8,9 +8,9 @@ export const Homepage = defineType({
   icon: icons.Home,
   fields: [
     defineField({
-      name: 'seo',
-      title: 'SEO',
-      type: 'seo',
+      name: 'metadata',
+      title: 'Metadata',
+      type: 'metadata',
     }),
   ],
   preview: {

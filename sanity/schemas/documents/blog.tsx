@@ -23,9 +23,9 @@ export const Blog = defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
-      name: 'seo',
-      type: 'seo',
-      title: 'SEO',
+      name: 'metadata',
+      type: 'metadata',
+      title: 'Metadata',
     }),
   ],
 });

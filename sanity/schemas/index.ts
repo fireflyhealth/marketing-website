@@ -1,6 +1,6 @@
 import { Homepage } from './documents/homepage';
 import { GenericPage, SubPage } from './documents/genericPage';
-import { SEO } from './fields/seo';
+import { Metadata } from './fields/metadata';
 import {
   ContactPage,
   DownloadPage,
@@ -25,5 +25,5 @@ export const schemaTypes = [
   BlogArticle,
 
   /* Field Types */
-  SEO,
+  Metadata,
 ];

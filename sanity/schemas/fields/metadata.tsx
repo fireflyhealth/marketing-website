@@ -1,8 +1,8 @@
 import { defineType, defineField } from 'sanity';
 
-export const SEO = defineType({
-  name: 'seo',
-  title: 'SEO',
+export const Metadata = defineType({
+  name: 'metadata',
+  title: 'Metadata',
   type: 'object',
   description: <></>,
   options: {
@@ -12,7 +12,7 @@ export const SEO = defineType({
   fields: [
     defineField({
       name: 'title',
-      title: 'Title',
+      title: 'Page Title',
       type: 'string',
       description: 'Title for Browser tab & search result listing',
       validation: (Rule) =>
@@ -22,7 +22,7 @@ export const SEO = defineType({
     }),
     defineField({
       name: 'description',
-      title: 'Description',
+      title: 'Page Description',
       type: 'text',
       description: 'Summary for search result listing',
       rows: 2,
@@ -60,7 +60,6 @@ export const SEO = defineType({
       options: {
         hotspot: true,
       },
-      validation: (Rule) => Rule.optional(),
     }),
   ],
 });

@@ -14,9 +14,9 @@ export const DownloadPage = defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
-      name: 'seo',
-      type: 'seo',
-      title: 'SEO',
+      name: 'metadata',
+      type: 'metadata',
+      title: 'Metadata',
     }),
   ],
 });
@@ -34,9 +34,9 @@ export const ContactPage = defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
-      name: 'seo',
-      type: 'seo',
-      title: 'SEO',
+      name: 'metadata',
+      type: 'metadata',
+      title: 'Metadata',
     }),
   ],
 });
@@ -54,9 +54,9 @@ export const NotFoundPage = defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
-      name: 'seo',
-      type: 'seo',
-      title: 'SEO',
+      name: 'metadata',
+      type: 'metadata',
+      title: 'Metadata',
     }),
   ],
 });
@@ -74,9 +74,9 @@ export const FAQPage = defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
-      name: 'seo',
-      type: 'seo',
-      title: 'SEO',
+      name: 'metadata',
+      type: 'metadata',
+      title: 'Metadata',
     }),
   ],
 });
