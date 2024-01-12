@@ -109,7 +109,7 @@ export type BlogArticle = SanityDocument & {
   _type: 'blogArticle';
   title: string;
   slug: Slug;
-  parentBlog: Pick<Blog, 'title' | 'slug' | '_type'>;
+  category: Pick<Blog, 'title' | 'slug' | '_type'>;
   seo?: Seo;
 };
 

@@ -102,12 +102,17 @@ export const blog = {
       blogSlug,
     }),
   getSlugInfo: (): Promise<Blog[]> =>
-    client.fetch(`*[_type == "blog"]{
-    slug,
-    articles[]->{
-      slug
-    }
-  }`),
+    client.fetch(
+      `*[_type == "blog"]{
+          slug,
+          "articles": *[
+            _type == "blogArticle"
+            && category._ref == ^._id
+          ] {
+            slug
+          }
+        }`,
+    ),
   getArticle: async (
     blogSlug: string,
     articleSlug: string,
@@ -116,16 +121,15 @@ export const blog = {
       `*[
           _type == "blogArticle"
           && slug.current == $articleSlug
+          && defined(category._ref)
         ]{
           ...,
-          "parentBlog": *[
-           ^._id in articles[]._ref
-            && _type == "blog"
-             && slug.current == $blogSlug
-          ] {
-            slug,
-          }[0]
-        }[parentBlog != null][0]`,
+          category->{
+            _type,
+            title,
+            slug
+          }
+        }[category.slug.current == $blogSlug][0]`,
       { blogSlug, articleSlug },
     );
     return article || null;
