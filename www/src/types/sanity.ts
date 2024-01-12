@@ -43,38 +43,38 @@ export type GenericPageLinkInfo = Pick<GenericPage, '_type' | 'slug'>;
  * */
 export type Homepage = SanityDocument & {
   _type: 'homepage';
-  seo?: Seo;
+  metadata?: Metadata;
 };
 
 /* Special pages */
 export type DownloadPage = SanityDocument & {
   _type: 'downloadPage';
   title: string;
-  seo?: Seo;
+  metadata?: Metadata;
 };
 
 export type ContactPage = SanityDocument & {
   _type: 'contactPage';
   title: string;
-  seo?: Seo;
+  metadata?: Metadata;
 };
 
 export type NotFoundPage = SanityDocument & {
   _type: 'notFoundPage';
   title: string;
-  seo?: Seo;
+  metadata?: Metadata;
 };
 
 export type FAQPage = SanityDocument & {
   _type: 'faqPage';
   title: string;
-  seo?: Seo;
+  metadata?: Metadata;
 };
 
 /* Properties common to both GenericPage & SubPage */
 type CommonPage = SanityDocument & {
   title: string;
-  seo?: Seo;
+  metadata?: Metadata;
   slug: Slug;
 };
 
@@ -93,7 +93,7 @@ export type ClientPage = SanityDocument & {
   _type: 'clientPage';
   clientName: string;
   slug: Slug;
-  seo?: Seo;
+  metadata?: Metadata;
 };
 
 /* Blogs */
@@ -102,7 +102,7 @@ export type Blog = SanityDocument & {
   title: string;
   slug: Slug;
   articles?: BlogArticle[];
-  seo?: Seo;
+  metadata?: Metadata;
 };
 
 export type BlogArticle = SanityDocument & {
@@ -110,7 +110,7 @@ export type BlogArticle = SanityDocument & {
   title: string;
   slug: Slug;
   category: Pick<Blog, 'title' | 'slug' | '_type'>;
-  seo?: Seo;
+  metadata?: Metadata;
 };
 
 /*
@@ -153,7 +153,7 @@ export type Image = {
   };
 };
 
-export type Seo = {
+export type Metadata = {
   title?: string;
   description?: string;
   image?: Image;
