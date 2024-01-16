@@ -11,6 +11,7 @@ import { ClientPage } from './documents/clientPage';
 import { BlogArticle } from './documents/blogArticle';
 import { Blog } from './documents/blog';
 import { SiteSettings } from './documents/siteSettings';
+import { RichImage } from './fields/images';
 
 export const schemaTypes = [
   /* Document Types */
@@ -28,4 +29,5 @@ export const schemaTypes = [
 
   /* Field Types */
   Metadata,
+  RichImage,
 ];
