@@ -7,8 +7,8 @@ import { config } from '@/config';
 import { imageBuilder } from '@/lib/sanity';
 
 type GenericMetadataProps = Metadata & {
-  /* A title is always required */
-  title: string;
+  noIndex?: boolean;
+  children?: React.ReactNode;
 };
 
 export const GenericMetadata: FC<GenericMetadataProps> = ({
@@ -17,6 +17,8 @@ export const GenericMetadata: FC<GenericMetadataProps> = ({
   shareTitle,
   shareDescription,
   shareGraphic,
+  noIndex = false,
+  children = null,
 }) => {
   const router = useRouter();
   const ogDescription = shareDescription || description;
@@ -33,7 +35,9 @@ export const GenericMetadata: FC<GenericMetadataProps> = ({
      * https://nextjs.org/docs/pages/api-reference/components/head#avoid-duplicated-tags
      */
     <Head>
-      <title key="title">{title}</title>
+      {noIndex && <meta key="robots-noindex" name="robots" content="noindex" />}
+      <title key="title">{title || config.metadata.defaultTitle}</title>
+      {/* TODO: Add Locale tags. See: https://ogp.me/#optional */}
       {description ? (
         <meta key="description" name="description" content={description} />
       ) : null}
@@ -44,7 +48,11 @@ export const GenericMetadata: FC<GenericMetadataProps> = ({
       />
       <meta key="og:url" property="og:url" content={canonicalUrl} />
       <meta key="og:type" property="og:type" content="website" />
-      <meta key="og:title" property="og:title" content={shareTitle || title} />
+      <meta
+        key="og:title"
+        property="og:title"
+        content={shareTitle || title || config.metadata.defaultTitle}
+      />
       {shareGraphicUrl ? (
         <>
           <meta key="og:image" property="og:image" content={shareGraphicUrl} />
@@ -53,12 +61,24 @@ export const GenericMetadata: FC<GenericMetadataProps> = ({
             property="og:image:alt"
             content={shareTitle || title}
           />
+          <meta key="og:image:width" property="og:image:width" content="1200" />
+          <meta
+            key="og:image:height"
+            property="og:image:height"
+            content="600"
+          />
         </>
       ) : null}
+
       {ogDescription ? (
-        <meta key="og:description" content={ogDescription} />
+        <meta
+          key="og:description"
+          property="og:description"
+          content={ogDescription}
+        />
       ) : null}
       <link key="canonical" rel="canonical" href={canonicalUrl} />
+      {children}
     </Head>
   );
 };

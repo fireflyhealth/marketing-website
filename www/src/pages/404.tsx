@@ -6,13 +6,19 @@ import { RevalidationTime } from '@/constants';
 import { NotFoundPage as NotFoundPageType } from '@/types/sanity';
 import { NotFoundPageView } from '@/views/NotFoundView';
 import * as Sanity from '@/lib/sanity';
+import { GenericMetadata } from '@/components/Metadata/GenericMetadata';
 
 type NotFoundPageProps = {
   notFoundPage: NotFoundPageType;
 };
 
 const NotFoundPage: FC<NotFoundPageProps> = ({ notFoundPage }) => {
-  return <NotFoundPageView notFoundPage={notFoundPage} />;
+  return (
+    <>
+      <GenericMetadata noIndex={true} />
+      <NotFoundPageView notFoundPage={notFoundPage} />
+    </>
+  );
 };
 
 export const getStaticProps: GetStaticProps<NotFoundPageProps> = async () => {

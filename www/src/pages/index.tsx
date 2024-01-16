@@ -5,13 +5,19 @@ import { Homepage } from '@/types/sanity';
 import * as Sanity from '@/lib/sanity';
 import { HomeView } from '@/views/HomeView';
 import { RevalidationTime } from '@/constants';
+import { HomeMetadata } from '@/components/Metadata/HomeMetadata';
 
 type HomeProps = {
   homepage: Homepage;
 };
 
 const Home: FC<HomeProps> = ({ homepage }) => {
-  return <HomeView homepage={homepage} />;
+  return (
+    <>
+      <HomeMetadata homepage={homepage} />
+      <HomeView homepage={homepage} />
+    </>
+  );
 };
 
 export const getStaticProps: GetStaticProps<HomeProps> = async () => {

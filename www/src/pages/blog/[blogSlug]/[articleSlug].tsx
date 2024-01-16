@@ -7,6 +7,7 @@ import { RevalidationTime } from '@/constants';
 import { Blog, BlogArticle } from '@/types/sanity';
 import * as Sanity from '@/lib/sanity';
 import { BlogArticleView } from '@/views/Blog/BlogArticleView';
+import { BlogArticleMetadata } from '@/components/Metadata/BlogArticleMetadata';
 
 type PageProps = {
   article: BlogArticle;
@@ -18,7 +19,12 @@ type PageParams = {
 };
 
 const Page: FC<PageProps> = ({ article }) => {
-  return <BlogArticleView article={article} />;
+  return (
+    <>
+      <BlogArticleMetadata article={article} />
+      <BlogArticleView article={article} />
+    </>
+  );
 };
 
 export const getStaticProps: GetStaticProps<PageProps, PageParams> = async ({

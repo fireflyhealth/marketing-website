@@ -5,13 +5,19 @@ import { DownloadPage as DownloadPageType } from '@/types/sanity';
 import { DownloadPageView } from '@/views/DownloadPageView';
 import * as Sanity from '@/lib/sanity';
 import { RevalidationTime } from '@/constants';
+import { DownloadMetadata } from '@/components/Metadata/DownloadMetadata';
 
 type DownloadPageProps = {
   downloadPage: DownloadPageType;
 };
 
 const DownloadPage: FC<DownloadPageProps> = ({ downloadPage }) => {
-  return <DownloadPageView downloadPage={downloadPage} />;
+  return (
+    <>
+      <DownloadMetadata downloadPage={downloadPage} />
+      <DownloadPageView downloadPage={downloadPage} />
+    </>
+  );
 };
 
 export const getStaticProps: GetStaticProps<DownloadPageProps> = async () => {

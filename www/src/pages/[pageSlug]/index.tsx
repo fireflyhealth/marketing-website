@@ -7,6 +7,7 @@ import { RevalidationTime } from '@/constants';
 import { GenericPage } from '@/types/sanity';
 import * as Sanity from '@/lib/sanity';
 import { PageView } from '@/views/PageView';
+import { PageMetadata } from '@/components/Metadata/PageMetadata';
 
 type PageProps = {
   page: GenericPage;
@@ -17,7 +18,12 @@ type PageParams = {
 };
 
 const Page: FC<PageProps> = ({ page }) => {
-  return <PageView page={page} />;
+  return (
+    <>
+      <PageMetadata page={page} />
+      <PageView page={page} />
+    </>
+  );
 };
 
 export const getStaticProps: GetStaticProps<PageProps, PageParams> = async ({

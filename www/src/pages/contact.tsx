@@ -6,13 +6,19 @@ import { RevalidationTime } from '@/constants';
 import { ContactPage as ContactPageType } from '@/types/sanity';
 import { ContactPageView } from '@/views/ContactPageView';
 import * as Sanity from '@/lib/sanity';
+import { ContactMetadata } from '@/components/Metadata/ContactMetadata';
 
 type ContactPageProps = {
   contactPage: ContactPageType;
 };
 
 const ContactPage: FC<ContactPageProps> = ({ contactPage }) => {
-  return <ContactPageView contactPage={contactPage} />;
+  return (
+    <>
+      <ContactMetadata contactPage={contactPage} />
+      <ContactPageView contactPage={contactPage} />
+    </>
+  );
 };
 
 export const getStaticProps: GetStaticProps<ContactPageProps> = async () => {

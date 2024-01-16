@@ -7,6 +7,7 @@ import { RevalidationTime } from '@/constants';
 import { ClientPage as ClientPageType } from '@/types/sanity';
 import { ClientPageView } from '@/views/ClientPageView';
 import * as Sanity from '@/lib/sanity';
+import { ClientMetadata } from '@/components/Metadata/ClientMetadata';
 
 type ClientPageProps = {
   clientPage: ClientPageType;
@@ -17,7 +18,12 @@ type ClientPageParams = {
 };
 
 const ClientPage: FC<ClientPageProps> = ({ clientPage }) => {
-  return <ClientPageView clientPage={clientPage} />;
+  return (
+    <>
+      <ClientMetadata clientPage={clientPage} />
+      <ClientPageView clientPage={clientPage} />
+    </>
+  );
 };
 
 export const getStaticProps: GetStaticProps<
