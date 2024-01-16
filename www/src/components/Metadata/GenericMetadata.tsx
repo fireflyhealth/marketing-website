@@ -1,0 +1,64 @@
+import React, { FC } from 'react';
+import Head from 'next/head';
+import { useRouter } from 'next/router';
+
+import { Metadata } from '@/types/sanity';
+import { config } from '@/config';
+import { imageBuilder } from '@/lib/sanity';
+
+type GenericMetadataProps = Metadata & {
+  /* A title is always required */
+  title: string;
+};
+
+export const GenericMetadata: FC<GenericMetadataProps> = ({
+  title,
+  description,
+  shareTitle,
+  shareDescription,
+  shareGraphic,
+}) => {
+  const router = useRouter();
+  const ogDescription = shareDescription || description;
+  const canonicalUrl = config.metadata.productionUrl.concat(
+    router.asPath.split('?')[0],
+  );
+  const shareGraphicUrl = shareGraphic
+    ? imageBuilder.image(shareGraphic).width(1200).height(630).url()
+    : null;
+
+  return (
+    /* NOTE: If you add new fields here, be sure to include the 'key'
+     * attribute to avoid duplicate tags. See:
+     * https://nextjs.org/docs/pages/api-reference/components/head#avoid-duplicated-tags
+     */
+    <Head>
+      <title key="title">{title}</title>
+      {description ? (
+        <meta key="description" name="description" content={description} />
+      ) : null}
+      <meta
+        key="og:site_name"
+        property="og:site_name"
+        content={config.metadata.siteName}
+      />
+      <meta key="og:url" property="og:url" content={canonicalUrl} />
+      <meta key="og:type" property="og:type" content="website" />
+      <meta key="og:title" property="og:title" content={shareTitle || title} />
+      {shareGraphicUrl ? (
+        <>
+          <meta key="og:image" property="og:image" content={shareGraphicUrl} />
+          <meta
+            key="og:image:alt"
+            property="og:image:alt"
+            content={shareTitle || title}
+          />
+        </>
+      ) : null}
+      {ogDescription ? (
+        <meta key="og:description" content={ogDescription} />
+      ) : null}
+      <link key="canonical" rel="canonical" href={canonicalUrl} />
+    </Head>
+  );
+};

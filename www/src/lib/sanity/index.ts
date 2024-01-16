@@ -1,3 +1,4 @@
+import ImageUrlBuilder from '@sanity/image-url';
 import { createClient } from '@sanity/client';
 import {
   BlogArticle,
@@ -8,8 +9,11 @@ import {
   FAQPage,
   GenericPage,
   Homepage,
+  SiteSettings,
   NotFoundPage,
   SubPage,
+  Image,
+  RichImage,
 } from '@/types/sanity';
 
 const client = createClient({
@@ -18,6 +22,21 @@ const client = createClient({
   apiVersion: '2024-01-01',
   useCdn: process.env.NODE_ENV === 'development' ? false : true,
 });
+
+const builder = ImageUrlBuilder(client);
+
+export const imageBuilder = {
+  image: (image: Image | RichImage) => {
+    return builder.image(image);
+  },
+};
+
+/* Site Settings & Navigation */
+
+export const siteSettings = {
+  get: async (): Promise<SiteSettings> =>
+    client.fetch(`*[_type == "siteSettings" && _id == "siteSettings"][0]`),
+};
 
 /* Homepage */
 export const homepage = {
