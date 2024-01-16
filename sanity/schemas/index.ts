@@ -10,6 +10,7 @@ import {
 import { ClientPage } from './documents/clientPage';
 import { BlogArticle } from './documents/blogArticle';
 import { Blog } from './documents/blog';
+import { SiteSettings } from './documents/siteSettings';
 
 export const schemaTypes = [
   /* Document Types */
@@ -23,6 +24,7 @@ export const schemaTypes = [
   ClientPage,
   Blog,
   BlogArticle,
+  SiteSettings,
 
   /* Field Types */
   Metadata,

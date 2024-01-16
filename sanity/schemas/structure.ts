@@ -53,6 +53,12 @@ export const structure: StructureResolver = async (S, context) => {
     .title('Content')
     .items([
       createSingletonPage(S, {
+        title: 'Site Settings & Navigation',
+        id: 'siteSettings',
+        schemaType: 'siteSettings',
+        icon: icons.Settings,
+      }),
+      createSingletonPage(S, {
         title: 'Homepage',
         id: 'homepage',
         schemaType: 'homepage',
