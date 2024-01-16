@@ -1,0 +1,219 @@
+@layer utilities {
+  .trust-display {
+    font-family: theme('fontFamily.trust');
+    font-size: 96px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 90%; /* 86.4px */
+    letter-spacing: -3.84px;
+
+    @media screen and (min-width: calc(theme('screens.sm') + 1px)) {
+      font-size: 120px;
+      letter-spacing: -4.8px;
+    }
+
+    @media screen and (min-width: calc(theme('screens.md') + 1px)) {
+      font-size: 144px;
+      letter-spacing: -5.76px;
+    }
+  }
+
+  .trust-h1-large {
+    font-family: theme('fontFamily.trust');
+    font-size: 52px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 90%; /* 46.8px */
+    letter-spacing: -1.56px;
+
+    @media screen and (min-width: calc(theme('screens.sm') + 1px)) {
+      font-size: 72px;
+      letter-spacing: -2.88px;
+    }
+
+    @media screen and (min-width: calc(theme('screens.md') + 1px)) {
+      font-size: 104px;
+      letter-spacing: -4.16px;
+    }
+  }
+
+  .trust-h1 {
+    font-family: theme('fontFamily.trust');
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 90%; /* 43.2px */
+    letter-spacing: -1.44px;
+
+    @media screen and (min-width: calc(theme('screens.sm') + 1px)) {
+      font-size: 64px;
+      letter-spacing: -1.92px;
+    }
+
+    @media screen and (min-width: calc(theme('screens.md') + 1px)) {
+      font-size: 81px;
+      letter-spacing: -2.43px;
+    }
+  }
+
+  .trust-h2 {
+    font-family: theme('fontFamily.trust');
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 100%; /* 32px */
+    letter-spacing: -0.32px;
+
+    @media screen and (min-width: calc(theme('screens.sm') + 1px)) {
+      font-size: 43px;
+      letter-spacing: -0.86px;
+    }
+
+    @media screen and (min-width: calc(theme('screens.md') + 1px)) {
+      font-size: 54px;
+      letter-spacing: -1.08px;
+    }
+  }
+
+  .trust-h3 {
+    font-family: theme('fontFamily.trust');
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 120%; /* 28.8px */
+
+    @media screen and (min-width: calc(theme('screens.sm') + 1px)) {
+      font-size: 34px;
+      letter-spacing: -0.34px;
+    }
+
+    @media screen and (min-width: calc(theme('screens.md') + 1px)) {
+      font-size: 44px;
+      letter-spacing: -0.66px;
+    }
+  }
+
+  .trust-h4 {
+    font-family: theme('fontFamily.trust');
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 120%; /* 24px */
+
+    @media screen and (min-width: calc(theme('screens.sm') + 1px)) {
+      font-size: 26px;
+      letter-spacing: -0.26px;
+    }
+
+    @media screen and (min-width: calc(theme('screens.md') + 1px)) {
+      font-size: 32px;
+      letter-spacing: -0.32px;
+    }
+  }
+
+  .roobert-h5 {
+    font-family: theme('fontFamily.roobert');
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 140%; /* 25.2px */
+    letter-spacing: 0.18px;
+
+    @media screen and (min-width: calc(theme('screens.sm') + 1px)) {
+      font-size: 21px;
+      line-height: 120%; /* 25.2px */
+      letter-spacing: unset;
+    }
+
+    @media screen and (min-width: calc(theme('screens.md') + 1px)) {
+      font-size: 24px;
+    }
+  }
+
+  .roobert-body {
+    font-family: theme('fontFamily.roobert');
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 140%; /* 22.4px */
+    letter-spacing: 0.16px;
+
+    @media screen and (min-width: calc(theme('screens.sm') + 1px)) {
+      font-size: 18px;
+      letter-spacing: 100%;
+    }
+  }
+
+  .roobert-cta {
+    font-family: theme('fontFamily.roobert');
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 140%; /* 22.4px */
+    letter-spacing: 0.16px;
+
+    @media screen and (min-width: calc(theme('screens.sm') + 1px)) {
+      font-size: 18px;
+      letter-spacing: 100%;
+    }
+  }
+
+  .roobert-body-small {
+    font-family: theme('fontFamily.roobert');
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 140%; /* 16.8px */
+    letter-spacing: 0.24px;
+  }
+
+  .trust-quote-large {
+    font-family: theme('fontFamily.trust');
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%; /* 28.8px */
+    letter-spacing: -0.24px;
+
+    @media screen and (min-width: calc(theme('screens.sm') + 1px)) {
+      font-size: 34px;
+      line-height: 110%; /* 37.4px */
+      letter-spacing: -0.68px;
+    }
+
+    @media screen and (min-width: calc(theme('screens.md') + 1px)) {
+      font-size: 44px;
+      line-height: 115%; /* 50.6px */
+      letter-spacing: -0.88px;
+    }
+  }
+
+  .trust-quote {
+    font-family: theme('fontFamily.trust');
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%; /* 24px */
+    letter-spacing: -0.2px;
+
+    @media screen and (min-width: calc(theme('screens.sm') + 1px)) {
+      font-size: 26px;
+      line-height: 115%; /* 29.9px */
+      letter-spacing: -0.26px;
+    }
+
+    @media screen and (min-width: calc(theme('screens.md') + 1px)) {
+      font-size: 32px;
+      letter-spacing: -0.32px;
+    }
+  }
+
+  .trust-caption {
+    font-family: theme('fontFamily.trust');
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 140%; /* 19.6px */
+    letter-spacing: 0.28px;
+  }
+}

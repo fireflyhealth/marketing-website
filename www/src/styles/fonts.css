@@ -1,0 +1,79 @@
+/* Trust 1A Regular */
+@font-face {
+  font-family: 'Trust';
+  src: url('../../public/fonts/Trust1A-Regular.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+/* Trust 1A Regular Italic */
+@font-face {
+  font-family: 'Trust';
+  src: url('../../public/fonts/Trust1A-RegularItalic.woff2') format('woff2');
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+}
+
+/* Trust 1A Medium */
+@font-face {
+  font-family: 'Trust';
+  src: url('../../public/fonts/Trust1A-Medium.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+}
+
+/* Trust 1A Medium Italic */
+@font-face {
+  font-family: 'Trust';
+  src: url('../../public/fonts/Trust1A-MediumItalic.woff2') format('woff2');
+  font-style: italic;
+  font-weight: 500;
+  font-display: swap;
+}
+
+/* Roobert Regular */
+@font-face {
+  font-family: 'Roobert';
+  src:
+    url('../../public/fonts/Roobert-Regular.woff2') format('woff2'),
+    url('../../public/fonts/Roobert-Regular.woff') format('woff');
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+/* Roobert Regular Italic */
+@font-face {
+  font-family: 'Roobert';
+  src:
+    url('../../public/fonts/Roobert-RegularItalic.woff2') format('woff2'),
+    url('../../public/fonts/Roobert-RegularItalic.woff') format('woff');
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+}
+
+/* Roobert Semibold */
+@font-face {
+  font-family: 'Roobert';
+  src:
+    url('../../public/fonts/Roobert-SemiBold.woff2') format('woff2'),
+    url('../../public/fonts/Roobert-SemiBold.woff') format('woff');
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+}
+
+/* Roobert Semibold Italic */
+@font-face {
+  font-family: 'Roobert';
+  src:
+    url('../../public/fonts/Roobert-SemiBoldItalic.woff2') format('woff2'),
+    url('../../public/fonts/Roobert-SemiBoldItalic.woff') format('woff');
+  font-style: italic;
+  font-weight: 500;
+  font-display: swap;
+}

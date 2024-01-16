@@ -34,3 +34,30 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+## Branch Naming Convention
+
+Branch names should follow the category, reference, description convention (`<cagtegory/reference/description-in-kebab-case>`)
+
+Categories:
+
+- `feature` is for adding, refactoring or removing a feature
+- `bugfix` is for fixing a bug
+- `hotfix` is for changing code with a temporary solution and/or without following the usual process (usually because of an emergency)
+- `test` is for experimenting outside of an issue/ticket
+
+Reference: reference of the issue/ticket. If there is no reference, just add `no-ref`.
+
+Description: description the sums up the issue/ticket in kebab case. The title of the ticket should suffice in most cases.
+
+## Commit Naming Convention
+
+We follow the Conventional Commits convention when writing commit messages ([https://www.conventionalcommits.org/en/v1.0.0/#summary]). Adhering to these commit conventions gives clarity for peer reviews as well as automated github releases that we create to capture changes to the codebase once a week.
+
+Overview:
+
+- fix: a commit of the type `fix` patches a bug in your codebase (this correlates with PATCH in Semantic Versioning).
+- feat: a commit of the type `feat` introduces a new feature to the codebase (this correlates with MINOR in Semantic Versioning).
+- BREAKING CHANGE: a commit that has a footer `BREAKING CHANGE`:, or appends a ! after the type/scope, introduces a breaking API change (correlating with MAJOR in Semantic Versioning). A BREAKING CHANGE can be part of commits of any type.
+- types other than `fix:` and `feat:` are allowed, for example @commitlint/config-conventional (based on the Angular convention) recommends `build:`, `chore:`, `ci:`, `docs:`, `style:`, `refactor:`, `perf:`, `test:`, and others.
+- footers other than `BREAKING CHANGE: <description>` may be provided and follow a convention similar to git trailer format.

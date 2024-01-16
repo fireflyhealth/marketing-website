@@ -1,0 +1,229 @@
+.text-color-primary,
+.text-color-secondary,
+.text-color-decorative,
+.cta-text-color-primary,
+.cta-text-color-secondary {
+  color: inherit;
+}
+
+.cta-bg-color-primary,
+.cta-bg-color-secondary {
+  background-color: inherit;
+}
+
+.border-color {
+  border-color: inherit;
+}
+
+svg {
+  .icon-base,
+  .icon-overlap {
+    fill: currentColor;
+  }
+}
+
+.theme-white {
+  background: theme('colors.white');
+
+  .text-color-primary,
+  .cta-text-color-primary,
+  .cta-text-color-secondary {
+    color: theme('colors.black');
+  }
+
+  .text-color-secondary {
+    color: theme('colors.grey-darker');
+  }
+
+  .text-color-decorative {
+    color: theme('colors.sienna');
+  }
+
+  .cta-bg-color-primary {
+    background-color: theme('colors.yellow');
+  }
+
+  .cta-bg-color-secondary {
+    background-color: theme('colors.grey');
+  }
+
+  .border-color {
+    border-color: theme('colors.grey-medium');
+  }
+
+  svg {
+    .icon-base {
+      fill: theme('colors.yellow');
+    }
+
+    .icon-overlap {
+      fill: theme('colors.yellow-dark');
+    }
+  }
+}
+
+.theme-grey {
+  background: theme('colors.grey');
+
+  .text-color-primary,
+  .cta-text-color-primary,
+  .cta-text-color-secondary {
+    color: theme('colors.black');
+  }
+
+  .text-color-secondary {
+    color: theme('colors.grey-darker');
+  }
+
+  .text-color-decorative {
+    color: theme('colors.sienna');
+  }
+
+  .cta-bg-color-primary {
+    background-color: theme('colors.yellow');
+  }
+
+  .cta-bg-color-secondary {
+    background-color: theme('colors.grey-medium');
+  }
+
+  .border-color {
+    border-color: theme('colors.grey-dark');
+  }
+
+  svg {
+    .icon-base {
+      fill: theme('colors.yellow');
+    }
+
+    .icon-overlap {
+      fill: theme('colors.yellow-dark');
+    }
+  }
+}
+
+.theme-sienna {
+  background: theme('colors.sienna');
+
+  .text-color-primary,
+  .cta-text-color-secondary {
+    color: theme('colors.yellow-light');
+  }
+
+  .text-color-secondary {
+    @apply text-yellow-light/70;
+  }
+
+  .text-color-decorative {
+    color: theme('colors.yellow');
+  }
+
+  .cta-text-color-primary {
+    color: theme('colors.black');
+  }
+
+  .cta-bg-color-primary {
+    background-color: theme('colors.yellow');
+  }
+
+  .cta-bg-color-secondary {
+    background-color: theme('colors.sienna-dark');
+  }
+
+  .border-color {
+    border-color: theme('colors.black');
+  }
+
+  svg {
+    .icon-base {
+      fill: theme('colors.sienna-light');
+    }
+
+    .icon-overlap {
+      fill: theme('colors.sienna-lightest');
+    }
+  }
+}
+
+.theme-midnight {
+  background: theme('colors.midnight');
+
+  .text-color-primary,
+  .cta-text-color-secondary {
+    color: theme('colors.yellow-light');
+  }
+
+  .text-color-secondary {
+    @apply text-yellow-light/70;
+  }
+
+  .text-color-decorative {
+    color: theme('colors.sky');
+  }
+
+  .cta-text-color-primary {
+    color: theme('colors.black');
+  }
+
+  .cta-bg-color-primary {
+    background-color: theme('colors.yellow');
+  }
+
+  .cta-bg-color-secondary {
+    background-color: theme('colors.midnight-light');
+  }
+
+  .border-color {
+    border-color: theme('colors.grey-darker');
+  }
+
+  svg {
+    .icon-base {
+      fill: theme('colors.sky-medium');
+    }
+
+    .icon-overlap {
+      fill: theme('colors.sky');
+    }
+  }
+}
+
+.theme-sky {
+  background: theme('colors.sky');
+
+  .text-color-primary,
+  .cta-text-color-primary,
+  .cta-text-color-secondary {
+    color: theme('colors.black');
+  }
+
+  .text-color-secondary {
+    @apply text-black/70;
+  }
+
+  .text-color-decorative {
+    color: theme('colors.sky');
+  }
+
+  .cta-bg-color-primary {
+    background-color: theme('colors.yellow');
+  }
+
+  .cta-bg-color-secondary {
+    @apply bg-white/40;
+  }
+
+  .border-color {
+    @apply border-white/40;
+  }
+
+  svg {
+    .icon-base {
+      fill: theme('colors.sky-medium');
+    }
+
+    .icon-overlap {
+      fill: theme('colors.sky-dark');
+    }
+  }
+}
