@@ -18,7 +18,7 @@
 svg {
   .icon-base,
   .icon-overlap {
-    fill: inherit;
+    fill: currentColor;
   }
 }
 
