@@ -1,15 +1,16 @@
 import React, { FC } from 'react';
+import { GetStaticProps } from 'next';
 
-import { GetStaticProps } from '@/types/next';
+import { PageProps } from '@/types/next';
 import { DownloadPage as DownloadPageType } from '@/types/sanity';
 import { DownloadPageView } from '@/views/DownloadPageView';
 import * as Sanity from '@/lib/sanity';
 import { RevalidationTime } from '@/constants';
 import { DownloadMetadata } from '@/components/Metadata/DownloadMetadata';
 
-type DownloadPageProps = {
+type DownloadPageProps = PageProps<{
   downloadPage: DownloadPageType;
-};
+}>;
 
 const DownloadPage: FC<DownloadPageProps> = ({ downloadPage }) => {
   return (

@@ -1,14 +1,15 @@
 import React, { FC } from 'react';
+import { GetStaticProps } from 'next';
 
-import { GetStaticProps } from '@/types/next';
+import { PageProps } from '@/types/next';
 import { FAQPage as FAQPageType } from '@/types/sanity';
 import { FAQPageView } from '@/views/FAQPageView';
 import * as Sanity from '@/lib/sanity';
 import { FAQMetadata } from '@/components/Metadata/FAQMetadata';
 
-type FAQPageProps = {
+type FAQPageProps = PageProps<{
   faqPage: FAQPageType;
-};
+}>;
 
 const FAQPage: FC<FAQPageProps> = ({ faqPage }) => {
   return (

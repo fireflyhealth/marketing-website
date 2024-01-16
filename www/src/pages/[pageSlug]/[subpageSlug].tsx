@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 
-import { GetStaticPaths } from 'next';
-import { GetStaticProps } from '@/types/next';
+import { GetStaticProps, GetStaticPaths } from 'next';
+import { PageProps as CommonPageProps } from '@/types/next';
 import { RevalidationTime } from '@/constants';
 
 import { GenericPage, SubPage } from '@/types/sanity';
@@ -9,9 +9,9 @@ import * as Sanity from '@/lib/sanity';
 import { PageView } from '@/views/PageView';
 import { PageMetadata } from '@/components/Metadata/PageMetadata';
 
-type PageProps = {
+type PageProps = CommonPageProps<{
   subPage: SubPage;
-};
+}>;
 
 type PageParams = {
   pageSlug: string;

@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 
-import { GetStaticPaths } from 'next';
-import { GetStaticProps } from '@/types/next';
+import { GetStaticProps, GetStaticPaths } from 'next';
+import { PageProps } from '@/types/next';
 import { RevalidationTime } from '@/constants';
 
 import { ClientPage as ClientPageType } from '@/types/sanity';
@@ -9,9 +9,9 @@ import { ClientPageView } from '@/views/ClientPageView';
 import * as Sanity from '@/lib/sanity';
 import { ClientMetadata } from '@/components/Metadata/ClientMetadata';
 
-type ClientPageProps = {
+type ClientPageProps = PageProps<{
   clientPage: ClientPageType;
-};
+}>;
 
 type ClientPageParams = {
   clientSlug: string;

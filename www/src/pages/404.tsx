@@ -1,6 +1,7 @@
 import React, { FC } from 'react';
+import { GetStaticProps } from 'next';
 
-import { GetStaticProps } from '@/types/next';
+import { PageProps } from '@/types/next';
 import { RevalidationTime } from '@/constants';
 
 import { NotFoundPage as NotFoundPageType } from '@/types/sanity';
@@ -8,9 +9,9 @@ import { NotFoundPageView } from '@/views/NotFoundView';
 import * as Sanity from '@/lib/sanity';
 import { GenericMetadata } from '@/components/Metadata/GenericMetadata';
 
-type NotFoundPageProps = {
+type NotFoundPageProps = PageProps<{
   notFoundPage: NotFoundPageType;
-};
+}>;
 
 const NotFoundPage: FC<NotFoundPageProps> = ({ notFoundPage }) => {
   return (

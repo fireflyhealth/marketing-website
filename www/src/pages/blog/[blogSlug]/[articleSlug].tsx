@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 
-import { GetStaticPaths } from 'next';
-import { GetStaticProps } from '@/types/next';
+import { GetStaticProps, GetStaticPaths } from 'next';
+import { PageProps } from '@/types/next';
 import { RevalidationTime } from '@/constants';
 
 import { Blog, BlogArticle } from '@/types/sanity';
@@ -9,16 +9,16 @@ import * as Sanity from '@/lib/sanity';
 import { BlogArticleView } from '@/views/Blog/BlogArticleView';
 import { BlogArticleMetadata } from '@/components/Metadata/BlogArticleMetadata';
 
-type PageProps = {
+type BlogPageProps = PageProps<{
   article: BlogArticle;
-};
+}>;
 
 type PageParams = {
   blogSlug: string;
   articleSlug: string;
 };
 
-const Page: FC<PageProps> = ({ article }) => {
+const Page: FC<BlogPageProps> = ({ article }) => {
   return (
     <>
       <BlogArticleMetadata article={article} />
@@ -27,9 +27,10 @@ const Page: FC<PageProps> = ({ article }) => {
   );
 };
 
-export const getStaticProps: GetStaticProps<PageProps, PageParams> = async ({
-  params,
-}) => {
+export const getStaticProps: GetStaticProps<
+  BlogPageProps,
+  PageParams
+> = async ({ params }) => {
   const blogSlug = params?.blogSlug;
   const articleSlug = params?.articleSlug;
   if (!blogSlug || typeof blogSlug !== 'string') {

@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 
-import { GetStaticPaths } from 'next';
-import { GetStaticProps } from '@/types/next';
+import { GetStaticProps, GetStaticPaths } from 'next';
+import { PageProps } from '@/types/next';
 import { RevalidationTime } from '@/constants';
 
 import { BlogPageView } from '@/views/Blog/BlogPageView';
@@ -9,9 +9,9 @@ import { Blog } from '@/types/sanity';
 import * as Sanity from '@/lib/sanity';
 import { BlogMetadata } from '@/components/Metadata/BlogMetadata';
 
-type BlogPageProps = {
+type BlogPageProps = PageProps<{
   blog: Blog;
-};
+}>;
 
 type BlogPageParams = {
   blogSlug: string;

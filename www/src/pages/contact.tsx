@@ -1,6 +1,7 @@
 import React, { FC } from 'react';
+import { GetStaticProps } from 'next';
 
-import { GetStaticProps } from '@/types/next';
+import { PageProps } from '@/types/next';
 import { RevalidationTime } from '@/constants';
 
 import { ContactPage as ContactPageType } from '@/types/sanity';
@@ -8,9 +9,9 @@ import { ContactPageView } from '@/views/ContactPageView';
 import * as Sanity from '@/lib/sanity';
 import { ContactMetadata } from '@/components/Metadata/ContactMetadata';
 
-type ContactPageProps = {
+type ContactPageProps = PageProps<{
   contactPage: ContactPageType;
-};
+}>;
 
 const ContactPage: FC<ContactPageProps> = ({ contactPage }) => {
   return (
