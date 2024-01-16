@@ -1,5 +1,8 @@
 import React, { FC } from 'react';
-import { GetStaticPaths, GetStaticProps } from 'next';
+
+import { GetStaticPaths } from 'next';
+import { GetStaticProps } from '@/types/next';
+import { RevalidationTime } from '@/constants';
 
 import { BlogPageView } from '@/views/Blog/BlogPageView';
 import { Blog } from '@/types/sanity';
@@ -27,7 +30,10 @@ export const getStaticProps: GetStaticProps<
     throw new Error('blogSlug param is not a string');
   }
 
-  const blog = await Sanity.blog.get(blogSlug);
+  const [siteSettings, blog] = await Promise.all([
+    Sanity.siteSettings.get(),
+    Sanity.blog.get(blogSlug),
+  ]);
   if (!blog) {
     return {
       notFound: true,
@@ -36,8 +42,10 @@ export const getStaticProps: GetStaticProps<
 
   return {
     props: {
+      siteSettings,
       blog,
     },
+    revalidate: RevalidationTime.Medium,
   };
 };
 

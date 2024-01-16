@@ -1,5 +1,8 @@
 import React, { FC } from 'react';
-import { GetStaticPaths, GetStaticProps } from 'next';
+
+import { GetStaticPaths } from 'next';
+import { GetStaticProps } from '@/types/next';
+import { RevalidationTime } from '@/constants';
 
 import { GenericPage } from '@/types/sanity';
 import * as Sanity from '@/lib/sanity';
@@ -26,7 +29,10 @@ export const getStaticProps: GetStaticProps<PageProps, PageParams> = async ({
     throw new Error('pageSlug param is not a string');
   }
 
-  const page = await Sanity.page.get(pageSlug);
+  const [siteSettings, page] = await Promise.all([
+    Sanity.siteSettings.get(),
+    Sanity.page.get(pageSlug),
+  ]);
   if (!page) {
     return {
       notFound: true,
@@ -36,7 +42,9 @@ export const getStaticProps: GetStaticProps<PageProps, PageParams> = async ({
   return {
     props: {
       page,
+      siteSettings,
     },
+    revalidate: RevalidationTime.Medium,
   };
 };
 

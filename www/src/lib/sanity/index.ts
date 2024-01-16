@@ -34,14 +34,28 @@ export const imageBuilder = {
 /* Site Settings & Navigation */
 
 export const siteSettings = {
-  get: async (): Promise<SiteSettings> =>
-    client.fetch(`*[_type == "siteSettings" && _id == "siteSettings"][0]`),
+  get: async (): Promise<SiteSettings> => {
+    const siteSettings = await client.fetch<SiteSettings | null>(
+      `*[_type == "siteSettings" && _id == "siteSettings"][0]`,
+    );
+    if (!siteSettings) {
+      throw new Error('Could not fetch site settings');
+    }
+    return siteSettings;
+  },
 };
 
 /* Homepage */
 export const homepage = {
-  get: (): Promise<Homepage> =>
-    client.fetch(`*[_type == "homepage" && _id == "homepage"][0]`),
+  get: async (): Promise<Homepage> => {
+    const homepage = await client.fetch(
+      `*[_type == "homepage" && _id == "homepage"][0]`,
+    );
+    if (!homepage) {
+      throw new Error('Could not fetch homepage');
+    }
+    return homepage;
+  },
 };
 
 /* Generic Pages */

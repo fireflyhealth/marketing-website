@@ -1,5 +1,8 @@
 import React, { FC } from 'react';
-import { GetStaticPaths, GetStaticProps } from 'next';
+
+import { GetStaticPaths } from 'next';
+import { GetStaticProps } from '@/types/next';
+import { RevalidationTime } from '@/constants';
 
 import { ClientPage as ClientPageType } from '@/types/sanity';
 import { ClientPageView } from '@/views/ClientPageView';
@@ -27,7 +30,10 @@ export const getStaticProps: GetStaticProps<
     throw new Error('clientSlug param is not a string');
   }
 
-  const clientPage = await Sanity.clientPage.get(clientSlug);
+  const [siteSettings, clientPage] = await Promise.all([
+    Sanity.siteSettings.get(),
+    Sanity.clientPage.get(clientSlug),
+  ]);
   if (!clientPage) {
     return {
       notFound: true,
@@ -35,7 +41,8 @@ export const getStaticProps: GetStaticProps<
   }
 
   return {
-    props: { clientPage },
+    props: { siteSettings, clientPage },
+    revalidate: RevalidationTime.Medium,
   };
 };
 

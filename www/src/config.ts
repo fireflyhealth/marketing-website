@@ -1,4 +1,6 @@
 export const config = {
+  /* Will be true only on production deployments */
+  isProd: process.env.VERCEL_ENV && process.env.VERCEL_ENV === 'production',
   metadata: {
     siteName: 'Firefly ',
     productionUrl: 'https://www.fireflyhealth.com',

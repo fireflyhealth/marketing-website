@@ -1,5 +1,7 @@
 import React, { FC } from 'react';
-import { GetStaticProps } from 'next';
+
+import { GetStaticProps } from '@/types/next';
+import { RevalidationTime } from '@/constants';
 
 import { NotFoundPage as NotFoundPageType } from '@/types/sanity';
 import { NotFoundPageView } from '@/views/NotFoundView';
@@ -14,12 +16,20 @@ const NotFoundPage: FC<NotFoundPageProps> = ({ notFoundPage }) => {
 };
 
 export const getStaticProps: GetStaticProps<NotFoundPageProps> = async () => {
-  const notFoundPage = await Sanity.notFoundPage.get();
+  const [siteSettings, notFoundPage] = await Promise.all([
+    Sanity.siteSettings.get(),
+    Sanity.notFoundPage.get(),
+  ]);
   if (!notFoundPage) {
-    return { notFound: true };
+    throw new Error('Could not fetch not found page from Sanity');
   }
+  if (!siteSettings) {
+    throw new Error('Could not fetch site settings from Sanity');
+  }
+
   return {
-    props: { notFoundPage },
+    props: { notFoundPage, siteSettings },
+    revalidate: RevalidationTime.Medium,
   };
 };
 

@@ -1,5 +1,8 @@
 import React, { FC } from 'react';
-import { GetStaticPaths, GetStaticProps } from 'next';
+
+import { GetStaticPaths } from 'next';
+import { GetStaticProps } from '@/types/next';
+import { RevalidationTime } from '@/constants';
 
 import { Blog, BlogArticle } from '@/types/sanity';
 import * as Sanity from '@/lib/sanity';
@@ -32,14 +35,19 @@ export const getStaticProps: GetStaticProps<PageProps, PageParams> = async ({
     /* This will never happen, but keeps typescript happy */
     throw new Error('articleSlug param is not a string');
   }
-  const article = await Sanity.blog.getArticle(blogSlug, articleSlug);
+  const [siteSettings, article] = await Promise.all([
+    Sanity.siteSettings.get(),
+    Sanity.blog.getArticle(blogSlug, articleSlug),
+  ]);
   if (!article) {
     return { notFound: true };
   }
   return {
     props: {
       article,
+      siteSettings,
     },
+    revalidate: RevalidationTime.Medium,
   };
 };
 
