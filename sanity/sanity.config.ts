@@ -16,10 +16,7 @@ const config = defineConfig({
     deskTool({ structure }),
     visionTool(),
     documentInternationalization({
-      supportedLanguages: [
-        { id: 'en', title: 'English' },
-        { id: 'es', title: 'Spanish' },
-      ],
+      supportedLanguages: [{ id: 'en', title: 'English' }],
       schemaTypes: ['genericPage'],
     }),
   ],
