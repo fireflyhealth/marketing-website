@@ -4,6 +4,8 @@ import '../src/styles/fonts.css';
 import '../src/styles/main.css';
 import './storybook.css';
 
+import { Theme, ColorTheme } from '../src/components/Theme';
+
 const preview: Preview = {
   parameters: {
     actions: { argTypesRegex: '^on[A-Z].*' },
@@ -18,9 +20,11 @@ const preview: Preview = {
 
 export const decorators = [
   (Story: React.ComponentType) => (
-    <div className="storybook-inner">
-      <Story />
-    </div>
+    <Theme theme={ColorTheme.White}>
+      <div className="storybook-inner">
+        <Story />
+      </div>
+    </Theme>
   ),
 ];
 

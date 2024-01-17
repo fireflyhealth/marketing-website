@@ -4,6 +4,7 @@ import '../styles/main.css';
 
 import { SiteSettings } from '@/types/sanity';
 import { DefaultMetadata } from '@/components/Metadata/DefaultMetadata';
+import { ColorTheme, Theme } from '@/components/Theme';
 
 type Props = AppProps<{
   siteSettings: SiteSettings;
@@ -15,9 +16,11 @@ export default function App({ Component, pageProps: allPageProps }: Props) {
     <>
       <DefaultMetadata metadata={siteSettings.defaultMetadata} />
       {/* TODO: Navigation */}
-      <main>
-        <Component {...pageProps} />;
-      </main>
+      <Theme theme={ColorTheme.White}>
+        <main>
+          <Component {...pageProps} />;
+        </main>
+      </Theme>
       {/* TODO: Footer */}
     </>
   );

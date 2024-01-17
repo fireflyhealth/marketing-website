@@ -1,16 +1,18 @@
 import type { Config } from 'tailwindcss';
 
 const config: Config = {
-  content: [
-    './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/components/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/app/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/svgs/**/*.{js,ts,jsx,tsx,mdx}',
-  ],
+  content: ['./src/**/*.{js,ts,jsx,tsx,mdx}'],
   theme: {
     fontFamily: {
-      trust: ['Trust', 'sans-serf'],
-      roobert: ['Roobert', 'sans-serif'],
+      trust: ['Trust', 'Gill Sans', 'Calibri', 'sans-serf'],
+      roobert: [
+        'Roobert',
+        'Segoe UI',
+        'Roboto',
+        'Helvetica',
+        'Arial',
+        'sans-serif',
+      ],
     },
     screens: {
       sm: '600px',
@@ -30,6 +32,7 @@ const config: Config = {
       'sienna-dark': '#521B00',
       midnight: '#131D2B',
       'midnight-light': '#29374A',
+      'sky-light': '#D2E7F1',
       sky: '#ABD9EA',
       'sky-medium': '#73B9D7',
       'sky-dark': '#3F819D',
