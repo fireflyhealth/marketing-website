@@ -1,6 +1,7 @@
 import { defineConfig } from 'sanity';
 import { deskTool } from 'sanity/desk';
 import { visionTool } from '@sanity/vision';
+import { documentInternationalization } from '@sanity/document-internationalization';
 import { schemaTypes } from './schemas';
 import { structure } from './schemas/structure';
 
@@ -11,7 +12,25 @@ const config = defineConfig({
   projectId: 'xgbrv2vi',
   dataset: 'production',
 
-  plugins: [deskTool({ structure }), visionTool()],
+  plugins: [
+    deskTool({ structure }),
+    visionTool(),
+    documentInternationalization({
+      // Required configuration
+      supportedLanguages: [{ id: 'en', title: 'English' }],
+      schemaTypes: [
+        'blog',
+        'blogArticle',
+        'clientPage',
+        'genericPage',
+        'homepage',
+        'downloadPage',
+        'contactPage',
+        'notFoundPage',
+        'faqPage',
+      ],
+    }),
+  ],
 
   schema: {
     types: schemaTypes,
