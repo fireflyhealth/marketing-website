@@ -1,0 +1,13 @@
+html,
+.sb-show-main,
+body.sb-show-main.sb-show-padded,
+#storybook-root,
+#storybook-root > div,
+#storybook-root > div > div {
+  padding: 0 !important;
+  height: 100%;
+}
+
+.storybook-inner {
+  padding: 1.5rem;
+}
