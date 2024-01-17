@@ -16,19 +16,11 @@ const config = defineConfig({
     deskTool({ structure }),
     visionTool(),
     documentInternationalization({
-      // Required configuration
-      supportedLanguages: [{ id: 'en', title: 'English' }],
-      schemaTypes: [
-        'blog',
-        'blogArticle',
-        'clientPage',
-        'genericPage',
-        'homepage',
-        'downloadPage',
-        'contactPage',
-        'notFoundPage',
-        'faqPage',
+      supportedLanguages: [
+        { id: 'en', title: 'English' },
+        { id: 'es', title: 'Spanish' },
       ],
+      schemaTypes: ['genericPage'],
     }),
   ],
 

@@ -68,7 +68,11 @@ export const structure: StructureResolver = async (S, context) => {
       S.listItem()
         .title('Pages')
         .icon(icons.Page)
-        .child(S.documentTypeList('genericPage')),
+        .child(
+          S.documentTypeList('genericPage').filter(
+            '_type == "genericPage" && language == "en"',
+          ),
+        ),
       S.listItem()
         .title('Special Pages')
         .icon(icons.Page)
