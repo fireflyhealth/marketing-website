@@ -1,7 +1,10 @@
 import type { Config } from 'tailwindcss';
 
 const config: Config = {
-  content: ['./src/**/*.{js,ts,jsx,tsx,mdx}'],
+  content: [
+    './.storybook/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/**/*.{js,ts,jsx,tsx,mdx}',
+  ],
   theme: {
     fontFamily: {
       trust: ['Trust', 'Gill Sans', 'Calibri', 'sans-serf'],
@@ -13,11 +16,13 @@ const config: Config = {
         'Arial',
         'sans-serif',
       ],
+      /* Used in Storybook */
+      mono: 'Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace;',
     },
     screens: {
       sm: '600px',
-      md: '1200px',
-      lg: '1920px',
+      md: '800px',
+      lg: '1200px',
     },
     colors: {
       black: '#131D2B',
