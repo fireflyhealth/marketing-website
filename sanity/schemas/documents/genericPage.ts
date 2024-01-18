@@ -3,7 +3,7 @@ import { icons } from '../../lib/icons';
 import { API_VERSION, SingletonPageSlugs } from '../../lib/constants';
 import { readOnlyIfNotBaseLang } from '../../lib/readOnlyIfNotBaseLang';
 import localizationSlugField from '../../lib/localizationSlugField';
-import { isUniqueAcrossGenericPages } from '../../lib/isUniqueAcrossGenericPages';
+import { isUniqueAcrossDocuments } from '../../lib/isUniqueAcrossDocuments';
 
 const sharedPageFields = [
   defineField({
@@ -82,7 +82,7 @@ const sharedPageFields = [
       }),
     options: {
       source: 'title',
-      isUnique: isUniqueAcrossGenericPages,
+      isUnique: isUniqueAcrossDocuments,
     },
   }),
   defineField({
