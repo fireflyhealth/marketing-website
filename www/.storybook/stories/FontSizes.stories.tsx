@@ -1,33 +1,93 @@
-import React from 'react';
+import React, { FC } from 'react';
+import cx from 'classnames';
 import { Meta, StoryObj } from '@storybook/react';
 
-const Example = ({ className }: { className: string }) => (
-  <>
-    <div className="font-size--9 font-mono text-theme-secondary">
-      .{className}
-    </div>
-    <span className={`${className} whitespace-nowrap text-theme-primary`}>
-      Healthcare on your own terms
-    </span>
-  </>
-);
+const sampleText =
+  'Healthcare on your own terms. An app to get questions answered and manage your needs. By building trust and rapport with your members, we become their go-to healthcare resource. That opens the door to better experiences, improved health outcomes, and meaningful savings.';
 
-const FontSizes = () => {
+const Example = ({
+  className,
+  textWrap,
+  wordCount = 100,
+  maxWidth = '',
+}: {
+  className: string;
+  textWrap: boolean;
+  wordCount?: number;
+  maxWidth?: string;
+}) => {
+  const text = sampleText.split(' ').slice(0, wordCount).join(' ');
   return (
-    <div
-      className="bg-theme rounded grid grid-gap-4 grid-cols-2 font-trust items-baseline overflow-x-scroll"
-      style={{ gridTemplateColumns: '140px 1fr' }}
-    >
-      <Example className="font-size--1" />
-      <Example className="font-size--2" />
-      <Example className="font-size--3" />
-      <Example className="font-size--4" />
-      <Example className="font-size--5" />
-      <Example className="font-size--6" />
-      <Example className="font-size--7" />
-      <Example className="font-size--8" />
-      <Example className="font-size--9" />
-      <Example className="font-size--10" />
+    <div className="flex mb-5 p-2 border-2 border-theme rounded">
+      <div className="font-size-9 font-mono text-theme-secondary w-[180px] pr-4 flex-shrink-0 tracking-tight">
+        .{className}
+      </div>
+      <span
+        className={cx(
+          className,
+          'text-theme-primary',
+          textWrap ? maxWidth : 'whitespace-nowrap',
+        )}
+      >
+        {text}
+      </span>
+    </div>
+  );
+};
+type FontSizesProps = {
+  textWrap: boolean;
+};
+
+const FontSizes: FC<FontSizesProps> = ({ textWrap }) => {
+  return (
+    <div className={cx('font-trust', textWrap ? '' : 'overflow-x-scroll')}>
+      <Example textWrap={textWrap} className="font-size-1" wordCount={5} />
+      <Example textWrap={textWrap} className="font-size-2" wordCount={12} />
+      <Example textWrap={textWrap} className="font-size-3" wordCount={20} />
+      <Example textWrap={textWrap} className="font-size-4" wordCount={31} />
+      <Example textWrap={textWrap} className="font-size-5" wordCount={38} />
+      <Example
+        textWrap={textWrap}
+        className="font-size-5--quote"
+        wordCount={38}
+      />
+      <Example
+        textWrap={textWrap}
+        className="font-size-6"
+        maxWidth="max-w-[700px]"
+      />
+      <Example
+        textWrap={textWrap}
+        className="font-size-6--quote"
+        maxWidth="max-w-[700px]"
+      />
+
+      <Example
+        textWrap={textWrap}
+        className="font-size-7"
+        maxWidth="max-w-[600px]"
+      />
+      <Example
+        textWrap={textWrap}
+        className="font-size-8"
+        maxWidth="max-w-[500px]"
+      />
+      <Example
+        textWrap={textWrap}
+        className="font-size-8--cta"
+        maxWidth="max-w-[500px]"
+      />
+
+      <Example
+        textWrap={textWrap}
+        className="font-size-9"
+        maxWidth="max-w-[400px]"
+      />
+      <Example
+        textWrap={textWrap}
+        className="font-size-10"
+        maxWidth="max-w-[300px]"
+      />
     </div>
   );
 };
@@ -39,6 +99,8 @@ const meta = {
 
 type Story = StoryObj<typeof meta>;
 
-export const Primary: Story = {};
+export const Primary: Story = {
+  args: { textWrap: false },
+};
 
 export default meta;

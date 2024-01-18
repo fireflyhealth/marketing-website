@@ -26,8 +26,11 @@ svg {
  * Reference:
  * https://www.figma.com/file/2ghg22zsQKeysX5YUcDP5d/%5BFirefly%5D-Design-System?type=design&node-id=3801%3A6956&mode=dev
  */
-.font-size--1 {
+.font-size-1 {
   font-size: 96px;
+  line-height: 90%;
+  letter-spacing: -0.04em;
+  font-weight: 500;
 
   @screen md {
     font-size: 120px;
@@ -37,8 +40,11 @@ svg {
   }
 }
 
-.font-size--2 {
+.font-size-2 {
   font-size: 52px;
+  line-height: 90%;
+  letter-spacing: -0.04em;
+  font-weight: 500;
 
   @screen md {
     font-size: 72px;
@@ -48,8 +54,11 @@ svg {
   }
 }
 
-.font-size--3 {
+.font-size-3 {
   font-size: 48px;
+  line-height: 90%;
+  letter-spacing: -0.03em;
+  font-weight: 500;
 
   @screen md {
     font-size: 64px;
@@ -59,8 +68,11 @@ svg {
   }
 }
 
-.font-size--4 {
+.font-size-4 {
   font-size: 32px;
+  letter-spacing: -0.02em;
+  line-height: 100%;
+  font-weight: 500;
 
   @screen md {
     font-size: 43px;
@@ -70,8 +82,11 @@ svg {
   }
 }
 
-.font-size--5 {
+.font-size-5 {
   font-size: 24px;
+  line-height: 115%;
+  letter-spacing: -0.015em;
+  font-weight: 500;
 
   @screen md {
     font-size: 34px;
@@ -79,10 +94,19 @@ svg {
   @screen lg {
     font-size: 44px;
   }
+
+  &--quote {
+    @apply font-size-5;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+  }
 }
 
-.font-size--6 {
+.font-size-6 {
   font-size: 20px;
+  line-height: 115%;
+  letter-spacing: -0.01em;
+  font-weight: 500;
 
   @screen md {
     font-size: 26px;
@@ -90,10 +114,18 @@ svg {
   @screen lg {
     font-size: 32px;
   }
+
+  &--quote {
+    @apply font-size-6;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+  }
 }
 
-.font-size--7 {
+.font-size-7 {
   font-size: 18px;
+  line-height: 120%;
+  font-weight: 400;
 
   @screen md {
     font-size: 21px;
@@ -103,20 +135,33 @@ svg {
   }
 }
 
-.font-size--8 {
+.font-size-8 {
   font-size: 16px;
+  line-height: 140%;
+  font-weight: 400;
 
   @screen md {
     font-size: 18px;
   }
+
+  &--cta {
+    @apply font-size-8;
+    line-height: 100%;
+  }
 }
 
-.font-size--9 {
+.font-size-9 {
   font-size: 14px;
+  line-height: 140%;
+  letter-spacing: 0.02em;
+  font-weight: 500;
 }
 
-.font-size--10 {
+.font-size-10 {
   font-size: 12px;
+  line-height: 140%;
+  letter-spacing: 0.02em;
+  font-weight: 400;
 }
 /**
  * General theme styles
@@ -286,7 +331,7 @@ svg {
  */
 
 .cta {
-  @apply font-size--8;
+  @apply font-size-8;
   border-radius: 48px;
   cursor: pointer;
   height: 40px;

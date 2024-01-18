@@ -17,7 +17,7 @@ export default function App({ Component, pageProps: allPageProps }: Props) {
       {/* TODO: Navigation */}
       <Theme theme={ColorTheme.White}>
         <main className="font-trust">
-          <Component {...pageProps} />;
+          <Component {...pageProps} />
         </main>
       </Theme>
       {/* TODO: Footer */}
