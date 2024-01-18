@@ -12,6 +12,11 @@ export const Homepage = defineType({
       title: 'Metadata',
       type: 'metadata',
     }),
+    defineField({
+      name: 'sampleSimpleRichText',
+      title: 'Sample Simple Rich Text',
+      type: 'simpleRichText',
+    }),
   ],
   preview: {
     select: {},
