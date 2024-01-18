@@ -13,13 +13,6 @@ const sharedPageFields = [
     validation: (Rule) => Rule.required(),
   }),
   defineField({
-    // should match 'languageField' plugin configuration setting, if customized
-    name: 'language',
-    type: 'string',
-    readOnly: true,
-    hidden: true,
-  }),
-  defineField({
     name: 'slug',
     type: 'slug',
     title: 'Slug',

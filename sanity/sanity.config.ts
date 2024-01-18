@@ -17,7 +17,17 @@ const config = defineConfig({
     visionTool(),
     documentInternationalization({
       supportedLanguages: [{ id: 'en', title: 'English' }],
-      schemaTypes: ['genericPage'],
+      schemaTypes: [
+        'homepage',
+        'genericPage',
+        'blog',
+        'blogArticle',
+        'clientPage',
+        'downloadPage',
+        'contactPage',
+        'notFoundPage',
+        'faqPage',
+      ],
     }),
   ],
 

@@ -112,16 +112,28 @@ export const structure: StructureResolver = async (S, context) => {
       S.listItem()
         .title('Clients')
         .icon(icons.Client)
-        .child(S.documentTypeList('clientPage')),
+        .child(
+          S.documentTypeList('clientPage').filter(
+            '_type == "clientPage" && language == "en"',
+          ),
+        ),
       S.divider(),
       S.listItem()
         .title('Blogs')
         .icon(icons.Blog)
-        .child(S.documentTypeList('blog')),
+        .child(
+          S.documentTypeList('blog').filter(
+            '_type == "blog" && language == "en"',
+          ),
+        ),
       S.listItem()
         .title('Articles')
         .icon(icons.Blog)
-        .child(S.documentTypeList('blogArticle')),
+        .child(
+          S.documentTypeList('blogArticle').filter(
+            '_type == "blogArticle" && language == "en"',
+          ),
+        ),
       S.divider(),
       S.listItem()
         .title('Housekeeping')

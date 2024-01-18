@@ -5,6 +5,7 @@ export function readOnlyIfNotBaseLang({
 }: ConditionalPropertyCallbackContext) {
   // If the language of the document is anyting other than 'en' then readonly will be true
   // We don't want to allow the slug to be edited in this case
-  if (document?.language != 'en' || document?.language == '') return true;
+  if (!document?.language) return false;
+  if (document?.language != 'en') return true;
   return false;
 }
