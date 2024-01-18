@@ -45,7 +45,7 @@ export const decorators = [
   (Story: React.ComponentType, context: Context) => (
     <Theme theme={context.globals.theme}>
       <div
-        className="storybook-inner"
+        className="storybook-inner font-roobert"
         style={{ backgroundColor: 'rgb(225, 225, 225)' }}
       >
         <Story />

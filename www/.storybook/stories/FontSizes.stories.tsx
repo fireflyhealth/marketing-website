@@ -34,13 +34,20 @@ const Example = ({
     </div>
   );
 };
+
+enum FontOption {
+  Trust = 'font-trust',
+  Roobert = 'font-roobert',
+}
+
 type FontSizesProps = {
   textWrap: boolean;
+  font: FontOption;
 };
 
-const FontSizes: FC<FontSizesProps> = ({ textWrap }) => {
+const FontSizes: FC<FontSizesProps> = ({ textWrap, font }) => {
   return (
-    <div className={cx('font-trust', textWrap ? '' : 'overflow-x-scroll')}>
+    <div className={cx(font, textWrap ? '' : 'overflow-x-scroll')}>
       <Example textWrap={textWrap} className="font-size-1" wordCount={5} />
       <Example textWrap={textWrap} className="font-size-2" wordCount={12} />
       <Example textWrap={textWrap} className="font-size-3" wordCount={20} />
@@ -95,12 +102,18 @@ const FontSizes: FC<FontSizesProps> = ({ textWrap }) => {
 const meta = {
   title: 'Atoms/Font Sizes',
   component: FontSizes,
+  argTypes: {
+    font: {
+      options: [FontOption.Trust, FontOption.Roobert],
+      control: { type: 'radio' },
+    },
+  },
 } satisfies Meta<typeof FontSizes>;
 
 type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
-  args: { textWrap: false },
+  args: { textWrap: false, font: FontOption.Trust },
 };
 
 export default meta;
