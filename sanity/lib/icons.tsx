@@ -16,6 +16,7 @@ import {
   GrMenu,
 } from 'react-icons/gr';
 import { SlSettings } from 'react-icons/sl';
+import { PiBracketsAngleBold } from 'react-icons/pi';
 
 /*
  * Browse Sanity icons:
@@ -37,4 +38,5 @@ export const icons = {
   Settings: SlSettings,
   Code: GrCode,
   Navigation: GrMenu,
+  Metadata: PiBracketsAngleBold,
 };
