@@ -3,8 +3,10 @@ import { Meta, StoryObj } from '@storybook/react';
 
 const Example = ({ className }: { className: string }) => (
   <>
-    <div className="font-size--9 font-mono text-grey-darker">.{className}</div>
-    <span className={`${className} whitespace-nowrap`}>
+    <div className="font-size--9 font-mono text-theme-secondary">
+      .{className}
+    </div>
+    <span className={`${className} whitespace-nowrap text-theme-primary`}>
       Healthcare on your own terms
     </span>
   </>
@@ -13,7 +15,7 @@ const Example = ({ className }: { className: string }) => (
 const FontSizes = () => {
   return (
     <div
-      className="grid p-6 grid-gap-4 grid-cols-2 font-trust items-baseline"
+      className="bg-theme rounded grid grid-gap-4 grid-cols-2 font-trust items-baseline overflow-x-scroll"
       style={{ gridTemplateColumns: '140px 1fr' }}
     >
       <Example className="font-size--1" />

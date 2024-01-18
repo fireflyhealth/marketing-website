@@ -14,5 +14,5 @@ export enum ColorTheme {
 }
 
 export const Theme: FC<ThemeProps> = ({ theme, children }) => {
-  return <div className={`theme-${theme}`}>{children}</div>;
+  return <div className={`theme-wrapper theme-${theme}`}>{children}</div>;
 };

@@ -7,6 +7,23 @@ import './storybook.css';
 import { Theme, ColorTheme } from '../src/components/Theme';
 
 const preview: Preview = {
+  globalTypes: {
+    theme: {
+      description: 'Theme',
+      defaultValue: ColorTheme.White,
+      toolbar: {
+        title: 'Theme',
+        icon: 'circlehollow',
+        items: [
+          ColorTheme.White,
+          ColorTheme.Grey,
+          ColorTheme.Sienna,
+          ColorTheme.Midnight,
+          ColorTheme.Sky,
+        ],
+      },
+    },
+  },
   parameters: {
     actions: { argTypesRegex: '^on[A-Z].*' },
     controls: {
@@ -18,10 +35,19 @@ const preview: Preview = {
   },
 };
 
+type Context = {
+  globals: {
+    theme: ColorTheme;
+  };
+};
+
 export const decorators = [
-  (Story: React.ComponentType) => (
-    <Theme theme={ColorTheme.White}>
-      <div className="storybook-inner">
+  (Story: React.ComponentType, context: Context) => (
+    <Theme theme={context.globals.theme}>
+      <div
+        className="storybook-inner"
+        style={{ backgroundColor: 'rgb(225, 225, 225)' }}
+      >
         <Story />
       </div>
     </Theme>

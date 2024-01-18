@@ -26,54 +26,50 @@ const handleClick = () => alert('button clicked');
 
 const ExampleInner = () => {
   return (
-    <div className="bg-theme p-6 w-full">
-      <div
-        className="text-left grid gap-4 grid-cols-2"
-        style={{ gridTemplateColumns: '200px 1fr' }}
-      >
-        <Annotation>bg-color</Annotation>
-        <div />
+    <div
+      className="text-left grid gap-4 grid-cols-2"
+      style={{ gridTemplateColumns: '200px 1fr' }}
+    >
+      <Annotation>bg-color</Annotation>
+      <div />
 
-        <Annotation>text-theme-primary</Annotation>
-        <p className="font-trust text-xl text-theme-primary">
-          Aa Firefly Health
-        </p>
+      <Annotation>text-theme-primary</Annotation>
+      <p className="font-trust text-xl text-theme-primary">Aa Firefly Health</p>
 
-        <Annotation>text-theme-secondary</Annotation>
-        <p className="font-trust text-xl text-theme-secondary">
-          Aa Firefly Health
-        </p>
+      <Annotation>text-theme-secondary</Annotation>
+      <p className="font-trust text-xl text-theme-secondary">
+        Aa Firefly Health
+      </p>
 
-        <Annotation>text-theme-decorative</Annotation>
-        <p className="font-trust text-xl text-theme-decorative">
-          Aa Firefly Health
-        </p>
+      <Annotation>text-theme-decorative</Annotation>
+      <p className="font-trust text-xl text-theme-decorative">
+        Aa Firefly Health
+      </p>
 
-        <Annotation>
-          cta-text-theme-primary
-          <br /> cta-bg-theme-primary
-        </Annotation>
-        <Button align="left" label="Get Started" onClick={handleClick} />
+      <Annotation>
+        cta-text-theme-primary
+        <br /> cta-bg-theme-primary
+      </Annotation>
+      <Button align="left" label="Get Started" onClick={handleClick} />
 
-        <Annotation>
-          cta-text-theme-secondary <br />
-          cta-bg-theme-secondary
-        </Annotation>
-        <Button
-          align="left"
-          label="Get Started"
-          variant="secondary"
-          onClick={handleClick}
-        />
+      <Annotation>
+        cta-text-theme-secondary <br />
+        cta-bg-theme-secondary
+      </Annotation>
+      <Button
+        align="left"
+        label="Get Started"
+        variant="secondary"
+        onClick={handleClick}
+      />
 
-        <Annotation>outline</Annotation>
-        <div className="w-[100px] h-[100px] border-[2px] border-theme rounded" />
-        <Annotation>icon-base icon-overlap</Annotation>
-        <div className="flex">
-          <BrandedIcon type="clipboard" />
-          <BrandedIcon type="checkmark" />
-          <BrandedIcon type="pill" />
-        </div>
+      <Annotation>outline</Annotation>
+      <div className="w-[100px] h-[100px] border-[2px] border-theme rounded" />
+      <Annotation>icon-base icon-overlap</Annotation>
+      <div className="flex">
+        <BrandedIcon type="clipboard" />
+        <BrandedIcon type="checkmark" />
+        <BrandedIcon type="pill" />
       </div>
     </div>
   );
@@ -82,11 +78,10 @@ const ExampleInner = () => {
 const meta = {
   title: 'Components/Theme',
   component: Theme,
-  tags: ['autodocs'],
   parameters: {
-    controls: { exclude: ['children'] },
+    controls: { exclude: ['children', 'theme'] },
     docs: {
-      controls: { exclude: ['children'] },
+      controls: { exclude: ['children', 'theme'] },
     },
   },
 } satisfies Meta<typeof Theme>;
