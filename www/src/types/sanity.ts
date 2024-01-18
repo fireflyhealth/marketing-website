@@ -66,6 +66,7 @@ export type SiteSettings = SanityDocument & {
 export type Homepage = SanityDocument & {
   _type: 'homepage';
   metadata?: Metadata;
+  sampleSimpleRichText?: RichText;
 };
 export type HomepageLinkData = Pick<Homepage, '_type'>;
 
@@ -207,3 +208,5 @@ export type CTA = {
   variant: 'primary' | 'secondary' | 'outlined';
   link: Link;
 };
+
+export type RichText = PortableTextBlock[];

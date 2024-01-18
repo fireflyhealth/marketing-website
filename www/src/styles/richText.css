@@ -1,0 +1,9 @@
+.RichText {
+  * + * {
+    margin-top: 1em;
+  }
+
+  strong {
+    font-weight: 500;
+  }
+}
