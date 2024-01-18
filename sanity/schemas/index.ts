@@ -16,6 +16,7 @@ import { RichImage } from './fields/images';
 import { Link, LinkableDocument } from './fields/linking';
 import { CTA } from './fields/cta';
 import { SimpleRichText, ArticleRichText } from './fields/richText';
+import { Navigation } from './documents/navigation';
 
 export const schemaTypes = [
   /* Document Types */
@@ -31,6 +32,7 @@ export const schemaTypes = [
   BlogArticle,
   SiteSettings,
   MockData,
+  Navigation,
 
   /* Field Types */
   Metadata,

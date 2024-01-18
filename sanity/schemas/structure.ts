@@ -62,6 +62,10 @@ export const structure: StructureResolver = async (S, context) => {
           schemaType: 'siteSettings',
           icon: icons.Settings,
         }),
+        S.listItem()
+          .title('Navigation')
+          .icon(icons.Navigation)
+          .child(S.documentTypeList('navigation')),
         createSingletonPage(S, {
           title: 'Homepage',
           id: 'homepage',

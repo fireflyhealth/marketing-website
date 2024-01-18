@@ -13,6 +13,7 @@ import {
   GrTextWrap,
   GrTrash,
   GrCode,
+  GrMenu,
 } from 'react-icons/gr';
 import { SlSettings } from 'react-icons/sl';
 
@@ -35,4 +36,5 @@ export const icons = {
   Trash: GrTrash,
   Settings: SlSettings,
   Code: GrCode,
+  Navigation: GrMenu,
 };
