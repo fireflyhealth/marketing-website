@@ -10,6 +10,7 @@ import {
 import { ClientPage } from './documents/clientPage';
 import { BlogArticle } from './documents/blogArticle';
 import { Blog } from './documents/blog';
+import { MockData } from './documents/mockData';
 import { SiteSettings } from './documents/siteSettings';
 import { RichImage } from './fields/images';
 import { Link, LinkableDocument } from './fields/linking';
@@ -29,6 +30,7 @@ export const schemaTypes = [
   Blog,
   BlogArticle,
   SiteSettings,
+  MockData,
 
   /* Field Types */
   Metadata,
