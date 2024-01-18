@@ -4,6 +4,7 @@ import { visionTool } from '@sanity/vision';
 import { documentInternationalization } from '@sanity/document-internationalization';
 import { schemaTypes } from './schemas';
 import { structure } from './schemas/structure';
+import './lib/styles.css';
 
 const config = defineConfig({
   name: 'default',

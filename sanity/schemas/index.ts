@@ -15,7 +15,7 @@ import { SiteSettings } from './documents/siteSettings';
 import { RichImage } from './fields/images';
 import { Link, LinkableDocument } from './fields/linking';
 import { CTA } from './fields/cta';
-import { SimpleRichText } from './fields/richText';
+import { SimpleRichText, ArticleRichText } from './fields/richText';
 
 export const schemaTypes = [
   /* Document Types */
@@ -39,4 +39,5 @@ export const schemaTypes = [
   LinkableDocument,
   CTA,
   SimpleRichText,
+  ArticleRichText,
 ];

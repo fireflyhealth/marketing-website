@@ -17,5 +17,11 @@ export const MockData = defineType({
       title: 'Simple Rich Text',
       validation: (Rule) => Rule.required(),
     }),
+    defineField({
+      name: 'articleRichText',
+      type: 'articleRichText',
+      title: 'Article Rich Text',
+      validation: (Rule) => Rule.required(),
+    }),
   ],
 });
