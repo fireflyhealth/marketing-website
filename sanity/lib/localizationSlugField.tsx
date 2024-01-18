@@ -3,6 +3,11 @@ import { FC } from 'react';
 
 import * as Sanity from 'sanity';
 
+// This component currently infers that the base language for every document will be english.
+// This will not always be the case.
+// So, in the future this component should be updated to be base language agnostic, or we can simply
+// remove it if this does not provide any use.
+
 const localizationSlugField: FC<Sanity.ObjectFieldProps<Sanity.SlugValue>> = (
   props,
 ) => {
