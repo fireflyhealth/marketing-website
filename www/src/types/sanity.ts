@@ -38,9 +38,15 @@ type FileAsset = {
 
 export type GenericPageLinkInfo = Pick<GenericPage, '_type' | 'slug'>;
 
-/*
+/**
  * Documents
- * */
+ */
+
+export type SiteSettings = SanityDocument & {
+  _type: 'siteSettings';
+  defaultMetadata: Metadata;
+};
+
 export type Homepage = SanityDocument & {
   _type: 'homepage';
   metadata?: Metadata;
@@ -121,11 +127,16 @@ export type Slug = {
   current: string;
 };
 
+/* An enhanced image field that includes a caption & alt text */
+export type RichImage = Image & {
+  altText: string;
+  caption: string | null;
+};
+
 export type Image = {
   _type: 'image';
   _key: string;
   altText: string;
-  caption: null;
   crop?: {
     top: number;
     bottom: number;
@@ -156,7 +167,6 @@ export type Image = {
 export type Metadata = {
   title?: string;
   description?: string;
-  image?: Image;
   shareTitle?: string;
   shareDescription?: string;
   shareGraphic?: Image;

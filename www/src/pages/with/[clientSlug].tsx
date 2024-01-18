@@ -1,20 +1,29 @@
 import React, { FC } from 'react';
-import { GetStaticPaths, GetStaticProps } from 'next';
+
+import { GetStaticProps, GetStaticPaths } from 'next';
+import { PageProps } from '@/types/next';
+import { RevalidationTime } from '@/constants';
 
 import { ClientPage as ClientPageType } from '@/types/sanity';
 import { ClientPageView } from '@/views/ClientPageView';
 import * as Sanity from '@/lib/sanity';
+import { ClientMetadata } from '@/components/Metadata/ClientMetadata';
 
-type ClientPageProps = {
+type ClientPageProps = PageProps<{
   clientPage: ClientPageType;
-};
+}>;
 
 type ClientPageParams = {
   clientSlug: string;
 };
 
 const ClientPage: FC<ClientPageProps> = ({ clientPage }) => {
-  return <ClientPageView clientPage={clientPage} />;
+  return (
+    <>
+      <ClientMetadata clientPage={clientPage} />
+      <ClientPageView clientPage={clientPage} />
+    </>
+  );
 };
 
 export const getStaticProps: GetStaticProps<
@@ -27,7 +36,10 @@ export const getStaticProps: GetStaticProps<
     throw new Error('clientSlug param is not a string');
   }
 
-  const clientPage = await Sanity.clientPage.get(clientSlug);
+  const [siteSettings, clientPage] = await Promise.all([
+    Sanity.siteSettings.get(),
+    Sanity.clientPage.get(clientSlug),
+  ]);
   if (!clientPage) {
     return {
       notFound: true,
@@ -35,7 +47,8 @@ export const getStaticProps: GetStaticProps<
   }
 
   return {
-    props: { clientPage },
+    props: { siteSettings, clientPage },
+    revalidate: RevalidationTime.Medium,
   };
 };
 

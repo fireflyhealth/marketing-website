@@ -1,20 +1,29 @@
 import React, { FC } from 'react';
-import { GetStaticPaths, GetStaticProps } from 'next';
+
+import { GetStaticProps, GetStaticPaths } from 'next';
+import { PageProps } from '@/types/next';
+import { RevalidationTime } from '@/constants';
 
 import { BlogPageView } from '@/views/Blog/BlogPageView';
 import { Blog } from '@/types/sanity';
 import * as Sanity from '@/lib/sanity';
+import { BlogMetadata } from '@/components/Metadata/BlogMetadata';
 
-type BlogPageProps = {
+type BlogPageProps = PageProps<{
   blog: Blog;
-};
+}>;
 
 type BlogPageParams = {
   blogSlug: string;
 };
 
 const BlogPage: FC<BlogPageProps> = ({ blog }) => {
-  return <BlogPageView blog={blog} />;
+  return (
+    <>
+      <BlogMetadata blog={blog} />
+      <BlogPageView blog={blog} />
+    </>
+  );
 };
 
 export const getStaticProps: GetStaticProps<
@@ -27,7 +36,10 @@ export const getStaticProps: GetStaticProps<
     throw new Error('blogSlug param is not a string');
   }
 
-  const blog = await Sanity.blog.get(blogSlug);
+  const [siteSettings, blog] = await Promise.all([
+    Sanity.siteSettings.get(),
+    Sanity.blog.get(blogSlug),
+  ]);
   if (!blog) {
     return {
       notFound: true,
@@ -36,8 +48,10 @@ export const getStaticProps: GetStaticProps<
 
   return {
     props: {
+      siteSettings,
       blog,
     },
+    revalidate: RevalidationTime.Medium,
   };
 };
 

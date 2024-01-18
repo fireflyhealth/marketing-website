@@ -1,26 +1,36 @@
 import React, { FC } from 'react';
-import { GetStaticPaths, GetStaticProps } from 'next';
+
+import { GetStaticProps, GetStaticPaths } from 'next';
+import { PageProps } from '@/types/next';
+import { RevalidationTime } from '@/constants';
 
 import { Blog, BlogArticle } from '@/types/sanity';
 import * as Sanity from '@/lib/sanity';
 import { BlogArticleView } from '@/views/Blog/BlogArticleView';
+import { BlogArticleMetadata } from '@/components/Metadata/BlogArticleMetadata';
 
-type PageProps = {
+type BlogPageProps = PageProps<{
   article: BlogArticle;
-};
+}>;
 
 type PageParams = {
   blogSlug: string;
   articleSlug: string;
 };
 
-const Page: FC<PageProps> = ({ article }) => {
-  return <BlogArticleView article={article} />;
+const Page: FC<BlogPageProps> = ({ article }) => {
+  return (
+    <>
+      <BlogArticleMetadata article={article} />
+      <BlogArticleView article={article} />
+    </>
+  );
 };
 
-export const getStaticProps: GetStaticProps<PageProps, PageParams> = async ({
-  params,
-}) => {
+export const getStaticProps: GetStaticProps<
+  BlogPageProps,
+  PageParams
+> = async ({ params }) => {
   const blogSlug = params?.blogSlug;
   const articleSlug = params?.articleSlug;
   if (!blogSlug || typeof blogSlug !== 'string') {
@@ -32,14 +42,19 @@ export const getStaticProps: GetStaticProps<PageProps, PageParams> = async ({
     /* This will never happen, but keeps typescript happy */
     throw new Error('articleSlug param is not a string');
   }
-  const article = await Sanity.blog.getArticle(blogSlug, articleSlug);
+  const [siteSettings, article] = await Promise.all([
+    Sanity.siteSettings.get(),
+    Sanity.blog.getArticle(blogSlug, articleSlug),
+  ]);
   if (!article) {
     return { notFound: true };
   }
   return {
     props: {
       article,
+      siteSettings,
     },
+    revalidate: RevalidationTime.Medium,
   };
 };
 

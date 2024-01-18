@@ -1,20 +1,29 @@
 import React, { FC } from 'react';
-import { GetStaticPaths, GetStaticProps } from 'next';
+
+import { GetStaticProps, GetStaticPaths } from 'next';
+import { PageProps as CommonPageProps } from '@/types/next';
+import { RevalidationTime } from '@/constants';
 
 import { GenericPage } from '@/types/sanity';
 import * as Sanity from '@/lib/sanity';
 import { PageView } from '@/views/PageView';
+import { PageMetadata } from '@/components/Metadata/PageMetadata';
 
-type PageProps = {
+type PageProps = CommonPageProps<{
   page: GenericPage;
-};
+}>;
 
 type PageParams = {
   pageSlug: string;
 };
 
 const Page: FC<PageProps> = ({ page }) => {
-  return <PageView page={page} />;
+  return (
+    <>
+      <PageMetadata page={page} />
+      <PageView page={page} />
+    </>
+  );
 };
 
 export const getStaticProps: GetStaticProps<PageProps, PageParams> = async ({
@@ -26,7 +35,10 @@ export const getStaticProps: GetStaticProps<PageProps, PageParams> = async ({
     throw new Error('pageSlug param is not a string');
   }
 
-  const page = await Sanity.page.get(pageSlug);
+  const [siteSettings, page] = await Promise.all([
+    Sanity.siteSettings.get(),
+    Sanity.page.get(pageSlug),
+  ]);
   if (!page) {
     return {
       notFound: true,
@@ -36,7 +48,9 @@ export const getStaticProps: GetStaticProps<PageProps, PageParams> = async ({
   return {
     props: {
       page,
+      siteSettings,
     },
+    revalidate: RevalidationTime.Medium,
   };
 };
 

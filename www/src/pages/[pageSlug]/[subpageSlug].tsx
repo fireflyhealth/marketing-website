@@ -1,13 +1,17 @@
 import React, { FC } from 'react';
-import { GetStaticPaths, GetStaticProps } from 'next';
+
+import { GetStaticProps, GetStaticPaths } from 'next';
+import { PageProps as CommonPageProps } from '@/types/next';
+import { RevalidationTime } from '@/constants';
 
 import { GenericPage, SubPage } from '@/types/sanity';
 import * as Sanity from '@/lib/sanity';
 import { PageView } from '@/views/PageView';
+import { PageMetadata } from '@/components/Metadata/PageMetadata';
 
-type PageProps = {
+type PageProps = CommonPageProps<{
   subPage: SubPage;
-};
+}>;
 
 type PageParams = {
   pageSlug: string;
@@ -15,7 +19,12 @@ type PageParams = {
 };
 
 const Page: FC<PageProps> = ({ subPage }) => {
-  return <PageView page={subPage} />;
+  return (
+    <>
+      <PageMetadata page={subPage} />
+      <PageView page={subPage} />
+    </>
+  );
 };
 
 export const getStaticProps: GetStaticProps<PageProps, PageParams> = async ({
@@ -32,14 +41,19 @@ export const getStaticProps: GetStaticProps<PageProps, PageParams> = async ({
     /* This will never happen, but keeps typescript happy */
     throw new Error('subpageSlug param is not a string');
   }
-  const subPage = await Sanity.subPage.get(pageSlug, subpageSlug);
+  const [siteSettings, subPage] = await Promise.all([
+    Sanity.siteSettings.get(),
+    Sanity.subPage.get(pageSlug, subpageSlug),
+  ]);
   if (!subPage) {
     return { notFound: true };
   }
   return {
     props: {
       subPage,
+      siteSettings,
     },
+    revalidate: RevalidationTime.Medium,
   };
 };
 

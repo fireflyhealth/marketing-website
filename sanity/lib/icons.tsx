@@ -13,6 +13,7 @@ import {
   GrTextWrap,
   GrTrash,
 } from 'react-icons/gr';
+import { SlSettings } from 'react-icons/sl';
 
 /*
  * Browse Sanity icons:
@@ -31,4 +32,5 @@ export const icons = {
   Blog: GrArticle,
   Article: GrTextWrap,
   Trash: GrTrash,
+  Settings: SlSettings,
 };

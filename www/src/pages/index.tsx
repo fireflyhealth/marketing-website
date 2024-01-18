@@ -1,22 +1,34 @@
 import React, { FC } from 'react';
 import { GetStaticProps } from 'next';
 
+import { PageProps } from '@/types/next';
 import { Homepage } from '@/types/sanity';
 import * as Sanity from '@/lib/sanity';
-import { HomeView } from '../views/HomeView';
+import { HomeView } from '@/views/HomeView';
+import { RevalidationTime } from '@/constants';
+import { HomeMetadata } from '@/components/Metadata/HomeMetadata';
 
-type HomeProps = {
+type HomeProps = PageProps<{
   homepage: Homepage;
-};
+}>;
 
 const Home: FC<HomeProps> = ({ homepage }) => {
-  return <HomeView homepage={homepage} />;
+  return (
+    <>
+      <HomeMetadata homepage={homepage} />
+      <HomeView homepage={homepage} />
+    </>
+  );
 };
 
-export const getStaticProps: GetStaticProps = async () => {
-  const homepage = await Sanity.homepage.get();
+export const getStaticProps: GetStaticProps<HomeProps> = async () => {
+  const [siteSettings, homepage] = await Promise.all([
+    Sanity.siteSettings.get(),
+    Sanity.homepage.get(),
+  ]);
   return {
-    props: { homepage },
+    props: { siteSettings, homepage },
+    revalidate: RevalidationTime.Often,
   };
 };
 
