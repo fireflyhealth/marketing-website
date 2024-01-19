@@ -1,6 +1,9 @@
 import { defineField, defineType, defineArrayMember } from 'sanity';
 import { icons } from '../../lib/icons';
 import { API_VERSION, SingletonPageSlugs } from '../../lib/constants';
+import { readOnlyIfNotBaseLang } from '../../lib/readOnlyIfNotBaseLang';
+import localizationSlugField from '../../lib/localizationSlugField';
+import { isUniqueAcrossDocuments } from '../../lib/isUniqueAcrossDocuments';
 
 const sharedPageFields = [
   defineField({
@@ -13,6 +16,10 @@ const sharedPageFields = [
     name: 'slug',
     type: 'slug',
     title: 'Slug',
+    readOnly: readOnlyIfNotBaseLang,
+    components: {
+      field: localizationSlugField,
+    },
     validation: (Rule) =>
       Rule.custom(async (value, { getClient, document }) => {
         const currentSlug = value?.current;
@@ -36,11 +43,19 @@ const sharedPageFields = [
               _type == "genericPage"
               && _id != $documentId
               && !(_id in path("drafts.**"))
-            ]{ slug }`,
+            ]{ slug, language }`,
             { documentId: document._id.replace('drafts.', '') },
           );
           const otherPageSlugs = otherPages.map((page) => page.slug.current);
+          const otherPageLanguages = otherPages.map((language) => language);
           if (otherPageSlugs.includes(currentSlug)) {
+            /* Translated pages with the same slug should not return a false validation */
+            if (document.language) {
+              const currentLanguage = document.language;
+              if (otherPageLanguages.includes(currentLanguage)) {
+                return `This page has already been translated into ${currentLanguage}.  Try translating the page in a different language.`;
+              } else return true;
+            }
             return 'This slug is already in use';
           }
           return true;
@@ -67,6 +82,7 @@ const sharedPageFields = [
       }),
     options: {
       source: 'title',
+      isUnique: isUniqueAcrossDocuments,
     },
   }),
   defineField({

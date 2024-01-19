@@ -1,5 +1,8 @@
-import { defineField, defineType, defineArrayMember } from 'sanity';
+import { defineField, defineType } from 'sanity';
 import { icons } from '../../lib/icons';
+import { readOnlyIfNotBaseLang } from '../../lib/readOnlyIfNotBaseLang';
+import localizationSlugField from '../../lib/localizationSlugField';
+import { isUniqueAcrossDocuments } from '../../lib/isUniqueAcrossDocuments';
 
 export const Blog = defineType({
   name: 'blog',
@@ -17,8 +20,13 @@ export const Blog = defineType({
       name: 'slug',
       type: 'slug',
       title: 'Slug',
+      readOnly: readOnlyIfNotBaseLang,
+      components: {
+        field: localizationSlugField,
+      },
       options: {
         source: 'title',
+        isUnique: isUniqueAcrossDocuments,
       },
       validation: (Rule) => Rule.required(),
     }),

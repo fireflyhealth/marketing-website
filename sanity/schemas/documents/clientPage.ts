@@ -1,5 +1,8 @@
 import { defineField, defineType } from 'sanity';
 import { icons } from '../../lib/icons';
+import { readOnlyIfNotBaseLang } from '../../lib/readOnlyIfNotBaseLang';
+import localizationSlugField from '../../lib/localizationSlugField';
+import { isUniqueAcrossDocuments } from '../../lib/isUniqueAcrossDocuments';
 
 export const ClientPage = defineType({
   name: 'clientPage',
@@ -17,9 +20,14 @@ export const ClientPage = defineType({
       title: 'Slug',
       name: 'slug',
       type: 'slug',
+      readOnly: readOnlyIfNotBaseLang,
+      components: {
+        field: localizationSlugField,
+      },
       validation: (Rule) => Rule.required(),
       options: {
         source: 'clientName',
+        isUnique: isUniqueAcrossDocuments,
       },
     }),
     defineField({

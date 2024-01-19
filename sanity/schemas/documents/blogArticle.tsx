@@ -1,6 +1,9 @@
 import { defineField, defineType } from 'sanity';
 import { icons } from '../../lib/icons';
 import { API_VERSION } from '../../lib/constants';
+import { readOnlyIfNotBaseLang } from '../../lib/readOnlyIfNotBaseLang';
+import localizationSlugField from '../../lib/localizationSlugField';
+import { isUniqueAcrossDocuments } from '../../lib/isUniqueAcrossDocuments';
 
 export const BlogArticle = defineType({
   name: 'blogArticle',
@@ -25,6 +28,10 @@ export const BlogArticle = defineType({
       name: 'slug',
       type: 'slug',
       title: 'Slug',
+      readOnly: readOnlyIfNotBaseLang,
+      components: {
+        field: localizationSlugField,
+      },
       validation: (Rule) =>
         Rule.custom(async (currentSlug, { document, getClient }) => {
           const client = getClient({ apiVersion: API_VERSION });
@@ -66,6 +73,7 @@ export const BlogArticle = defineType({
         }),
       options: {
         source: 'title',
+        isUnique: isUniqueAcrossDocuments,
       },
     }),
     defineField({
