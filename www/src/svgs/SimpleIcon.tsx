@@ -32,7 +32,7 @@ type Props = {
 };
 
 export const SimpleIcon: FC<Props> = ({ type, color, ...props }) => {
-  const simpleIconStyles = 'w-3 sm:w-6';
+  const simpleIconStyles = '';
   switch (type) {
     case 'arrow-left':
       return (
@@ -41,6 +41,7 @@ export const SimpleIcon: FC<Props> = ({ type, color, ...props }) => {
           viewBox="0 0 24 24"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
+          {...props}
         >
           <desc>{type}</desc>
           <path
@@ -58,6 +59,7 @@ export const SimpleIcon: FC<Props> = ({ type, color, ...props }) => {
           viewBox="0 0 24 24"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
+          {...props}
         >
           <desc>{type}</desc>
           <path
@@ -75,6 +77,7 @@ export const SimpleIcon: FC<Props> = ({ type, color, ...props }) => {
           viewBox="0 0 24 24"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
+          {...props}
         >
           <desc>{type}</desc>
           <path
@@ -92,6 +95,7 @@ export const SimpleIcon: FC<Props> = ({ type, color, ...props }) => {
           viewBox="0 0 24 24"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
+          {...props}
         >
           <desc>{type}</desc>
           <path
@@ -109,6 +113,7 @@ export const SimpleIcon: FC<Props> = ({ type, color, ...props }) => {
           viewBox="0 0 24 24"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
+          {...props}
         >
           <desc>{type}</desc>
           <path
@@ -126,6 +131,7 @@ export const SimpleIcon: FC<Props> = ({ type, color, ...props }) => {
           viewBox="0 0 24 24"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
+          {...props}
         >
           <desc>{type}</desc>
           <path
@@ -143,6 +149,7 @@ export const SimpleIcon: FC<Props> = ({ type, color, ...props }) => {
           viewBox="0 0 24 24"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
+          {...props}
         >
           <desc>{type}</desc>
           <path
@@ -160,6 +167,7 @@ export const SimpleIcon: FC<Props> = ({ type, color, ...props }) => {
           viewBox="0 0 24 24"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
+          {...props}
         >
           <desc>{type}</desc>
           <path
@@ -177,6 +185,7 @@ export const SimpleIcon: FC<Props> = ({ type, color, ...props }) => {
           viewBox="0 0 20 24"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
+          {...props}
         >
           <desc>{type}</desc>
           <path
@@ -194,6 +203,7 @@ export const SimpleIcon: FC<Props> = ({ type, color, ...props }) => {
           viewBox="0 0 24 24"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
+          {...props}
         >
           <desc>{type}</desc>
           <path
@@ -211,6 +221,7 @@ export const SimpleIcon: FC<Props> = ({ type, color, ...props }) => {
           viewBox="0 0 24 24"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
+          {...props}
         >
           <desc>{type}</desc>
           <path
@@ -229,6 +240,7 @@ export const SimpleIcon: FC<Props> = ({ type, color, ...props }) => {
           viewBox="0 0 24 24"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
+          {...props}
         >
           <desc>{type}</desc>
           <path
@@ -244,6 +256,7 @@ export const SimpleIcon: FC<Props> = ({ type, color, ...props }) => {
           viewBox="0 0 21 24"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
+          {...props}
         >
           <desc>{type}</desc>
           <path
@@ -261,6 +274,7 @@ export const SimpleIcon: FC<Props> = ({ type, color, ...props }) => {
           viewBox="0 0 24 24"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
+          {...props}
         >
           <desc>{type}</desc>
           <path
@@ -278,6 +292,7 @@ export const SimpleIcon: FC<Props> = ({ type, color, ...props }) => {
           viewBox="0 0 20 24"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
+          {...props}
         >
           <desc>{type}</desc>
           <path
@@ -295,6 +310,7 @@ export const SimpleIcon: FC<Props> = ({ type, color, ...props }) => {
           viewBox="0 0 24 24"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
+          {...props}
         >
           <desc>{type}</desc>
           <path
@@ -320,6 +336,7 @@ export const SimpleIcon: FC<Props> = ({ type, color, ...props }) => {
           viewBox="0 0 25 24"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
+          {...props}
         >
           <desc>{type}</desc>
           <path
@@ -335,6 +352,7 @@ export const SimpleIcon: FC<Props> = ({ type, color, ...props }) => {
           viewBox="0 0 24 24"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
+          {...props}
         >
           <desc>{type}</desc>
           <path
@@ -350,6 +368,7 @@ export const SimpleIcon: FC<Props> = ({ type, color, ...props }) => {
           viewBox="0 0 24 24"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
+          {...props}
         >
           <desc>{type}</desc>
           <path
@@ -367,6 +386,7 @@ export const SimpleIcon: FC<Props> = ({ type, color, ...props }) => {
           viewBox="0 0 24 24"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
+          {...props}
         >
           <desc>{type}</desc>
           <path
@@ -382,6 +402,7 @@ export const SimpleIcon: FC<Props> = ({ type, color, ...props }) => {
           viewBox="0 0 24 24"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
+          {...props}
         >
           <desc>{type}</desc>
           <path
@@ -399,6 +420,7 @@ export const SimpleIcon: FC<Props> = ({ type, color, ...props }) => {
           viewBox="0 0 24 24"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
+          {...props}
         >
           <desc>{type}</desc>
           <path
@@ -416,6 +438,7 @@ export const SimpleIcon: FC<Props> = ({ type, color, ...props }) => {
           viewBox="0 0 24 24"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
+          {...props}
         >
           <desc>{type}</desc>
           <rect y="10" width="24" height="4" rx="2" fill={color || `#131D2B`} />

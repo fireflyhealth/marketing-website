@@ -9,5 +9,15 @@ export const siteSettings = `{
     title,
     "navLinks": navLinks ${NavLinkObject}[],
   },
+  logoColor {
+    asset->{
+      url
+    }
+  },
+  logoMonochrome {
+    asset->{
+      url
+    }
+  },
   "defaultMetadata": defaultMetadata ${metadata},
 }`;

@@ -17,3 +17,8 @@ const ProdRevalidationTime = {
 export const RevalidationTime = config.isProd
   ? ProdRevalidationTime
   : StagingRevalidationTime;
+
+// global z-index set to the power of 10
+export const zIndex = {
+  Navigation: 1000,
+};

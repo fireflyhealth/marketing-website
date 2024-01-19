@@ -1,4 +1,6 @@
 import { AppProps } from 'next/app';
+import { Navigation } from '@/components/Navigation';
+import '../styles/fonts.css';
 import '../styles/main.css';
 
 import { SiteSettings } from '@/types/sanity';
@@ -14,7 +16,11 @@ export default function App({ Component, pageProps: allPageProps }: Props) {
   return (
     <>
       <DefaultMetadata metadata={siteSettings.defaultMetadata} />
-      {/* TODO: Navigation */}
+      <Navigation
+        logoColor={siteSettings.logoColor}
+        logoMonochrome={siteSettings.logoMonochrome}
+        navLinks={siteSettings.globalNav.navLinks}
+      />
       <Theme theme={ColorTheme.White}>
         <main className="font-trust">
           <Component {...pageProps} />
