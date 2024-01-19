@@ -32,7 +32,12 @@ export const Button: FC<ButtonProps> = ({
         onClick={onClick}
         disabled={disabled}
       >
-        <div className="cta__inner">{label}</div>
+        <div
+          /* TODO add font-size-X--cta */
+          className="cta__inner"
+        >
+          {label}
+        </div>
       </button>
     </div>
   );

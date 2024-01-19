@@ -121,6 +121,7 @@ svg {
 /**
  * General theme styles
  */
+
 .theme-white {
   .bg-theme {
     background: theme('colors.white');
@@ -262,7 +263,7 @@ svg {
   }
 
   .text-theme-decorative {
-    color: theme('colors.sky');
+    color: theme('colors.midnight');
   }
 
   .border-theme {
@@ -297,7 +298,7 @@ svg {
     padding: 0 3.5rem;
 
     @screen md {
-      padding: 0 4.5rem;
+      padding: 0 2.5rem;
     }
   }
 
@@ -317,32 +318,8 @@ svg {
     }
 
     .cta__inner {
-      padding: 0 1.625rem;
+      padding: 0;
     }
-  }
-}
-
-/*
- * Primary CTA
- *
- * (consistent across themes)
- **/
-.cta--primary {
-  color: theme('colors.black');
-  background-color: theme('colors.yellow');
-  border: 3px solid transparent;
-
-  &:hover {
-    background-color: theme('colors.yellow-light');
-  }
-
-  &:focus {
-    border-color: theme('colors.yellow-light');
-  }
-
-  &:disabled {
-    color: theme('colors.grey-darker');
-    background-color: theme('colors.grey-medium');
   }
 }
 
@@ -350,24 +327,54 @@ svg {
  * Themed CTA styles
  */
 
+.theme-wrapper {
+  .cta {
+    &:focus {
+      outline: none;
+    }
+
+    &--outlined {
+      &:focus {
+        border-width: 4px;
+      }
+    }
+  }
+}
+
 .theme-white {
+  .cta--primary {
+    color: theme('colors.black');
+    background-color: theme('colors.yellow');
+    border: 3px solid transparent;
+
+    &:hover {
+      background-color: theme('colors.yellow-light');
+    }
+
+    &:focus {
+      border-color: theme('colors.black');
+    }
+
+    &:disabled {
+      opacity: 30%;
+    }
+  }
+
   .cta--secondary {
     color: theme('colors.midnight');
     background-color: theme('colors.grey');
     border: 3px solid transparent;
 
     &:hover {
-      /* TODO: Pending designs */
       opacity: 0.7;
     }
 
     &:focus {
-      /* TODO: Pending designs */
-      border-color: theme('colors.yellow');
+      border-color: theme('colors.black');
     }
 
     &:disabled {
-      /* TODO: Pending designs */
+      opacity: 30%;
       color: theme('colors.grey-darker');
       background-color: theme('colors.grey-medium');
     }
@@ -383,15 +390,16 @@ svg {
     }
 
     &:focus {
-      border: 3px solid theme('colors.yellow');
+      border-color: theme('colors.black');
 
       .cta__inner {
-        border-radius: 48px;
-        border: 1px solid theme('colors.grey-darker');
+        /* border-radius: 48px; */
+        /* border: 1px solid theme('colors.grey-darker'); */
       }
     }
 
     &:disabled {
+      opacity: 30%;
       color: theme('colors.grey-darker');
       border-color: theme('colors.grey-medium');
     }
@@ -412,8 +420,7 @@ svg {
     }
 
     &:disabled {
-      color: theme('colors.grey-darker');
-      border-color: theme('colors.white');
+      opacity: 30%;
     }
   }
 }
@@ -425,17 +432,14 @@ svg {
     border: 3px solid transparent;
 
     &:hover {
-      /* TODO: Pending designs */
       opacity: 0.7;
     }
 
     &:focus {
-      /* TODO: Pending designs */
-      border-color: theme('colors.yellow');
+      border-color: theme('colors.black');
     }
 
     &:disabled {
-      /* TODO: Pending designs */
       color: theme('colors.grey-darker');
       background-color: theme('colors.grey-medium');
     }
@@ -444,19 +448,14 @@ svg {
   .cta--outlined {
     color: theme('colors.midnight');
     background-color: transparent;
-    border: 1px solid theme('colors.grey-medium');
+    border: 1px solid theme('colors.grey-dark');
 
     &:hover {
       border-color: theme('colors.grey-darker');
     }
 
     &:focus {
-      border: 3px solid theme('colors.yellow');
-
-      .cta__inner {
-        border-radius: 48px;
-        border: 1px solid theme('colors.grey-darker');
-      }
+      border-color: theme('colors.black');
     }
 
     &:disabled {
@@ -480,73 +479,143 @@ svg {
     }
 
     &:disabled {
-      color: theme('colors.grey-darker');
-      border-color: theme('colors.white');
+      opacity: 30%;
     }
   }
 }
 
 .theme-sienna {
+  .cta--primary {
+    &:disabled {
+      opacity: 30%;
+      color: theme('colors.yellow-light');
+      @apply bg-yellow-light/70;
+    }
+
+    &:focus {
+      border-color: theme('colors.yellow-light');
+    }
+  }
   .cta--secondary {
     color: theme('colors.yellow-light');
     background-color: theme('colors.sienna-dark');
     border: 3px solid transparent;
 
     &:hover {
-      /* TODO: Pending designs */
       opacity: 0.7;
     }
 
     &:focus {
-      /* TODO: Pending designs */
-      border-color: theme('colors.yellow');
+      border-color: theme('colors.yellow-light');
     }
 
     &:disabled {
-      /* TODO: Pending designs */
-      color: theme('colors.grey-darker');
-      background-color: theme('colors.grey-medium');
+      opacity: 0.3;
+      color: theme('colors.yellow-light');
+      @apply bg-yellow-light/70;
     }
   }
 
   .cta--outlined {
-    /* TODO: Pending designs */
+    color: theme('colors.yellow-light');
+    background-color: transparent;
+    border: 1px solid;
+    @apply border-yellow-light/70;
+
+    &:hover {
+      border-color: theme('colors.yellow-light');
+    }
+
+    &:focus {
+      border-color: theme('colors.yellow-light');
+    }
+
+    &:disabled {
+      opacity: 0.3;
+      color: theme('colors.yellow-light');
+    }
   }
 
   .cta--textLink {
-    /* TODO: Pending designs */
+    color: theme('colors.yellow-light');
+    border-bottom: 1px solid theme('colors.yellow-light');
+    border-radius: 0px;
+
+    &:hover {
+      border-color: theme('colors.yellow');
+    }
   }
 }
 
 .theme-midnight {
+  .cta--primary {
+    &:disabled {
+      opacity: 30%;
+      color: theme('colors.yellow-light');
+      background-color: theme('colors.grey-darker');
+    }
+
+    &:focus {
+      border-color: theme('colors.yellow-light');
+    }
+  }
   .cta--secondary {
     color: theme('colors.yellow-light');
     background-color: theme('colors.midnight-light');
     border: 3px solid transparent;
 
     &:hover {
-      /* TODO: Pending designs */
       opacity: 0.7;
     }
 
     &:focus {
-      /* TODO: Pending designs */
-      border-color: theme('colors.yellow');
+      border-color: theme('colors.yellow-light');
     }
 
     &:disabled {
-      /* TODO: Pending designs */
-      color: theme('colors.grey-darker');
-      background-color: theme('colors.grey-medium');
+      opacity: 30%;
+      color: theme('colors.yellow-light');
+      background-color: theme('colors.grey-darker');
     }
   }
 
   .cta--outlined {
-    /* TODO: Pending designs */
+    color: theme('colors.yellow-light');
+    background-color: transparent;
+    border: 1px solid;
+    border-color: theme('colors.grey-darker');
+
+    &:hover {
+      border-color: theme('colors.yellow-light');
+    }
+
+    &:focus {
+      border-color: theme('colors.yellow-light');
+      /* */
+    }
+
+    &:disabled {
+      opacity: 30%;
+      color: theme('colors.yellow-light');
+    }
   }
 
   .cta--textLink {
-    /* TODO: Pending designs */
+    color: theme('colors.yellow-light');
+    border-bottom: 1px solid theme('colors.yellow-light');
+    border-radius: 0px;
+
+    &:hover {
+      border-color: theme('colors.yellow');
+    }
+
+    &:focus {
+    }
+
+    &:disabled {
+      opacity: 30%;
+      color: theme('colors.yellow-light');
+    }
   }
 }
 
