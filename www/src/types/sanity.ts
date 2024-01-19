@@ -60,6 +60,11 @@ export type LinkableDocumentData =
 
 export type SiteSettings = SanityDocument & {
   _type: 'siteSettings';
+  globalNav: {
+    _type: string;
+    title: string;
+    navLinks: NavLinkObject[];
+  };
   defaultMetadata: Metadata;
 };
 
@@ -140,6 +145,28 @@ export type BlogArticle = SanityDocument & {
   /* TODO linking - change this to BlogPageLinkData */
   category: Pick<Blog, 'title' | 'slug' | '_type'>;
   metadata?: Metadata;
+};
+
+/* Navigation */
+export type Navigation = SanityDocument & {
+  title: string;
+  navLinks: NavLinkObject[];
+};
+
+export type NavLinkObject = {
+  _key: string;
+  _type: string;
+  showDropdown: boolean;
+  page: {
+    title: string;
+    slug: string;
+    subPages: {
+      _type: string;
+      _id: string;
+      title: string;
+      slug: string;
+    }[];
+  };
 };
 
 /*
