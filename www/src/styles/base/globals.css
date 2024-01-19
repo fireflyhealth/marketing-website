@@ -22,6 +22,18 @@ svg {
   }
 }
 
+button:disabled,
+button[disabled] {
+  svg {
+    .icon-base {
+      fill: theme('colors.grey');
+    }
+    .icon-overlap {
+      fill: theme('colors.grey-medium');
+    }
+  }
+}
+
 /*
  * Reference:
  * https://www.figma.com/file/2ghg22zsQKeysX5YUcDP5d/%5BFirefly%5D-Design-System?type=design&node-id=3801%3A6956&mode=dev
