@@ -4,6 +4,8 @@ import cn from 'classnames';
 type ButtonVariant = 'primary' | 'secondary' | 'outlined' | 'textLink';
 
 type ButtonProps = {
+  /* Used for analytics event tracking */
+  id: string;
   label: string;
   variant?: ButtonVariant;
   onClick: React.MouseEventHandler;
@@ -12,6 +14,7 @@ type ButtonProps = {
 };
 
 export const Button: FC<ButtonProps> = ({
+  id,
   label,
   variant = 'primary',
   onClick,
@@ -29,6 +32,7 @@ export const Button: FC<ButtonProps> = ({
       <button
         /* CTA styles are defined in global.css */
         className={cn('cta', `cta--${variant}`)}
+        id={id}
         onClick={onClick}
         disabled={disabled}
       >

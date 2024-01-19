@@ -8,15 +8,59 @@ type ButtonGroupProps = ButtonsExampleProps & { theme: ColorTheme };
 const ButtonGroup: FC<ButtonGroupProps> = ({ label, onClick, theme }) => (
   <Theme theme={theme}>
     <div className="bg-theme grid grid-cols-1 py-9 gap-y-9 p-4 rounded-md">
-      <Button label={label} onClick={onClick} variant="primary" />
-      <Button label={label} onClick={onClick} variant="secondary" />
-      <Button label={label} onClick={onClick} variant="outlined" />
-      <Button label={label} onClick={onClick} variant="textLink" />
+      <Button
+        id={`${theme}-primary`}
+        label={label}
+        onClick={onClick}
+        variant="primary"
+      />
+      <Button
+        id={`${theme}-secondary`}
+        label={label}
+        onClick={onClick}
+        variant="secondary"
+      />
+      <Button
+        id={`${theme}-outlined`}
+        label={label}
+        onClick={onClick}
+        variant="outlined"
+      />
+      <Button
+        id={`${theme}-textLink`}
+        label={label}
+        onClick={onClick}
+        variant="textLink"
+      />
       <hr />
-      <Button label={label} disabled onClick={onClick} variant="primary" />
-      <Button label={label} disabled onClick={onClick} variant="secondary" />
-      <Button label={label} disabled onClick={onClick} variant="outlined" />
-      <Button label={label} disabled onClick={onClick} variant="textLink" />
+      <Button
+        id={`${theme}-primary-disabled`}
+        label={label}
+        disabled
+        onClick={onClick}
+        variant="primary"
+      />
+      <Button
+        id={`${theme}-secondary-disabled`}
+        label={label}
+        disabled
+        onClick={onClick}
+        variant="secondary"
+      />
+      <Button
+        id={`${theme}-outlined-disabled`}
+        label={label}
+        disabled
+        onClick={onClick}
+        variant="outlined"
+      />
+      <Button
+        id={`${theme}-textLink-disabled`}
+        label={label}
+        disabled
+        onClick={onClick}
+        variant="textLink"
+      />
     </div>
   </Theme>
 );

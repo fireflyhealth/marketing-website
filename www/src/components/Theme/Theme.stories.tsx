@@ -50,13 +50,19 @@ const ExampleInner = () => {
         cta-text-theme-primary
         <br /> cta-bg-theme-primary
       </Annotation>
-      <Button align="left" label="Get Started" onClick={handleClick} />
+      <Button
+        id="button-primary"
+        align="left"
+        label="Get Started"
+        onClick={handleClick}
+      />
 
       <Annotation>
         cta-text-theme-secondary <br />
         cta-bg-theme-secondary
       </Annotation>
       <Button
+        id="button-secondary"
         align="left"
         label="Get Started"
         variant="secondary"
