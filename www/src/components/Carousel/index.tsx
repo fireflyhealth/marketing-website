@@ -103,9 +103,6 @@ export const Slide: FC<SlideProps> = ({ children, slideIndex }) => {
   return (
     <div className="carousel__slide h-full relative" ref={slideElement}>
       {children}
-      {currentSlideIndex === slideIndex && (
-        <div className="absolute top-0">Current Slide</div>
-      )}
     </div>
   );
 };
