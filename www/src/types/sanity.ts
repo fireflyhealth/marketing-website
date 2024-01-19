@@ -36,7 +36,23 @@ type FileAsset = {
  * Linkable Documents
  */
 
-export type GenericPageLinkInfo = Pick<GenericPage, '_type' | 'slug'>;
+/* Are you updating this union? There are a number of other things
+ * you will need to update. See corresponding instructions in
+ * cms/schemas/constants/linkableDocuments.ts */
+export type LinkableDocument =
+  | Homepage
+  | DownloadPage
+  | ContactPage
+  | FAQPage
+  | GenericPage;
+/* TODO: SubPage, Blogs, Articles, ... */
+
+export type LinkableDocumentData =
+  | HomepageLinkData
+  | DownloadPageLinkData
+  | ContactPageLinkData
+  | FAQPageLinkData
+  | GenericPageLinkData;
 
 /**
  * Documents
@@ -51,6 +67,7 @@ export type Homepage = SanityDocument & {
   _type: 'homepage';
   metadata?: Metadata;
 };
+export type HomepageLinkData = Pick<Homepage, '_type'>;
 
 /* Special pages */
 export type DownloadPage = SanityDocument & {
@@ -58,12 +75,14 @@ export type DownloadPage = SanityDocument & {
   title: string;
   metadata?: Metadata;
 };
+export type DownloadPageLinkData = Pick<DownloadPage, '_type'>;
 
 export type ContactPage = SanityDocument & {
   _type: 'contactPage';
   title: string;
   metadata?: Metadata;
 };
+export type ContactPageLinkData = Pick<ContactPage, '_type'>;
 
 export type NotFoundPage = SanityDocument & {
   _type: 'notFoundPage';
@@ -76,6 +95,7 @@ export type FAQPage = SanityDocument & {
   title: string;
   metadata?: Metadata;
 };
+export type FAQPageLinkData = Pick<FAQPage, '_type'>;
 
 /* Properties common to both GenericPage & SubPage */
 type CommonPage = SanityDocument & {
@@ -88,10 +108,11 @@ export type GenericPage = CommonPage & {
   _type: 'genericPage';
   subPages?: SubPage[];
 };
+export type GenericPageLinkData = Pick<GenericPage, '_type' | 'slug' | 'title'>;
 
 export type SubPage = CommonPage & {
   _type: 'subPage';
-  parentPage: GenericPageLinkInfo;
+  parentPage: GenericPageLinkData;
 };
 
 /* Client Page */
@@ -115,6 +136,7 @@ export type BlogArticle = SanityDocument & {
   _type: 'blogArticle';
   title: string;
   slug: Slug;
+  /* TODO linking - change this to BlogPageLinkData */
   category: Pick<Blog, 'title' | 'slug' | '_type'>;
   metadata?: Metadata;
 };
@@ -170,4 +192,18 @@ export type Metadata = {
   shareTitle?: string;
   shareDescription?: string;
   shareGraphic?: Image;
+};
+
+export type Link = {
+  documentLink?: Maybe<LinkableDocument>;
+  externalUrl?: Maybe<string>;
+  file?: Maybe<FileAsset>;
+};
+
+export type CTA = {
+  label: string;
+  ariaLabel?: string;
+  id: string;
+  variant: 'primary' | 'secondary' | 'outlined';
+  link: Link;
 };
