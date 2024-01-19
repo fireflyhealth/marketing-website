@@ -1,0 +1,19 @@
+html,
+.sb-show-main,
+body.sb-show-main.sb-show-padded,
+#storybook-root,
+#storybook-root > .theme-wrapper {
+  padding: 0 !important;
+  height: 100%;
+}
+
+#storybook-root > .theme-wrapper {
+  height: 100%;
+  /* overflow: scroll; */
+}
+
+.storybook-inner {
+  overflow: scroll;
+  height: 100%;
+  padding: 60px;
+}

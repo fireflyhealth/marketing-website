@@ -1,17 +1,17 @@
-.text-color-primary,
-.text-color-secondary,
-.text-color-decorative,
-.cta-text-color-primary,
-.cta-text-color-secondary {
+.text-theme-primary,
+.text-theme-secondary,
+.text-theme-decorative,
+.cta-text-theme-primary,
+.cta-text-theme-secondary {
   color: inherit;
 }
 
-.cta-bg-color-primary,
-.cta-bg-color-secondary {
+.cta-bg-theme-primary,
+.cta-bg-theme-secondary {
   background-color: inherit;
 }
 
-.border-color {
+.border-theme {
   border-color: inherit;
 }
 
@@ -22,32 +22,124 @@ svg {
   }
 }
 
-.theme-white {
-  background: theme('colors.white');
+/*
+ * Reference:
+ * https://www.figma.com/file/2ghg22zsQKeysX5YUcDP5d/%5BFirefly%5D-Design-System?type=design&node-id=3801%3A6956&mode=dev
+ */
+.font-size--1 {
+  font-size: 96px;
 
-  .text-color-primary,
-  .cta-text-color-primary,
-  .cta-text-color-secondary {
+  @screen md {
+    font-size: 120px;
+  }
+  @screen lg {
+    font-size: min(192px, 10vw);
+  }
+}
+
+.font-size--2 {
+  font-size: 52px;
+
+  @screen md {
+    font-size: 72px;
+  }
+  @screen lg {
+    font-size: min(140px, 7.25vw);
+  }
+}
+
+.font-size--3 {
+  font-size: 48px;
+
+  @screen md {
+    font-size: 64px;
+  }
+  @screen lg {
+    font-size: min(108px, 5.625vw);
+  }
+}
+
+.font-size--4 {
+  font-size: 32px;
+
+  @screen md {
+    font-size: 43px;
+  }
+  @screen lg {
+    font-size: 54px;
+  }
+}
+
+.font-size--5 {
+  font-size: 24px;
+
+  @screen md {
+    font-size: 34px;
+  }
+  @screen lg {
+    font-size: 44px;
+  }
+}
+
+.font-size--6 {
+  font-size: 20px;
+
+  @screen md {
+    font-size: 26px;
+  }
+  @screen lg {
+    font-size: 32px;
+  }
+}
+
+.font-size--7 {
+  font-size: 18px;
+
+  @screen md {
+    font-size: 21px;
+  }
+  @screen lg {
+    font-size: 24px;
+  }
+}
+
+.font-size--8 {
+  font-size: 16px;
+
+  @screen md {
+    font-size: 18px;
+  }
+}
+
+.font-size--9 {
+  font-size: 14px;
+}
+
+.font-size--10 {
+  font-size: 12px;
+}
+/**
+ * General theme styles
+ */
+
+.theme-white {
+  .bg-theme {
+    background: theme('colors.white');
+  }
+
+  .text-theme-primary {
     color: theme('colors.black');
   }
 
-  .text-color-secondary {
+  .text-theme-secondary {
     color: theme('colors.grey-darker');
   }
 
-  .text-color-decorative {
+  .text-theme-decorative {
     color: theme('colors.sienna');
   }
 
-  .cta-bg-color-primary {
-    background-color: theme('colors.yellow');
-  }
-
-  .cta-bg-color-secondary {
-    background-color: theme('colors.grey');
-  }
-
-  .border-color {
+  .border-theme {
     border-color: theme('colors.grey-medium');
   }
 
@@ -61,33 +153,24 @@ svg {
     }
   }
 }
-
 .theme-grey {
-  background: theme('colors.grey');
+  .bg-theme {
+    background: theme('colors.grey');
+  }
 
-  .text-color-primary,
-  .cta-text-color-primary,
-  .cta-text-color-secondary {
+  .text-theme-primary {
     color: theme('colors.black');
   }
 
-  .text-color-secondary {
+  .text-theme-secondary {
     color: theme('colors.grey-darker');
   }
 
-  .text-color-decorative {
+  .text-theme-decorative {
     color: theme('colors.sienna');
   }
 
-  .cta-bg-color-primary {
-    background-color: theme('colors.yellow');
-  }
-
-  .cta-bg-color-secondary {
-    background-color: theme('colors.grey-medium');
-  }
-
-  .border-color {
+  .border-theme {
     border-color: theme('colors.grey-dark');
   }
 
@@ -103,34 +186,23 @@ svg {
 }
 
 .theme-sienna {
-  background: theme('colors.sienna');
+  .bg-theme {
+    background: theme('colors.sienna');
+  }
 
-  .text-color-primary,
-  .cta-text-color-secondary {
+  .text-theme-primary {
     color: theme('colors.yellow-light');
   }
 
-  .text-color-secondary {
+  .text-theme-secondary {
     @apply text-yellow-light/70;
   }
 
-  .text-color-decorative {
+  .text-theme-decorative {
     color: theme('colors.yellow');
   }
 
-  .cta-text-color-primary {
-    color: theme('colors.black');
-  }
-
-  .cta-bg-color-primary {
-    background-color: theme('colors.yellow');
-  }
-
-  .cta-bg-color-secondary {
-    background-color: theme('colors.sienna-dark');
-  }
-
-  .border-color {
+  .border-theme {
     border-color: theme('colors.black');
   }
 
@@ -146,34 +218,23 @@ svg {
 }
 
 .theme-midnight {
-  background: theme('colors.midnight');
+  .bg-theme {
+    background: theme('colors.midnight');
+  }
 
-  .text-color-primary,
-  .cta-text-color-secondary {
+  .text-theme-primary {
     color: theme('colors.yellow-light');
   }
 
-  .text-color-secondary {
+  .text-theme-secondary {
     @apply text-yellow-light/70;
   }
 
-  .text-color-decorative {
+  .text-theme-decorative {
     color: theme('colors.sky');
   }
 
-  .cta-text-color-primary {
-    color: theme('colors.black');
-  }
-
-  .cta-bg-color-primary {
-    background-color: theme('colors.yellow');
-  }
-
-  .cta-bg-color-secondary {
-    background-color: theme('colors.midnight-light');
-  }
-
-  .border-color {
+  .border-theme {
     border-color: theme('colors.grey-darker');
   }
 
@@ -189,31 +250,23 @@ svg {
 }
 
 .theme-sky {
-  background: theme('colors.sky');
+  .bg-theme {
+    background: theme('colors.sky');
+  }
 
-  .text-color-primary,
-  .cta-text-color-primary,
-  .cta-text-color-secondary {
+  .text-theme-primary {
     color: theme('colors.black');
   }
 
-  .text-color-secondary {
+  .text-theme-secondary {
     @apply text-black/70;
   }
 
-  .text-color-decorative {
-    color: theme('colors.sky');
+  .text-theme-decorative {
+    color: theme('colors.midnight');
   }
 
-  .cta-bg-color-primary {
-    background-color: theme('colors.yellow');
-  }
-
-  .cta-bg-color-secondary {
-    @apply bg-white/40;
-  }
-
-  .border-color {
+  .border-theme {
     @apply border-white/40;
   }
 
@@ -225,5 +278,374 @@ svg {
     .icon-overlap {
       fill: theme('colors.sky-dark');
     }
+  }
+}
+
+/**
+ * CTA Styles
+ */
+
+.cta {
+  @apply font-size--8;
+  border-radius: 48px;
+  cursor: pointer;
+  height: 40px;
+
+  &__inner {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding: 0 3.5rem;
+
+    @screen md {
+      padding: 0 2.5rem;
+    }
+  }
+
+  @screen md {
+    height: 48px;
+  }
+
+  &:disabled {
+    pointer-events: none;
+  }
+
+  &--textLink {
+    height: 26px;
+
+    @screen md {
+      height: 24px;
+    }
+
+    .cta__inner {
+      padding: 0;
+    }
+  }
+}
+
+/*
+ * Themed CTA styles
+ */
+
+.theme-wrapper {
+  .cta {
+    &:focus {
+      outline: none;
+    }
+
+    &--outlined {
+      &:focus {
+        border-width: 4px;
+      }
+    }
+  }
+}
+
+.theme-white {
+  .cta--primary {
+    color: theme('colors.black');
+    background-color: theme('colors.yellow');
+    border: 3px solid transparent;
+
+    &:hover {
+      background-color: theme('colors.yellow-light');
+    }
+
+    &:focus {
+      border-color: theme('colors.black');
+    }
+
+    &:disabled {
+      opacity: 30%;
+    }
+  }
+
+  .cta--secondary {
+    color: theme('colors.midnight');
+    background-color: theme('colors.grey');
+    border: 3px solid transparent;
+
+    &:hover {
+      opacity: 0.7;
+    }
+
+    &:focus {
+      border-color: theme('colors.black');
+    }
+
+    &:disabled {
+      opacity: 30%;
+      color: theme('colors.grey-darker');
+      background-color: theme('colors.grey-medium');
+    }
+  }
+
+  .cta--outlined {
+    color: theme('colors.midnight');
+    background-color: transparent;
+    border: 1px solid theme('colors.grey-medium');
+
+    &:hover {
+      border-color: theme('colors.grey-darker');
+    }
+
+    &:focus {
+      border-color: theme('colors.black');
+
+      .cta__inner {
+        /* border-radius: 48px; */
+        /* border: 1px solid theme('colors.grey-darker'); */
+      }
+    }
+
+    &:disabled {
+      opacity: 30%;
+      color: theme('colors.grey-darker');
+      border-color: theme('colors.grey-medium');
+    }
+  }
+
+  .cta--textLink {
+    color: theme('colors.midnight');
+    border-bottom: 1px solid theme('colors.midnight');
+    border-radius: 0px;
+
+    &:hover {
+      border-color: theme('colors.yellow');
+    }
+
+    &:focus {
+      border-color: transparent;
+      background-color: theme('colors.yellow');
+    }
+
+    &:disabled {
+      opacity: 30%;
+    }
+  }
+}
+
+.theme-grey {
+  .cta--secondary {
+    color: theme('colors.midnight');
+    background-color: theme('colors.grey-medium');
+    border: 3px solid transparent;
+
+    &:hover {
+      opacity: 0.7;
+    }
+
+    &:focus {
+      border-color: theme('colors.black');
+    }
+
+    &:disabled {
+      color: theme('colors.grey-darker');
+      background-color: theme('colors.grey-medium');
+    }
+  }
+
+  .cta--outlined {
+    color: theme('colors.midnight');
+    background-color: transparent;
+    border: 1px solid theme('colors.grey-dark');
+
+    &:hover {
+      border-color: theme('colors.grey-darker');
+    }
+
+    &:focus {
+      border-color: theme('colors.black');
+    }
+
+    &:disabled {
+      color: theme('colors.grey-darker');
+      border-color: theme('colors.grey-medium');
+    }
+  }
+
+  .cta--textLink {
+    color: theme('colors.midnight');
+    border-bottom: 1px solid theme('colors.midnight');
+    border-radius: 0px;
+
+    &:hover {
+      border-color: theme('colors.yellow');
+    }
+
+    &:focus {
+      border-color: transparent;
+      background-color: theme('colors.yellow');
+    }
+
+    &:disabled {
+      opacity: 30%;
+    }
+  }
+}
+
+.theme-sienna {
+  .cta--primary {
+    &:disabled {
+      opacity: 30%;
+      color: theme('colors.yellow-light');
+      @apply bg-yellow-light/70;
+    }
+
+    &:focus {
+      border-color: theme('colors.yellow-light');
+    }
+  }
+  .cta--secondary {
+    color: theme('colors.yellow-light');
+    background-color: theme('colors.sienna-dark');
+    border: 3px solid transparent;
+
+    &:hover {
+      opacity: 0.7;
+    }
+
+    &:focus {
+      border-color: theme('colors.yellow-light');
+    }
+
+    &:disabled {
+      opacity: 0.3;
+      color: theme('colors.yellow-light');
+      @apply bg-yellow-light/70;
+    }
+  }
+
+  .cta--outlined {
+    color: theme('colors.yellow-light');
+    background-color: transparent;
+    border: 1px solid;
+    @apply border-yellow-light/70;
+
+    &:hover {
+      border-color: theme('colors.yellow-light');
+    }
+
+    &:focus {
+      border-color: theme('colors.yellow-light');
+    }
+
+    &:disabled {
+      opacity: 0.3;
+      color: theme('colors.yellow-light');
+    }
+  }
+
+  .cta--textLink {
+    color: theme('colors.yellow-light');
+    border-bottom: 1px solid theme('colors.yellow-light');
+    border-radius: 0px;
+
+    &:hover {
+      border-color: theme('colors.yellow');
+    }
+  }
+}
+
+.theme-midnight {
+  .cta--primary {
+    &:disabled {
+      opacity: 30%;
+      color: theme('colors.yellow-light');
+      background-color: theme('colors.grey-darker');
+    }
+
+    &:focus {
+      border-color: theme('colors.yellow-light');
+    }
+  }
+  .cta--secondary {
+    color: theme('colors.yellow-light');
+    background-color: theme('colors.midnight-light');
+    border: 3px solid transparent;
+
+    &:hover {
+      opacity: 0.7;
+    }
+
+    &:focus {
+      border-color: theme('colors.yellow-light');
+    }
+
+    &:disabled {
+      opacity: 30%;
+      color: theme('colors.yellow-light');
+      background-color: theme('colors.grey-darker');
+    }
+  }
+
+  .cta--outlined {
+    color: theme('colors.yellow-light');
+    background-color: transparent;
+    border: 1px solid;
+    border-color: theme('colors.grey-darker');
+
+    &:hover {
+      border-color: theme('colors.yellow-light');
+    }
+
+    &:focus {
+      border-color: theme('colors.yellow-light');
+      /* */
+    }
+
+    &:disabled {
+      opacity: 30%;
+      color: theme('colors.yellow-light');
+    }
+  }
+
+  .cta--textLink {
+    color: theme('colors.yellow-light');
+    border-bottom: 1px solid theme('colors.yellow-light');
+    border-radius: 0px;
+
+    &:hover {
+      border-color: theme('colors.yellow');
+    }
+
+    &:focus {
+    }
+
+    &:disabled {
+      opacity: 30%;
+      color: theme('colors.yellow-light');
+    }
+  }
+}
+
+.theme-sky {
+  .cta--secondary {
+    color: theme('colors.black');
+    background-color: theme('colors.sky-light');
+    border: 3px solid transparent;
+
+    &:hover {
+      /* TODO: Pending designs */
+      opacity: 0.7;
+    }
+
+    &:focus {
+      /* TODO: Pending designs */
+      border-color: theme('colors.yellow');
+    }
+
+    &:disabled {
+      /* TODO: Pending designs */
+      color: theme('colors.grey-darker');
+      background-color: theme('colors.grey-medium');
+    }
+  }
+  .cta--outlined {
+    /* TODO: Pending designs */
+  }
+
+  .cta--textLink {
+    /* TODO: Pending designs */
   }
 }

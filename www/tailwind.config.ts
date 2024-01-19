@@ -2,20 +2,27 @@ import type { Config } from 'tailwindcss';
 
 const config: Config = {
   content: [
-    './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/components/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/app/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/svgs/**/*.{js,ts,jsx,tsx,mdx}',
+    './.storybook/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
     fontFamily: {
-      trust: ['Trust', 'sans-serf'],
-      roobert: ['Roobert', 'sans-serif'],
+      trust: ['Trust', 'Gill Sans', 'Calibri', 'sans-serf'],
+      roobert: [
+        'Roobert',
+        'Segoe UI',
+        'Roboto',
+        'Helvetica',
+        'Arial',
+        'sans-serif',
+      ],
+      /* Used in Storybook */
+      mono: 'Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace;',
     },
     screens: {
       sm: '600px',
-      md: '1200px',
-      lg: '1920px',
+      md: '800px',
+      lg: '1200px',
     },
     colors: {
       black: '#131D2B',
@@ -30,6 +37,7 @@ const config: Config = {
       'sienna-dark': '#521B00',
       midnight: '#131D2B',
       'midnight-light': '#29374A',
+      'sky-light': '#D2E7F1',
       sky: '#ABD9EA',
       'sky-medium': '#73B9D7',
       'sky-dark': '#3F819D',
