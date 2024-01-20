@@ -15,5 +15,5 @@ body.sb-show-main.sb-show-padded,
 .storybook-inner {
   overflow: scroll;
   height: 100%;
-  padding: 60px;
+  padding: 25px;
 }

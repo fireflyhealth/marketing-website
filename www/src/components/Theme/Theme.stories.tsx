@@ -4,18 +4,6 @@ import { Button } from '@/atoms/Button';
 import { BrandedIcon } from '@/svgs/BrandedIcon';
 import { ColorTheme, Theme } from './';
 
-type ThemeExampleComponentProps = {
-  theme: ColorTheme;
-  borderStyle?: BorderStyle;
-};
-
-enum BorderStyle {
-  None = 'none',
-  Hidden = 'hidden',
-  Dotted = 'dotted',
-  Solid = 'solid',
-}
-
 const Annotation: FC<{ children: React.ReactNode }> = ({ children }) => (
   <div className="flex flex-col justify-center text-[0.6rem] text-theme-primary">
     {children}
@@ -27,7 +15,7 @@ const handleClick = () => alert('button clicked');
 const ExampleInner = () => {
   return (
     <div
-      className="text-left grid gap-4 grid-cols-2"
+      className="text-left grid gap-4 grid-cols-2 bg-theme p-2"
       style={{ gridTemplateColumns: '200px 1fr' }}
     >
       <Annotation>bg-color</Annotation>
@@ -83,19 +71,19 @@ const ExampleInner = () => {
 
 const meta = {
   title: 'Components/Theme',
-  component: Theme,
+  component: ExampleInner,
   parameters: {
     controls: { exclude: ['children', 'theme'] },
     docs: {
       controls: { exclude: ['children', 'theme'] },
     },
   },
-} satisfies Meta<typeof Theme>;
+} satisfies Meta<typeof ExampleInner>;
 
 type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
-  args: { theme: ColorTheme.White, children: <ExampleInner /> },
+  args: {},
 };
 
 export default meta;

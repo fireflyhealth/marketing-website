@@ -70,7 +70,7 @@ const components: Partial<PortableTextReactComponents> = {
 
 export const RichText: FC<RichTextProps> = ({ content, className }) => {
   return (
-    <div className={cx('RichText', className)}>
+    <div className={cx('RichText text-theme-primary', className)}>
       <PortableText value={content} components={components} />
     </div>
   );

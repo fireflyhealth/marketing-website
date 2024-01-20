@@ -47,7 +47,9 @@ type FontSizesProps = {
 
 const FontSizes: FC<FontSizesProps> = ({ textWrap, font }) => {
   return (
-    <div className={cx(font, textWrap ? '' : 'overflow-x-scroll')}>
+    <div
+      className={cx(font, textWrap ? '' : 'overflow-x-scroll', 'bg-theme p-3')}
+    >
       <Example textWrap={textWrap} className="font-size-1" wordCount={5} />
       <Example textWrap={textWrap} className="font-size-2" wordCount={12} />
       <Example textWrap={textWrap} className="font-size-3" wordCount={20} />
