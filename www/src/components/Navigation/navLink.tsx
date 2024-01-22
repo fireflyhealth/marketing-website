@@ -19,7 +19,7 @@ type Props = {
 
 export const NavLink: FC<Props> = ({ navItem, isMobile }) => {
   const {
-    globalNavOpen,
+    mobileNavOpen,
     toggleGlobalNav,
     currentNavItemRef,
     setCurrentNavItemRef,
@@ -41,10 +41,10 @@ export const NavLink: FC<Props> = ({ navItem, isMobile }) => {
     }
 
     // close dropdown if global nav is closed
-    if (isMobile && !globalNavOpen) {
+    if (isMobile && !mobileNavOpen) {
       setDropdownOpen(false);
     }
-  }, [currentNavItemRef, globalNavOpen, dropdownOpen]);
+  }, [currentNavItemRef, mobileNavOpen, dropdownOpen]);
 
   const parentSlug = navItem.page.slug;
   return (

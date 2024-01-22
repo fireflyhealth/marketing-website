@@ -16,13 +16,13 @@ export const Navigation: FC<Props> = ({
   logoMonochrome,
   navLinks,
 }) => {
-  const { globalNavOpen, setGlobalNavOpen } = useUIProvider();
+  const { mobileNavOpen, setMobileNavOpen } = useUIProvider();
   const router = useRouter();
 
   // close globalNav and globalNavDropdown on route change
   useEffect(() => {
-    if (globalNavOpen) {
-      setGlobalNavOpen(false);
+    if (mobileNavOpen) {
+      setMobileNavOpen(false);
     }
   }, [router.asPath]);
   return (

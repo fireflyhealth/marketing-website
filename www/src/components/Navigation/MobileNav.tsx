@@ -22,15 +22,15 @@ export const MobileNav: FC<Props> = ({
   logoMonochrome,
   navLinks,
 }) => {
-  const { globalNavOpen, toggleGlobalNav } = useUIProvider();
-  const logo = globalNavOpen
+  const { mobileNavOpen, toggleGlobalNav } = useUIProvider();
+  const logo = mobileNavOpen
     ? logoMonochrome?.asset?.url
     : logoColor?.asset?.url;
   return (
     <nav
       className={cn(
         NavWrapper,
-        globalNavOpen ? 'bg-yellow' : 'bg-transparent',
+        mobileNavOpen ? 'bg-yellow' : 'bg-transparent',
         'absolute md:hidden',
       )}
     >
@@ -43,16 +43,16 @@ export const MobileNav: FC<Props> = ({
 
         {/* menu button only visible on tablet and mobile */}
         <button className="md:hidden" onClick={toggleGlobalNav}>
-          {!globalNavOpen && (
+          {!mobileNavOpen && (
             <SimpleIcon type="menu" width={24} color="#131D2B" />
           )}
-          {globalNavOpen && (
+          {mobileNavOpen && (
             <SimpleIcon type="close" width={24} color="white" />
           )}
         </button>
       </div>
 
-      {globalNavOpen && (
+      {mobileNavOpen && (
         <div className={cn(NavLinksWrapper)}>
           {navLinks.map((navItem) => (
             <NavLink key={navItem._key} navItem={navItem} isMobile />

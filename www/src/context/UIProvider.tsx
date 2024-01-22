@@ -7,8 +7,8 @@ import {
 } from 'react';
 
 type UIProviderProps = {
-  globalNavOpen: boolean;
-  setGlobalNavOpen: (open: boolean) => void;
+  mobileNavOpen: boolean;
+  setMobileNavOpen: (open: boolean) => void;
   toggleGlobalNav: () => void;
   currentNavItemRef: HTMLDivElement | null;
   setCurrentNavItemRef: (globalNavItemRef: HTMLDivElement | null) => void;
@@ -28,10 +28,10 @@ export const useUIProvider = () => {
 
 export const UIProvider: FC<PropsWithChildren> = ({ children }) => {
   // Global Nav
-  const [globalNavOpen, setGlobalNavOpen] = useState(false);
+  const [mobileNavOpen, setMobileNavOpen] = useState(false);
 
   const toggleGlobalNav = () => {
-    setGlobalNavOpen(!globalNavOpen);
+    setMobileNavOpen(!mobileNavOpen);
   };
 
   const [currentNavItemRef, setCurrentNavItemRef] =
@@ -40,8 +40,8 @@ export const UIProvider: FC<PropsWithChildren> = ({ children }) => {
   return (
     <UIContext.Provider
       value={{
-        globalNavOpen,
-        setGlobalNavOpen,
+        mobileNavOpen,
+        setMobileNavOpen,
         toggleGlobalNav,
         currentNavItemRef,
         setCurrentNavItemRef,
