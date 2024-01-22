@@ -1,5 +1,4 @@
-import { FC, useEffect } from 'react';
-import { useRouter } from 'next/router';
+import { FC } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import cn from 'classnames';
@@ -23,18 +22,10 @@ export const MobileNav: FC<Props> = ({
   logoMonochrome,
   navLinks,
 }) => {
-  const { globalNavOpen, setGlobalNavOpen, toggleGlobalNav } = useUIProvider();
+  const { globalNavOpen, toggleGlobalNav } = useUIProvider();
   const logo = globalNavOpen
     ? logoMonochrome?.asset?.url
     : logoColor?.asset?.url;
-  const router = useRouter();
-
-  // close globalNav and globalNavDropdown on route change
-  useEffect(() => {
-    if (globalNavOpen) {
-      setGlobalNavOpen(false);
-    }
-  }, [router.asPath]);
   return (
     <nav
       className={cn(

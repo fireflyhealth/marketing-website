@@ -16,7 +16,7 @@ export const Navigation: FC<Props> = ({
   logoMonochrome,
   navLinks,
 }) => {
-  const { globalNavOpen, setGlobalNavOpen, toggleGlobalNav } = useUIProvider();
+  const { globalNavOpen, setGlobalNavOpen } = useUIProvider();
   const router = useRouter();
 
   // close globalNav and globalNavDropdown on route change
@@ -32,11 +32,7 @@ export const Navigation: FC<Props> = ({
         logoMonochrome={logoMonochrome}
         navLinks={navLinks}
       />
-      <DesktopNav
-        logoColor={logoColor}
-        logoMonochrome={logoMonochrome}
-        navLinks={navLinks}
-      />
+      <DesktopNav logoColor={logoColor} navLinks={navLinks} />
     </>
   );
 };
