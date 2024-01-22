@@ -36,6 +36,7 @@ export const Navigation: FC<Props> = ({
       : logoColor?.asset?.url;
   const router = useRouter();
 
+  // close globalNav and globalNavDropdown outside of mobile breakpoint
   useEffect(() => {
     if (!isMobile) {
       setGlobalNavOpen(false);
@@ -43,7 +44,7 @@ export const Navigation: FC<Props> = ({
     }
   }, [isMobile, setGlobalNavOpen, setGlobalNavDropdownOpen]);
 
-  //
+  // close globalNav and globalNavDropdown on route change
   useEffect(() => {
     if (globalNavOpen) {
       setGlobalNavOpen(false);

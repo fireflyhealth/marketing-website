@@ -17,15 +17,11 @@ export const UIProvider: FC<PropsWithChildren> = ({ children }) => {
   const [globalNavDropdownOpen, setGlobalNavDropdownOpen] = useState(false);
 
   const toggleGlobalNav = () => {
-    if (globalNavOpen) {
-      setGlobalNavOpen(false);
-    } else setGlobalNavOpen(true);
+    setGlobalNavOpen(!globalNavOpen);
   };
 
   const toggleGlobalNavDropdown = () => {
-    if (globalNavDropdownOpen) {
-      setGlobalNavDropdownOpen(false);
-    } else setGlobalNavDropdownOpen(true);
+    setGlobalNavDropdownOpen(!globalNavDropdownOpen);
   };
 
   return (
