@@ -23,7 +23,7 @@ export default function App({ Component, pageProps: allPageProps }: Props) {
             logoMonochrome={siteSettings.logoMonochrome}
             navLinks={siteSettings.globalNav.navLinks}
           />
-          <main className="font-trust">
+          <main className="mt-mobile-globalnav-height md:mt-desktop-globalnav-height">
             <Component {...pageProps} />
           </main>
           {/* TODO: Footer */}
