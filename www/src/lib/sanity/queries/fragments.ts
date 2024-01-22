@@ -22,7 +22,7 @@ export const imageFragment = `
   hotspot
 `;
 
-export const linkableDocumentFragment = `{
+export const linkableDocumentFragment = `
   _key,
   _type,
   page->{
@@ -34,10 +34,9 @@ export const linkableDocumentFragment = `{
       title,
       "slug": slug.current,
     },
-  },
-}`;
+  }`;
 
-export const metadataFragment = `{
+export const metadataFragment = `
   _type,
   title,
   shareTitle,
@@ -47,5 +46,4 @@ export const metadataFragment = `{
     asset->{
       url
     }
-  }
-}`;
+  }`;

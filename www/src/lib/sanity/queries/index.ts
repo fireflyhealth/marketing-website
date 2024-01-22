@@ -6,7 +6,7 @@ export const siteSettings = `{
   "globalNav": globalNav->{
     _type,
     title,
-    "navLinks": navLinks ${linkableDocumentFragment}[],
+    "navLinks": navLinks {${linkableDocumentFragment}}[],
   },
   logoColor {
     asset->{
@@ -18,5 +18,5 @@ export const siteSettings = `{
       url
     }
   },
-  "defaultMetadata": defaultMetadata ${metadataFragment},
+  "defaultMetadata": defaultMetadata {${metadataFragment}},
 }`;
