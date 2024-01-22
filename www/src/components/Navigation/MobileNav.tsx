@@ -4,7 +4,7 @@ import Image from 'next/image';
 import cn from 'classnames';
 import { SimpleIcon } from '@/svgs/SimpleIcon';
 import * as SanityTypes from '@/types/sanity';
-import { useUIProvider } from '@/hooks';
+import { useUIProvider } from '@/context/UIProvider';
 import { NavLink } from './NavLink';
 import { NavWrapper, NavContainer, NavLinksWrapper } from './styles';
 

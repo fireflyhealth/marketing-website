@@ -1,7 +1,7 @@
 import { FC, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import * as SanityTypes from '@/types/sanity';
-import { useUIProvider } from '@/hooks';
+import { useUIProvider } from '@/context/UIProvider';
 import { MobileNav } from './MobileNav';
 import { DesktopNav } from './DesktopNav';
 

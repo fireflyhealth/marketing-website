@@ -1,7 +1,7 @@
 import { FC, useRef, useState, useEffect } from 'react';
 import Link from 'next/link';
 import cn from 'classnames';
-import { useUIProvider } from '@/hooks';
+import { useUIProvider } from '@/context/UIProvider';
 import { SimpleIcon } from '@/svgs/SimpleIcon';
 import * as Types from '@/types/sanity';
 import {

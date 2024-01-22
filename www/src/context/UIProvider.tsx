@@ -1,4 +1,10 @@
-import { FC, createContext, PropsWithChildren, useState } from 'react';
+import {
+  FC,
+  createContext,
+  PropsWithChildren,
+  useState,
+  useContext,
+} from 'react';
 
 type UIProviderProps = {
   globalNavOpen: boolean;
@@ -9,6 +15,16 @@ type UIProviderProps = {
 };
 
 export const UIContext = createContext<UIProviderProps | undefined>(undefined);
+
+export const useUIProvider = () => {
+  const context = useContext(UIContext);
+
+  if (context === undefined) {
+    throw new Error('useUIProvider must be used within a UIProvider');
+  }
+
+  return context;
+};
 
 export const UIProvider: FC<PropsWithChildren> = ({ children }) => {
   // Global Nav
