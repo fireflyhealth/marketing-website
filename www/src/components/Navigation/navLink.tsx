@@ -1,6 +1,7 @@
 import { FC } from 'react';
 import Link from 'next/link';
 import cn from 'classnames';
+import { useUIProvider } from '@/hooks';
 import { SimpleIcon } from '@/svgs/SimpleIcon';
 import * as Types from '@/types/sanity';
 import {
@@ -13,38 +14,35 @@ import {
 
 type Props = {
   navItem: Types.NavLinkObject;
-  toggleNav: () => void;
-  toggleDropdown: () => void;
-  dropdownOpen: boolean;
 };
 
-export const NavLink: FC<Props> = ({
-  navItem,
-  toggleNav,
-  toggleDropdown,
-  dropdownOpen,
-}) => {
+export const NavLink: FC<Props> = ({ navItem }) => {
+  const { globalNavDropdownOpen, toggleGlobalNav, toggleGlobalNavDropdown } =
+    useUIProvider();
   return (
     <div className={cn(NavLinkStyles)}>
       {navItem.page.subPages ? (
         <div className={cn(NavLinkDropdownWrapper)}>
-          <button className={cn(NavDropdownButton)} onClick={toggleDropdown}>
+          <button
+            className={cn(NavDropdownButton)}
+            onClick={toggleGlobalNavDropdown}
+          >
             <p className={cn(NavLink)}>{navItem.page.title}</p>
             <SimpleIcon
               type="arrow-down"
               width={12}
               color="#131D2B"
-              className={cn(dropdownOpen ? 'rotate-180' : '')}
+              className={cn(globalNavDropdownOpen ? 'rotate-180' : '')}
             />
           </button>
-          {dropdownOpen && (
+          {globalNavDropdownOpen && (
             <div className={cn(NavLinkDropdown)}>
               {navItem.page.subPages.map((subPage) => (
                 <Link
                   key={subPage._id}
                   href={subPage.slug}
                   className={cn(SubPageLink)}
-                  onClick={toggleNav}
+                  onClick={toggleGlobalNav}
                 >
                   {subPage.title}
                 </Link>
@@ -56,7 +54,7 @@ export const NavLink: FC<Props> = ({
         <Link
           href={navItem.page.slug}
           className={cn(NavLink)}
-          onClick={toggleNav}
+          onClick={toggleGlobalNav}
         >
           {navItem.page.title}
         </Link>

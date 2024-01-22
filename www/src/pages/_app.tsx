@@ -1,11 +1,11 @@
 import { AppProps } from 'next/app';
 import { Navigation } from '@/components/Navigation';
-import '../styles/fonts.css';
-import '../styles/main.css';
-
+import { UIProvider } from '@/context';
 import { SiteSettings } from '@/types/sanity';
 import { DefaultMetadata } from '@/components/Metadata/DefaultMetadata';
 import { ColorTheme, Theme } from '@/components/Theme';
+import '../styles/fonts.css';
+import '../styles/main.css';
 
 type Props = AppProps<{
   siteSettings: SiteSettings;
@@ -16,17 +16,19 @@ export default function App({ Component, pageProps: allPageProps }: Props) {
   return (
     <>
       <DefaultMetadata metadata={siteSettings.defaultMetadata} />
-      <Navigation
-        logoColor={siteSettings.logoColor}
-        logoMonochrome={siteSettings.logoMonochrome}
-        navLinks={siteSettings.globalNav.navLinks}
-      />
       <Theme theme={ColorTheme.White}>
-        <main className="font-trust">
-          <Component {...pageProps} />
-        </main>
+        <UIProvider>
+          <Navigation
+            logoColor={siteSettings.logoColor}
+            logoMonochrome={siteSettings.logoMonochrome}
+            navLinks={siteSettings.globalNav.navLinks}
+          />
+          <main className="font-trust">
+            <Component {...pageProps} />
+          </main>
+          {/* TODO: Footer */}
+        </UIProvider>
       </Theme>
-      {/* TODO: Footer */}
     </>
   );
 }
