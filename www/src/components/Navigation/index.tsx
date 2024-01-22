@@ -5,16 +5,8 @@ import cn from 'classnames';
 import { SimpleIcon } from '@/svgs/SimpleIcon';
 import * as SanityTypes from '@/types/sanity';
 import { useMatchMedia } from '@/hooks';
-import {
-  NavWrapper,
-  NavContainer,
-  NavLinksWrapper,
-  NavLink,
-  NavLinkDropdownWrapper,
-  NavDropdownButton,
-  NavLinkDropdown,
-  SubPageLink,
-} from './styles';
+import { NavLink } from './navLink';
+import { NavWrapper, NavContainer, NavLinksWrapper } from './styles';
 
 // TODO: replace next/link and next/image with Link and Image compoents
 // after they get created.
@@ -45,14 +37,34 @@ export const Navigation: FC<Props> = ({
     } else setDropdownOpen(true);
   };
 
-  const logo = navOpen ? logoMonochrome.asset.url : logoColor.asset.url;
   const isMobile = useMatchMedia('(max-width:800px)');
+  const logo =
+    isMobile && navOpen ? logoMonochrome.asset.url : logoColor.asset.url;
   return (
-    <nav className={cn(NavWrapper, navOpen ? 'bg-yellow' : 'bg-white')}>
+    <nav
+      className={cn(
+        NavWrapper,
+        isMobile && navOpen ? 'bg-yellow' : 'bg-transparent',
+      )}
+    >
       <div className={cn(NavContainer)}>
         <Link href="/" onClick={toggleNav}>
           <Image src={logo} width={120} height={22} alt="logo" />
         </Link>
+
+        {!isMobile && (
+          <div className={cn(NavLinksWrapper)}>
+            {navLinks.map((navItem) => (
+              <NavLink
+                key={navItem._key}
+                navItem={navItem}
+                toggleNav={toggleNav}
+                toggleDropdown={toggleDropdown}
+                dropdownOpen={dropdownOpen}
+              />
+            ))}
+          </div>
+        )}
 
         {/* menu button only visible on tablet and mobile */}
         <button className="md:hidden" onClick={toggleNav}>
@@ -64,50 +76,15 @@ export const Navigation: FC<Props> = ({
       {/* mobile menu */}
       {isMobile && navOpen && (
         <div className={cn(NavLinksWrapper)}>
-          <>
-            {navLinks.map((navItem) => (
-              <>
-                {navItem.page.subPages ? (
-                  <div className={cn(NavLinkDropdownWrapper)}>
-                    <button
-                      className={cn(NavDropdownButton)}
-                      onClick={toggleDropdown}
-                    >
-                      <p className={cn(NavLink)}>{navItem.page.title}</p>
-                      <SimpleIcon
-                        type="arrow-down"
-                        width={12}
-                        color="#131D2B"
-                        className={cn(dropdownOpen ? 'rotate-180' : '')}
-                      />
-                    </button>
-                    {dropdownOpen && (
-                      <div className={cn(NavLinkDropdown)}>
-                        {navItem.page.subPages.map((subPage) => (
-                          <Link
-                            key={subPage._id}
-                            href={subPage.slug}
-                            className={cn(SubPageLink)}
-                            onClick={toggleNav}
-                          >
-                            {subPage.title}
-                          </Link>
-                        ))}
-                      </div>
-                    )}
-                  </div>
-                ) : (
-                  <Link
-                    href={navItem.page.slug}
-                    className={cn(NavLink)}
-                    onClick={toggleNav}
-                  >
-                    {navItem.page.title}
-                  </Link>
-                )}
-              </>
-            ))}
-          </>
+          {navLinks.map((navItem) => (
+            <NavLink
+              key={navItem._key}
+              navItem={navItem}
+              toggleNav={toggleNav}
+              toggleDropdown={toggleDropdown}
+              dropdownOpen={dropdownOpen}
+            />
+          ))}
         </div>
       )}
     </nav>

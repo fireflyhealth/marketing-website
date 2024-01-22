@@ -4,16 +4,26 @@ export const NavContainer = [
   'w-full p-4 flex flex-row items-center justify-between',
 ];
 
-export const NavLinksWrapper = ['p-4 mt-4 w-full flex flex-col space-y-8'];
+export const NavLinksWrapper = [
+  'p-4 mt-4 w-full flex flex-col space-y-8',
+  'md:w-max md:flex-row md:space-y-0 md:p-0 md:mt-0',
+];
 
-export const NavLink = ['trust-h3 text-black text-left'];
+export const NavLinkStyles = [
+  'trust-h3 text-black text-left',
+  'md:roobert-body md:py-3 md:px-6',
+];
 
-export const NavLinkDropdownWrapper = ['w-full'];
+export const NavLinkDropdownWrapper = ['w-full relative'];
 
 export const NavDropdownButton = [
   'w-full flex flex-row justify-between items-center',
+  'md:mr-2',
 ];
 
-export const NavLinkDropdown = ['mt-8 pl-4 flex flex-col space-y-4'];
+export const NavLinkDropdown = [
+  'mt-8 pl-4 flex flex-col space-y-4',
+  'md:absolute md:top-[100%] md:left-[-24px] md:w-max md:bg-grey md:border-grey-medium md:border md:rounded-lg md:p-6',
+];
 
 export const SubPageLink = ['roobert-body'];
