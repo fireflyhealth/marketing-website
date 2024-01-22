@@ -8,3 +8,7 @@
 /* Tailwind Utilities */
 @import 'tailwindcss/utilities';
 @import 'utilities/type-styles.css';
+
+/* Our styles */
+@import 'fonts';
+@import 'richText';

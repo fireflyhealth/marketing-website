@@ -3,6 +3,11 @@ import { Meta, StoryObj } from '@storybook/react';
 import { Theme, ColorTheme } from '@/components/Theme';
 import { Button } from './';
 
+type ButtonsExampleProps = {
+  label: string;
+  onClick: () => void;
+};
+
 type ButtonGroupProps = ButtonsExampleProps & { theme: ColorTheme };
 
 const ButtonGroup: FC<ButtonGroupProps> = ({ label, onClick, theme }) => (
@@ -64,11 +69,6 @@ const ButtonGroup: FC<ButtonGroupProps> = ({ label, onClick, theme }) => (
     </div>
   </Theme>
 );
-
-type ButtonsExampleProps = {
-  label: string;
-  onClick: () => void;
-};
 
 const ButtonsExample: FC<ButtonsExampleProps> = (buttonProps) => (
   <div className="grid grid-cols-5 gap-4">

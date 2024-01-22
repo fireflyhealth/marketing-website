@@ -1,0 +1,25 @@
+/* It seems like this is the only way to style custom Rich Text editor blocks */
+
+div[data-testid='text-style--blockquote-large'] span {
+  font-size: 28px;
+  line-height: 120%;
+  color: #7d320c;
+}
+
+/* Main wrapper classname for the rich text editor */
+.pt-editable {
+  blockquote {
+    font-size: 22px;
+    color: #7d320c;
+    padding-left: 0;
+    &:before {
+      display: none;
+    }
+  }
+}
+
+div[data-testid='text-style--blockquote'] span {
+  font-size: 22px;
+  line-height: 130%;
+  color: #7d320c;
+}

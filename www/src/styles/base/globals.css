@@ -26,8 +26,11 @@ svg {
  * Reference:
  * https://www.figma.com/file/2ghg22zsQKeysX5YUcDP5d/%5BFirefly%5D-Design-System?type=design&node-id=3801%3A6956&mode=dev
  */
-.font-size--1 {
+.font-size-1 {
   font-size: 96px;
+  line-height: 90%;
+  letter-spacing: -0.04em;
+  font-weight: 500;
 
   @screen md {
     font-size: 120px;
@@ -37,8 +40,11 @@ svg {
   }
 }
 
-.font-size--2 {
+.font-size-2 {
   font-size: 52px;
+  line-height: 90%;
+  letter-spacing: -0.04em;
+  font-weight: 500;
 
   @screen md {
     font-size: 72px;
@@ -48,8 +54,11 @@ svg {
   }
 }
 
-.font-size--3 {
+.font-size-3 {
   font-size: 48px;
+  line-height: 90%;
+  letter-spacing: -0.03em;
+  font-weight: 500;
 
   @screen md {
     font-size: 64px;
@@ -59,8 +68,11 @@ svg {
   }
 }
 
-.font-size--4 {
+.font-size-4 {
   font-size: 32px;
+  letter-spacing: -0.02em;
+  line-height: 100%;
+  font-weight: 500;
 
   @screen md {
     font-size: 43px;
@@ -70,8 +82,11 @@ svg {
   }
 }
 
-.font-size--5 {
+.font-size-5 {
   font-size: 24px;
+  line-height: 115%;
+  letter-spacing: -0.015em;
+  font-weight: 500;
 
   @screen md {
     font-size: 34px;
@@ -79,10 +94,19 @@ svg {
   @screen lg {
     font-size: 44px;
   }
+
+  &--quote {
+    @apply font-size-5;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+  }
 }
 
-.font-size--6 {
+.font-size-6 {
   font-size: 20px;
+  line-height: 115%;
+  letter-spacing: -0.01em;
+  font-weight: 500;
 
   @screen md {
     font-size: 26px;
@@ -90,10 +114,18 @@ svg {
   @screen lg {
     font-size: 32px;
   }
+
+  &--quote {
+    @apply font-size-6;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+  }
 }
 
-.font-size--7 {
+.font-size-7 {
   font-size: 18px;
+  line-height: 120%;
+  font-weight: 400;
 
   @screen md {
     font-size: 21px;
@@ -103,26 +135,40 @@ svg {
   }
 }
 
-.font-size--8 {
+.font-size-8 {
   font-size: 16px;
+  line-height: 140%;
+  font-weight: 400;
 
   @screen md {
     font-size: 18px;
   }
+
+  &--cta {
+    @apply font-size-8;
+    line-height: 100%;
+  }
 }
 
-.font-size--9 {
+.font-size-9 {
   font-size: 14px;
+  line-height: 140%;
+  letter-spacing: 0.02em;
+  font-weight: 500;
 }
 
-.font-size--10 {
+.font-size-10 {
   font-size: 12px;
+  line-height: 140%;
+  letter-spacing: 0.02em;
+  font-weight: 400;
 }
 /**
  * General theme styles
  */
 
-.theme-white {
+.theme-white,
+.theme-wrapper .theme-white {
   .bg-theme {
     background: theme('colors.white');
   }
@@ -152,196 +198,7 @@ svg {
       fill: theme('colors.yellow-dark');
     }
   }
-}
-.theme-grey {
-  .bg-theme {
-    background: theme('colors.grey');
-  }
 
-  .text-theme-primary {
-    color: theme('colors.black');
-  }
-
-  .text-theme-secondary {
-    color: theme('colors.grey-darker');
-  }
-
-  .text-theme-decorative {
-    color: theme('colors.sienna');
-  }
-
-  .border-theme {
-    border-color: theme('colors.grey-dark');
-  }
-
-  svg {
-    .icon-base {
-      fill: theme('colors.yellow');
-    }
-
-    .icon-overlap {
-      fill: theme('colors.yellow-dark');
-    }
-  }
-}
-
-.theme-sienna {
-  .bg-theme {
-    background: theme('colors.sienna');
-  }
-
-  .text-theme-primary {
-    color: theme('colors.yellow-light');
-  }
-
-  .text-theme-secondary {
-    @apply text-yellow-light/70;
-  }
-
-  .text-theme-decorative {
-    color: theme('colors.yellow');
-  }
-
-  .border-theme {
-    border-color: theme('colors.black');
-  }
-
-  svg {
-    .icon-base {
-      fill: theme('colors.sienna-light');
-    }
-
-    .icon-overlap {
-      fill: theme('colors.sienna-lightest');
-    }
-  }
-}
-
-.theme-midnight {
-  .bg-theme {
-    background: theme('colors.midnight');
-  }
-
-  .text-theme-primary {
-    color: theme('colors.yellow-light');
-  }
-
-  .text-theme-secondary {
-    @apply text-yellow-light/70;
-  }
-
-  .text-theme-decorative {
-    color: theme('colors.sky');
-  }
-
-  .border-theme {
-    border-color: theme('colors.grey-darker');
-  }
-
-  svg {
-    .icon-base {
-      fill: theme('colors.sky-medium');
-    }
-
-    .icon-overlap {
-      fill: theme('colors.sky');
-    }
-  }
-}
-
-.theme-sky {
-  .bg-theme {
-    background: theme('colors.sky');
-  }
-
-  .text-theme-primary {
-    color: theme('colors.black');
-  }
-
-  .text-theme-secondary {
-    @apply text-black/70;
-  }
-
-  .text-theme-decorative {
-    color: theme('colors.midnight');
-  }
-
-  .border-theme {
-    @apply border-white/40;
-  }
-
-  svg {
-    .icon-base {
-      fill: theme('colors.sky-medium');
-    }
-
-    .icon-overlap {
-      fill: theme('colors.sky-dark');
-    }
-  }
-}
-
-/**
- * CTA Styles
- */
-
-.cta {
-  @apply font-size--8;
-  border-radius: 48px;
-  cursor: pointer;
-  height: 40px;
-
-  &__inner {
-    display: flex;
-    align-items: center;
-    height: 100%;
-    padding: 0 3.5rem;
-
-    @screen md {
-      padding: 0 2.5rem;
-    }
-  }
-
-  @screen md {
-    height: 48px;
-  }
-
-  &:disabled {
-    pointer-events: none;
-  }
-
-  &--textLink {
-    height: 26px;
-
-    @screen md {
-      height: 24px;
-    }
-
-    .cta__inner {
-      padding: 0;
-    }
-  }
-}
-
-/*
- * Themed CTA styles
- */
-
-.theme-wrapper {
-  .cta {
-    &:focus {
-      outline: none;
-    }
-
-    &--outlined {
-      &:focus {
-        border-width: 4px;
-      }
-    }
-  }
-}
-
-.theme-white {
   .cta--primary {
     color: theme('colors.black');
     background-color: theme('colors.yellow');
@@ -425,7 +282,38 @@ svg {
   }
 }
 
-.theme-grey {
+.theme-grey,
+.theme-wrapper .theme-grey {
+  .bg-theme {
+    background: theme('colors.grey');
+  }
+
+  .text-theme-primary {
+    color: theme('colors.black');
+  }
+
+  .text-theme-secondary {
+    color: theme('colors.grey-darker');
+  }
+
+  .text-theme-decorative {
+    color: theme('colors.sienna');
+  }
+
+  .border-theme {
+    border-color: theme('colors.grey-dark');
+  }
+
+  svg {
+    .icon-base {
+      fill: theme('colors.yellow');
+    }
+
+    .icon-overlap {
+      fill: theme('colors.yellow-dark');
+    }
+  }
+
   .cta--secondary {
     color: theme('colors.midnight');
     background-color: theme('colors.grey-medium');
@@ -484,7 +372,38 @@ svg {
   }
 }
 
-.theme-sienna {
+.theme-sienna,
+.theme-wrapper .theme-sienna {
+  .bg-theme {
+    background: theme('colors.sienna');
+  }
+
+  .text-theme-primary {
+    color: theme('colors.yellow-light');
+  }
+
+  .text-theme-secondary {
+    @apply text-yellow-light/70;
+  }
+
+  .text-theme-decorative {
+    color: theme('colors.yellow');
+  }
+
+  .border-theme {
+    border-color: theme('colors.black');
+  }
+
+  svg {
+    .icon-base {
+      fill: theme('colors.sienna-light');
+    }
+
+    .icon-overlap {
+      fill: theme('colors.sienna-lightest');
+    }
+  }
+
   .cta--primary {
     &:disabled {
       opacity: 30%;
@@ -547,7 +466,38 @@ svg {
   }
 }
 
-.theme-midnight {
+.theme-midnight,
+.theme-wrapper .theme-midnight {
+  .bg-theme {
+    background: theme('colors.midnight');
+  }
+
+  .text-theme-primary {
+    color: theme('colors.yellow-light');
+  }
+
+  .text-theme-secondary {
+    @apply text-yellow-light/70;
+  }
+
+  .text-theme-decorative {
+    color: theme('colors.sky');
+  }
+
+  .border-theme {
+    border-color: theme('colors.grey-darker');
+  }
+
+  svg {
+    .icon-base {
+      fill: theme('colors.sky-medium');
+    }
+
+    .icon-overlap {
+      fill: theme('colors.sky');
+    }
+  }
+
   .cta--primary {
     &:disabled {
       opacity: 30%;
@@ -619,7 +569,38 @@ svg {
   }
 }
 
-.theme-sky {
+.theme-sky,
+.theme-wrapper .theme-sky {
+  .bg-theme {
+    background: theme('colors.sky');
+  }
+
+  .text-theme-primary {
+    color: theme('colors.black');
+  }
+
+  .text-theme-secondary {
+    @apply text-black/70;
+  }
+
+  .text-theme-decorative {
+    color: theme('colors.midnight');
+  }
+
+  .border-theme {
+    @apply border-white/40;
+  }
+
+  svg {
+    .icon-base {
+      fill: theme('colors.sky-medium');
+    }
+
+    .icon-overlap {
+      fill: theme('colors.sky-dark');
+    }
+  }
+
   .cta--secondary {
     color: theme('colors.black');
     background-color: theme('colors.sky-light');
@@ -647,5 +628,65 @@ svg {
 
   .cta--textLink {
     /* TODO: Pending designs */
+  }
+}
+
+/**
+ * CTA Styles
+ */
+
+.cta {
+  @apply font-size-8;
+  border-radius: 48px;
+  cursor: pointer;
+  height: 40px;
+
+  &__inner {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding: 0 3.5rem;
+
+    @screen md {
+      padding: 0 2.5rem;
+    }
+  }
+
+  @screen md {
+    height: 48px;
+  }
+
+  &:disabled {
+    pointer-events: none;
+  }
+
+  &--textLink {
+    height: 26px;
+
+    @screen md {
+      height: 24px;
+    }
+
+    .cta__inner {
+      padding: 0;
+    }
+  }
+}
+
+/*
+ * Common CTA styles
+ */
+
+.theme-wrapper {
+  .cta {
+    &:focus {
+      outline: none;
+    }
+
+    &--outlined {
+      &:focus {
+        border-width: 4px;
+      }
+    }
   }
 }

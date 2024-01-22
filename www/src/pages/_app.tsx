@@ -1,5 +1,4 @@
 import { AppProps } from 'next/app';
-import '../styles/fonts.css';
 import '../styles/main.css';
 
 import { SiteSettings } from '@/types/sanity';
@@ -17,8 +16,8 @@ export default function App({ Component, pageProps: allPageProps }: Props) {
       <DefaultMetadata metadata={siteSettings.defaultMetadata} />
       {/* TODO: Navigation */}
       <Theme theme={ColorTheme.White}>
-        <main>
-          <Component {...pageProps} />;
+        <main className="font-trust">
+          <Component {...pageProps} />
         </main>
       </Theme>
       {/* TODO: Footer */}

@@ -45,7 +45,10 @@ const config: Config = {
       'yellow-light': '#FEFFD6',
       'yellow-dark': '#F9BB2C',
     },
-    extend: {},
+    extend: {
+      /* TODO: Add spacing values. Search the codebase for
+       * any TODO-SPACING comments */
+    },
   },
   plugins: [],
 };

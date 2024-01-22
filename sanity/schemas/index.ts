@@ -10,10 +10,12 @@ import {
 import { ClientPage } from './documents/clientPage';
 import { BlogArticle } from './documents/blogArticle';
 import { Blog } from './documents/blog';
+import { MockData } from './documents/mockData';
 import { SiteSettings } from './documents/siteSettings';
 import { RichImage } from './fields/images';
 import { Link, LinkableDocument } from './fields/linking';
 import { CTA } from './fields/cta';
+import { SimpleRichText, ArticleRichText } from './fields/richText';
 
 export const schemaTypes = [
   /* Document Types */
@@ -28,6 +30,7 @@ export const schemaTypes = [
   Blog,
   BlogArticle,
   SiteSettings,
+  MockData,
 
   /* Field Types */
   Metadata,
@@ -35,4 +38,6 @@ export const schemaTypes = [
   Link,
   LinkableDocument,
   CTA,
+  SimpleRichText,
+  ArticleRichText,
 ];

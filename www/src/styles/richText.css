@@ -1,0 +1,38 @@
+.RichText {
+  * + * {
+    margin-top: 1em;
+  }
+
+  strong {
+    font-weight: 500;
+  }
+
+  ol {
+    list-style: number;
+    list-style-position: outside;
+
+    li {
+      padding-left: 20px;
+      margin-left: 20px;
+    }
+  }
+
+  ul {
+    list-style: none;
+    li {
+      position: relative;
+      padding-left: 40px;
+
+      &:before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: calc(0.5em);
+        width: 10px;
+        height: 10px;
+        border-radius: 5px;
+        background-color: theme('colors.yellow');
+      }
+    }
+  }
+}
