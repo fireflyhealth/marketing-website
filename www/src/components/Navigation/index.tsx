@@ -4,6 +4,7 @@ import Image from 'next/image';
 import cn from 'classnames';
 import { SimpleIcon } from '@/svgs/SimpleIcon';
 import * as SanityTypes from '@/types/sanity';
+import { useMatchMedia } from '@/hooks';
 import {
   NavWrapper,
   NavContainer,
@@ -45,6 +46,7 @@ export const Navigation: FC<Props> = ({
   };
 
   const logo = navOpen ? logoMonochrome.asset.url : logoColor.asset.url;
+  const isMobile = useMatchMedia('(max-width:800px)');
   return (
     <nav className={cn(NavWrapper, navOpen ? 'bg-yellow' : 'bg-white')}>
       <div className={cn(NavContainer)}>
@@ -60,7 +62,7 @@ export const Navigation: FC<Props> = ({
       </div>
 
       {/* mobile menu */}
-      {navOpen && (
+      {isMobile && navOpen && (
         <div className={cn(NavLinksWrapper)}>
           <>
             {navLinks.map((navItem) => (
