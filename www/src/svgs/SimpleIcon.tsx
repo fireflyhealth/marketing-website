@@ -25,19 +25,20 @@ type Props = {
     | 'search'
     | 'wifi'
     | 'plus';
+  className?: string;
   color?: string;
   width?: number;
   height?: number;
   id?: string;
 };
 
-export const SimpleIcon: FC<Props> = ({ type, color, ...props }) => {
+export const SimpleIcon: FC<Props> = ({ className, type, color, ...props }) => {
   const simpleIconStyles = '';
   switch (type) {
     case 'arrow-left':
       return (
         <svg
-          className={simpleIconStyles}
+          className={className || simpleIconStyles}
           viewBox="0 0 24 24"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -55,7 +56,7 @@ export const SimpleIcon: FC<Props> = ({ type, color, ...props }) => {
     case 'arrow-right':
       return (
         <svg
-          className={simpleIconStyles}
+          className={className || simpleIconStyles}
           viewBox="0 0 24 24"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -73,7 +74,7 @@ export const SimpleIcon: FC<Props> = ({ type, color, ...props }) => {
     case 'arrow-up':
       return (
         <svg
-          className={simpleIconStyles}
+          className={className || simpleIconStyles}
           viewBox="0 0 24 24"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -91,7 +92,7 @@ export const SimpleIcon: FC<Props> = ({ type, color, ...props }) => {
     case 'arrow-down':
       return (
         <svg
-          className={simpleIconStyles}
+          className={className || simpleIconStyles}
           viewBox="0 0 24 24"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -109,7 +110,7 @@ export const SimpleIcon: FC<Props> = ({ type, color, ...props }) => {
     case 'checkmark':
       return (
         <svg
-          className={simpleIconStyles}
+          className={className || simpleIconStyles}
           viewBox="0 0 24 24"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -127,7 +128,7 @@ export const SimpleIcon: FC<Props> = ({ type, color, ...props }) => {
     case 'external-link':
       return (
         <svg
-          className={simpleIconStyles}
+          className={className || simpleIconStyles}
           viewBox="0 0 24 24"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -145,7 +146,7 @@ export const SimpleIcon: FC<Props> = ({ type, color, ...props }) => {
     case 'house':
       return (
         <svg
-          className={simpleIconStyles}
+          className={className || simpleIconStyles}
           viewBox="0 0 24 24"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -163,7 +164,7 @@ export const SimpleIcon: FC<Props> = ({ type, color, ...props }) => {
     case 'information':
       return (
         <svg
-          className={simpleIconStyles}
+          className={className || simpleIconStyles}
           viewBox="0 0 24 24"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -181,7 +182,7 @@ export const SimpleIcon: FC<Props> = ({ type, color, ...props }) => {
     case 'lock':
       return (
         <svg
-          className={simpleIconStyles}
+          className={className || simpleIconStyles}
           viewBox="0 0 20 24"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -199,7 +200,7 @@ export const SimpleIcon: FC<Props> = ({ type, color, ...props }) => {
     case 'menu':
       return (
         <svg
-          className={simpleIconStyles}
+          className={className || simpleIconStyles}
           viewBox="0 0 24 24"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -217,7 +218,7 @@ export const SimpleIcon: FC<Props> = ({ type, color, ...props }) => {
     case 'password':
       return (
         <svg
-          className={simpleIconStyles}
+          className={className || simpleIconStyles}
           viewBox="0 0 24 24"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -236,7 +237,7 @@ export const SimpleIcon: FC<Props> = ({ type, color, ...props }) => {
     case 'navigation-pin':
       return (
         <svg
-          className={simpleIconStyles}
+          className={className || simpleIconStyles}
           viewBox="0 0 24 24"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -252,7 +253,7 @@ export const SimpleIcon: FC<Props> = ({ type, color, ...props }) => {
     case 'paper-clip':
       return (
         <svg
-          className={simpleIconStyles}
+          className={className || simpleIconStyles}
           viewBox="0 0 21 24"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -270,7 +271,7 @@ export const SimpleIcon: FC<Props> = ({ type, color, ...props }) => {
     case 'question-mark':
       return (
         <svg
-          className={simpleIconStyles}
+          className={className || simpleIconStyles}
           viewBox="0 0 24 24"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -288,7 +289,7 @@ export const SimpleIcon: FC<Props> = ({ type, color, ...props }) => {
     case 'rotate':
       return (
         <svg
-          className={simpleIconStyles}
+          className={className || simpleIconStyles}
           viewBox="0 0 20 24"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -306,7 +307,7 @@ export const SimpleIcon: FC<Props> = ({ type, color, ...props }) => {
     case 'sound-on':
       return (
         <svg
-          className={simpleIconStyles}
+          className={className || simpleIconStyles}
           viewBox="0 0 24 24"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -332,7 +333,7 @@ export const SimpleIcon: FC<Props> = ({ type, color, ...props }) => {
     case 'sound-mute':
       return (
         <svg
-          className={simpleIconStyles}
+          className={className || simpleIconStyles}
           viewBox="0 0 25 24"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -348,7 +349,7 @@ export const SimpleIcon: FC<Props> = ({ type, color, ...props }) => {
     case 'star':
       return (
         <svg
-          className={simpleIconStyles}
+          className={className || simpleIconStyles}
           viewBox="0 0 24 24"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -364,7 +365,7 @@ export const SimpleIcon: FC<Props> = ({ type, color, ...props }) => {
     case 'search':
       return (
         <svg
-          className={simpleIconStyles}
+          className={className || simpleIconStyles}
           viewBox="0 0 24 24"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -382,7 +383,7 @@ export const SimpleIcon: FC<Props> = ({ type, color, ...props }) => {
     case 'video-camera':
       return (
         <svg
-          className={simpleIconStyles}
+          className={className || simpleIconStyles}
           viewBox="0 0 24 24"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -398,7 +399,7 @@ export const SimpleIcon: FC<Props> = ({ type, color, ...props }) => {
     case 'wifi':
       return (
         <svg
-          className={simpleIconStyles}
+          className={className || simpleIconStyles}
           viewBox="0 0 24 24"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -416,7 +417,7 @@ export const SimpleIcon: FC<Props> = ({ type, color, ...props }) => {
     case 'close':
       return (
         <svg
-          className={simpleIconStyles}
+          className={className || simpleIconStyles}
           viewBox="0 0 24 24"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -434,7 +435,7 @@ export const SimpleIcon: FC<Props> = ({ type, color, ...props }) => {
     case 'plus':
       return (
         <svg
-          className={simpleIconStyles}
+          className={className || simpleIconStyles}
           viewBox="0 0 24 24"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
