@@ -3,10 +3,9 @@ import { FC, createContext, PropsWithChildren, useState } from 'react';
 type UIProviderProps = {
   globalNavOpen: boolean;
   setGlobalNavOpen: (open: boolean) => void;
-  globalNavDropdownOpen: boolean;
-  setGlobalNavDropdownOpen: (open: boolean) => void;
   toggleGlobalNav: () => void;
-  toggleGlobalNavDropdown: () => void;
+  currentNavItemRef: HTMLDivElement | null;
+  setCurrentNavItemRef: (globalNavItemRef: HTMLDivElement | null) => void;
 };
 
 export const UIContext = createContext<UIProviderProps | undefined>(undefined);
@@ -14,25 +13,22 @@ export const UIContext = createContext<UIProviderProps | undefined>(undefined);
 export const UIProvider: FC<PropsWithChildren> = ({ children }) => {
   // Global Nav
   const [globalNavOpen, setGlobalNavOpen] = useState(false);
-  const [globalNavDropdownOpen, setGlobalNavDropdownOpen] = useState(false);
 
   const toggleGlobalNav = () => {
     setGlobalNavOpen(!globalNavOpen);
   };
 
-  const toggleGlobalNavDropdown = () => {
-    setGlobalNavDropdownOpen(!globalNavDropdownOpen);
-  };
+  const [currentNavItemRef, setCurrentNavItemRef] =
+    useState<HTMLDivElement | null>(null);
 
   return (
     <UIContext.Provider
       value={{
         globalNavOpen,
         setGlobalNavOpen,
-        globalNavDropdownOpen,
-        setGlobalNavDropdownOpen,
         toggleGlobalNav,
-        toggleGlobalNavDropdown,
+        currentNavItemRef,
+        setCurrentNavItemRef,
       }}
     >
       {children}

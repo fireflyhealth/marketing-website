@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, useRef, useState, useEffect } from 'react';
 import Link from 'next/link';
 import cn from 'classnames';
 import { useUIProvider } from '@/hooks';
@@ -14,49 +14,99 @@ import {
 
 type Props = {
   navItem: Types.NavLinkObject;
+  isMobile?: boolean;
 };
 
-export const NavLink: FC<Props> = ({ navItem }) => {
-  const { globalNavDropdownOpen, toggleGlobalNav, toggleGlobalNavDropdown } =
-    useUIProvider();
+export const NavLink: FC<Props> = ({ navItem, isMobile }) => {
+  const {
+    globalNavOpen,
+    toggleGlobalNav,
+    currentNavItemRef,
+    setCurrentNavItemRef,
+  } = useUIProvider();
+
+  const navItemRef = useRef<HTMLDivElement>(null);
+  const [dropdownOpen, setDropdownOpen] = useState<boolean>(false);
+
+  useEffect(() => {
+    if (!navItemRef?.current) return;
+
+    // toggle dropdown open and close based on current nav item
+    if (currentNavItemRef === navItemRef.current) {
+      setDropdownOpen(true);
+    } else setDropdownOpen(false);
+
+    if (currentNavItemRef === navItemRef.current && !dropdownOpen) {
+      setCurrentNavItemRef(null);
+    }
+
+    // close dropdown if global nav is closed
+    if (isMobile && !globalNavOpen) {
+      setDropdownOpen(false);
+    }
+  }, [currentNavItemRef, globalNavOpen, dropdownOpen]);
+
   const parentSlug = navItem.page.slug;
   return (
-    <div className={cn(NavLinkStyles)}>
+    <div
+      ref={navItemRef}
+      className={cn(
+        NavLinkStyles,
+        `${navItem.page.title}`,
+        currentNavItemRef === null
+          ? 'text-black'
+          : currentNavItemRef === navItemRef.current
+            ? 'text-black'
+            : 'text-black/60',
+      )}
+    >
       {navItem.page.subPages ? (
         <div className={cn(NavLinkDropdownWrapper)}>
           <button
             className={cn(NavDropdownButton)}
-            onClick={toggleGlobalNavDropdown}
+            onClick={() => {
+              setCurrentNavItemRef(navItemRef.current);
+              setDropdownOpen(!dropdownOpen);
+            }}
           >
             <p className={cn(NavLink)}>{navItem.page.title}</p>
             <SimpleIcon
               type="arrow-down"
               width={12}
-              color="#131D2B"
-              className={cn(globalNavDropdownOpen ? 'rotate-180' : '')}
+              color={
+                currentNavItemRef === null
+                  ? '#131D2B'
+                  : currentNavItemRef === navItemRef.current
+                    ? '#131D2B'
+                    : 'rgb(19 29 43 / 0.6)'
+              }
+              className={cn(
+                dropdownOpen ? 'rotate-180' : '',
+                'transition ease-in-out',
+              )}
             />
           </button>
-          {globalNavDropdownOpen && (
-            <div className={cn(NavLinkDropdown)}>
-              {navItem.page.subPages.map((subPage) => (
-                <Link
-                  key={subPage._id}
-                  href={`${parentSlug}/${subPage.slug}`}
-                  className={cn(SubPageLink)}
-                  onClick={toggleGlobalNav}
-                >
-                  {subPage.title}
-                </Link>
-              ))}
-            </div>
-          )}
+          <div
+            className={cn(
+              NavLinkDropdown,
+              dropdownOpen ? 'block' : 'hidden',
+              'transition-all ease-in-out',
+            )}
+          >
+            {navItem.page.subPages.map((subPage) => (
+              <Link
+                key={subPage._id}
+                href={`${parentSlug}/${subPage.slug}`}
+                className={cn(SubPageLink)}
+                onClick={toggleGlobalNav}
+              >
+                {subPage.title}
+              </Link>
+            ))}
+          </div>
         </div>
       ) : (
-        <Link
-          href={navItem.page.slug}
-          className={cn(NavLink)}
-          onClick={toggleGlobalNav}
-        >
+        <Link href={navItem.page.slug} onClick={toggleGlobalNav}>
           {navItem.page.title}
         </Link>
       )}

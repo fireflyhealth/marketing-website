@@ -1,4 +1,4 @@
-export const NavWrapper = ['absolute top-0 left-0 w-full flex flex-col'];
+export const NavWrapper = ['top-0 left-0 w-full flex flex-col'];
 
 export const NavContainer = [
   'w-full p-4 flex flex-row items-center justify-between',
@@ -10,7 +10,7 @@ export const NavLinksWrapper = [
 ];
 
 export const NavLinkStyles = [
-  'trust-h3 text-black text-left',
+  'trust-h3 text-left',
   'md:roobert-body md:py-3 md:px-6',
 ];
 
