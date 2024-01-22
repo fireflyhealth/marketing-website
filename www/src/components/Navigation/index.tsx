@@ -13,8 +13,8 @@ import { NavWrapper, NavContainer, NavLinksWrapper } from './styles';
 // after they get created.
 
 type Props = {
-  logoColor: any;
-  logoMonochrome: any;
+  logoColor: SanityTypes.Image;
+  logoMonochrome: SanityTypes.Image;
   navLinks: SanityTypes.NavLinkObject[];
 };
 
@@ -31,7 +31,9 @@ export const Navigation: FC<Props> = ({
   } = useUIProvider();
   const isMobile = useMatchMedia('(max-width:800px)');
   const logo =
-    isMobile && globalNavOpen ? logoMonochrome.asset.url : logoColor.asset.url;
+    isMobile && globalNavOpen
+      ? logoMonochrome?.asset?.url
+      : logoColor?.asset?.url;
   const router = useRouter();
 
   useEffect(() => {
@@ -56,9 +58,11 @@ export const Navigation: FC<Props> = ({
       )}
     >
       <div className={cn(NavContainer)}>
-        <Link href="/">
-          <Image src={logo} width={120} height={22} alt="logo" />
-        </Link>
+        {logo && (
+          <Link href="/">
+            <Image src={logo} width={120} height={22} alt="logo" />
+          </Link>
+        )}
 
         {!isMobile && (
           <div className={cn(NavLinksWrapper)}>
