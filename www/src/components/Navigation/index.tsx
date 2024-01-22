@@ -1,4 +1,5 @@
-import { FC } from 'react';
+import { FC, useEffect } from 'react';
+import { useRouter } from 'next/router';
 import Link from 'next/link';
 import Image from 'next/image';
 import cn from 'classnames';
@@ -22,11 +23,31 @@ export const Navigation: FC<Props> = ({
   logoMonochrome,
   navLinks,
 }) => {
-  const { globalNavOpen, toggleGlobalNav } = useUIProvider();
-
+  const {
+    globalNavOpen,
+    setGlobalNavOpen,
+    setGlobalNavDropdownOpen,
+    toggleGlobalNav,
+  } = useUIProvider();
   const isMobile = useMatchMedia('(max-width:800px)');
   const logo =
     isMobile && globalNavOpen ? logoMonochrome.asset.url : logoColor.asset.url;
+  const router = useRouter();
+
+  useEffect(() => {
+    if (!isMobile) {
+      setGlobalNavOpen(false);
+      setGlobalNavDropdownOpen(false);
+    }
+  }, [isMobile, setGlobalNavOpen, setGlobalNavDropdownOpen]);
+
+  //
+  useEffect(() => {
+    if (globalNavOpen) {
+      setGlobalNavOpen(false);
+      setGlobalNavDropdownOpen(false);
+    }
+  }, [router.asPath, setGlobalNavDropdownOpen]);
   return (
     <nav
       className={cn(
@@ -35,7 +56,7 @@ export const Navigation: FC<Props> = ({
       )}
     >
       <div className={cn(NavContainer)}>
-        <Link href="/" onClick={toggleGlobalNav}>
+        <Link href="/">
           <Image src={logo} width={120} height={22} alt="logo" />
         </Link>
 

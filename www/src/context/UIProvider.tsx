@@ -27,6 +27,7 @@ export const UIProvider: FC<PropsWithChildren> = ({ children }) => {
       setGlobalNavDropdownOpen(false);
     } else setGlobalNavDropdownOpen(true);
   };
+
   return (
     <UIContext.Provider
       value={{

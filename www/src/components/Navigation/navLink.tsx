@@ -19,6 +19,7 @@ type Props = {
 export const NavLink: FC<Props> = ({ navItem }) => {
   const { globalNavDropdownOpen, toggleGlobalNav, toggleGlobalNavDropdown } =
     useUIProvider();
+  const parentSlug = navItem.page.slug;
   return (
     <div className={cn(NavLinkStyles)}>
       {navItem.page.subPages ? (
@@ -40,7 +41,7 @@ export const NavLink: FC<Props> = ({ navItem }) => {
               {navItem.page.subPages.map((subPage) => (
                 <Link
                   key={subPage._id}
-                  href={subPage.slug}
+                  href={`${parentSlug}/${subPage.slug}`}
                   className={cn(SubPageLink)}
                   onClick={toggleGlobalNav}
                 >
