@@ -54,7 +54,7 @@ export const Link = defineType({
       name: 'documentLink',
       title: 'Linked Page',
       type: 'linkableDocument',
-      validation: (Rule) => [validateOnlyOne, limitType],
+      validation: (Rule) => [validateOnlyOne],
     }),
 
     defineField({
