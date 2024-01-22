@@ -65,16 +65,8 @@ export type SiteSettings = SanityDocument & {
     title: string;
     navLinks: NavLinkObject[];
   };
-  logoColor: {
-    asset: {
-      url: string;
-    };
-  };
-  logoMonochrome: {
-    asset: {
-      url: string;
-    };
-  };
+  logoColor: Image;
+  logoMonochrome: Image;
   defaultMetadata: Metadata;
 };
 
