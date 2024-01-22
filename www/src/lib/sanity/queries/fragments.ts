@@ -21,3 +21,31 @@ export const imageFragment = `
   crop,
   hotspot
 `;
+
+export const linkableDocumentFragment = `{
+  _key,
+  _type,
+  page->{
+    title,
+    "slug": slug.current,
+    subPages[]->{
+      _type,
+      _id,
+      title,
+      "slug": slug.current,
+    },
+  },
+}`;
+
+export const metadataFragment = `{
+  _type,
+  title,
+  shareTitle,
+  description,
+  shareDescription,
+  shareGraphic {
+    asset->{
+      url
+    }
+  }
+}`;

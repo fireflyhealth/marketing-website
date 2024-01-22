@@ -1,5 +1,4 @@
-import { metadata } from './metadata';
-import { linkableDocument } from './linkableDocument';
+import { metadataFragment, linkableDocumentFragment } from './fragments';
 
 export const siteSettings = `{
   _id,
@@ -7,7 +6,7 @@ export const siteSettings = `{
   "globalNav": globalNav->{
     _type,
     title,
-    "navLinks": navLinks ${linkableDocument}[],
+    "navLinks": navLinks ${linkableDocumentFragment}[],
   },
   logoColor {
     asset->{
@@ -19,5 +18,5 @@ export const siteSettings = `{
       url
     }
   },
-  "defaultMetadata": defaultMetadata ${metadata},
+  "defaultMetadata": defaultMetadata ${metadataFragment},
 }`;
