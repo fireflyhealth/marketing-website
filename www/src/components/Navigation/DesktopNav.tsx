@@ -3,7 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import cn from 'classnames';
 import * as SanityTypes from '@/types/sanity';
-import { NavLink } from './navLink';
+import { NavLink } from './NavLink';
 import { NavWrapper, NavContainer, NavLinksWrapper } from './styles';
 
 // TODO: replace next/link and next/image with Link and Image compoents

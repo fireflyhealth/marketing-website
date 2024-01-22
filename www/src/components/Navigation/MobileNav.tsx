@@ -5,7 +5,7 @@ import cn from 'classnames';
 import { SimpleIcon } from '@/svgs/SimpleIcon';
 import * as SanityTypes from '@/types/sanity';
 import { useUIProvider } from '@/hooks';
-import { NavLink } from './navLink';
+import { NavLink } from './NavLink';
 import { NavWrapper, NavContainer, NavLinksWrapper } from './styles';
 
 // TODO: replace next/link and next/image with Link and Image compoents
