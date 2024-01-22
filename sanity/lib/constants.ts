@@ -51,4 +51,5 @@ export const linkableDocumentTypes = [
   'downloadPage',
   'faqPage',
   'contactPage',
+  'genericPage',
 ];

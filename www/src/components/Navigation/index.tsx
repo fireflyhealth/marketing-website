@@ -65,7 +65,7 @@ export const Navigation: FC<Props> = ({
           <>
             {navLinks.map((navItem) => (
               <>
-                {navItem.showDropdown === true ? (
+                {navItem.page.subPages ? (
                   <div className={cn(NavLinkDropdownWrapper)}>
                     <button
                       className={cn(NavDropdownButton)}

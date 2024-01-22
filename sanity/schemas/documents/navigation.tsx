@@ -28,29 +28,16 @@ export const Navigation = defineType({
           fields: [
             {
               name: 'page',
-              type: 'reference',
+              type: 'linkableDocument',
               title: 'Link',
-              to: [
-                {
-                  type: 'genericPage',
-                },
-              ],
-            },
-            {
-              name: 'showDropdown',
-              type: 'boolean',
-              title: 'Show dropdown',
-              description:
-                'Toggle on to show referenced page`s subpages as a dropdown list',
             },
           ],
           preview: {
             select: {
               title: 'page.title',
-              subtitle: 'showDropdown',
             },
-            prepare({ title, subtitle }) {
-              return { title, subtitle: `Show dropdown: ${subtitle}` };
+            prepare({ title }) {
+              return { title };
             },
           },
         }),

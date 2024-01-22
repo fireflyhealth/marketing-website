@@ -1,5 +1,5 @@
 import { metadata } from './metadata';
-import { NavLinkObject } from './navigation';
+import { linkableDocument } from './linkableDocument';
 
 export const siteSettings = `{
   _id,
@@ -7,7 +7,7 @@ export const siteSettings = `{
   "globalNav": globalNav->{
     _type,
     title,
-    "navLinks": navLinks ${NavLinkObject}[],
+    "navLinks": navLinks ${linkableDocument}[],
   },
   logoColor {
     asset->{
