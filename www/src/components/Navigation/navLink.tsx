@@ -26,45 +26,8 @@ export const NavLink: FC<Props> = ({ navItem, isMobile }) => {
   } = useUIProvider();
 
   const navItemRef = useRef<HTMLDivElement>(null);
+  const dropdownRef = useRef<HTMLDivElement>(null);
   const [dropdownOpen, setDropdownOpen] = useState<boolean>(false);
-
-  const toggleDropDown = () => {
-    setCurrentNavItemRef(navItemRef.current);
-    // toggle dropdown open and close based on current nav item
-    if (currentNavItemRef === navItemRef.current) {
-      setDropdownOpen(true);
-    } else setDropdownOpen(false);
-
-    if (currentNavItemRef === navItemRef.current && !dropdownOpen) {
-      setCurrentNavItemRef(null);
-    }
-  };
-
-  useEffect(() => {
-    if (!navItemRef.current) return;
-
-    // close dropdown if global nav is closed
-    if (isMobile) {
-      toggleDropDown();
-
-      if (!mobileNavOpen) {
-        setDropdownOpen(false);
-      }
-    }
-
-    navItemRef.current.addEventListener('mouseover', () => {
-      toggleDropDown();
-    });
-
-    return navItemRef.current.removeEventListener('mouseenter', () => {
-      toggleDropDown();
-    });
-  }, [currentNavItemRef, mobileNavOpen, dropdownOpen]);
-
-  useEffect(() => {
-    if (!navItemRef.current) return;
-  }, []);
-
   const parentSlug = navItem.link?.slug;
   const navItemHighlightState =
     currentNavItemRef === null
@@ -72,13 +35,49 @@ export const NavLink: FC<Props> = ({ navItem, isMobile }) => {
       : currentNavItemRef === navItemRef.current
         ? 'text-black'
         : 'text-black/60';
+
+  const hoverToggleDropdownOpen = () => {
+    setDropdownOpen(true);
+  };
+
+  const hoverToggleDropdownClose = () => {
+    setDropdownOpen(false);
+  };
+
+  useEffect(() => {
+    if (!navItemRef.current) return;
+    if (!dropdownRef.current) return;
+
+    if (isMobile) {
+      if (currentNavItemRef === navItemRef.current && !dropdownOpen) {
+        setCurrentNavItemRef(null);
+      }
+      // close dropdown if mobile nav is closed
+      if (!mobileNavOpen) {
+        setDropdownOpen(false);
+      }
+    }
+
+    // hover events for desktop nav
+    navItemRef.current.addEventListener('mouseover', () => {
+      setCurrentNavItemRef(navItemRef.current);
+    });
+
+    dropdownRef.current.addEventListener('mouseover', () => {
+      hoverToggleDropdownOpen();
+    });
+
+    dropdownRef.current.addEventListener('mouseleave', () => {
+      hoverToggleDropdownClose();
+    });
+  }, [currentNavItemRef, dropdownRef, mobileNavOpen, dropdownOpen]);
   return (
     <div
       ref={navItemRef}
       className={cn(NavLinkStyles, `${navItem.label}`, navItemHighlightState)}
     >
       {navItem.subpages ? (
-        <div className={cn(NavLinkDropdownWrapper)}>
+        <div ref={dropdownRef} className={cn(NavLinkDropdownWrapper)}>
           <button
             className={cn(NavDropdownButton)}
             onClick={() => {

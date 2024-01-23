@@ -11,7 +11,7 @@ type UIProviderProps = {
   setMobileNavOpen: (open: boolean) => void;
   toggleGlobalNav: () => void;
   currentNavItemRef: HTMLDivElement | null;
-  setCurrentNavItemRef: (globalNavItemRef: HTMLDivElement | null) => void;
+  setCurrentNavItemRef: (navItemRef: HTMLDivElement | null) => void;
 };
 
 export const UIContext = createContext<UIProviderProps | undefined>(undefined);
