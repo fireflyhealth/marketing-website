@@ -63,7 +63,7 @@ export type SiteSettings = SanityDocument & {
   globalNav: {
     _type: string;
     title: string;
-    navLinks: NavLinkObject[];
+    navGroup: NavGroup[];
   };
   logoColor: Image;
   logoMonochrome: Image;
@@ -152,23 +152,24 @@ export type BlogArticle = SanityDocument & {
 /* Navigation */
 export type Navigation = SanityDocument & {
   title: string;
-  navLinks: NavLinkObject[];
+  navLinks: NavGroup[];
 };
 
-export type NavLinkObject = {
+export type NavGroup = {
   _key: string;
   _type: string;
-  showDropdown: boolean;
-  page: {
-    title: string;
+  label: string;
+  link: {
     slug: string;
-    subPages: {
-      _type: string;
-      _id: string;
-      title: string;
-      slug: string;
-    }[];
   };
+  subpages: {
+    _key: string;
+    _type: string;
+    label: string;
+    link: {
+      slug: string;
+    };
+  }[];
 };
 
 /*

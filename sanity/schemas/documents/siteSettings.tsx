@@ -8,8 +8,8 @@ export const SiteSettings = defineType({
   icon: icons.Settings,
   groups: [
     {
-      name: 'navigation',
-      title: 'Navigation',
+      name: 'globalNavigation',
+      title: 'Global Navigation',
       icon: icons.Navigation,
     },
     {
@@ -23,13 +23,13 @@ export const SiteSettings = defineType({
       name: 'globalNav',
       type: 'reference',
       to: [{ type: 'navigation' }],
-      group: 'navigation',
+      group: 'globalNavigation',
     }),
     defineField({
       name: 'logoColor',
       type: 'image',
       description: 'Logo in color',
-      group: 'navigation',
+      group: 'globalNavigation',
       options: {
         hotspot: true,
       },
@@ -38,7 +38,7 @@ export const SiteSettings = defineType({
       name: 'logoMonochrome',
       type: 'image',
       description: 'Logo in monochrome',
-      group: 'navigation',
+      group: 'globalNavigation',
       options: {
         hotspot: true,
       },

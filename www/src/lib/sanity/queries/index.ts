@@ -1,4 +1,4 @@
-import { metadataFragment, linkableDocumentFragment } from './fragments';
+import { metadataFragment, linkWithLabelFragment } from './fragments';
 
 export const siteSettings = `{
   _id,
@@ -6,7 +6,7 @@ export const siteSettings = `{
   "globalNav": globalNav->{
     _type,
     title,
-    "navLinks": navLinks {${linkableDocumentFragment}}[],
+    "navGroup": navGroup {${linkWithLabelFragment}}[],
   },
   logoColor {
     asset->{

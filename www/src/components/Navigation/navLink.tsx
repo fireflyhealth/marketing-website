@@ -13,7 +13,7 @@ import {
 } from './styles';
 
 type Props = {
-  navItem: Types.NavLinkObject;
+  navItem: Types.NavGroup;
   isMobile?: boolean;
 };
 
@@ -46,13 +46,13 @@ export const NavLink: FC<Props> = ({ navItem, isMobile }) => {
     }
   }, [currentNavItemRef, mobileNavOpen, dropdownOpen]);
 
-  const parentSlug = navItem.page.slug;
+  const parentSlug = navItem.link?.slug;
   return (
     <div
       ref={navItemRef}
       className={cn(
         NavLinkStyles,
-        `${navItem.page.title}`,
+        `${navItem.label}`,
         currentNavItemRef === null
           ? 'text-black'
           : currentNavItemRef === navItemRef.current
@@ -60,7 +60,7 @@ export const NavLink: FC<Props> = ({ navItem, isMobile }) => {
             : 'text-black/60',
       )}
     >
-      {navItem.page.subPages ? (
+      {navItem.subpages ? (
         <div className={cn(NavLinkDropdownWrapper)}>
           <button
             className={cn(NavDropdownButton)}
@@ -69,7 +69,7 @@ export const NavLink: FC<Props> = ({ navItem, isMobile }) => {
               setDropdownOpen(!dropdownOpen);
             }}
           >
-            <p className={cn(NavLink)}>{navItem.page.title}</p>
+            <p className={cn(NavLink)}>{navItem.label}</p>
             <SimpleIcon
               type="arrow-down"
               width={12}
@@ -93,21 +93,21 @@ export const NavLink: FC<Props> = ({ navItem, isMobile }) => {
               'transition-all ease-in-out',
             )}
           >
-            {navItem.page.subPages.map((subPage) => (
+            {navItem.subpages.map((subPage) => (
               <Link
-                key={subPage._id}
-                href={`${parentSlug}/${subPage.slug}`}
+                key={subPage._key}
+                href={`${parentSlug}/${subPage.link.slug}`}
                 className={cn(SubPageLink)}
                 onClick={toggleGlobalNav}
               >
-                {subPage.title}
+                {subPage.label}
               </Link>
             ))}
           </div>
         </div>
       ) : (
-        <Link href={navItem.page.slug} onClick={toggleGlobalNav}>
-          {navItem.page.title}
+        <Link href={navItem.link.slug} onClick={toggleGlobalNav}>
+          {navItem.label}
         </Link>
       )}
     </div>

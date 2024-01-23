@@ -21,7 +21,7 @@ export default function App({ Component, pageProps: allPageProps }: Props) {
           <Navigation
             logoColor={siteSettings.logoColor}
             logoMonochrome={siteSettings.logoMonochrome}
-            navLinks={siteSettings.globalNav.navLinks}
+            navGroup={siteSettings.globalNav.navGroup}
           />
           <main className="mt-mobile-globalnav-height md:mt-desktop-globalnav-height">
             <Component {...pageProps} />

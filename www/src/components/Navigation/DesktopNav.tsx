@@ -11,10 +11,10 @@ import { NavWrapper, NavContainer, NavLinksWrapper } from './styles';
 
 type Props = {
   logoColor: SanityTypes.Image;
-  navLinks: SanityTypes.NavLinkObject[];
+  navGroup: SanityTypes.NavGroup[];
 };
 
-export const DesktopNav: FC<Props> = ({ logoColor, navLinks }) => {
+export const DesktopNav: FC<Props> = ({ logoColor, navGroup }) => {
   const logo = logoColor?.asset?.url;
   return (
     <nav
@@ -28,7 +28,7 @@ export const DesktopNav: FC<Props> = ({ logoColor, navLinks }) => {
         )}
 
         <div className={cn(NavLinksWrapper)}>
-          {navLinks.map((navItem) => (
+          {navGroup.map((navItem) => (
             <NavLink key={navItem._key} navItem={navItem} />
           ))}
         </div>

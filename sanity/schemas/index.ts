@@ -17,6 +17,7 @@ import { Link, LinkableDocument } from './fields/linking';
 import { CTA } from './fields/cta';
 import { SimpleRichText, ArticleRichText } from './fields/richText';
 import { Navigation } from './documents/navigation';
+import { LinkWithLabel } from './fields/linkWithLabel';
 
 export const schemaTypes = [
   /* Document Types */
@@ -42,4 +43,5 @@ export const schemaTypes = [
   CTA,
   SimpleRichText,
   ArticleRichText,
+  LinkWithLabel,
 ];

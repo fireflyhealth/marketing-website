@@ -14,13 +14,13 @@ import { NavWrapper, NavContainer, NavLinksWrapper } from './styles';
 type Props = {
   logoColor: SanityTypes.Image;
   logoMonochrome: SanityTypes.Image;
-  navLinks: SanityTypes.NavLinkObject[];
+  navGroup: SanityTypes.NavGroup[];
 };
 
 export const MobileNav: FC<Props> = ({
   logoColor,
   logoMonochrome,
-  navLinks,
+  navGroup,
 }) => {
   const { mobileNavOpen, toggleGlobalNav } = useUIProvider();
   const logo = mobileNavOpen
@@ -54,7 +54,7 @@ export const MobileNav: FC<Props> = ({
 
       {mobileNavOpen && (
         <div className={cn(NavLinksWrapper)}>
-          {navLinks.map((navItem) => (
+          {navGroup.map((navItem) => (
             <NavLink key={navItem._key} navItem={navItem} isMobile />
           ))}
         </div>

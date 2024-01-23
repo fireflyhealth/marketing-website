@@ -1,4 +1,4 @@
-import { defineField, defineType, defineArrayMember } from 'sanity';
+import { defineField, defineType } from 'sanity';
 import { icons } from '../../lib/icons';
 
 export const Navigation = defineType({
@@ -15,32 +15,13 @@ export const Navigation = defineType({
         'The title should easily reference the use case for this navigation variant.',
     }),
     defineField({
-      name: 'navLinks',
+      name: 'navGroup',
       type: 'array',
       title: 'Navigation Links',
       of: [
-        defineArrayMember({
-          name: 'navLinkObject',
-          type: 'object',
-          initialValue: {
-            showDropdown: false,
-          },
-          fields: [
-            {
-              name: 'page',
-              type: 'linkableDocument',
-              title: 'Link',
-            },
-          ],
-          preview: {
-            select: {
-              title: 'page.title',
-            },
-            prepare({ title }) {
-              return { title };
-            },
-          },
-        }),
+        {
+          type: 'linkWithLabel',
+        },
       ],
     }),
   ],

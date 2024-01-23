@@ -8,13 +8,13 @@ import { DesktopNav } from './DesktopNav';
 type Props = {
   logoColor: SanityTypes.Image;
   logoMonochrome: SanityTypes.Image;
-  navLinks: SanityTypes.NavLinkObject[];
+  navGroup: SanityTypes.NavGroup[];
 };
 
 export const Navigation: FC<Props> = ({
   logoColor,
   logoMonochrome,
-  navLinks,
+  navGroup,
 }) => {
   const { mobileNavOpen, setMobileNavOpen } = useUIProvider();
   const router = useRouter();
@@ -30,9 +30,9 @@ export const Navigation: FC<Props> = ({
       <MobileNav
         logoColor={logoColor}
         logoMonochrome={logoMonochrome}
-        navLinks={navLinks}
+        navGroup={navGroup}
       />
-      <DesktopNav logoColor={logoColor} navLinks={navLinks} />
+      <DesktopNav logoColor={logoColor} navGroup={navGroup} />
     </>
   );
 };

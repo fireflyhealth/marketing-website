@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* Works for both RichImage and standard images */
 
 export const imageFragment = `
@@ -20,6 +21,23 @@ export const imageFragment = `
   altText,
   crop,
   hotspot
+`;
+
+export const linkWithLabelFragment = `
+  _key,
+  _type,
+  label,
+  link->{
+    "slug": slug.current,
+  },
+  subpages[]{
+    _key,
+    _type,
+    label,
+    link->{
+      "slug": slug.current,
+    },
+  }
 `;
 
 export const linkableDocumentFragment = `
