@@ -37,6 +37,16 @@ button[disabled] {
 img {
   max-width: 100%;
 }
+/* base styles for SimpleIcon wrapper */
+.icon-wrapper {
+  width: 1em;
+  color: theme('colors.midnight');
+
+  svg {
+    width: 100%;
+    fill: currentColor;
+  }
+}
 
 /*
  * Reference:

@@ -72,17 +72,14 @@ export const NavLink: FC<Props> = ({ navItem, isMobile }) => {
             <p className={cn(NavLink)}>{navItem.label}</p>
             <SimpleIcon
               type="arrow-down"
-              width={12}
-              color={
-                currentNavItemRef === null
-                  ? '#131D2B'
-                  : currentNavItemRef === navItemRef.current
-                    ? '#131D2B'
-                    : 'rgb(19 29 43 / 0.6)'
-              }
               className={cn(
-                dropdownOpen ? 'rotate-180' : '',
-                'transition ease-in-out',
+                dropdownOpen ? 'rotate-90' : '',
+                'transition ease-in-out w-3',
+                currentNavItemRef === null
+                  ? 'text-black'
+                  : currentNavItemRef === navItemRef.current
+                    ? 'text-black'
+                    : 'text-black/60',
               )}
             />
           </button>
