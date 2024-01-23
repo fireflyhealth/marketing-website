@@ -28,9 +28,8 @@ export const NavLink: FC<Props> = ({ navItem, isMobile }) => {
   const navItemRef = useRef<HTMLDivElement>(null);
   const [dropdownOpen, setDropdownOpen] = useState<boolean>(false);
 
-  useEffect(() => {
-    if (!navItemRef?.current) return;
-
+  const toggleDropDown = () => {
+    setCurrentNavItemRef(navItemRef.current);
     // toggle dropdown open and close based on current nav item
     if (currentNavItemRef === navItemRef.current) {
       setDropdownOpen(true);
@@ -39,34 +38,54 @@ export const NavLink: FC<Props> = ({ navItem, isMobile }) => {
     if (currentNavItemRef === navItemRef.current && !dropdownOpen) {
       setCurrentNavItemRef(null);
     }
+  };
+
+  useEffect(() => {
+    if (!navItemRef.current) return;
 
     // close dropdown if global nav is closed
-    if (isMobile && !mobileNavOpen) {
-      setDropdownOpen(false);
+    if (isMobile) {
+      toggleDropDown();
+
+      if (!mobileNavOpen) {
+        setDropdownOpen(false);
+      }
     }
+
+    navItemRef.current.addEventListener('mouseover', () => {
+      toggleDropDown();
+    });
+
+    return navItemRef.current.removeEventListener('mouseenter', () => {
+      toggleDropDown();
+    });
   }, [currentNavItemRef, mobileNavOpen, dropdownOpen]);
 
+  useEffect(() => {
+    if (!navItemRef.current) return;
+  }, []);
+
   const parentSlug = navItem.link?.slug;
+  const navItemHighlightState =
+    currentNavItemRef === null
+      ? 'text-black'
+      : currentNavItemRef === navItemRef.current
+        ? 'text-black'
+        : 'text-black/60';
   return (
     <div
       ref={navItemRef}
-      className={cn(
-        NavLinkStyles,
-        `${navItem.label}`,
-        currentNavItemRef === null
-          ? 'text-black'
-          : currentNavItemRef === navItemRef.current
-            ? 'text-black'
-            : 'text-black/60',
-      )}
+      className={cn(NavLinkStyles, `${navItem.label}`, navItemHighlightState)}
     >
       {navItem.subpages ? (
         <div className={cn(NavLinkDropdownWrapper)}>
           <button
             className={cn(NavDropdownButton)}
             onClick={() => {
-              setCurrentNavItemRef(navItemRef.current);
-              setDropdownOpen(!dropdownOpen);
+              if (isMobile) {
+                setCurrentNavItemRef(navItemRef.current);
+                setDropdownOpen(!dropdownOpen);
+              }
             }}
           >
             <p className={cn(NavLink)}>{navItem.label}</p>
@@ -75,11 +94,7 @@ export const NavLink: FC<Props> = ({ navItem, isMobile }) => {
               className={cn(
                 dropdownOpen ? 'rotate-90' : '',
                 'transition ease-in-out w-3',
-                currentNavItemRef === null
-                  ? 'text-black'
-                  : currentNavItemRef === navItemRef.current
-                    ? 'text-black'
-                    : 'text-black/60',
+                navItemHighlightState,
               )}
             />
           </button>
