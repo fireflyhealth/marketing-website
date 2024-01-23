@@ -1,0 +1,3 @@
+.carousel__slide + .carousel__slide {
+  margin-left: 20px;
+}
