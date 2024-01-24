@@ -66,6 +66,10 @@ export const NavLink: FC<Props> = ({ navItem, isMobile }) => {
       setCurrentNavItemRef(navItemRef.current);
     });
 
+    navItemRef.current.addEventListener('mouseleave', () => {
+      setCurrentNavItemRef(null);
+    });
+
     dropdownRef.current.addEventListener('mouseover', () => {
       hoverToggleDropdownOpen();
     });
@@ -75,7 +79,10 @@ export const NavLink: FC<Props> = ({ navItem, isMobile }) => {
     });
   }, [currentNavItemRef, dropdownRef, mobileNavOpen, dropdownOpen]);
   return (
-    <div ref={navItemRef} className={cn(NavLinkStyles, `${navItem.label}`)}>
+    <div
+      ref={navItemRef}
+      className={cn(NavLinkStyles, navItemHighlightState, `${navItem.label}`)}
+    >
       {navItem._type === 'labelWithDropdown' ? (
         <div ref={dropdownRef} className={cn(NavLinkDropdownWrapper)}>
           <button
