@@ -1,7 +1,7 @@
 import { Meta, StoryObj } from '@storybook/react';
+import { PortableTextBlock } from '@portabletext/types';
 
-import { articleRichText, simpleRichText } from '@/mockData/richText';
-import { ColorTheme, Theme } from '../Theme';
+import { mockData } from '@/mockData';
 import { RichText } from './';
 
 const meta = {
@@ -15,7 +15,7 @@ const meta = {
 type Story = StoryObj<typeof meta>;
 
 export const SimpleRichText: Story = {
-  args: { content: simpleRichText },
+  args: { content: mockData.simpleRichText as unknown as PortableTextBlock[] },
   decorators: (Story: React.ComponentType) => (
     <div className="p-4 bg-theme">
       <Story />
@@ -23,7 +23,10 @@ export const SimpleRichText: Story = {
   ),
 };
 export const ArticleRichText: Story = {
-  args: { content: articleRichText, className: 'max-w-[800px] mx-auto' },
+  args: {
+    content: mockData.articleRichText as unknown as PortableTextBlock[],
+    className: 'max-w-[800px] mx-auto',
+  },
   decorators: (Story: React.ComponentType) => (
     <div className="p-4 bg-theme">
       <Story />
