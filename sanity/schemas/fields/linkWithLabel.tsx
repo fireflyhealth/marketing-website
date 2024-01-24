@@ -1,4 +1,4 @@
-import { defineArrayMember, defineField, defineType } from 'sanity';
+import { defineField, defineType } from 'sanity';
 
 export const LinkWithLabel = defineType({
   name: 'linkWithLabel',
@@ -9,39 +9,13 @@ export const LinkWithLabel = defineType({
       name: 'label',
       title: 'label',
       type: 'string',
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'link',
       title: 'Link',
       type: 'linkableDocument',
-    }),
-    defineField({
-      name: 'subpages',
-      title: 'Subpages',
-      type: 'array',
-      of: [
-        defineArrayMember({
-          name: 'subpage',
-          title: 'Subpage',
-          type: 'object',
-          fields: [
-            {
-              name: 'label',
-              title: 'label',
-              type: 'string',
-            },
-            {
-              name: 'link',
-              title: 'Link',
-              type: 'linkableDocument',
-            },
-          ],
-          preview: {
-            select: { title: 'label' },
-            prepare: ({ title }) => ({ title }),
-          },
-        }),
-      ],
+      validation: (Rule) => Rule.required(),
     }),
   ],
   preview: {

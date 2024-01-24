@@ -22,6 +22,9 @@ export const Navigation = defineType({
         {
           type: 'linkWithLabel',
         },
+        {
+          type: 'labelWithDropdown',
+        },
       ],
     }),
   ],

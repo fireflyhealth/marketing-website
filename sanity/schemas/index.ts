@@ -18,6 +18,7 @@ import { CTA } from './fields/cta';
 import { SimpleRichText, ArticleRichText } from './fields/richText';
 import { Navigation } from './documents/navigation';
 import { LinkWithLabel } from './fields/linkWithLabel';
+import { LabelWithDropdown } from './fields/labelWithDropdown';
 
 export const schemaTypes = [
   /* Document Types */
@@ -44,4 +45,5 @@ export const schemaTypes = [
   SimpleRichText,
   ArticleRichText,
   LinkWithLabel,
+  LabelWithDropdown,
 ];
