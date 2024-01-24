@@ -7,10 +7,13 @@ import * as Types from '@/types/sanity';
 import {
   NavLinkDropdownWrapper,
   NavDropdownButton,
-  NavLinkDropdown,
+  DropdownOuter,
+  DropdownInner,
   SubPageLink,
   NavLinkStyles,
 } from './styles';
+
+// TODO: replace subpage next/link with custom Link component
 
 type Props = {
   navItem: Types.NavGroup;
@@ -72,10 +75,7 @@ export const NavLink: FC<Props> = ({ navItem, isMobile }) => {
     });
   }, [currentNavItemRef, dropdownRef, mobileNavOpen, dropdownOpen]);
   return (
-    <div
-      ref={navItemRef}
-      className={cn(NavLinkStyles, `${navItem.label}`, navItemHighlightState)}
-    >
+    <div ref={navItemRef} className={cn(NavLinkStyles, `${navItem.label}`)}>
       {navItem.subpages ? (
         <div ref={dropdownRef} className={cn(NavLinkDropdownWrapper)}>
           <button
@@ -97,23 +97,19 @@ export const NavLink: FC<Props> = ({ navItem, isMobile }) => {
               )}
             />
           </button>
-          <div
-            className={cn(
-              NavLinkDropdown,
-              dropdownOpen ? 'block' : 'hidden',
-              'transition-all ease-in-out',
-            )}
-          >
-            {navItem.subpages.map((subPage) => (
-              <Link
-                key={subPage._key}
-                href={`${parentSlug}/${subPage.link.slug}`}
-                className={cn(SubPageLink)}
-                onClick={toggleGlobalNav}
-              >
-                {subPage.label}
-              </Link>
-            ))}
+          <div className={cn(DropdownOuter, dropdownOpen ? 'block' : 'hidden')}>
+            <div className={cn(DropdownInner, 'transition-all ease-in-out')}>
+              {navItem.subpages.map((subPage) => (
+                <Link
+                  key={subPage._key}
+                  href={`${parentSlug}/${subPage.link.slug}`}
+                  className={cn(SubPageLink)}
+                  onClick={toggleGlobalNav}
+                >
+                  {subPage.label}
+                </Link>
+              ))}
+            </div>
           </div>
         </div>
       ) : (

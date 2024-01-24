@@ -21,9 +21,13 @@ export const NavDropdownButton = [
   'md:mr-2',
 ];
 
-export const NavLinkDropdown = [
+export const DropdownOuter = [
+  'md:w-[242px] md:absolute md:top-[100%] md:left-[-24px]',
+];
+
+export const DropdownInner = [
   'mt-8 pl-4 flex flex-col space-y-4',
-  'md:absolute md:top-[100%] md:left-[-24px] md:w-max md:bg-grey md:border-grey-medium md:border md:rounded-lg md:p-6',
+  'md:bg-grey md:border-grey-medium md:border md:rounded-lg md:p-6',
 ];
 
 export const SubPageLink = ['roobert-body'];
