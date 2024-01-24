@@ -38,13 +38,13 @@ const BlockRenderer: PortableTextComponent<PortableTextBlock> = ({
       return <h4 className="font-size-6 font-trust">{children}</h4>;
     case 'blockquote-large':
       return (
-        <blockquote className="font-size-5--quote font-trust text-theme-decorative">
+        <blockquote className="font-size-5--quote font-trust theme-text-color-decorative">
           {children}
         </blockquote>
       );
     case 'blockquote':
       return (
-        <blockquote className="font-size-6--quote font-trust text-theme-decorative">
+        <blockquote className="font-size-6--quote font-trust theme-text-color-decorative">
           {children}
         </blockquote>
       );
@@ -75,7 +75,7 @@ const components: Partial<PortableTextReactComponents> = {
 
 export const RichText: FC<RichTextProps> = ({ content, className }) => {
   return (
-    <div className={cx('RichText text-theme-primary', className)}>
+    <div className={cx('RichText theme-text-color-primary', className)}>
       <PortableText value={content} components={components} />
     </div>
   );

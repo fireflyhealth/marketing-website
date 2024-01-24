@@ -17,7 +17,7 @@ type Story = StoryObj<typeof meta>;
 export const SimpleRichText: Story = {
   args: { content: mockData.simpleRichText as unknown as PortableTextBlock[] },
   decorators: (Story: React.ComponentType) => (
-    <div className="p-4 bg-theme">
+    <div className="p-4 theme-bg-color">
       <Story />
     </div>
   ),
@@ -28,7 +28,7 @@ export const ArticleRichText: Story = {
     className: 'max-w-[800px] mx-auto',
   },
   decorators: (Story: React.ComponentType) => (
-    <div className="p-4 bg-theme">
+    <div className="p-4 theme-bg-color">
       <Story />
     </div>
   ),

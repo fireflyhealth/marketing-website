@@ -36,6 +36,8 @@ const config: Config = {
       'sienna-light': '#E1621A',
       'sienna-dark': '#521B00',
       midnight: '#131D2B',
+      'midnight-70': 'rgba(19, 29, 43, 0.7)',
+      'midnight-30': 'rgba(19, 29, 43, 0.3)',
       'midnight-light': '#29374A',
       'sky-light': '#D2E7F1',
       sky: '#ABD9EA',
@@ -43,7 +45,11 @@ const config: Config = {
       'sky-dark': '#3F819D',
       yellow: '#FFD714',
       'yellow-light': '#FEFFD6',
+      'yellow-light-70': 'rgba(254, 255, 214, 0.7)',
       'yellow-dark': '#F9BB2C',
+      orange: '#F9BB2C',
+      'orange-medium': '#EF8641',
+      'orange-dark': '#D16A31',
     },
     extend: {
       /* TODO: Add spacing values. Search the codebase for
