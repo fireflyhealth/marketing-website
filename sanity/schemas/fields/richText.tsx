@@ -1,4 +1,5 @@
 import { defineField } from 'sanity';
+import { brandedIcons } from '../../lib/constants';
 
 /**
  * A simple rich text field type that does not allow
@@ -80,6 +81,31 @@ export const ArticleRichText = defineField({
           //   ],
           // },
         ],
+      },
+    },
+    {
+      name: 'icon',
+      type: 'object',
+      title: 'Icon',
+      fields: [
+        {
+          name: 'icon',
+          type: 'string',
+          title: 'Icon',
+          options: {
+            list: brandedIcons,
+          },
+        },
+      ],
+      preview: {
+        select: {
+          title: 'icon',
+        },
+        prepare: ({ title }) => {
+          return {
+            title,
+          };
+        },
       },
     },
   ],
