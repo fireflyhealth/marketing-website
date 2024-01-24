@@ -16,7 +16,7 @@ import {
 // TODO: replace subpage next/link with custom Link component
 
 type Props = {
-  navItem: Types.NavGroup;
+  navItem: Types.NavGroupType;
   isMobile?: boolean;
 };
 
@@ -31,7 +31,7 @@ export const NavLink: FC<Props> = ({ navItem, isMobile }) => {
   const navItemRef = useRef<HTMLDivElement>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const [dropdownOpen, setDropdownOpen] = useState<boolean>(false);
-  const parentSlug = navItem.link?.slug;
+
   const navItemHighlightState =
     currentNavItemRef === null
       ? 'text-black'
@@ -76,7 +76,7 @@ export const NavLink: FC<Props> = ({ navItem, isMobile }) => {
   }, [currentNavItemRef, dropdownRef, mobileNavOpen, dropdownOpen]);
   return (
     <div ref={navItemRef} className={cn(NavLinkStyles, `${navItem.label}`)}>
-      {navItem.subpages ? (
+      {navItem._type === 'labelWithDropdown' ? (
         <div ref={dropdownRef} className={cn(NavLinkDropdownWrapper)}>
           <button
             className={cn(NavDropdownButton)}
@@ -102,7 +102,7 @@ export const NavLink: FC<Props> = ({ navItem, isMobile }) => {
               {navItem.subpages.map((subPage) => (
                 <Link
                   key={subPage._key}
-                  href={`${parentSlug}/${subPage.link.slug}`}
+                  href={`${subPage.link.slug}`}
                   className={cn(SubPageLink)}
                   onClick={toggleGlobalNav}
                 >

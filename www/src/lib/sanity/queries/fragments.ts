@@ -24,20 +24,27 @@ export const imageFragment = `
 `;
 
 export const linkWithLabelFragment = `
-  _key,
-  _type,
-  label,
-  link->{
-    "slug": slug.current,
-  },
-  subpages[]{
-    _key,
+  _type == 'linkWithLabel' => {
     _type,
+    _key,
     label,
     link->{
       "slug": slug.current,
     },
-  }
+  },
+  _type == 'labelWithDropdown' => {
+    _type,
+    _key,
+    label,
+    subpages {
+      _type,
+      _key,
+      label,
+      link->{
+        "slug": slug.current,
+      },
+    }[],
+  },
 `;
 
 export const linkableDocumentFragment = `

@@ -8,7 +8,7 @@ import { DesktopNav } from './DesktopNav';
 type Props = {
   logoColor: SanityTypes.Image;
   logoMonochrome: SanityTypes.Image;
-  navGroup: SanityTypes.NavGroup[];
+  navGroup: SanityTypes.NavGroupType[];
 };
 
 export const Navigation: FC<Props> = ({

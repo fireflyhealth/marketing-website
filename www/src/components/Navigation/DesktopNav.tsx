@@ -11,7 +11,7 @@ import { NavWrapper, NavContainer, NavLinksWrapper } from './styles';
 
 type Props = {
   logoColor: SanityTypes.Image;
-  navGroup: SanityTypes.NavGroup[];
+  navGroup: SanityTypes.NavGroupType[];
 };
 
 export const DesktopNav: FC<Props> = ({ logoColor, navGroup }) => {

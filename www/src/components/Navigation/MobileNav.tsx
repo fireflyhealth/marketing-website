@@ -14,7 +14,7 @@ import { NavWrapper, NavContainer, NavLinksWrapper } from './styles';
 type Props = {
   logoColor: SanityTypes.Image;
   logoMonochrome: SanityTypes.Image;
-  navGroup: SanityTypes.NavGroup[];
+  navGroup: SanityTypes.NavGroupType[];
 };
 
 export const MobileNav: FC<Props> = ({
