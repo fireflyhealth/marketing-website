@@ -34,6 +34,10 @@ button[disabled] {
   }
 }
 
+img {
+  max-width: 100%;
+}
+
 /*
  * Reference:
  * https://www.figma.com/file/2ghg22zsQKeysX5YUcDP5d/%5BFirefly%5D-Design-System?type=design&node-id=3801%3A6956&mode=dev

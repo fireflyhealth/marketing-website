@@ -150,39 +150,44 @@ export type Slug = {
   current: string;
 };
 
-/* An enhanced image field that includes a caption & alt text */
-export type RichImage = Image & {
+/* An enhanced image field that includes a caption & required alt text */
+export type RichImage = Omit<Image, '_type'> & {
+  _type: 'richImage';
   altText: string;
   caption: string | null;
 };
 
+export type ImageCrop = {
+  top: number;
+  bottom: number;
+  left: number;
+  right: number;
+};
+
+export type ImageHotspot = {
+  height: number;
+  width: number;
+  x: number;
+  y: number;
+};
+
+export type ImageDimensions = {
+  aspectRatio: number;
+  width: number;
+  height: number;
+};
+
 export type Image = {
   _type: 'image';
-  _key: string;
   altText: string;
-  crop?: {
-    top: number;
-    bottom: number;
-    left: number;
-    right: number;
-  };
-  hotspot?: {
-    height: number;
-    width: number;
-    x: number;
-    y: number;
-  };
-  asset?: {
+  crop?: Maybe<ImageCrop>;
+  hotspot?: Maybe<ImageHotspot> | null;
+  asset: {
     _id: string;
-    _ref: string;
     url: string;
     metadata: {
       lqip: string;
-      dimensions: {
-        aspectRatio: number;
-        width: number;
-        height: number;
-      };
+      dimensions: ImageDimensions;
     };
   };
 };
