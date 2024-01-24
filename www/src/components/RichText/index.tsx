@@ -10,6 +10,7 @@ import {
   PortableTextListItemBlock,
 } from '@portabletext/types';
 import { RichText as RichTextType } from '@/types/sanity';
+import { BrandedIcon } from '@/svgs/BrandedIcon';
 
 type RichTextProps = {
   /* Note: You can add more types & serializers for
@@ -65,7 +66,11 @@ const components: Partial<PortableTextReactComponents> = {
     bullet: ({ children }) => <li>{children}</li>,
     number: ({ children }) => <li>{children}</li>,
   },
-  types: {},
+  types: {
+    icon: (props) => {
+      return <BrandedIcon type={props.value.icon} />;
+    },
+  },
 };
 
 export const RichText: FC<RichTextProps> = ({ content, className }) => {
