@@ -68,7 +68,7 @@ const components: Partial<PortableTextReactComponents> = {
   },
   types: {
     icon: (props) => {
-      return <BrandedIcon type={props.value.icon} />;
+      return <BrandedIcon type={props.value.icon} wrapperStyles="w-12" />;
     },
   },
 };
