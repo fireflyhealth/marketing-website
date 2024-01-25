@@ -38,7 +38,6 @@ export const imageFragment = `
  * }
  **/
 export const linkableDocumentFragment = `
-  _key,
   _type,
   _type == "homepage" => {},
   _type == "downloadPage" => {},
@@ -70,7 +69,6 @@ export const linkableDocumentFragment = `
     title,
     "parentPage": *[
       _type == "genericPage"
-      && slug.current == $parentSlug
       && ^._id in subPages[]._ref
     ]{
       _type,
@@ -82,7 +80,7 @@ export const linkableDocumentFragment = `
 
 export const linkFragment = `
   _type,
-  externalLink,
+  externalUrl,
   file{
     asset->{
       _type,
@@ -98,28 +96,38 @@ export const linkFragment = `
   }
  `;
 
+export const ctaFragment = `
+  _type,
+  label,
+  ariaLabel,
+  variant,
+  id,
+  link{
+    ${linkFragment}
+  }
+
+`;
+
 export const linkWithLabelFragment = `
-  _type == 'linkWithLabel' => {
+  _type,
+  _key,
+  label,
+  link->{
+    ${linkableDocumentFragment}
+  },
+`;
+export const navGroupFragment = `
+  _type,
+  _key,
+  label,
+  subpages {
     _type,
     _key,
     label,
     link->{
       ${linkableDocumentFragment}
     },
-  },
-  _type == 'labelWithDropdown' => {
-    _type,
-    _key,
-    label,
-    subpages {
-      _type,
-      _key,
-      label,
-      link->{
-        ${linkableDocumentFragment}
-      },
-    }[],
-  },
+  }[],
 `;
 
 export const metadataFragment = `

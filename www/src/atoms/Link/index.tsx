@@ -1,14 +1,15 @@
 import React, { FC } from 'react';
 import NextLink from 'next/link';
-import { Link as LinkType, LinkableDocumentData } from '@/types/sanity';
+import { Link as LinkType, LinkableDocumentData, Maybe } from '@/types/sanity';
 import { getLinkableDocumentPath } from '@/utils/linking';
 
 type LinkProps = {
   link: LinkType | LinkableDocumentData;
+  ariaLabel?: Maybe<string>;
   children: React.ReactNode;
 };
 
-export const Link: FC<LinkProps> = ({ link, children }) => {
+export const Link: FC<LinkProps> = ({ link, children, ariaLabel }) => {
   if ('externalUrl' in link && link.externalUrl) {
     return <a href={link.externalUrl}>{children}</a>;
   }
@@ -22,5 +23,9 @@ export const Link: FC<LinkProps> = ({ link, children }) => {
     );
   }
   const href = getLinkableDocumentPath(documentLink);
-  return <NextLink href={href}>{children}</NextLink>;
+  return (
+    <NextLink aria-label={ariaLabel || undefined} href={href}>
+      {children}
+    </NextLink>
+  );
 };

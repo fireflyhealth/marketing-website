@@ -274,8 +274,9 @@ export type Link = {
 };
 
 export type CTA = {
+  _type: 'cta';
   label: string;
-  ariaLabel?: string;
+  ariaLabel?: Maybe<string>;
   id: string;
   variant: 'primary' | 'secondary' | 'outlined';
   link: Link;
