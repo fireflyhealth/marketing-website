@@ -54,5 +54,11 @@ export const MockData = defineType({
         }),
       ],
     }),
+    defineField({
+      name: 'links',
+      title: 'Link Examples',
+      type: 'array',
+      of: [{ type: 'linkWithLabel' }],
+    }),
   ],
 });
