@@ -3,6 +3,14 @@ import { brandedIcons } from '../../lib/constants';
 import { BrandedIcon } from '../../lib/FireFlyIcon';
 
 /**
+ * Removes '-' and capitalizes first letter in string passed to the function.
+ */
+function normalizeString(str) {
+  str = str.replace(/-/g, ' ');
+  return str.charAt(0).toUpperCase() + str.slice(1);
+}
+
+/**
  * A simple rich text field type that does not allow
  * for headings (just bold, italics, links)
  *
@@ -104,7 +112,7 @@ export const ArticleRichText = defineField({
         },
         prepare: ({ title }) => {
           return {
-            title,
+            title: normalizeString(title),
             media: <BrandedIcon type={title} fill="white" />,
           };
         },
