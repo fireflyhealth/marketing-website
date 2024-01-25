@@ -1,5 +1,6 @@
 import { Rule, defineField, defineType } from 'sanity';
-import { linkableDocumentTypes } from '../../lib/constants';
+import { API_VERSION, linkableDocumentTypes } from '../../lib/constants';
+import { Maybe } from '../../lib/types';
 
 /*
  * Validation
@@ -21,6 +22,37 @@ const validateOnlyOne = (Rule: Rule) =>
     return true;
   });
 
+const validateNotOrphanedSubpage = (Rule: Rule) =>
+  Rule.custom(async (value: Maybe<{ _ref: string }>, context) => {
+    if (!value) return true;
+    const client = context.getClient({ apiVersion: API_VERSION });
+    const linkedPage = await client.fetch(
+      `
+        *[_id == $refId]{
+          _id,
+          _type,
+          "parentPage": *[
+            _type == "genericPage"
+            && ^._id in subPages[]._ref
+          ] {
+            _id,
+          }[0],
+          category->{
+            _id
+          }
+        }[0]
+      `,
+      { refId: value._ref },
+    );
+    if (linkedPage._type === 'subPage' && linkedPage.parentPage === null) {
+      return 'Cannot link to an orphaned sub page';
+    }
+    if (linkedPage._type === 'blogArticle' && linkedPage.category === null) {
+      return 'Cannot link to an orphaned blog article';
+    }
+    return true;
+  });
+
 /**
  * Use this field when defining document relationships that will
  * be used to create links on the frontend.
@@ -30,6 +62,8 @@ export const LinkableDocument = defineField({
   title: 'Linkable Document',
   type: 'reference',
   to: linkableDocumentTypes.map((schemaType) => ({ type: schemaType })),
+  // @ts-ignore
+  validation: (Rule) => [validateNotOrphanedSubpage],
 });
 
 export const Link = defineType({
@@ -54,7 +88,7 @@ export const Link = defineType({
       name: 'documentLink',
       title: 'Linked Page',
       type: 'linkableDocument',
-      validation: (Rule) => [validateOnlyOne],
+      validation: (Rule) => [validateOnlyOne, validateNotOrphanedSubpage],
     }),
 
     defineField({
