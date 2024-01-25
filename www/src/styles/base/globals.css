@@ -357,6 +357,7 @@ svg {
     outline: none;
   }
 
+  &--disabled,
   &:disabled {
     pointer-events: none;
     opacity: 0.3;
