@@ -106,6 +106,7 @@ export type FAQPageLinkData = Pick<FAQPage, '_type'>;
 /* Properties common to both GenericPage & SubPage */
 type CommonPage = SanityDocument & {
   title: string;
+  content: ContentArea;
   metadata?: Metadata;
   slug: Slug;
 };
@@ -237,3 +238,17 @@ export type CTA = {
 };
 
 export type RichText = PortableTextBlock[];
+
+export type ContentBlock = FiftyFiftyOverlap;
+
+export type ContentArea = ContentBlock[];
+
+export type FiftyFiftyOverlap = {
+  heading: ComponentHeader;
+};
+
+export type ComponentHeader = {
+  componentTitle: string;
+  componentDescription?: string;
+  cta?: CTA;
+};
