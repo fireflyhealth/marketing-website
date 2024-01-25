@@ -26,24 +26,6 @@ export const SiteSettings = defineType({
       group: 'globalNavigation',
     }),
     defineField({
-      name: 'logoColor',
-      type: 'image',
-      description: 'Logo in color',
-      group: 'globalNavigation',
-      options: {
-        hotspot: true,
-      },
-    }),
-    defineField({
-      name: 'logoMonochrome',
-      type: 'image',
-      description: 'Logo in monochrome',
-      group: 'globalNavigation',
-      options: {
-        hotspot: true,
-      },
-    }),
-    defineField({
       name: 'defaultMetadata',
       type: 'metadata',
       title: 'Default Metadata',
