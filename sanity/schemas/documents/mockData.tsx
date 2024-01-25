@@ -60,5 +60,11 @@ export const MockData = defineType({
       type: 'array',
       of: [{ type: 'linkWithLabel' }],
     }),
+    defineField({
+      name: 'ctas',
+      title: 'CTA Examples',
+      type: 'array',
+      of: [{ type: 'cta' }],
+    }),
   ],
 });
