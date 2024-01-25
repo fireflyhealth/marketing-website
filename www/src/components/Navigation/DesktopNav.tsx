@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 import cn from 'classnames';
+import { LogotypeColor } from '@/svgs/Logotype';
 import * as SanityTypes from '@/types/sanity';
 import { NavLink } from './NavLink';
 import { NavWrapper, NavContainer, NavLinksWrapper } from './styles';
@@ -10,22 +10,20 @@ import { NavWrapper, NavContainer, NavLinksWrapper } from './styles';
 // after they get created.
 
 type Props = {
-  logoColor: SanityTypes.Image;
   navGroup: SanityTypes.NavGroupType[];
 };
 
-export const DesktopNav: FC<Props> = ({ logoColor, navGroup }) => {
-  const logo = logoColor?.asset?.url;
+export const DesktopNav: FC<Props> = ({ navGroup }) => {
   return (
     <nav
       className={cn(NavWrapper, 'bg-transparent hidden md:absolute md:block')}
     >
       <div className={cn(NavContainer)}>
-        {logo && (
-          <Link href="/">
-            <Image src={logo} width={120} height={22} alt="logo" />
-          </Link>
-        )}
+        <Link href="/">
+          <div className="w-[175px]">
+            <LogotypeColor />
+          </div>
+        </Link>
 
         <div className={cn(NavLinksWrapper)}>
           {navGroup.map((navItem) => (

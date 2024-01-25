@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 /* Works for both RichImage and standard images */
 
 export const imageFragment = `

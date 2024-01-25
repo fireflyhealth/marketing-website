@@ -65,8 +65,6 @@ export type SiteSettings = SanityDocument & {
     title: string;
     navGroup: NavGroupType[];
   };
-  logoColor: Image;
-  logoMonochrome: Image;
   defaultMetadata: Metadata;
 };
 

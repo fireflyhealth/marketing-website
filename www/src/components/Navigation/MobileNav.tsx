@@ -1,10 +1,10 @@
 import { FC } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 import cn from 'classnames';
 import { SimpleIcon } from '@/svgs/SimpleIcon';
 import * as SanityTypes from '@/types/sanity';
 import { useUIProvider } from '@/context/UIProvider';
+import { LogotypeColor, LogotypeMonochrome } from '@/svgs/Logotype';
 import { NavLink } from './NavLink';
 import { NavWrapper, NavContainer, NavLinksWrapper } from './styles';
 
@@ -12,20 +12,11 @@ import { NavWrapper, NavContainer, NavLinksWrapper } from './styles';
 // after they get created.
 
 type Props = {
-  logoColor: SanityTypes.Image;
-  logoMonochrome: SanityTypes.Image;
   navGroup: SanityTypes.NavGroupType[];
 };
 
-export const MobileNav: FC<Props> = ({
-  logoColor,
-  logoMonochrome,
-  navGroup,
-}) => {
+export const MobileNav: FC<Props> = ({ navGroup }) => {
   const { mobileNavOpen, toggleGlobalNav } = useUIProvider();
-  const logo = mobileNavOpen
-    ? logoMonochrome?.asset?.url
-    : logoColor?.asset?.url;
   return (
     <nav
       className={cn(
@@ -35,11 +26,11 @@ export const MobileNav: FC<Props> = ({
       )}
     >
       <div className={cn(NavContainer)}>
-        {logo && (
-          <Link href="/">
-            <Image src={logo} width={120} height={22} alt="logo" />
-          </Link>
-        )}
+        <Link href="/">
+          <div className="w-[120px]">
+            {mobileNavOpen ? <LogotypeMonochrome /> : <LogotypeColor />}
+          </div>
+        </Link>
 
         {/* menu button only visible on tablet and mobile */}
         <button className="md:hidden" onClick={toggleGlobalNav}>

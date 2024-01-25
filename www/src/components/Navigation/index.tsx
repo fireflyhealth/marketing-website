@@ -6,33 +6,25 @@ import { MobileNav } from './MobileNav';
 import { DesktopNav } from './DesktopNav';
 
 type Props = {
-  logoColor: SanityTypes.Image;
-  logoMonochrome: SanityTypes.Image;
   navGroup: SanityTypes.NavGroupType[];
 };
 
-export const Navigation: FC<Props> = ({
-  logoColor,
-  logoMonochrome,
-  navGroup,
-}) => {
-  const { mobileNavOpen, setMobileNavOpen } = useUIProvider();
+export const Navigation: FC<Props> = ({ navGroup }) => {
+  const { setMobileNavOpen } = useUIProvider();
   const router = useRouter();
 
   // close globalNav and globalNavDropdown on route change
   useEffect(() => {
-    if (mobileNavOpen) {
-      setMobileNavOpen(false);
-    }
-  }, [router.asPath]);
+    const closeMobileNav = () => setMobileNavOpen(false);
+    router.events.on('routeChangeStart', closeMobileNav);
+    return () => {
+      router.events.off('routeChangeStart', closeMobileNav);
+    };
+  }, [router, setMobileNavOpen]);
   return (
     <>
-      <MobileNav
-        logoColor={logoColor}
-        logoMonochrome={logoMonochrome}
-        navGroup={navGroup}
-      />
-      <DesktopNav logoColor={logoColor} navGroup={navGroup} />
+      <MobileNav navGroup={navGroup} />
+      <DesktopNav navGroup={navGroup} />
     </>
   );
 };

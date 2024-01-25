@@ -8,15 +8,5 @@ export const siteSettings = `{
     title,
     "navGroup": navGroup {${linkWithLabelFragment}}[],
   },
-  logoColor {
-    asset->{
-      url
-    }
-  },
-  logoMonochrome {
-    asset->{
-      url
-    }
-  },
   "defaultMetadata": defaultMetadata {${metadataFragment}},
 }`;
