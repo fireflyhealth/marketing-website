@@ -61,9 +61,9 @@ const ExampleInner = () => {
       <div className="w-[100px] h-[100px] border-[2px] border-theme rounded" />
       <Annotation>icon-base icon-overlap</Annotation>
       <div className="flex">
-        <BrandedIcon type="clipboard" />
-        <BrandedIcon type="checkmark" />
-        <BrandedIcon type="pill" />
+        <BrandedIcon type="clipboard" wrapperStyles="w-12" />
+        <BrandedIcon type="checkmark" wrapperStyles="w-12" />
+        <BrandedIcon type="pill" wrapperStyles="w-12" />
       </div>
     </div>
   );
