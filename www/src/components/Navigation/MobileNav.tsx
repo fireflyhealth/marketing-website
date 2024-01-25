@@ -1,22 +1,28 @@
 import { FC } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import cn from 'classnames';
 import { SimpleIcon } from '@/svgs/SimpleIcon';
-import * as SanityTypes from '@/types/sanity';
 import { useUIProvider } from '@/context/UIProvider';
-import { LogotypeColor, LogotypeMonochrome } from '@/svgs/Logotype';
-import { NavGroup } from './NavGroup';
+import { Image as ImageType, KeyedArray, NavGroupType } from '@/types/sanity';
+import { NavLink } from './NavLink';
 import { NavWrapper, NavContainer, NavLinksWrapper } from './styles';
 
-// TODO: replace next/link and next/image with Link and Image compoents
-// after they get created.
-
 type Props = {
-  navGroup: SanityTypes.KeyedArray<SanityTypes.NavGroupType>;
+  logoColor: ImageType;
+  logoMonochrome: ImageType;
+  navGroup: KeyedArray<NavGroupType>;
 };
 
-export const MobileNav: FC<Props> = ({ navGroup }) => {
+export const MobileNav: FC<Props> = ({
+  logoColor,
+  logoMonochrome,
+  navGroup,
+}) => {
   const { mobileNavOpen, toggleGlobalNav } = useUIProvider();
+  const logo = mobileNavOpen
+    ? logoMonochrome?.asset?.url
+    : logoColor?.asset?.url;
   return (
     <nav
       className={cn(
@@ -26,11 +32,11 @@ export const MobileNav: FC<Props> = ({ navGroup }) => {
       )}
     >
       <div className={cn(NavContainer)}>
-        <Link href="/">
-          <div className="w-[120px]">
-            {mobileNavOpen ? <LogotypeMonochrome /> : <LogotypeColor />}
-          </div>
-        </Link>
+        {logo && (
+          <Link href="/">
+            <Image src={logo} width={120} height={22} alt="logo" />
+          </Link>
+        )}
 
         {/* menu button only visible on tablet and mobile */}
         <button className="md:hidden" onClick={toggleGlobalNav}>
@@ -46,7 +52,7 @@ export const MobileNav: FC<Props> = ({ navGroup }) => {
       {mobileNavOpen && (
         <div className={cn(NavLinksWrapper)}>
           {navGroup.map((navItem) => (
-            <NavGroup key={navItem._key} navItem={navItem} isMobile />
+            <NavLink key={navItem._key} navItem={navItem} isMobile />
           ))}
         </div>
       )}
