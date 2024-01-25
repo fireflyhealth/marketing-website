@@ -19,6 +19,9 @@ import { SimpleRichText, ArticleRichText } from './fields/richText';
 import { Navigation } from './documents/navigation';
 import { LinkWithLabel } from './fields/linkWithLabel';
 import { LabelWithDropdown } from './fields/labelWithDropdown';
+import { ComponentHeader } from './fields/componentHeader';
+import { FiftyFiftyOverlap } from './objects/fiftyFiftyOverlap';
+import { ContentArea } from './fields/contentArea';
 
 export const schemaTypes = [
   /* Document Types */
@@ -36,6 +39,9 @@ export const schemaTypes = [
   MockData,
   Navigation,
 
+  /* Objects */
+  FiftyFiftyOverlap,
+
   /* Field Types */
   Metadata,
   RichImage,
@@ -46,4 +52,6 @@ export const schemaTypes = [
   ArticleRichText,
   LinkWithLabel,
   LabelWithDropdown,
+  ComponentHeader,
+  ContentArea,
 ];
