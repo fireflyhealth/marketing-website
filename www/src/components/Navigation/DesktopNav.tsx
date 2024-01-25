@@ -1,32 +1,30 @@
 import { FC } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 import cn from 'classnames';
-import { Image as ImageType, KeyedArray, NavGroupType } from '@/types/sanity';
-import { NavLink } from './NavLink';
+import { LogotypeColor } from '@/svgs/Logotype';
+import { KeyedArray, NavGroupType } from '@/types/sanity';
+import { NavGroup } from './NavGroup';
 import { NavWrapper, NavContainer, NavLinksWrapper } from './styles';
 
 type Props = {
-  logoColor: ImageType;
   navGroup: KeyedArray<NavGroupType>;
 };
 
-export const DesktopNav: FC<Props> = ({ logoColor, navGroup }) => {
-  const logo = logoColor?.asset?.url;
+export const DesktopNav: FC<Props> = ({ navGroup }) => {
   return (
     <nav
       className={cn(NavWrapper, 'bg-transparent hidden md:absolute md:block')}
     >
       <div className={cn(NavContainer)}>
-        {logo && (
-          <Link href="/">
-            <Image src={logo} width={120} height={22} alt="logo" />
-          </Link>
-        )}
+        <Link href="/">
+          <div className="w-[175px]">
+            <LogotypeColor />
+          </div>
+        </Link>
 
         <div className={cn(NavLinksWrapper)}>
           {navGroup.map((navItem) => (
-            <NavLink key={navItem._key} navItem={navItem} />
+            <NavGroup key={navItem._key} navItem={navItem} />
           ))}
         </div>
       </div>

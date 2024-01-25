@@ -1,28 +1,19 @@
 import { FC } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 import cn from 'classnames';
 import { SimpleIcon } from '@/svgs/SimpleIcon';
 import { useUIProvider } from '@/context/UIProvider';
-import { Image as ImageType, KeyedArray, NavGroupType } from '@/types/sanity';
-import { NavLink } from './NavLink';
+import { KeyedArray, NavGroupType } from '@/types/sanity';
+import { LogotypeColor, LogotypeMonochrome } from '@/svgs/Logotype';
+import { NavGroup } from './NavGroup';
 import { NavWrapper, NavContainer, NavLinksWrapper } from './styles';
 
 type Props = {
-  logoColor: ImageType;
-  logoMonochrome: ImageType;
   navGroup: KeyedArray<NavGroupType>;
 };
 
-export const MobileNav: FC<Props> = ({
-  logoColor,
-  logoMonochrome,
-  navGroup,
-}) => {
+export const MobileNav: FC<Props> = ({ navGroup }) => {
   const { mobileNavOpen, toggleGlobalNav } = useUIProvider();
-  const logo = mobileNavOpen
-    ? logoMonochrome?.asset?.url
-    : logoColor?.asset?.url;
   return (
     <nav
       className={cn(
@@ -32,19 +23,18 @@ export const MobileNav: FC<Props> = ({
       )}
     >
       <div className={cn(NavContainer)}>
-        {logo && (
-          <Link href="/">
-            <Image src={logo} width={120} height={22} alt="logo" />
-          </Link>
-        )}
+        <Link href="/">
+          <div className="w-[120px]">
+            {mobileNavOpen ? <LogotypeMonochrome /> : <LogotypeColor />}
+          </div>
+        </Link>
 
         {/* menu button only visible on tablet and mobile */}
         <button className="md:hidden" onClick={toggleGlobalNav}>
-          {!mobileNavOpen && (
-            <SimpleIcon type="menu" width={24} color="#131D2B" />
-          )}
-          {mobileNavOpen && (
+          {mobileNavOpen ? (
             <SimpleIcon type="close" width={24} color="white" />
+          ) : (
+            <SimpleIcon type="menu" width={24} color="#131D2B" />
           )}
         </button>
       </div>
@@ -52,7 +42,7 @@ export const MobileNav: FC<Props> = ({
       {mobileNavOpen && (
         <div className={cn(NavLinksWrapper)}>
           {navGroup.map((navItem) => (
-            <NavLink key={navItem._key} navItem={navItem} isMobile />
+            <NavGroup key={navItem._key} navItem={navItem} isMobile />
           ))}
         </div>
       )}
