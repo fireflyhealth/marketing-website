@@ -15,7 +15,7 @@ import {
   Image,
   RichImage,
 } from '@/types/sanity';
-import { siteSettings as SiteSettingsQuery } from './queries';
+import { siteSettingsFragment } from './queries';
 
 const client = createClient({
   projectId: 'xgbrv2vi',
@@ -37,7 +37,9 @@ export const imageBuilder = {
 export const siteSettings = {
   get: async (): Promise<SiteSettings> => {
     const siteSettings = await client.fetch<SiteSettings | null>(
-      `*[_type == "siteSettings" && _id == "siteSettings"][0]${SiteSettingsQuery}`,
+      `*[_type == "siteSettings" && _id == "siteSettings"][0]{
+        ${siteSettingsFragment}
+      }`,
     );
     if (!siteSettings) {
       throw new Error('Could not fetch site settings');

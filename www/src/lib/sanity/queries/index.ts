@@ -1,12 +1,12 @@
 import { metadataFragment, linkWithLabelFragment } from './fragments';
 
-export const siteSettings = `{
+export const siteSettingsFragment = `
   _id,
   _type,
-  "globalNav": globalNav->{
+  globalNav->{
     _type,
     title,
     "navGroup": navGroup {${linkWithLabelFragment}}[],
   },
-  "defaultMetadata": defaultMetadata {${metadataFragment}},
-}`;
+  defaultMetadata {${metadataFragment}},
+`;
