@@ -10,8 +10,8 @@ type UIProviderProps = {
   mobileNavOpen: boolean;
   setMobileNavOpen: (open: boolean) => void;
   toggleGlobalNav: () => void;
-  currentNavItemRef: HTMLDivElement | null;
-  setCurrentNavItemRef: (navItemRef: HTMLDivElement | null) => void;
+  currentNavItem: string | null;
+  setCurrentNavItem: (newNavItem: string | null) => void;
 };
 
 export const UIContext = createContext<UIProviderProps | undefined>(undefined);
@@ -34,8 +34,8 @@ export const UIProvider: FC<PropsWithChildren> = ({ children }) => {
     setMobileNavOpen(!mobileNavOpen);
   };
 
-  const [currentNavItemRef, setCurrentNavItemRef] =
-    useState<HTMLDivElement | null>(null);
+  /* Uses the nav item's '_key' prop as an identifier */
+  const [currentNavItem, setCurrentNavItem] = useState<string | null>(null);
 
   return (
     <UIContext.Provider
@@ -43,8 +43,8 @@ export const UIProvider: FC<PropsWithChildren> = ({ children }) => {
         mobileNavOpen,
         setMobileNavOpen,
         toggleGlobalNav,
-        currentNavItemRef,
-        setCurrentNavItemRef,
+        currentNavItem,
+        setCurrentNavItem,
       }}
     >
       {children}

@@ -5,14 +5,14 @@ import { SimpleIcon } from '@/svgs/SimpleIcon';
 import * as SanityTypes from '@/types/sanity';
 import { useUIProvider } from '@/context/UIProvider';
 import { LogotypeColor, LogotypeMonochrome } from '@/svgs/Logotype';
-import { NavLink } from './NavLink';
+import { NavGroup } from './NavGroup';
 import { NavWrapper, NavContainer, NavLinksWrapper } from './styles';
 
 // TODO: replace next/link and next/image with Link and Image compoents
 // after they get created.
 
 type Props = {
-  navGroup: SanityTypes.NavGroupType[];
+  navGroup: SanityTypes.KeyedArray<SanityTypes.NavGroupType>;
 };
 
 export const MobileNav: FC<Props> = ({ navGroup }) => {
@@ -46,7 +46,7 @@ export const MobileNav: FC<Props> = ({ navGroup }) => {
       {mobileNavOpen && (
         <div className={cn(NavLinksWrapper)}>
           {navGroup.map((navItem) => (
-            <NavLink key={navItem._key} navItem={navItem} isMobile />
+            <NavGroup key={navItem._key} navItem={navItem} isMobile />
           ))}
         </div>
       )}

@@ -63,7 +63,7 @@ export type SiteSettings = SanityDocument & {
   globalNav: {
     _type: string;
     title: string;
-    navGroup: NavGroupType[];
+    navGroup: KeyedArray<NavGroupType>;
   };
   defaultMetadata: Metadata;
 };
@@ -112,7 +112,7 @@ type CommonPage = SanityDocument & {
 
 export type GenericPage = CommonPage & {
   _type: 'genericPage';
-  subPages?: SubPage[];
+  subPages?: KeyedArray<SubPage>;
 };
 export type GenericPageLinkData = Pick<GenericPage, '_type' | 'slug' | 'title'>;
 
@@ -150,7 +150,6 @@ export type BlogArticle = SanityDocument & {
 /* Navigation */
 export type LinkWithLabel = {
   _type: 'linkWithLabel';
-  _key: string;
   label: string;
   link: {
     slug: string;
@@ -159,9 +158,8 @@ export type LinkWithLabel = {
 
 export type LabelWithDropdown = {
   _type: 'labelWithDropdown';
-  _key: string;
   label: string;
-  subpages: LinkWithLabel[];
+  subpages: KeyedArray<LinkWithLabel>;
 };
 
 export type NavGroupType = LinkWithLabel | LabelWithDropdown;

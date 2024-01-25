@@ -3,14 +3,14 @@ import Link from 'next/link';
 import cn from 'classnames';
 import { LogotypeColor } from '@/svgs/Logotype';
 import * as SanityTypes from '@/types/sanity';
-import { NavLink } from './NavLink';
+import { NavGroup } from './NavGroup';
 import { NavWrapper, NavContainer, NavLinksWrapper } from './styles';
 
 // TODO: replace next/link and next/image with Link and Image compoents
 // after they get created.
 
 type Props = {
-  navGroup: SanityTypes.NavGroupType[];
+  navGroup: SanityTypes.KeyedArray<SanityTypes.NavGroupType>;
 };
 
 export const DesktopNav: FC<Props> = ({ navGroup }) => {
@@ -27,7 +27,7 @@ export const DesktopNav: FC<Props> = ({ navGroup }) => {
 
         <div className={cn(NavLinksWrapper)}>
           {navGroup.map((navItem) => (
-            <NavLink key={navItem._key} navItem={navItem} />
+            <NavGroup key={navItem._key} navItem={navItem} />
           ))}
         </div>
       </div>
