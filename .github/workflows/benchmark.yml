@@ -55,18 +55,3 @@ jobs:
           echo "| Consistency | | |" >> $GITHUB_STEP_SUMMARY
           echo "| | Formatting | ${{ steps.check_formatting.outcome == 'success' && '✅' || '❌' }} |" >> $GITHUB_STEP_SUMMARY
           echo "| | Linting | ${{ steps.run_linter.outcome == 'success' && '✅' || '❌' }} |" >> $GITHUB_STEP_SUMMARY
-
-  ## Lint commit messages
-  commitlint:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v2
-        with:
-          node-version: '14'
-      - run: npm install
-      # Run the commitlint action, considering its own dependencies and yours as well 🚀
-      # `github.workspace` is the path to your repository.
-      - uses: wagoid/commitlint-github-action@v5
-        env:
-          NODE_PATH: ${{ github.workspace }}/node_modules

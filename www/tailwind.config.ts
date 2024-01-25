@@ -48,6 +48,10 @@ const config: Config = {
     extend: {
       /* TODO: Add spacing values. Search the codebase for
        * any TODO-SPACING comments */
+      spacing: {
+        'mobile-globalnav-height': '56px',
+        'desktop-globalnav-height': '81px',
+      },
     },
   },
   plugins: [],

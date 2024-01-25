@@ -1,9 +1,11 @@
 import { AppProps } from 'next/app';
-import '../styles/main.css';
-
+import { Navigation } from '@/components/Navigation';
+import { UIProvider } from '@/context';
 import { SiteSettings } from '@/types/sanity';
 import { DefaultMetadata } from '@/components/Metadata/DefaultMetadata';
 import { ColorTheme, Theme } from '@/components/Theme';
+import '../styles/fonts.css';
+import '../styles/main.css';
 
 type Props = AppProps<{
   siteSettings: SiteSettings;
@@ -14,13 +16,15 @@ export default function App({ Component, pageProps: allPageProps }: Props) {
   return (
     <>
       <DefaultMetadata metadata={siteSettings.defaultMetadata} />
-      {/* TODO: Navigation */}
       <Theme theme={ColorTheme.White}>
-        <main className="font-trust">
-          <Component {...pageProps} />
-        </main>
+        <UIProvider>
+          <Navigation navGroup={siteSettings.globalNav.navGroup} />
+          <main className="mt-mobile-globalnav-height md:mt-desktop-globalnav-height">
+            <Component {...pageProps} />
+          </main>
+          {/* TODO: Footer */}
+        </UIProvider>
       </Theme>
-      {/* TODO: Footer */}
     </>
   );
 }
