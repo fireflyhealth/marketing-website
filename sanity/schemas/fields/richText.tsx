@@ -1,5 +1,6 @@
 import { defineField } from 'sanity';
 import { brandedIcons } from '../../lib/constants';
+import { BrandedIcon } from '../../lib/FireFlyIcon';
 
 /**
  * A simple rich text field type that does not allow
@@ -104,6 +105,7 @@ export const ArticleRichText = defineField({
         prepare: ({ title }) => {
           return {
             title,
+            media: <BrandedIcon type={title} fill="white" />,
           };
         },
       },
