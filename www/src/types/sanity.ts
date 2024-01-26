@@ -239,16 +239,12 @@ export type CTA = {
 
 export type RichText = PortableTextBlock[];
 
-export type ContentBlock = FiftyFiftyOverlap;
+export type ContentBlock = HeaderBlock;
 
 export type ContentArea = ContentBlock[];
 
-export type FiftyFiftyOverlap = {
-  heading: ComponentHeader;
-};
-
-export type ComponentHeader = {
-  componentTitle: string;
-  componentDescription?: string;
+export type HeaderBlock = {
+  title: string;
+  description?: string;
   cta?: CTA;
 };
