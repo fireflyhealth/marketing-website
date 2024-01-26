@@ -105,17 +105,32 @@ export const ctaFragment = `
   link{
     ${linkFragment}
   }
-
 `;
 
 export const linkWithLabelFragment = `
   _type,
   _key,
   label,
-  link->{
-    ${linkableDocumentFragment}
+  link {
+    ${linkFragment}
   },
 `;
+
+export const richTextFragment = `
+  _key,
+  _type,
+  ...,
+  markDefs[]{
+    _key,
+    _type,
+    _type == "link" => {
+      link {
+        ${linkFragment}
+      }
+    },
+  }
+`;
+
 export const navGroupFragment = `
   _type,
   _key,

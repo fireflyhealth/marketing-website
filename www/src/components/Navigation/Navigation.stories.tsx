@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { Meta, StoryObj } from '@storybook/react';
 import { KeyedArray, NavGroupType } from '@/types/sanity';
-import { mockData } from '@/mockData';
+import { navigationExample } from '@/mockData';
 import { Navigation } from './';
 
 type Props = {
@@ -21,8 +21,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
   args: {
-    navGroup: mockData.navigationExample
-      .navGroup as unknown as KeyedArray<NavGroupType>,
+    navGroup: navigationExample,
   },
 };
 

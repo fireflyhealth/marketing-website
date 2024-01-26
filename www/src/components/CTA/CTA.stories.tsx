@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { Meta, StoryObj } from '@storybook/react';
-import { ctaExamples } from '../../mockData/cta';
+import { ctaExamples } from '../../mockData';
 import { CTA } from './';
 
 const getCtaExample = (label: string) => {

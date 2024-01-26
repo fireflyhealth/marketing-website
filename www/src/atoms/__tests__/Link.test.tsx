@@ -1,7 +1,7 @@
 import { render } from '@testing-library/react';
 import { LinkWithLabel } from '@/types/sanity';
 import { Link } from '../Link';
-import { linkWithLabelExamples } from '../../mockData/links';
+import { linkWithLabelExamples } from '../../mockData';
 
 const getLinkExample = (label: string): LinkWithLabel => {
   const linkExample = linkWithLabelExamples.find((l) => l.label === label);

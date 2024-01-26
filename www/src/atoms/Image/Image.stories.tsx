@@ -1,11 +1,11 @@
 import React, { FC } from 'react';
 import { Meta, StoryObj } from '@storybook/react';
 import { RichImage, Image } from '@/types/sanity';
-import { mockData } from '@/mockData';
+import { imageExamples } from '@/mockData';
 import { SanityImage } from './SanityImage';
 
 const getImage = (label: string): RichImage | Image => {
-  const image = mockData.imageExamples.find((i) => i.label === label)?.image;
+  const image = imageExamples.find((i) => i.label === label)?.image;
   if (!image) {
     throw new Error(
       `Image for "${label}" could not be fetched. Check your mock data & query`,

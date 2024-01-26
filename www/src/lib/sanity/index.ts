@@ -18,7 +18,7 @@ import {
 import { siteSettingsFragment } from './queries';
 import { metadataFragment } from './queries/fragments';
 
-const client = createClient({
+export const client = createClient({
   projectId: 'xgbrv2vi',
   dataset: 'production',
   apiVersion: '2024-01-01',
