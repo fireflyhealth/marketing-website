@@ -143,6 +143,34 @@ export const GenericPage = defineType({
         defineArrayMember({
           type: 'reference',
           to: [{ type: SubPage.name }],
+          validation: (Rule) =>
+            Rule.custom(async (value, context) => {
+              if (!value) return true;
+
+              const client = context.getClient({ apiVersion: API_VERSION });
+              /* Ensure that this page is not a subPage of a different parent */
+              const subPage = await client.fetch(
+                `*[_id == $subPageId]{
+                "parentPages": *[
+                  _type == "genericPage"
+                  && ^._id in subPages[]._ref
+                ]{ _id }
+              }`,
+                { subPageId: value._ref },
+              );
+              if (
+                subPage.parentPages &&
+                subPage.parentPages.filter(
+                  // @ts-ignore
+                  (parent) =>
+                    // @ts-ignore
+                    parent._id !== context.document._id.replace('drafts.', ''),
+                )
+              ) {
+                return 'This page is already referenced by another parent page';
+              }
+              return true;
+            }),
         }),
       ],
     }),
