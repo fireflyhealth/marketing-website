@@ -5,30 +5,21 @@ import {
   PortableText,
   PortableTextReactComponents,
 } from '@portabletext/react';
-import {
-  PortableTextBlock,
-  PortableTextListItemBlock,
-} from '@portabletext/types';
+import { PortableTextBlock } from '@portabletext/types';
 import { RichText as RichTextType } from '@/types/sanity';
 import { BrandedIcon } from '@/svgs/BrandedIcon';
+import { Link } from '@/atoms/Link';
 
 type RichTextProps = {
-  /* Note: You can add more types & serializers for
-   * other blocks that may be included in the future, i.e.:
-   * content: (PortableTextBlock | ImageBlock)[] */
-  content: PortableTextBlock[];
+  content: RichTextType;
   className?: string;
-};
-
-type BlockRendererArgs = {
-  children: React.ReactNode;
-  node: PortableTextBlock | PortableTextListItemBlock;
 };
 
 const BlockRenderer: PortableTextComponent<PortableTextBlock> = ({
   children,
   value,
 }) => {
+  if (!value.style) return null;
   switch (value.style) {
     case 'h2':
       return <h2 className="font-size-4 font-trust">{children}</h2>;
@@ -69,6 +60,11 @@ const components: Partial<PortableTextReactComponents> = {
   types: {
     icon: (props) => {
       return <BrandedIcon type={props.value.icon} wrapperStyles="w-12" />;
+    },
+  },
+  marks: {
+    link: (props) => {
+      return <Link link={props.value.link}>{props.children}</Link>;
     },
   },
 };

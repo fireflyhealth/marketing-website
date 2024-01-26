@@ -1,5 +1,4 @@
 import { Meta, StoryObj } from '@storybook/react';
-import { PortableTextBlock } from '@portabletext/types';
 
 import { simpleRichText, articleRichText } from '@/mockData';
 import { RichText } from './';

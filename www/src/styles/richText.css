@@ -3,6 +3,10 @@
     margin-top: 1em;
   }
 
+  a {
+    border-bottom: 1px solid;
+  }
+
   strong {
     font-weight: 500;
   }

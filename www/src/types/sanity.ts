@@ -282,6 +282,9 @@ export type CTA = {
   link: Link;
 };
 
+/* Note: You can add more types & serializers for
+ * other blocks that may be included in the future, i.e.:
+ * Array<PortableTextBlock | ImageBlock>[] */
 export type RichText = PortableTextBlock[];
 
 export type ContentBlock = HeaderBlock;
