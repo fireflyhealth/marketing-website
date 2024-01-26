@@ -6,7 +6,7 @@ export const siteSettingsFragment = `
   globalNav->{
     _type,
     title,
-    "navGroup": navGroup {
+    navGroup {
       ${navGroupFragment}
     }[],
   },

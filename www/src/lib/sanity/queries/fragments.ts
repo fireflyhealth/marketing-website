@@ -132,17 +132,26 @@ export const richTextFragment = `
 `;
 
 export const navGroupFragment = `
+
   _type,
   _key,
-  label,
-  subpages {
-    _type,
-    _key,
+  _type == "linkWithLabel" => {
     label,
-    link->{
-      ${linkableDocumentFragment}
-    },
-  }[],
+    link {
+      ${linkFragment}
+    }
+  },
+  _type == "labelWithDropdown" => {
+    label,
+    subpages {
+      _type,
+      _key,
+      label,
+      link->{
+        ${linkableDocumentFragment}
+      },
+    }[],
+  }
 `;
 
 export const metadataFragment = `

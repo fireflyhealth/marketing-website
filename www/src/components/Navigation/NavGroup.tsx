@@ -27,8 +27,8 @@ export const NavGroup: FC<Props> = ({ navItem, isMobile }) => {
     currentNavItem === null
       ? 'text-black'
       : currentNavItem === navItem._key
-      ? 'text-black'
-      : 'text-black/60';
+        ? 'text-black'
+        : 'text-black/60';
 
   const handleHeadingMouseEnter = () => {
     if (!isMobile) {
