@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import cn from 'classnames';
 
-type Props = {
+export type Props = {
   type:
     | 'arrow-left'
     | 'arrow-right'

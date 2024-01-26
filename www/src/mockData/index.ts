@@ -365,6 +365,11 @@ export const mockData = {
       _type: 'block',
       style: 'blockquote',
     },
+    {
+      _key: 'd2fd59018041',
+      _type: 'icon',
+      icon: 'app',
+    },
   ],
   _createdAt: '2024-01-18T20:57:43Z',
   simpleRichText: [

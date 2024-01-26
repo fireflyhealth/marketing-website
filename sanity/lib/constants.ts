@@ -54,3 +54,21 @@ export const linkableDocumentTypes = [
   'genericPage',
   'subPage',
 ];
+
+export const brandedIcons = [
+  { title: 'App', value: 'app' },
+  { title: 'Business', value: 'business' },
+  { title: 'Care Team', value: 'care-team' },
+  { title: 'Cost', value: 'cost' },
+  { title: 'Clipboard', value: 'clipboard' },
+  { title: 'Doctor', value: 'doctor' },
+  { title: 'Doctors Office', value: 'doctors-office' },
+  { title: 'Firefly Nearby', value: 'firefly-nearby' },
+  { title: 'Health Cross', value: 'health-cross' },
+  { title: 'Heart', value: 'heart' },
+  { title: 'ID', value: 'id' },
+  { title: 'Navigation Compass', value: 'navigation-compass' },
+  { title: 'Navigation Map', value: 'navigation-map' },
+  { title: 'Pill', value: 'pill' },
+  { title: 'Video Call', value: 'video-call' },
+];
