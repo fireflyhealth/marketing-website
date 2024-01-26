@@ -26,6 +26,7 @@ const validateNotOrphanedSubpage = (Rule: Rule) =>
   Rule.custom(async (value: Maybe<{ _ref: string }>, context) => {
     if (!value) return true;
     const client = context.getClient({ apiVersion: API_VERSION });
+
     const linkedPage = await client.fetch(
       `
         *[_id == $refId]{
@@ -77,6 +78,14 @@ export const Link = defineType({
       name: 'externalUrl',
       title: 'External URL',
       type: 'url',
+      hidden: (ctx) => {
+        /* Hide this option when adding links to a Navigation document */
+        if (ctx.document?._type == 'navigation') {
+          return true;
+        }
+        return false;
+      },
+
       validation: (Rule) => {
         return validateOnlyOne(Rule as Rule).uri({
           scheme: ['http', 'https', 'mailto', 'tel'],
@@ -94,6 +103,13 @@ export const Link = defineType({
     defineField({
       name: 'file',
       title: 'Linked File',
+      hidden: (ctx) => {
+        /* Hide this option when adding links to a Navigation document */
+        if (ctx.document?._type == 'navigation') {
+          return true;
+        }
+        return false;
+      },
       type: 'file',
       // @ts-ignore
       validation: validateOnlyOne,

@@ -7,7 +7,7 @@ export const LabelWithDropdown = defineType({
   fields: [
     defineField({
       name: 'label',
-      title: 'label',
+      title: 'Label',
       type: 'string',
       validation: (Rule) => Rule.required(),
     }),
@@ -24,13 +24,15 @@ export const LabelWithDropdown = defineType({
           fields: [
             {
               name: 'label',
-              title: 'label',
+              title: 'Label',
               type: 'string',
+              validation: (Rule) => Rule.required(),
             },
             {
               name: 'link',
               title: 'Link',
               type: 'linkableDocument',
+              validation: (Rule) => Rule.required(),
             },
           ],
           preview: {
