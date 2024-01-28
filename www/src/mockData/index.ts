@@ -48,6 +48,57 @@
 // }[0]
 
 export const mockData = {
+  navigationExample: {
+    navGroup: [
+      {
+        _key: 'c045eaa69bd1',
+        _type: 'linkWithLabel',
+        label: 'How It Works',
+        link: {
+          slug: '#',
+        },
+      },
+      {
+        _key: '1c734079d92a',
+        _type: 'labelWithDropdown',
+        label: 'For Businesses',
+        subpages: [
+          {
+            _key: '448bb68e627e',
+            _type: 'subpage',
+            label: 'For Members',
+            link: {
+              slug: '#',
+            },
+          },
+          {
+            _key: 'ee610766c1eb',
+            _type: 'subpage',
+            label: 'Press',
+            link: {
+              slug: '#',
+            },
+          },
+        ],
+      },
+      {
+        _key: 'e22a5f48e2b5',
+        _type: 'labelWithDropdown',
+        label: 'Stories',
+        subpages: [
+          {
+            _key: '2f30af252362',
+            _type: 'subpage',
+            label: 'For Members',
+            link: {
+              slug: '#',
+            },
+          },
+        ],
+      },
+    ],
+    title: 'Global Navigation',
+  },
   imageExamples: [
     {
       _key: '32870e94f4e3',
