@@ -31,6 +31,10 @@ export const ClientPage = defineType({
       },
     }),
     defineField({
+      name: 'navigationOverrides',
+      type: 'navigationOverrides',
+    }),
+    defineField({
       title: 'Metadata',
       name: 'metadata',
       type: 'metadata',

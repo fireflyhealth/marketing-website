@@ -31,6 +31,10 @@ export const Blog = defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
+      name: 'navigationOverrides',
+      type: 'navigationOverrides',
+    }),
+    defineField({
       name: 'metadata',
       type: 'metadata',
       title: 'Metadata',

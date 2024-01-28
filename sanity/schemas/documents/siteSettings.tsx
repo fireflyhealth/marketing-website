@@ -26,6 +26,12 @@ export const SiteSettings = defineType({
       group: 'globalNavigation',
     }),
     defineField({
+      name: 'globalAnnouncementBanner',
+      type: 'text',
+      rows: 3,
+      group: 'globalNavigation',
+    }),
+    defineField({
       name: 'defaultMetadata',
       type: 'metadata',
       title: 'Default Metadata',
