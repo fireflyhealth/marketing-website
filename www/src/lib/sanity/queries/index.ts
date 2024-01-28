@@ -8,5 +8,6 @@ export const siteSettingsFragment = `
     title,
     "navGroup": navGroup {${linkWithLabelFragment}}[],
   },
+  globalAnnouncementBanner,
   defaultMetadata {${metadataFragment}},
 `;

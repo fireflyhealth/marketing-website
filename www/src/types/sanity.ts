@@ -65,6 +65,7 @@ export type SiteSettings = SanityDocument & {
     title: string;
     navGroup: KeyedArray<NavGroupType>;
   };
+  globalAnnouncementBanner: string;
   defaultMetadata: Metadata;
 };
 
