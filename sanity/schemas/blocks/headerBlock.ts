@@ -22,7 +22,7 @@ export const HeaderBlock = defineType({
     }),
     defineField({
       title: 'CTA',
-      name: 'shareTitle',
+      name: 'cta',
       type: 'cta',
     }),
   ],
