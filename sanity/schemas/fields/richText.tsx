@@ -31,7 +31,21 @@ export const SimpleRichText = defineField({
           { title: 'Italic', value: 'em' },
           { title: 'Underline', value: 'underline' },
         ],
-        annotations: [],
+        annotations: [
+          {
+            name: 'link',
+            type: 'object',
+            title: 'Link',
+            fields: [
+              {
+                name: 'link',
+                type: 'link',
+                title: 'Linked Page, URL, or File',
+                validation: (Rule) => Rule.required(),
+              },
+            ],
+          },
+        ],
       },
     },
   ],
