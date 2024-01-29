@@ -27,8 +27,7 @@ export const SiteSettings = defineType({
     }),
     defineField({
       name: 'globalAnnouncementBanner',
-      type: 'text',
-      rows: 3,
+      type: 'announcementBanner',
       group: 'globalNavigation',
     }),
     defineField({

@@ -18,8 +18,7 @@ export const NavigationOverrides = defineType({
     }),
     defineField({
       name: 'announcementBanner',
-      type: 'text',
-      rows: 3,
+      type: 'announcementBanner',
       description:
         'This optional field overrides the global announcement banner set in Site Settings.',
     }),
