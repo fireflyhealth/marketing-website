@@ -2,6 +2,8 @@ import {
   metadataFragment,
   navigationFragment,
   navigationOverridesFragment,
+  ctaFragment,
+  linkWithLabelFragment,
 } from './fragments';
 
 export const siteSettingsFragment = `
@@ -13,6 +15,24 @@ export const siteSettingsFragment = `
   globalAnnouncementBanner{
     _type,
     body,
+  },
+  footer {
+    mobileCta {
+      ${ctaFragment}
+    },
+    footerNavGroups[]{
+      navItems[]{
+        ${linkWithLabelFragment}
+      }
+    },
+    bottomLinks {
+      leftLinks[]{
+        ${linkWithLabelFragment}
+      },
+      rightLinks[]{
+        ${linkWithLabelFragment}
+      }
+    }
   },
   defaultMetadata {${metadataFragment}}
 `;
@@ -67,7 +87,7 @@ export const blogFragment = `
 `;
 
 export const blogArticleFragment = `
-  _id,   
+  _id,
   title,
   category->{
     _type,
