@@ -49,8 +49,11 @@ const config: Config = {
       /* TODO: Add spacing values. Search the codebase for
        * any TODO-SPACING comments */
       spacing: {
-        'mobile-globalnav-height': '56px',
-        'desktop-globalnav-height': '81px',
+        'announcement-banner-height': 'var(--announcement-banner-height)',
+        'mobile-nav-banner-margin':
+          'calc(var(--mobile-globalnav-height) + var(--announcement-banner-height))',
+        'desktop-nav-banner-margin':
+          'calc(var(--desktop-globalnav-height) + var(--announcement-banner-height))',
       },
     },
   },

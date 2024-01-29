@@ -22,7 +22,6 @@ export const BlogArticle = defineType({
       title: 'Parent Blog',
       type: 'reference',
       to: [{ type: 'blog' }],
-      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'slug',
@@ -75,6 +74,10 @@ export const BlogArticle = defineType({
         source: 'title',
         isUnique: isUniqueAcrossDocuments,
       },
+    }),
+    defineField({
+      name: 'navigationOverrides',
+      type: 'navigationOverrides',
     }),
     defineField({
       name: 'metadata',

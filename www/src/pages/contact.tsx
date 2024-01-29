@@ -27,11 +27,18 @@ export const getStaticProps: GetStaticProps<ContactPageProps> = async () => {
     Sanity.siteSettings.get(),
     Sanity.contactPage.get(),
   ]);
+
+  const navigationOverrides = contactPage?.navigationOverrides;
+
   if (!contactPage) {
     return { notFound: true };
   }
   return {
-    props: { siteSettings, contactPage },
+    props: {
+      siteSettings,
+      contactPage,
+      navigationOverrides: navigationOverrides || null,
+    },
     revalidate: RevalidationTime.Medium,
   };
 };

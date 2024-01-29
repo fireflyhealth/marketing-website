@@ -14,6 +14,10 @@ export const DownloadPage = defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
+      name: 'navigationOverrides',
+      type: 'navigationOverrides',
+    }),
+    defineField({
       name: 'metadata',
       type: 'metadata',
       title: 'Metadata',
@@ -32,6 +36,10 @@ export const ContactPage = defineType({
       type: 'string',
       title: 'Title',
       validation: (Rule) => Rule.required(),
+    }),
+    defineField({
+      name: 'navigationOverrides',
+      type: 'navigationOverrides',
     }),
     defineField({
       name: 'metadata',
@@ -54,6 +62,10 @@ export const NotFoundPage = defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
+      name: 'navigationOverrides',
+      type: 'navigationOverrides',
+    }),
+    defineField({
       name: 'metadata',
       type: 'metadata',
       title: 'Metadata',
@@ -72,6 +84,10 @@ export const FAQPage = defineType({
       type: 'string',
       title: 'Title',
       validation: (Rule) => Rule.required(),
+    }),
+    defineField({
+      name: 'navigationOverrides',
+      type: 'navigationOverrides',
     }),
     defineField({
       name: 'metadata',

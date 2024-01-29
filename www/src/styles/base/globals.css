@@ -1,3 +1,9 @@
+:root {
+  --announcement-banner-height: 0px;
+  --mobile-globalnav-height: 56px;
+  --desktop-globalnav-height: 81px;
+}
+
 .text-theme-primary,
 .text-theme-secondary,
 .text-theme-decorative,

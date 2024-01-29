@@ -40,6 +40,9 @@ export const getStaticProps: GetStaticProps<
     Sanity.siteSettings.get(),
     Sanity.clientPage.get(clientSlug),
   ]);
+
+  const navigationOverrides = clientPage?.navigationOverrides;
+
   if (!clientPage) {
     return {
       notFound: true,
@@ -47,7 +50,11 @@ export const getStaticProps: GetStaticProps<
   }
 
   return {
-    props: { siteSettings, clientPage },
+    props: {
+      siteSettings,
+      clientPage,
+      navigationOverrides: navigationOverrides || null,
+    },
     revalidate: RevalidationTime.Medium,
   };
 };

@@ -26,11 +26,18 @@ export const getStaticProps: GetStaticProps<DownloadPageProps> = async () => {
     Sanity.siteSettings.get(),
     Sanity.downloadPage.get(),
   ]);
+
+  const navigationOverrides = downloadPage?.navigationOverrides;
+
   if (!downloadPage) {
     return { notFound: true };
   }
   return {
-    props: { downloadPage, siteSettings },
+    props: {
+      downloadPage,
+      siteSettings,
+      navigationOverrides: navigationOverrides || null,
+    },
     revalidate: RevalidationTime.Medium,
   };
 };

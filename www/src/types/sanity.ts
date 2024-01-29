@@ -65,11 +65,13 @@ export type SiteSettings = SanityDocument & {
     title: string;
     navGroup: KeyedArray<NavGroupType>;
   };
+  globalAnnouncementBanner: AnnouncementBanner;
   defaultMetadata: Metadata;
 };
 
 export type Homepage = SanityDocument & {
   _type: 'homepage';
+  navigationOverrides?: NavigationOverrides;
   metadata?: Metadata;
   sampleSimpleRichText?: RichText;
 };
@@ -79,6 +81,7 @@ export type HomepageLinkData = Pick<Homepage, '_type'>;
 export type DownloadPage = SanityDocument & {
   _type: 'downloadPage';
   title: string;
+  navigationOverrides?: NavigationOverrides;
   metadata?: Metadata;
 };
 export type DownloadPageLinkData = Pick<DownloadPage, '_type'>;
@@ -86,6 +89,7 @@ export type DownloadPageLinkData = Pick<DownloadPage, '_type'>;
 export type ContactPage = SanityDocument & {
   _type: 'contactPage';
   title: string;
+  navigationOverrides?: NavigationOverrides;
   metadata?: Metadata;
 };
 export type ContactPageLinkData = Pick<ContactPage, '_type'>;
@@ -93,12 +97,14 @@ export type ContactPageLinkData = Pick<ContactPage, '_type'>;
 export type NotFoundPage = SanityDocument & {
   _type: 'notFoundPage';
   title: string;
+  navigationOverrides?: NavigationOverrides;
   metadata?: Metadata;
 };
 
 export type FAQPage = SanityDocument & {
   _type: 'faqPage';
   title: string;
+  navigationOverrides?: NavigationOverrides;
   metadata?: Metadata;
 };
 export type FAQPageLinkData = Pick<FAQPage, '_type'>;
@@ -109,6 +115,7 @@ type CommonPage = SanityDocument & {
   content: ContentArea;
   metadata?: Metadata;
   slug: Slug;
+  navigationOverrides?: NavigationOverrides;
 };
 
 export type GenericPage = CommonPage & {
@@ -127,6 +134,7 @@ export type ClientPage = SanityDocument & {
   _type: 'clientPage';
   clientName: string;
   slug: Slug;
+  navigationOverrides?: NavigationOverrides;
   metadata?: Metadata;
 };
 
@@ -135,6 +143,7 @@ export type Blog = SanityDocument & {
   _type: 'blog';
   title: string;
   slug: Slug;
+  navigationOverrides?: NavigationOverrides;
   articles?: BlogArticle[];
   metadata?: Metadata;
 };
@@ -143,6 +152,7 @@ export type BlogArticle = SanityDocument & {
   _type: 'blogArticle';
   title: string;
   slug: Slug;
+  navigationOverrides?: NavigationOverrides;
   /* TODO linking - change this to BlogPageLinkData */
   category: Pick<Blog, 'title' | 'slug' | '_type'>;
   metadata?: Metadata;
@@ -171,6 +181,15 @@ export type NavGroupType = LinkWithLabel | LabelWithDropdown;
 
 export type Slug = {
   current: string;
+};
+
+export type NavigationOverrides = {
+  announcementBanner: AnnouncementBanner;
+};
+
+export type AnnouncementBanner = {
+  _type: 'announcementBanner';
+  body?: string;
 };
 
 /* An enhanced image field that includes a caption & required alt text */

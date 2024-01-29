@@ -27,6 +27,9 @@ export const getStaticProps: GetStaticProps<NotFoundPageProps> = async () => {
     Sanity.siteSettings.get(),
     Sanity.notFoundPage.get(),
   ]);
+
+  const navigationOverrides = notFoundPage?.navigationOverrides;
+
   if (!notFoundPage) {
     throw new Error('Could not fetch not found page from Sanity');
   }
@@ -35,7 +38,11 @@ export const getStaticProps: GetStaticProps<NotFoundPageProps> = async () => {
   }
 
   return {
-    props: { notFoundPage, siteSettings },
+    props: {
+      notFoundPage,
+      siteSettings,
+      navigationOverrides: navigationOverrides || null,
+    },
     revalidate: RevalidationTime.Medium,
   };
 };

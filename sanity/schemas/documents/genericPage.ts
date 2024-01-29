@@ -86,6 +86,10 @@ const sharedPageFields = [
     },
   }),
   defineField({
+    name: 'navigationOverrides',
+    type: 'navigationOverrides',
+  }),
+  defineField({
     name: 'content',
     title: 'Content',
     type: 'contentArea',

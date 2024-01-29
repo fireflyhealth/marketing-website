@@ -45,6 +45,9 @@ export const getStaticProps: GetStaticProps<PageProps, PageParams> = async ({
     Sanity.siteSettings.get(),
     Sanity.subPage.get(pageSlug, subpageSlug),
   ]);
+
+  const navigationOverrides = subPage?.navigationOverrides;
+
   if (!subPage) {
     return { notFound: true };
   }
@@ -52,6 +55,7 @@ export const getStaticProps: GetStaticProps<PageProps, PageParams> = async ({
     props: {
       subPage,
       siteSettings,
+      navigationOverrides: navigationOverrides || null,
     },
     revalidate: RevalidationTime.Medium,
   };

@@ -1,4 +1,6 @@
-export const NavWrapper = ['top-0 left-0 w-full flex flex-col'];
+export const NavWrapper = [
+  'top-0 left-0 w-full flex flex-col mt-announcement-banner-height',
+];
 
 export const NavContainer = [
   'w-full p-4 flex flex-row items-center justify-between',

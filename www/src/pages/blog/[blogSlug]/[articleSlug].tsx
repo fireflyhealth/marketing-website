@@ -46,6 +46,9 @@ export const getStaticProps: GetStaticProps<
     Sanity.siteSettings.get(),
     Sanity.blog.getArticle(blogSlug, articleSlug),
   ]);
+
+  const navigationOverrides = article?.navigationOverrides;
+
   if (!article) {
     return { notFound: true };
   }
@@ -53,6 +56,7 @@ export const getStaticProps: GetStaticProps<
     props: {
       article,
       siteSettings,
+      navigationOverrides: navigationOverrides || null,
     },
     revalidate: RevalidationTime.Medium,
   };

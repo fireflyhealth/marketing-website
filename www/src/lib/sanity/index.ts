@@ -16,6 +16,7 @@ import {
   RichImage,
 } from '@/types/sanity';
 import { siteSettingsFragment } from './queries';
+import { metadataFragment } from './queries/fragments';
 
 const client = createClient({
   projectId: 'xgbrv2vi',
@@ -64,13 +65,26 @@ export const homepage = {
 /* Generic Pages */
 export const page = {
   get: (slug: string): Promise<GenericPage | null> =>
-    client.fetch(`*[_type == "genericPage" && slug.current == $slug][0]`, {
+    client.fetch(
+      `*[_type == "genericPage" && slug.current == $slug][0]{
+      title,
       slug,
-    }),
+      navigationOverrides {
+        announcementBanner{
+          _type,
+          body,
+        },
+      },
+      metadataFragment{${metadataFragment}},
+    }`,
+      {
+        slug,
+      },
+    ),
   getSlugInfo: (): Promise<GenericPage[]> =>
     client.fetch(`*[_type == "genericPage"]{
         slug,
-        subPages[]->{ slug }
+        subPages[]->{ slug },
       }`),
 };
 
@@ -83,14 +97,23 @@ export const subPage = {
       `*[_type == "subPage"
             && slug.current == $subpageSlug
           ]{
-            ...,
+            title,
+            slug,
+            navigationOverrides {
+              announcementBanner{
+                _type,
+                body,
+              },
+            },
+            metadataFragment{${metadataFragment}},
             "parentPage": *[
               _type == "genericPage"
               && slug.current == $parentSlug
               && ^._id in subPages[]._ref
             ] {
               slug,
-            }[0]
+            }[0],
+            meta
           }[parentPage != null][0]`,
 
       { parentSlug, subpageSlug },
@@ -102,30 +125,83 @@ export const subPage = {
 /* Special pages */
 export const downloadPage = {
   get: (): Promise<DownloadPage | null> =>
-    client.fetch(`*[_type == "downloadPage" && _id == "downloadPage"][0]`),
+    client.fetch(`*[_type == "downloadPage" && _id == "downloadPage"][0]{
+      title,
+      slug,
+      navigationOverrides {
+        announcementBanner{
+          _type,
+          body,
+        },
+      },
+      metadataFragment{${metadataFragment}},
+    }`),
 };
 
 export const contactPage = {
   get: (): Promise<ContactPage | null> =>
-    client.fetch(`*[_type == "contactPage" && _id == "contactPage"][0]`),
+    client.fetch(`*[_type == "contactPage" && _id == "contactPage"][0]{
+      title,
+      slug,
+      navigationOverrides {
+        announcementBanner{
+          _type,
+          body,
+        },
+      },
+      metadataFragment{${metadataFragment}},
+    }`),
 };
 
 export const notFoundPage = {
   get: (): Promise<NotFoundPage | null> =>
-    client.fetch(`*[_type == "notFoundPage" && _id == "notFoundPage"][0]`),
+    client.fetch(`*[_type == "notFoundPage" && _id == "notFoundPage"][0]{
+      title,
+      slug,
+      navigationOverrides {
+        announcementBanner{
+          _type,
+          body,
+        },
+      },
+      metadataFragment{${metadataFragment}},
+    }`),
 };
 
 export const faqPage = {
   get: (): Promise<FAQPage | null> =>
-    client.fetch(`*[_type == "faqPage" && _id == "faqPage"][0]`),
+    client.fetch(`*[_type == "faqPage" && _id == "faqPage"][0]{
+      title,
+      slug,
+      navigationOverrides {
+        announcementBanner{
+          _type,
+          body,
+        },
+      },
+      metadataFragment{${metadataFragment}},
+    }`),
 };
 
 /* Client Page */
 export const clientPage = {
   get: (clientSlug: string): Promise<ClientPage | null> =>
-    client.fetch(`*[_type == "clientPage" && slug.current == $clientSlug][0]`, {
-      clientSlug,
-    }),
+    client.fetch(
+      `*[_type == "clientPage" && slug.current == $clientSlug][0]{
+      clientName,
+      slug,
+      navigationOverrides {
+        announcementBanner{
+          _type,
+          body,
+        },
+      },
+      metadataFragment{${metadataFragment}},
+    }`,
+      {
+        clientSlug,
+      },
+    ),
   getSlugInfo: (): Promise<GenericPage[]> =>
     client.fetch(`*[_type == "clientPage"]{
         slug,
@@ -134,9 +210,22 @@ export const clientPage = {
 /* Blogs */
 export const blog = {
   get: (blogSlug: string): Promise<Blog | null> =>
-    client.fetch(`*[_type == "blog" && slug.current == $blogSlug][0]`, {
-      blogSlug,
-    }),
+    client.fetch(
+      `*[_type == "blog" && slug.current == $blogSlug][0]{
+      title,
+      slug,
+      navigationOverrides {
+        announcementBanner{
+          _type,
+          body,
+        },
+      },
+      metadataFragment{${metadataFragment}},
+    }`,
+      {
+        blogSlug,
+      },
+    ),
   getSlugInfo: (): Promise<Blog[]> =>
     client.fetch(
       `*[_type == "blog"]{
@@ -159,12 +248,20 @@ export const blog = {
           && slug.current == $articleSlug
           && defined(category._ref)
         ]{
-          ...,
+          title,
           category->{
             _type,
             title,
             slug
-          }
+          },
+          slug,
+          navigationOverrides {
+            announcementBanner{
+              _type,
+              body,
+            },
+          },
+          metadataFragment{${metadataFragment}},
         }[category.slug.current == $blogSlug][0]`,
       { blogSlug, articleSlug },
     );

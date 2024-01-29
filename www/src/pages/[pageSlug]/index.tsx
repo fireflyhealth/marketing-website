@@ -39,6 +39,9 @@ export const getStaticProps: GetStaticProps<PageProps, PageParams> = async ({
     Sanity.siteSettings.get(),
     Sanity.page.get(pageSlug),
   ]);
+
+  const navigationOverrides = page?.navigationOverrides;
+
   if (!page) {
     return {
       notFound: true,
@@ -49,6 +52,7 @@ export const getStaticProps: GetStaticProps<PageProps, PageParams> = async ({
     props: {
       page,
       siteSettings,
+      navigationOverrides: navigationOverrides || null,
     },
     revalidate: RevalidationTime.Medium,
   };

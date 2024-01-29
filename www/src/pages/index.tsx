@@ -26,8 +26,15 @@ export const getStaticProps: GetStaticProps<HomeProps> = async () => {
     Sanity.siteSettings.get(),
     Sanity.homepage.get(),
   ]);
+
+  const navigationOverrides = homepage?.navigationOverrides;
+
   return {
-    props: { siteSettings, homepage },
+    props: {
+      siteSettings,
+      homepage,
+      navigationOverrides: navigationOverrides || null,
+    },
     revalidate: RevalidationTime.Often,
   };
 };

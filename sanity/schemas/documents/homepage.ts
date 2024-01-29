@@ -8,6 +8,10 @@ export const Homepage = defineType({
   icon: icons.Home,
   fields: [
     defineField({
+      name: 'navigationOverrides',
+      type: 'navigationOverrides',
+    }),
+    defineField({
       name: 'metadata',
       title: 'Metadata',
       type: 'metadata',
