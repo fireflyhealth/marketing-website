@@ -71,6 +71,7 @@ export type SiteSettings = SanityDocument & {
 
 export type Homepage = SanityDocument & {
   _type: 'homepage';
+  navigationOverrides?: NavigationOverrides;
   metadata?: Metadata;
   sampleSimpleRichText?: RichText;
 };
