@@ -1,9 +1,10 @@
 import { FC, useEffect, useRef } from 'react';
 import cn from 'classnames';
+import * as SanityTypes from '@/types/sanity';
 import { Wrapper } from './styles';
 
 export type Props = {
-  announcementBanner: string;
+  announcementBanner: SanityTypes.AnnouncementBanner;
 };
 
 export const AnnouncementBanner: FC<Props> = ({ announcementBanner }) => {
@@ -30,7 +31,7 @@ export const AnnouncementBanner: FC<Props> = ({ announcementBanner }) => {
       ref={bannerRef}
       className={cn(Wrapper, announcementBanner ? 'absolute' : 'hidden')}
     >
-      <p>{announcementBanner}</p>
+      <p>{announcementBanner.body}</p>
     </div>
   );
 };

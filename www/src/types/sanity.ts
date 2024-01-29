@@ -65,7 +65,7 @@ export type SiteSettings = SanityDocument & {
     title: string;
     navGroup: KeyedArray<NavGroupType>;
   };
-  globalAnnouncementBanner: string;
+  globalAnnouncementBanner: AnnouncementBanner;
   defaultMetadata: Metadata;
 };
 
@@ -184,7 +184,12 @@ export type Slug = {
 };
 
 export type NavigationOverrides = {
-  announcementBanner?: string;
+  announcementBanner: AnnouncementBanner;
+};
+
+export type AnnouncementBanner = {
+  type: 'announcementBanner';
+  body?: string;
 };
 
 /* An enhanced image field that includes a caption & required alt text */

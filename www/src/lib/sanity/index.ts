@@ -71,7 +71,10 @@ export const page = {
     client.fetch(`*[_type == "genericPage"]{
         slug,
         navigationOverrides {
-          announcementBanner,
+          announcementBanner{
+            _type,
+            body,
+          },
         },
         subPages[]->{ slug }
       }`),
