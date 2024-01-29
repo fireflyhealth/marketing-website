@@ -15,7 +15,10 @@ type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
   args: {
-    announcementBanner: 'This is announcement bar text.',
+    announcementBanner: {
+      _type: 'announcementBanner',
+      body: 'This is announcement bar text.',
+    },
   },
 };
 

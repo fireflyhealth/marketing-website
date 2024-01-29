@@ -188,7 +188,7 @@ export type NavigationOverrides = {
 };
 
 export type AnnouncementBanner = {
-  type: 'announcementBanner';
+  _type: 'announcementBanner';
   body?: string;
 };
 
