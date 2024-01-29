@@ -83,7 +83,7 @@ describe('Link', () => {
       <Link link={genericPageLink.link}>{genericPageLink.label}</Link>,
     );
     expect(getByText(genericPageLink.label).getAttribute('href')).toBe(
-      '/pages/how-it-works',
+      '/how-it-works',
     );
   });
 
@@ -95,7 +95,7 @@ describe('Link', () => {
     );
 
     expect(getByText(subpageLink.label).getAttribute('href')).toBe(
-      '/pages/about/care-team',
+      '/about/care-team',
     );
   });
 

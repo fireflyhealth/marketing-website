@@ -12,9 +12,9 @@ export const getLinkableDocumentPath = (doc: LinkableDocumentData): string => {
     case 'downloadPage':
       return '/download';
     case 'genericPage':
-      return `/pages/${doc.slug.current}`;
+      return `/${doc.slug.current}`;
     case 'subPage':
-      return `/pages/${doc.parentPage.slug.current}/${doc.slug.current}`;
+      return `/${doc.parentPage.slug.current}/${doc.slug.current}`;
     case 'blog':
       return `/blog/${doc.slug.current}`;
     case 'blogArticle':
