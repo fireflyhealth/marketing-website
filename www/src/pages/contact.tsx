@@ -34,7 +34,11 @@ export const getStaticProps: GetStaticProps<ContactPageProps> = async () => {
     return { notFound: true };
   }
   return {
-    props: { siteSettings, contactPage, navigationOverrides },
+    props: {
+      siteSettings,
+      contactPage,
+      navigationOverrides: navigationOverrides || null,
+    },
     revalidate: RevalidationTime.Medium,
   };
 };

@@ -33,7 +33,11 @@ export const getStaticProps: GetStaticProps<DownloadPageProps> = async () => {
     return { notFound: true };
   }
   return {
-    props: { downloadPage, siteSettings, navigationOverrides },
+    props: {
+      downloadPage,
+      siteSettings,
+      navigationOverrides: navigationOverrides || null,
+    },
     revalidate: RevalidationTime.Medium,
   };
 };

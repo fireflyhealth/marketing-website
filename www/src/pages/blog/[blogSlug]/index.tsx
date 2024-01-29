@@ -53,7 +53,7 @@ export const getStaticProps: GetStaticProps<
     props: {
       siteSettings,
       blog,
-      navigationOverrides,
+      navigationOverrides: navigationOverrides || null,
     },
     revalidate: RevalidationTime.Medium,
   };

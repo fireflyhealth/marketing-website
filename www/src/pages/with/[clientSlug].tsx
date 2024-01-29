@@ -50,7 +50,11 @@ export const getStaticProps: GetStaticProps<
   }
 
   return {
-    props: { siteSettings, clientPage },
+    props: {
+      siteSettings,
+      clientPage,
+      navigationOverrides: navigationOverrides || null,
+    },
     revalidate: RevalidationTime.Medium,
   };
 };

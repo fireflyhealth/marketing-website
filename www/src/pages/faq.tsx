@@ -32,7 +32,11 @@ export const getStaticProps: GetStaticProps<FAQPageProps> = async () => {
     return { notFound: true };
   }
   return {
-    props: { faqPage, siteSettings, navigationOverrides },
+    props: {
+      faqPage,
+      siteSettings,
+      navigationOverrides: navigationOverrides || null,
+    },
   };
 };
 

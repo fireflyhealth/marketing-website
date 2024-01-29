@@ -30,7 +30,11 @@ export const getStaticProps: GetStaticProps<HomeProps> = async () => {
   const navigationOverrides = homepage?.navigationOverrides;
 
   return {
-    props: { siteSettings, homepage, navigationOverrides },
+    props: {
+      siteSettings,
+      homepage,
+      navigationOverrides: navigationOverrides || null,
+    },
     revalidate: RevalidationTime.Often,
   };
 };

@@ -52,7 +52,7 @@ export const getStaticProps: GetStaticProps<PageProps, PageParams> = async ({
     props: {
       page,
       siteSettings,
-      navigationOverrides,
+      navigationOverrides: navigationOverrides || null,
     },
     revalidate: RevalidationTime.Medium,
   };

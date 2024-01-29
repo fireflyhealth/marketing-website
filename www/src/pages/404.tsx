@@ -38,7 +38,11 @@ export const getStaticProps: GetStaticProps<NotFoundPageProps> = async () => {
   }
 
   return {
-    props: { notFoundPage, siteSettings, navigationOverrides },
+    props: {
+      notFoundPage,
+      siteSettings,
+      navigationOverrides: navigationOverrides || null,
+    },
     revalidate: RevalidationTime.Medium,
   };
 };
