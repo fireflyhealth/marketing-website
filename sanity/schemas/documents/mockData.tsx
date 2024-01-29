@@ -12,6 +12,12 @@ export const MockData = defineType({
   icon: icons.Code,
   fields: [
     defineField({
+      name: 'navigation',
+      type: 'reference',
+      to: [{ type: 'navigation' }],
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
       name: 'simpleRichText',
       type: 'simpleRichText',
       title: 'Simple Rich Text',
