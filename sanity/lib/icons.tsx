@@ -18,6 +18,8 @@ import {
 import { SlSettings } from 'react-icons/sl';
 import { PiBracketsAngleBold } from 'react-icons/pi';
 import { RxComponent2 } from 'react-icons/rx';
+import { BsMenuDown } from 'react-icons/bs';
+import { BiSolidNavigation } from 'react-icons/bi';
 
 /*
  * Browse Sanity icons:
@@ -41,4 +43,6 @@ export const icons = {
   Navigation: GrMenu,
   Metadata: PiBracketsAngleBold,
   Component: RxComponent2,
+  MenuDropdown: BsMenuDown,
+  MenuItem: BiSolidNavigation,
 };

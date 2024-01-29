@@ -1,8 +1,10 @@
 import { defineArrayMember, defineField, defineType } from 'sanity';
+import { icons } from '../../lib/icons';
 
 export const LabelWithDropdown = defineType({
   name: 'labelWithDropdown',
   title: 'Label with Dropdown',
+  icon: icons.MenuDropdown,
   type: 'object',
   fields: [
     defineField({
