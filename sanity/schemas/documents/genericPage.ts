@@ -86,6 +86,11 @@ const sharedPageFields = [
     },
   }),
   defineField({
+    name: 'content',
+    title: 'Content',
+    type: 'contentArea',
+  }),
+  defineField({
     name: 'metadata',
     title: 'Metadata',
     type: 'metadata',
