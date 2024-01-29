@@ -196,7 +196,11 @@ export type LinkWithLabel = {
 export type LabelWithDropdown = {
   _type: 'labelWithDropdown';
   label: string;
-  subpages: KeyedArray<LinkWithLabel>;
+  subpages: KeyedArray<{
+    _type: 'subpage';
+    label: string;
+    link: LinkableDocumentData;
+  }>;
 };
 
 export type NavGroupType = LinkWithLabel | LabelWithDropdown;

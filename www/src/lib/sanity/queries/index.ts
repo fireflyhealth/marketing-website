@@ -4,6 +4,7 @@ import {
   navigationOverridesFragment,
   ctaFragment,
   linkWithLabelFragment,
+  footerFragment,
 } from './fragments';
 
 export const siteSettingsFragment = `
@@ -17,22 +18,7 @@ export const siteSettingsFragment = `
     body,
   },
   footer {
-    mobileCta {
-      ${ctaFragment}
-    },
-    footerNavGroups[]{
-      navItems[]{
-        ${linkWithLabelFragment}
-      }
-    },
-    bottomLinks {
-      leftLinks[]{
-        ${linkWithLabelFragment}
-      },
-      rightLinks[]{
-        ${linkWithLabelFragment}
-      }
-    }
+    ${footerFragment}
   },
   defaultMetadata {${metadataFragment}}
 `;

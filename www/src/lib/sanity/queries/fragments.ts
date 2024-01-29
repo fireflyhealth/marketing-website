@@ -155,11 +155,31 @@ export const navGroupFragment = `
 `;
 
 export const navigationFragment = `
+  ...,
   _type,
   navGroup {
     ${navGroupFragment}
   }[],
   showNavCTA,
+`;
+
+export const footerFragment = `
+  mobileCta {
+    ${ctaFragment}
+  },
+  footerNavGroups[]{
+    navItems[]{
+      ${linkWithLabelFragment}
+    }
+  },
+  bottomLinks {
+    leftLinks[]{
+      ${linkWithLabelFragment}
+    },
+    rightLinks[]{
+      ${linkWithLabelFragment}
+    }
+  }
 `;
 
 export const metadataFragment = `

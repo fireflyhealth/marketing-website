@@ -1,5 +1,6 @@
 import {
   ctaFragment,
+  footerFragment,
   imageFragment,
   linkWithLabelFragment,
   navigationFragment,
@@ -26,6 +27,11 @@ export const mockDataQuery = `
     },
     links[]{
       ${linkWithLabelFragment}
+    },
+    "footer": *[
+      _type == "siteSettings" && _id == "siteSettings"
+    ][0].footer{
+      ${footerFragment}
     }
   }[0]
 `;
