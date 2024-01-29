@@ -209,12 +209,15 @@ export type Slug = {
 };
 
 export type NavigationOverrides = {
-  announcementBanner: AnnouncementBanner;
+  pageNavigation: {
+    navGroup: Maybe<KeyedArray<NavGroupType>>;
+  };
+  announcementBanner: Maybe<AnnouncementBanner>;
 };
 
 export type AnnouncementBanner = {
   _type: 'announcementBanner';
-  body?: string;
+  body: string;
 };
 
 /* An enhanced image field that includes a caption & required alt text */

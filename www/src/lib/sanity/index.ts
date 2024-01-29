@@ -16,7 +16,10 @@ import {
   RichImage,
 } from '@/types/sanity';
 import { siteSettingsFragment } from './queries';
-import { metadataFragment } from './queries/fragments';
+import {
+  metadataFragment,
+  navigationOverridesFragment,
+} from './queries/fragments';
 
 export const client = createClient({
   projectId: 'xgbrv2vi',
@@ -69,12 +72,7 @@ export const page = {
       `*[_type == "genericPage" && slug.current == $slug][0]{
       title,
       slug,
-      navigationOverrides {
-        announcementBanner{
-          _type,
-          body,
-        },
-      },
+      navigationOverrides {${navigationOverridesFragment}},
       metadataFragment{${metadataFragment}},
     }`,
       {
@@ -99,12 +97,7 @@ export const subPage = {
           ]{
             title,
             slug,
-            navigationOverrides {
-              announcementBanner{
-                _type,
-                body,
-              },
-            },
+            navigationOverrides {${navigationOverridesFragment}},
             metadataFragment{${metadataFragment}},
             "parentPage": *[
               _type == "genericPage"
@@ -128,12 +121,7 @@ export const downloadPage = {
     client.fetch(`*[_type == "downloadPage" && _id == "downloadPage"][0]{
       title,
       slug,
-      navigationOverrides {
-        announcementBanner{
-          _type,
-          body,
-        },
-      },
+      navigationOverrides {${navigationOverridesFragment}},
       metadataFragment{${metadataFragment}},
     }`),
 };
@@ -143,12 +131,7 @@ export const contactPage = {
     client.fetch(`*[_type == "contactPage" && _id == "contactPage"][0]{
       title,
       slug,
-      navigationOverrides {
-        announcementBanner{
-          _type,
-          body,
-        },
-      },
+      navigationOverrides {${navigationOverridesFragment}},
       metadataFragment{${metadataFragment}},
     }`),
 };
@@ -158,12 +141,7 @@ export const notFoundPage = {
     client.fetch(`*[_type == "notFoundPage" && _id == "notFoundPage"][0]{
       title,
       slug,
-      navigationOverrides {
-        announcementBanner{
-          _type,
-          body,
-        },
-      },
+      navigationOverrides {${navigationOverridesFragment}},
       metadataFragment{${metadataFragment}},
     }`),
 };
@@ -173,12 +151,7 @@ export const faqPage = {
     client.fetch(`*[_type == "faqPage" && _id == "faqPage"][0]{
       title,
       slug,
-      navigationOverrides {
-        announcementBanner{
-          _type,
-          body,
-        },
-      },
+      navigationOverrides {${navigationOverridesFragment}},
       metadataFragment{${metadataFragment}},
     }`),
 };
@@ -190,12 +163,7 @@ export const clientPage = {
       `*[_type == "clientPage" && slug.current == $clientSlug][0]{
       clientName,
       slug,
-      navigationOverrides {
-        announcementBanner{
-          _type,
-          body,
-        },
-      },
+      navigationOverrides {${navigationOverridesFragment}},
       metadataFragment{${metadataFragment}},
     }`,
       {
@@ -214,12 +182,7 @@ export const blog = {
       `*[_type == "blog" && slug.current == $blogSlug][0]{
       title,
       slug,
-      navigationOverrides {
-        announcementBanner{
-          _type,
-          body,
-        },
-      },
+      navigationOverrides {${navigationOverridesFragment}},
       metadataFragment{${metadataFragment}},
     }`,
       {
@@ -255,12 +218,7 @@ export const blog = {
             slug
           },
           slug,
-          navigationOverrides {
-            announcementBanner{
-              _type,
-              body,
-            },
-          },
+          navigationOverrides {${navigationOverridesFragment}},
           metadataFragment{${metadataFragment}},
         }[category.slug.current == $blogSlug][0]`,
       { blogSlug, articleSlug },

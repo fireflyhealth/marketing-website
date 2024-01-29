@@ -13,6 +13,9 @@ import {
   NavLinkStyles,
 } from './styles';
 
+// TODO: add onMouseEnter={handleHeadingMouseEnter} and onMouseLeave={handleHeadingMouseLeave}
+// to link sans dropdown
+
 type Props = {
   navItem: Keyed<NavGroupType>;
   isMobile?: boolean;

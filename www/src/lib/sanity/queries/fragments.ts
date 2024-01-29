@@ -172,3 +172,15 @@ export const metadataFragment = `
       url
     }
   }`;
+
+export const navigationOverridesFragment = `
+    _type,
+    pageNavigation->{
+      _type,
+      "navGroup": navGroup {${linkWithLabelFragment}}[],
+    },
+    announcementBanner{
+      _type,
+      body,
+    },
+  `;

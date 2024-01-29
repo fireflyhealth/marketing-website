@@ -8,6 +8,8 @@ import { ColorTheme, Theme } from '@/components/Theme';
 import '../styles/fonts.css';
 import '../styles/main.css';
 
+// TODO: fix type error with navigation props
+
 type Props = AppProps<{
   siteSettings: SanityTypes.SiteSettings;
   navigationOverrides?: SanityTypes.NavigationOverrides;
@@ -15,6 +17,9 @@ type Props = AppProps<{
 
 export default function App({ Component, pageProps: allPageProps }: Props) {
   const { siteSettings, navigationOverrides, ...pageProps } = allPageProps;
+
+  const globalNav = siteSettings.globalNav.navGroup;
+  const customPageNav = navigationOverrides?.pageNavigation.navGroup;
 
   const globalAnnouncementBanner = siteSettings.globalAnnouncementBanner;
   const announcementBannerOverride = navigationOverrides?.announcementBanner;
@@ -28,7 +33,7 @@ export default function App({ Component, pageProps: allPageProps }: Props) {
               announcementBannerOverride || globalAnnouncementBanner
             }
           />
-          <Navigation navigation={siteSettings.globalNav} />
+          <Navigation navigation={customPageNav || globalNav} />
           <main className="mt-mobile-nav-banner-margin md:mt-desktop-nav-banner-margin">
             <Component {...pageProps} />
           </main>

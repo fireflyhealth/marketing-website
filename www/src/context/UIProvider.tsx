@@ -32,6 +32,7 @@ export const UIProvider: FC<PropsWithChildren> = ({ children }) => {
 
   const toggleGlobalNav = () => {
     setMobileNavOpen(!mobileNavOpen);
+    setCurrentNavItem(null);
   };
 
   /* Uses the nav item's '_key' prop as an identifier */
