@@ -1,15 +1,15 @@
 import { FC, useEffect } from 'react';
 import { useRouter } from 'next/router';
-import { KeyedArray, NavGroupType } from '@/types/sanity';
+import { Navigation as NavigationType } from '@/types/sanity';
 import { useUIProvider } from '@/context/UIProvider';
 import { MobileNav } from './MobileNav';
 import { DesktopNav } from './DesktopNav';
 
 type Props = {
-  navGroup: KeyedArray<NavGroupType>;
+  navigation: NavigationType;
 };
 
-export const Navigation: FC<Props> = ({ navGroup }) => {
+export const Navigation: FC<Props> = ({ navigation }) => {
   const { setMobileNavOpen } = useUIProvider();
   const router = useRouter();
 
@@ -23,8 +23,8 @@ export const Navigation: FC<Props> = ({ navGroup }) => {
   }, [router, setMobileNavOpen]);
   return (
     <>
-      <MobileNav navGroup={navGroup} />
-      <DesktopNav navGroup={navGroup} />
+      <MobileNav navGroup={navigation.navGroup} />
+      <DesktopNav navGroup={navigation.navGroup} />
     </>
   );
 };

@@ -154,6 +154,13 @@ export const navGroupFragment = `
   }
 `;
 
+export const navigationFragment = `
+  _type,
+  navGroup {
+    ${navGroupFragment}
+  }[]
+`;
+
 export const metadataFragment = `
   _type,
   title,

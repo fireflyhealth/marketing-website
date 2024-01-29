@@ -1,14 +1,10 @@
-import { metadataFragment, navGroupFragment } from './fragments';
+import { metadataFragment, navigationFragment } from './fragments';
 
 export const siteSettingsFragment = `
   _id,
   _type,
   globalNav->{
-    _type,
-    title,
-    navGroup {
-      ${navGroupFragment}
-    }[],
+    ${navigationFragment}
   },
   globalAnnouncementBanner{
     _type,

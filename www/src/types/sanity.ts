@@ -68,13 +68,14 @@ export type LinkableDocumentData =
  * Documents
  */
 
+export type Navigation = SanityDocument & {
+  _type: 'navigation';
+  navGroup: KeyedArray<NavGroupType>;
+};
+
 export type SiteSettings = SanityDocument & {
   _type: 'siteSettings';
-  globalNav: {
-    _type: string;
-    title: string;
-    navGroup: KeyedArray<NavGroupType>;
-  };
+  globalNav: Navigation;
   globalAnnouncementBanner: AnnouncementBanner;
   defaultMetadata: Metadata;
 };
