@@ -40,6 +40,9 @@ export const getStaticProps: GetStaticProps<
     Sanity.siteSettings.get(),
     Sanity.clientPage.get(clientSlug),
   ]);
+
+  const navigationOverrides = clientPage?.navigationOverrides;
+
   if (!clientPage) {
     return {
       notFound: true,

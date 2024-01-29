@@ -25,11 +25,14 @@ export const getStaticProps: GetStaticProps<FAQPageProps> = async () => {
     Sanity.siteSettings.get(),
     Sanity.faqPage.get(),
   ]);
+
+  const navigationOverrides = faqPage?.navigationOverrides;
+
   if (!faqPage) {
     return { notFound: true };
   }
   return {
-    props: { faqPage, siteSettings },
+    props: { faqPage, siteSettings, navigationOverrides },
   };
 };
 
