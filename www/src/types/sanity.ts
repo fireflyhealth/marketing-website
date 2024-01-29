@@ -110,6 +110,7 @@ type CommonPage = SanityDocument & {
   content: ContentArea;
   metadata?: Metadata;
   slug: Slug;
+  navigationOverrides?: NavigationOverrides;
 };
 
 export type GenericPage = CommonPage & {
@@ -172,6 +173,10 @@ export type NavGroupType = LinkWithLabel | LabelWithDropdown;
 
 export type Slug = {
   current: string;
+};
+
+export type NavigationOverrides = {
+  announcementBanner?: string;
 };
 
 /* An enhanced image field that includes a caption & required alt text */

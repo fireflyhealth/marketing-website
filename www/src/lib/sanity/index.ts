@@ -70,6 +70,9 @@ export const page = {
   getSlugInfo: (): Promise<GenericPage[]> =>
     client.fetch(`*[_type == "genericPage"]{
         slug,
+        navigationOverrides {
+          announcementBanner,
+        },
         subPages[]->{ slug }
       }`),
 };
