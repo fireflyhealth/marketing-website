@@ -8,9 +8,9 @@ import * as Sanity from '@/lib/sanity';
 import { RevalidationTime } from '@/constants';
 import { DownloadMetadata } from '@/components/Metadata/DownloadMetadata';
 
-type DownloadPageProps = PageProps<{
+export type DownloadPageProps = PageProps & {
   downloadPage: DownloadPageType;
-}>;
+};
 
 const DownloadPage: FC<DownloadPageProps> = ({ downloadPage }) => {
   return (

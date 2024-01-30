@@ -1,4 +1,8 @@
-import { metadataFragment, navigationFragment } from './fragments';
+import {
+  metadataFragment,
+  navigationFragment,
+  navigationOverridesFragment,
+} from './fragments';
 
 export const siteSettingsFragment = `
   _id,
@@ -11,4 +15,11 @@ export const siteSettingsFragment = `
     body,
   },
   defaultMetadata {${metadataFragment}},
+`;
+
+export const downloadPageFragment = `
+  title,
+  slug,
+  navigationOverrides {${navigationOverridesFragment}},
+  metadataFragment{${metadataFragment}},
 `;
