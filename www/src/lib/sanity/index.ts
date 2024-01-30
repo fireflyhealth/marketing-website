@@ -15,7 +15,11 @@ import {
   Image,
   RichImage,
 } from '@/types/sanity';
-import { downloadPageFragment, siteSettingsFragment } from './queries';
+import {
+  contactPageFragment,
+  downloadPageFragment,
+  siteSettingsFragment,
+} from './queries';
 import {
   metadataFragment,
   navigationOverridesFragment,
@@ -56,6 +60,8 @@ const HOMEPAGE_DOCUMENT_ID = 'homepage';
 const HOMEPAGE_DRAFT_DOCUMENT_ID = 'drafts.homepage';
 const DOWNLOAD_DOCUMENT_ID = 'downloadPage';
 const DOWNLOAD_DRAFT_DOCUMENT_ID = 'draft.downloadPage';
+const CONTACT_DOCUMENT_ID = 'contactPage';
+const CONTACT_DRAFT_DOCUMENT_ID = 'draft.contactPage';
 
 /* Site Settings & Navigation */
 
@@ -188,12 +194,24 @@ export const downloadPage = {
 
 export const contactPage = {
   get: (): Promise<ContactPage | null> =>
-    client.fetch(`*[_type == "contactPage" && _id == "contactPage"][0]{
-      title,
-      slug,
-      navigationOverrides {${navigationOverridesFragment}},
-      metadataFragment{${metadataFragment}},
-    }`),
+    client.fetch(
+      `*[_type == "contactPage" && _id == "contactPage"][0]{${contactPageFragment}}`,
+    ),
+  fetchPreview(previewToken: string) {
+    return createSanityClient(previewToken).fetch<ContactPage>(
+      `*[_type == "contactPage" && (_id == "${CONTACT_DRAFT_DOCUMENT_ID}" || _id == "${CONTACT_DOCUMENT_ID}")][0]{${contactPageFragment}}`,
+    );
+  },
+  streamPreview(
+    previewToken: string,
+    callback: (contactPage: ContactPage) => void,
+  ) {
+    return createSanityClient(previewToken)
+      .listen(
+        `*[_type == "contactPage" && _id == "${CONTACT_DRAFT_DOCUMENT_ID}"]`,
+      )
+      .subscribe(() => contactPage.fetchPreview(previewToken).then(callback));
+  },
 };
 
 export const notFoundPage = {

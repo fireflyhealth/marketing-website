@@ -17,9 +17,13 @@ export const siteSettingsFragment = `
   defaultMetadata {${metadataFragment}},
 `;
 
-export const downloadPageFragment = `
+export const specialPageFragment = `
   title,
   slug,
   navigationOverrides {${navigationOverridesFragment}},
   metadataFragment{${metadataFragment}},
 `;
+
+export const downloadPageFragment = `${specialPageFragment}`;
+
+export const contactPageFragment = `${specialPageFragment}`;
