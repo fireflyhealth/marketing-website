@@ -8,9 +8,9 @@ import { HomeView } from '@/views/HomeView';
 import { RevalidationTime } from '@/constants';
 import { HomeMetadata } from '@/components/Metadata/HomeMetadata';
 
-type HomeProps = PageProps<{
+export type HomeProps = PageProps & {
   homepage: Homepage;
-}>;
+};
 
 const Home: FC<HomeProps> = ({ homepage }) => {
   return (

@@ -28,6 +28,20 @@ export const client = createClient({
   useCdn: process.env.NODE_ENV === 'development' ? false : true,
 });
 
+/**
+ * Require credentials when fetching preview data
+ */
+const createSanityClient = (previewToken: string) => {
+  return createClient({
+    projectId: 'xgbrv2vi',
+    dataset: 'production',
+    apiVersion: '2024-01-01',
+    useCdn: false,
+    withCredentials: true,
+    token: previewToken,
+  });
+};
+
 const builder = ImageUrlBuilder(client);
 
 export const imageBuilder = {
@@ -36,12 +50,17 @@ export const imageBuilder = {
   },
 };
 
+const SITE_SETTINGS_DOCUMENT_ID = 'siteSettings';
+const SITE_SETTINGS_DRAFT_DOCUMENT_ID = 'drafts.siteSettings';
+const HOMEPAGE_DOCUMENT_ID = 'homepage';
+const HOMEPAGE_DRAFT_DOCUMENT_ID = 'drafts.homepage';
+
 /* Site Settings & Navigation */
 
 export const siteSettings = {
   get: async (): Promise<SiteSettings> => {
     const siteSettings = await client.fetch<SiteSettings | null>(
-      `*[_type == "siteSettings" && _id == "siteSettings"][0]{
+      `*[_type == "siteSettings" && _id == "${SITE_SETTINGS_DOCUMENT_ID}"][0]{
         ${siteSettingsFragment}
       }`,
     );
@@ -50,18 +69,45 @@ export const siteSettings = {
     }
     return siteSettings;
   },
+  fetchPreview(previewToken: string) {
+    return createSanityClient(previewToken).fetch<SiteSettings>(
+      `*[_type == "siteSettings" && _id == "${SITE_SETTINGS_DRAFT_DOCUMENT_ID}"][0]{${siteSettingsFragment}}`,
+    );
+  },
+  streamPreview(
+    previewToken: string,
+    callback: (siteSettings: SiteSettings) => void,
+  ) {
+    return createSanityClient(previewToken)
+      .listen(
+        `*[_type == "settings" && _id == "${SITE_SETTINGS_DRAFT_DOCUMENT_ID}"]`,
+      )
+      .subscribe(() => siteSettings.fetchPreview(previewToken).then(callback));
+  },
 };
 
 /* Homepage */
 export const homepage = {
   get: async (): Promise<Homepage> => {
     const homepage = await client.fetch(
-      `*[_type == "homepage" && _id == "homepage"][0]`,
+      `*[_type == "homepage" && _id == "${HOMEPAGE_DOCUMENT_ID}"][0]`,
     );
     if (!homepage) {
       throw new Error('Could not fetch homepage');
     }
     return homepage;
+  },
+  fetchPreview(previewToken: string) {
+    return createSanityClient(previewToken).fetch<Homepage>(
+      `*[_type == "homepage" && (_id == "${HOMEPAGE_DRAFT_DOCUMENT_ID}" || _id == "${HOMEPAGE_DOCUMENT_ID}")][0]`,
+    );
+  },
+  streamPreview(previewToken: string, callback: (homepage: Homepage) => void) {
+    return createSanityClient(previewToken)
+      .listen(
+        `*[_type == "homepage" && _id == "${HOMEPAGE_DRAFT_DOCUMENT_ID}"]`,
+      )
+      .subscribe(() => homepage.fetchPreview(previewToken).then(callback));
   },
 };
 
