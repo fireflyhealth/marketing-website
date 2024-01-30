@@ -7,9 +7,9 @@ import { FAQPageView } from '@/views/FAQPageView';
 import * as Sanity from '@/lib/sanity';
 import { FAQMetadata } from '@/components/Metadata/FAQMetadata';
 
-type FAQPageProps = PageProps<{
+export type FAQPageProps = PageProps & {
   faqPage: FAQPageType;
-}>;
+};
 
 const FAQPage: FC<FAQPageProps> = ({ faqPage }) => {
   return (

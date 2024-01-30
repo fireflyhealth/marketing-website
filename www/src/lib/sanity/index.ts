@@ -18,6 +18,7 @@ import {
 import {
   contactPageFragment,
   downloadPageFragment,
+  faqPageFragment,
   notFoundPageFragment,
   siteSettingsFragment,
 } from './queries';
@@ -65,6 +66,8 @@ const CONTACT_DOCUMENT_ID = 'contactPage';
 const CONTACT_DRAFT_DOCUMENT_ID = 'drafts.contactPage';
 const NOT_FOUND_DOCUMENT_ID = 'notFoundPage';
 const NOT_FOUND_DRAFT_DOCUMENT_ID = 'drafts.notFoundPage';
+const FAQ_DOCUMENT_ID = 'faqPage';
+const FAQ_DRAFT_DOCUMENT_ID = 'drafts.faqPage';
 
 /* Site Settings & Navigation */
 
@@ -241,12 +244,19 @@ export const notFoundPage = {
 
 export const faqPage = {
   get: (): Promise<FAQPage | null> =>
-    client.fetch(`*[_type == "faqPage" && _id == "faqPage"][0]{
-      title,
-      slug,
-      navigationOverrides {${navigationOverridesFragment}},
-      metadataFragment{${metadataFragment}},
-    }`),
+    client.fetch(
+      `*[_type == "faqPage" && _id == "faqPage"][0]{${faqPageFragment}}`,
+    ),
+  fetchPreview(previewToken: string) {
+    return createSanityClient(previewToken).fetch<FAQPage>(
+      `*[_type == "faqPage" && (_id == "${FAQ_DRAFT_DOCUMENT_ID}" || _id == "${FAQ_DOCUMENT_ID}")][0]{${faqPageFragment}}`,
+    );
+  },
+  streamPreview(previewToken: string, callback: (faqPage: FAQPage) => void) {
+    return createSanityClient(previewToken)
+      .listen(`*[_type == "faqPage" && _id == "${FAQ_DRAFT_DOCUMENT_ID}"]`)
+      .subscribe(() => faqPage.fetchPreview(previewToken).then(callback));
+  },
 };
 
 /* Client Page */

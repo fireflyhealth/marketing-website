@@ -29,3 +29,5 @@ export const downloadPageFragment = `${specialPageFragment}`;
 export const contactPageFragment = `${specialPageFragment}`;
 
 export const notFoundPageFragment = `${specialPageFragment}`;
+
+export const faqPageFragment = `${specialPageFragment}`;

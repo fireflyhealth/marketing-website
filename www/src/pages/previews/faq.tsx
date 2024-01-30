@@ -5,12 +5,12 @@ import * as Sanity from '@/lib/sanity';
 import * as SanityTypes from '@/types/sanity';
 import * as NextTypes from '@/types/next';
 
-import NotFoundPage, { NotFoundPageProps } from '@/pages/404';
+import FAQPage, { FAQPageProps } from '@/pages/faq';
 
-const NotFoundPagePreview: NextTypes.PageRoute<
+const FAQPagePreview: NextTypes.PageRoute<
   InferGetServerSidePropsType<typeof getServerSideProps>
-> = ({ notFoundPage, siteSettings, previewToken }) => {
-  const [livePage, setLivePage] = useState(notFoundPage);
+> = ({ faqPage, siteSettings, previewToken }) => {
+  const [livePage, setLivePage] = useState(faqPage);
   const [liveSettings, setLiveSettings] = useState(siteSettings);
 
   /*
@@ -25,10 +25,7 @@ const NotFoundPagePreview: NextTypes.PageRoute<
       previewToken,
       setLiveSettings,
     );
-    const pageStream = Sanity.notFoundPage.streamPreview(
-      previewToken,
-      setLivePage,
-    );
+    const pageStream = Sanity.faqPage.streamPreview(previewToken, setLivePage);
 
     return () => {
       settingsStream.unsubscribe();
@@ -36,19 +33,19 @@ const NotFoundPagePreview: NextTypes.PageRoute<
     };
   }, [previewToken]);
 
-  return <NotFoundPage notFoundPage={livePage} siteSettings={liveSettings} />;
+  return <FAQPage faqPage={livePage} siteSettings={liveSettings} />;
 };
 
 export const getServerSideProps: GetServerSideProps<
-  NotFoundPageProps & { previewToken: string }
+  FAQPageProps & { previewToken: string }
 > = async (context) => {
   // @ts-ignore
   const previewToken: string = context.query.sanityPreviewToken;
   if (!previewToken) return { notFound: true };
   const siteSettings = await Sanity.siteSettings.get();
-  const notFoundPage = await Sanity.notFoundPage
+  const faqPage = await Sanity.faqPage
     .fetchPreview(previewToken)
-    .then((notFoundPage) => {
+    .then((faqPage) => {
       /*
     When a content editor begins editing a published document
     for the first time, we'll switch from a published document ID
@@ -59,27 +56,27 @@ export const getServerSideProps: GetServerSideProps<
     Most of the time, the document will be available at this point.
     */
 
-      if (notFoundPage === null)
-        return new Promise<SanityTypes.NotFoundPage>((resolve) => {
+      if (faqPage === null)
+        return new Promise<SanityTypes.FAQPage>((resolve) => {
           setTimeout(() => {
-            Sanity.notFoundPage.fetchPreview(previewToken).then(resolve);
+            Sanity.faqPage.fetchPreview(previewToken).then(resolve);
           }, 1000);
         });
 
-      return notFoundPage;
+      return faqPage;
     });
 
-  const navigationOverrides = notFoundPage.navigationOverrides;
+  const navigationOverrides = faqPage.navigationOverrides;
 
   return {
     props: {
       siteSettings,
-      notFoundPage,
+      faqPage,
       navigationOverrides: navigationOverrides || null,
       previewToken,
     },
-    notFound: !notFoundPage,
+    notFound: !faqPage,
   };
 };
 
-export default NotFoundPagePreview;
+export default FAQPagePreview;
