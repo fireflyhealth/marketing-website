@@ -3,7 +3,7 @@ import { deskTool } from 'sanity/desk';
 import { visionTool } from '@sanity/vision';
 import { documentInternationalization } from '@sanity/document-internationalization';
 import { schemaTypes } from './schemas';
-import { structure } from './schemas/structure';
+import { structure, defaultDocumentNode } from './schemas/structure';
 import './lib/styles.css';
 
 const config = defineConfig({
@@ -14,7 +14,7 @@ const config = defineConfig({
   dataset: 'production',
 
   plugins: [
-    deskTool({ structure }),
+    deskTool({ structure, defaultDocumentNode }),
     visionTool(),
     documentInternationalization({
       supportedLanguages: [{ id: 'en', title: 'English' }],
