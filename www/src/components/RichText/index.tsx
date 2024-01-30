@@ -5,30 +5,21 @@ import {
   PortableText,
   PortableTextReactComponents,
 } from '@portabletext/react';
-import {
-  PortableTextBlock,
-  PortableTextListItemBlock,
-} from '@portabletext/types';
+import { PortableTextBlock } from '@portabletext/types';
 import { RichText as RichTextType } from '@/types/sanity';
 import { BrandedIcon } from '@/svgs/BrandedIcon';
+import { Link } from '@/atoms/Link';
 
 type RichTextProps = {
-  /* Note: You can add more types & serializers for
-   * other blocks that may be included in the future, i.e.:
-   * content: (PortableTextBlock | ImageBlock)[] */
-  content: PortableTextBlock[];
+  content: RichTextType;
   className?: string;
-};
-
-type BlockRendererArgs = {
-  children: React.ReactNode;
-  node: PortableTextBlock | PortableTextListItemBlock;
 };
 
 const BlockRenderer: PortableTextComponent<PortableTextBlock> = ({
   children,
   value,
 }) => {
+  if (!value.style) return null;
   switch (value.style) {
     case 'h2':
       return <h2 className="font-size-4 font-trust">{children}</h2>;
@@ -38,13 +29,13 @@ const BlockRenderer: PortableTextComponent<PortableTextBlock> = ({
       return <h4 className="font-size-6 font-trust">{children}</h4>;
     case 'blockquote-large':
       return (
-        <blockquote className="font-size-5--quote font-trust text-theme-decorative">
+        <blockquote className="font-size-5--quote font-trust theme-text-color-decorative">
           {children}
         </blockquote>
       );
     case 'blockquote':
       return (
-        <blockquote className="font-size-6--quote font-trust text-theme-decorative">
+        <blockquote className="font-size-6--quote font-trust theme-text-color-decorative">
           {children}
         </blockquote>
       );
@@ -71,11 +62,16 @@ const components: Partial<PortableTextReactComponents> = {
       return <BrandedIcon type={props.value.icon} wrapperStyles="w-12" />;
     },
   },
+  marks: {
+    link: (props) => {
+      return <Link link={props.value.link}>{props.children}</Link>;
+    },
+  },
 };
 
 export const RichText: FC<RichTextProps> = ({ content, className }) => {
   return (
-    <div className={cx('RichText text-theme-primary', className)}>
+    <div className={cx('RichText theme-text-color-primary', className)}>
       <PortableText value={content} components={components} />
     </div>
   );

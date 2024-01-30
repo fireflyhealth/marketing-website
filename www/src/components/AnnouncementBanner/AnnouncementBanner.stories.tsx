@@ -9,6 +9,11 @@ const AnnouncementBannerExample: FC<Props> = ({ announcementBanner }) => {
 const meta = {
   title: 'Components/Announcement Banner',
   component: AnnouncementBannerExample,
+  parameters: {
+    controls: {
+      exclude: ['announcementBanner'],
+    },
+  },
 } satisfies Meta<typeof AnnouncementBannerExample>;
 
 type Story = StoryObj<typeof meta>;

@@ -24,12 +24,14 @@ interface SanityDocument {
 }
 
 type FileAsset = {
-  _type: 'sanity.fileAsset';
-  _id: string;
-  url: string;
-  originalFilename: string;
-  extension: string;
-  size: number;
+  asset: {
+    _type: 'sanity.fileAsset';
+    _id: string;
+    url: string;
+    originalFilename: string;
+    extension: string;
+    size: number;
+  };
 };
 
 /**
@@ -44,7 +46,11 @@ export type LinkableDocument =
   | DownloadPage
   | ContactPage
   | FAQPage
-  | GenericPage;
+  | GenericPage
+  | SubPage
+  | Blog
+  | BlogArticle
+  | ClientPage;
 /* TODO: SubPage, Blogs, Articles, ... */
 
 export type LinkableDocumentData =
@@ -52,19 +58,24 @@ export type LinkableDocumentData =
   | DownloadPageLinkData
   | ContactPageLinkData
   | FAQPageLinkData
-  | GenericPageLinkData;
+  | GenericPageLinkData
+  | SubPageLinkData
+  | BlogLinkData
+  | BlogArticleLinkData
+  | ClientPageLinkData;
 
 /**
  * Documents
  */
 
+export type Navigation = SanityDocument & {
+  _type: 'navigation';
+  navGroup: KeyedArray<NavGroupType>;
+};
+
 export type SiteSettings = SanityDocument & {
   _type: 'siteSettings';
-  globalNav: {
-    _type: string;
-    title: string;
-    navGroup: KeyedArray<NavGroupType>;
-  };
+  globalNav: Navigation;
   globalAnnouncementBanner: AnnouncementBanner;
   defaultMetadata: Metadata;
 };
@@ -129,6 +140,11 @@ export type SubPage = CommonPage & {
   parentPage: GenericPageLinkData;
 };
 
+export type SubPageLinkData = Pick<
+  SubPage,
+  '_type' | 'slug' | 'title' | 'parentPage'
+>;
+
 /* Client Page */
 export type ClientPage = SanityDocument & {
   _type: 'clientPage';
@@ -137,6 +153,10 @@ export type ClientPage = SanityDocument & {
   navigationOverrides?: NavigationOverrides;
   metadata?: Metadata;
 };
+export type ClientPageLinkData = Pick<
+  ClientPage,
+  '_type' | 'slug' | 'clientName'
+>;
 
 /* Blogs */
 export type Blog = SanityDocument & {
@@ -147,6 +167,7 @@ export type Blog = SanityDocument & {
   articles?: BlogArticle[];
   metadata?: Metadata;
 };
+export type BlogLinkData = Pick<Blog, '_type' | 'slug' | 'title'>;
 
 export type BlogArticle = SanityDocument & {
   _type: 'blogArticle';
@@ -154,17 +175,20 @@ export type BlogArticle = SanityDocument & {
   slug: Slug;
   navigationOverrides?: NavigationOverrides;
   /* TODO linking - change this to BlogPageLinkData */
-  category: Pick<Blog, 'title' | 'slug' | '_type'>;
+  category: BlogLinkData;
   metadata?: Metadata;
 };
+
+export type BlogArticleLinkData = Pick<
+  BlogArticle,
+  '_type' | 'slug' | 'title' | 'category'
+>;
 
 /* Navigation */
 export type LinkWithLabel = {
   _type: 'linkWithLabel';
   label: string;
-  link: {
-    slug: string;
-  };
+  link: Link;
 };
 
 export type LabelWithDropdown = {
@@ -181,6 +205,7 @@ export type NavGroupType = LinkWithLabel | LabelWithDropdown;
 
 export type Slug = {
   current: string;
+  _type?: 'slug';
 };
 
 export type NavigationOverrides = {
@@ -243,19 +268,24 @@ export type Metadata = {
 };
 
 export type Link = {
-  documentLink?: Maybe<LinkableDocument>;
-  externalUrl?: Maybe<string>;
-  file?: Maybe<FileAsset>;
+  _type: 'link';
+  documentLink: Maybe<LinkableDocumentData>;
+  externalUrl: Maybe<string>;
+  file: Maybe<FileAsset>;
 };
 
 export type CTA = {
+  _type: 'cta';
   label: string;
-  ariaLabel?: string;
+  ariaLabel?: Maybe<string>;
   id: string;
   variant: 'primary' | 'secondary' | 'outlined';
   link: Link;
 };
 
+/* Note: You can add more types & serializers for
+ * other blocks that may be included in the future, i.e.:
+ * Array<PortableTextBlock | ImageBlock>[] */
 export type RichText = PortableTextBlock[];
 
 export type ContentBlock = HeaderBlock;

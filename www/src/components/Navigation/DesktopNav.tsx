@@ -2,15 +2,12 @@ import { FC } from 'react';
 import Link from 'next/link';
 import cn from 'classnames';
 import { LogotypeColor } from '@/svgs/Logotype';
-import * as SanityTypes from '@/types/sanity';
+import { KeyedArray, NavGroupType } from '@/types/sanity';
 import { NavGroup } from './NavGroup';
 import { NavWrapper, NavContainer, NavLinksWrapper } from './styles';
 
-// TODO: replace next/link and next/image with Link and Image compoents
-// after they get created.
-
 type Props = {
-  navGroup: SanityTypes.KeyedArray<SanityTypes.NavGroupType>;
+  navGroup: KeyedArray<NavGroupType>;
 };
 
 export const DesktopNav: FC<Props> = ({ navGroup }) => {

@@ -1,28 +1,30 @@
 import React, { FC } from 'react';
 import { Meta, StoryObj } from '@storybook/react';
-import { KeyedArray, NavGroupType } from '@/types/sanity';
-import { mockData } from '@/mockData';
+import { Navigation as NavigationType } from '@/types/sanity';
+import { navigationExample } from '@/mockData';
 import { Navigation } from './';
 
 type Props = {
-  navGroup: KeyedArray<NavGroupType>;
+  navigation: NavigationType;
 };
 
-const NavigationExample: FC<Props> = ({ navGroup }) => {
-  return <Navigation navGroup={navGroup} />;
+const NavigationExample: FC<Props> = ({ navigation }) => {
+  return <Navigation navigation={navigation} />;
 };
 
 const meta = {
   title: 'Components/Navigation',
   component: NavigationExample,
+  parameters: {
+    controls: { exclude: ['navigation'] },
+  },
 } satisfies Meta<typeof NavigationExample>;
 
 type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
   args: {
-    navGroup: mockData.navigationExample
-      .navGroup as unknown as KeyedArray<NavGroupType>,
+    navigation: navigationExample,
   },
 };
 

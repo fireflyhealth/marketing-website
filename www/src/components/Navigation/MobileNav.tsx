@@ -2,17 +2,14 @@ import { FC } from 'react';
 import Link from 'next/link';
 import cn from 'classnames';
 import { SimpleIcon } from '@/svgs/SimpleIcon';
-import * as SanityTypes from '@/types/sanity';
 import { useUIProvider } from '@/context/UIProvider';
+import { KeyedArray, NavGroupType } from '@/types/sanity';
 import { LogotypeColor, LogotypeMonochrome } from '@/svgs/Logotype';
 import { NavGroup } from './NavGroup';
 import { NavWrapper, NavContainer, NavLinksWrapper } from './styles';
 
-// TODO: replace next/link and next/image with Link and Image compoents
-// after they get created.
-
 type Props = {
-  navGroup: SanityTypes.KeyedArray<SanityTypes.NavGroupType>;
+  navGroup: KeyedArray<NavGroupType>;
 };
 
 export const MobileNav: FC<Props> = ({ navGroup }) => {
@@ -34,11 +31,10 @@ export const MobileNav: FC<Props> = ({ navGroup }) => {
 
         {/* menu button only visible on tablet and mobile */}
         <button className="md:hidden" onClick={toggleGlobalNav}>
-          {!mobileNavOpen && (
-            <SimpleIcon type="menu" width={24} color="#131D2B" />
-          )}
-          {mobileNavOpen && (
+          {mobileNavOpen ? (
             <SimpleIcon type="close" width={24} color="white" />
+          ) : (
+            <SimpleIcon type="menu" width={24} color="#131D2B" />
           )}
         </button>
       </div>

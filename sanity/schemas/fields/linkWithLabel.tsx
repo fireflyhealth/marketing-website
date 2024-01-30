@@ -7,14 +7,14 @@ export const LinkWithLabel = defineType({
   fields: [
     defineField({
       name: 'label',
-      title: 'label',
+      title: 'Label',
       type: 'string',
       validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'link',
       title: 'Link',
-      type: 'linkableDocument',
+      type: 'link',
       validation: (Rule) => Rule.required(),
     }),
   ],

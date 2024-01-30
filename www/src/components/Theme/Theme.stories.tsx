@@ -5,7 +5,7 @@ import { BrandedIcon } from '@/svgs/BrandedIcon';
 import { ColorTheme, Theme } from './';
 
 const Annotation: FC<{ children: React.ReactNode }> = ({ children }) => (
-  <div className="flex flex-col justify-center text-[0.6rem] text-theme-primary">
+  <div className="flex flex-col justify-center text-[0.6rem] theme-text-color-primary">
     {children}
   </div>
 );
@@ -15,27 +15,29 @@ const handleClick = () => alert('button clicked');
 const ExampleInner = () => {
   return (
     <div
-      className="text-left grid gap-4 grid-cols-2 bg-theme p-2"
+      className="text-left grid gap-4 grid-cols-2 theme-bg-color p-2"
       style={{ gridTemplateColumns: '200px 1fr' }}
     >
       <Annotation>bg-color</Annotation>
       <div />
 
-      <Annotation>text-theme-primary</Annotation>
-      <p className="font-trust text-xl text-theme-primary">Aa Firefly Health</p>
-
-      <Annotation>text-theme-secondary</Annotation>
-      <p className="font-trust text-xl text-theme-secondary">
+      <Annotation>theme-text-color-primary</Annotation>
+      <p className="font-trust text-xl theme-text-color-primary">
         Aa Firefly Health
       </p>
 
-      <Annotation>text-theme-decorative</Annotation>
-      <p className="font-trust text-xl text-theme-decorative">
+      <Annotation>theme-text-color-secondary</Annotation>
+      <p className="font-trust text-xl theme-text-color-secondary">
+        Aa Firefly Health
+      </p>
+
+      <Annotation>theme-text-color-decorative</Annotation>
+      <p className="font-trust text-xl theme-text-color-decorative">
         Aa Firefly Health
       </p>
 
       <Annotation>
-        cta-text-theme-primary
+        cta-theme-text-color-primary
         <br /> cta-bg-theme-primary
       </Annotation>
       <Button
@@ -46,7 +48,7 @@ const ExampleInner = () => {
       />
 
       <Annotation>
-        cta-text-theme-secondary <br />
+        cta-theme-text-color-secondary <br />
         cta-bg-theme-secondary
       </Annotation>
       <Button

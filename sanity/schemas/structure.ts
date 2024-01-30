@@ -77,9 +77,7 @@ export const structure: StructureResolver = async (S, context) => {
           .title('Pages')
           .icon(icons.Page)
           .child(
-            S.documentTypeList('genericPage').filter(
-              '_type == "genericPage" && language == "en"',
-            ),
+            S.documentTypeList('genericPage').filter('_type == "genericPage"'),
           ),
         S.listItem()
           .title('Special Pages')
@@ -121,26 +119,18 @@ export const structure: StructureResolver = async (S, context) => {
           .title('Clients')
           .icon(icons.Client)
           .child(
-            S.documentTypeList('clientPage').filter(
-              '_type == "clientPage" && language == "en"',
-            ),
+            S.documentTypeList('clientPage').filter('_type == "clientPage" '),
           ),
         S.divider(),
         S.listItem()
           .title('Blogs')
           .icon(icons.Blog)
-          .child(
-            S.documentTypeList('blog').filter(
-              '_type == "clientPage" && language == "en"',
-            ),
-          ),
+          .child(S.documentTypeList('blog').filter('_type == "clientPage"')),
         S.listItem()
           .title('Articles')
           .icon(icons.Blog)
           .child(
-            S.documentTypeList('blogArticle').filter(
-              '_type == "blogArticle" && language == "en"',
-            ),
+            S.documentTypeList('blogArticle').filter('_type == "blogArticle"'),
           ),
         S.divider(),
         S.listItem()

@@ -28,7 +28,7 @@ export default function App({ Component, pageProps: allPageProps }: Props) {
               announcementBannerOverride || globalAnnouncementBanner
             }
           />
-          <Navigation navGroup={siteSettings.globalNav.navGroup} />
+          <Navigation navigation={siteSettings.globalNav} />
           <main className="mt-mobile-nav-banner-margin md:mt-desktop-nav-banner-margin">
             <Component {...pageProps} />
           </main>

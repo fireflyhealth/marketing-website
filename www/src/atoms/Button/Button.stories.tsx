@@ -12,7 +12,7 @@ type ButtonGroupProps = ButtonsExampleProps & { theme: ColorTheme };
 
 const ButtonGroup: FC<ButtonGroupProps> = ({ label, onClick, theme }) => (
   <Theme theme={theme}>
-    <div className="bg-theme grid grid-cols-1 py-9 gap-y-9 p-4 rounded-md">
+    <div className="theme-bg-color grid grid-cols-1 py-9 gap-y-9 p-4 rounded-md">
       <Button
         id={`${theme}-primary`}
         label={label}

@@ -12,6 +12,12 @@ export const MockData = defineType({
   icon: icons.Code,
   fields: [
     defineField({
+      name: 'navigation',
+      type: 'reference',
+      to: [{ type: 'navigation' }],
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
       name: 'simpleRichText',
       type: 'simpleRichText',
       title: 'Simple Rich Text',
@@ -53,6 +59,18 @@ export const MockData = defineType({
           },
         }),
       ],
+    }),
+    defineField({
+      name: 'links',
+      title: 'Link Examples',
+      type: 'array',
+      of: [{ type: 'linkWithLabel' }],
+    }),
+    defineField({
+      name: 'ctas',
+      title: 'CTA Examples',
+      type: 'array',
+      of: [{ type: 'cta' }],
     }),
   ],
 });

@@ -12,8 +12,15 @@ export const getLinkableDocumentPath = (doc: LinkableDocumentData): string => {
     case 'downloadPage':
       return '/download';
     case 'genericPage':
-      return `/pages/${doc.slug}`;
-    /* TODO: subPage, blog, article, ... */
+      return `/${doc.slug.current}`;
+    case 'subPage':
+      return `/${doc.parentPage.slug.current}/${doc.slug.current}`;
+    case 'blog':
+      return `/blog/${doc.slug.current}`;
+    case 'blogArticle':
+      return `/blog/${doc.category.slug.current}/${doc.slug.current}`;
+    case 'clientPage':
+      return `/with/${doc.slug.current}`;
   }
 };
 
@@ -28,7 +35,11 @@ export const getLinkableDocumentLabel = (doc: LinkableDocumentData): string => {
     case 'downloadPage':
       return 'Download the App';
     case 'genericPage':
+    case 'subPage':
+    case 'blog':
+    case 'blogArticle':
       return doc.title;
-    /* TODO: subPage, blog, article, ... */
+    case 'clientPage':
+      return doc.clientName;
   }
 };

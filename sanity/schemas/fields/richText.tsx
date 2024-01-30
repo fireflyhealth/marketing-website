@@ -32,18 +32,19 @@ export const SimpleRichText = defineField({
           { title: 'Underline', value: 'underline' },
         ],
         annotations: [
-          // {
-          //   name: 'link',
-          //   type: 'object',
-          //   title: 'Link',
-          //   fields: [
-          //     {
-          //       name: 'link',
-          //       type: 'link',
-          //       title: 'Linked Page, URL, or File',
-          //     },
-          //   ],
-          // },
+          {
+            name: 'link',
+            type: 'object',
+            title: 'Link',
+            fields: [
+              {
+                name: 'link',
+                type: 'link',
+                title: 'Linked Page, URL, or File',
+                validation: (Rule) => Rule.required(),
+              },
+            ],
+          },
         ],
       },
     },
@@ -77,18 +78,19 @@ export const ArticleRichText = defineField({
           { title: 'Underline', value: 'underline' },
         ],
         annotations: [
-          // {
-          //   name: 'link',
-          //   type: 'object',
-          //   title: 'Link',
-          //   fields: [
-          //     {
-          //       name: 'link',
-          //       type: 'link',
-          //       title: 'Linked Page, URL, or File',
-          //     },
-          //   ],
-          // },
+          {
+            name: 'link',
+            type: 'object',
+            title: 'Link',
+            fields: [
+              {
+                name: 'link',
+                type: 'link',
+                title: 'Linked Page, URL, or File',
+                validation: (Rule) => Rule.required(),
+              },
+            ],
+          },
         ],
       },
     },

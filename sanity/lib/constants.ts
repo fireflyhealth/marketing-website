@@ -53,6 +53,9 @@ export const linkableDocumentTypes = [
   'contactPage',
   'genericPage',
   'subPage',
+  'blog',
+  'blogArticle',
+  'clientPage',
 ];
 
 export const brandedIcons = [
