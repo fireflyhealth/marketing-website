@@ -24,7 +24,7 @@ export const Navigation: FC<Props> = ({ navigation, showNavCTA }) => {
   }, [router, setMobileNavOpen]);
   return (
     <>
-      <MobileNav navGroup={navigation.navGroup} />
+      <MobileNav navGroup={navigation.navGroup} showNavCTA={showNavCTA} />
       <DesktopNav navGroup={navigation.navGroup} showNavCTA={showNavCTA} />
     </>
   );

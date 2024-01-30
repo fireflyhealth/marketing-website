@@ -11,9 +11,10 @@ import { NavWrapper, NavContainer, NavLinksWrapper } from './styles';
 
 type Props = {
   navGroup: KeyedArray<NavGroupType>;
+  showNavCTA: boolean;
 };
 
-export const MobileNav: FC<Props> = ({ navGroup }) => {
+export const MobileNav: FC<Props> = ({ navGroup, showNavCTA }) => {
   const { mobileNavOpen, toggleGlobalNav } = useUIProvider();
   return (
     <nav className={cn(NavWrapper, 'absolute md:hidden')}>
@@ -46,7 +47,7 @@ export const MobileNav: FC<Props> = ({ navGroup }) => {
               <NavGroup key={navItem._key} navItem={navItem} isMobile />
             ))}
           </div>
-          <NavCTA />
+          {showNavCTA && <NavCTA />}
         </>
       )}
     </nav>

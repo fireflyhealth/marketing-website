@@ -21,6 +21,9 @@ export default function App({ Component, pageProps: allPageProps }: Props) {
 
   const globalAnnouncementBanner = siteSettings.globalAnnouncementBanner;
   const announcementBannerOverride = navigationOverrides?.announcementBanner;
+
+  const globalNavCTA = globalNav.showNavCTA;
+  const navCTAOverride = navigationOverrides?.pageNavigation?.showNavCTA;
   return (
     <>
       <DefaultMetadata metadata={siteSettings.defaultMetadata} />
@@ -33,7 +36,9 @@ export default function App({ Component, pageProps: allPageProps }: Props) {
           />
           <Navigation
             navigation={customPageNav || globalNav}
-            showNavCTA={siteSettings.globalNav.showNavCTA}
+            showNavCTA={
+              navCTAOverride != undefined ? navCTAOverride : globalNavCTA
+            }
           />
           <main className="mt-mobile-nav-banner-margin md:mt-desktop-nav-banner-margin">
             <Component {...pageProps} />
