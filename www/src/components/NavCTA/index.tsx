@@ -1,5 +1,6 @@
 import { FC } from 'react';
 import cn from 'classnames';
+import Link from 'next/link';
 import { BrandedIcon } from '@/svgs/BrandedIcon';
 import {
   Wrapper,
@@ -16,20 +17,24 @@ export const NavCTA: FC = () => {
     <div className={cn(Wrapper)}>
       <div className={cn(BackgroundColor)} />
       <div className={cn(CTA_Container)}>
-        <div className={cn(CTA_Card)}>
+        <Link
+          href="https://www.members.firefly.health"
+          target="_blank"
+          className={cn(CTA_Card)}
+        >
           <div className={cn(Card_Label)}>For Individuals</div>
           <div className={cn(CTA)}>
             <div className={cn(Label)}>Sign up</div>
             <BrandedIcon type="arrow-right" wrapperStyles="w-12" />
           </div>
-        </div>
-        <div className={cn(CTA_Card)}>
+        </Link>
+        <Link href="/contact" className={cn(CTA_Card)}>
           <div className={cn(Card_Label)}>For Businesses</div>
           <div className={cn(CTA)}>
             <div className={cn(Label)}>Get in touch</div>
             <BrandedIcon type="arrow-right" wrapperStyles="w-12" />
           </div>
-        </div>
+        </Link>
       </div>
     </div>
   );
