@@ -18,7 +18,7 @@ export const NavCTA: FC = () => {
       <div className={cn(BackgroundColor)} />
       <div className={cn(CTA_Container)}>
         <Link
-          href="https://www.members.firefly.health"
+          href="https://members.firefly.health"
           target="_blank"
           className={cn(CTA_Card)}
         >

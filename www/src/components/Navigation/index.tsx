@@ -11,17 +11,20 @@ type Props = {
 };
 
 export const Navigation: FC<Props> = ({ navigation, showNavCTA }) => {
-  const { setMobileNavOpen, getStartedOpen, mobileNavOpen } = useUIProvider();
+  const { setMobileNavOpen, setGetStartedOpen } = useUIProvider();
   const router = useRouter();
 
   // close globalNav and globalNavDropdown on route change
   useEffect(() => {
-    const closeMobileNav = () => setMobileNavOpen(false);
-    router.events.on('routeChangeStart', closeMobileNav);
-    return () => {
-      router.events.off('routeChangeStart', closeMobileNav);
+    const closeNavDropdowns = () => {
+      setMobileNavOpen(false);
+      setGetStartedOpen(false);
     };
-  }, [router, setMobileNavOpen]);
+    router.events.on('routeChangeStart', closeNavDropdowns);
+    return () => {
+      router.events.off('routeChangeStart', closeNavDropdowns);
+    };
+  }, [router, setMobileNavOpen, setGetStartedOpen]);
   return (
     <>
       <MobileNav navGroup={navigation.navGroup} showNavCTA={showNavCTA} />
