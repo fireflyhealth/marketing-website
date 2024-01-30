@@ -209,9 +209,7 @@ export type Slug = {
 };
 
 export type NavigationOverrides = {
-  pageNavigation: {
-    navGroup: Maybe<KeyedArray<NavGroupType>>;
-  };
+  pageNavigation: Maybe<Navigation>;
   announcementBanner: Maybe<AnnouncementBanner>;
 };
 

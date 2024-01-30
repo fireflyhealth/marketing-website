@@ -6,10 +6,18 @@ import { getLinkableDocumentPath } from '@/utils/linking';
 type LinkProps = {
   link: LinkType | LinkableDocumentData;
   ariaLabel?: Maybe<string>;
+  onClick?: () => void;
+  onMouseEnter?: () => void;
+  onMouseLeave?: () => void;
   children: React.ReactNode;
 };
 
-export const Link: FC<LinkProps> = ({ link, children, ariaLabel }) => {
+export const Link: FC<LinkProps> = ({
+  link,
+  children,
+  ariaLabel,
+  ...props
+}) => {
   if ('externalUrl' in link && link.externalUrl) {
     return <a href={link.externalUrl}>{children}</a>;
   }
@@ -24,7 +32,7 @@ export const Link: FC<LinkProps> = ({ link, children, ariaLabel }) => {
   }
   const href = getLinkableDocumentPath(documentLink);
   return (
-    <NextLink aria-label={ariaLabel || undefined} href={href}>
+    <NextLink aria-label={ariaLabel || undefined} href={href} {...props}>
       {children}
     </NextLink>
   );

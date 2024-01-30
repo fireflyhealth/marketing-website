@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, useState, useEffect } from 'react';
 import cn from 'classnames';
 import { useUIProvider } from '@/context/UIProvider';
 import { SimpleIcon } from '@/svgs/SimpleIcon';
@@ -13,9 +13,6 @@ import {
   NavLinkStyles,
 } from './styles';
 
-// TODO: add onMouseEnter={handleHeadingMouseEnter} and onMouseLeave={handleHeadingMouseLeave}
-// to link sans dropdown
-
 type Props = {
   navItem: Keyed<NavGroupType>;
   isMobile?: boolean;
@@ -23,6 +20,7 @@ type Props = {
 
 export const NavGroup: FC<Props> = ({ navItem, isMobile }) => {
   const { currentNavItem, setCurrentNavItem } = useUIProvider();
+  const [dropdownOpen, setDropdownOpen] = useState(false);
 
   const isDropdownOpen = currentNavItem === navItem._key;
 
@@ -51,8 +49,20 @@ export const NavGroup: FC<Props> = ({ navItem, isMobile }) => {
   const handleDropdownButtonClick = () => {
     if (isMobile) {
       setCurrentNavItem(navItem._key);
+      if (currentNavItem === navItem._key && dropdownOpen) {
+        setDropdownOpen(false);
+        setCurrentNavItem(null);
+      }
     }
   };
+
+  useEffect(() => {
+    if (currentNavItem === navItem._key) {
+      setDropdownOpen(true);
+    } else {
+      setDropdownOpen(false);
+    }
+  }, [currentNavItem]);
   return (
     <div
       className={cn(NavLinkStyles, navItemHighlightState, `${navItem.label}`)}
@@ -71,27 +81,39 @@ export const NavGroup: FC<Props> = ({ navItem, isMobile }) => {
             <SimpleIcon
               type="arrow-down"
               className={cn(
-                isDropdownOpen ? 'rotate-90' : '',
+                dropdownOpen ? 'rotate-90' : '',
                 'transition ease-in-out w-3',
                 navItemHighlightState,
               )}
             />
           </button>
           <div
-            className={cn(DropdownOuter, isDropdownOpen ? 'block' : 'hidden')}
+            className={cn(DropdownOuter, dropdownOpen ? 'block' : 'hidden')}
             onMouseLeave={handleDropdownMouseLeave}
           >
             <div className={cn(DropdownInner, 'transition-all ease-in-out')}>
               {navItem.subpages.map((subPage) => (
                 <div key={subPage._key} className={cn(SubPageLink)}>
-                  <Link link={subPage.link}>{subPage.label}</Link>
+                  <Link
+                    link={subPage.link}
+                    onClick={() => setCurrentNavItem(null)}
+                  >
+                    {subPage.label}
+                  </Link>
                 </div>
               ))}
             </div>
           </div>
         </div>
       ) : (
-        <Link link={navItem.link}>{navItem.label}</Link>
+        <Link
+          link={navItem.link}
+          onClick={() => setCurrentNavItem(null)}
+          onMouseEnter={handleHeadingMouseEnter}
+          onMouseLeave={handleHeadingMouseLeave}
+        >
+          {navItem.label}
+        </Link>
       )}
     </div>
   );
