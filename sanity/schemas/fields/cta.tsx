@@ -1,9 +1,11 @@
 import { defineType, defineField } from 'sanity';
+import { icons } from '../../lib/icons';
 
 export const CTA = defineType({
   name: 'cta',
   type: 'object',
   title: 'CTA',
+  icon: icons.CTA,
   fields: [
     defineField({
       name: 'label',

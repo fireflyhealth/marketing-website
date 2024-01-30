@@ -1,9 +1,9 @@
 import { defineType, defineField } from 'sanity';
 import { icons } from '../../lib/icons';
 
-export const HeaderBlock = defineType({
-  name: 'headerBlock',
-  title: 'Header Block',
+export const ContentBlockHeader = defineType({
+  name: 'contentBlockHeader',
+  title: 'Block Header',
   type: 'object',
   icon: icons.Component,
   fields: [
@@ -12,13 +12,11 @@ export const HeaderBlock = defineType({
       title: 'Title',
       type: 'text',
       rows: 3,
-      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'description',
       title: 'Description',
-      type: 'text',
-      rows: 3,
+      type: 'simpleRichText',
     }),
     defineField({
       title: 'CTA',

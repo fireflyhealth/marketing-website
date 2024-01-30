@@ -5,7 +5,7 @@ import { BrandedIcon } from '../../lib/FireFlyIcon';
 /**
  * Removes '-' and capitalizes first letter in string passed to the function.
  */
-function normalizeString(str) {
+function normalizeString(str: string) {
   str = str.replace(/-/g, ' ');
   return str.charAt(0).toUpperCase() + str.slice(1);
 }
@@ -120,5 +120,6 @@ export const ArticleRichText = defineField({
         },
       },
     },
+    { name: 'richImage', type: 'richImage', title: 'Image' },
   ],
 });
