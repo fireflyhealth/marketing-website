@@ -155,7 +155,6 @@ export const navGroupFragment = `
 `;
 
 export const navigationFragment = `
-  ...,
   _type,
   navGroup {
     ${navGroupFragment}

@@ -17,7 +17,7 @@ export const FooterCta = ['mb-10 md:hidden'];
 
 export const FooterNavGroups = [
   'grid grid-cols-1 gap-y-10 mb-10',
-  'md:grid-cols-3',
+  'md:grid-cols-3 max-w-[900px]',
 ];
 
 export const FooterNavGroup = ['grid grid-cols-1 gap-y-3'];
