@@ -31,3 +31,10 @@ export const contactPageFragment = `${specialPageFragment}`;
 export const notFoundPageFragment = `${specialPageFragment}`;
 
 export const faqPageFragment = `${specialPageFragment}`;
+
+export const clientPageFragment = `
+  clientName,
+  slug,
+  navigationOverrides {${navigationOverridesFragment}},
+  metadataFragment{${metadataFragment}},
+`;
