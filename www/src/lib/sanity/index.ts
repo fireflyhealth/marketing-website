@@ -16,6 +16,7 @@ import {
   RichImage,
 } from '@/types/sanity';
 import {
+  blogFragment,
   clientPageFragment,
   contactPageFragment,
   downloadPageFragment,
@@ -296,12 +297,7 @@ export const clientPage = {
 export const blog = {
   get: (blogSlug: string): Promise<Blog | null> =>
     client.fetch(
-      `*[_type == "blog" && slug.current == $blogSlug][0]{
-      title,
-      slug,
-      navigationOverrides {${navigationOverridesFragment}},
-      metadataFragment{${metadataFragment}},
-    }`,
+      `*[_type == "blog" && slug.current == $blogSlug][0]{${blogFragment}}`,
       {
         blogSlug,
       },
@@ -318,6 +314,23 @@ export const blog = {
           }
         }`,
     ),
+  findPreview(id: string, previewToken: string) {
+    return createSanityClient(previewToken).fetch<Blog>(
+      `*[_type == "blog" && _id == $id][0]{${blogFragment}}`,
+      {
+        id,
+      },
+    );
+  },
+  streamPreview(
+    id: string,
+    previewToken: string,
+    callback: (clientPage: Blog) => void,
+  ) {
+    return createSanityClient(previewToken)
+      .listen(`*[_type == "blog" && _id == $id]`, { id })
+      .subscribe(() => blog.findPreview(id, previewToken).then(callback));
+  },
   getArticle: async (
     blogSlug: string,
     articleSlug: string,

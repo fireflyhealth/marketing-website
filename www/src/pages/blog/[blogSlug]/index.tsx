@@ -9,9 +9,9 @@ import { Blog } from '@/types/sanity';
 import * as Sanity from '@/lib/sanity';
 import { BlogMetadata } from '@/components/Metadata/BlogMetadata';
 
-type BlogPageProps = PageProps<{
+export type BlogPageProps = PageProps & {
   blog: Blog;
-}>;
+};
 
 type BlogPageParams = {
   blogSlug: string;

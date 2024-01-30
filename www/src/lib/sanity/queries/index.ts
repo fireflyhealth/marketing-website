@@ -38,3 +38,10 @@ export const clientPageFragment = `
   navigationOverrides {${navigationOverridesFragment}},
   metadataFragment{${metadataFragment}},
 `;
+
+export const blogFragment = `
+  title,
+  slug,
+  navigationOverrides {${navigationOverridesFragment}},
+  metadataFragment{${metadataFragment}},
+`;
