@@ -18,6 +18,7 @@ import {
 import {
   contactPageFragment,
   downloadPageFragment,
+  notFoundPageFragment,
   siteSettingsFragment,
 } from './queries';
 import {
@@ -59,9 +60,11 @@ const SITE_SETTINGS_DRAFT_DOCUMENT_ID = 'drafts.siteSettings';
 const HOMEPAGE_DOCUMENT_ID = 'homepage';
 const HOMEPAGE_DRAFT_DOCUMENT_ID = 'drafts.homepage';
 const DOWNLOAD_DOCUMENT_ID = 'downloadPage';
-const DOWNLOAD_DRAFT_DOCUMENT_ID = 'draft.downloadPage';
+const DOWNLOAD_DRAFT_DOCUMENT_ID = 'drafts.downloadPage';
 const CONTACT_DOCUMENT_ID = 'contactPage';
-const CONTACT_DRAFT_DOCUMENT_ID = 'draft.contactPage';
+const CONTACT_DRAFT_DOCUMENT_ID = 'drafts.contactPage';
+const NOT_FOUND_DOCUMENT_ID = 'notFoundPage';
+const NOT_FOUND_DRAFT_DOCUMENT_ID = 'drafts.notFoundPage';
 
 /* Site Settings & Navigation */
 
@@ -216,12 +219,24 @@ export const contactPage = {
 
 export const notFoundPage = {
   get: (): Promise<NotFoundPage | null> =>
-    client.fetch(`*[_type == "notFoundPage" && _id == "notFoundPage"][0]{
-      title,
-      slug,
-      navigationOverrides {${navigationOverridesFragment}},
-      metadataFragment{${metadataFragment}},
-    }`),
+    client.fetch(
+      `*[_type == "notFoundPage" && _id == "notFoundPage"][0]{${notFoundPageFragment}}`,
+    ),
+  fetchPreview(previewToken: string) {
+    return createSanityClient(previewToken).fetch<NotFoundPage>(
+      `*[_type == "notFoundPage" && (_id == "${NOT_FOUND_DRAFT_DOCUMENT_ID}" || _id == "${NOT_FOUND_DOCUMENT_ID}")][0]{${notFoundPageFragment}}`,
+    );
+  },
+  streamPreview(
+    previewToken: string,
+    callback: (notFoundPage: NotFoundPage) => void,
+  ) {
+    return createSanityClient(previewToken)
+      .listen(
+        `*[_type == "notFoundPage" && _id == "${NOT_FOUND_DRAFT_DOCUMENT_ID}"]`,
+      )
+      .subscribe(() => notFoundPage.fetchPreview(previewToken).then(callback));
+  },
 };
 
 export const faqPage = {

@@ -9,9 +9,9 @@ import { NotFoundPageView } from '@/views/NotFoundView';
 import * as Sanity from '@/lib/sanity';
 import { GenericMetadata } from '@/components/Metadata/GenericMetadata';
 
-type NotFoundPageProps = PageProps<{
+export type NotFoundPageProps = PageProps & {
   notFoundPage: NotFoundPageType;
-}>;
+};
 
 const NotFoundPage: FC<NotFoundPageProps> = ({ notFoundPage }) => {
   return (
