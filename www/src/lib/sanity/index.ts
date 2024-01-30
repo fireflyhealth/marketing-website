@@ -23,7 +23,7 @@ import {
 
 // TODO: create navigationFragment after issue-87 gets merged
 
-const client = createClient({
+export const client = createClient({
   projectId: 'xgbrv2vi',
   dataset: 'production',
   apiVersion: '2024-01-01',
