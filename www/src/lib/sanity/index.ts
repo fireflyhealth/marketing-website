@@ -21,7 +21,9 @@ import {
   navigationOverridesFragment,
 } from './queries/fragments';
 
-export const client = createClient({
+// TODO: create navigationFragment after issue-87 gets merged
+
+const client = createClient({
   projectId: 'xgbrv2vi',
   dataset: 'production',
   apiVersion: '2024-01-01',

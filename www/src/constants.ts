@@ -17,3 +17,8 @@ const ProdRevalidationTime = {
 export const RevalidationTime = config.isProd
   ? ProdRevalidationTime
   : StagingRevalidationTime;
+
+export const zIndex = {
+  NavigationCTABackground: 990,
+  Navigation: 1000,
+};

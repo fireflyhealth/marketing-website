@@ -9,7 +9,7 @@ type Props = {
 };
 
 const NavigationExample: FC<Props> = ({ navigation }) => {
-  return <Navigation navigation={navigation} />;
+  return <Navigation navigation={navigation} showNavCTA />;
 };
 
 const meta = {

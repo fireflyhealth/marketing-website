@@ -1,33 +1,60 @@
 import { FC } from 'react';
 import Link from 'next/link';
 import cn from 'classnames';
-import { LogotypeColor } from '@/svgs/Logotype';
+import { LogotypeColor, LogotypeMonochrome } from '@/svgs/Logotype';
+import { Button } from '@/atoms/Button';
 import { KeyedArray, NavGroupType } from '@/types/sanity';
+import { useUIProvider } from '@/context/UIProvider';
+import { NavCTA } from '../NavCTA';
 import { NavGroup } from './NavGroup';
 import { NavWrapper, NavContainer, NavLinksWrapper } from './styles';
 
 type Props = {
   navGroup: KeyedArray<NavGroupType>;
+  showNavCTA: boolean;
 };
 
-export const DesktopNav: FC<Props> = ({ navGroup }) => {
+export const DesktopNav: FC<Props> = ({ navGroup, showNavCTA }) => {
+  const { getStartedOpen, setGetStartedOpen } = useUIProvider();
+
+  const handleCTAClick = () => {
+    setGetStartedOpen(!getStartedOpen);
+  };
   return (
     <nav
-      className={cn(NavWrapper, 'bg-transparent hidden md:absolute md:block')}
+      className={cn(
+        NavWrapper,
+        getStartedOpen ? 'bg-yellow' : '',
+        'bg-transparent hidden md:absolute md:block',
+      )}
     >
       <div className={cn(NavContainer)}>
         <Link href="/">
           <div className="w-[175px]">
-            <LogotypeColor />
+            {getStartedOpen ? <LogotypeMonochrome /> : <LogotypeColor />}
           </div>
         </Link>
 
         <div className={cn(NavLinksWrapper)}>
           {navGroup.map((navItem) => (
-            <NavGroup key={navItem._key} navItem={navItem} />
+            <div
+              key={navItem._key}
+              className={cn(getStartedOpen ? 'hidden' : '')}
+            >
+              <NavGroup navItem={navItem} />
+            </div>
           ))}
+          {showNavCTA && (
+            <Button
+              id={`get-started-nav-cta`}
+              label={getStartedOpen ? 'Close' : 'Get started'}
+              onClick={handleCTAClick}
+              variant="primary"
+            />
+          )}
         </div>
       </div>
+      {getStartedOpen && <NavCTA />}
     </nav>
   );
 };

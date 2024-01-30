@@ -50,6 +50,7 @@ const config: Config = {
       orange: '#F9BB2C',
       'orange-medium': '#EF8641',
       'orange-dark': '#D16A31',
+      transparent: 'transparent',
     },
     extend: {
       /* TODO: Add spacing values. Search the codebase for
@@ -60,6 +61,15 @@ const config: Config = {
           'calc(var(--mobile-globalnav-height) + var(--announcement-banner-height))',
         'desktop-nav-banner-margin':
           'calc(var(--desktop-globalnav-height) + var(--announcement-banner-height))',
+      },
+      backgroundImage: {
+        'yellow-linear-gradient':
+          'linear-gradient(180deg, #FFD714 49.81%, rgba(255, 215, 20, 0.82) 67.68%, rgba(255, 215, 20, 0.19) 88.41%, rgba(255, 255, 255, 0.00) 100%)',
+      },
+      zIndex: {
+        navigation: '1000',
+        navigationCTAGradient: '1010',
+        navigationCTAContent: '1020',
       },
     },
   },

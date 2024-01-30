@@ -158,7 +158,8 @@ export const navigationFragment = `
   _type,
   navGroup {
     ${navGroupFragment}
-  }[]
+  }[],
+  showNavCTA,
 `;
 
 export const metadataFragment = `

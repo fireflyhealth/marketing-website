@@ -9,6 +9,8 @@ import {
 type UIProviderProps = {
   mobileNavOpen: boolean;
   setMobileNavOpen: (open: boolean) => void;
+  getStartedOpen: boolean;
+  setGetStartedOpen: (open: boolean) => void;
   toggleGlobalNav: () => void;
   currentNavItem: string | null;
   setCurrentNavItem: (newNavItem: string | null) => void;
@@ -29,6 +31,7 @@ export const useUIProvider = () => {
 export const UIProvider: FC<PropsWithChildren> = ({ children }) => {
   // Global Nav
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
+  const [getStartedOpen, setGetStartedOpen] = useState(false);
 
   const toggleGlobalNav = () => {
     setMobileNavOpen(!mobileNavOpen);
@@ -43,6 +46,8 @@ export const UIProvider: FC<PropsWithChildren> = ({ children }) => {
       value={{
         mobileNavOpen,
         setMobileNavOpen,
+        getStartedOpen,
+        setGetStartedOpen,
         toggleGlobalNav,
         currentNavItem,
         setCurrentNavItem,

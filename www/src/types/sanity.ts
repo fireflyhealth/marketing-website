@@ -71,6 +71,7 @@ export type LinkableDocumentData =
 export type Navigation = SanityDocument & {
   _type: 'navigation';
   navGroup: KeyedArray<NavGroupType>;
+  showNavCTA: boolean;
 };
 
 export type SiteSettings = SanityDocument & {

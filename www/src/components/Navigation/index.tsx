@@ -7,10 +7,11 @@ import { DesktopNav } from './DesktopNav';
 
 type Props = {
   navigation: NavigationType;
+  showNavCTA: boolean;
 };
 
-export const Navigation: FC<Props> = ({ navigation }) => {
-  const { setMobileNavOpen } = useUIProvider();
+export const Navigation: FC<Props> = ({ navigation, showNavCTA }) => {
+  const { setMobileNavOpen, getStartedOpen, mobileNavOpen } = useUIProvider();
   const router = useRouter();
 
   // close globalNav and globalNavDropdown on route change
@@ -24,7 +25,7 @@ export const Navigation: FC<Props> = ({ navigation }) => {
   return (
     <>
       <MobileNav navGroup={navigation.navGroup} />
-      <DesktopNav navGroup={navigation.navGroup} />
+      <DesktopNav navGroup={navigation.navGroup} showNavCTA={showNavCTA} />
     </>
   );
 };
