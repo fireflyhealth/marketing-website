@@ -21,7 +21,7 @@ import { LinkWithLabel } from './fields/linkWithLabel';
 import { LabelWithDropdown } from './fields/labelWithDropdown';
 import { ContentArea } from './fields/contentArea';
 import { HeaderBlock } from './blocks/headerBlock';
-import { NavigationOverrides } from './fields/navigationOverrdies';
+import { NavigationOverrides } from './fields/navigationOverrides';
 import { AnnouncementBanner } from './fields/announcementBanner';
 
 export const schemaTypes = [
