@@ -49,6 +49,7 @@ export const SiteSettings = defineType({
         defineField({
           name: 'footerNavGroups',
           type: 'array',
+          validation: (Rule) => Rule.max(3),
           of: [
             defineArrayMember({
               name: 'footerNavGroup',
