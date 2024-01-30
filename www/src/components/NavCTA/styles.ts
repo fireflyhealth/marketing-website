@@ -4,7 +4,7 @@ export const Wrapper = [
 ];
 
 export const BackgroundColor = [
-  'absolute top-0 left-0 z-navigationCTAGradient w-full h-full bg-yellow-linear-gradient opacity-95 backdrop-blur-[75px]',
+  'absolute top-0 left-0 z-navigationCTAGradient w-full h-full bg-yellow-linear-gradient backdrop-blur-[75px]',
 ];
 
 export const CTA_Container = [
