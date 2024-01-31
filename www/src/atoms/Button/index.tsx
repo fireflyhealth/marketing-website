@@ -14,6 +14,7 @@ type ButtonProps = {
   onClick: React.MouseEventHandler;
   align?: 'left' | 'center' | 'right';
   disabled?: boolean;
+  bgColorOverride?: string;
 };
 
 export const Button: FC<ButtonProps> = ({
@@ -24,6 +25,7 @@ export const Button: FC<ButtonProps> = ({
   align = 'center',
   disabled = false,
   ariaLabel,
+  bgColorOverride,
 }) => {
   return (
     <div
@@ -35,7 +37,7 @@ export const Button: FC<ButtonProps> = ({
     >
       <button
         /* CTA styles are defined in global.css */
-        className={cn('cta', `cta--${variant}`)}
+        className={cn(bgColorOverride, 'cta', `cta--${variant}`)}
         aria-label={ariaLabel || undefined}
         id={id}
         onClick={onClick}

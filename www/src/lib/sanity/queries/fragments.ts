@@ -158,7 +158,8 @@ export const navigationFragment = `
   _type,
   navGroup {
     ${navGroupFragment}
-  }[]
+  }[],
+  showNavCTA,
 `;
 
 export const metadataFragment = `
@@ -175,10 +176,7 @@ export const metadataFragment = `
 
 export const navigationOverridesFragment = `
     _type,
-    pageNavigation->{
-      _type,
-      "navGroup": navGroup {${linkWithLabelFragment}}[],
-    },
+    pageNavigation->{${navigationFragment}},
     announcementBanner{
       _type,
       body,

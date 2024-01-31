@@ -1,7 +1,7 @@
 :root {
   --announcement-banner-height: 0px;
   --mobile-globalnav-height: 56px;
-  --desktop-globalnav-height: 81px;
+  --desktop-globalnav-height: 80px;
 }
 
 .text-theme-primary,

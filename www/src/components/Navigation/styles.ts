@@ -1,5 +1,5 @@
 export const NavWrapper = [
-  'top-0 left-0 w-full flex flex-col mt-announcement-banner-height',
+  'top-0 left-0 w-full flex flex-col mt-announcement-banner-height z-navigation',
 ];
 
 export const NavContainer = [
@@ -7,8 +7,8 @@ export const NavContainer = [
 ];
 
 export const NavLinksWrapper = [
-  'p-4 mt-4 w-full flex flex-col space-y-8',
-  'md:w-max md:flex-row md:space-y-0 md:p-0 md:mt-0',
+  'bg-yellow pt-9 p-4 w-full flex flex-col space-y-8',
+  'md:bg-transparent md:w-max md:flex-row md:space-y-0 md:p-0 md:mt-0',
 ];
 
 export const NavLinkStyles = [

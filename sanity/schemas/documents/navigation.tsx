@@ -6,6 +6,9 @@ export const Navigation = defineType({
   type: 'document',
   title: 'Navigation',
   icon: icons.Navigation,
+  initialValue: {
+    showNavCTA: false,
+  },
   fields: [
     defineField({
       name: 'title',
@@ -26,6 +29,11 @@ export const Navigation = defineType({
           type: 'labelWithDropdown',
         },
       ],
+    }),
+    defineField({
+      name: 'showNavCTA',
+      title: 'Show Nav CTA',
+      type: 'boolean',
     }),
   ],
 });
