@@ -16,6 +16,7 @@ import {
   RichImage,
 } from '@/types/sanity';
 import {
+  blogArticleFragment,
   blogFragment,
   clientPageFragment,
   contactPageFragment,
@@ -325,7 +326,7 @@ export const blog = {
   streamPreview(
     id: string,
     previewToken: string,
-    callback: (clientPage: Blog) => void,
+    callback: (blog: Blog) => void,
   ) {
     return createSanityClient(previewToken)
       .listen(`*[_type == "blog" && _id == $id]`, { id })
@@ -340,19 +341,28 @@ export const blog = {
           _type == "blogArticle"
           && slug.current == $articleSlug
           && defined(category._ref)
-        ]{
-          title,
-          category->{
-            _type,
-            title,
-            slug
-          },
-          slug,
-          navigationOverrides {${navigationOverridesFragment}},
-          metadataFragment{${metadataFragment}},
-        }[category.slug.current == $blogSlug][0]`,
+        ]{${blogArticleFragment}}[category.slug.current == $blogSlug][0]`,
       { blogSlug, articleSlug },
     );
     return article || null;
+  },
+  findBlogArticlePreview(id: string, previewToken: string) {
+    return createSanityClient(previewToken).fetch<BlogArticle>(
+      `*[_type == "blogArticle" && _id == $id][0]{${blogArticleFragment}}`,
+      {
+        id,
+      },
+    );
+  },
+  streamBlogArticlePreview(
+    id: string,
+    previewToken: string,
+    callback: (blogArticle: BlogArticle) => void,
+  ) {
+    return createSanityClient(previewToken)
+      .listen(`*[_type == "blogArticle" && _id == $id]`, { id })
+      .subscribe(() =>
+        blog.findBlogArticlePreview(id, previewToken).then(callback),
+      );
   },
 };

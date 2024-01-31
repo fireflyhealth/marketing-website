@@ -45,3 +45,15 @@ export const blogFragment = `
   navigationOverrides {${navigationOverridesFragment}},
   metadataFragment{${metadataFragment}},
 `;
+
+export const blogArticleFragment = `
+  title,
+  category->{
+    _type,
+    title,
+    slug
+  },
+  slug,
+  navigationOverrides {${navigationOverridesFragment}},
+  metadataFragment{${metadataFragment}},
+`;

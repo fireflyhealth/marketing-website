@@ -26,7 +26,7 @@ const getTypeSegment = (documentType: string | undefined) => {
   if (documentType === 'faqPage') return '/faq';
   if (documentType === 'clientPage') return '/with';
   if (documentType === 'blog') return '/blog';
-  if (documentType === 'blogArticle') return '/blog';
+  if (documentType === 'blogArticle') return '/blog/article';
   return '/pages';
 };
 
