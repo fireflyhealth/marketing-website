@@ -2,7 +2,7 @@ import {
   DefaultDocumentNodeResolver,
   StructureBuilder,
   StructureResolver,
-} from 'sanity/desk';
+} from 'sanity/structure';
 import { ComponentType, ReactNode } from 'react';
 
 import { icons } from '../lib/icons';
