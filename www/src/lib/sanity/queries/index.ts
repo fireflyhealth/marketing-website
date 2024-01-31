@@ -17,6 +17,13 @@ export const siteSettingsFragment = `
   defaultMetadata {${metadataFragment}},
 `;
 
+export const genericPageFragment = `
+  title,
+  slug,
+  navigationOverrides {${navigationOverridesFragment}},
+  metadataFragment{${metadataFragment}},
+`;
+
 export const specialPageFragment = `
   title,
   slug,

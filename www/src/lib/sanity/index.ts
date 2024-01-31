@@ -22,6 +22,7 @@ import {
   contactPageFragment,
   downloadPageFragment,
   faqPageFragment,
+  genericPageFragment,
   notFoundPageFragment,
   siteSettingsFragment,
 } from './queries';
@@ -132,12 +133,7 @@ export const homepage = {
 export const page = {
   get: (slug: string): Promise<GenericPage | null> =>
     client.fetch(
-      `*[_type == "genericPage" && slug.current == $slug][0]{
-      title,
-      slug,
-      navigationOverrides {${navigationOverridesFragment}},
-      metadataFragment{${metadataFragment}},
-    }`,
+      `*[_type == "genericPage" && slug.current == $slug][0]{${genericPageFragment}}`,
       {
         slug,
       },
@@ -147,6 +143,23 @@ export const page = {
         slug,
         subPages[]->{ slug },
       }`),
+  findPreview(id: string, previewToken: string) {
+    return createSanityClient(previewToken).fetch<GenericPage>(
+      `*[_type == "genericPage" && _id == $id][0]{${genericPageFragment}}`,
+      {
+        id,
+      },
+    );
+  },
+  streamPreview(
+    id: string,
+    previewToken: string,
+    callback: (genericPage: GenericPage) => void,
+  ) {
+    return createSanityClient(previewToken)
+      .listen(`*[_type == "genericPage" && _id == $id]`, { id })
+      .subscribe(() => page.findPreview(id, previewToken).then(callback));
+  },
 };
 
 export const subPage = {
