@@ -13,7 +13,7 @@ export const CTA_Container = [
 ];
 
 export const CTA_Card = [
-  'w-full z-navigationCTAContent bg-white p-5 flex flex-col space-y-3 rounded-[14px]',
+  'w-full z-navigationCTAContent bg-white p-5 flex flex-col space-y-3 rounded-[14px] focus:border-black focus:border-[3px] focus:outline-none',
   'md:pt-24 md:space-y-8',
 ];
 
