@@ -14,14 +14,14 @@ export const siteSettingsFragment = `
     _type,
     body,
   },
-  defaultMetadata {${metadataFragment}},
+  defaultMetadata {${metadataFragment}}
 `;
 
 export const genericPageFragment = `
   title,
   slug,
   navigationOverrides {${navigationOverridesFragment}},
-  metadataFragment{${metadataFragment}},
+  metadataFragment{${metadataFragment}}
 `;
 
 export const subPageFragment = `
@@ -36,7 +36,7 @@ export const specialPageFragment = `
   title,
   slug,
   navigationOverrides {${navigationOverridesFragment}},
-  metadataFragment{${metadataFragment}},
+  metadataFragment{${metadataFragment}}
 `;
 
 export const downloadPageFragment = `${specialPageFragment}`;
@@ -51,14 +51,14 @@ export const clientPageFragment = `
   clientName,
   slug,
   navigationOverrides {${navigationOverridesFragment}},
-  metadataFragment{${metadataFragment}},
+  metadataFragment{${metadataFragment}}
 `;
 
 export const blogFragment = `
   title,
   slug,
   navigationOverrides {${navigationOverridesFragment}},
-  metadataFragment{${metadataFragment}},
+  metadataFragment{${metadataFragment}}
 `;
 
 export const blogArticleFragment = `
@@ -70,5 +70,5 @@ export const blogArticleFragment = `
   },
   slug,
   navigationOverrides {${navigationOverridesFragment}},
-  metadataFragment{${metadataFragment}},
+  metadataFragment{${metadataFragment}}
 `;
