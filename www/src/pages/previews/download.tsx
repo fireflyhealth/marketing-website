@@ -21,20 +21,24 @@ const DownloadPagePreview: NextTypes.PageRoute<
   real-time. How fun!
   */
   useEffect(() => {
+    const updatePage = (newLiveDownloadPage: SanityTypes.DownloadPage) => {
+      setLivePage(newLiveDownloadPage);
+    };
+
     const settingsStream = Sanity.siteSettings.streamPreview(
       previewToken,
       setLiveSettings,
     );
     const pageStream = Sanity.downloadPage.streamPreview(
       previewToken,
-      setLivePage,
+      updatePage,
     );
 
     return () => {
       settingsStream.unsubscribe();
       pageStream.unsubscribe();
     };
-  }, [previewToken]);
+  }, [downloadPage, previewToken]);
 
   return <DownloadPage downloadPage={livePage} siteSettings={liveSettings} />;
 };

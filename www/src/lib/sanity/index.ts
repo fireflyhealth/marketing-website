@@ -15,6 +15,7 @@ import {
   Image,
   RichImage,
 } from '@/types/sanity';
+import { sleep } from '@/utils/misc';
 import {
   blogArticleFragment,
   blogFragment,
@@ -27,10 +28,6 @@ import {
   siteSettingsFragment,
   subPageFragment,
 } from './queries';
-import {
-  metadataFragment,
-  navigationOverridesFragment,
-} from './queries/fragments';
 
 export const client = createClient({
   projectId: 'xgbrv2vi',
@@ -42,7 +39,7 @@ export const client = createClient({
 /**
  * Require credentials when fetching preview data
  */
-const createSanityClient = (previewToken: string) => {
+const createPreviewClient = (previewToken: string) => {
   return createClient({
     projectId: 'xgbrv2vi',
     dataset: 'production',
@@ -89,7 +86,7 @@ export const siteSettings = {
     return siteSettings;
   },
   fetchPreview(previewToken: string) {
-    return createSanityClient(previewToken).fetch<SiteSettings>(
+    return createPreviewClient(previewToken).fetch<SiteSettings>(
       `*[_type == "siteSettings" && _id == "${SITE_SETTINGS_DRAFT_DOCUMENT_ID}"][0]{${siteSettingsFragment}}`,
     );
   },
@@ -97,11 +94,16 @@ export const siteSettings = {
     previewToken: string,
     callback: (siteSettings: SiteSettings) => void,
   ) {
-    return createSanityClient(previewToken)
+    return createPreviewClient(previewToken)
       .listen(
-        `*[_type == "settings" && _id == "${SITE_SETTINGS_DRAFT_DOCUMENT_ID}"]`,
+        `*[_type == "siteSettings" && _id == "${SITE_SETTINGS_DRAFT_DOCUMENT_ID}"][0]`,
+        {},
+        { visibility: 'query' },
       )
-      .subscribe(() => siteSettings.fetchPreview(previewToken).then(callback));
+      .subscribe(async () => {
+        await sleep(1000);
+        return siteSettings.fetchPreview(previewToken).then(callback);
+      });
   },
 };
 
@@ -117,16 +119,21 @@ export const homepage = {
     return homepage;
   },
   fetchPreview(previewToken: string) {
-    return createSanityClient(previewToken).fetch<Homepage>(
+    return createPreviewClient(previewToken).fetch<Homepage>(
       `*[_type == "homepage" && (_id == "${HOMEPAGE_DRAFT_DOCUMENT_ID}" || _id == "${HOMEPAGE_DOCUMENT_ID}")][0]`,
     );
   },
   streamPreview(previewToken: string, callback: (homepage: Homepage) => void) {
-    return createSanityClient(previewToken)
+    return createPreviewClient(previewToken)
       .listen(
-        `*[_type == "homepage" && _id == "${HOMEPAGE_DRAFT_DOCUMENT_ID}"]`,
+        `*[_type == "homepage" && _id == "${HOMEPAGE_DRAFT_DOCUMENT_ID}"][0]`,
+        {},
+        { visibility: 'query' },
       )
-      .subscribe(() => homepage.fetchPreview(previewToken).then(callback));
+      .subscribe(async () => {
+        await sleep(1000);
+        return homepage.fetchPreview(previewToken).then(callback);
+      });
   },
 };
 
@@ -145,7 +152,7 @@ export const page = {
         subPages[]->{ slug },
       }`),
   findPreview(id: string, previewToken: string) {
-    return createSanityClient(previewToken).fetch<GenericPage>(
+    return createPreviewClient(previewToken).fetch<GenericPage>(
       `*[_type == "genericPage" && _id == $id][0]{${genericPageFragment}}`,
       {
         id,
@@ -157,9 +164,16 @@ export const page = {
     previewToken: string,
     callback: (genericPage: GenericPage) => void,
   ) {
-    return createSanityClient(previewToken)
-      .listen(`*[_type == "genericPage" && _id == $id]`, { id })
-      .subscribe(() => page.findPreview(id, previewToken).then(callback));
+    return createPreviewClient(previewToken)
+      .listen(
+        `*[_type == "genericPage" && _id == $id][0]`,
+        { id },
+        { visibility: 'query' },
+      )
+      .subscribe(async () => {
+        await sleep(1000);
+        return page.findPreview(id, previewToken).then(callback);
+      });
   },
 };
 
@@ -187,7 +201,7 @@ export const subPage = {
     return subpage || null;
   },
   findPreview(id: string, previewToken: string) {
-    return createSanityClient(previewToken).fetch<SubPage>(
+    return createPreviewClient(previewToken).fetch<SubPage>(
       `*[_type == "subPage" && _id == $id][0]{${subPageFragment}}`,
       {
         id,
@@ -199,9 +213,16 @@ export const subPage = {
     previewToken: string,
     callback: (subPage: SubPage) => void,
   ) {
-    return createSanityClient(previewToken)
-      .listen(`*[_type == "subPage" && _id == $id]`, { id })
-      .subscribe(() => subPage.findPreview(id, previewToken).then(callback));
+    return createPreviewClient(previewToken)
+      .listen(
+        `*[_type == "subPage" && _id == $id]`,
+        { id },
+        { visibility: 'query' },
+      )
+      .subscribe(async () => {
+        await sleep(1000);
+        return subPage.findPreview(id, previewToken).then(callback);
+      });
   },
 };
 
@@ -212,19 +233,24 @@ export const downloadPage = {
       `*[_type == "downloadPage" && _id == "${DOWNLOAD_DOCUMENT_ID}"][0]{${downloadPageFragment}}`,
     ),
   fetchPreview(previewToken: string) {
-    return createSanityClient(previewToken).fetch<DownloadPage>(
-      `*[_type == "downloadPage" && (_id == "${DOWNLOAD_DRAFT_DOCUMENT_ID}" || _id == "${DOWNLOAD_DOCUMENT_ID}")][0]{${downloadPageFragment}}`,
+    return createPreviewClient(previewToken).fetch<DownloadPage>(
+      `*[_type == "downloadPage" && (_id == "${DOWNLOAD_DRAFT_DOCUMENT_ID}" || _id == "${DOWNLOAD_DOCUMENT_ID}")]| score(_id in path("drafts.**"))[0]{${downloadPageFragment}}`,
     );
   },
   streamPreview(
     previewToken: string,
     callback: (downloadPage: DownloadPage) => void,
   ) {
-    return createSanityClient(previewToken)
+    return createPreviewClient(previewToken)
       .listen(
-        `*[_type == "downloadPage" && _id == "${DOWNLOAD_DRAFT_DOCUMENT_ID}"]`,
+        `*[_type == "downloadPage" && _id == "${DOWNLOAD_DRAFT_DOCUMENT_ID}"][0]`,
+        {},
+        { visibility: 'query' },
       )
-      .subscribe(() => downloadPage.fetchPreview(previewToken).then(callback));
+      .subscribe(async () => {
+        await sleep(1000);
+        return downloadPage.fetchPreview(previewToken).then(callback);
+      });
   },
 };
 
@@ -234,19 +260,24 @@ export const contactPage = {
       `*[_type == "contactPage" && _id == "contactPage"][0]{${contactPageFragment}}`,
     ),
   fetchPreview(previewToken: string) {
-    return createSanityClient(previewToken).fetch<ContactPage>(
-      `*[_type == "contactPage" && (_id == "${CONTACT_DRAFT_DOCUMENT_ID}" || _id == "${CONTACT_DOCUMENT_ID}")][0]{${contactPageFragment}}`,
+    return createPreviewClient(previewToken).fetch<ContactPage>(
+      `*[_type == "contactPage" && (_id == "${CONTACT_DRAFT_DOCUMENT_ID}" || _id == "${CONTACT_DOCUMENT_ID}")]| score(_id in path("drafts.**"))[0]{${contactPageFragment}}`,
     );
   },
   streamPreview(
     previewToken: string,
     callback: (contactPage: ContactPage) => void,
   ) {
-    return createSanityClient(previewToken)
+    return createPreviewClient(previewToken)
       .listen(
         `*[_type == "contactPage" && _id == "${CONTACT_DRAFT_DOCUMENT_ID}"]`,
+        {},
+        { visibility: 'query' },
       )
-      .subscribe(() => contactPage.fetchPreview(previewToken).then(callback));
+      .subscribe(async () => {
+        await sleep(1000);
+        return contactPage.fetchPreview(previewToken).then(callback);
+      });
   },
 };
 
@@ -256,19 +287,24 @@ export const notFoundPage = {
       `*[_type == "notFoundPage" && _id == "notFoundPage"][0]{${notFoundPageFragment}}`,
     ),
   fetchPreview(previewToken: string) {
-    return createSanityClient(previewToken).fetch<NotFoundPage>(
-      `*[_type == "notFoundPage" && (_id == "${NOT_FOUND_DRAFT_DOCUMENT_ID}" || _id == "${NOT_FOUND_DOCUMENT_ID}")][0]{${notFoundPageFragment}}`,
+    return createPreviewClient(previewToken).fetch<NotFoundPage>(
+      `*[_type == "notFoundPage" && (_id == "${NOT_FOUND_DRAFT_DOCUMENT_ID}" || _id == "${NOT_FOUND_DOCUMENT_ID}")]| score(_id in path("drafts.**"))[0]{${notFoundPageFragment}}`,
     );
   },
   streamPreview(
     previewToken: string,
     callback: (notFoundPage: NotFoundPage) => void,
   ) {
-    return createSanityClient(previewToken)
+    return createPreviewClient(previewToken)
       .listen(
         `*[_type == "notFoundPage" && _id == "${NOT_FOUND_DRAFT_DOCUMENT_ID}"]`,
+        {},
+        { visibility: 'query' },
       )
-      .subscribe(() => notFoundPage.fetchPreview(previewToken).then(callback));
+      .subscribe(async () => {
+        await sleep(1000);
+        return notFoundPage.fetchPreview(previewToken).then(callback);
+      });
   },
 };
 
@@ -278,14 +314,21 @@ export const faqPage = {
       `*[_type == "faqPage" && _id == "faqPage"][0]{${faqPageFragment}}`,
     ),
   fetchPreview(previewToken: string) {
-    return createSanityClient(previewToken).fetch<FAQPage>(
-      `*[_type == "faqPage" && (_id == "${FAQ_DRAFT_DOCUMENT_ID}" || _id == "${FAQ_DOCUMENT_ID}")][0]{${faqPageFragment}}`,
+    return createPreviewClient(previewToken).fetch<FAQPage>(
+      `*[_type == "faqPage" && (_id == "${FAQ_DRAFT_DOCUMENT_ID}" || _id == "${FAQ_DOCUMENT_ID}")]| score(_id in path("drafts.**"))[0]{${faqPageFragment}}`,
     );
   },
   streamPreview(previewToken: string, callback: (faqPage: FAQPage) => void) {
-    return createSanityClient(previewToken)
-      .listen(`*[_type == "faqPage" && _id == "${FAQ_DRAFT_DOCUMENT_ID}"]`)
-      .subscribe(() => faqPage.fetchPreview(previewToken).then(callback));
+    return createPreviewClient(previewToken)
+      .listen(
+        `*[_type == "faqPage" && _id == "${FAQ_DRAFT_DOCUMENT_ID}"]`,
+        {},
+        { visibility: 'query' },
+      )
+      .subscribe(async () => {
+        await sleep(1000);
+        return faqPage.fetchPreview(previewToken).then(callback);
+      });
   },
 };
 
@@ -303,7 +346,7 @@ export const clientPage = {
         slug,
       }`),
   findPreview(id: string, previewToken: string) {
-    return createSanityClient(previewToken).fetch<ClientPage>(
+    return createPreviewClient(previewToken).fetch<ClientPage>(
       `*[_type == "clientPage" && _id == $id][0]{${clientPageFragment}}`,
       {
         id,
@@ -315,9 +358,16 @@ export const clientPage = {
     previewToken: string,
     callback: (clientPage: ClientPage) => void,
   ) {
-    return createSanityClient(previewToken)
-      .listen(`*[_type == "clientPage" && _id == $id]`, { id })
-      .subscribe(() => clientPage.findPreview(id, previewToken).then(callback));
+    return createPreviewClient(previewToken)
+      .listen(
+        `*[_type == "clientPage" && _id == $id]`,
+        { id },
+        { visibility: 'query' },
+      )
+      .subscribe(async () => {
+        await sleep(1000);
+        return clientPage.findPreview(id, previewToken).then(callback);
+      });
   },
 };
 
@@ -343,7 +393,7 @@ export const blog = {
         }`,
     ),
   findPreview(id: string, previewToken: string) {
-    return createSanityClient(previewToken).fetch<Blog>(
+    return createPreviewClient(previewToken).fetch<Blog>(
       `*[_type == "blog" && _id == $id][0]{${blogFragment}}`,
       {
         id,
@@ -355,9 +405,16 @@ export const blog = {
     previewToken: string,
     callback: (blog: Blog) => void,
   ) {
-    return createSanityClient(previewToken)
-      .listen(`*[_type == "blog" && _id == $id]`, { id })
-      .subscribe(() => blog.findPreview(id, previewToken).then(callback));
+    return createPreviewClient(previewToken)
+      .listen(
+        `*[_type == "blog" && _id == $id]`,
+        { id },
+        { visibility: 'query' },
+      )
+      .subscribe(async () => {
+        await sleep(1000);
+        return blog.findPreview(id, previewToken).then(callback);
+      });
   },
   getArticle: async (
     blogSlug: string,
@@ -374,7 +431,7 @@ export const blog = {
     return article || null;
   },
   findBlogArticlePreview(id: string, previewToken: string) {
-    return createSanityClient(previewToken).fetch<BlogArticle>(
+    return createPreviewClient(previewToken).fetch<BlogArticle>(
       `*[_type == "blogArticle" && _id == $id][0]{${blogArticleFragment}}`,
       {
         id,
@@ -386,10 +443,15 @@ export const blog = {
     previewToken: string,
     callback: (blogArticle: BlogArticle) => void,
   ) {
-    return createSanityClient(previewToken)
-      .listen(`*[_type == "blogArticle" && _id == $id]`, { id })
-      .subscribe(() =>
-        blog.findBlogArticlePreview(id, previewToken).then(callback),
-      );
+    return createPreviewClient(previewToken)
+      .listen(
+        `*[_type == "blogArticle" && _id == $id]`,
+        { id },
+        { visibility: 'query' },
+      )
+      .subscribe(async () => {
+        await sleep(1000);
+        return blog.findBlogArticlePreview(id, previewToken).then(callback);
+      });
   },
 };

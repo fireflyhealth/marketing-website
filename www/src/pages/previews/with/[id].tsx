@@ -10,7 +10,7 @@ import ClientPage, { ClientPageProps } from '@/pages/with/[clientSlug]';
 const ClientPagePreview: NextTypes.PageRoute<
   InferGetServerSidePropsType<typeof getServerSideProps>
 > = ({ clientPage, siteSettings, previewToken, id }) => {
-  const [livePost, setLivePost] = useState(clientPage);
+  const [livePage, setLivePage] = useState(clientPage);
   const [liveSettings, setLiveSettings] = useState(siteSettings);
 
   /*
@@ -21,23 +21,27 @@ const ClientPagePreview: NextTypes.PageRoute<
   real-time. How fun!
   */
   useEffect(() => {
+    const updatePage = (newLiveClientPage: SanityTypes.ClientPage) => {
+      setLivePage(newLiveClientPage);
+    };
+
     const settingsStream = Sanity.siteSettings.streamPreview(
       previewToken,
       setLiveSettings,
     );
-    const postStream = Sanity.clientPage.streamPreview(
+    const pageStream = Sanity.clientPage.streamPreview(
       id,
       previewToken,
-      setLivePost,
+      updatePage,
     );
 
     return () => {
       settingsStream.unsubscribe();
-      postStream.unsubscribe();
+      pageStream.unsubscribe();
     };
   }, [id, previewToken]);
 
-  return <ClientPage clientPage={livePost} siteSettings={liveSettings} />;
+  return <ClientPage clientPage={livePage} siteSettings={liveSettings} />;
 };
 
 export const getServerSideProps: GetServerSideProps<

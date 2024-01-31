@@ -21,13 +21,17 @@ const NotFoundPagePreview: NextTypes.PageRoute<
   real-time. How fun!
   */
   useEffect(() => {
+    const updatePage = (newLive404Page: SanityTypes.NotFoundPage) => {
+      setLivePage(newLive404Page);
+    };
+
     const settingsStream = Sanity.siteSettings.streamPreview(
       previewToken,
       setLiveSettings,
     );
     const pageStream = Sanity.notFoundPage.streamPreview(
       previewToken,
-      setLivePage,
+      updatePage,
     );
 
     return () => {

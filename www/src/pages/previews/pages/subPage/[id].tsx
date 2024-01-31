@@ -10,7 +10,7 @@ import Page, { PageProps } from '@/pages/[pageSlug]/[subpageSlug]';
 const GenericPagePreview: NextTypes.PageRoute<
   InferGetServerSidePropsType<typeof getServerSideProps>
 > = ({ subPage, siteSettings, previewToken, id }) => {
-  const [livePost, setLivePost] = useState(subPage);
+  const [livePage, setLivePage] = useState(subPage);
   const [liveSettings, setLiveSettings] = useState(siteSettings);
 
   /*
@@ -21,23 +21,27 @@ const GenericPagePreview: NextTypes.PageRoute<
   real-time. How fun!
   */
   useEffect(() => {
+    const updatePage = (newLivePage: SanityTypes.SubPage) => {
+      setLivePage(newLivePage);
+    };
+
     const settingsStream = Sanity.siteSettings.streamPreview(
       previewToken,
       setLiveSettings,
     );
-    const postStream = Sanity.subPage.streamPreview(
+    const pageStream = Sanity.subPage.streamPreview(
       id,
       previewToken,
-      setLivePost,
+      updatePage,
     );
 
     return () => {
       settingsStream.unsubscribe();
-      postStream.unsubscribe();
+      pageStream.unsubscribe();
     };
   }, [id, previewToken]);
 
-  return <Page subPage={livePost} siteSettings={liveSettings} />;
+  return <Page subPage={livePage} siteSettings={liveSettings} />;
 };
 
 export const getServerSideProps: GetServerSideProps<

@@ -21,11 +21,18 @@ const HomepagePreview: NextTypes.PageRoute<
   real-time. How fun!
   */
   useEffect(() => {
+    const updateLiveHomepage = (newLiveHomepage: SanityTypes.Homepage) => {
+      setLivePage(newLiveHomepage);
+    };
+
     const settingsStream = Sanity.siteSettings.streamPreview(
       previewToken,
       setLiveSettings,
     );
-    const pageStream = Sanity.homepage.streamPreview(previewToken, setLivePage);
+    const pageStream = Sanity.homepage.streamPreview(
+      previewToken,
+      updateLiveHomepage,
+    );
 
     return () => {
       settingsStream.unsubscribe();

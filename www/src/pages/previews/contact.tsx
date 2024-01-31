@@ -21,13 +21,17 @@ const ContactPagePreview: NextTypes.PageRoute<
   real-time. How fun!
   */
   useEffect(() => {
+    const updatePage = (newLiveContactPage: SanityTypes.ContactPage) => {
+      setLivePage(newLiveContactPage);
+    };
+
     const settingsStream = Sanity.siteSettings.streamPreview(
       previewToken,
       setLiveSettings,
     );
     const pageStream = Sanity.contactPage.streamPreview(
       previewToken,
-      setLivePage,
+      updatePage,
     );
 
     return () => {

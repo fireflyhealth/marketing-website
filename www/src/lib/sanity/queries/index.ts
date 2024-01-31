@@ -18,6 +18,7 @@ export const siteSettingsFragment = `
 `;
 
 export const genericPageFragment = `
+  _id,
   title,
   slug,
   navigationOverrides {${navigationOverridesFragment}},
@@ -25,6 +26,7 @@ export const genericPageFragment = `
 `;
 
 export const subPageFragment = `
+  _id,
   title,
   slug,
   navigationOverrides {${navigationOverridesFragment}},
@@ -33,6 +35,7 @@ export const subPageFragment = `
 `;
 
 export const specialPageFragment = `
+  _id,
   title,
   slug,
   navigationOverrides {${navigationOverridesFragment}},
@@ -48,6 +51,7 @@ export const notFoundPageFragment = `${specialPageFragment}`;
 export const faqPageFragment = `${specialPageFragment}`;
 
 export const clientPageFragment = `
+  _id,
   clientName,
   slug,
   navigationOverrides {${navigationOverridesFragment}},
@@ -55,6 +59,7 @@ export const clientPageFragment = `
 `;
 
 export const blogFragment = `
+  _id,
   title,
   slug,
   navigationOverrides {${navigationOverridesFragment}},
@@ -62,6 +67,7 @@ export const blogFragment = `
 `;
 
 export const blogArticleFragment = `
+  _id,   
   title,
   category->{
     _type,

@@ -10,7 +10,7 @@ import BlogPage, { BlogPageProps } from '@/pages/blog/[blogSlug]';
 const BlogPreview: NextTypes.PageRoute<
   InferGetServerSidePropsType<typeof getServerSideProps>
 > = ({ blog, siteSettings, previewToken, id }) => {
-  const [livePost, setLivePost] = useState(blog);
+  const [livePage, setLivePage] = useState(blog);
   const [liveSettings, setLiveSettings] = useState(siteSettings);
 
   /*
@@ -21,19 +21,23 @@ const BlogPreview: NextTypes.PageRoute<
   real-time. How fun!
   */
   useEffect(() => {
+    const updatePage = (newLiveBlog: SanityTypes.Blog) => {
+      setLivePage(newLiveBlog);
+    };
+
     const settingsStream = Sanity.siteSettings.streamPreview(
       previewToken,
       setLiveSettings,
     );
-    const postStream = Sanity.blog.streamPreview(id, previewToken, setLivePost);
+    const pageStream = Sanity.blog.streamPreview(id, previewToken, updatePage);
 
     return () => {
       settingsStream.unsubscribe();
-      postStream.unsubscribe();
+      pageStream.unsubscribe();
     };
   }, [id, previewToken]);
 
-  return <BlogPage blog={livePost} siteSettings={liveSettings} />;
+  return <BlogPage blog={livePage} siteSettings={liveSettings} />;
 };
 
 export const getServerSideProps: GetServerSideProps<

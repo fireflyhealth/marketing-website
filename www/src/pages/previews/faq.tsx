@@ -21,11 +21,15 @@ const FAQPagePreview: NextTypes.PageRoute<
   real-time. How fun!
   */
   useEffect(() => {
+    const updatePage = (newLiveFAQPage: SanityTypes.FAQPage) => {
+      setLivePage(newLiveFAQPage);
+    };
+
     const settingsStream = Sanity.siteSettings.streamPreview(
       previewToken,
       setLiveSettings,
     );
-    const pageStream = Sanity.faqPage.streamPreview(previewToken, setLivePage);
+    const pageStream = Sanity.faqPage.streamPreview(previewToken, updatePage);
 
     return () => {
       settingsStream.unsubscribe();
