@@ -24,6 +24,14 @@ export const genericPageFragment = `
   metadataFragment{${metadataFragment}},
 `;
 
+export const subPageFragment = `
+  title,
+  slug,
+  navigationOverrides {${navigationOverridesFragment}},
+  metadataFragment{${metadataFragment}},
+  meta
+`;
+
 export const specialPageFragment = `
   title,
   slug,

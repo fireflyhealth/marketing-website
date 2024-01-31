@@ -25,6 +25,7 @@ import {
   genericPageFragment,
   notFoundPageFragment,
   siteSettingsFragment,
+  subPageFragment,
 } from './queries';
 import {
   metadataFragment,
@@ -171,10 +172,7 @@ export const subPage = {
       `*[_type == "subPage"
             && slug.current == $subpageSlug
           ]{
-            title,
-            slug,
-            navigationOverrides {${navigationOverridesFragment}},
-            metadataFragment{${metadataFragment}},
+            ${subPageFragment},
             "parentPage": *[
               _type == "genericPage"
               && slug.current == $parentSlug
@@ -182,12 +180,28 @@ export const subPage = {
             ] {
               slug,
             }[0],
-            meta
           }[parentPage != null][0]`,
 
       { parentSlug, subpageSlug },
     );
     return subpage || null;
+  },
+  findPreview(id: string, previewToken: string) {
+    return createSanityClient(previewToken).fetch<SubPage>(
+      `*[_type == "subPage" && _id == $id][0]{${subPageFragment}}`,
+      {
+        id,
+      },
+    );
+  },
+  streamPreview(
+    id: string,
+    previewToken: string,
+    callback: (subPage: SubPage) => void,
+  ) {
+    return createSanityClient(previewToken)
+      .listen(`*[_type == "subPage" && _id == $id]`, { id })
+      .subscribe(() => subPage.findPreview(id, previewToken).then(callback));
   },
 };
 
