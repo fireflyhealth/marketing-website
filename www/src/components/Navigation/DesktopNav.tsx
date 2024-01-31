@@ -50,6 +50,7 @@ export const DesktopNav: FC<Props> = ({ navGroup, showNavCTA }) => {
               label={getStartedOpen ? 'Close' : 'Get started'}
               onClick={handleCTAClick}
               variant="primary"
+              bgColorOverride={getStartedOpen ? 'bg-yellow-light' : 'bg-yellow'}
             />
           )}
         </div>
