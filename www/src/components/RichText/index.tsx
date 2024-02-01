@@ -12,6 +12,11 @@ import { Link } from '@/atoms/Link';
 
 type RichTextProps = {
   content: RichTextType;
+  /* a font-size class name. This allows us to override the default
+   * font size for <p> tags within SimpleRichText in scenarios where
+   * it should not be the usual font-size-8 (i.e. Contnent Block Header
+   * descriptions). */
+  fontSize?: string;
   className?: string;
 };
 
@@ -40,7 +45,9 @@ const BlockRenderer: PortableTextComponent<PortableTextBlock> = ({
         </blockquote>
       );
     case 'normal':
-      return <p className="font-size-8">{children}</p>;
+      /* Font size is inherited from the parent element. See the note above
+       * about the custom fontSize prop. */
+      return <p>{children}</p>;
     default:
       console.warn(`No block renderer config for ${value.style}`, { value });
       return null;
@@ -69,9 +76,19 @@ const components: Partial<PortableTextReactComponents> = {
   },
 };
 
-export const RichText: FC<RichTextProps> = ({ content, className }) => {
+export const RichText: FC<RichTextProps> = ({
+  content,
+  className,
+  fontSize,
+}) => {
   return (
-    <div className={cx('RichText theme-text-color-primary', className)}>
+    <div
+      className={cx(
+        'RichText theme-text-color-primary',
+        className,
+        fontSize || 'font-size-8',
+      )}
+    >
       <PortableText value={content} components={components} />
     </div>
   );
