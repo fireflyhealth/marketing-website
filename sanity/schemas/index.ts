@@ -23,6 +23,7 @@ import { LabelWithDropdown } from './fields/labelWithDropdown';
 import { ContentArea } from './fields/contentArea';
 import { NavigationOverrides } from './fields/navigationOverrides';
 import { AnnouncementBanner } from './fields/announcementBanner';
+import { Video } from './fields/video';
 
 import { ContentBlockHeader } from './blocks/contentBlockHeader';
 import { ImageBlock } from './blocks/imageBlock';
@@ -62,4 +63,5 @@ export const schemaTypes = [
   ContentArea,
   NavigationOverrides,
   AnnouncementBanner,
+  Video,
 ];
