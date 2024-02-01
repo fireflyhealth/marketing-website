@@ -288,7 +288,7 @@ export const notFoundPage = {
     ),
   fetchPreview(previewToken: string) {
     return createPreviewClient(previewToken).fetch<NotFoundPage>(
-      `*[_type == "notFoundPage" && (_id == "${NOT_FOUND_DRAFT_DOCUMENT_ID}" || _id == "${NOT_FOUND_DOCUMENT_ID}")]| score(_id in path("drafts.**"))[0]{${notFoundPageFragment}}`,
+      `*[_type == "notFoundPage" && (_id == "${NOT_FOUND_DRAFT_DOCUMENT_ID}" || _id == "${NOT_FOUND_DOCUMENT_ID}")][0]{${notFoundPageFragment}}`,
     );
   },
   streamPreview(
@@ -315,7 +315,7 @@ export const faqPage = {
     ),
   fetchPreview(previewToken: string) {
     return createPreviewClient(previewToken).fetch<FAQPage>(
-      `*[_type == "faqPage" && (_id == "${FAQ_DRAFT_DOCUMENT_ID}" || _id == "${FAQ_DOCUMENT_ID}")]| score(_id in path("drafts.**"))[0]{${faqPageFragment}}`,
+      `*[_type == "faqPage" && (_id == "${FAQ_DRAFT_DOCUMENT_ID}" || _id == "${FAQ_DOCUMENT_ID}")][0]{${faqPageFragment}}`,
     );
   },
   streamPreview(previewToken: string, callback: (faqPage: FAQPage) => void) {
