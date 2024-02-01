@@ -9,9 +9,9 @@ import * as Sanity from '@/lib/sanity';
 import { PageView } from '@/views/PageView';
 import { PageMetadata } from '@/components/Metadata/PageMetadata';
 
-type PageProps = CommonPageProps<{
+export type PageProps = CommonPageProps & {
   page: GenericPage;
-}>;
+};
 
 type PageParams = {
   pageSlug: string;

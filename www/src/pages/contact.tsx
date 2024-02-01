@@ -9,9 +9,9 @@ import { ContactPageView } from '@/views/ContactPageView';
 import * as Sanity from '@/lib/sanity';
 import { ContactMetadata } from '@/components/Metadata/ContactMetadata';
 
-type ContactPageProps = PageProps<{
+export type ContactPageProps = PageProps & {
   contactPage: ContactPageType;
-}>;
+};
 
 const ContactPage: FC<ContactPageProps> = ({ contactPage }) => {
   return (

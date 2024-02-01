@@ -9,9 +9,9 @@ import { ClientPageView } from '@/views/ClientPageView';
 import * as Sanity from '@/lib/sanity';
 import { ClientMetadata } from '@/components/Metadata/ClientMetadata';
 
-type ClientPageProps = PageProps<{
+export type ClientPageProps = PageProps & {
   clientPage: ClientPageType;
-}>;
+};
 
 type ClientPageParams = {
   clientSlug: string;

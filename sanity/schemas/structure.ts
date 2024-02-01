@@ -1,8 +1,14 @@
-import { StructureBuilder, StructureResolver } from 'sanity/desk';
+import {
+  DefaultDocumentNodeResolver,
+  StructureBuilder,
+  StructureResolver,
+} from 'sanity/structure';
 import { ComponentType, ReactNode } from 'react';
 
 import { icons } from '../lib/icons';
 import { API_VERSION } from '../lib/constants';
+
+import PagePreview from '../lib/pagePreview';
 
 type CreateSingletonPageConfig = {
   title: string;
@@ -18,7 +24,14 @@ const createSingletonPage = (
   S.listItem()
     .title(title)
     .icon(icon || null)
-    .child(S.editor().id(id).schemaType(schemaType).id(id).title(title));
+    .child(
+      S.editor()
+        .id(id)
+        .schemaType(schemaType)
+        .id(id)
+        .title(title)
+        .views([S.view.form(), S.view.component(PagePreview).title('Preview')]),
+    );
 
 const isDevelopment: boolean =
   typeof window !== 'undefined' && window.location.hostname === 'localhost';
@@ -125,7 +138,7 @@ export const structure: StructureResolver = async (S, context) => {
         S.listItem()
           .title('Blogs')
           .icon(icons.Blog)
-          .child(S.documentTypeList('blog').filter('_type == "clientPage"')),
+          .child(S.documentTypeList('blog').filter('_type == "blog"')),
         S.listItem()
           .title('Articles')
           .icon(icons.Blog)
@@ -177,4 +190,22 @@ export const structure: StructureResolver = async (S, context) => {
           : [],
       ),
     );
+};
+
+export const defaultDocumentNode: DefaultDocumentNodeResolver = (
+  S,
+  { schemaType },
+) => {
+  if (
+    ['genericPage', 'clientPage', 'blog', 'blogArticle', 'subPage'].includes(
+      schemaType,
+    )
+  ) {
+    return S.document().views([
+      S.view.form(),
+      S.view.component(PagePreview).title('Preview'),
+    ]);
+  }
+
+  return S.document().views([S.view.form()]);
 };
