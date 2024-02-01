@@ -106,9 +106,13 @@ const getImageProps = (
       .url();
     return { src, width: calculatedWidth, height };
   }
-  /* Otherwise, return just the src */
+  /* Otherwise, return just the src and natural dimensions */
   const src = imageBuilder.image(image).url();
-  return { src };
+  return {
+    src,
+    width: image.asset.metadata.dimensions.width,
+    height: image.asset.metadata.dimensions.height,
+  };
 };
 
 export const SanityImage: FC<SanityImageProps> = ({
