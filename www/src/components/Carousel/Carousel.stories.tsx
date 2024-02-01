@@ -28,10 +28,10 @@ const CarouselExample: FC = () => {
         </Slide>
       </SlideContainer>
       <PrevButton>
-        <BrandedIcon type="arrow-left" />
+        <BrandedIcon type="arrow-left" wrapperStyles="w-12" />
       </PrevButton>
       <NextButton>
-        <BrandedIcon type="arrow-right" />
+        <BrandedIcon type="arrow-right" wrapperStyles="w-12" />
       </NextButton>
     </Carousel>
   );

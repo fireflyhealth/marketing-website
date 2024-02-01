@@ -79,7 +79,8 @@ type SlideProps = WithChildren & {
 };
 
 export const Slide: FC<SlideProps> = ({ children, slideIndex }) => {
-  const { setSlideContainerLeft, currentSlideIndex } = useCarousel();
+  const { setSlideContainerLeft, currentSlideIndex, slideCount } =
+    useCarousel();
   const slideElement = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -102,13 +103,14 @@ export const Slide: FC<SlideProps> = ({ children, slideIndex }) => {
 
   return (
     <div className="carousel__slide h-full relative" ref={slideElement}>
+      {slideIndex}
       {children}
     </div>
   );
 };
 
 export const SlideContainer: FC<WithChildren> = ({ children }) => {
-  const { slideContainerLeft, currentSlideIndex } = useCarousel();
+  const { slideContainerLeft } = useCarousel();
   /* TODO: make swipe-able / draggable */
 
   return (
