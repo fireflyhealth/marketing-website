@@ -1,4 +1,159 @@
 {
+  "footer": {
+    "mobileCta": {
+      "_type": "cta",
+      "label": "Get the app",
+      "ariaLabel": null,
+      "variant": "secondary",
+      "id": "footer-cta-get-the-app",
+      "link": {
+        "_type": "link",
+        "externalUrl": null,
+        "file": null,
+        "documentLink": { "_type": "downloadPage" }
+      }
+    },
+    "footerNavGroups": [
+      {
+        "navItems": [
+          {
+            "_type": "linkWithLabel",
+            "_key": "0fb9aa07dec9",
+            "label": "Contact Us",
+            "link": {
+              "_type": "link",
+              "externalUrl": null,
+              "file": null,
+              "documentLink": { "_type": "contactPage" }
+            }
+          },
+          {
+            "_type": "linkWithLabel",
+            "_key": "4bcd9f9b2a1b",
+            "label": "FAQs",
+            "link": {
+              "_type": "link",
+              "externalUrl": null,
+              "file": null,
+              "documentLink": { "_type": "faqPage" }
+            }
+          }
+        ]
+      },
+      {
+        "navItems": [
+          {
+            "_type": "linkWithLabel",
+            "_key": "e38ebc9a704e",
+            "label": "About",
+            "link": {
+              "_type": "link",
+              "externalUrl": null,
+              "file": null,
+              "documentLink": {
+                "_type": "genericPage",
+                "slug": { "_type": "slug", "current": "about" },
+                "title": "About"
+              }
+            }
+          },
+          {
+            "_type": "linkWithLabel",
+            "_key": "45da080c309e",
+            "label": "Care Team",
+            "link": {
+              "_type": "link",
+              "externalUrl": null,
+              "file": null,
+              "documentLink": {
+                "_type": "subPage",
+                "slug": { "current": "care-team", "_type": "slug" },
+                "title": "Care Team",
+                "parentPage": {
+                  "_type": "genericPage",
+                  "title": "About",
+                  "slug": { "current": "about", "_type": "slug" }
+                }
+              }
+            }
+          }
+        ]
+      },
+      {
+        "navItems": [
+          {
+            "_type": "linkWithLabel",
+            "_key": "f80956eb214a",
+            "label": "Resources for Members",
+            "link": {
+              "_type": "link",
+              "externalUrl": null,
+              "file": null,
+              "documentLink": {
+                "_type": "blog",
+                "slug": { "current": "for-members", "_type": "slug" },
+                "title": "For Members"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "bottomLinks": {
+      "leftLinks": [
+        {
+          "_type": "linkWithLabel",
+          "_key": "aad4e9cc79ba",
+          "label": "LinkedIn",
+          "link": {
+            "_type": "link",
+            "externalUrl": "https://www.linkedin.com/company/firefly-health/",
+            "file": null,
+            "documentLink": null
+          }
+        },
+        {
+          "_type": "linkWithLabel",
+          "_key": "a68d2fb65f40",
+          "label": "X",
+          "link": {
+            "_type": "link",
+            "externalUrl": "https://twitter.com/carebyfirefly",
+            "file": null,
+            "documentLink": null
+          }
+        },
+        {
+          "_type": "linkWithLabel",
+          "_key": "6d3334afddc4",
+          "label": "Facebook",
+          "link": {
+            "_type": "link",
+            "externalUrl": "https://www.facebook.com/CareByFirefly",
+            "file": null,
+            "documentLink": null
+          }
+        }
+      ],
+      "rightLinks": [
+        {
+          "_type": "linkWithLabel",
+          "_key": "3ce052c97294",
+          "label": "Privacy",
+          "link": {
+            "_type": "link",
+            "externalUrl": null,
+            "file": null,
+            "documentLink": {
+              "_type": "genericPage",
+              "slug": { "current": "privacy-policy", "_type": "slug" },
+              "title": "Privacy Policy"
+            }
+          }
+        }
+      ]
+    }
+  },
   "navigation": {
     "_type": "navigation",
     "navGroup": [
@@ -13,7 +168,7 @@
             "label": "For Members",
             "link": {
               "_type": "genericPage",
-              "slug": { "_type": "slug", "current": "test-page" },
+              "slug": { "current": "test-page", "_type": "slug" },
               "title": "Test Page"
             }
           },
@@ -45,26 +200,13 @@
             }
           }
         ]
-      },
-      {
-        "_type": "linkWithLabel",
-        "_key": "6ccbf44a4255",
-        "label": "How it works",
-        "link": {
-          "_type": "link",
-          "externalUrl": null,
-          "file": null,
-          "documentLink": {
-            "_type": "genericPage",
-            "slug": { "current": "how-it-works", "_type": "slug" },
-            "title": "How It Works"
-          }
-        }
       }
-    ]
+    ],
+    "showNavCTA": true
   },
   "simpleRichText": [
     {
+      "markDefs": [],
       "children": [
         {
           "_type": "span",
@@ -79,16 +221,16 @@
           "_type": "span"
         },
         {
-          "_type": "span",
-          "marks": ["em"],
           "text": "italic",
-          "_key": "aaa0b6c86420"
+          "_key": "aaa0b6c86420",
+          "_type": "span",
+          "marks": ["em"]
         },
         {
+          "_type": "span",
           "marks": [],
           "text": ", and ",
-          "_key": "2e48a5b64bff",
-          "_type": "span"
+          "_key": "2e48a5b64bff"
         },
         {
           "_type": "span",
@@ -105,8 +247,7 @@
       ],
       "_type": "block",
       "style": "normal",
-      "_key": "ba1ffe54724a",
-      "markDefs": []
+      "_key": "ba1ffe54724a"
     },
     {
       "markDefs": [],
@@ -124,10 +265,10 @@
           "_key": "26b3a9714de2"
         },
         {
-          "_key": "fc363ff2e319",
           "_type": "span",
           "marks": ["em", "underline"],
-          "text": "styles"
+          "text": "styles",
+          "_key": "fc363ff2e319"
         }
       ],
       "_type": "block",
@@ -139,7 +280,6 @@
     {
       "_key": "f9549c2e94e7",
       "_type": "block",
-      "style": "h2",
       "markDefs": [],
       "children": [
         {
@@ -148,9 +288,11 @@
           "text": "Good and Bad Cholesterol",
           "_key": "2a6c1fa8737d"
         }
-      ]
+      ],
+      "style": "h2"
     },
     {
+      "_key": "1329dde686d3",
       "_type": "block",
       "markDefs": [],
       "children": [
@@ -161,8 +303,27 @@
           "text": "It gets a bad rap, but cholesterol isn't always the villain. Your body actually needs cholesterol to survive and perform essential functions, such as building cells and making hormones. But, as is often the case, too much of a good thing can be bad for your health. Because high cholesterol is a major risk factor for heart disease and stroke, we’re breaking down the facts on cholesterol below."
         }
       ],
-      "style": "blockquote-large",
-      "_key": "1329dde686d3"
+      "style": "blockquote-large"
+    },
+    {
+      "_key": "a1cd184865ac",
+      "_type": "block",
+      "style": "normal",
+      "markDefs": [],
+      "children": [
+        { "_type": "span", "marks": [], "text": "", "_key": "065591bbb5c9" }
+      ]
+    },
+    {
+      "asset": {
+        "_ref": "image-fcf43e3e2c7fee3fe8c5f2f01cd88994646bd20a-655x399-png",
+        "_type": "reference"
+      },
+      "markDefs": null,
+      "_key": "85be266514e5",
+      "_type": "richImage",
+      "altText": "An array of healthy vegetables",
+      "caption": "Fresh vegetables from the farmer's market"
     },
     {
       "_key": "ae870c9982f1",
@@ -179,9 +340,7 @@
       ]
     },
     {
-      "_key": "a7386fd97ecb",
       "_type": "block",
-      "style": "normal",
       "markDefs": [],
       "children": [
         {
@@ -190,11 +349,14 @@
           "text": "When it comes to high cholesterol, the best treatment is prevention. Since high cholesterol is often the result of your lifestyle choices, there are ways you can help keep it in check by simply making healthy lifestyle choices.",
           "_key": "d8dcaf64e2a60"
         }
-      ]
+      ],
+      "style": "normal",
+      "_key": "a7386fd97ecb"
     },
     {
       "_key": "b7855f92fb00",
       "_type": "block",
+      "style": "h4",
       "markDefs": [],
       "children": [
         {
@@ -203,8 +365,7 @@
           "_type": "span",
           "marks": []
         }
-      ],
-      "style": "h4"
+      ]
     },
     {
       "markDefs": [],
@@ -223,34 +384,34 @@
       "listItem": "number"
     },
     {
-      "_key": "b039500d241d",
+      "_type": "block",
+      "style": "normal",
+      "listItem": "number",
+      "markDefs": [],
+      "children": [
+        {
+          "_type": "span",
+          "marks": [],
+          "text": "The bad kind",
+          "_key": "4f2ba1f42b30"
+        }
+      ],
+      "level": 1,
+      "_key": "b039500d241d"
+    },
+    {
+      "_key": "77296c9625db",
       "_type": "block",
       "markDefs": [],
       "children": [
         {
-          "text": "The bad kind",
-          "_key": "4f2ba1f42b30",
-          "_type": "span",
-          "marks": []
-        }
-      ],
-      "level": 1,
-      "style": "normal",
-      "listItem": "number"
-    },
-    {
-      "children": [
-        {
+          "marks": [],
           "text": "Fun Cholesterol Facts",
           "_key": "fdc875ebdf09",
-          "_type": "span",
-          "marks": []
+          "_type": "span"
         }
       ],
-      "style": "h4",
-      "_key": "77296c9625db",
-      "_type": "block",
-      "markDefs": []
+      "style": "h4"
     },
     {
       "markDefs": [],
@@ -263,22 +424,19 @@
         }
       ],
       "level": 1,
-      "style": "normal",
       "_key": "38aff29e4632",
       "_type": "block",
+      "style": "normal",
       "listItem": "bullet"
     },
     {
-      "listItem": "bullet",
-      "_key": "d2b90adb4e97",
-      "_type": "block",
       "markDefs": [],
       "children": [
         {
+          "_key": "18208473612e",
           "_type": "span",
           "marks": [],
-          "text": "The word ",
-          "_key": "18208473612e"
+          "text": "The word "
         },
         {
           "_type": "span",
@@ -287,16 +445,16 @@
           "_key": "05b12cd8b11a1"
         },
         {
-          "_key": "05b12cd8b11a2",
-          "_type": "span",
           "marks": [],
-          "text": " comes from Ancient Greek "
+          "text": " comes from Ancient Greek ",
+          "_key": "05b12cd8b11a2",
+          "_type": "span"
         },
         {
+          "_key": "05b12cd8b11a3",
           "_type": "span",
           "marks": ["em"],
-          "text": "chole-",
-          "_key": "05b12cd8b11a3"
+          "text": "chole-"
         },
         {
           "_type": "span",
@@ -305,10 +463,10 @@
           "_key": "05b12cd8b11a4"
         },
         {
-          "text": "stereos",
-          "_key": "05b12cd8b11a5",
           "_type": "span",
-          "marks": ["em"]
+          "marks": ["em"],
+          "text": "stereos",
+          "_key": "05b12cd8b11a5"
         },
         {
           "_type": "span",
@@ -317,10 +475,10 @@
           "_key": "05b12cd8b11a6"
         },
         {
-          "_type": "span",
           "marks": ["em"],
           "text": "-ol",
-          "_key": "05b12cd8b11a7"
+          "_key": "05b12cd8b11a7",
+          "_type": "span"
         },
         {
           "_type": "span",
@@ -330,7 +488,10 @@
         }
       ],
       "level": 1,
-      "style": "normal"
+      "_key": "d2b90adb4e97",
+      "_type": "block",
+      "style": "normal",
+      "listItem": "bullet"
     },
     {
       "_key": "02f616b62bb9",
@@ -339,17 +500,17 @@
       "markDefs": [],
       "children": [
         {
-          "marks": [],
           "text": "The best treatment for high cholesterol is prevention. This includes eating healthy foods, moving your body, and managing stress.",
           "_key": "42fea3033a330",
-          "_type": "span"
+          "_type": "span",
+          "marks": []
         }
       ]
     },
     {
-      "style": "normal",
       "_key": "e543f2d84e8d",
       "_type": "block",
+      "style": "normal",
       "markDefs": [
         {
           "_key": "710b11d36947",
@@ -386,16 +547,16 @@
       ],
       "children": [
         {
-          "text": "Read more on Wikipedia",
           "_key": "f7732c0d2526",
           "_type": "span",
-          "marks": ["710b11d36947"]
+          "marks": ["710b11d36947"],
+          "text": "Read more on Wikipedia"
         },
         {
-          "_key": "b712d1de4492",
           "_type": "span",
           "marks": [],
-          "text": " or "
+          "text": " or ",
+          "_key": "b712d1de4492"
         },
         {
           "_type": "span",
@@ -417,30 +578,8 @@
     {
       "label": "Download",
       "image": {
-        "asset": {
-          "_id": "image-21820f0a4428c37c61cd07aae1718a06e97c320d-2500x1945-png",
-          "_type": "sanity.imageAsset",
-          "url": "https://cdn.sanity.io/images/xgbrv2vi/production/21820f0a4428c37c61cd07aae1718a06e97c320d-2500x1945.png",
-          "metadata": {
-            "lqip": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAPCAIAAABr+ngCAAAACXBIWXMAAAsTAAALEwEAmpwYAAADnklEQVQokQGTA2z8ANa0vt6knu5+Uup3R9iZkNaqttmqtteuutawvdawvtyjrux4fPdZWu1sc9ubqNeyvtest8+BisZOVMY/RADOp8PXlqboblvkaVDTipXXkKzciqXUm7nOosTMn8HRnLrfh5/rcoXjfpbWmrnSpsbSoL3Ke4zCT1HCQj8AzZzKzYquz2Bnzlxez36d2Xuk3XKX0426yJTKwo7DyJTC1JXD2o+92JHA1JfI05rO05XE0nqMz1lK0E83ANCU0cSGuKtkfa9ke8h/rc11pspqlsyDuMaIu7+Bs8WKvs+Tz9GSz8yJvcmFtc2MxdOPyN1/judqQupiLADVlNLKkMm1ga26g7DKjMa4d62raprChKjLiJDIforMg6XQkcfLjsa7dpi0aoK/fKbOkMjei57veU73cCsA4I663J7Q1qHU2KHW1J3UuIW4q3qlx5GV0JFxz4l91ImN04+qx463s3OFqmNqtXWNxpHC0pS83oWB53hWAOZ6keGYw9+j2Nyf1taa0saNx8KMs9CUhcWEbbyDisOBgcV3fcF8lr12eLpuYLJwe6l6raZ9u6l3qKxwkwDec3DWiLLRjc/Lic3Fg8u+f8fDhKfLgnKua3KYY3+iW16tUku2YmDQfFXdg0a7c2CDXo1rWJ1qV5lpVpQAzYBWyIajxobBwYG9t3vDrXa5sm+Fu2pdpGhxjWFmiEg9jzwqoVAyznwy7JMzyH9Uf2CGYVWXXlSSXVSPALqETMeMkNWOmNaKjMWDoadzm5ZWYaVWSqt1YJt6X35USG44Knc8H6JcI9V9M86BX510kIdvn4VunIRtmwCjeVDQkXjvl2rzlFjciGqfZmdwP0B9QjOZakWog2CfeGWBVkJhNiFqNRyeUzHIe2TKkYzEk5TDkpLCkpEAlWxR2ZNo+5hc/ZJM3IFKhlE9Ti8qWjgri2E8wZBW2aRsxo5fi1o5WzIeZzglqW9N36Jt77B28a978q99AKN0Wd+TaPmIYPt9VdJtSXVAMFU0LX9XRLeFVtykXuyxbu6vdcuQX4NUN1w4IY1lLNKiOO+6R/i6Y/m2dwDSi3zijXrebmLlXVTIU0h7OTR/SUW7fXHZm4Hdn37foYPlpYndnYKqcV5zSzCFZR20lBbSsCHjslHpqX8A742f2n2OtFhfvEZIuEBAgzc3l1NdyH2Q04qd0Ymb0oqb04ub0omYtHJ5flNBc1kmiXIaqYwdyZhP25SMmXUIsMbcIbgAAAAASUVORK5CYII=",
-            "dimensions": {
-              "aspectRatio": 1.2853470437017995,
-              "width": 2500,
-              "height": 1945
-            }
-          }
-        },
-        "caption": null,
-        "altText": "A trippy image of two hands holding a phone-shaped pane of glass",
         "crop": null,
         "hotspot": null,
-        "_type": "richImage",
-        "_key": null
-      }
-    },
-    {
-      "label": "Download - Vertical Crop",
-      "image": {
         "_type": "richImage",
         "_key": null,
         "asset": {
@@ -457,13 +596,19 @@
           }
         },
         "caption": null,
+        "altText": "A trippy image of two hands holding a phone-shaped pane of glass"
+      }
+    },
+    {
+      "label": "Download - Vertical Crop",
+      "image": {
         "altText": "A trippy image of two hands holding a phone-shaped pane of glass",
         "crop": {
+          "top": 0,
           "left": 0.21564885496183217,
           "bottom": 0,
           "_type": "sanity.imageCrop",
-          "right": 0.2709923664122138,
-          "top": 0
+          "right": 0.2709923664122138
         },
         "hotspot": {
           "height": 1,
@@ -471,12 +616,35 @@
           "width": 0.4751908396946564,
           "x": 0.47232824427480924,
           "y": 0.5
-        }
+        },
+        "_type": "richImage",
+        "_key": null,
+        "asset": {
+          "_id": "image-21820f0a4428c37c61cd07aae1718a06e97c320d-2500x1945-png",
+          "_type": "sanity.imageAsset",
+          "url": "https://cdn.sanity.io/images/xgbrv2vi/production/21820f0a4428c37c61cd07aae1718a06e97c320d-2500x1945.png",
+          "metadata": {
+            "lqip": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAPCAIAAABr+ngCAAAACXBIWXMAAAsTAAALEwEAmpwYAAADnklEQVQokQGTA2z8ANa0vt6knu5+Uup3R9iZkNaqttmqtteuutawvdawvtyjrux4fPdZWu1sc9ubqNeyvtest8+BisZOVMY/RADOp8PXlqboblvkaVDTipXXkKzciqXUm7nOosTMn8HRnLrfh5/rcoXjfpbWmrnSpsbSoL3Ke4zCT1HCQj8AzZzKzYquz2Bnzlxez36d2Xuk3XKX0426yJTKwo7DyJTC1JXD2o+92JHA1JfI05rO05XE0nqMz1lK0E83ANCU0cSGuKtkfa9ke8h/rc11pspqlsyDuMaIu7+Bs8WKvs+Tz9GSz8yJvcmFtc2MxdOPyN1/judqQupiLADVlNLKkMm1ga26g7DKjMa4d62raprChKjLiJDIforMg6XQkcfLjsa7dpi0aoK/fKbOkMjei57veU73cCsA4I663J7Q1qHU2KHW1J3UuIW4q3qlx5GV0JFxz4l91ImN04+qx463s3OFqmNqtXWNxpHC0pS83oWB53hWAOZ6keGYw9+j2Nyf1taa0saNx8KMs9CUhcWEbbyDisOBgcV3fcF8lr12eLpuYLJwe6l6raZ9u6l3qKxwkwDec3DWiLLRjc/Lic3Fg8u+f8fDhKfLgnKua3KYY3+iW16tUku2YmDQfFXdg0a7c2CDXo1rWJ1qV5lpVpQAzYBWyIajxobBwYG9t3vDrXa5sm+Fu2pdpGhxjWFmiEg9jzwqoVAyznwy7JMzyH9Uf2CGYVWXXlSSXVSPALqETMeMkNWOmNaKjMWDoadzm5ZWYaVWSqt1YJt6X35USG44Knc8H6JcI9V9M86BX510kIdvn4VunIRtmwCjeVDQkXjvl2rzlFjciGqfZmdwP0B9QjOZakWog2CfeGWBVkJhNiFqNRyeUzHIe2TKkYzEk5TDkpLCkpEAlWxR2ZNo+5hc/ZJM3IFKhlE9Ti8qWjgri2E8wZBW2aRsxo5fi1o5WzIeZzglqW9N36Jt77B28a978q99AKN0Wd+TaPmIYPt9VdJtSXVAMFU0LX9XRLeFVtykXuyxbu6vdcuQX4NUN1w4IY1lLNKiOO+6R/i6Y/m2dwDSi3zijXrebmLlXVTIU0h7OTR/SUW7fXHZm4Hdn37foYPlpYndnYKqcV5zSzCFZR20lBbSsCHjslHpqX8A742f2n2OtFhfvEZIuEBAgzc3l1NdyH2Q04qd0Ymb0oqb04ub0omYtHJ5flNBc1kmiXIaqYwdyZhP25SMmXUIsMbcIbgAAAAASUVORK5CYII=",
+            "dimensions": {
+              "aspectRatio": 1.2853470437017995,
+              "width": 2500,
+              "height": 1945
+            }
+          }
+        },
+        "caption": null
       }
     },
     {
       "label": "Download - upper-right hot spot",
       "image": {
+        "hotspot": {
+          "_type": "sanity.imageHotspot",
+          "width": 0.1870229007633585,
+          "x": 0.9064885496183208,
+          "y": 0.11488647736415543,
+          "height": 0.22977295472831086
+        },
         "_type": "richImage",
         "_key": null,
         "asset": {
@@ -495,29 +663,17 @@
         "caption": null,
         "altText": "A trippy image of two hands holding a phone-shaped pane of glass",
         "crop": {
-          "top": 0,
           "left": 0,
           "bottom": 0,
           "_type": "sanity.imageCrop",
-          "right": 0
-        },
-        "hotspot": {
-          "width": 0.1870229007633585,
-          "x": 0.9064885496183208,
-          "y": 0.11488647736415543,
-          "height": 0.22977295472831086,
-          "_type": "sanity.imageHotspot"
+          "right": 0,
+          "top": 0
         }
       }
     }
   ],
   "ctas": [
     {
-      "_type": "cta",
-      "label": "Learn More",
-      "ariaLabel": null,
-      "variant": "primary",
-      "id": "learn-more-example",
       "link": {
         "_type": "link",
         "externalUrl": null,
@@ -527,32 +683,36 @@
           "slug": { "current": "about", "_type": "slug" },
           "title": "About"
         }
-      }
+      },
+      "_type": "cta",
+      "label": "Learn More",
+      "ariaLabel": null,
+      "variant": "primary",
+      "id": "learn-more-example"
     },
     {
+      "_type": "cta",
+      "label": "Get the Goods",
+      "ariaLabel": null,
+      "variant": "secondary",
       "id": "cta-secondary-example",
       "link": {
         "_type": "link",
         "externalUrl": null,
         "file": {
           "asset": {
-            "_type": "sanity.fileAsset",
-            "_id": "file-30de3ea5e39fd240e183acae6a11bd2df3a91b0e-zip",
             "originalFilename": "firefly-images.zip",
             "url": "https://cdn.sanity.io/files/xgbrv2vi/production/30de3ea5e39fd240e183acae6a11bd2df3a91b0e.zip",
             "extension": "zip",
-            "size": 19092790
+            "size": 19092790,
+            "_type": "sanity.fileAsset",
+            "_id": "file-30de3ea5e39fd240e183acae6a11bd2df3a91b0e-zip"
           }
         },
         "documentLink": null
-      },
-      "_type": "cta",
-      "label": "Get the Goods",
-      "ariaLabel": null,
-      "variant": "secondary"
+      }
     },
     {
-      "id": "cta-example-outlined",
       "link": {
         "_type": "link",
         "externalUrl": null,
@@ -562,7 +722,8 @@
       "_type": "cta",
       "label": "Download",
       "ariaLabel": "Download the Firefly Mobile app",
-      "variant": "outlined"
+      "variant": "outlined",
+      "id": "cta-example-outlined"
     }
   ],
   "links": [
@@ -671,7 +832,7 @@
           "parentPage": {
             "_type": "genericPage",
             "title": "About",
-            "slug": { "current": "about", "_type": "slug" }
+            "slug": { "_type": "slug", "current": "about" }
           }
         }
       }
@@ -702,8 +863,8 @@
         "documentLink": {
           "_type": "blogArticle",
           "slug": {
-            "_type": "slug",
-            "current": "the-many-health-benefits-of-fiber"
+            "current": "the-many-health-benefits-of-fiber",
+            "_type": "slug"
           },
           "title": "The Many Health Benefits of Fiber",
           "category": {

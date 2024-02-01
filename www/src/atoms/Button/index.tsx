@@ -15,6 +15,7 @@ type ButtonProps = {
   align?: 'left' | 'center' | 'right';
   disabled?: boolean;
   bgColorOverride?: string;
+  width?: 'auto' | 'full';
 };
 
 export const Button: FC<ButtonProps> = ({
@@ -26,6 +27,7 @@ export const Button: FC<ButtonProps> = ({
   disabled = false,
   ariaLabel,
   bgColorOverride,
+  width = 'full',
 }) => {
   return (
     <div
@@ -37,7 +39,12 @@ export const Button: FC<ButtonProps> = ({
     >
       <button
         /* CTA styles are defined in global.css */
-        className={cn(bgColorOverride, 'cta', `cta--${variant}`)}
+        className={cn(
+          bgColorOverride,
+          'cta',
+          `cta--${variant}`,
+          width === 'full' ? 'w-full' : 'w-auto',
+        )}
         aria-label={ariaLabel || undefined}
         id={id}
         onClick={onClick}
@@ -58,8 +65,9 @@ export const LinkButton: FC<LinkButtonProps> = ({
   link,
   variant = 'primary',
   ariaLabel,
-  align,
+  align = 'center',
   disabled,
+  width = 'full',
 }) => {
   return (
     <div
@@ -70,7 +78,12 @@ export const LinkButton: FC<LinkButtonProps> = ({
       })}
     >
       <div
-        className={cn('cta', `cta--${variant}`, disabled && 'cta--disabled')}
+        className={cn(
+          'cta',
+          `cta--${variant}`,
+          disabled && 'cta--disabled',
+          width === 'full' ? 'w-full' : 'w-auto',
+        )}
         id={id}
       >
         <div className="cta__inner">

@@ -5,6 +5,7 @@ import { UIProvider } from '@/context';
 import * as SanityTypes from '@/types/sanity';
 import { DefaultMetadata } from '@/components/Metadata/DefaultMetadata';
 import { ColorTheme, Theme } from '@/components/Theme';
+import { Footer } from '@/components/Footer';
 import '../styles/fonts.css';
 import '../styles/main.css';
 
@@ -43,7 +44,7 @@ export default function App({ Component, pageProps: allPageProps }: Props) {
           <main className="mt-mobile-nav-banner-margin md:mt-desktop-nav-banner-margin">
             <Component {...pageProps} />
           </main>
-          {/* TODO: Footer */}
+          <Footer footer={siteSettings.footer} />
         </UIProvider>
       </Theme>
     </>

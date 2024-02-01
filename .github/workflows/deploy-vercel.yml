@@ -80,15 +80,6 @@ jobs:
           vercel-token: ${{ secrets.vercel-token }}
           github-token: ${{ secrets.github-token }}
           alias-domains: 'firefly-staging.vercel.app'
-      - uses: amondnet/vercel-action@v20
-        id: vercel-storybook
-        with:
-          vercel-project-id: ${{ inputs.vercel-storybook-project-id }}
-          vercel-org-id: ${{ inputs.vercel-org-id }}
-          scope: ${{ inputs.vercel-org-id }}
-          vercel-token: ${{ secrets.vercel-token }}
-          github-token: ${{ secrets.github-token }}
-          alias-domains: 'firefly-storybook.vercel.app'
 
   deploy-storybook:
     name: Storybook

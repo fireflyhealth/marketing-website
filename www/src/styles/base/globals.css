@@ -54,8 +54,6 @@ img {
   }
 }
 
-.Rich
-
 /*
  * Reference:
  * https://www.figma.com/file/2ghg22zsQKeysX5YUcDP5d/%5BFirefly%5D-Design-System?type=design&node-id=3801%3A6956&mode=dev
@@ -213,7 +211,7 @@ img {
   --cta-text-color-primary: theme('colors.midnight');
   --cta-bg-color-primary: theme('colors.yellow');
   --cta-text-color-secondary: theme('colors.midnight');
-  --cta-bg-color-secondary: theme('colors.grey');
+  --cta-bg-color-secondary: theme('colors.grey-medium');
 
   --icon-base: theme('colors.yellow');
   --icon-overlap: theme('colors.yellow-dark');
@@ -342,6 +340,7 @@ svg {
   &__inner {
     display: flex;
     align-items: center;
+    justify-content: center;
     height: 100%;
     padding: 0 3.5rem;
 

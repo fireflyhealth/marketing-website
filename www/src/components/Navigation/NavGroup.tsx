@@ -1,4 +1,4 @@
-import { FC, useState, useEffect } from 'react';
+import { FC } from 'react';
 import cn from 'classnames';
 import { useUIProvider } from '@/context/UIProvider';
 import { SimpleIcon } from '@/svgs/SimpleIcon';
@@ -20,14 +20,13 @@ type Props = {
 
 export const NavGroup: FC<Props> = ({ navItem, isMobile }) => {
   const { currentNavItem, setCurrentNavItem } = useUIProvider();
-  const [dropdownOpen, setDropdownOpen] = useState(false);
 
-  const isDropdownOpen = currentNavItem === navItem._key;
+  const isCurrentNavItem = currentNavItem === navItem._key;
 
   const navItemHighlightState =
     currentNavItem === null
       ? 'text-black'
-      : currentNavItem === navItem._key
+      : isCurrentNavItem
         ? 'text-black'
         : 'text-black/60';
 
@@ -49,20 +48,12 @@ export const NavGroup: FC<Props> = ({ navItem, isMobile }) => {
   const handleDropdownButtonClick = () => {
     if (isMobile) {
       setCurrentNavItem(navItem._key);
-      if (currentNavItem === navItem._key && dropdownOpen) {
-        setDropdownOpen(false);
+      if (currentNavItem === navItem._key) {
         setCurrentNavItem(null);
       }
     }
   };
 
-  useEffect(() => {
-    if (currentNavItem === navItem._key) {
-      setDropdownOpen(true);
-    } else {
-      setDropdownOpen(false);
-    }
-  }, [currentNavItem]);
   return (
     <div
       className={cn(NavLinkStyles, navItemHighlightState, `${navItem.label}`)}
@@ -81,14 +72,14 @@ export const NavGroup: FC<Props> = ({ navItem, isMobile }) => {
             <SimpleIcon
               type="arrow-down"
               className={cn(
-                dropdownOpen ? 'rotate-90' : '',
+                isCurrentNavItem ? 'rotate-90' : '',
                 'transition ease-in-out w-3',
                 navItemHighlightState,
               )}
             />
           </button>
           <div
-            className={cn(DropdownOuter, dropdownOpen ? 'block' : 'hidden')}
+            className={cn(DropdownOuter, isCurrentNavItem ? 'block' : 'hidden')}
             onMouseLeave={handleDropdownMouseLeave}
           >
             <div className={cn(DropdownInner, 'transition-all ease-in-out')}>

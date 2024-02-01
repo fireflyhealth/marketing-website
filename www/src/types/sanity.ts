@@ -79,6 +79,7 @@ export type SiteSettings = SanityDocument & {
   globalNav: Navigation;
   globalAnnouncementBanner: AnnouncementBanner;
   defaultMetadata: Metadata;
+  footer: Footer;
 };
 
 export type Homepage = SanityDocument & {
@@ -195,10 +196,23 @@ export type LinkWithLabel = {
 export type LabelWithDropdown = {
   _type: 'labelWithDropdown';
   label: string;
-  subpages: KeyedArray<LinkWithLabel>;
+  subpages: KeyedArray<{
+    _type: 'subpage';
+    label: string;
+    link: LinkableDocumentData;
+  }>;
 };
 
 export type NavGroupType = LinkWithLabel | LabelWithDropdown;
+
+export type Footer = {
+  mobileCta: CTA;
+  footerNavGroups: Maybe<KeyedArray<{ navItems: KeyedArray<LinkWithLabel> }>>;
+  bottomLinks: Maybe<{
+    leftLinks: Maybe<KeyedArray<LinkWithLabel>>;
+    rightLinks: Maybe<KeyedArray<LinkWithLabel>>;
+  }>;
+};
 
 /*
  * Fields

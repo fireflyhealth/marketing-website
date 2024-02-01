@@ -2,6 +2,9 @@ import {
   metadataFragment,
   navigationFragment,
   navigationOverridesFragment,
+  ctaFragment,
+  linkWithLabelFragment,
+  footerFragment,
 } from './fragments';
 
 export const siteSettingsFragment = `
@@ -13,6 +16,9 @@ export const siteSettingsFragment = `
   globalAnnouncementBanner{
     _type,
     body,
+  },
+  footer {
+    ${footerFragment}
   },
   defaultMetadata {${metadataFragment}}
 `;
@@ -67,7 +73,7 @@ export const blogFragment = `
 `;
 
 export const blogArticleFragment = `
-  _id,   
+  _id,
   title,
   category->{
     _type,

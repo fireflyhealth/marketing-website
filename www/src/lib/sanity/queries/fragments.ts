@@ -162,6 +162,25 @@ export const navigationFragment = `
   showNavCTA,
 `;
 
+export const footerFragment = `
+  mobileCta {
+    ${ctaFragment}
+  },
+  footerNavGroups[]{
+    navItems[]{
+      ${linkWithLabelFragment}
+    }
+  },
+  bottomLinks {
+    leftLinks[]{
+      ${linkWithLabelFragment}
+    },
+    rightLinks[]{
+      ${linkWithLabelFragment}
+    }
+  }
+`;
+
 export const metadataFragment = `
   _type,
   title,

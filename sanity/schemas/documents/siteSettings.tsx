@@ -1,4 +1,4 @@
-import { defineField, defineType } from 'sanity';
+import { defineArrayMember, defineField, defineType } from 'sanity';
 import { icons } from '../../lib/icons';
 
 export const SiteSettings = defineType({
@@ -29,6 +29,72 @@ export const SiteSettings = defineType({
       name: 'globalAnnouncementBanner',
       type: 'announcementBanner',
       group: 'globalNavigation',
+    }),
+    defineField({
+      name: 'footer',
+      title: 'Footer',
+      type: 'object',
+      validation: (Rule) => Rule.required(),
+      fields: [
+        defineField({
+          name: 'mobileCta',
+          title: 'CTA (Mobile)',
+          type: 'cta',
+          options: {
+            collapsed: true,
+            collapsible: true,
+          },
+          validation: (Rule) => Rule.required(),
+        }),
+        defineField({
+          name: 'footerNavGroups',
+          type: 'array',
+          validation: (Rule) => Rule.max(3),
+          of: [
+            defineArrayMember({
+              name: 'footerNavGroup',
+              type: 'object',
+              fields: [
+                defineField({
+                  name: 'navItems',
+                  type: 'array',
+                  of: [{ type: 'linkWithLabel' }],
+                }),
+              ],
+              preview: {
+                select: {
+                  navItems: 'navItems',
+                },
+
+                prepare: ({ navItems }) => {
+                  return {
+                    title: navItems.map((item) => item.label).join(', '),
+                  };
+                },
+              },
+            }),
+          ],
+        }),
+        defineField({
+          name: 'bottomLinks',
+          type: 'object',
+          title: 'Bottom Links',
+          fields: [
+            defineField({
+              name: 'leftLinks',
+              title: 'Left',
+              type: 'array',
+              of: [{ type: 'linkWithLabel' }],
+            }),
+            defineField({
+              name: 'rightLinks',
+              title: 'Right',
+              type: 'array',
+              of: [{ type: 'linkWithLabel' }],
+            }),
+          ],
+        }),
+      ],
     }),
     defineField({
       name: 'defaultMetadata',

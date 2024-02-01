@@ -45,13 +45,18 @@ export const DesktopNav: FC<Props> = ({ navGroup, showNavCTA }) => {
             </div>
           ))}
           {showNavCTA && (
-            <Button
-              id={`get-started-nav-cta`}
-              label={getStartedOpen ? 'Close' : 'Get started'}
-              onClick={handleCTAClick}
-              variant="primary"
-              bgColorOverride={getStartedOpen ? 'bg-yellow-light' : 'bg-yellow'}
-            />
+            <div className="w-[190px]">
+              <Button
+                id={`get-started-nav-cta`}
+                label={getStartedOpen ? 'Close' : 'Get started'}
+                width="full"
+                onClick={handleCTAClick}
+                variant="primary"
+                bgColorOverride={
+                  getStartedOpen ? 'bg-yellow-light' : 'bg-yellow'
+                }
+              />
+            </div>
           )}
         </div>
       </div>
