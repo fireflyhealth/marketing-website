@@ -19,8 +19,9 @@ export type DocumentReference = {
 interface SanityDocument {
   _id: string;
   _type: string;
-  _createdAt: string;
-  _updatedAt: string;
+  /* These are required but we don't always fetch them */
+  _createdAt?: string;
+  _updatedAt?: string;
 }
 
 type FileAsset = {
@@ -304,12 +305,19 @@ export type CTA = {
  * Array<PortableTextBlock | ImageBlock>[] */
 export type RichText = PortableTextBlock[];
 
-export type ContentBlock = HeaderBlock;
+export type ContentBlock = ImageBlock;
 
 export type ContentArea = ContentBlock[];
 
-export type HeaderBlock = {
+export type ContentBlockHeader = {
+  _type: 'contentBlockHeader';
   title: string;
-  description?: string;
-  cta?: CTA;
+  description: Maybe<RichText>;
+  cta: Maybe<CTA>;
+};
+
+export type ImageBlock = {
+  _type: 'imageBlock';
+  header: Maybe<ContentBlockHeader>;
+  image: RichImage;
 };

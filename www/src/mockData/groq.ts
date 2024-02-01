@@ -1,4 +1,5 @@
 import {
+  contentBlockFragment,
   ctaFragment,
   footerFragment,
   imageFragment,
@@ -9,6 +10,11 @@ import {
 
 export const mockDataQuery = `
   *[_type == "mockData" && _id == "mockData"]{
+    contentBlockExamples{
+      imageBlock{
+        ${contentBlockFragment}
+      }
+    },
     navigation->{
       ${navigationFragment}
     },

@@ -116,6 +116,12 @@ export const linkWithLabelFragment = `
   },
 `;
 
+/* Make sure the parent property includes the brackets, i.e.
+ *
+ * content[]{
+ *   ${richTextFragment}
+ * }
+ */
 export const richTextFragment = `
   _key,
   _type,
@@ -128,6 +134,30 @@ export const richTextFragment = `
         ${linkFragment}
       }
     },
+  }
+`;
+
+const contentBlockHeaderFragment = `
+  _type,
+  title,
+  description[]{
+    ${richTextFragment}
+  },
+  cta {
+    ${ctaFragment}
+  }
+`;
+
+export const contentBlockFragment = `
+  _type,
+  _key,
+  _type == "imageBlock" => {
+    header {
+      ${contentBlockHeaderFragment}
+    },
+    image {
+      ${imageFragment}
+    }
   }
 `;
 
@@ -155,6 +185,7 @@ export const navGroupFragment = `
 `;
 
 export const navigationFragment = `
+  _id,
   _type,
   navGroup {
     ${navGroupFragment}
