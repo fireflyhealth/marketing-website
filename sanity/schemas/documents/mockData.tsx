@@ -55,6 +55,16 @@ export const MockData = defineType({
           title: 'Image Carousel Block',
           validation: (Rule) => Rule.required(),
         }),
+        defineField({
+          name: 'videoHeaderExample',
+          title: 'Video Header Example',
+          type: 'videoHeader',
+          options: {
+            collapsible: true,
+            collapsed: true,
+          },
+          validation: (Rule) => Rule.required(),
+        }),
       ],
     }),
     defineField({
