@@ -17,7 +17,7 @@ export const Video = defineType({
       name: 'posterImage',
       title: 'Poser Image',
       description:
-        'This image will render before the video until it finishes loading.',
+        'The poster image will show before a video is played and while it is paused.',
       type: 'richImage',
     }),
   ],
