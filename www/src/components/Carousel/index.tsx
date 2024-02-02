@@ -1,4 +1,5 @@
 import React, { FC, useState, useEffect, useContext, useRef } from 'react';
+import { useSwipeable } from 'react-swipeable';
 
 type WithChildren<T = {}> = T & {
   children: React.ReactNode;
@@ -79,8 +80,7 @@ type SlideProps = WithChildren & {
 };
 
 export const Slide: FC<SlideProps> = ({ children, slideIndex }) => {
-  const { setSlideContainerLeft, currentSlideIndex, slideCount } =
-    useCarousel();
+  const { setSlideContainerLeft, currentSlideIndex } = useCarousel();
   const slideElement = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -103,15 +103,20 @@ export const Slide: FC<SlideProps> = ({ children, slideIndex }) => {
 
   return (
     <div className="carousel__slide h-full relative" ref={slideElement}>
-      {slideIndex}
       {children}
     </div>
   );
 };
 
 export const SlideContainer: FC<WithChildren> = ({ children }) => {
-  const { slideContainerLeft } = useCarousel();
-  /* TODO: make swipe-able / draggable */
+  const { slideContainerLeft, goNext, goPrev } = useCarousel();
+  const handlers = useSwipeable({
+    onSwipedLeft: () => goNext(),
+    onSwipedRight: () => goPrev(),
+    swipeDuration: 500,
+    preventScrollOnSwipe: true,
+    trackMouse: true,
+  });
 
   return (
     <div className="relative w-full h-[400px]">
@@ -119,6 +124,7 @@ export const SlideContainer: FC<WithChildren> = ({ children }) => {
       <div
         className="absolute top-0 left-0 transition h-full flex flex-row"
         style={{ transform: `translateX(${slideContainerLeft}px)` }}
+        {...handlers}
       >
         {children}
       </div>
