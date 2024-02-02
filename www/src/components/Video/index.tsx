@@ -56,21 +56,22 @@ export const Video: FC<Props> = ({ video, width }) => {
 
     setPlayer(videoPlayer);
     videoPlayer.on('timeupdate', ({ percent }) => setProgress(percent * 100));
-  }, [videoRef, video.videoLink]);
 
-  // reset video progress after video finishes
-  useEffect(() => {
-    if (!player) return;
-
-    if (progress === 100) {
-      setTimeout(() => {
-        player.setCurrentTime(0);
-        setIsPlaying(false);
-        player.exitFullscreen();
-        setIsFullscreen(false);
-      }, 1000);
-    }
-  }, [player, progress]);
+    videoPlayer.on('ended', () => {
+      if (!player) return;
+      const resetVideo = () =>
+        setTimeout(() => {
+          player.setCurrentTime(0);
+          setIsPlaying(false);
+          player.exitFullscreen();
+          setIsFullscreen(false);
+        }, 1500);
+      resetVideo();
+      return () => {
+        clearTimeout(resetVideo());
+      };
+    });
+  }, [videoRef, video.videoLink, player]);
 
   // set total duration of video
   useEffect(() => {
