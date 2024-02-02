@@ -19,6 +19,7 @@ export const Video = defineType({
       description:
         'The poster image will show before a video is played and while it is paused.',
       type: 'richImage',
+      validation: (Rule) => Rule.required(),
     }),
   ],
 });
