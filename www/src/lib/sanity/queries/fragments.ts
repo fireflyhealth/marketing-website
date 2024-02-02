@@ -243,3 +243,11 @@ export const navigationOverridesFragment = `
       body,
     },
   `;
+
+export const videoFragment = `
+  _type,
+  videoLink,
+  posterImage {
+    ${imageFragment}
+  }
+`;

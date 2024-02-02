@@ -25,7 +25,11 @@ export type Props = {
     | 'sound-mute'
     | 'search'
     | 'wifi'
-    | 'plus';
+    | 'plus'
+    | 'play'
+    | 'pause'
+    | 'fullscreen'
+    | 'exit-fullscreen';
   className?: string;
   color?: string;
   width?: number;
@@ -422,6 +426,119 @@ export const SimpleIcon: FC<Props> = ({ className, type, color, ...props }) => {
             <desc>{type}</desc>
             <rect y="10" width="24" height="4" rx="2" fill="currentColor" />
             <rect x="10" width="4" height="24" rx="2" fill="currentColor" />
+          </svg>
+        );
+      case 'play':
+        return (
+          <svg
+            className={className}
+            viewBox="0 0 15 20"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <desc>{type}</desc>
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M0 18C0 19.6481 1.88153 20.5889 3.2 19.6L13.8667 11.6C14.9333 10.8 14.9333 9.2 13.8667 8.4L3.2 0.4C1.88153 -0.588855 0 0.351909 0 2V18Z"
+              fill="currentColor"
+            />
+          </svg>
+        );
+      case 'pause':
+        return (
+          <svg
+            className={className}
+            viewBox="0 0 24 25"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <desc>{type}</desc>
+            <rect
+              x="5"
+              y="2.974"
+              width="4"
+              height="20"
+              rx="2"
+              fill="currentColor"
+            />
+            <rect
+              x="15"
+              y="2.974"
+              width="4"
+              height="20"
+              rx="2"
+              fill="currentColor"
+            />
+          </svg>
+        );
+      case 'fullscreen':
+        return (
+          <svg
+            className={className}
+            viewBox="0 0 24 25"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <desc>{type}</desc>
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M13.8579 2.974C13.8579 4.07857 14.7533 4.974 15.8579 4.974H20V9.11613C20 10.2207 20.8955 11.1161 22 11.1161C23.1046 11.1161 24 10.2207 24 9.11613L24 2.974C24 1.86943 23.1046 0.973998 22 0.973999H15.8579C14.7533 0.973998 13.8579 1.86943 13.8579 2.974Z"
+              fill="currentColor"
+            />
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M10.1421 2.974C10.1421 4.07857 9.24666 4.974 8.14209 4.974H3.99995V9.11613C3.99995 10.2207 3.10452 11.1161 1.99995 11.1161C0.895385 11.1161 -4.48227e-05 10.2207 -4.3869e-05 9.11613L-4.57764e-05 2.974C-4.673e-05 1.86943 0.895386 0.973998 1.99995 0.973999H8.14209C9.24666 0.973998 10.1421 1.86943 10.1421 2.974Z"
+              fill="currentColor"
+            />
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M10.1421 22.974C10.1421 21.8694 9.24666 20.974 8.14209 20.974H3.99995V16.8319C3.99995 15.7273 3.10452 14.8319 1.99995 14.8319C0.895385 14.8319 -4.48227e-05 15.7273 -4.3869e-05 16.8319L-4.57764e-05 22.974C-4.673e-05 24.0786 0.895386 24.974 1.99995 24.974H8.14209C9.24666 24.974 10.1421 24.0786 10.1421 22.974Z"
+              fill="currentColor"
+            />
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M13.8579 22.974C13.8579 21.8694 14.7533 20.974 15.8579 20.974H20V16.8319C20 15.7273 20.8955 14.8319 22 14.8319C23.1046 14.8319 24 15.7273 24 16.8319L24 22.974C24 24.0786 23.1046 24.974 22 24.974H15.8579C14.7533 24.974 13.8579 24.0786 13.8579 22.974Z"
+              fill="currentColor"
+            />
+          </svg>
+        );
+      case 'exit-fullscreen':
+        return (
+          <svg
+            className={className}
+            viewBox="0 0 24 25"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M24 9.11612C24 8.01155 23.1046 7.11612 22 7.11612H17.8579V2.97398C17.8579 1.86941 16.9624 0.973985 15.8579 0.973986C14.7533 0.973985 13.8579 1.86941 13.8579 2.97398L13.8579 9.11612C13.8579 10.2207 14.7533 11.1161 15.8579 11.1161H22C23.1046 11.1161 24 10.2207 24 9.11612Z"
+              fill="currentColor"
+            />
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M0 9.11612C-1.68587e-07 8.01155 0.89543 7.11612 2 7.11612H6.14214V2.97398C6.14214 1.86941 7.03757 0.973985 8.14214 0.973986C9.24671 0.973985 10.1421 1.86941 10.1421 2.97398L10.1421 9.11612C10.1421 10.2207 9.2467 11.1161 8.14214 11.1161H2C0.89543 11.1161 -5.90056e-07 10.2207 0 9.11612Z"
+              fill="currentColor"
+            />
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M0 16.8319C-1.68587e-07 17.9364 0.89543 18.8319 2 18.8319H6.14214V22.974C6.14214 24.0786 7.03757 24.974 8.14214 24.974C9.24671 24.974 10.1421 24.0786 10.1421 22.974L10.1421 16.8319C10.1421 15.7273 9.2467 14.8319 8.14214 14.8319H2C0.89543 14.8319 -5.90056e-07 15.7273 0 16.8319Z"
+              fill="currentColor"
+            />
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M24 16.8319C24 17.9364 23.1046 18.8319 22 18.8319H17.8579V22.974C17.8579 24.0786 16.9624 24.974 15.8579 24.974C14.7533 24.974 13.8579 24.0786 13.8579 22.974L13.8579 16.8319C13.8579 15.7273 14.7533 14.8319 15.8579 14.8319H22C23.1046 14.8319 24 15.7273 24 16.8319Z"
+              fill="currentColor"
+            />
           </svg>
         );
     }

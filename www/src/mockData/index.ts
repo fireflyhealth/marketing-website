@@ -7,6 +7,7 @@ import {
   Footer,
   ImageBlock,
   ImageCarouselBlock,
+  Video,
 } from '@/types/sanity';
 import mockData from './mockData.json';
 
@@ -28,3 +29,5 @@ export const articleRichText = mockData.articleRichText as RichText;
 export const ctaExamples = mockData.ctas as CTA[];
 
 export const linkWithLabelExamples = mockData.links as LinkWithLabel[];
+
+export const videoExample = mockData.videoExample as Video;

@@ -197,11 +197,10 @@ export type LinkWithLabel = {
 export type LabelWithDropdown = {
   _type: 'labelWithDropdown';
   label: string;
-  subpages: KeyedArray<{
-    _type: 'subpage';
-    label: string;
-    link: LinkableDocumentData;
-  }>;
+  subpages: Omit<LinkWithLabel, '_type' | 'link' | 'label'> &
+    {
+      _key: string;
+    }[];
 };
 
 export type NavGroupType = LinkWithLabel | LabelWithDropdown;
@@ -274,6 +273,12 @@ export type Image = {
       dimensions: ImageDimensions;
     };
   };
+};
+
+export type Video = {
+  _type: 'video';
+  videoLink: 'string';
+  posterImage: RichImage;
 };
 
 export type Metadata = {

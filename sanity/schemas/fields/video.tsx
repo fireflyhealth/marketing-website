@@ -8,7 +8,8 @@ export const Video = defineType({
     defineField({
       name: 'videoLink',
       title: 'Video Link',
-      description: 'This field only accepts links from Vimo.',
+      description:
+        'This field only accepts links from Vimeo (ex. https://vimeo.com/902416562/fdfdade255).  Landscape videos work best.',
       type: 'string',
       validation: (Rule) => Rule.required(),
     }),
