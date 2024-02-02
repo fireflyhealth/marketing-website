@@ -18,6 +18,7 @@ type PageParams = {
 };
 
 const Page: FC<PageProps> = ({ page }) => {
+  console.log('page', page);
   return (
     <>
       <PageMetadata page={page} />
