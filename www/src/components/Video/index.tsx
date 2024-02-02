@@ -2,7 +2,6 @@ import { FC, useState, useRef, useEffect, SyntheticEvent } from 'react';
 import Vimeo from '@vimeo/player';
 import cn from 'classnames';
 import * as SanityTypes from '@/types/sanity';
-import { SimpleIcon } from '@/svgs/SimpleIcon';
 import { Button } from '@/atoms/Button';
 import { SanityImage } from '@/atoms/Image/SanityImage';
 import { VideoWrapper, PosterImage, VideoPlayer, PlayButton } from './styles';
