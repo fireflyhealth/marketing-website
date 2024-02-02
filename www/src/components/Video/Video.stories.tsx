@@ -15,9 +15,6 @@ const VideoExample: FC<Props> = ({ video }) => {
 const meta = {
   title: 'Components/Video',
   component: VideoExample,
-  // parameters: {
-  //   controls: { exclude: ['navigation'] },
-  // },
 } satisfies Meta<typeof VideoExample>;
 
 type Story = StoryObj<typeof meta>;
