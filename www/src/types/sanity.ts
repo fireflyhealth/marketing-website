@@ -190,17 +190,15 @@ export type BlogArticleLinkData = Pick<
 /* Navigation */
 export type LinkWithLabel = {
   _type: 'linkWithLabel';
+  _key: string;
   label: string;
-  link: Link;
+  link: Link | LinkableDocument;
 };
 
 export type LabelWithDropdown = {
   _type: 'labelWithDropdown';
   label: string;
-  subpages: Omit<LinkWithLabel, '_type' | 'link' | 'label'> &
-    {
-      _key: string;
-    }[];
+  subpages: LinkWithLabel[];
 };
 
 export type NavGroupType = LinkWithLabel | LabelWithDropdown;

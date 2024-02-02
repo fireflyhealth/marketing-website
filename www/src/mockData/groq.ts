@@ -22,6 +22,8 @@ export const mockDataQuery = `
     navigation->{
       _type,
       _id,
+      _createdAt,
+      _updatedAt,
       title,
       ${navigationFragment}
     },
