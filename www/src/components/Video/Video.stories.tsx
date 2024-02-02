@@ -8,20 +8,17 @@ type Props = {
   video: VideoType;
 };
 
-const VideoExample: FC<Props> = ({ video }) => {
-  return <Video video={video} width="md:w-3/5" />;
-};
-
 const meta = {
   title: 'Components/Video',
-  component: VideoExample,
-} satisfies Meta<typeof VideoExample>;
+  component: Video,
+} satisfies Meta<typeof Video>;
 
 type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
   args: {
     video: videoExample,
+    width: 'md:w-3/5',
   },
 };
 
