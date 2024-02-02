@@ -16,7 +16,6 @@ import {
   PlayButton,
   Duration,
 } from './styles';
-import type Player from 'vimeo__player';
 
 type Props = {
   video: SanityTypes.Video;
@@ -27,7 +26,7 @@ export const Video: FC<Props> = ({ video, width }) => {
   const videoRef = useRef<HTMLDivElement>(null);
   const progressRef = useRef<HTMLProgressElement>(null);
 
-  const [player, setPlayer] = useState<Player | null>(null);
+  const [player, setPlayer] = useState<Vimeo | null>(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(false);
   const [isFullscreen, setIsFullscreen] = useState(false);
