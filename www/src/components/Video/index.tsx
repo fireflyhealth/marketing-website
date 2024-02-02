@@ -55,7 +55,33 @@ export const Video: FC<Props> = ({ video, width }) => {
     const videoPlayer = new Vimeo(videoRef.current, options);
 
     setPlayer(videoPlayer);
-    videoPlayer.on('timeupdate', ({ percent }) => setProgress(percent * 100));
+
+    videoPlayer.on('play', () => setIsPlaying(true));
+
+    videoPlayer.on('pause', () => setIsPlaying(false));
+
+    videoPlayer.on('timeupdate', ({ duration, percent, seconds }) => {
+      // update progress bar
+      setProgress(percent * 100);
+
+      // set total duration of video
+      setTotalDuration(duration);
+
+      // set and update duration of video
+      setCurrentDuration(seconds);
+    });
+
+    videoPlayer.on('volumechange', ({ volume }) => {
+      if (volume === 0) {
+        setIsMuted(true);
+      } else setIsMuted(false);
+    });
+
+    videoPlayer.on('fullscreenchange', ({ fullscreen }) => {
+      if (fullscreen) {
+        setIsFullscreen(true);
+      } else setIsFullscreen(false);
+    });
 
     videoPlayer.on('ended', () => {
       if (!player) return;
@@ -73,21 +99,6 @@ export const Video: FC<Props> = ({ video, width }) => {
     });
   }, [videoRef, video.videoLink, player]);
 
-  // set total duration of video
-  useEffect(() => {
-    if (!player) return;
-    player.getDuration().then((res) => setTotalDuration(res));
-  }, [player]);
-
-  // set and update current duration of video
-  useEffect(() => {
-    if (!player) return;
-
-    player.on('timeupdate', () => {
-      player.getCurrentTime().then((res) => setCurrentDuration(res));
-    });
-  }, [player]);
-
   // controls fullscreen icon when entering and exiting
   // fullscreen mode while the video is playing
   useEffect(() => {
@@ -97,42 +108,28 @@ export const Video: FC<Props> = ({ video, width }) => {
   }, [isPlaying, isFullscreen]);
 
   function handlePlay() {
-    if (!player) return;
     player?.play();
-
-    setIsPlaying(true);
   }
 
   function handlePause() {
-    if (!player) return;
-    player.pause();
-
-    setIsPlaying(false);
+    player?.pause();
   }
 
   function handleMute() {
-    if (!player) return;
-    setIsMuted(true);
-    player.setVolume(0);
+    player?.setVolume(0);
   }
 
   function handleUnmute() {
-    if (!player) return;
-    setIsMuted(false);
-    player.setVolume(1);
+    player?.setVolume(1);
   }
 
   function handleFullscreen() {
-    if (!player) return;
-    player.getFullscreen();
-    player.requestFullscreen();
-    setIsFullscreen(true);
+    player?.getFullscreen();
+    player?.requestFullscreen();
   }
 
   function handleExitFullscreen() {
-    if (!player) return;
-    player.exitFullscreen();
-    setIsFullscreen(false);
+    player?.exitFullscreen();
   }
 
   const togglePlay = () => (isPlaying ? handlePause() : handlePlay());
@@ -140,12 +137,11 @@ export const Video: FC<Props> = ({ video, width }) => {
   const toggleFullscreen = () =>
     isFullscreen ? handleExitFullscreen() : handleFullscreen();
 
-  const seek = async (e: SyntheticEvent) => {
+  const seek = async (e: React.MouseEvent) => {
     e.preventDefault();
     if (!player) return;
     const clientRect = progressRef.current?.getBoundingClientRect();
 
-    //@ts-ignore
     const pageX = e.pageX;
     const max = await player.getDuration();
     const left = clientRect?.left || 0;
