@@ -8,12 +8,13 @@ import { CTA } from '@/components/CTA';
 import { RichText } from '@/components/RichText';
 import {
   HeaderWrapper,
-  Heading,
   Title,
   Description,
   CTAWrapper,
   ContentBlockContainer,
   MobileCTAWrapper,
+  ContentBlockInner,
+  HeaderBody,
 } from './styles';
 
 type ContentBlockHeaderProps = {
@@ -24,7 +25,7 @@ export const ContentBlockHeader: FC<ContentBlockHeaderProps> = ({ header }) => {
   const { title, description, cta } = header;
   return (
     <div className={cn(HeaderWrapper)}>
-      <div className={cn(Heading)}>
+      <div className={cn(HeaderBody)}>
         <h2 className={cn(Title)}>{title}</h2>
 
         {description ? (
@@ -56,10 +57,10 @@ export const ContentBlockWrapper: FC<ContentBlockWrapperProps> = ({
   return (
     <div className={cn(ContentBlockContainer)}>
       {header ? <ContentBlockHeader header={header} /> : null}
-      {children}
+      <div className={cn(ContentBlockInner)}>{children}</div>
       {cta ? (
         <div className={cn(MobileCTAWrapper)}>
-          <CTA cta={cta} />
+          <CTA cta={cta} width="full" />
         </div>
       ) : null}
     </div>

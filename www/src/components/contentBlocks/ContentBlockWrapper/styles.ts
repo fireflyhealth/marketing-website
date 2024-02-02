@@ -1,8 +1,11 @@
-export const ContentBlockContainer = ['py2'];
+export const ContentBlockContainer = ['p-4', 'md:p-12'];
 
-export const HeaderWrapper = ['flex flex-row'];
+export const HeaderWrapper = [
+  'pb-4',
+  'md:flex md:flex-row md:justify-between md:pb-12',
+];
 
-export const Heading = ['py-12 px-6', 'md:p-12'];
+export const HeaderBody = ['max-w-[800px] md:pr-4'];
 
 export const Title = ['font-trust font-size-4 text-theme-primary'];
 
@@ -11,6 +14,8 @@ export const Description = [
   'md:mt-6',
 ];
 
-export const CTAWrapper = ['hidden md:block w-[300px]'];
+export const CTAWrapper = ['hidden md:block flex items-end'];
 
-export const MobileCTAWrapper = ['block md:hidden'];
+export const ContentBlockInner = [''];
+
+export const MobileCTAWrapper = ['block pt-4 md:hidden'];
