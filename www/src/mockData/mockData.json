@@ -187,7 +187,36 @@
             }
           }
         }
-      ]
+      ],
+      "children": [
+        {
+          "marks": ["710b11d36947"],
+          "text": "Read more on Wikipedia",
+          "_key": "f7732c0d2526",
+          "_type": "span"
+        },
+        {
+          "_type": "span",
+          "marks": [],
+          "text": " or ",
+          "_key": "b712d1de4492"
+        },
+        {
+          "_type": "span",
+          "marks": ["ee04912cf484"],
+          "text": "read about the benefits of fiber",
+          "_key": "3a16b4bb47e0"
+        },
+        { "marks": [], "text": ".", "_key": "7794a95a7f49", "_type": "span" }
+      ],
+      "style": "normal",
+      "_key": "e543f2d84e8d"
+    },
+    {
+      "_key": "d2fd59018041",
+      "_type": "icon",
+      "icon": "doctors-office",
+      "markDefs": null
     }
   },
   "ctas": [
