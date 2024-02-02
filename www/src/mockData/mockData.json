@@ -91,6 +91,7 @@
               "externalUrl": null,
               "file": null,
               "documentLink": {
+                "title": "Care Team",
                 "parentPage": {
                   "_type": "genericPage",
                   "title": "About",
@@ -100,8 +101,7 @@
                 "_createdAt": "2024-01-11T00:13:00Z",
                 "_updatedAt": "2024-01-31T16:37:09Z",
                 "_type": "subPage",
-                "slug": { "current": "care-team", "_type": "slug" },
-                "title": "Care Team"
+                "slug": { "current": "care-team", "_type": "slug" }
               }
             }
           }
@@ -177,10 +177,6 @@
           "_key": "3ce052c97294",
           "label": "Privacy",
           "link": {
-            "_type": "link",
-            "_key": null,
-            "externalUrl": null,
-            "file": null,
             "documentLink": {
               "_id": "710f85af-6bd8-4248-b6b3-05c40978b0f1",
               "_createdAt": "2024-01-29T17:06:51Z",
