@@ -238,7 +238,7 @@ export type AnnouncementBanner = {
 export type RichImage = Omit<Image, '_type'> & {
   _type: 'richImage';
   altText: string;
-  caption: string | null;
+  caption: Maybe<string>;
 };
 
 export type ImageCrop = {

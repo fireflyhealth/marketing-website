@@ -9,6 +9,7 @@ import { PortableTextBlock } from '@portabletext/types';
 import { RichText as RichTextType } from '@/types/sanity';
 import { BrandedIcon } from '@/svgs/BrandedIcon';
 import { Link } from '@/atoms/Link';
+import { SanityImage } from '@/atoms/Image/SanityImage';
 
 type RichTextProps = {
   content: RichTextType;
@@ -56,6 +57,7 @@ const BlockRenderer: PortableTextComponent<PortableTextBlock> = ({
 
 const components: Partial<PortableTextReactComponents> = {
   block: BlockRenderer,
+
   list: {
     bullet: ({ children }) => <ul className="font-size-8">{children}</ul>,
     number: ({ children }) => <ol className="font-size-8">{children}</ol>,
@@ -67,6 +69,11 @@ const components: Partial<PortableTextReactComponents> = {
   types: {
     icon: (props) => {
       return <BrandedIcon type={props.value.icon} wrapperStyles="w-12" />;
+    },
+    richImage: (props) => {
+      return (
+        <SanityImage image={props.value} sizes={['100vw', '100vw', '900px']} />
+      );
     },
   },
   marks: {

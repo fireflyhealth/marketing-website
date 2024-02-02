@@ -126,6 +126,9 @@ export const richTextFragment = `
   _key,
   _type,
   ...,
+  _type == "richImage" => {
+    ${imageFragment}
+  },
   markDefs[]{
     _key,
     _type,

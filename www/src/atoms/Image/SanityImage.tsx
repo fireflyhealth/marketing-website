@@ -135,10 +135,13 @@ export const SanityImage: FC<SanityImageProps> = ({
     [image, width, height, aspectRatio],
   );
 
+  const caption = 'caption' in image ? image.caption : undefined;
+
   return (
     <GenericImage
       src={src}
       alt={image.altText}
+      caption={caption}
       width={imageWidth}
       height={imageHeight}
       aspectRatio={aspectRatio}
