@@ -20,7 +20,9 @@ export const mockDataQuery = `
       }
     },
     navigation->{
-      ...,
+      _type,
+      _id,
+      title,
       ${navigationFragment}
     },
     simpleRichText,
