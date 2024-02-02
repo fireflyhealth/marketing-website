@@ -1113,6 +1113,8 @@
     {
       "label": "Download",
       "image": {
+        "crop": null,
+        "hotspot": null,
         "_type": "richImage",
         "_key": null,
         "asset": {
@@ -1129,9 +1131,7 @@
           }
         },
         "caption": null,
-        "altText": "A trippy image of two hands holding a phone-shaped pane of glass",
-        "crop": null,
-        "hotspot": null
+        "altText": "A trippy image of two hands holding a phone-shaped pane of glass"
       }
     },
     {
@@ -1196,7 +1196,6 @@
           "right": 0
         },
         "hotspot": {
-          "_type": "sanity.imageHotspot",
           "width": 0.1870229007633585,
           "x": 0.9064885496183208,
           "y": 0.11488647736415543,
