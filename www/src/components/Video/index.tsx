@@ -19,10 +19,11 @@ import {
 
 type Props = {
   video: SanityTypes.Video;
+  posterSizes: string[];
   width?: string;
 };
 
-export const Video: FC<Props> = ({ video, width }) => {
+export const Video: FC<Props> = ({ video, posterSizes, width }) => {
   const videoRef = useRef<HTMLDivElement>(null);
   const progressRef = useRef<HTMLProgressElement>(null);
 
@@ -164,7 +165,7 @@ export const Video: FC<Props> = ({ video, width }) => {
           <SanityImage
             image={video.posterImage}
             aspectRatio={9 / 16}
-            sizes={['57vw', '90vw', '66vw']}
+            sizes={posterSizes}
           />
         </div>
       )}
