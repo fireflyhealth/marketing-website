@@ -1,4 +1,5 @@
 import React, { FC, useState, useEffect, useContext, useRef } from 'react';
+import { useSwipeable } from 'react-swipeable';
 
 type WithChildren<T = {}> = T & {
   children: React.ReactNode;
@@ -108,8 +109,14 @@ export const Slide: FC<SlideProps> = ({ children, slideIndex }) => {
 };
 
 export const SlideContainer: FC<WithChildren> = ({ children }) => {
-  const { slideContainerLeft, currentSlideIndex } = useCarousel();
-  /* TODO: make swipe-able / draggable */
+  const { slideContainerLeft, goNext, goPrev } = useCarousel();
+  const handlers = useSwipeable({
+    onSwipedLeft: () => goNext(),
+    onSwipedRight: () => goPrev(),
+    swipeDuration: 500,
+    preventScrollOnSwipe: true,
+    trackMouse: true,
+  });
 
   return (
     <div className="relative w-full h-[400px]">
@@ -117,6 +124,7 @@ export const SlideContainer: FC<WithChildren> = ({ children }) => {
       <div
         className="absolute top-0 left-0 transition h-full flex flex-row"
         style={{ transform: `translateX(${slideContainerLeft}px)` }}
+        {...handlers}
       >
         {children}
       </div>
