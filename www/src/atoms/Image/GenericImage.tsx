@@ -1,6 +1,7 @@
-import * as React from 'react';
+import React, { FC } from 'react';
 import cx from 'classnames';
 import NextImage, { ImageProps as NextImageProps } from 'next/image';
+import { Maybe } from '@/types/sanity';
 
 /**
  * Converts an array of sizes to a proper "sizes" string.
@@ -39,6 +40,7 @@ const parseSizes = (sizes: string[]): string => {
 
 export type GenericImageProps = Omit<NextImageProps, 'alt' | 'sizes'> & {
   alt?: string;
+  caption?: Maybe<string>;
   className?: string;
   /* A standard sizes string, i.e.:
    *
@@ -52,17 +54,25 @@ export type GenericImageProps = Omit<NextImageProps, 'alt' | 'sizes'> & {
   sizes: string | string[];
   /* A or a number 0 to 1, i.e. .75 for a 3/4 image */
   aspectRatio?: number;
+
+  /* Almost every image in the Firefly designs have a rounded border.
+   * Defaults to true. */
+  rounded?: boolean;
 };
 
-export const GenericImage: React.FC<GenericImageProps> = ({
+const GenericImageInner: FC<GenericImageProps> = ({
   sizes,
   aspectRatio,
-  className,
+  caption,
+  className: classNameProp,
   width,
   height,
+  rounded = true,
   ...nextImageProps
 }) => {
   const sizesString = Array.isArray(sizes) ? parseSizes(sizes) : sizes;
+  /* common class name */
+  const className = cx(rounded && 'rounded-lg', classNameProp);
 
   /**
    * If we have an aspect ratio, apply that style to the wrapping component.
@@ -128,4 +138,21 @@ export const GenericImage: React.FC<GenericImageProps> = ({
       {...nextImageProps}
     />
   );
+};
+
+export const GenericImage: FC<GenericImageProps> = ({ caption, ...props }) => {
+  /* If the provided image has a caption, wrap it in a <figure> tag. */
+  if (caption) {
+    return (
+      <figure>
+        <GenericImageInner {...props} />
+        <figcaption className="pt-4 font-size-10 text-color-secondary">
+          {caption}
+        </figcaption>
+      </figure>
+    );
+  }
+  /* Otherwise, do not wrap in <figure>. This allows us to use this component
+   * for decorative images which should not be wrapped in figure tags for a11y reasons */
+  return <GenericImageInner {...props} />;
 };

@@ -5,7 +5,7 @@ import { Link } from '@/atoms/Link';
 
 type ButtonVariant = 'primary' | 'secondary' | 'outlined' | 'textLink';
 
-type ButtonProps = {
+export type ButtonProps = {
   /* Used for analytics event tracking */
   id: string;
   label: string;
@@ -59,6 +59,7 @@ export const Button: FC<ButtonProps> = ({
 type LinkButtonProps = Omit<ButtonProps, 'onClick'> & {
   link: LinkType;
 };
+
 export const LinkButton: FC<LinkButtonProps> = ({
   id,
   label,

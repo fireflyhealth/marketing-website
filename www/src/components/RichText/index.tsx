@@ -9,9 +9,15 @@ import { PortableTextBlock } from '@portabletext/types';
 import { RichText as RichTextType } from '@/types/sanity';
 import { BrandedIcon } from '@/svgs/BrandedIcon';
 import { Link } from '@/atoms/Link';
+import { SanityImage } from '@/atoms/Image/SanityImage';
 
 type RichTextProps = {
   content: RichTextType;
+  /* a font-size class name. This allows us to override the default
+   * font size for <p> tags within SimpleRichText in scenarios where
+   * it should not be the usual font-size-8 (i.e. Contnent Block Header
+   * descriptions). */
+  fontSize?: string;
   className?: string;
 };
 
@@ -40,7 +46,9 @@ const BlockRenderer: PortableTextComponent<PortableTextBlock> = ({
         </blockquote>
       );
     case 'normal':
-      return <p className="font-size-8">{children}</p>;
+      /* Font size is inherited from the parent element. See the note above
+       * about the custom fontSize prop. */
+      return <p>{children}</p>;
     default:
       console.warn(`No block renderer config for ${value.style}`, { value });
       return null;
@@ -49,6 +57,7 @@ const BlockRenderer: PortableTextComponent<PortableTextBlock> = ({
 
 const components: Partial<PortableTextReactComponents> = {
   block: BlockRenderer,
+
   list: {
     bullet: ({ children }) => <ul className="font-size-8">{children}</ul>,
     number: ({ children }) => <ol className="font-size-8">{children}</ol>,
@@ -61,6 +70,11 @@ const components: Partial<PortableTextReactComponents> = {
     icon: (props) => {
       return <BrandedIcon type={props.value.icon} wrapperStyles="w-12" />;
     },
+    richImage: (props) => {
+      return (
+        <SanityImage image={props.value} sizes={['100vw', '100vw', '900px']} />
+      );
+    },
   },
   marks: {
     link: (props) => {
@@ -69,9 +83,19 @@ const components: Partial<PortableTextReactComponents> = {
   },
 };
 
-export const RichText: FC<RichTextProps> = ({ content, className }) => {
+export const RichText: FC<RichTextProps> = ({
+  content,
+  className,
+  fontSize,
+}) => {
   return (
-    <div className={cx('RichText theme-text-color-primary', className)}>
+    <div
+      className={cx(
+        'RichText theme-text-color-primary',
+        className,
+        fontSize || 'font-size-8',
+      )}
+    >
       <PortableText value={content} components={components} />
     </div>
   );

@@ -1,6 +1,5 @@
 import { Homepage } from './documents/homepage';
 import { GenericPage, SubPage } from './documents/genericPage';
-import { Metadata } from './fields/metadata';
 import {
   ContactPage,
   DownloadPage,
@@ -12,6 +11,8 @@ import { BlogArticle } from './documents/blogArticle';
 import { Blog } from './documents/blog';
 import { MockData } from './documents/mockData';
 import { SiteSettings } from './documents/siteSettings';
+
+import { Metadata } from './fields/metadata';
 import { RichImage } from './fields/images';
 import { Link, LinkableDocument } from './fields/linking';
 import { CTA } from './fields/cta';
@@ -20,9 +21,11 @@ import { Navigation } from './documents/navigation';
 import { LinkWithLabel } from './fields/linkWithLabel';
 import { LabelWithDropdown } from './fields/labelWithDropdown';
 import { ContentArea } from './fields/contentArea';
-import { HeaderBlock } from './blocks/headerBlock';
 import { NavigationOverrides } from './fields/navigationOverrides';
 import { AnnouncementBanner } from './fields/announcementBanner';
+
+import { ContentBlockHeader } from './blocks/contentBlockHeader';
+import { ImageBlock } from './blocks/imageBlock';
 
 export const schemaTypes = [
   /* Document Types */
@@ -41,9 +44,10 @@ export const schemaTypes = [
   Navigation,
 
   /* Blocks */
-  HeaderBlock,
+  ImageBlock,
 
   /* Field Types */
+  ContentBlockHeader,
   Metadata,
   RichImage,
   Link,

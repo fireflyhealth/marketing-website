@@ -30,6 +30,24 @@ export const MockData = defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
+      name: 'contentBlockExamples',
+      title: 'Content Blocks',
+      type: 'object',
+      validation: (Rule) => Rule.required(),
+      fields: [
+        defineField({
+          name: 'imageBlock',
+          type: 'imageBlock',
+          options: {
+            collapsible: true,
+            collapsed: true,
+          },
+          title: 'Image Block',
+          validation: (Rule) => Rule.required(),
+        }),
+      ],
+    }),
+    defineField({
       title: 'Image Examples',
       name: 'imageExamples',
       type: 'array',

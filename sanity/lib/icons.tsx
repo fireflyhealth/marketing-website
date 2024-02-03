@@ -14,9 +14,10 @@ import {
   GrTrash,
   GrCode,
   GrMenu,
+  GrImage,
 } from 'react-icons/gr';
 import { SlSettings } from 'react-icons/sl';
-import { PiBracketsAngleBold } from 'react-icons/pi';
+import { PiHandPointing, PiBracketsAngleBold } from 'react-icons/pi';
 import { RxComponent2 } from 'react-icons/rx';
 import { BsMenuDown } from 'react-icons/bs';
 import { BiSolidNavigation } from 'react-icons/bi';
@@ -45,4 +46,6 @@ export const icons = {
   Component: RxComponent2,
   MenuDropdown: BsMenuDown,
   MenuItem: BiSolidNavigation,
+  Image: GrImage,
+  CTA: PiHandPointing,
 };

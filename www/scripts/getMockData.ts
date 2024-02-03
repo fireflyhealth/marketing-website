@@ -7,7 +7,9 @@ import { client } from '@/lib/sanity';
 const jsonFilePath = path.resolve(__dirname, '../src/mockData/mockData.json');
 
 const main = async () => {
-  const mockData = await client.fetch(mockDataQuery);
+  const mockData = await client
+    .withConfig({ useCdn: false })
+    .fetch(mockDataQuery);
   const fileContents = await prettier.format(JSON.stringify(mockData, null), {
     parser: 'json',
   });

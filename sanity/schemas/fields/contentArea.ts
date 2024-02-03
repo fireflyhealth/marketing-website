@@ -4,5 +4,5 @@ export const ContentArea = defineType({
   name: 'contentArea',
   title: 'Content Area',
   type: 'array',
-  of: [{ type: 'headerBlock' }],
+  of: [{ type: 'imageBlock' }],
 });

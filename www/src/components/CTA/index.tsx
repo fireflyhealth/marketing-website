@@ -1,8 +1,8 @@
 import React, { FC } from 'react';
 import { CTA as CTAType } from '@/types/sanity';
-import { LinkButton } from '@/atoms/Button';
+import { LinkButton, ButtonProps } from '@/atoms/Button';
 
-type CTAProps = {
+type CTAProps = Pick<ButtonProps, 'width'> & {
   cta: CTAType;
 };
 
