@@ -1,5 +1,5 @@
 export const VideoWrapper = [
-  'relative mb-16 h-auto bg-black rounded-2xl overflow-hidden',
+  'relative h-auto bg-black rounded-2xl overflow-hidden',
 ];
 
 export const PosterImage = [

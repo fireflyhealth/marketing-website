@@ -84,12 +84,11 @@ export const Video: FC<Props> = ({ video, width }) => {
     });
 
     videoPlayer.on('ended', () => {
-      if (!player) return;
       const resetVideo = () =>
         setTimeout(() => {
-          player.setCurrentTime(0);
+          videoPlayer.setCurrentTime(0);
           setIsPlaying(false);
-          player.exitFullscreen();
+          videoPlayer.exitFullscreen();
           setIsFullscreen(false);
         }, 1500);
       resetVideo();
@@ -97,7 +96,7 @@ export const Video: FC<Props> = ({ video, width }) => {
         clearTimeout(resetVideo());
       };
     });
-  }, [videoRef, video.videoLink, player]);
+  }, [videoRef, video.videoLink]);
 
   // controls fullscreen icon when entering and exiting
   // fullscreen mode while the video is playing
@@ -164,7 +163,7 @@ export const Video: FC<Props> = ({ video, width }) => {
         <div className={cn(PosterImage)}>
           <SanityImage
             image={video.posterImage}
-            width={1000}
+            aspectRatio={9 / 16}
             sizes={['57vw', '90vw', '66vw']}
           />
         </div>
