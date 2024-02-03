@@ -7,6 +7,7 @@ import {
   navigationFragment,
   richTextFragment,
   videoFragment,
+  videoHeaderFragment,
 } from '@/lib/sanity/queries/fragments';
 
 export const mockDataQuery = `
@@ -17,7 +18,10 @@ export const mockDataQuery = `
       },
       imageCarouselBlock{
         ${contentBlockFragment}
-      }
+      },
+      videoHeaderExample{
+        ${videoHeaderFragment}
+      },
     },
     navigation->{
       _type,

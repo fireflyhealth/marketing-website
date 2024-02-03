@@ -253,12 +253,12 @@
         "externalUrl": null,
         "file": {
           "asset": {
+            "originalFilename": "firefly-images.zip",
+            "url": "https://cdn.sanity.io/files/xgbrv2vi/production/30de3ea5e39fd240e183acae6a11bd2df3a91b0e.zip",
             "extension": "zip",
             "size": 19092790,
             "_type": "sanity.fileAsset",
-            "_id": "file-30de3ea5e39fd240e183acae6a11bd2df3a91b0e-zip",
-            "originalFilename": "firefly-images.zip",
-            "url": "https://cdn.sanity.io/files/xgbrv2vi/production/30de3ea5e39fd240e183acae6a11bd2df3a91b0e.zip"
+            "_id": "file-30de3ea5e39fd240e183acae6a11bd2df3a91b0e-zip"
           }
         },
         "documentLink": null
@@ -340,16 +340,16 @@
       "_key": "854666308a5a",
       "label": "To Contact Page",
       "link": {
-        "_type": "link",
-        "_key": null,
-        "externalUrl": null,
         "file": null,
         "documentLink": {
           "_id": "contactPage",
           "_createdAt": "2024-01-11T19:39:00Z",
           "_updatedAt": "2024-02-01T15:33:32Z",
           "_type": "contactPage"
-        }
+        },
+        "_type": "link",
+        "_key": null,
+        "externalUrl": null
       }
     },
     {
@@ -357,16 +357,16 @@
       "_key": "f8cb39204d36",
       "label": "To Download Page",
       "link": {
+        "_key": null,
+        "externalUrl": null,
+        "file": null,
         "documentLink": {
           "_id": "downloadPage",
           "_createdAt": "2024-01-11T19:38:55Z",
           "_updatedAt": "2024-02-01T15:30:03Z",
           "_type": "downloadPage"
         },
-        "_type": "link",
-        "_key": null,
-        "externalUrl": null,
-        "file": null
+        "_type": "link"
       }
     },
     {
@@ -419,7 +419,7 @@
           "parentPage": {
             "_type": "genericPage",
             "title": "About",
-            "slug": { "current": "about", "_type": "slug" }
+            "slug": { "_type": "slug", "current": "about" }
           },
           "_id": "f5bd2bcc-f8e4-443c-9a30-14b16e505dd8"
         },
@@ -434,6 +434,7 @@
       "_key": "64204105f3bf",
       "label": "To Blog",
       "link": {
+        "_type": "link",
         "_key": null,
         "externalUrl": null,
         "file": null,
@@ -480,7 +481,6 @@
       "_key": "49c5e26f2a7b",
       "label": "To Client Page",
       "link": {
-        "_type": "link",
         "_key": null,
         "externalUrl": null,
         "file": null,
@@ -491,7 +491,8 @@
           "_type": "clientPage",
           "slug": { "current": "massachusetts-blue-cross", "_type": "slug" },
           "clientName": "Massachusetts Blue Cross"
-        }
+        },
+        "_type": "link"
       }
     }
   ],
@@ -548,18 +549,13 @@
       "image": {
         "_type": "richImage",
         "_key": null,
-        "asset": {
-          "_id": "image-3a4e7a43978072d61ccdb0827d3295d4f9b67c5a-3564x1422-png",
-          "_type": "sanity.imageAsset",
-          "url": "https://cdn.sanity.io/images/xgbrv2vi/production/3a4e7a43978072d61ccdb0827d3295d4f9b67c5a-3564x1422.png",
-          "metadata": {
-            "lqip": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAYAAAD5nd/tAAAACXBIWXMAABYlAAAWJQFJUiTwAAACUElEQVQokR2M309SARxH7//VW6u2XD2k5VAbtcTMpUYT80c6TFGbEv5Ag9QUDLjXK5C6IkQcOBTNLJUUuWYokjathOgqMMf30/ThbOflHGZnZ5t80y4y6rWw8xwJggBRFJHJZEBE55x5Op1GIpHAj+gu1leXsSVs4OjoD5LJE0olk0inUnR6ekrMZmiDpkcNpHv6EJqGavLNeM/Ds1E6lcJ+NAJhbQWR8BYi22HMOifwVqeG12ZCWAhiLxKmzeV5bK0u0sF+lBghuAb/SB+MlVKqk0nAvTFiL7oLMfEXP6MRuOwWDL1Qwj3GIbC0AKehF/aGcvgGOxBcnMVn7yQ8Bg3NmLqx7JsC830zRF8mhslaV4iagixSq5Twu94htODB1wUfHG96wbaUwcP3I/BxDm7jSzib5FhldQj6PXCY9MQ3lmK8vZKcZj0x7kkHuYe7aFRZiCd5V0heJAWrfY45cw8+fbBhyWWF36KGl+/DuNUKXXMTDFUlmLe8wtLMFAY7m0lVIkF7RSF1qWqJaVLWQ/tMgZ7aYiqT5uB2bjYaK0pgUCnA9rbB47Bj1mnDgLYTRfcrcD0rD0W3JNAo62EaMqKzvRWKUhkpyh+gWiEHYzGbyDZipjHegqGBfqqpqsTd/Ju4l3sNj4rvgOfMCKytY9hsR55UjktXpbiRI4NM9hgtrd1gWZ54nsMIxxLHscSIopj5J4p0fHyCw8MD4lgTCiQ5uHzxAvIl2eBYMw5//cZKIAT9AIdWdR/aOl5DozWA5d8jGPpGsVgM8Xic4vEY/QckMOKcHRW/tAAAAABJRU5ErkJggg==",
-            "dimensions": {
-              "aspectRatio": 2.5063291139240507,
-              "width": 3564,
-              "height": 1422
-            }
-          }
+        "externalUrl": null,
+        "file": null,
+        "documentLink": {
+          "_id": "downloadPage",
+          "_createdAt": "2024-01-11T19:38:55Z",
+          "_updatedAt": "2024-02-01T15:30:03Z",
+          "_type": "downloadPage"
         },
         "caption": null,
         "altText": "Portraits of members from the Firefly Care Team",
@@ -682,14 +678,12 @@
   "navigation": {
     "navGroup": [
       {
-        "_type": "labelWithDropdown",
-        "_key": "1c734079d92a",
-        "label": "For Businesses",
-        "subpages": [
+        "_key": "f5c85697a3bd",
+        "navItems": [
           {
-            "_type": "subpage",
-            "_key": "448bb68e627e",
-            "label": "For Members",
+            "_type": "linkWithLabel",
+            "_key": "0fb9aa07dec9",
+            "label": "Contact Us",
             "link": {
               "title": "Test Page",
               "_id": "a5a3f11b-8942-4df9-a10d-6e3c0e76aba5",
@@ -700,9 +694,9 @@
             }
           },
           {
-            "_type": "subpage",
-            "_key": "ee610766c1eb",
-            "label": "Press",
+            "_type": "linkWithLabel",
+            "_key": "4bcd9f9b2a1b",
+            "label": "FAQs",
             "link": {
               "slug": { "current": "individuals", "_type": "slug" },
               "title": "Individuals",
@@ -715,14 +709,12 @@
         ]
       },
       {
-        "_type": "labelWithDropdown",
-        "_key": "e22a5f48e2b5",
-        "label": "Stories",
-        "subpages": [
+        "_key": "4b3248504bdd",
+        "navItems": [
           {
-            "_type": "subpage",
-            "_key": "2f30af252362",
-            "label": "For Members",
+            "_type": "linkWithLabel",
+            "_key": "e38ebc9a704e",
+            "label": "About",
             "link": {
               "_id": "fce46946-009b-481d-b511-a3b731dca248",
               "_createdAt": "2024-01-11T18:52:57Z",
@@ -1078,15 +1070,16 @@
           "_type": "link",
           "link": {
             "_key": null,
-            "externalUrl": "https://en.wikipedia.org/wiki/Cholesterol",
+            "externalUrl": "https://www.linkedin.com/company/firefly-health/",
             "file": null,
             "documentLink": null,
             "_type": "link"
           }
         },
         {
-          "_key": "ee04912cf484",
-          "_type": "link",
+          "_type": "linkWithLabel",
+          "_key": "a68d2fb65f40",
+          "label": "X",
           "link": {
             "_key": null,
             "externalUrl": null,

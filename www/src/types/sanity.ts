@@ -320,7 +320,6 @@ export type HeaderArea = HeaderBlockType[];
 
 export type VideoHeader = {
   _type: 'videoHeader';
-  _key: string;
   eyebrow: string;
   heading: string;
   body: RichText;
