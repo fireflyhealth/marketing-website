@@ -1,7 +1,7 @@
 export const OuterVideoWrapper = ['relative'];
 
 export const VideoWrapper = [
-  'relative h-auto bg-black rounded-2xl overflow-hidden',
+  'relative h-auto max-h-[756px] bg-black rounded-2xl overflow-hidden',
 ];
 
 export const PosterImage = [
