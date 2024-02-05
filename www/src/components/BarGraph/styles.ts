@@ -8,7 +8,7 @@ export const BarItem = [
   'md:w-full md:h-full md:flex md:flex-col md:justify-end',
 ];
 
-export const Unit = ['text-black'];
+export const Unit = ['text-black md:text-center'];
 
 export const BarOneUnit = [Unit, 'font-size-6'];
 
@@ -18,4 +18,4 @@ export const Bar = [
   'flex flex-col justify-between h-full rounded-md px-3.5 py-3',
 ];
 
-export const Description = ['font-size-8 text-black'];
+export const Description = ['font-size-8 text-black md:text-center'];

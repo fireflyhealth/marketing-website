@@ -23,7 +23,7 @@ export const BarGraph: FC<Props> = ({ barGraph }) => {
           {barOne.unit}%
         </div>
         <div className={cn(Bar, 'w-full h-full', 'bg-yellow')}>
-          <div className={cn(Description)}>{barOne.description}</div>
+          <p className={cn(Description)}>{barOne.description}</p>
           <div className={cn(BarOneUnit, 'md:hidden')}>{barOne.unit}%</div>
         </div>
       </div>
@@ -34,9 +34,7 @@ export const BarGraph: FC<Props> = ({ barGraph }) => {
         <div
           className={cn(Bar, 'w-[70%] md:w-full md:h-[70%]', 'bg-grey-medium')}
         >
-          <div className={cn(Description, 'opacity-70')}>
-            {barTwo.description}
-          </div>
+          <p className={cn(Description, 'opacity-70')}>{barTwo.description}</p>
           <div className={cn(BarTwoUnit, 'md:hidden')}>{barTwo.unit}%</div>
         </div>
       </div>
