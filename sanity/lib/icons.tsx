@@ -19,9 +19,9 @@ import {
 import { SlSettings } from 'react-icons/sl';
 import { PiHandPointing, PiBracketsAngleBold } from 'react-icons/pi';
 import { RxComponent2 } from 'react-icons/rx';
-import { BsMenuDown } from 'react-icons/bs';
 import { BiCarousel, BiSolidNavigation } from 'react-icons/bi';
 import { FaHubspot } from 'react-icons/fa';
+import { BsFileBarGraph, BsMenuDown } from 'react-icons/bs';
 
 /*
  * Browse Sanity icons:
@@ -51,4 +51,5 @@ export const icons = {
   Carousel: BiCarousel,
   CTA: PiHandPointing,
   Hubspot: FaHubspot,
+  BarGraph: BsFileBarGraph,
 };
