@@ -22,7 +22,7 @@ export const BarGraphItems = defineType({
           validation: (Rule) => Rule.required(),
         }),
         defineField({
-          name: 'descripton',
+          name: 'description',
           title: 'Description',
           description: 'Short description of this unit (ex. `Firefly`)',
           type: 'string',
@@ -45,7 +45,7 @@ export const BarGraphItems = defineType({
           validation: (Rule) => Rule.required(),
         }),
         defineField({
-          name: 'descripton',
+          name: 'description',
           title: 'Description',
           description:
             'Short description of this unit (ex. `Industry Standard`)',
