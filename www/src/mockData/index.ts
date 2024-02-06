@@ -20,7 +20,7 @@ export const footerExample = mockData.footer as Footer;
 
 export const imageBlockExample = mockData.contentBlockExamples
   .imageBlock as ImageBlock;
-export const imageCarouselExample = mockData.contentBlockExamples
+export const imageCarouselBlockExample = mockData.contentBlockExamples
   .imageCarouselBlock as ImageCarouselBlock;
 
 export const simpleRichText = mockData.simpleRichText as RichText;

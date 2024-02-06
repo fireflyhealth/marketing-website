@@ -10,7 +10,7 @@ export const HeaderBody = ['max-w-[800px] md:pr-4'];
 export const Title = ['font-trust font-size-4 text-theme-primary'];
 
 export const Description = [
-  'font-roobert font-size-7 text-theme-secondary mt-5',
+  'font-roobert theme-text-color-decorative mt-5',
   'md:mt-6',
 ];
 

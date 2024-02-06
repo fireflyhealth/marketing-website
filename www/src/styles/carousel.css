@@ -1,3 +1,9 @@
-.carousel__slide + .carousel__slide {
-  margin-left: 20px;
+.carousel__slide {
+  /* Override some image CSS to play nicely within
+   * a horizontal container */
+  .GenericImage {
+    max-width: initial;
+    height: 100%;
+    width: auto;
+  }
 }
