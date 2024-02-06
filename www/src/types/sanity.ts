@@ -305,7 +305,7 @@ export type CTA = {
  * Array<PortableTextBlock | ImageBlock>[] */
 export type RichText = PortableTextBlock[];
 
-export type ContentBlock = ImageBlock;
+export type ContentBlock = ImageBlock | ImageCarouselBlock;
 
 export type ContentArea = ContentBlock[];
 
@@ -320,4 +320,10 @@ export type ImageBlock = {
   _type: 'imageBlock';
   header: Maybe<ContentBlockHeader>;
   image: RichImage;
+};
+
+export type ImageCarouselBlock = {
+  _type: 'imageCarouselBlock';
+  header: Maybe<ContentBlockHeader>;
+  images: KeyedArray<RichImage>;
 };
