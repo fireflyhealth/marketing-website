@@ -20,7 +20,7 @@ import { SlSettings } from 'react-icons/sl';
 import { PiHandPointing, PiBracketsAngleBold } from 'react-icons/pi';
 import { RxComponent2 } from 'react-icons/rx';
 import { BsMenuDown } from 'react-icons/bs';
-import { BiSolidNavigation } from 'react-icons/bi';
+import { BiCarousel, BiSolidNavigation } from 'react-icons/bi';
 
 /*
  * Browse Sanity icons:
@@ -47,5 +47,6 @@ export const icons = {
   MenuDropdown: BsMenuDown,
   MenuItem: BiSolidNavigation,
   Image: GrImage,
+  Carousel: BiCarousel,
   CTA: PiHandPointing,
 };
