@@ -1,4 +1,5 @@
 import { AppProps } from 'next/app';
+import { HubspotProvider } from 'next-hubspot';
 import { AnnouncementBanner } from '@/components/AnnouncementBanner';
 import { Navigation } from '@/components/Navigation';
 import { UIProvider } from '@/context';
@@ -30,21 +31,23 @@ export default function App({ Component, pageProps: allPageProps }: Props) {
       <DefaultMetadata metadata={siteSettings.defaultMetadata} />
       <Theme theme={ColorTheme.White}>
         <UIProvider>
-          <AnnouncementBanner
-            announcementBanner={
-              announcementBannerOverride || globalAnnouncementBanner
-            }
-          />
-          <Navigation
-            navigation={customPageNav || globalNav}
-            showNavCTA={
-              navCTAOverride != undefined ? navCTAOverride : globalNavCTA
-            }
-          />
-          <main className="mt-mobile-nav-banner-margin md:mt-desktop-nav-banner-margin">
-            <Component {...pageProps} />
-          </main>
-          <Footer footer={siteSettings.footer} />
+          <HubspotProvider>
+            <AnnouncementBanner
+              announcementBanner={
+                announcementBannerOverride || globalAnnouncementBanner
+              }
+            />
+            <Navigation
+              navigation={customPageNav || globalNav}
+              showNavCTA={
+                navCTAOverride != undefined ? navCTAOverride : globalNavCTA
+              }
+            />
+            <main className="mt-mobile-nav-banner-margin md:mt-desktop-nav-banner-margin">
+              <Component {...pageProps} />
+            </main>
+            <Footer footer={siteSettings.footer} />
+          </HubspotProvider>
         </UIProvider>
       </Theme>
     </>

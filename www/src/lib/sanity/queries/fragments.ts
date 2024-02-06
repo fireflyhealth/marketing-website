@@ -120,6 +120,11 @@ export const linkWithLabelFragment = `
   },
 `;
 
+export const hubspotFormFragment = `
+    _type,
+    formId,
+`;
+
 /* Make sure the parent property includes the brackets, i.e.
  *
  * content[]{
@@ -133,6 +138,7 @@ export const richTextFragment = `
   _type == "richImage" => {
     ${imageFragment}
   },
+  _type == "form" => {${hubspotFormFragment}},
   markDefs[]{
     _key,
     _type,

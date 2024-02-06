@@ -10,6 +10,7 @@ import { RichText as RichTextType } from '@/types/sanity';
 import { BrandedIcon } from '@/svgs/BrandedIcon';
 import { Link } from '@/atoms/Link';
 import { SanityImage } from '@/atoms/Image/SanityImage';
+import { HubspotForm } from '@/components/Forms';
 
 type RichTextProps = {
   content: RichTextType;
@@ -73,6 +74,14 @@ const components: Partial<PortableTextReactComponents> = {
     richImage: (props) => {
       return (
         <SanityImage image={props.value} sizes={['100vw', '100vw', '900px']} />
+      );
+    },
+    form: (props) => {
+      return (
+        <HubspotForm
+          formId={props.value.formId}
+          pageContext="articleRichText"
+        />
       );
     },
   },

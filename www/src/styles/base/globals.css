@@ -233,7 +233,7 @@ img {
   --cta-text-color-primary: theme('colors.midnight');
   --cta-bg-color-primary: theme('colors.yellow');
   --cta-text-color-secondary: theme('colors.midnight');
-  --cta-bg-color-secondary: theme('colors.grey-medium');
+  --cta-bg-color-secondary: theme('colors.grey');
 
   --icon-base: theme('colors.yellow');
   --icon-overlap: theme('colors.yellow-dark');
@@ -448,6 +448,78 @@ svg {
     &:focus {
       border-color: transparent;
       background-color: theme('colors.yellow');
+    }
+  }
+}
+
+#hubspot-form-wrapper fieldset {
+  width: 100%;
+  max-width: unset;
+  margin: 0 0 32px 0;
+}
+
+#hubspot-form-wrapper {
+  input,
+  select,
+  textarea {
+    width: 100%;
+    background: var(--cta-bg-color-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    padding: 14px 16px;
+    margin-top: 12px;
+  }
+
+  input::placeholder,
+  select::placeholder,
+  textarea::placeholder {
+    color: var(--text-color-primary);
+  }
+}
+
+#hubspot-form-wrapper {
+  .hs_firstname,
+  .hs-firstname,
+  .hs_lastname,
+  .hs-lastname {
+    width: 50%;
+    display: inline-block;
+  }
+}
+
+#hubspot-form-wrapper {
+  .hs_submit,
+  .hs-submit {
+    input,
+    select {
+      width: auto;
+      margin: 0;
+      padding: 14px 48px;
+      background: theme('colors.yellow');
+      border: none;
+      border-radius: 100px;
+    }
+  }
+
+  .submitted-message {
+    padding: 172px 14px;
+    color: var(--text-color-decorative);
+    font-family: theme('fontFamily.trust');
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%; /* 24px */
+    letter-spacing: -0.2px;
+
+    @media screen and (min-width: calc(theme('screens.sm') + 1px)) {
+      font-size: 26px;
+      line-height: 115%; /* 29.9px */
+      letter-spacing: -0.26px;
+    }
+
+    @media screen and (min-width: calc(theme('screens.md') + 1px)) {
+      font-size: 32px;
+      letter-spacing: -0.32px;
     }
   }
 }
