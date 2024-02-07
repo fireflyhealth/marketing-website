@@ -73,24 +73,6 @@ img {
   height: 100% !important;
 }
 
-/* Fallback stuff */
-#progress-bar[value] {
-  appearance: none; /* Needed for Safari */
-  border: none; /* Needed for Firefox */
-  color: theme('colors.yellow-light'); /* Fallback to a solid color */
-}
-
-/* WebKit styles */
-#progress-bar[value]::-webkit-progress-value {
-  background: theme('colors.yellow-light');
-  transition: width 1s linear;
-}
-
-/* Firefox styles */
-#progress-bar[value]::-moz-progress-bar {
-  background: theme('colors.yellow-light');
-}
-
 /*
  * Reference:
  * https://www.figma.com/file/2ghg22zsQKeysX5YUcDP5d/%5BFirefly%5D-Design-System?type=design&node-id=3801%3A6956&mode=dev

@@ -8,20 +8,6 @@ export const PosterImage = [
 
 export const VideoPlayer = ['video aspect-video'];
 
-export const Controls = [
-  'w-full absolute left-0 bottom-0 z-10 flex items-center space-x-6 py-4 px-5',
-];
-
-export const ProgressWrapper = [
-  'flex h-full w-full items-center space-x-6 border-b border-transparent',
-];
-
-export const ProgressSeekButton = ['relative flex h-4 w-full items-center'];
-
-export const ProgressBar = ['w-full h-[1px] bg-grey-darker'];
-
-export const Duration = ['text-yellow-light'];
-
 export const PlayButton = [
   'absolute bottom-4 left-4 z-20',
   'md:bottom-8 md:left-8',
