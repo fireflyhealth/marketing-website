@@ -10,7 +10,7 @@ import { RichText as RichTextType } from '@/types/sanity';
 import { BrandedIcon } from '@/svgs/BrandedIcon';
 import { Link } from '@/atoms/Link';
 import { SanityImage } from '@/atoms/Image/SanityImage';
-import { HubspotForm } from '@/components/Forms';
+import { HubspotForm } from '@/components/HubspotForm';
 
 type RichTextProps = {
   content: RichTextType;
