@@ -5,6 +5,11 @@ const config: Config = {
     './.storybook/**/*.{js,ts,jsx,tsx,mdx}',
     './src/**/*.{js,ts,jsx,tsx,mdx}',
   ],
+  safelist: [
+    {
+      pattern: /h-.+/,
+    },
+  ],
   theme: {
     fontFamily: {
       trust: ['Trust', 'Gill Sans', 'Calibri', 'sans-serf'],
@@ -61,6 +66,8 @@ const config: Config = {
           'calc(var(--mobile-globalnav-height) + var(--announcement-banner-height))',
         'desktop-nav-banner-margin':
           'calc(var(--desktop-globalnav-height) + var(--announcement-banner-height))',
+        'bar-graph-height': 'var(--bar-graph-height)',
+        'bar-graph-width': 'var(--bar-graph-width)',
       },
       backgroundImage: {
         'yellow-linear-gradient':

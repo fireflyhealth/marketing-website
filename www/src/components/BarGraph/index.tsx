@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, useEffect } from 'react';
 import cn from 'classnames';
 import * as SanityTypes from '@/types/sanity';
 import {
@@ -16,6 +16,20 @@ type Props = {
 
 export const BarGraph: FC<Props> = ({ barGraph }) => {
   const { barOne, barTwo } = barGraph;
+  const barTwoSize = Math.round((barTwo.unit / barOne.unit) * 100);
+
+  // Tailwind compiles styles at compile time
+  // so we handle dynamic sizing with root variables.
+  useEffect(() => {
+    document.documentElement.style.setProperty(
+      '--bar-graph-height',
+      `${barTwoSize}%`,
+    );
+    document.documentElement.style.setProperty(
+      '--bar-graph-width',
+      `${barTwoSize}%`,
+    );
+  }, [barTwoSize]);
   return (
     <div className={cn(Wrapper)}>
       <div className={cn(BarItem)}>
@@ -32,7 +46,11 @@ export const BarGraph: FC<Props> = ({ barGraph }) => {
           {barTwo.unit}%
         </div>
         <div
-          className={cn(Bar, 'w-[70%] md:w-full md:h-[70%]', 'bg-grey-medium')}
+          className={cn(
+            Bar,
+            `w-bar-graph-width md:w-full md:h-bar-graph-height`,
+            'bg-grey-medium',
+          )}
         >
           <p className={cn(Description, 'opacity-70')}>{barTwo.description}</p>
           <div className={cn(BarTwoUnit, 'md:hidden')}>{barTwo.unit}%</div>
