@@ -38,6 +38,9 @@ export const imageFragment = `
  * }
  **/
 export const linkableDocumentFragment = `
+  _id,
+  _createdAt,
+  _updatedAt,
   _type,
   _type == "homepage" => {},
   _type == "downloadPage" => {},
@@ -80,6 +83,7 @@ export const linkableDocumentFragment = `
 
 export const linkFragment = `
   _type,
+  _key,
   externalUrl,
   file{
     asset->{
@@ -209,6 +213,7 @@ export const footerFragment = `
     ${ctaFragment}
   },
   footerNavGroups[]{
+    _key,
     navItems[]{
       ${linkWithLabelFragment}
     }
@@ -243,3 +248,11 @@ export const navigationOverridesFragment = `
       body,
     },
   `;
+
+export const videoFragment = `
+  _type,
+  videoLink,
+  posterImage {
+    ${imageFragment}
+  }
+`;

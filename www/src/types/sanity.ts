@@ -190,18 +190,15 @@ export type BlogArticleLinkData = Pick<
 /* Navigation */
 export type LinkWithLabel = {
   _type: 'linkWithLabel';
+  _key: string;
   label: string;
-  link: Link;
+  link: Link | LinkableDocument;
 };
 
 export type LabelWithDropdown = {
   _type: 'labelWithDropdown';
   label: string;
-  subpages: KeyedArray<{
-    _type: 'subpage';
-    label: string;
-    link: LinkableDocumentData;
-  }>;
+  subpages: LinkWithLabel[];
 };
 
 export type NavGroupType = LinkWithLabel | LabelWithDropdown;
@@ -274,6 +271,12 @@ export type Image = {
       dimensions: ImageDimensions;
     };
   };
+};
+
+export type Video = {
+  _type: 'video';
+  videoLink: 'string';
+  posterImage: RichImage;
 };
 
 export type Metadata = {

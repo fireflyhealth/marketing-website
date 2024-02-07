@@ -89,6 +89,11 @@ export const MockData = defineType({
       ],
     }),
     defineField({
+      name: 'videoExample',
+      title: 'Video Example',
+      type: 'video',
+    }),
+    defineField({
       name: 'links',
       title: 'Link Examples',
       type: 'array',

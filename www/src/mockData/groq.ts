@@ -6,6 +6,7 @@ import {
   linkWithLabelFragment,
   navigationFragment,
   richTextFragment,
+  videoFragment,
 } from '@/lib/sanity/queries/fragments';
 
 export const mockDataQuery = `
@@ -19,6 +20,11 @@ export const mockDataQuery = `
       }
     },
     navigation->{
+      _type,
+      _id,
+      _createdAt,
+      _updatedAt,
+      title,
       ${navigationFragment}
     },
     simpleRichText,
@@ -30,6 +36,9 @@ export const mockDataQuery = `
       image {
         ${imageFragment}
       }
+    },
+    videoExample{
+      ${videoFragment},
     },
     ctas[]{
       ${ctaFragment}
