@@ -306,7 +306,12 @@ export type CTA = {
 /* Note: You can add more types & serializers for
  * other blocks that may be included in the future, i.e.:
  * Array<PortableTextBlock | ImageBlock>[] */
-export type RichText = PortableTextBlock[];
+export type RichText = Array<PortableTextBlock | HubspotForm>;
+
+export type HubspotForm = {
+  _type: 'form';
+  formId: string;
+};
 
 export type ContentBlock = ImageBlock | ImageCarouselBlock;
 

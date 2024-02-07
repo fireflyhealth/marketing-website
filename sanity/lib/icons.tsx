@@ -21,6 +21,7 @@ import { PiHandPointing, PiBracketsAngleBold } from 'react-icons/pi';
 import { RxComponent2 } from 'react-icons/rx';
 import { BsMenuDown } from 'react-icons/bs';
 import { BiCarousel, BiSolidNavigation } from 'react-icons/bi';
+import { FaHubspot } from 'react-icons/fa';
 
 /*
  * Browse Sanity icons:
@@ -49,4 +50,5 @@ export const icons = {
   Image: GrImage,
   Carousel: BiCarousel,
   CTA: PiHandPointing,
+  Hubspot: FaHubspot,
 };

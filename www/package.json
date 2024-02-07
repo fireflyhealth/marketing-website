@@ -23,6 +23,7 @@
     "@types/vimeo__player": "^2.18.3",
     "@vimeo/player": "^2.21.0",
     "next": "14.0.4",
+    "next-hubspot": "^1.2.0",
     "react": "^18",
     "react-dom": "^18",
     "react-swipeable": "^7.0.1"

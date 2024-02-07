@@ -10780,6 +10780,11 @@ neo-async@^2.5.0, neo-async@^2.6.2:
   resolved "https://registry.yarnpkg.com/neo-async/-/neo-async-2.6.2.tgz#b4aafb93e3aeb2d8174ca53cf163ab7d7308305f"
   integrity sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw==
 
+next-hubspot@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/next-hubspot/-/next-hubspot-1.2.0.tgz#0ffdfa6bfa0875e5fe83da5eaef708fcfc26c4cc"
+  integrity sha512-EkMfuyLAIXmCVxZx9leQVprYNXB9UvGLBEFzr6Zgc0eP12CVXmTnjay3mxwjvIkJbuswE69sN8tfWDD9eFFK2Q==
+
 next@14.0.4:
   version "14.0.4"
   resolved "https://registry.yarnpkg.com/next/-/next-14.0.4.tgz#bf00b6f835b20d10a5057838fa2dfced1d0d84dc"
