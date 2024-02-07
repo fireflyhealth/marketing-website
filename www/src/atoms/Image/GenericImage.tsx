@@ -146,7 +146,7 @@ export const GenericImage: FC<GenericImageProps> = ({ caption, ...props }) => {
     return (
       <figure className="GenericImage">
         <GenericImageInner {...props} />
-        <figcaption className="absolute top-full left-0 pt-4 font-size-10 text-color-secondary">
+        <figcaption className="left-0 pt-4 font-size-10 text-color-secondary">
           {caption}
         </figcaption>
       </figure>
