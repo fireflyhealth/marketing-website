@@ -77,12 +77,7 @@ const components: Partial<PortableTextReactComponents> = {
       );
     },
     form: (props) => {
-      return (
-        <HubspotForm
-          formId={props.value.formId}
-          pageContext="articleRichText"
-        />
-      );
+      return <HubspotForm formId={props.value.formId} renderInRichtext />;
     },
   },
   marks: {
