@@ -90,10 +90,11 @@ export const Video: FC<Props> = ({
   if (!video.videoLink) return null;
 
   return (
-    <div className={cn(OuterVideoWrapper)}>
+    <div id="video-component" className={cn(OuterVideoWrapper)}>
       <div className={cn(VideoWrapper, width ? `${width}` : 'w-full')}>
         {!isPlaying && (
           <div
+            id="video-poster-image"
             className={cn(PosterImage)}
             onLoad={() => {
               if (!videoRef.current) return;
