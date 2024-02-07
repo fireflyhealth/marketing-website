@@ -26,6 +26,7 @@ import { AnnouncementBanner } from './fields/announcementBanner';
 
 import { ContentBlockHeader } from './blocks/contentBlockHeader';
 import { ImageBlock } from './blocks/imageBlock';
+import { ImageCarouselBlock } from './blocks/imageCarouselBlock';
 
 export const schemaTypes = [
   /* Document Types */
@@ -45,6 +46,7 @@ export const schemaTypes = [
 
   /* Blocks */
   ImageBlock,
+  ImageCarouselBlock,
 
   /* Field Types */
   ContentBlockHeader,

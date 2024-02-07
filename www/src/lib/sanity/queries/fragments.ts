@@ -161,6 +161,14 @@ export const contentBlockFragment = `
     image {
       ${imageFragment}
     }
+  },
+  _type == "imageCarouselBlock" => {
+    header {
+      ${contentBlockHeaderFragment}
+    },
+    images[]{
+      ${imageFragment}
+    }
   }
 `;
 

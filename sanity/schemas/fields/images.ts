@@ -47,7 +47,7 @@ export const RichImage = defineField({
       title: 'Alternative Text',
       type: 'string',
       description:
-        '(Accessibility) A description of the contents of the image. This should describe the visual contents of the image, i.e. "A decorated Christmas tree and a fireplace with stockings", and not be used as cta-type text.',
+        '(Accessibility) A description of the contents of the image. This should describe the visual contents of the image, i.e. "A person practicing yoga", and not cta-type text such as "Learn more about Yoga".',
       validation: (Rule) =>
         Rule.custom((value, context) => {
           // @ts-ignore
@@ -72,5 +72,22 @@ export const RichImage = defineField({
      *
      * see: https://www.sanity.io/docs/image-type#hotspot-3e6da78954a8 */
     hotspot: true,
+  },
+  preview: {
+    select: {
+      caption: 'caption',
+      altText: 'altText',
+      image: 'image',
+      asset: 'asset',
+    },
+    prepare: ({ caption, altText, asset }) => {
+      return caption
+        ? {
+            title: caption,
+            media: asset,
+            subtitle: altText,
+          }
+        : { title: altText, media: asset };
+    },
   },
 });

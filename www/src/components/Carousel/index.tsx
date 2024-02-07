@@ -1,5 +1,6 @@
 import React, { FC, useState, useEffect, useContext, useRef } from 'react';
 import { useSwipeable } from 'react-swipeable';
+import { BrandedIcon } from '@/svgs/BrandedIcon';
 
 type WithChildren<T = {}> = T & {
   children: React.ReactNode;
@@ -31,11 +32,12 @@ export const useCarousel = () => {
 /**
  * Main component
  */
-type CarouselProps = WithChildren<{
-  slideCount: number;
-}>;
+type CarouselProps = WithChildren & {
+  vwHeightSetting?: number;
+};
 
-export const Carousel: FC<CarouselProps> = ({ children, slideCount }) => {
+export const Carousel: FC<CarouselProps> = ({ children, vwHeightSetting }) => {
+  const slideCount = React.Children.count(children);
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
   const [slideContainerLeft, setSlideContainerLeft] = useState(0);
 
@@ -43,13 +45,15 @@ export const Carousel: FC<CarouselProps> = ({ children, slideCount }) => {
     if (currentSlideIndex > 0) {
       setCurrentSlideIndex(currentSlideIndex - 1);
     } else {
-      setCurrentSlideIndex(slideCount - 1);
+      // Un-comment to re-enable looping
+      // setCurrentSlideIndex(slideCount - 1);
     }
   };
 
   const goNext = () => {
     if (currentSlideIndex === slideCount - 1) {
-      setCurrentSlideIndex(0);
+      // Un-comment to re-enable looping
+      // setCurrentSlideIndex(0);
     } else {
       setCurrentSlideIndex(currentSlideIndex + 1);
     }
@@ -66,7 +70,19 @@ export const Carousel: FC<CarouselProps> = ({ children, slideCount }) => {
         goNext,
       }}
     >
-      <div>{children}</div>
+      <SlideContainer vwHeightSetting={vwHeightSetting}>
+        {React.Children.map(children, (child, index) => (
+          <Slide slideIndex={index}>{child}</Slide>
+        ))}
+      </SlideContainer>
+      <div className="pt-12">
+        <PrevButton>
+          <BrandedIcon type="arrow-left" wrapperStyles="w-12" />
+        </PrevButton>
+        <NextButton>
+          <BrandedIcon type="arrow-right" wrapperStyles="w-12" />
+        </NextButton>
+      </div>
     </CarouselContext.Provider>
   );
 };
@@ -108,7 +124,10 @@ export const Slide: FC<SlideProps> = ({ children, slideIndex }) => {
   );
 };
 
-export const SlideContainer: FC<WithChildren> = ({ children }) => {
+export const SlideContainer: FC<CarouselProps> = ({
+  children,
+  vwHeightSetting,
+}) => {
   const { slideContainerLeft, goNext, goPrev } = useCarousel();
   const handlers = useSwipeable({
     onSwipedLeft: () => goNext(),
@@ -119,7 +138,12 @@ export const SlideContainer: FC<WithChildren> = ({ children }) => {
   });
 
   return (
-    <div className="relative w-full h-[400px]">
+    <div
+      className="relative w-full h-[240px] md:h-[750px]"
+      style={{
+        height: vwHeightSetting ? `${vwHeightSetting}vw` : undefined,
+      }}
+    >
       {/* Slide container inner div */}
       <div
         className="absolute top-0 left-0 transition h-full flex flex-row"
@@ -146,7 +170,11 @@ export const NextButton: FC<WithChildren> = ({ children }) => {
   const { currentSlideIndex, slideCount, goNext } = useCarousel();
 
   return (
-    <button disabled={currentSlideIndex === slideCount - 1} onClick={goNext}>
+    <button
+      className="ml-5"
+      disabled={currentSlideIndex === slideCount - 1}
+      onClick={goNext}
+    >
       {children}
     </button>
   );

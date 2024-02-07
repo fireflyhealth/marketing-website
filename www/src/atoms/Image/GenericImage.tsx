@@ -72,7 +72,7 @@ const GenericImageInner: FC<GenericImageProps> = ({
 }) => {
   const sizesString = Array.isArray(sizes) ? parseSizes(sizes) : sizes;
   /* common class name */
-  const className = cx(rounded && 'rounded-lg', classNameProp);
+  const className = cx('GenericImage', rounded && 'rounded-lg', classNameProp);
 
   /**
    * If we have an aspect ratio, apply that style to the wrapping component.
@@ -144,7 +144,7 @@ export const GenericImage: FC<GenericImageProps> = ({ caption, ...props }) => {
   /* If the provided image has a caption, wrap it in a <figure> tag. */
   if (caption) {
     return (
-      <figure>
+      <figure className="GenericImage">
         <GenericImageInner {...props} />
         <figcaption className="pt-4 font-size-10 text-color-secondary">
           {caption}

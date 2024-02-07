@@ -130,6 +130,7 @@ img {
 
   &--quote {
     @apply font-size-5;
+    @apply font-trust;
     font-weight: 400;
     letter-spacing: -0.02em;
   }
@@ -150,6 +151,7 @@ img {
 
   &--quote {
     @apply font-size-6;
+    @apply font-trust;
     font-weight: 400;
     letter-spacing: -0.01em;
   }

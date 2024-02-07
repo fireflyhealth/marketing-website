@@ -89,13 +89,7 @@ export const RichText: FC<RichTextProps> = ({
   fontSize,
 }) => {
   return (
-    <div
-      className={cx(
-        'RichText theme-text-color-primary',
-        className,
-        fontSize || 'font-size-8',
-      )}
-    >
+    <div className={cx('RichText', className, fontSize || 'font-size-8')}>
       <PortableText value={content} components={components} />
     </div>
   );

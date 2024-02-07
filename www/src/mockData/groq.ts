@@ -13,6 +13,9 @@ export const mockDataQuery = `
     contentBlockExamples{
       imageBlock{
         ${contentBlockFragment}
+      },
+      imageCarouselBlock{
+        ${contentBlockFragment}
       }
     },
     navigation->{

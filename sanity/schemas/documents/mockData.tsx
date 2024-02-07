@@ -45,6 +45,16 @@ export const MockData = defineType({
           title: 'Image Block',
           validation: (Rule) => Rule.required(),
         }),
+        defineField({
+          name: 'imageCarouselBlock',
+          type: 'imageCarouselBlock',
+          options: {
+            collapsible: true,
+            collapsed: true,
+          },
+          title: 'Image Carousel Block',
+          validation: (Rule) => Rule.required(),
+        }),
       ],
     }),
     defineField({

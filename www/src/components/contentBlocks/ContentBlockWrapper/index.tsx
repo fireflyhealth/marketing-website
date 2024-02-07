@@ -30,7 +30,7 @@ export const ContentBlockHeader: FC<ContentBlockHeaderProps> = ({ header }) => {
 
         {description ? (
           <div className={cn(Description)}>
-            <RichText content={description} />
+            <RichText fontSize="font-size-6--quote" content={description} />
           </div>
         ) : null}
       </div>
