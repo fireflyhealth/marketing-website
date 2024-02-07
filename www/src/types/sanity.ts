@@ -330,7 +330,7 @@ export type HeaderArea = HeaderBlockType[];
  */
 export type ContentBlock = ImageBlock | ImageCarouselBlock | CTACardsBlock;
 
-export type ContentArea = ContentBlock[];
+export type ContentArea = KeyedArray<ContentBlock>;
 
 export type ContentBlockHeader = {
   _type: 'contentBlockHeader';
