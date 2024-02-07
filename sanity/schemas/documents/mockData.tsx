@@ -63,6 +63,15 @@ export const MockData = defineType({
             collapsible: true,
             collapsed: true,
           },
+        }),
+        defineField({
+          name: 'ctaCardsBlock',
+          type: 'ctaCardsBlock',
+          title: 'CTA Cards Block',
+          options: {
+            collapsible: true,
+            collapsed: true,
+          },
           validation: (Rule) => Rule.required(),
         }),
       ],

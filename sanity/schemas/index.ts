@@ -32,6 +32,7 @@ import { BarGraphItems } from './fields/barGraphItems';
 import { ContentBlockHeader } from './blocks/contentBlockHeader';
 import { ImageBlock } from './blocks/imageBlock';
 import { ImageCarouselBlock } from './blocks/imageCarouselBlock';
+import { CtaCard, CtaCardsBlock } from './blocks/ctaCardsBlock';
 
 export const schemaTypes = [
   /* Document Types */
@@ -56,6 +57,8 @@ export const schemaTypes = [
   /* Blocks */
   ImageBlock,
   ImageCarouselBlock,
+  CtaCardsBlock,
+  CtaCard,
 
   /* Field Types */
   ContentBlockHeader,
