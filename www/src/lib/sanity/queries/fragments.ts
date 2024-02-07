@@ -195,6 +195,22 @@ export const contentBlockFragment = `
     images[]{
       ${imageFragment}
     }
+  },
+  _type == "ctaCardsBlock" => {
+    header {
+      ${contentBlockHeaderFragment}
+    },
+    ctaCards[]{
+      _type,
+      _key,
+      image {
+        ${imageFragment}
+      },
+      title,
+      cta {
+        ${ctaFragment}
+      }
+    }
   }
 `;
 
