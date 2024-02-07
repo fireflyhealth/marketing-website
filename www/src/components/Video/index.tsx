@@ -161,7 +161,13 @@ export const Video: FC<Props> = ({ video, posterSizes, width }) => {
   return (
     <div className={cn(VideoWrapper, width ? `${width}` : 'w-full')}>
       {!isPlaying && (
-        <div className={cn(PosterImage)}>
+        <div
+          className={cn(PosterImage)}
+          onLoad={() => {
+            if (!videoRef.current) return;
+            videoRef.current.style.opacity = '1';
+          }}
+        >
           <SanityImage
             image={video.posterImage}
             aspectRatio={9 / 16}
@@ -169,7 +175,7 @@ export const Video: FC<Props> = ({ video, posterSizes, width }) => {
           />
         </div>
       )}
-      <div ref={videoRef} className={cn(VideoPlayer)} />
+      <div ref={videoRef} className={cn(VideoPlayer, 'opacity-0')} />
       <>
         {isPlaying ? (
           <div className={cn(Controls)}>
