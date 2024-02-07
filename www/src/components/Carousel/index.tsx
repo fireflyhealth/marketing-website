@@ -32,9 +32,11 @@ export const useCarousel = () => {
 /**
  * Main component
  */
-type CarouselProps = WithChildren;
+type CarouselProps = WithChildren & {
+  vwHeightSetting?: number;
+};
 
-export const Carousel: FC<CarouselProps> = ({ children }) => {
+export const Carousel: FC<CarouselProps> = ({ children, vwHeightSetting }) => {
   const slideCount = React.Children.count(children);
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
   const [slideContainerLeft, setSlideContainerLeft] = useState(0);
@@ -68,7 +70,7 @@ export const Carousel: FC<CarouselProps> = ({ children }) => {
         goNext,
       }}
     >
-      <SlideContainer>
+      <SlideContainer vwHeightSetting={vwHeightSetting}>
         {React.Children.map(children, (child, index) => (
           <Slide slideIndex={index}>{child}</Slide>
         ))}
@@ -122,7 +124,10 @@ export const Slide: FC<SlideProps> = ({ children, slideIndex }) => {
   );
 };
 
-export const SlideContainer: FC<WithChildren> = ({ children }) => {
+export const SlideContainer: FC<CarouselProps> = ({
+  children,
+  vwHeightSetting,
+}) => {
   const { slideContainerLeft, goNext, goPrev } = useCarousel();
   const handlers = useSwipeable({
     onSwipedLeft: () => goNext(),
@@ -133,7 +138,12 @@ export const SlideContainer: FC<WithChildren> = ({ children }) => {
   });
 
   return (
-    <div className="relative w-full h-[400px]">
+    <div
+      className="relative w-full h-[240px] md:h-[750px]"
+      style={{
+        height: vwHeightSetting ? `${vwHeightSetting}vw` : undefined,
+      }}
+    >
       {/* Slide container inner div */}
       <div
         className="absolute top-0 left-0 transition h-full flex flex-row"
