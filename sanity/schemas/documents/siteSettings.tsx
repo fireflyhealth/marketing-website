@@ -31,6 +31,11 @@ export const SiteSettings = defineType({
       group: 'globalNavigation',
     }),
     defineField({
+      name: 'globalDoubleCta',
+      type: 'doubleCta',
+      group: 'globalNavigation',
+    }),
+    defineField({
       name: 'footer',
       title: 'Footer',
       type: 'object',

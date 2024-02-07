@@ -124,5 +124,10 @@ export const MockData = defineType({
       type: 'array',
       of: [{ type: 'cta' }],
     }),
+    defineField({
+      name: 'doubleCtaBlockExample',
+      title: 'Double Cta Block Example',
+      type: 'doubleCtaBlock',
+    }),
   ],
 });

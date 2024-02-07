@@ -27,11 +27,13 @@ import { Video } from './fields/video';
 import { HubspotForm } from './fields/hubSpotForm';
 import { HeaderArea } from './fields/headerArea';
 import { BarGraphItems } from './fields/barGraphItems';
+import { DoubleCta } from './fields/doubleCta';
 
 import { ContentBlockHeader } from './blocks/contentBlockHeader';
 import { ImageBlock } from './blocks/imageBlock';
 import { ImageCarouselBlock } from './blocks/imageCarouselBlock';
 import { CtaCard, CtaCardsBlock } from './blocks/ctaCardsBlock';
+import { DoubleCtaBlock } from './blocks/doubleCtaBlock';
 
 import { VideoHeader } from './headers/videoHeader';
 
@@ -60,6 +62,7 @@ export const schemaTypes = [
   ImageCarouselBlock,
   CtaCardsBlock,
   CtaCard,
+  DoubleCtaBlock,
 
   /* Field Types */
   ContentBlockHeader,
@@ -78,4 +81,5 @@ export const schemaTypes = [
   Video,
   HubspotForm,
   BarGraphItems,
+  DoubleCta,
 ];
