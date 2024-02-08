@@ -384,3 +384,27 @@ export type CTACardsBlock = {
   header: Maybe<ContentBlockHeader>;
   ctaCards: KeyedArray<CTACard>;
 };
+export type DoubleCtaBlock = DoubleCtaBase & {
+  _type: 'doubleCtaBlock';
+};
+
+export type GlobalDoubleCta = DoubleCtaBase & {
+  _type: 'doubleCta';
+};
+
+export type DoubleCtaBase = {
+  ctaOne: {
+    eyebrow: string;
+    label: string;
+    link: Link;
+    id: string;
+    ariaLabel: string;
+  };
+  ctaTwo: {
+    eyebrow: string;
+    label: string;
+    link: Link;
+    id: string;
+    ariaLabel: string;
+  };
+};

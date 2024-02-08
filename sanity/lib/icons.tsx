@@ -22,6 +22,7 @@ import { RxComponent2 } from 'react-icons/rx';
 import { BiCarousel, BiSolidNavigation } from 'react-icons/bi';
 import { FaHubspot } from 'react-icons/fa';
 import { BsFileBarGraph, BsMenuDown } from 'react-icons/bs';
+import { MdOutlineCallToAction } from 'react-icons/md';
 
 /*
  * Browse Sanity icons:
@@ -52,4 +53,5 @@ export const icons = {
   CTA: PiHandPointing,
   Hubspot: FaHubspot,
   BarGraph: BsFileBarGraph,
+  DoubleCTA: MdOutlineCallToAction,
 };

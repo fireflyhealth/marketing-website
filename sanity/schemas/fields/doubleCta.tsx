@@ -1,4 +1,5 @@
 import { defineType, defineField } from 'sanity';
+import { icons } from '../../lib/icons';
 
 const sharedFields = [
   defineField({
@@ -19,6 +20,23 @@ const sharedFields = [
     type: 'link',
   }),
   defineField({
+    name: 'id',
+    type: 'string',
+    title: 'ID',
+    description: 'Used for tracking in analytics',
+    validation: (Rule) =>
+      Rule.custom((value?: string) => {
+        if (!value) return 'Required';
+        if (value.toLowerCase() !== value) {
+          return 'Must be all lowercase';
+        }
+        if (!/^([A-Za-z0-9-_])+$/.test(value)) {
+          return 'Can only be letters, numbers, hyphens, and underscores (no spaces or special characters)';
+        }
+        return true;
+      }),
+  }),
+  defineField({
     name: 'ariaLabel',
     type: 'string',
     title: 'Aria Label',
@@ -31,6 +49,7 @@ export const DoubleCta = defineType({
   name: 'doubleCta',
   title: 'Double CTA',
   type: 'object',
+  icon: icons.DoubleCTA,
   fields: [
     defineField({
       name: 'ctaOne',
@@ -45,4 +64,7 @@ export const DoubleCta = defineType({
       fields: [...sharedFields],
     }),
   ],
+  preview: {
+    prepare: () => ({ title: 'Double CTA Block' }),
+  },
 });

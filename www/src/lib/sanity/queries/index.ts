@@ -7,6 +7,7 @@ import {
   headerAreaFragment,
   contentAreaFragment,
   footerFragment,
+  doubleCtaFragment,
 } from './fragments';
 
 export const siteSettingsFragment = `
@@ -19,6 +20,7 @@ export const siteSettingsFragment = `
     _type,
     body,
   },
+  globalDoubleCta{${doubleCtaFragment}},
   footer {
     ${footerFragment}
   },

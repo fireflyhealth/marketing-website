@@ -1,6 +1,7 @@
 import {
   contentBlockFragment,
   ctaFragment,
+  doubleCtaFragment,
   footerFragment,
   imageFragment,
   linkWithLabelFragment,
@@ -24,7 +25,10 @@ export const mockDataQuery = `
       },
       ctaCardsBlock{
         ${contentBlockFragment}
-      }
+      },
+      doubleCtaBlockExample{
+        ${doubleCtaFragment}
+      },
     },
     navigation->{
       _type,

@@ -177,6 +177,24 @@ const contentBlockHeaderFragment = `
   }
 `;
 
+export const doubleCtaFragment = `
+  _type,
+  ctaOne{
+    eyebrow,
+    label,
+    id,
+    ariaLabel,
+    link {${linkFragment}},
+  },
+  ctaTwo{
+    eyebrow,
+    label,
+    id,
+    ariaLabel,
+    link {${linkFragment}},
+  }
+`;
+
 export const contentBlockFragment = `
   _type,
   _key,
@@ -211,7 +229,8 @@ export const contentBlockFragment = `
         ${ctaFragment}
       }
     }
-  }
+  },
+  _type == "doubleCtaBlock" => {${doubleCtaFragment}}
 `;
 
 export const navGroupFragment = `

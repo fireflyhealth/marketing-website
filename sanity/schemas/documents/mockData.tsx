@@ -74,6 +74,16 @@ export const MockData = defineType({
           },
           validation: (Rule) => Rule.required(),
         }),
+        defineField({
+          name: 'doubleCtaBlockExample',
+          title: 'Double Cta Block Example',
+          type: 'doubleCtaBlock',
+          options: {
+            collapsible: true,
+            collapsed: true,
+          },
+          validation: (Rule) => Rule.required(),
+        }),
       ],
     }),
     defineField({
@@ -123,11 +133,6 @@ export const MockData = defineType({
       title: 'CTA Examples',
       type: 'array',
       of: [{ type: 'cta' }],
-    }),
-    defineField({
-      name: 'doubleCtaBlockExample',
-      title: 'Double Cta Block Example',
-      type: 'doubleCtaBlock',
     }),
   ],
 });
