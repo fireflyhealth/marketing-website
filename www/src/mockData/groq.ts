@@ -22,6 +22,9 @@ export const mockDataQuery = `
       videoHeaderExample{
         ${videoHeaderFragment}
       },
+      ctaCardsBlock{
+        ${contentBlockFragment}
+      }
     },
     navigation->{
       _type,

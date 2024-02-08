@@ -9,6 +9,7 @@ import {
   ImageCarouselBlock,
   Video,
   VideoHeader,
+  CTACardsBlock,
 } from '@/types/sanity';
 import mockData from './mockData.json';
 
@@ -24,6 +25,8 @@ export const imageBlockExample = mockData.contentBlockExamples
   .imageBlock as ImageBlock;
 export const imageCarouselBlockExample = mockData.contentBlockExamples
   .imageCarouselBlock as ImageCarouselBlock;
+export const ctaCardsBlockExample = mockData.contentBlockExamples
+  .ctaCardsBlock as CTACardsBlock;
 
 export const simpleRichText = mockData.simpleRichText as RichText;
 export const articleRichText = mockData.articleRichText as RichText;

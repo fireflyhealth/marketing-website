@@ -304,6 +304,10 @@ export type CTA = {
   link: Link;
 };
 
+/**
+ * RichText Blocks
+ */
+
 /* Note: You can add more types & serializers for
  * other blocks that may be included in the future, i.e.:
  * Array<PortableTextBlock | ImageBlock>[] */
@@ -314,9 +318,26 @@ export type HubspotForm = {
   formId: string;
 };
 
+/**
+ * Header Area Blocks
+ */
 export type HeaderBlockType = VideoHeader;
 
 export type HeaderArea = HeaderBlockType[];
+
+/**
+ * Content Area Blocks
+ */
+export type ContentBlock = ImageBlock | ImageCarouselBlock | CTACardsBlock;
+
+export type ContentArea = KeyedArray<ContentBlock>;
+
+export type ContentBlockHeader = {
+  _type: 'contentBlockHeader';
+  title: string;
+  description: Maybe<RichText>;
+  cta: Maybe<CTA>;
+};
 
 export type VideoHeader = {
   _type: 'videoHeader';
@@ -324,17 +345,6 @@ export type VideoHeader = {
   heading: string;
   body: RichText;
   video: Video;
-};
-
-export type ContentBlock = ImageBlock;
-
-export type ContentArea = ContentBlock[];
-
-export type ContentBlockHeader = {
-  _type: 'contentBlockHeader';
-  title: string;
-  description: Maybe<RichText>;
-  cta: Maybe<CTA>;
 };
 
 export type ImageBlock = {
@@ -360,4 +370,17 @@ export type BarGraph = {
     unit: number;
     description: string;
   };
+};
+
+export type CTACard = {
+  _type: 'ctaCard';
+  image: RichImage;
+  title: string;
+  cta: CTA;
+};
+
+export type CTACardsBlock = {
+  _type: 'ctaCardsBlock';
+  header: Maybe<ContentBlockHeader>;
+  ctaCards: KeyedArray<CTACard>;
 };

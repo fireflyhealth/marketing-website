@@ -5,11 +5,6 @@ import { ImageBlock } from './';
 const meta = {
   title: 'Content Blocks/Image Block',
   component: ImageBlock,
-  // parameters: {
-  //   controls: {
-  //     exclude: ['imageBlock'],
-  //   },
-  // },
 } satisfies Meta<typeof ImageBlock>;
 
 type Story = StoryObj<typeof meta>;
