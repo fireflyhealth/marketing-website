@@ -80,6 +80,16 @@ export const BlogArticle = defineType({
       type: 'navigationOverrides',
     }),
     defineField({
+      name: 'header',
+      title: 'Header',
+      type: 'headerArea',
+    }),
+    defineField({
+      name: 'content',
+      title: 'Content',
+      type: 'contentArea',
+    }),
+    defineField({
       name: 'metadata',
       type: 'metadata',
       title: 'Metadata',

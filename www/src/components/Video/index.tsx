@@ -1,19 +1,36 @@
-import { FC, useState, useRef, useEffect, SyntheticEvent } from 'react';
+import { FC, useState, useRef, useEffect } from 'react';
 import Vimeo from '@vimeo/player';
 import cn from 'classnames';
 import * as SanityTypes from '@/types/sanity';
-import { SimpleIcon } from '@/svgs/SimpleIcon';
 import { Button } from '@/atoms/Button';
 import { SanityImage } from '@/atoms/Image/SanityImage';
-import { VideoWrapper, PosterImage, VideoPlayer, PlayButton } from './styles';
+import {
+  OuterVideoWrapper,
+  VideoWrapper,
+  PosterImage,
+  VideoPlayer,
+  PlayButton,
+} from './styles';
+import { VideoTitleCard } from './VideoTitleCard';
 
 type Props = {
   video: SanityTypes.Video;
   posterSizes: string[];
+  showTitleCard?: boolean;
+  titleCardProps?: Pick<
+    SanityTypes.VideoHeader,
+    'eyebrow' | 'heading' | 'body'
+  >;
   width?: string;
 };
 
-export const Video: FC<Props> = ({ video, posterSizes, width }) => {
+export const Video: FC<Props> = ({
+  video,
+  posterSizes,
+  showTitleCard,
+  titleCardProps,
+  width,
+}) => {
   const videoRef = useRef<HTMLDivElement>(null);
 
   const [player, setPlayer] = useState<Vimeo | null>(null);
@@ -73,32 +90,43 @@ export const Video: FC<Props> = ({ video, posterSizes, width }) => {
   if (!video.videoLink) return null;
 
   return (
-    <div className={cn(VideoWrapper, width ? `${width}` : 'w-full')}>
-      {!isPlaying && (
-        <div
-          className={cn(PosterImage)}
-          onLoad={() => {
-            if (!videoRef.current) return;
-            videoRef.current.style.opacity = '1';
-          }}
-        >
-          <SanityImage
-            image={video.posterImage}
-            aspectRatio={9 / 16}
-            sizes={posterSizes}
-          />
-        </div>
-      )}
-      <div ref={videoRef} className={cn(VideoPlayer, 'opacity-0')} />
-      {!isPlaying && (
-        <div className={cn(PlayButton)}>
-          <Button
-            variant="primary"
-            label="Play video"
-            id="video-play-button"
-            onClick={togglePlay}
-          />
-        </div>
+    <div id="video-component" className={cn(OuterVideoWrapper)}>
+      <div className={cn(VideoWrapper, width ? `${width}` : 'w-full')}>
+        {!isPlaying && (
+          <div
+            id="video-poster-image"
+            className={cn(PosterImage)}
+            onLoad={() => {
+              if (!videoRef.current) return;
+              videoRef.current.style.opacity = '1';
+            }}
+          >
+            <SanityImage
+              image={video.posterImage}
+              aspectRatio={9 / 16}
+              sizes={posterSizes}
+            />
+          </div>
+        )}
+        <div ref={videoRef} className={cn(VideoPlayer, 'opacity-0')} />
+        {!isPlaying && (
+          <div className={cn(PlayButton)}>
+            <Button
+              variant="primary"
+              label="Play video"
+              id="video-play-button"
+              onClick={togglePlay}
+            />
+          </div>
+        )}
+      </div>
+      {showTitleCard && titleCardProps && !isPlaying && (
+        <VideoTitleCard
+          eyebrow={titleCardProps.eyebrow}
+          heading={titleCardProps.heading}
+          body={titleCardProps.body}
+          onClick={togglePlay}
+        />
       )}
     </div>
   );

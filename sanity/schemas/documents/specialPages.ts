@@ -18,6 +18,16 @@ export const DownloadPage = defineType({
       type: 'navigationOverrides',
     }),
     defineField({
+      name: 'header',
+      title: 'Header',
+      type: 'headerArea',
+    }),
+    defineField({
+      name: 'content',
+      title: 'Content',
+      type: 'contentArea',
+    }),
+    defineField({
       name: 'metadata',
       type: 'metadata',
       title: 'Metadata',
@@ -40,6 +50,16 @@ export const ContactPage = defineType({
     defineField({
       name: 'navigationOverrides',
       type: 'navigationOverrides',
+    }),
+    defineField({
+      name: 'header',
+      title: 'Header',
+      type: 'headerArea',
+    }),
+    defineField({
+      name: 'content',
+      title: 'Content',
+      type: 'contentArea',
     }),
     defineField({
       name: 'metadata',
@@ -66,6 +86,16 @@ export const NotFoundPage = defineType({
       type: 'navigationOverrides',
     }),
     defineField({
+      name: 'header',
+      title: 'Header',
+      type: 'headerArea',
+    }),
+    defineField({
+      name: 'content',
+      title: 'Content',
+      type: 'contentArea',
+    }),
+    defineField({
       name: 'metadata',
       type: 'metadata',
       title: 'Metadata',
@@ -88,6 +118,16 @@ export const FAQPage = defineType({
     defineField({
       name: 'navigationOverrides',
       type: 'navigationOverrides',
+    }),
+    defineField({
+      name: 'header',
+      title: 'Header',
+      type: 'headerArea',
+    }),
+    defineField({
+      name: 'content',
+      title: 'Content',
+      type: 'contentArea',
     }),
     defineField({
       name: 'metadata',

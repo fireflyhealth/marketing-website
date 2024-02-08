@@ -90,6 +90,11 @@ const sharedPageFields = [
     type: 'navigationOverrides',
   }),
   defineField({
+    name: 'header',
+    title: 'Header',
+    type: 'headerArea',
+  }),
+  defineField({
     name: 'content',
     title: 'Content',
     type: 'contentArea',

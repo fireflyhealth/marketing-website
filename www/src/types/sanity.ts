@@ -126,6 +126,7 @@ export type FAQPageLinkData = Pick<FAQPage, '_type'>;
 /* Properties common to both GenericPage & SubPage */
 type CommonPage = SanityDocument & {
   title: string;
+  header: HeaderArea;
   content: ContentArea;
   metadata?: Metadata;
   slug: Slug;
@@ -313,7 +314,19 @@ export type HubspotForm = {
   formId: string;
 };
 
-export type ContentBlock = ImageBlock | ImageCarouselBlock;
+export type HeaderBlockType = VideoHeader;
+
+export type HeaderArea = HeaderBlockType[];
+
+export type VideoHeader = {
+  _type: 'videoHeader';
+  eyebrow: string;
+  heading: string;
+  body: RichText;
+  video: Video;
+};
+
+export type ContentBlock = ImageBlock;
 
 export type ContentArea = ContentBlock[];
 

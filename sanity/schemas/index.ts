@@ -25,6 +25,8 @@ import { NavigationOverrides } from './fields/navigationOverrides';
 import { AnnouncementBanner } from './fields/announcementBanner';
 import { Video } from './fields/video';
 import { HubspotForm } from './fields/hubSpotForm';
+import { VideoHeader } from './blocks/videoHeader';
+import { HeaderArea } from './fields/headerArea';
 
 import { ContentBlockHeader } from './blocks/contentBlockHeader';
 import { ImageBlock } from './blocks/imageBlock';
@@ -45,6 +47,10 @@ export const schemaTypes = [
   SiteSettings,
   MockData,
   Navigation,
+
+  /* Header Blocks */
+  HeaderArea,
+  VideoHeader,
 
   /* Blocks */
   ImageBlock,

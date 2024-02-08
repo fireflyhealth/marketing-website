@@ -12,6 +12,16 @@ export const Homepage = defineType({
       type: 'navigationOverrides',
     }),
     defineField({
+      name: 'header',
+      title: 'Header',
+      type: 'headerArea',
+    }),
+    defineField({
+      name: 'content',
+      title: 'Content',
+      type: 'contentArea',
+    }),
+    defineField({
       name: 'metadata',
       title: 'Metadata',
       type: 'metadata',

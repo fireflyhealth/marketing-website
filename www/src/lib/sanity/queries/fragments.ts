@@ -262,3 +262,17 @@ export const videoFragment = `
     ${imageFragment}
   }
 `;
+
+export const videoHeaderFragment = `
+  _type,
+  eyebrow,
+  heading,
+  body,
+  video {${videoFragment}}
+`;
+
+export const headerAreaFragment = `
+  _type == "videoHeader" => {${videoHeaderFragment}}
+`;
+
+export const contentAreaFragment = ``;
