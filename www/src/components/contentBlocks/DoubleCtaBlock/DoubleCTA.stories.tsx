@@ -1,20 +1,20 @@
 import { Meta, StoryObj } from '@storybook/react';
 import { doubleCtaBlock } from '@/mockData';
-import { DoubleCTA } from '.';
+import { DoubleCtaBlock } from '.';
 
 const meta = {
-  title: 'Component Blocks/Double CTA',
-  component: DoubleCTA,
+  title: 'Content Blocks/Double CTA Block',
+  component: DoubleCtaBlock,
   parameters: {
     controls: { exclude: ['navigation'] },
   },
-} satisfies Meta<typeof DoubleCTA>;
+} satisfies Meta<typeof DoubleCtaBlock>;
 
 type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
   args: {
-    doubleCta: doubleCtaBlock,
+    doubleCtaBlock: doubleCtaBlock,
   },
 };
 

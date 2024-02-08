@@ -392,19 +392,15 @@ export type GlobalDoubleCta = DoubleCtaBase & {
   _type: 'doubleCta';
 };
 
+export type LargeCtaCard = {
+  eyebrow: string;
+  label: string;
+  link: Link;
+  id: string;
+  ariaLabel: string;
+};
+
 export type DoubleCtaBase = {
-  ctaOne: {
-    eyebrow: string;
-    label: string;
-    link: Link;
-    id: string;
-    ariaLabel: string;
-  };
-  ctaTwo: {
-    eyebrow: string;
-    label: string;
-    link: Link;
-    id: string;
-    ariaLabel: string;
-  };
+  ctaOne: LargeCtaCard;
+  ctaTwo: LargeCtaCard;
 };
