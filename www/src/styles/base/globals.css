@@ -2,6 +2,8 @@
   --announcement-banner-height: 0px;
   --mobile-globalnav-height: 56px;
   --desktop-globalnav-height: 80px;
+  --bar-graph-height: 0px;
+  --bar-graph-width: 0px;
 }
 
 .text-theme-primary,

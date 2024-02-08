@@ -27,6 +27,7 @@ import { Video } from './fields/video';
 import { HubspotForm } from './fields/hubSpotForm';
 import { VideoHeader } from './blocks/videoHeader';
 import { HeaderArea } from './fields/headerArea';
+import { BarGraphItems } from './fields/barGraphItems';
 
 import { ContentBlockHeader } from './blocks/contentBlockHeader';
 import { ImageBlock } from './blocks/imageBlock';
@@ -72,4 +73,5 @@ export const schemaTypes = [
   AnnouncementBanner,
   Video,
   HubspotForm,
+  BarGraphItems,
 ];

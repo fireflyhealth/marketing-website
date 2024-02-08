@@ -22,6 +22,19 @@ export const imageFragment = `
   hotspot
 `;
 
+export const barGraphFragment = `
+  _type,
+  _key,
+  barOne{
+    unit,
+    description,
+  },
+  barTwo{
+    unit,
+    description,
+  }
+`;
+
 /* Fetches the fields needed to create URLs for documents
  * based on the _type. See the LinkableDocument type
  * in @types/sanity
@@ -139,6 +152,9 @@ export const richTextFragment = `
     ${imageFragment}
   },
   _type == "form" => {${hubspotFormFragment}},
+  _type == "barGraphObject" => {
+    ${barGraphFragment}
+  },
   markDefs[]{
     _key,
     _type,
@@ -244,15 +260,16 @@ export const metadataFragment = `
     asset->{
       url
     }
-  }`;
+  }
+`;
 
 export const navigationOverridesFragment = `
+  _type,
+  pageNavigation->{${navigationFragment}},
+  announcementBanner{
     _type,
-    pageNavigation->{${navigationFragment}},
-    announcementBanner{
-      _type,
-      body,
-    },
+    body,
+  },
   `;
 
 export const videoFragment = `

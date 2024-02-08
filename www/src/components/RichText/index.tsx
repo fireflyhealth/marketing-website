@@ -11,6 +11,7 @@ import { BrandedIcon } from '@/svgs/BrandedIcon';
 import { Link } from '@/atoms/Link';
 import { SanityImage } from '@/atoms/Image/SanityImage';
 import { HubspotForm } from '@/components/HubspotForm';
+import { BarGraph } from '@/components/BarGraph';
 
 type RichTextProps = {
   content: RichTextType;
@@ -78,6 +79,9 @@ const components: Partial<PortableTextReactComponents> = {
     },
     form: (props) => {
       return <HubspotForm formId={props.value.formId} renderInRichtext />;
+    },
+    barGraphObject: (props) => {
+      return <BarGraph barGraph={props.value} />;
     },
   },
   marks: {
