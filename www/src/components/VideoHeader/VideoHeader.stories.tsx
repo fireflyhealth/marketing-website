@@ -3,7 +3,7 @@ import { videoHeaderExample } from '@/mockData';
 import { VideoHeader } from './';
 
 const meta = {
-  title: 'Content Blocks/Video Header',
+  title: 'Header Blocks/Video Header',
   component: VideoHeader,
 } satisfies Meta<typeof VideoHeader>;
 
