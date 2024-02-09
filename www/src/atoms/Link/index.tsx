@@ -5,7 +5,8 @@ import { getLinkableDocumentPath } from '@/utils/linking';
 
 type LinkProps = {
   link: LinkType | LinkableDocumentData;
-  ariaLabel?: Maybe<string>;
+  ariaLabel: Maybe<string>;
+  id: Maybe<string>;
   onClick?: () => void;
   onMouseEnter?: () => void;
   onMouseLeave?: () => void;
@@ -16,13 +17,31 @@ export const Link: FC<LinkProps> = ({
   link,
   children,
   ariaLabel,
+  id,
   ...props
 }) => {
   if ('externalUrl' in link && link.externalUrl) {
-    return <a href={link.externalUrl}>{children}</a>;
+    return (
+      <a
+        href={link.externalUrl}
+        id={id || undefined}
+        aria-label={ariaLabel || undefined}
+        target="_blank"
+      >
+        {children}
+      </a>
+    );
   }
   if ('file' in link && link.file) {
-    return <a href={link.file.asset.url}>{children}</a>;
+    return (
+      <a
+        href={link.file.asset.url}
+        id={id || undefined}
+        aria-label={ariaLabel || undefined}
+      >
+        {children}
+      </a>
+    );
   }
   const documentLink = link._type == 'link' ? link.documentLink : link;
   if (!documentLink) {
@@ -32,7 +51,12 @@ export const Link: FC<LinkProps> = ({
   }
   const href = getLinkableDocumentPath(documentLink);
   return (
-    <NextLink aria-label={ariaLabel || undefined} href={href} {...props}>
+    <NextLink
+      id={id || undefined}
+      aria-label={ariaLabel || undefined}
+      href={href}
+      {...props}
+    >
       {children}
     </NextLink>
   );

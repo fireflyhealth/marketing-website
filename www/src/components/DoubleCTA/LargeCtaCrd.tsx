@@ -10,10 +10,10 @@ type Props = {
 };
 
 export const LargeCtaCard: FC<Props> = ({ cta }) => {
-  const { link, eyebrow, label } = cta;
+  const { link, eyebrow, label, ariaLabel, id } = cta;
   return (
     <div className={cn(CTA_Card_Wrapper)}>
-      <Link link={link}>
+      <Link link={link} ariaLabel={ariaLabel} id={id}>
         <div className={cn(CTA_Card)}>
           <div className={cn(Card_Label)}>{eyebrow}</div>
           <div className={cn(CTA)}>
