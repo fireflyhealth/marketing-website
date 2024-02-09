@@ -11,6 +11,7 @@ import { BlogArticle } from './documents/blogArticle';
 import { Blog } from './documents/blog';
 import { MockData } from './documents/mockData';
 import { SiteSettings } from './documents/siteSettings';
+import { Practitioner } from './documents/practitioner';
 
 import { Metadata } from './fields/metadata';
 import { RichImage } from './fields/images';
@@ -52,6 +53,7 @@ export const schemaTypes = [
   SiteSettings,
   MockData,
   Navigation,
+  Practitioner,
 
   /* Header Blocks */
   HeaderArea,

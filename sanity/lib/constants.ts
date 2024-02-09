@@ -56,6 +56,7 @@ export const linkableDocumentTypes = [
   'blog',
   'blogArticle',
   'clientPage',
+  'practitioner',
 ];
 
 export const brandedIcons = [
