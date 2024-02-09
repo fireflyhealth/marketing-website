@@ -5,9 +5,6 @@ import { DoubleCtaBlock } from '.';
 const meta = {
   title: 'Content Blocks/Double CTA Block',
   component: DoubleCtaBlock,
-  parameters: {
-    controls: { exclude: ['navigation'] },
-  },
 } satisfies Meta<typeof DoubleCtaBlock>;
 
 type Story = StoryObj<typeof meta>;
