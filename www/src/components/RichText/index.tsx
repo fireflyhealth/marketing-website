@@ -86,7 +86,15 @@ const components: Partial<PortableTextReactComponents> = {
   },
   marks: {
     link: (props) => {
-      return <Link link={props.value.link}>{props.children}</Link>;
+      return (
+        <Link
+          link={props.value.link}
+          id={props.value.id || undefined}
+          ariaLabel={props.value.ariaLabel || undefined}
+        >
+          {props.children}
+        </Link>
+      );
     },
   },
 };

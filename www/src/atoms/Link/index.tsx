@@ -5,8 +5,8 @@ import { getLinkableDocumentPath } from '@/utils/linking';
 
 type LinkProps = {
   link: LinkType | LinkableDocumentData;
-  ariaLabel: Maybe<string>;
-  id: Maybe<string>;
+  ariaLabel?: Maybe<string>;
+  id?: Maybe<string>;
   onClick?: () => void;
   onMouseEnter?: () => void;
   onMouseLeave?: () => void;
