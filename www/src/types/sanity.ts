@@ -185,7 +185,7 @@ export type Practitioner = SanityDocument & {
   /* i.e. "PsyD, MSW" */
   qualifications: Maybe<string>;
   pronouns: string;
-  headshot: RichImage;
+  headshot: Maybe<RichImage>;
   education: KeyedArray<Institution>;
   languagesSpoken: string[];
   blurb: RichText;

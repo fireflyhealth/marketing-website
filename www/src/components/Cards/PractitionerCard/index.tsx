@@ -4,6 +4,8 @@ import { SanityImage } from '@/atoms/Image/SanityImage';
 import { RichText } from '@/components/RichText';
 import { ColorTheme, Theme } from '@/components/Theme';
 import { Link } from '@/atoms/Link';
+import { GenericImage } from '@/atoms/Image/GenericImage';
+import fallbackProfile from '@/assets/images/fallbackProfile.png';
 
 type PractitionerCardProps = {
   practitioner: PractitionerLinkData;
@@ -19,11 +21,20 @@ export const PractitionerCard: FC<PractitionerCardProps> = ({
           link={practitioner}
           ariaLabel={`View ${practitioner.name}'s profile page`}
         >
-          <SanityImage
-            aspectRatio={408 / 300}
-            image={practitioner.headshot}
-            sizes={['50vw', '50vw', '25vw']}
-          />
+          {practitioner.headshot ? (
+            <SanityImage
+              aspectRatio={408 / 300}
+              image={practitioner.headshot}
+              sizes={['50vw', '50vw', '25vw']}
+            />
+          ) : (
+            <GenericImage
+              aspectRatio={408 / 300}
+              src={fallbackProfile}
+              alt="Generic profile photo"
+              sizes={['50vw', '50vw', '25vw']}
+            />
+          )}
           <div className="PractitionerCard__blurb">
             <Theme
               className="p-4 h-full md:p-6 theme-bg-color overflow-scroll"
