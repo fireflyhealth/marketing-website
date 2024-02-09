@@ -33,8 +33,19 @@ export const ctaCardsBlockExample = mockData.contentBlockExamples
 export const doubleCtaBlock = mockData.contentBlockExamples
   .doubleCtaBlockExample as DoubleCtaBlock;
 
-export const practitionersBlockExample = mockData.contentBlockExamples
-  .practitionersBlock as PractitionersBlock;
+export const practitionersBlockExample = {
+  ...mockData.contentBlockExamples.practitionersBlock,
+  /* Our mock data includes duplicate references to practitioners, we
+   * map over them here to make sure the _id is unique so we don't get
+   * duplicate key warnings */
+  practitioners:
+    mockData.contentBlockExamples.practitionersBlock.practitioners.map(
+      (practitioner, index) => ({
+        ...practitioner,
+        _id: practitioner._id.concat(`-${index}`),
+      }),
+    ),
+} as PractitionersBlock;
 
 export const simpleRichText = mockData.simpleRichText as RichText;
 export const articleRichText = mockData.articleRichText as RichText;

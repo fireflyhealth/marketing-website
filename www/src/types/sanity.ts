@@ -194,6 +194,7 @@ export type Practitioner = SanityDocument & {
 /* Data needed to render practitioner profile cards */
 export type PractitionerLinkData = Pick<
   Practitioner,
+  | '_id'
   | '_type'
   | 'name'
   | 'slug'
