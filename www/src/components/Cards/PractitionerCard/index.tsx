@@ -1,6 +1,9 @@
 import React, { FC } from 'react';
 import { PractitionerLinkData } from '@/types/sanity';
 import { SanityImage } from '@/atoms/Image/SanityImage';
+import { RichText } from '@/components/RichText';
+import { ColorTheme, Theme } from '@/components/Theme';
+import { Link } from '@/atoms/Link';
 
 type PractitionerCardProps = {
   practitioner: PractitionerLinkData;
@@ -11,21 +14,35 @@ export const PractitionerCard: FC<PractitionerCardProps> = ({
 }) => {
   return (
     <div>
-      <div className="rounded-[1rem] overflow-hidden mb-4">
-        <SanityImage
-          aspectRatio={408 / 300}
-          image={practitioner.headshot}
-          sizes={['50vw', '50vw', '25vw']}
-        />
+      <div className="PractitionerCard__headshot rounded-[1rem] overflow-hidden relative">
+        <Link
+          link={practitioner}
+          ariaLabel={`View ${practitioner.name}'s profile page`}
+        >
+          <SanityImage
+            aspectRatio={408 / 300}
+            image={practitioner.headshot}
+            sizes={['50vw', '50vw', '25vw']}
+          />
+          <div className="PractitionerCard__blurb">
+            <Theme
+              className="p-4 h-full md:p-6 theme-bg-color overflow-scroll"
+              theme={ColorTheme.Midnight}
+            >
+              <RichText content={practitioner.blurb} />
+            </Theme>
+          </div>
+        </Link>
       </div>
-      <div className="font-trust font-size-6">
-        {practitioner.name}
-        <span className="font-roobert font-size-7 ml-[0.3em]">
+      <div className="font-trust font-size-6 pt-4">
+        {practitioner.name}{' '}
+        <span className="font-roobert font-size-7 ml-[0.1em]">
           {practitioner.qualifications}
         </span>
       </div>
       <div className="font-size-8 theme-text-color-secondary">
-        {practitioner.title}, {practitioner.pronouns}
+        {practitioner.title},{' '}
+        <span className="whitespace-nowrap">{practitioner.pronouns}</span>
       </div>
     </div>
   );
