@@ -45,7 +45,6 @@ export const Practitioner = defineType({
       name: 'headshot',
       title: 'Headshot',
       type: 'richImage',
-      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'education',
