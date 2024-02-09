@@ -15,10 +15,12 @@
   &__headshot {
     position: relative;
 
-    a:focus,
-    a:hover {
-      .PractitionerCard__blurb {
-        display: block;
+    @media screen(md) {
+      a:focus,
+      a:hover {
+        .PractitionerCard__blurb {
+          display: block;
+        }
       }
     }
   }
