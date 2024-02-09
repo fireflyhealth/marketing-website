@@ -9,5 +9,6 @@ export const ContentArea = defineType({
     { type: 'imageCarouselBlock' },
     { type: 'ctaCardsBlock' },
     { type: 'doubleCtaBlock' },
+    { type: 'practitionersBlock' },
   ],
 });

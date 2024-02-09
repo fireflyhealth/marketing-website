@@ -37,6 +37,7 @@ import { CtaCard, CtaCardsBlock } from './blocks/ctaCardsBlock';
 import { DoubleCtaBlock } from './blocks/doubleCtaBlock';
 
 import { VideoHeader } from './headers/videoHeader';
+import { PractitionersBlock } from './blocks/practitionersBlock';
 
 export const schemaTypes = [
   /* Document Types */
@@ -65,6 +66,7 @@ export const schemaTypes = [
   CtaCardsBlock,
   CtaCard,
   DoubleCtaBlock,
+  PractitionersBlock,
 
   /* Field Types */
   ContentBlockHeader,
