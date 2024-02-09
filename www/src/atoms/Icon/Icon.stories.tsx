@@ -59,7 +59,7 @@ const SimpleIcons: SimpleIconProps['type'][] = [
 
 const SectionHeading: FC<{ children: React.ReactNode }> = ({ children }) => {
   return (
-    <h3 className="font-trust font-size-6 text-theme-primary mb-8">
+    <h3 className="font-trust font-size-6 theme-text-color-primary mb-8">
       {children}
     </h3>
   );
@@ -67,7 +67,9 @@ const SectionHeading: FC<{ children: React.ReactNode }> = ({ children }) => {
 
 const IconType: FC<{ children: React.ReactNode }> = ({ children }) => {
   return (
-    <p className="font-roobert font-size-10 text-theme-primary">{children}</p>
+    <p className="font-roobert font-size-10 theme-text-color-primary">
+      {children}
+    </p>
   );
 };
 

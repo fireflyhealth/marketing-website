@@ -17,7 +17,13 @@ export enum ColorTheme {
 
 export const Theme: FC<ThemeProps> = ({ theme, children, className }) => {
   return (
-    <div className={cn(`theme-wrapper theme-${theme}`, className)}>
+    <div
+      className={cn(
+        `theme-wrapper theme-${theme}`,
+        'theme-text-color-primary',
+        className,
+      )}
+    >
       {children}
     </div>
   );

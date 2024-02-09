@@ -7,7 +7,7 @@ export const HeaderWrapper = [
 
 export const HeaderBody = ['max-w-[800px] md:pr-4'];
 
-export const Title = ['font-trust font-size-4 text-theme-primary'];
+export const Title = ['font-trust font-size-4 theme-text-color-primary'];
 
 export const Description = [
   'font-roobert theme-text-color-decorative mt-5',

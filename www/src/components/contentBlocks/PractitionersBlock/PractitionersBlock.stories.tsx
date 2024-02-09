@@ -15,7 +15,7 @@ export const Primary: Story = {
   },
   decorators: [
     (Story) => (
-      <div className="bg-white">
+      <div className="theme-bg-color">
         <Story />
       </div>
     ),

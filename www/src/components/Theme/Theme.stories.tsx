@@ -37,30 +37,32 @@ const ExampleInner = () => {
       </p>
 
       <Annotation>
-        cta-theme-text-color-primary
-        <br /> cta-bg-theme-primary
+        theme-cta-text-color-primary
+        <br /> theme-cta-bg-color-primary
       </Annotation>
       <Button
         id="button-primary"
         align="left"
+        width="auto"
         label="Get Started"
         onClick={handleClick}
       />
 
       <Annotation>
-        cta-theme-text-color-secondary <br />
-        cta-bg-theme-secondary
+        theme-cta-text-color-secondary <br />
+        theme-cta-bg-color-secondary
       </Annotation>
       <Button
         id="button-secondary"
         align="left"
+        width="auto"
         label="Get Started"
         variant="secondary"
         onClick={handleClick}
       />
 
       <Annotation>outline</Annotation>
-      <div className="w-[100px] h-[100px] border-[2px] border-theme rounded" />
+      <div className="w-[100px] h-[100px] border-[2px] theme-border-color rounded" />
       <Annotation>icon-base icon-overlap</Annotation>
       <div className="flex">
         <BrandedIcon type="clipboard" wrapperStyles="w-12" />
