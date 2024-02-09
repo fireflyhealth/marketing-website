@@ -1,5 +1,5 @@
 import {
-  Navigation,
+  NavigationExample,
   CTA,
   LinkWithLabel,
   RichImage,
@@ -11,7 +11,6 @@ import {
   VideoHeader,
   CTACardsBlock,
   DoubleCtaBlock,
-  NavigationExample,
 } from '@/types/sanity';
 import mockData from './mockData.json';
 
