@@ -32,6 +32,9 @@ export const mockDataQuery = `
         doubleCta{${doubleCtaFragment}},
         header{${contentBlockHeaderFragment}},
       },
+      practitionersBlock{
+        ${contentBlockFragment}
+      }
     },
     navigationExample{
       globalNav->{${navigationFragment}},

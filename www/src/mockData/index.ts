@@ -11,6 +11,7 @@ import {
   VideoHeader,
   CTACardsBlock,
   DoubleCtaBlock,
+  PractitionersBlock,
 } from '@/types/sanity';
 import mockData from './mockData.json';
 
@@ -31,6 +32,9 @@ export const ctaCardsBlockExample = mockData.contentBlockExamples
   .ctaCardsBlock as CTACardsBlock;
 export const doubleCtaBlock = mockData.contentBlockExamples
   .doubleCtaBlockExample as DoubleCtaBlock;
+
+export const practitionersBlockExample = mockData.contentBlockExamples
+  .practitionersBlock as PractitionersBlock;
 
 export const simpleRichText = mockData.simpleRichText as RichText;
 export const articleRichText = mockData.articleRichText as RichText;

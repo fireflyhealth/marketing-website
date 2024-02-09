@@ -22,6 +22,11 @@ export const imageFragment = `
   hotspot
 `;
 
+export const hubspotFormFragment = `
+  _type,
+  formId,
+`;
+
 export const barGraphFragment = `
   _type,
   _key,
@@ -32,6 +37,28 @@ export const barGraphFragment = `
   barTwo{
     unit,
     description,
+  }
+`;
+
+/* It's necessary to have this additional fragment because
+ * we fetch rich text within the linkableDocumentFragment,
+ * which is included in the other richTextFragment -
+ * having this extra one prevents the two fragments from
+ * being recursively dependent on each other */
+export const richTextFragmentNoLink = `
+  _key,
+  _type,
+  ...,
+  _type == "richImage" => {
+    ${imageFragment}
+  },
+  _type == "form" => {${hubspotFormFragment}},
+  _type == "barGraphObject" => {
+    ${barGraphFragment}
+  },
+  markDefs[]{
+    _key,
+    _type,
   }
 `;
 
@@ -91,6 +118,19 @@ export const linkableDocumentFragment = `
       title,
       slug,
     }[0]
+  },
+  _type == "practitioner" => {
+    name,
+    slug,
+    qualifications,
+    title,
+    pronouns,
+    headshot {
+      ${imageFragment}
+    },
+    blurb[]{
+      ${richTextFragmentNoLink}
+    }
   }
 `;
 
@@ -131,11 +171,6 @@ export const linkWithLabelFragment = `
   link {
     ${linkFragment}
   },
-`;
-
-export const hubspotFormFragment = `
-    _type,
-    formId,
 `;
 
 /* Make sure the parent property includes the brackets, i.e.
@@ -234,11 +269,18 @@ export const contentBlockFragment = `
     _type,
     doubleCta{${doubleCtaFragment}},
     header{${contentBlockHeaderFragment}},
+  },
+  _type == "practitionersBlock" => {
+    header {
+      ${contentBlockHeaderFragment}
+    },
+    practitioners[]->{
+      ${linkableDocumentFragment}
+    }
   }
 `;
 
 export const navGroupFragment = `
-
   _type,
   _key,
   _type == "linkWithLabel" => {
