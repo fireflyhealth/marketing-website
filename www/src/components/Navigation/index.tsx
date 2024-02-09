@@ -1,6 +1,6 @@
 import { FC, useEffect } from 'react';
 import { useRouter } from 'next/router';
-import { Navigation as NavigationType, DoubleCtaBase } from '@/types/sanity';
+import { Navigation as NavigationType, DoubleCta } from '@/types/sanity';
 import { useUIProvider } from '@/context/UIProvider';
 import { MobileNav } from './MobileNav';
 import { DesktopNav } from './DesktopNav';
@@ -8,7 +8,7 @@ import { DesktopNav } from './DesktopNav';
 type Props = {
   navigation: NavigationType;
   showNavCTA: boolean;
-  globalDoubleNav: DoubleCtaBase;
+  globalDoubleNav: DoubleCta;
 };
 
 export const Navigation: FC<Props> = ({

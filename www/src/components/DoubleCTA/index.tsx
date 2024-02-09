@@ -5,7 +5,7 @@ import { CTA_Container } from './styles';
 import { LargeCtaCard } from './LargeCtaCrd';
 
 type Props = {
-  doubleCta: SanityTypes.DoubleCtaBlock | SanityTypes.DoubleCtaBase;
+  doubleCta: SanityTypes.DoubleCtaBlock | SanityTypes.DoubleCta;
 };
 
 export const DoubleCTA: FC<Props> = ({ doubleCta }) => {

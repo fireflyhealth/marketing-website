@@ -3,7 +3,7 @@ import Link from 'next/link';
 import cn from 'classnames';
 import { SimpleIcon } from '@/svgs/SimpleIcon';
 import { useUIProvider } from '@/context/UIProvider';
-import { KeyedArray, NavGroupType, DoubleCtaBase } from '@/types/sanity';
+import { KeyedArray, NavGroupType, DoubleCta } from '@/types/sanity';
 import { LogotypeColor, LogotypeMonochrome } from '@/svgs/Logotype';
 import { NavCTA } from '../NavCTA';
 import { NavGroup } from './NavGroup';
@@ -12,7 +12,7 @@ import { NavWrapper, NavContainer, NavLinksWrapper } from './styles';
 type Props = {
   navGroup: KeyedArray<NavGroupType>;
   showNavCTA: boolean;
-  globalDoubleNav: DoubleCtaBase;
+  globalDoubleNav: DoubleCta;
 };
 
 export const MobileNav: FC<Props> = ({

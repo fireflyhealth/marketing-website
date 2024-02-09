@@ -1,11 +1,11 @@
 import React, { FC } from 'react';
 import { Meta, StoryObj } from '@storybook/react';
-import { NavigationExample as NavigationExampleType } from '@/types/sanity';
+import { NavigationExample } from '@/types/sanity';
 import { navigationExample } from '@/mockData';
 import { Navigation } from './';
 
 type Props = {
-  navigation: NavigationExampleType;
+  navigation: NavigationExample;
 };
 
 const NavigationExample: FC<Props> = ({ navigation }) => {

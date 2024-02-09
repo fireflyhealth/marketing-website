@@ -1,12 +1,12 @@
 import { FC } from 'react';
 import cn from 'classnames';
 import { zIndex } from '@/constants';
-import { DoubleCtaBase } from '@/types/sanity';
+import { DoubleCta } from '@/types/sanity';
 import { DoubleCTA } from '../DoubleCTA';
 import { Wrapper, BackgroundColor } from './styles';
 
 type Props = {
-  globalDoubleNav: DoubleCtaBase;
+  globalDoubleNav: DoubleCta;
 };
 
 export const NavCTA: FC<Props> = ({ globalDoubleNav }) => {
