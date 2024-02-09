@@ -26,6 +26,8 @@ export default function App({ Component, pageProps: allPageProps }: Props) {
 
   const globalNavCTA = globalNav.showNavCTA;
   const navCTAOverride = navigationOverrides?.pageNavigation?.showNavCTA;
+
+  const globalDoubleCta = siteSettings.globalDoubleCta;
   return (
     <>
       <DefaultMetadata metadata={siteSettings.defaultMetadata} />
@@ -42,6 +44,7 @@ export default function App({ Component, pageProps: allPageProps }: Props) {
               showNavCTA={
                 navCTAOverride != undefined ? navCTAOverride : globalNavCTA
               }
+              globalDoubleNav={globalDoubleCta}
             />
             <main className="mt-mobile-nav-banner-margin md:mt-desktop-nav-banner-margin">
               <Component {...pageProps} />

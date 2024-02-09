@@ -75,10 +75,16 @@ export type Navigation = SanityDocument & {
   showNavCTA: boolean;
 };
 
+export type NavigationExample = {
+  globalNav: Navigation;
+  doubleCta: DoubleCtaBase;
+};
+
 export type SiteSettings = SanityDocument & {
   _type: 'siteSettings';
   globalNav: Navigation;
   globalAnnouncementBanner: AnnouncementBanner;
+  globalDoubleCta: DoubleCtaBase;
   defaultMetadata: Metadata;
   footer: Footer;
 };
@@ -388,10 +394,6 @@ export type DoubleCtaBlock = DoubleCtaBase & {
   _type: 'doubleCtaBlock';
 };
 
-export type GlobalDoubleCta = DoubleCtaBase & {
-  _type: 'doubleCta';
-};
-
 export type LargeCtaCard = {
   eyebrow: string;
   label: string;
@@ -401,6 +403,7 @@ export type LargeCtaCard = {
 };
 
 export type DoubleCtaBase = {
+  _type: 'doubleCta';
   ctaOne: LargeCtaCard;
   ctaTwo: LargeCtaCard;
 };

@@ -3,7 +3,7 @@ import Link from 'next/link';
 import cn from 'classnames';
 import { LogotypeColor, LogotypeMonochrome } from '@/svgs/Logotype';
 import { Button } from '@/atoms/Button';
-import { KeyedArray, NavGroupType } from '@/types/sanity';
+import { KeyedArray, NavGroupType, DoubleCtaBase } from '@/types/sanity';
 import { useUIProvider } from '@/context/UIProvider';
 import { NavCTA } from '../NavCTA';
 import { NavGroup } from './NavGroup';
@@ -12,9 +12,14 @@ import { NavWrapper, NavContainer, NavLinksWrapper } from './styles';
 type Props = {
   navGroup: KeyedArray<NavGroupType>;
   showNavCTA: boolean;
+  globalDoubleNav: DoubleCtaBase;
 };
 
-export const DesktopNav: FC<Props> = ({ navGroup, showNavCTA }) => {
+export const DesktopNav: FC<Props> = ({
+  navGroup,
+  showNavCTA,
+  globalDoubleNav,
+}) => {
   const { getStartedOpen, setGetStartedOpen } = useUIProvider();
 
   const handleCTAClick = () => {
@@ -60,7 +65,7 @@ export const DesktopNav: FC<Props> = ({ navGroup, showNavCTA }) => {
           )}
         </div>
       </div>
-      {getStartedOpen && <NavCTA />}
+      {getStartedOpen && <NavCTA globalDoubleNav={globalDoubleNav} />}
     </nav>
   );
 };

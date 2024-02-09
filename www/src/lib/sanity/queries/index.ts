@@ -2,8 +2,6 @@ import {
   metadataFragment,
   navigationFragment,
   navigationOverridesFragment,
-  ctaFragment,
-  linkWithLabelFragment,
   headerAreaFragment,
   contentAreaFragment,
   footerFragment,

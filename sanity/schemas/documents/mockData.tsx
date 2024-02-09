@@ -12,9 +12,20 @@ export const MockData = defineType({
   icon: icons.Code,
   fields: [
     defineField({
-      name: 'navigation',
-      type: 'reference',
-      to: [{ type: 'navigation' }],
+      name: 'navigationExample',
+      type: 'object',
+      fields: [
+        defineField({
+          title: 'Global Nav',
+          name: 'globalNav',
+          type: 'reference',
+          to: [{ type: 'navigation' }],
+        }),
+        defineField({
+          name: 'doubleCta',
+          type: 'doubleCta',
+        }),
+      ],
       validation: (Rule) => Rule.required(),
     }),
     defineField({

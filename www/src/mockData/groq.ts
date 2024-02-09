@@ -30,13 +30,9 @@ export const mockDataQuery = `
         ${doubleCtaFragment}
       },
     },
-    navigation->{
-      _type,
-      _id,
-      _createdAt,
-      _updatedAt,
-      title,
-      ${navigationFragment}
+    navigationExample{
+      globalNav->{${navigationFragment}},
+      doubleCta{${doubleCtaFragment}}
     },
     simpleRichText,
     articleRichText[]{
