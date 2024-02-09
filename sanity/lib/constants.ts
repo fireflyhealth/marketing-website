@@ -81,7 +81,7 @@ export const themeOptions = [
   { title: 'White', value: 'white' },
   { title: 'Grey', value: 'grey' },
   { title: 'Sienna', value: 'sienna' },
-  { title: 'Midnight', value: 'midnight' },
+  { title: 'Midnight', value: 'Midnight' },
   { title: 'Sky', value: 'sky' },
 ];
 
@@ -101,6 +101,7 @@ export const defaultContentBlockTypes = [
   { type: 'imageTextOverlapBlock' },
   { type: 'quoteBlock' },
   { type: 'drawerListBlock' },
+  { type: 'sequenceBlock' }
 ];
 
 /**
