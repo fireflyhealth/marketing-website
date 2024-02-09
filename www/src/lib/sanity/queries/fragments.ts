@@ -153,6 +153,21 @@ export const linkFragment = `
   }
  `;
 
+export const simpleRichTextFragment = `
+  _key,
+  _type,
+  ...,
+  markDefs[]{
+    _key,
+    _type,
+    _type == "link" => {
+      link {
+        ${linkFragment}
+      }
+    },
+  }
+`;
+
 export const ctaFragment = `
   _type,
   label,
@@ -173,6 +188,19 @@ export const linkWithLabelFragment = `
   },
 `;
 
+export const bigNumbersFragment = `
+  _type,
+  bigNumbers[]{
+    _key,
+    _type,
+    value,
+    numberType,
+    description[]{
+      ${simpleRichTextFragment}
+    }
+  }
+`;
+
 /* Make sure the parent property includes the brackets, i.e.
  *
  * content[]{
@@ -189,6 +217,9 @@ export const richTextFragment = `
   _type == "form" => {${hubspotFormFragment}},
   _type == "barGraphObject" => {
     ${barGraphFragment}
+  },
+  _type == "bigNumbers" => {
+    ${bigNumbersFragment}
   },
   markDefs[]{
     _key,
