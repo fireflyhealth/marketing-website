@@ -134,4 +134,16 @@ describe('Link', () => {
       '/with/massachusetts-blue-cross',
     );
   });
+
+  it('should render links to practitioner pages', () => {
+    const clientPageLink = getLinkExample('To Practitioner');
+
+    const { getByText } = render(
+      <Link link={clientPageLink.link}>{clientPageLink.label}</Link>,
+    );
+
+    expect(getByText(clientPageLink.label).getAttribute('href')).toBe(
+      '/care-team/rosio-macdonald',
+    );
+  });
 });

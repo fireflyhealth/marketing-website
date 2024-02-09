@@ -21,6 +21,8 @@ export const getLinkableDocumentPath = (doc: LinkableDocumentData): string => {
       return `/blog/${doc.category.slug.current}/${doc.slug.current}`;
     case 'clientPage':
       return `/with/${doc.slug.current}`;
+    case 'practitioner':
+      return `/care-team/${doc.slug.current}`;
   }
 };
 
@@ -41,5 +43,7 @@ export const getLinkableDocumentLabel = (doc: LinkableDocumentData): string => {
       return doc.title;
     case 'clientPage':
       return doc.clientName;
+    case 'practitioner':
+      return doc.name;
   }
 };
