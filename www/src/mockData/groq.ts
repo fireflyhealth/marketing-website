@@ -9,6 +9,7 @@ import {
   responsiveImageSetFragment,
   richTextFragment,
   videoFragment,
+  videoHeaderFragment,
 } from '@/lib/sanity/queries/fragments';
 
 export const mockDataQuery = `
@@ -16,7 +17,7 @@ export const mockDataQuery = `
     contentBlockExamples{
       imageBlock{${contentBlockFragment}},
       imageCarouselBlock{${contentBlockFragment}},
-      videoHeaderExample{${contentBlockFragment}},
+      videoHeaderExample{${videoHeaderFragment}},
       ctaCardsBlock{${contentBlockFragment}},
       doubleCtaBlockExample{${contentBlockFragment}},
       practitionersBlock{${contentBlockFragment}},
@@ -24,8 +25,8 @@ export const mockDataQuery = `
       quoteBlock{${contentBlockFragment}},
       drawerListBlock{${contentBlockFragment}},
       quoteBlockExample{${contentBlockFragment}},
-      quoteBlockExample{${contentBlockFragment}},
-      twoUpBlocks[]{${contentBlockFragment}}
+      twoUpBlocks[]{${contentBlockFragment}},
+      sequenceBlock{${contentBlockFragment}}
     },
     navigationExample{
       globalNav->{${navigationFragment}},

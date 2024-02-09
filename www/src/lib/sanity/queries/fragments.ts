@@ -36,7 +36,7 @@ export const responsiveImageSetFragment = `
 
 export const hubspotFormFragment = `
   _type,
-  formId,
+  formId
 `;
 
 export const barGraphFragment = `
@@ -346,6 +346,13 @@ export const doubleCtaFragment = `
   },
 `;
 
+const sequenceBlockTextFieldsFragment = `
+  _type,
+  title,
+  bellyButtonText,
+  description  
+`;
+
 export const imageTextOverlapFragment = `
   header{
     ${contentBlockHeaderFragment}
@@ -372,15 +379,6 @@ export const videoFragment = `
   }
 `;
 
-export const videoHeaderFragment = `
-  eyebrow,
-  heading,
-  body[]{
-    ${richTextFragment}
-  },
-  video {${videoFragment}}
-`;
-
 /**
  * blockOne and blockTwo are actually arrays
  * in Sanity, but validated to always have only
@@ -402,6 +400,22 @@ const twoUpBlockFragment = `
   blockTwo {
     ${childContentBlockFragment}
   }[0]
+`;
+
+const sequenceItemFragment = `
+  _type,
+  _key,
+  video{${videoFragment}},
+  copy{${sequenceBlockTextFieldsFragment}},
+  theme,
+  flipAlignment,
+  isHighlighted
+`;
+
+export const sequenceBlockFragment = `
+  sequenceHeader{${sequenceBlockTextFieldsFragment}},
+  sequenceItems[]{${sequenceItemFragment}},
+  sequenceFooter
 `;
 
 export const contentBlockFragment = `
@@ -475,7 +489,16 @@ export const contentBlockFragment = `
         ${responsiveImageSetFragment}
       },
       theme
-    }
+     }
+   },
+  _type == "sequenceBlock" => {${sequenceBlockFragment}}
+`;
+
+export const videoHeaderFragment = `
+  eyebrow,
+  heading,
+  body[]{
+    ${richTextFragment}
   },
   _type == "twoUpBlock" => {${twoUpBlockFragment}}
 `;

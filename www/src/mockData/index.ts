@@ -17,6 +17,7 @@ import {
   DrawerListBlock,
   ResponsiveImageSet,
   TwoUpBlock,
+  SequenceBlock,
 } from '@/types/sanity';
 import mockData from './mockData.json';
 
@@ -74,3 +75,6 @@ export const quoteBlock = mockData.contentBlockExamples
 
 export const twoUpBlockExamples = mockData.contentBlockExamples
   .twoUpBlocks as TwoUpBlock[];
+
+export const sequenceBlockExample = mockData.contentBlockExamples
+  .sequenceBlock as SequenceBlock;
