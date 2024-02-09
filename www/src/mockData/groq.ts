@@ -1,5 +1,6 @@
 import {
   contentBlockFragment,
+  contentBlockHeaderFragment,
   ctaFragment,
   doubleCtaFragment,
   footerFragment,
@@ -27,7 +28,9 @@ export const mockDataQuery = `
         ${contentBlockFragment}
       },
       doubleCtaBlockExample{
-        ${doubleCtaFragment}
+        _type,
+        doubleCta{${doubleCtaFragment}},
+        header{${contentBlockHeaderFragment}},
       },
     },
     navigationExample{

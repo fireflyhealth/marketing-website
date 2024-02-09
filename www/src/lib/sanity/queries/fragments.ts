@@ -166,7 +166,7 @@ export const richTextFragment = `
   }
 `;
 
-const contentBlockHeaderFragment = `
+export const contentBlockHeaderFragment = `
   _type,
   title,
   description[]{
@@ -230,7 +230,11 @@ export const contentBlockFragment = `
       }
     }
   },
-  _type == "doubleCtaBlock" => {${doubleCtaFragment}}
+  _type == "doubleCtaBlock" => {
+    _type,
+    doubleCta{${doubleCtaFragment}},
+    header{${contentBlockHeaderFragment}},
+  }
 `;
 
 export const navGroupFragment = `

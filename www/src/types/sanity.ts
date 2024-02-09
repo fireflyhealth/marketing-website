@@ -390,8 +390,10 @@ export type CTACardsBlock = {
   header: Maybe<ContentBlockHeader>;
   ctaCards: KeyedArray<CTACard>;
 };
-export type DoubleCtaBlock = DoubleCta & {
+export type DoubleCtaBlock = {
   _type: 'doubleCtaBlock';
+  doubleCta: DoubleCta;
+  header: Maybe<ContentBlockHeader>;
 };
 
 export type LargeCtaCard = {
