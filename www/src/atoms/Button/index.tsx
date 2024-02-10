@@ -88,7 +88,7 @@ export const LinkButton: FC<LinkButtonProps> = ({
         id={id}
       >
         <div className="cta__inner">
-          <Link link={link} aria-label={ariaLabel || undefined}>
+          <Link link={link} ariaLabel={ariaLabel || undefined}>
             {label}
           </Link>
         </div>

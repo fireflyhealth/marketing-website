@@ -12,9 +12,20 @@ export const MockData = defineType({
   icon: icons.Code,
   fields: [
     defineField({
-      name: 'navigation',
-      type: 'reference',
-      to: [{ type: 'navigation' }],
+      name: 'navigationExample',
+      type: 'object',
+      fields: [
+        defineField({
+          title: 'Global Nav',
+          name: 'globalNav',
+          type: 'reference',
+          to: [{ type: 'navigation' }],
+        }),
+        defineField({
+          name: 'doubleCta',
+          type: 'doubleCta',
+        }),
+      ],
       validation: (Rule) => Rule.required(),
     }),
     defineField({
@@ -68,6 +79,16 @@ export const MockData = defineType({
           name: 'ctaCardsBlock',
           type: 'ctaCardsBlock',
           title: 'CTA Cards Block',
+          options: {
+            collapsible: true,
+            collapsed: true,
+          },
+          validation: (Rule) => Rule.required(),
+        }),
+        defineField({
+          name: 'doubleCtaBlockExample',
+          title: 'Double Cta Block Example',
+          type: 'doubleCtaBlock',
           options: {
             collapsible: true,
             collapsed: true,

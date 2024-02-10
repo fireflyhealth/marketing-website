@@ -21,4 +21,5 @@ export const RevalidationTime = config.isProd
 export const zIndex = {
   NavigationCTABackground: 990,
   Navigation: 1000,
+  NavCTA: 1010,
 };

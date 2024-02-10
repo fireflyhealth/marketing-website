@@ -166,7 +166,7 @@ export const richTextFragment = `
   }
 `;
 
-const contentBlockHeaderFragment = `
+export const contentBlockHeaderFragment = `
   _type,
   title,
   description[]{
@@ -174,6 +174,24 @@ const contentBlockHeaderFragment = `
   },
   cta {
     ${ctaFragment}
+  }
+`;
+
+export const doubleCtaFragment = `
+  _type,
+  ctaOne{
+    eyebrow,
+    label,
+    id,
+    ariaLabel,
+    link {${linkFragment}},
+  },
+  ctaTwo{
+    eyebrow,
+    label,
+    id,
+    ariaLabel,
+    link {${linkFragment}},
   }
 `;
 
@@ -211,6 +229,11 @@ export const contentBlockFragment = `
         ${ctaFragment}
       }
     }
+  },
+  _type == "doubleCtaBlock" => {
+    _type,
+    doubleCta{${doubleCtaFragment}},
+    header{${contentBlockHeaderFragment}},
   }
 `;
 

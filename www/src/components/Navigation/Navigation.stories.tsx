@@ -1,15 +1,21 @@
 import React, { FC } from 'react';
 import { Meta, StoryObj } from '@storybook/react';
-import { Navigation as NavigationType } from '@/types/sanity';
+import { NavigationExample as NavigationExampleType } from '@/types/sanity';
 import { navigationExample } from '@/mockData';
 import { Navigation } from './';
 
 type Props = {
-  navigation: NavigationType;
+  navigation: NavigationExampleType;
 };
 
 const NavigationExample: FC<Props> = ({ navigation }) => {
-  return <Navigation navigation={navigation} showNavCTA />;
+  return (
+    <Navigation
+      navigation={navigation.globalNav}
+      showNavCTA
+      globalDoubleNav={navigation.doubleCta}
+    />
+  );
 };
 
 const meta = {

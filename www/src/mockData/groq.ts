@@ -1,6 +1,8 @@
 import {
   contentBlockFragment,
+  contentBlockHeaderFragment,
   ctaFragment,
+  doubleCtaFragment,
   footerFragment,
   imageFragment,
   linkWithLabelFragment,
@@ -24,15 +26,16 @@ export const mockDataQuery = `
       },
       ctaCardsBlock{
         ${contentBlockFragment}
-      }
+      },
+      doubleCtaBlockExample{
+        _type,
+        doubleCta{${doubleCtaFragment}},
+        header{${contentBlockHeaderFragment}},
+      },
     },
-    navigation->{
-      _type,
-      _id,
-      _createdAt,
-      _updatedAt,
-      title,
-      ${navigationFragment}
+    navigationExample{
+      globalNav->{${navigationFragment}},
+      doubleCta{${doubleCtaFragment}}
     },
     simpleRichText,
     articleRichText[]{

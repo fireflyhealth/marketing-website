@@ -1,6 +1,6 @@
 import { FC, useEffect } from 'react';
 import { useRouter } from 'next/router';
-import { Navigation as NavigationType } from '@/types/sanity';
+import { Navigation as NavigationType, DoubleCta } from '@/types/sanity';
 import { useUIProvider } from '@/context/UIProvider';
 import { MobileNav } from './MobileNav';
 import { DesktopNav } from './DesktopNav';
@@ -8,9 +8,14 @@ import { DesktopNav } from './DesktopNav';
 type Props = {
   navigation: NavigationType;
   showNavCTA: boolean;
+  globalDoubleNav: DoubleCta;
 };
 
-export const Navigation: FC<Props> = ({ navigation, showNavCTA }) => {
+export const Navigation: FC<Props> = ({
+  navigation,
+  showNavCTA,
+  globalDoubleNav,
+}) => {
   const { setMobileNavOpen, setGetStartedOpen } = useUIProvider();
   const router = useRouter();
 
@@ -27,8 +32,16 @@ export const Navigation: FC<Props> = ({ navigation, showNavCTA }) => {
   }, [router, setMobileNavOpen, setGetStartedOpen]);
   return (
     <>
-      <MobileNav navGroup={navigation.navGroup} showNavCTA={showNavCTA} />
-      <DesktopNav navGroup={navigation.navGroup} showNavCTA={showNavCTA} />
+      <MobileNav
+        navGroup={navigation.navGroup}
+        showNavCTA={showNavCTA}
+        globalDoubleNav={globalDoubleNav}
+      />
+      <DesktopNav
+        navGroup={navigation.navGroup}
+        showNavCTA={showNavCTA}
+        globalDoubleNav={globalDoubleNav}
+      />
     </>
   );
 };
