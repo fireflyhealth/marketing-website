@@ -21,7 +21,7 @@ export const SequenceCopy: FC<Props> = ({ copy, headerCopy }) => {
           {title}
         </h3>
       )}
-      <span className="font-size-10 font-roobert theme-text-color-decorative">
+      <span className="font-size-10 font-roobert text-yellow">
         {bellyButtonText}
       </span>
       <p className="font-size-8 font-roobert theme-text-color-secondary">

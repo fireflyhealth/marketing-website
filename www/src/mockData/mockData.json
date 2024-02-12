@@ -1,492 +1,55 @@
 {
-  "articleRichText": [
+  "ctas": [
     {
-      "_key": "f9549c2e94e7",
-      "_type": "block",
-      "style": "h2",
-      "markDefs": [],
-      "children": [
-        {
-          "_type": "span",
-          "marks": [],
-          "text": "Good and Bad Cholesterol",
-          "_key": "2a6c1fa8737d"
-        }
-      ]
-    },
-    {
-      "_key": "1329dde686d3",
-      "_type": "block",
-      "children": [
-        {
-          "text": "It gets a bad rap, but cholesterol isn't always the villain. Your body actually needs cholesterol to survive and perform essential functions, such as building cells and making hormones. But, as is often the case, too much of a good thing can be bad for your health. Because high cholesterol is a major risk factor for heart disease and stroke, we’re breaking down the facts on cholesterol below.",
-          "_key": "57cbd81c29270",
-          "_type": "span",
-          "marks": []
-        }
-      ],
-      "style": "blockquote-large",
-      "markDefs": []
-    },
-    {
-      "crop": null,
-      "hotspot": null,
-      "markDefs": null,
-      "_key": "85be266514e5",
-      "_type": "richImage",
-      "altText": "A person holding a kitchen knife over some chopped vegetables",
-      "caption": "On the chopping block",
-      "asset": {
-        "_id": "image-f61844b18db6925d6c1bb81512ee450d9224dc4a-3272x2177-png",
-        "_type": "sanity.imageAsset",
-        "url": "https://cdn.sanity.io/images/xgbrv2vi/production/f61844b18db6925d6c1bb81512ee450d9224dc4a-3272x2177.png",
-        "metadata": {
-          "lqip": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAIAAAAmMtkJAAAACXBIWXMAAAsTAAALEwEAmpwYAAADJElEQVQokQEZA+b8AJWIhJOBe4NtZXtqYIl5cJ6OiK2cmbain8Svq9PCvtbMysW9vrmrq7mpq7musLausLOsrrGpq7CmqK6jpQCHbGSCXFB5UEB2Tz98VkaHYVOQal2ZbmGneWu1joS5oJqslZCkgHmtiYS4pKS3r7G1rbCzqqyxp6mwpacAc0w/cUM0bz8ucEIydkw+fFZKgV5Th15SkmVXoX5zqY+Ho4N5oXFksn1xv5uVu6uruK6vt6yutKqrsqeqAGdMRXZXUHpaUH1cVIRpYodtZ4x0bpF4cpeAeKuVi7iXiLOBa7RzXMF+ZMWOd7SViLCemLmmorOgna6dmgBwZ2iFeXmPgH6QfnyQfXqKdG+LdG+NdW6Sem+pjXu2jnWqdVijbE6oeFinfF2ScVqPdGWhgnWfe26eemwAg4CDhoGCioGBkoWFkoF/hW9pgmRbflxOhGRPnYZqp5Fzl3pXg2U/eFw8dFc9blA4bEw5d1JCflVEg1lFAIWChG1oZ15XVXVpZohybH5eU3VNP3FIN3dZP4d6VI6FWIhzQXVcKWRJI146Il44I104JVo4KWA+MGRBMQCBfHxcVVFANS9WQTdyT0FqQzRdNylZNylfQy9sWTd0ZTNzWCRpSBppRiBxQSZ0QCZoOyROMB9FKx9KLSEAfXNoY1RLVD0yYT0ubEEuZTopXTcnXTgoXTkoZEIqbEwoaUUeZjsYdEUfiVIolFkph1IlYTsaPSIRNBsRAGxcSHFbS3lYS4FPP4NIM4JJMIJPMoNSM4JRLoFPKYFOI4RNG4pQGZdcHqVnIapqHaRmG4xWFmI5EUYlEQBgUUJ5ZVqWd2+cXk6WQiqXSSejYi6ucSuzdCKwcB2saxqtahq0ch69fyu+gjK1eSitbh6lZhmSWBV9SRYAeGtoh3Nuo4aBp29jjT8sfTUZl1ccvnoWyoALxHwOu3kctHMjvX4q0ZlD1qVWyZZOsXo3oWcnnF8cmlsUAI+DhZB0cKeCfqyGgH5SSVcrHHVDE7RzDMp+BMF4ELJ0KqdsL7p9MNmjTuW3aN6vY7+MSp1oNpFZJ5RYGuMqUudOyK6wAAAAAElFTkSuQmCC",
-          "dimensions": {
-            "aspectRatio": 1.5029857602204868,
-            "width": 3272,
-            "height": 2177
-          }
-        }
-      }
-    },
-    {
-      "_key": "ae870c9982f1",
-      "_type": "block",
-      "markDefs": [],
-      "children": [
-        {
-          "text": "What is Cholesterol, anyway?",
-          "_key": "6d8a53e1302e",
-          "_type": "span",
-          "marks": []
-        }
-      ],
-      "style": "h3"
-    },
-    {
-      "_key": "a7386fd97ecb",
-      "_type": "block",
-      "children": [
-        {
-          "_type": "span",
-          "marks": [],
-          "text": "When it comes to high cholesterol, the best treatment is prevention. Since high cholesterol is often the result of your lifestyle choices, there are ways you can help keep it in check by simply making healthy lifestyle choices.",
-          "_key": "d8dcaf64e2a60"
-        }
-      ],
-      "style": "normal",
-      "markDefs": []
-    },
-    {
-      "markDefs": [],
-      "children": [
-        {
-          "_type": "span",
-          "marks": [],
-          "text": "Two types of Cholesterol",
-          "_key": "22b597d9117e"
-        }
-      ],
-      "style": "h4",
-      "_key": "b7855f92fb00",
-      "_type": "block"
-    },
-    {
-      "listItem": "number",
-      "markDefs": [],
-      "_key": "e8ef046a9e1e",
-      "_type": "block",
-      "children": [
-        {
-          "marks": [],
-          "text": "The good kind",
-          "_key": "30a54005c774",
-          "_type": "span"
-        }
-      ],
-      "level": 1,
-      "style": "normal"
-    },
-    {
-      "listItem": "number",
-      "markDefs": [],
-      "children": [
-        {
-          "_type": "span",
-          "marks": [],
-          "text": "The bad kind",
-          "_key": "4f2ba1f42b30"
-        }
-      ],
-      "_key": "b039500d241d",
-      "_type": "block",
-      "level": 1,
-      "style": "normal"
-    },
-    {
-      "_key": "77296c9625db",
-      "_type": "block",
-      "markDefs": [],
-      "children": [
-        {
-          "_type": "span",
-          "marks": [],
-          "text": "Fun Cholesterol Facts",
-          "_key": "fdc875ebdf09"
-        }
-      ],
-      "style": "h4"
-    },
-    {
-      "_key": "38aff29e4632",
-      "_type": "block",
-      "style": "normal",
-      "listItem": "bullet",
-      "markDefs": [],
-      "children": [
-        {
-          "_type": "span",
-          "marks": [],
-          "text": "It is often misspelled.",
-          "_key": "675f0342bde7"
-        }
-      ],
-      "level": 1
-    },
-    {
-      "children": [
-        {
-          "_type": "span",
-          "marks": [],
-          "text": "The word ",
-          "_key": "18208473612e"
-        },
-        {
-          "_key": "05b12cd8b11a1",
-          "_type": "span",
-          "marks": ["em"],
-          "text": "cholesterol"
-        },
-        {
-          "_type": "span",
-          "marks": [],
-          "text": " comes from Ancient Greek ",
-          "_key": "05b12cd8b11a2"
-        },
-        {
-          "_type": "span",
-          "marks": ["em"],
-          "text": "chole-",
-          "_key": "05b12cd8b11a3"
-        },
-        {
-          "_type": "span",
-          "marks": [],
-          "text": " 'bile' and ",
-          "_key": "05b12cd8b11a4"
-        },
-        {
-          "_type": "span",
-          "marks": ["em"],
-          "text": "stereos",
-          "_key": "05b12cd8b11a5"
-        },
-        {
-          "text": " 'solid', followed by the chemical suffix ",
-          "_key": "05b12cd8b11a6",
-          "_type": "span",
-          "marks": []
-        },
-        {
-          "_type": "span",
-          "marks": ["em"],
-          "text": "-ol",
-          "_key": "05b12cd8b11a7"
-        },
-        {
-          "_type": "span",
-          "marks": [],
-          "text": " for an alcohol.",
-          "_key": "05b12cd8b11a8"
-        }
-      ],
-      "level": 1,
-      "_key": "d2b90adb4e97",
-      "_type": "block",
-      "style": "normal",
-      "listItem": "bullet",
-      "markDefs": []
-    },
-    {
-      "markDefs": [],
-      "children": [
-        {
-          "_type": "span",
-          "marks": [],
-          "text": "The best treatment for high cholesterol is prevention. This includes eating healthy foods, moving your body, and managing stress.",
-          "_key": "42fea3033a330"
-        }
-      ],
-      "style": "blockquote",
-      "_key": "02f616b62bb9",
-      "_type": "block"
-    },
-    {
-      "_type": "block",
-      "children": [
-        {
-          "_type": "span",
-          "marks": ["710b11d36947"],
-          "text": "Read more on Wikipedia",
-          "_key": "f7732c0d2526"
-        },
-        {
-          "marks": [],
-          "text": " or ",
-          "_key": "b712d1de4492",
-          "_type": "span"
-        },
-        {
-          "text": "read about the benefits of fiber",
-          "_key": "3a16b4bb47e0",
-          "_type": "span",
-          "marks": ["ee04912cf484"]
-        },
-        { "marks": [], "text": ".", "_key": "7794a95a7f49", "_type": "span" }
-      ],
-      "style": "normal",
-      "markDefs": [
-        {
-          "_key": "710b11d36947",
-          "_type": "link",
-          "link": {
-            "file": null,
-            "documentLink": null,
-            "_type": "link",
-            "_key": null,
-            "externalUrl": "https://en.wikipedia.org/wiki/Cholesterol"
-          }
-        },
-        {
-          "_key": "ee04912cf484",
-          "_type": "link",
-          "link": {
-            "externalUrl": null,
-            "file": null,
-            "documentLink": {
-              "slug": {
-                "current": "the-many-health-benefits-of-fiber",
-                "_type": "slug"
-              },
-              "title": "The Many Health Benefits of Fiber",
-              "category": {
-                "_type": "blog",
-                "slug": { "current": "for-members", "_type": "slug" },
-                "title": "For Members"
-              },
-              "_id": "2efb1db1-1e1c-4367-9186-4c99a031f4a3",
-              "_createdAt": "2024-01-11T20:44:58Z",
-              "_updatedAt": "2024-01-18T16:54:25Z",
-              "_type": "blogArticle"
-            },
-            "_type": "link",
-            "_key": null
-          }
-        }
-      ],
-      "_key": "e543f2d84e8d"
-    },
-    {
-      "_key": "d2fd59018041",
-      "_type": "icon",
-      "icon": "doctors-office",
-      "markDefs": null
-    },
-    {
-      "_key": "aba8364ffedf",
-      "_type": "form",
-      "formId": "a6bbd062-c5e2-47f2-8ba4-33a62403bf07",
-      "markDefs": null
-    },
-    {
-      "_key": "048a1b09aaa7",
-      "_type": "barGraphObject",
-      "barOne": { "unit": 77, "description": "Firefly" },
-      "barTwo": { "unit": 49, "description": "Industry Standard" },
-      "markDefs": null
-    },
-    {
-      "numberType": "none",
-      "description": [
-        {
-          "markDefs": [],
-          "children": [
-            {
-              "_type": "span",
-              "marks": [],
-              "text": "Firefly members interact with their Care Team weekly",
-              "_key": "9c785077d6050"
-            }
-          ],
-          "_type": "block",
-          "style": "normal",
-          "_key": "b7524a198205"
-        }
-      ],
-      "value": 20000,
-      "markDefs": null,
-      "_key": "039522a3dfb7",
-      "_type": "bigNumber"
-    },
-    {
-      "numberType": "percentage",
-      "description": [
-        {
-          "_key": "7ce747cf4053",
-          "markDefs": [],
-          "children": [
-            {
-              "_type": "span",
-              "marks": [],
-              "text": "of Firefly members report improved health over 3 months",
-              "_key": "6e5e44577f1a0"
-            }
-          ],
-          "_type": "block",
-          "style": "normal"
-        }
-      ],
-      "value": 25,
-      "markDefs": null,
-      "_key": "527a86ff5c9e",
-      "_type": "bigNumber"
-    },
-    {
-      "markDefs": null,
-      "_key": "3b8d6694fd22",
-      "_type": "bigNumber",
-      "numberType": "dollar",
-      "description": [
-        {
-          "_type": "block",
-          "style": "normal",
-          "_key": "a0bf87037f7f",
-          "markDefs": [],
-          "children": [
-            {
-              "_type": "span",
-              "marks": [],
-              "text": "savings in health spending on average by Firefly members",
-              "_key": "630fa6dfbfe30"
-            }
-          ]
-        }
-      ],
-      "value": 2400
-    }
-  ],
-  "imageExamples": [
-    {
-      "label": "Download",
-      "image": {
-        "hotspot": null,
-        "_type": "richImage",
-        "_key": null,
-        "asset": {
-          "_id": "image-21820f0a4428c37c61cd07aae1718a06e97c320d-2500x1945-png",
-          "_type": "sanity.imageAsset",
-          "url": "https://cdn.sanity.io/images/xgbrv2vi/production/21820f0a4428c37c61cd07aae1718a06e97c320d-2500x1945.png",
-          "metadata": {
-            "lqip": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAPCAIAAABr+ngCAAAACXBIWXMAAAsTAAALEwEAmpwYAAADnklEQVQokQGTA2z8ANa0vt6knu5+Uup3R9iZkNaqttmqtteuutawvdawvtyjrux4fPdZWu1sc9ubqNeyvtest8+BisZOVMY/RADOp8PXlqboblvkaVDTipXXkKzciqXUm7nOosTMn8HRnLrfh5/rcoXjfpbWmrnSpsbSoL3Ke4zCT1HCQj8AzZzKzYquz2Bnzlxez36d2Xuk3XKX0426yJTKwo7DyJTC1JXD2o+92JHA1JfI05rO05XE0nqMz1lK0E83ANCU0cSGuKtkfa9ke8h/rc11pspqlsyDuMaIu7+Bs8WKvs+Tz9GSz8yJvcmFtc2MxdOPyN1/judqQupiLADVlNLKkMm1ga26g7DKjMa4d62raprChKjLiJDIforMg6XQkcfLjsa7dpi0aoK/fKbOkMjei57veU73cCsA4I663J7Q1qHU2KHW1J3UuIW4q3qlx5GV0JFxz4l91ImN04+qx463s3OFqmNqtXWNxpHC0pS83oWB53hWAOZ6keGYw9+j2Nyf1taa0saNx8KMs9CUhcWEbbyDisOBgcV3fcF8lr12eLpuYLJwe6l6raZ9u6l3qKxwkwDec3DWiLLRjc/Lic3Fg8u+f8fDhKfLgnKua3KYY3+iW16tUku2YmDQfFXdg0a7c2CDXo1rWJ1qV5lpVpQAzYBWyIajxobBwYG9t3vDrXa5sm+Fu2pdpGhxjWFmiEg9jzwqoVAyznwy7JMzyH9Uf2CGYVWXXlSSXVSPALqETMeMkNWOmNaKjMWDoadzm5ZWYaVWSqt1YJt6X35USG44Knc8H6JcI9V9M86BX510kIdvn4VunIRtmwCjeVDQkXjvl2rzlFjciGqfZmdwP0B9QjOZakWog2CfeGWBVkJhNiFqNRyeUzHIe2TKkYzEk5TDkpLCkpEAlWxR2ZNo+5hc/ZJM3IFKhlE9Ti8qWjgri2E8wZBW2aRsxo5fi1o5WzIeZzglqW9N36Jt77B28a978q99AKN0Wd+TaPmIYPt9VdJtSXVAMFU0LX9XRLeFVtykXuyxbu6vdcuQX4NUN1w4IY1lLNKiOO+6R/i6Y/m2dwDSi3zijXrebmLlXVTIU0h7OTR/SUW7fXHZm4Hdn37foYPlpYndnYKqcV5zSzCFZR20lBbSsCHjslHpqX8A742f2n2OtFhfvEZIuEBAgzc3l1NdyH2Q04qd0Ymb0oqb04ub0omYtHJ5flNBc1kmiXIaqYwdyZhP25SMmXUIsMbcIbgAAAAASUVORK5CYII=",
-            "dimensions": {
-              "aspectRatio": 1.2853470437017995,
-              "width": 2500,
-              "height": 1945
-            }
-          }
-        },
-        "caption": null,
-        "altText": "A trippy image of two hands holding a phone-shaped pane of glass",
-        "crop": null
-      }
-    },
-    {
-      "label": "Download - Vertical Crop",
-      "image": {
-        "caption": null,
-        "altText": "A trippy image of two hands holding a phone-shaped pane of glass",
-        "crop": {
-          "bottom": 0,
-          "_type": "sanity.imageCrop",
-          "right": 0.2709923664122138,
-          "top": 0,
-          "left": 0.21564885496183217
-        },
-        "hotspot": {
-          "height": 1,
-          "_type": "sanity.imageHotspot",
-          "width": 0.4751908396946564,
-          "x": 0.47232824427480924,
-          "y": 0.5
-        },
-        "_type": "richImage",
-        "_key": null,
-        "asset": {
-          "_id": "image-21820f0a4428c37c61cd07aae1718a06e97c320d-2500x1945-png",
-          "_type": "sanity.imageAsset",
-          "url": "https://cdn.sanity.io/images/xgbrv2vi/production/21820f0a4428c37c61cd07aae1718a06e97c320d-2500x1945.png",
-          "metadata": {
-            "lqip": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAPCAIAAABr+ngCAAAACXBIWXMAAAsTAAALEwEAmpwYAAADnklEQVQokQGTA2z8ANa0vt6knu5+Uup3R9iZkNaqttmqtteuutawvdawvtyjrux4fPdZWu1sc9ubqNeyvtest8+BisZOVMY/RADOp8PXlqboblvkaVDTipXXkKzciqXUm7nOosTMn8HRnLrfh5/rcoXjfpbWmrnSpsbSoL3Ke4zCT1HCQj8AzZzKzYquz2Bnzlxez36d2Xuk3XKX0426yJTKwo7DyJTC1JXD2o+92JHA1JfI05rO05XE0nqMz1lK0E83ANCU0cSGuKtkfa9ke8h/rc11pspqlsyDuMaIu7+Bs8WKvs+Tz9GSz8yJvcmFtc2MxdOPyN1/judqQupiLADVlNLKkMm1ga26g7DKjMa4d62raprChKjLiJDIforMg6XQkcfLjsa7dpi0aoK/fKbOkMjei57veU73cCsA4I663J7Q1qHU2KHW1J3UuIW4q3qlx5GV0JFxz4l91ImN04+qx463s3OFqmNqtXWNxpHC0pS83oWB53hWAOZ6keGYw9+j2Nyf1taa0saNx8KMs9CUhcWEbbyDisOBgcV3fcF8lr12eLpuYLJwe6l6raZ9u6l3qKxwkwDec3DWiLLRjc/Lic3Fg8u+f8fDhKfLgnKua3KYY3+iW16tUku2YmDQfFXdg0a7c2CDXo1rWJ1qV5lpVpQAzYBWyIajxobBwYG9t3vDrXa5sm+Fu2pdpGhxjWFmiEg9jzwqoVAyznwy7JMzyH9Uf2CGYVWXXlSSXVSPALqETMeMkNWOmNaKjMWDoadzm5ZWYaVWSqt1YJt6X35USG44Knc8H6JcI9V9M86BX510kIdvn4VunIRtmwCjeVDQkXjvl2rzlFjciGqfZmdwP0B9QjOZakWog2CfeGWBVkJhNiFqNRyeUzHIe2TKkYzEk5TDkpLCkpEAlWxR2ZNo+5hc/ZJM3IFKhlE9Ti8qWjgri2E8wZBW2aRsxo5fi1o5WzIeZzglqW9N36Jt77B28a978q99AKN0Wd+TaPmIYPt9VdJtSXVAMFU0LX9XRLeFVtykXuyxbu6vdcuQX4NUN1w4IY1lLNKiOO+6R/i6Y/m2dwDSi3zijXrebmLlXVTIU0h7OTR/SUW7fXHZm4Hdn37foYPlpYndnYKqcV5zSzCFZR20lBbSsCHjslHpqX8A742f2n2OtFhfvEZIuEBAgzc3l1NdyH2Q04qd0Ymb0oqb04ub0omYtHJ5flNBc1kmiXIaqYwdyZhP25SMmXUIsMbcIbgAAAAASUVORK5CYII=",
-            "dimensions": {
-              "aspectRatio": 1.2853470437017995,
-              "width": 2500,
-              "height": 1945
-            }
-          }
-        }
-      }
-    },
-    {
-      "label": "Download - upper-right hot spot",
-      "image": {
-        "asset": {
-          "_id": "image-21820f0a4428c37c61cd07aae1718a06e97c320d-2500x1945-png",
-          "_type": "sanity.imageAsset",
-          "url": "https://cdn.sanity.io/images/xgbrv2vi/production/21820f0a4428c37c61cd07aae1718a06e97c320d-2500x1945.png",
-          "metadata": {
-            "lqip": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAPCAIAAABr+ngCAAAACXBIWXMAAAsTAAALEwEAmpwYAAADnklEQVQokQGTA2z8ANa0vt6knu5+Uup3R9iZkNaqttmqtteuutawvdawvtyjrux4fPdZWu1sc9ubqNeyvtest8+BisZOVMY/RADOp8PXlqboblvkaVDTipXXkKzciqXUm7nOosTMn8HRnLrfh5/rcoXjfpbWmrnSpsbSoL3Ke4zCT1HCQj8AzZzKzYquz2Bnzlxez36d2Xuk3XKX0426yJTKwo7DyJTC1JXD2o+92JHA1JfI05rO05XE0nqMz1lK0E83ANCU0cSGuKtkfa9ke8h/rc11pspqlsyDuMaIu7+Bs8WKvs+Tz9GSz8yJvcmFtc2MxdOPyN1/judqQupiLADVlNLKkMm1ga26g7DKjMa4d62raprChKjLiJDIforMg6XQkcfLjsa7dpi0aoK/fKbOkMjei57veU73cCsA4I663J7Q1qHU2KHW1J3UuIW4q3qlx5GV0JFxz4l91ImN04+qx463s3OFqmNqtXWNxpHC0pS83oWB53hWAOZ6keGYw9+j2Nyf1taa0saNx8KMs9CUhcWEbbyDisOBgcV3fcF8lr12eLpuYLJwe6l6raZ9u6l3qKxwkwDec3DWiLLRjc/Lic3Fg8u+f8fDhKfLgnKua3KYY3+iW16tUku2YmDQfFXdg0a7c2CDXo1rWJ1qV5lpVpQAzYBWyIajxobBwYG9t3vDrXa5sm+Fu2pdpGhxjWFmiEg9jzwqoVAyznwy7JMzyH9Uf2CGYVWXXlSSXVSPALqETMeMkNWOmNaKjMWDoadzm5ZWYaVWSqt1YJt6X35USG44Knc8H6JcI9V9M86BX510kIdvn4VunIRtmwCjeVDQkXjvl2rzlFjciGqfZmdwP0B9QjOZakWog2CfeGWBVkJhNiFqNRyeUzHIe2TKkYzEk5TDkpLCkpEAlWxR2ZNo+5hc/ZJM3IFKhlE9Ti8qWjgri2E8wZBW2aRsxo5fi1o5WzIeZzglqW9N36Jt77B28a978q99AKN0Wd+TaPmIYPt9VdJtSXVAMFU0LX9XRLeFVtykXuyxbu6vdcuQX4NUN1w4IY1lLNKiOO+6R/i6Y/m2dwDSi3zijXrebmLlXVTIU0h7OTR/SUW7fXHZm4Hdn37foYPlpYndnYKqcV5zSzCFZR20lBbSsCHjslHpqX8A742f2n2OtFhfvEZIuEBAgzc3l1NdyH2Q04qd0Ymb0oqb04ub0omYtHJ5flNBc1kmiXIaqYwdyZhP25SMmXUIsMbcIbgAAAAASUVORK5CYII=",
-            "dimensions": {
-              "aspectRatio": 1.2853470437017995,
-              "width": 2500,
-              "height": 1945
-            }
-          }
-        },
-        "caption": null,
-        "altText": "A trippy image of two hands holding a phone-shaped pane of glass",
-        "crop": {
-          "_type": "sanity.imageCrop",
-          "right": 0,
-          "top": 0,
-          "left": 0,
-          "bottom": 0
-        },
-        "hotspot": {
-          "x": 0.9064885496183208,
-          "y": 0.11488647736415543,
-          "height": 0.22977295472831086,
-          "_type": "sanity.imageHotspot",
-          "width": 0.1870229007633585
-        },
-        "_type": "richImage",
-        "_key": null
-      }
-    }
-  ],
-  "footer": {
-    "mobileCta": {
+      "variant": "primary",
+      "id": "learn-more-example",
       "link": {
+        "file": null,
+        "documentLink": {
+          "_type": "genericPage",
+          "slug": { "current": "about", "_type": "slug" },
+          "title": "About",
+          "_id": "edd5117c-0ac6-4140-9a0b-6ab84401f271",
+          "_createdAt": "2024-01-10T20:49:04Z",
+          "_updatedAt": "2024-01-28T21:59:36Z"
+        },
+        "_type": "link",
+        "_key": null,
+        "externalUrl": null
+      },
+      "_type": "cta",
+      "label": "Learn More",
+      "ariaLabel": null
+    },
+    {
+      "label": "Get the Goods",
+      "ariaLabel": null,
+      "variant": "secondary",
+      "id": "cta-secondary-example",
+      "link": {
+        "documentLink": null,
+        "_type": "link",
+        "_key": null,
+        "externalUrl": null,
+        "file": {
+          "asset": {
+            "extension": "zip",
+            "size": 19092790,
+            "_type": "sanity.fileAsset",
+            "_id": "file-30de3ea5e39fd240e183acae6a11bd2df3a91b0e-zip",
+            "originalFilename": "firefly-images.zip",
+            "url": "https://cdn.sanity.io/files/xgbrv2vi/production/30de3ea5e39fd240e183acae6a11bd2df3a91b0e.zip"
+          }
+        }
+      },
+      "_type": "cta"
+    },
+    {
+      "variant": "outlined",
+      "id": "cta-example-outlined",
+      "link": {
+        "_type": "link",
+        "_key": null,
         "externalUrl": null,
         "file": null,
         "documentLink": {
@@ -494,15 +57,32 @@
           "_createdAt": "2024-01-11T19:38:55Z",
           "_updatedAt": "2024-02-01T15:30:03Z",
           "_type": "downloadPage"
-        },
-        "_type": "link",
-        "_key": null
+        }
       },
+      "_type": "cta",
+      "label": "Download",
+      "ariaLabel": "Download the Firefly Mobile app"
+    }
+  ],
+  "footer": {
+    "mobileCta": {
       "_type": "cta",
       "label": "Get the app",
       "ariaLabel": null,
       "variant": "secondary",
-      "id": "footer-cta-get-the-app"
+      "id": "footer-cta-get-the-app",
+      "link": {
+        "_type": "link",
+        "_key": null,
+        "externalUrl": null,
+        "file": null,
+        "documentLink": {
+          "_id": "downloadPage",
+          "_createdAt": "2024-01-11T19:38:55Z",
+          "_updatedAt": "2024-02-01T15:30:03Z",
+          "_type": "downloadPage"
+        }
+      }
     },
     "footerNavGroups": [
       {
@@ -513,16 +93,16 @@
             "_key": "0fb9aa07dec9",
             "label": "Contact Us",
             "link": {
+              "_type": "link",
+              "_key": null,
+              "externalUrl": null,
+              "file": null,
               "documentLink": {
                 "_id": "contactPage",
                 "_createdAt": "2024-01-11T19:39:00Z",
                 "_updatedAt": "2024-02-01T15:33:32Z",
                 "_type": "contactPage"
-              },
-              "_type": "link",
-              "_key": null,
-              "externalUrl": null,
-              "file": null
+              }
             }
           },
           {
@@ -552,18 +132,18 @@
             "_key": "e38ebc9a704e",
             "label": "About",
             "link": {
-              "_type": "link",
-              "_key": null,
-              "externalUrl": null,
               "file": null,
               "documentLink": {
+                "_createdAt": "2024-01-10T20:49:04Z",
                 "_updatedAt": "2024-01-28T21:59:36Z",
                 "_type": "genericPage",
                 "slug": { "current": "about", "_type": "slug" },
                 "title": "About",
-                "_id": "edd5117c-0ac6-4140-9a0b-6ab84401f271",
-                "_createdAt": "2024-01-10T20:49:04Z"
-              }
+                "_id": "edd5117c-0ac6-4140-9a0b-6ab84401f271"
+              },
+              "_type": "link",
+              "_key": null,
+              "externalUrl": null
             }
           },
           {
@@ -571,23 +151,23 @@
             "_key": "45da080c309e",
             "label": "Care Team",
             "link": {
-              "_key": null,
               "externalUrl": null,
               "file": null,
               "documentLink": {
-                "title": "Care Team",
-                "parentPage": {
-                  "_type": "genericPage",
-                  "title": "About",
-                  "slug": { "_type": "slug", "current": "about" }
-                },
                 "_id": "f5bd2bcc-f8e4-443c-9a30-14b16e505dd8",
                 "_createdAt": "2024-01-11T00:13:00Z",
                 "_updatedAt": "2024-01-31T16:37:09Z",
                 "_type": "subPage",
-                "slug": { "current": "care-team", "_type": "slug" }
+                "slug": { "current": "care-team", "_type": "slug" },
+                "title": "Care Team",
+                "parentPage": {
+                  "_type": "genericPage",
+                  "title": "About",
+                  "slug": { "current": "about", "_type": "slug" }
+                }
               },
-              "_type": "link"
+              "_type": "link",
+              "_key": null
             }
           }
         ]
@@ -605,12 +185,12 @@
               "externalUrl": null,
               "file": null,
               "documentLink": {
+                "title": "For Members",
                 "_id": "70157e61-164b-461f-916f-82c16dc68408",
                 "_createdAt": "2024-01-11T20:44:40Z",
                 "_updatedAt": "2024-01-18T16:55:05Z",
                 "_type": "blog",
-                "slug": { "current": "for-members", "_type": "slug" },
-                "title": "For Members"
+                "slug": { "current": "for-members", "_type": "slug" }
               }
             }
           }
@@ -624,11 +204,11 @@
           "_key": "aad4e9cc79ba",
           "label": "LinkedIn",
           "link": {
+            "externalUrl": "https://www.linkedin.com/company/firefly-health/",
+            "file": null,
             "documentLink": null,
             "_type": "link",
-            "_key": null,
-            "externalUrl": "https://www.linkedin.com/company/firefly-health/",
-            "file": null
+            "_key": null
           }
         },
         {
@@ -636,11 +216,11 @@
           "_key": "a68d2fb65f40",
           "label": "X",
           "link": {
-            "file": null,
-            "documentLink": null,
             "_type": "link",
             "_key": null,
-            "externalUrl": "https://twitter.com/carebyfirefly"
+            "externalUrl": "https://twitter.com/carebyfirefly",
+            "file": null,
+            "documentLink": null
           }
         },
         {
@@ -648,11 +228,11 @@
           "_key": "6d3334afddc4",
           "label": "Facebook",
           "link": {
-            "_type": "link",
             "_key": null,
             "externalUrl": "https://www.facebook.com/CareByFirefly",
             "file": null,
-            "documentLink": null
+            "documentLink": null,
+            "_type": "link"
           }
         }
       ],
@@ -679,79 +259,9 @@
       ]
     }
   },
-  "simpleRichText": [
-    {
-      "markDefs": [],
-      "children": [
-        {
-          "text": "Some simple rich text with ",
-          "_key": "b8201dbc36e3",
-          "_type": "span",
-          "marks": []
-        },
-        {
-          "_type": "span",
-          "marks": ["strong", "em"],
-          "text": "bold, ",
-          "_key": "4aca0acaf27c"
-        },
-        {
-          "marks": ["em"],
-          "text": "italic",
-          "_key": "aaa0b6c86420",
-          "_type": "span"
-        },
-        {
-          "_type": "span",
-          "marks": [],
-          "text": ", and ",
-          "_key": "2e48a5b64bff"
-        },
-        {
-          "text": "underlined",
-          "_key": "9604f46b64f7",
-          "_type": "span",
-          "marks": ["underline"]
-        },
-        {
-          "_type": "span",
-          "marks": [],
-          "text": " text.",
-          "_key": "1003654503b2"
-        }
-      ],
-      "_type": "block",
-      "style": "normal",
-      "_key": "ba1ffe54724a"
-    },
-    {
-      "markDefs": [],
-      "children": [
-        {
-          "_type": "span",
-          "marks": [],
-          "text": "A second line with ",
-          "_key": "1a12600685dd"
-        },
-        {
-          "_type": "span",
-          "marks": ["strong", "em", "underline"],
-          "text": "combined ",
-          "_key": "26b3a9714de2"
-        },
-        {
-          "_type": "span",
-          "marks": ["em", "underline"],
-          "text": "styles",
-          "_key": "fc363ff2e319"
-        }
-      ],
-      "_type": "block",
-      "style": "normal",
-      "_key": "caacdb79d913"
-    }
-  ],
   "navigation": {
+    "_updatedAt": "2024-01-30T00:52:01Z",
+    "title": "Global Navigation",
     "_id": "92c15b20-9ba5-4da7-9484-4b36adfcfde6",
     "_type": "navigation",
     "navGroup": [
@@ -765,12 +275,12 @@
             "_key": "448bb68e627e",
             "label": "For Members",
             "link": {
-              "title": "Test Page",
               "_id": "a5a3f11b-8942-4df9-a10d-6e3c0e76aba5",
               "_createdAt": "2024-01-17T20:08:28Z",
               "_updatedAt": "2024-02-07T23:23:03Z",
               "_type": "genericPage",
-              "slug": { "current": "test-page", "_type": "slug" }
+              "slug": { "current": "test-page", "_type": "slug" },
+              "title": "Test Page"
             }
           },
           {
@@ -798,26 +308,195 @@
             "_key": "2f30af252362",
             "label": "For Members",
             "link": {
+              "title": "How It Works",
               "_id": "fce46946-009b-481d-b511-a3b731dca248",
               "_createdAt": "2024-01-11T18:52:57Z",
               "_updatedAt": "2024-01-29T19:38:54Z",
               "_type": "genericPage",
-              "slug": { "current": "how-it-works", "_type": "slug" },
-              "title": "How It Works"
+              "slug": { "current": "how-it-works", "_type": "slug" }
             }
           }
         ]
       }
     ],
     "showNavCTA": true,
-    "_createdAt": "2024-01-26T01:53:14Z",
-    "_updatedAt": "2024-01-30T00:52:01Z",
-    "title": "Global Navigation"
+    "_createdAt": "2024-01-26T01:53:14Z"
   },
+  "simpleRichText": [
+    {
+      "_key": "ba1ffe54724a",
+      "markDefs": [],
+      "children": [
+        {
+          "_type": "span",
+          "marks": [],
+          "text": "Some simple rich text with ",
+          "_key": "b8201dbc36e3"
+        },
+        {
+          "_type": "span",
+          "marks": ["strong", "em"],
+          "text": "bold, ",
+          "_key": "4aca0acaf27c"
+        },
+        {
+          "_type": "span",
+          "marks": ["em"],
+          "text": "italic",
+          "_key": "aaa0b6c86420"
+        },
+        {
+          "_type": "span",
+          "marks": [],
+          "text": ", and ",
+          "_key": "2e48a5b64bff"
+        },
+        {
+          "_type": "span",
+          "marks": ["underline"],
+          "text": "underlined",
+          "_key": "9604f46b64f7"
+        },
+        {
+          "text": " text.",
+          "_key": "1003654503b2",
+          "_type": "span",
+          "marks": []
+        }
+      ],
+      "_type": "block",
+      "style": "normal"
+    },
+    {
+      "style": "normal",
+      "_key": "caacdb79d913",
+      "markDefs": [],
+      "children": [
+        {
+          "_type": "span",
+          "marks": [],
+          "text": "A second line with ",
+          "_key": "1a12600685dd"
+        },
+        {
+          "marks": ["strong", "em", "underline"],
+          "text": "combined ",
+          "_key": "26b3a9714de2",
+          "_type": "span"
+        },
+        {
+          "_type": "span",
+          "marks": ["em", "underline"],
+          "text": "styles",
+          "_key": "fc363ff2e319"
+        }
+      ],
+      "_type": "block"
+    }
+  ],
+  "imageExamples": [
+    {
+      "label": "Download",
+      "image": {
+        "asset": {
+          "_id": "image-21820f0a4428c37c61cd07aae1718a06e97c320d-2500x1945-png",
+          "_type": "sanity.imageAsset",
+          "url": "https://cdn.sanity.io/images/xgbrv2vi/production/21820f0a4428c37c61cd07aae1718a06e97c320d-2500x1945.png",
+          "metadata": {
+            "lqip": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAPCAIAAABr+ngCAAAACXBIWXMAAAsTAAALEwEAmpwYAAADnklEQVQokQGTA2z8ANa0vt6knu5+Uup3R9iZkNaqttmqtteuutawvdawvtyjrux4fPdZWu1sc9ubqNeyvtest8+BisZOVMY/RADOp8PXlqboblvkaVDTipXXkKzciqXUm7nOosTMn8HRnLrfh5/rcoXjfpbWmrnSpsbSoL3Ke4zCT1HCQj8AzZzKzYquz2Bnzlxez36d2Xuk3XKX0426yJTKwo7DyJTC1JXD2o+92JHA1JfI05rO05XE0nqMz1lK0E83ANCU0cSGuKtkfa9ke8h/rc11pspqlsyDuMaIu7+Bs8WKvs+Tz9GSz8yJvcmFtc2MxdOPyN1/judqQupiLADVlNLKkMm1ga26g7DKjMa4d62raprChKjLiJDIforMg6XQkcfLjsa7dpi0aoK/fKbOkMjei57veU73cCsA4I663J7Q1qHU2KHW1J3UuIW4q3qlx5GV0JFxz4l91ImN04+qx463s3OFqmNqtXWNxpHC0pS83oWB53hWAOZ6keGYw9+j2Nyf1taa0saNx8KMs9CUhcWEbbyDisOBgcV3fcF8lr12eLpuYLJwe6l6raZ9u6l3qKxwkwDec3DWiLLRjc/Lic3Fg8u+f8fDhKfLgnKua3KYY3+iW16tUku2YmDQfFXdg0a7c2CDXo1rWJ1qV5lpVpQAzYBWyIajxobBwYG9t3vDrXa5sm+Fu2pdpGhxjWFmiEg9jzwqoVAyznwy7JMzyH9Uf2CGYVWXXlSSXVSPALqETMeMkNWOmNaKjMWDoadzm5ZWYaVWSqt1YJt6X35USG44Knc8H6JcI9V9M86BX510kIdvn4VunIRtmwCjeVDQkXjvl2rzlFjciGqfZmdwP0B9QjOZakWog2CfeGWBVkJhNiFqNRyeUzHIe2TKkYzEk5TDkpLCkpEAlWxR2ZNo+5hc/ZJM3IFKhlE9Ti8qWjgri2E8wZBW2aRsxo5fi1o5WzIeZzglqW9N36Jt77B28a978q99AKN0Wd+TaPmIYPt9VdJtSXVAMFU0LX9XRLeFVtykXuyxbu6vdcuQX4NUN1w4IY1lLNKiOO+6R/i6Y/m2dwDSi3zijXrebmLlXVTIU0h7OTR/SUW7fXHZm4Hdn37foYPlpYndnYKqcV5zSzCFZR20lBbSsCHjslHpqX8A742f2n2OtFhfvEZIuEBAgzc3l1NdyH2Q04qd0Ymb0oqb04ub0omYtHJ5flNBc1kmiXIaqYwdyZhP25SMmXUIsMbcIbgAAAAASUVORK5CYII=",
+            "dimensions": {
+              "aspectRatio": 1.2853470437017995,
+              "width": 2500,
+              "height": 1945
+            }
+          }
+        },
+        "caption": null,
+        "altText": "A trippy image of two hands holding a phone-shaped pane of glass",
+        "crop": null,
+        "hotspot": null,
+        "_type": "richImage",
+        "_key": null
+      }
+    },
+    {
+      "label": "Download - Vertical Crop",
+      "image": {
+        "altText": "A trippy image of two hands holding a phone-shaped pane of glass",
+        "crop": {
+          "_type": "sanity.imageCrop",
+          "right": 0.2709923664122138,
+          "top": 0,
+          "left": 0.21564885496183217,
+          "bottom": 0
+        },
+        "hotspot": {
+          "_type": "sanity.imageHotspot",
+          "width": 0.4751908396946564,
+          "x": 0.47232824427480924,
+          "y": 0.5,
+          "height": 1
+        },
+        "_type": "richImage",
+        "_key": null,
+        "asset": {
+          "_id": "image-21820f0a4428c37c61cd07aae1718a06e97c320d-2500x1945-png",
+          "_type": "sanity.imageAsset",
+          "url": "https://cdn.sanity.io/images/xgbrv2vi/production/21820f0a4428c37c61cd07aae1718a06e97c320d-2500x1945.png",
+          "metadata": {
+            "lqip": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAPCAIAAABr+ngCAAAACXBIWXMAAAsTAAALEwEAmpwYAAADnklEQVQokQGTA2z8ANa0vt6knu5+Uup3R9iZkNaqttmqtteuutawvdawvtyjrux4fPdZWu1sc9ubqNeyvtest8+BisZOVMY/RADOp8PXlqboblvkaVDTipXXkKzciqXUm7nOosTMn8HRnLrfh5/rcoXjfpbWmrnSpsbSoL3Ke4zCT1HCQj8AzZzKzYquz2Bnzlxez36d2Xuk3XKX0426yJTKwo7DyJTC1JXD2o+92JHA1JfI05rO05XE0nqMz1lK0E83ANCU0cSGuKtkfa9ke8h/rc11pspqlsyDuMaIu7+Bs8WKvs+Tz9GSz8yJvcmFtc2MxdOPyN1/judqQupiLADVlNLKkMm1ga26g7DKjMa4d62raprChKjLiJDIforMg6XQkcfLjsa7dpi0aoK/fKbOkMjei57veU73cCsA4I663J7Q1qHU2KHW1J3UuIW4q3qlx5GV0JFxz4l91ImN04+qx463s3OFqmNqtXWNxpHC0pS83oWB53hWAOZ6keGYw9+j2Nyf1taa0saNx8KMs9CUhcWEbbyDisOBgcV3fcF8lr12eLpuYLJwe6l6raZ9u6l3qKxwkwDec3DWiLLRjc/Lic3Fg8u+f8fDhKfLgnKua3KYY3+iW16tUku2YmDQfFXdg0a7c2CDXo1rWJ1qV5lpVpQAzYBWyIajxobBwYG9t3vDrXa5sm+Fu2pdpGhxjWFmiEg9jzwqoVAyznwy7JMzyH9Uf2CGYVWXXlSSXVSPALqETMeMkNWOmNaKjMWDoadzm5ZWYaVWSqt1YJt6X35USG44Knc8H6JcI9V9M86BX510kIdvn4VunIRtmwCjeVDQkXjvl2rzlFjciGqfZmdwP0B9QjOZakWog2CfeGWBVkJhNiFqNRyeUzHIe2TKkYzEk5TDkpLCkpEAlWxR2ZNo+5hc/ZJM3IFKhlE9Ti8qWjgri2E8wZBW2aRsxo5fi1o5WzIeZzglqW9N36Jt77B28a978q99AKN0Wd+TaPmIYPt9VdJtSXVAMFU0LX9XRLeFVtykXuyxbu6vdcuQX4NUN1w4IY1lLNKiOO+6R/i6Y/m2dwDSi3zijXrebmLlXVTIU0h7OTR/SUW7fXHZm4Hdn37foYPlpYndnYKqcV5zSzCFZR20lBbSsCHjslHpqX8A742f2n2OtFhfvEZIuEBAgzc3l1NdyH2Q04qd0Ymb0oqb04ub0omYtHJ5flNBc1kmiXIaqYwdyZhP25SMmXUIsMbcIbgAAAAASUVORK5CYII=",
+            "dimensions": {
+              "aspectRatio": 1.2853470437017995,
+              "width": 2500,
+              "height": 1945
+            }
+          }
+        },
+        "caption": null
+      }
+    },
+    {
+      "label": "Download - upper-right hot spot",
+      "image": {
+        "_type": "richImage",
+        "_key": null,
+        "asset": {
+          "_id": "image-21820f0a4428c37c61cd07aae1718a06e97c320d-2500x1945-png",
+          "_type": "sanity.imageAsset",
+          "url": "https://cdn.sanity.io/images/xgbrv2vi/production/21820f0a4428c37c61cd07aae1718a06e97c320d-2500x1945.png",
+          "metadata": {
+            "lqip": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAPCAIAAABr+ngCAAAACXBIWXMAAAsTAAALEwEAmpwYAAADnklEQVQokQGTA2z8ANa0vt6knu5+Uup3R9iZkNaqttmqtteuutawvdawvtyjrux4fPdZWu1sc9ubqNeyvtest8+BisZOVMY/RADOp8PXlqboblvkaVDTipXXkKzciqXUm7nOosTMn8HRnLrfh5/rcoXjfpbWmrnSpsbSoL3Ke4zCT1HCQj8AzZzKzYquz2Bnzlxez36d2Xuk3XKX0426yJTKwo7DyJTC1JXD2o+92JHA1JfI05rO05XE0nqMz1lK0E83ANCU0cSGuKtkfa9ke8h/rc11pspqlsyDuMaIu7+Bs8WKvs+Tz9GSz8yJvcmFtc2MxdOPyN1/judqQupiLADVlNLKkMm1ga26g7DKjMa4d62raprChKjLiJDIforMg6XQkcfLjsa7dpi0aoK/fKbOkMjei57veU73cCsA4I663J7Q1qHU2KHW1J3UuIW4q3qlx5GV0JFxz4l91ImN04+qx463s3OFqmNqtXWNxpHC0pS83oWB53hWAOZ6keGYw9+j2Nyf1taa0saNx8KMs9CUhcWEbbyDisOBgcV3fcF8lr12eLpuYLJwe6l6raZ9u6l3qKxwkwDec3DWiLLRjc/Lic3Fg8u+f8fDhKfLgnKua3KYY3+iW16tUku2YmDQfFXdg0a7c2CDXo1rWJ1qV5lpVpQAzYBWyIajxobBwYG9t3vDrXa5sm+Fu2pdpGhxjWFmiEg9jzwqoVAyznwy7JMzyH9Uf2CGYVWXXlSSXVSPALqETMeMkNWOmNaKjMWDoadzm5ZWYaVWSqt1YJt6X35USG44Knc8H6JcI9V9M86BX510kIdvn4VunIRtmwCjeVDQkXjvl2rzlFjciGqfZmdwP0B9QjOZakWog2CfeGWBVkJhNiFqNRyeUzHIe2TKkYzEk5TDkpLCkpEAlWxR2ZNo+5hc/ZJM3IFKhlE9Ti8qWjgri2E8wZBW2aRsxo5fi1o5WzIeZzglqW9N36Jt77B28a978q99AKN0Wd+TaPmIYPt9VdJtSXVAMFU0LX9XRLeFVtykXuyxbu6vdcuQX4NUN1w4IY1lLNKiOO+6R/i6Y/m2dwDSi3zijXrebmLlXVTIU0h7OTR/SUW7fXHZm4Hdn37foYPlpYndnYKqcV5zSzCFZR20lBbSsCHjslHpqX8A742f2n2OtFhfvEZIuEBAgzc3l1NdyH2Q04qd0Ymb0oqb04ub0omYtHJ5flNBc1kmiXIaqYwdyZhP25SMmXUIsMbcIbgAAAAASUVORK5CYII=",
+            "dimensions": {
+              "aspectRatio": 1.2853470437017995,
+              "width": 2500,
+              "height": 1945
+            }
+          }
+        },
+        "caption": null,
+        "altText": "A trippy image of two hands holding a phone-shaped pane of glass",
+        "crop": {
+          "_type": "sanity.imageCrop",
+          "right": 0,
+          "top": 0,
+          "left": 0,
+          "bottom": 0
+        },
+        "hotspot": {
+          "height": 0.22977295472831086,
+          "_type": "sanity.imageHotspot",
+          "width": 0.1870229007633585,
+          "x": 0.9064885496183208,
+          "y": 0.11488647736415543
+        }
+      }
+    }
+  ],
   "videoExample": {
     "_type": "video",
     "videoLink": "https://vimeo.com/861981495",
     "posterImage": {
+      "caption": "Poster Image",
       "altText": "Digital illustration of two hands surrounded by mirrors, holding a piece of rectangular glass.",
       "crop": null,
       "hotspot": null,
@@ -835,86 +514,20 @@
             "height": 1945
           }
         }
-      },
-      "caption": "Poster Image"
+      }
     }
   },
-  "ctas": [
-    {
-      "_type": "cta",
-      "label": "Learn More",
-      "ariaLabel": null,
-      "variant": "primary",
-      "id": "learn-more-example",
-      "link": {
-        "_type": "link",
-        "_key": null,
-        "externalUrl": null,
-        "file": null,
-        "documentLink": {
-          "_createdAt": "2024-01-10T20:49:04Z",
-          "_updatedAt": "2024-01-28T21:59:36Z",
-          "_type": "genericPage",
-          "slug": { "current": "about", "_type": "slug" },
-          "title": "About",
-          "_id": "edd5117c-0ac6-4140-9a0b-6ab84401f271"
-        }
-      }
-    },
-    {
-      "label": "Get the Goods",
-      "ariaLabel": null,
-      "variant": "secondary",
-      "id": "cta-secondary-example",
-      "link": {
-        "_type": "link",
-        "_key": null,
-        "externalUrl": null,
-        "file": {
-          "asset": {
-            "size": 19092790,
-            "_type": "sanity.fileAsset",
-            "_id": "file-30de3ea5e39fd240e183acae6a11bd2df3a91b0e-zip",
-            "originalFilename": "firefly-images.zip",
-            "url": "https://cdn.sanity.io/files/xgbrv2vi/production/30de3ea5e39fd240e183acae6a11bd2df3a91b0e.zip",
-            "extension": "zip"
-          }
-        },
-        "documentLink": null
-      },
-      "_type": "cta"
-    },
-    {
-      "id": "cta-example-outlined",
-      "link": {
-        "_type": "link",
-        "_key": null,
-        "externalUrl": null,
-        "file": null,
-        "documentLink": {
-          "_id": "downloadPage",
-          "_createdAt": "2024-01-11T19:38:55Z",
-          "_updatedAt": "2024-02-01T15:30:03Z",
-          "_type": "downloadPage"
-        }
-      },
-      "_type": "cta",
-      "label": "Download",
-      "ariaLabel": "Download the Firefly Mobile app",
-      "variant": "outlined"
-    }
-  ],
   "links": [
     {
       "_type": "linkWithLabel",
       "_key": "6f603191d32e",
       "label": "To External URL",
       "link": {
+        "documentLink": null,
         "_type": "link",
         "_key": null,
         "externalUrl": "https://www.sanctuary.computer",
-        "file": null,
-        "documentLink": null
+        "file": null
       }
     },
     {
@@ -927,12 +540,12 @@
         "externalUrl": null,
         "file": {
           "asset": {
-            "_type": "sanity.fileAsset",
             "_id": "file-30de3ea5e39fd240e183acae6a11bd2df3a91b0e-zip",
             "originalFilename": "firefly-images.zip",
             "url": "https://cdn.sanity.io/files/xgbrv2vi/production/30de3ea5e39fd240e183acae6a11bd2df3a91b0e.zip",
             "extension": "zip",
-            "size": 19092790
+            "size": 19092790,
+            "_type": "sanity.fileAsset"
           }
         },
         "documentLink": null
@@ -977,6 +590,7 @@
       "_key": "f8cb39204d36",
       "label": "To Download Page",
       "link": {
+        "_type": "link",
         "_key": null,
         "externalUrl": null,
         "file": null,
@@ -985,8 +599,7 @@
           "_createdAt": "2024-01-11T19:38:55Z",
           "_updatedAt": "2024-02-01T15:30:03Z",
           "_type": "downloadPage"
-        },
-        "_type": "link"
+        }
       }
     },
     {
@@ -994,8 +607,6 @@
       "_key": "b46e80fa1886",
       "label": "To FAQ Page",
       "link": {
-        "_type": "link",
-        "_key": null,
         "externalUrl": null,
         "file": null,
         "documentLink": {
@@ -1003,7 +614,9 @@
           "_createdAt": "2024-01-11T19:39:23Z",
           "_updatedAt": "2024-02-01T15:34:10Z",
           "_type": "faqPage"
-        }
+        },
+        "_type": "link",
+        "_key": null
       }
     },
     {
@@ -1022,7 +635,7 @@
           "_createdAt": "2024-01-11T18:52:57Z",
           "_updatedAt": "2024-01-29T19:38:54Z",
           "_type": "genericPage",
-          "slug": { "_type": "slug", "current": "how-it-works" },
+          "slug": { "current": "how-it-works", "_type": "slug" },
           "title": "How It Works"
         }
       }
@@ -1032,23 +645,23 @@
       "_key": "5819dc756f12",
       "label": "To Subpage",
       "link": {
-        "_type": "link",
-        "_key": null,
-        "externalUrl": null,
         "file": null,
         "documentLink": {
-          "parentPage": {
-            "_type": "genericPage",
-            "title": "About",
-            "slug": { "current": "about", "_type": "slug" }
-          },
           "_id": "f5bd2bcc-f8e4-443c-9a30-14b16e505dd8",
           "_createdAt": "2024-01-11T00:13:00Z",
           "_updatedAt": "2024-01-31T16:37:09Z",
           "_type": "subPage",
           "slug": { "current": "care-team", "_type": "slug" },
-          "title": "Care Team"
-        }
+          "title": "Care Team",
+          "parentPage": {
+            "_type": "genericPage",
+            "title": "About",
+            "slug": { "current": "about", "_type": "slug" }
+          }
+        },
+        "_type": "link",
+        "_key": null,
+        "externalUrl": null
       }
     },
     {
@@ -1056,18 +669,18 @@
       "_key": "64204105f3bf",
       "label": "To Blog",
       "link": {
-        "_type": "link",
-        "_key": null,
-        "externalUrl": null,
-        "file": null,
         "documentLink": {
+          "_type": "blog",
+          "slug": { "current": "for-members", "_type": "slug" },
           "title": "For Members",
           "_id": "70157e61-164b-461f-916f-82c16dc68408",
           "_createdAt": "2024-01-11T20:44:40Z",
-          "_updatedAt": "2024-01-18T16:55:05Z",
-          "_type": "blog",
-          "slug": { "current": "for-members", "_type": "slug" }
-        }
+          "_updatedAt": "2024-01-18T16:55:05Z"
+        },
+        "_type": "link",
+        "_key": null,
+        "externalUrl": null,
+        "file": null
       }
     },
     {
@@ -1077,20 +690,20 @@
       "link": {
         "file": null,
         "documentLink": {
-          "title": "The Many Health Benefits of Fiber",
-          "category": {
-            "_type": "blog",
-            "slug": { "current": "for-members", "_type": "slug" },
-            "title": "For Members"
-          },
-          "_id": "2efb1db1-1e1c-4367-9186-4c99a031f4a3",
           "_createdAt": "2024-01-11T20:44:58Z",
           "_updatedAt": "2024-01-18T16:54:25Z",
           "_type": "blogArticle",
           "slug": {
             "current": "the-many-health-benefits-of-fiber",
             "_type": "slug"
-          }
+          },
+          "title": "The Many Health Benefits of Fiber",
+          "category": {
+            "_type": "blog",
+            "slug": { "_type": "slug", "current": "for-members" },
+            "title": "For Members"
+          },
+          "_id": "2efb1db1-1e1c-4367-9186-4c99a031f4a3"
         },
         "_type": "link",
         "_key": null,
@@ -1102,18 +715,18 @@
       "_key": "49c5e26f2a7b",
       "label": "To Client Page",
       "link": {
-        "documentLink": {
-          "_type": "clientPage",
-          "slug": { "current": "massachusetts-blue-cross", "_type": "slug" },
-          "clientName": "Massachusetts Blue Cross",
-          "_id": "8c64c2fb-4c72-43ed-a843-4595b9af5880",
-          "_createdAt": "2024-01-11T20:24:17Z",
-          "_updatedAt": "2024-01-18T16:55:35Z"
-        },
         "_type": "link",
         "_key": null,
         "externalUrl": null,
-        "file": null
+        "file": null,
+        "documentLink": {
+          "clientName": "Massachusetts Blue Cross",
+          "_id": "8c64c2fb-4c72-43ed-a843-4595b9af5880",
+          "_createdAt": "2024-01-11T20:24:17Z",
+          "_updatedAt": "2024-01-18T16:55:35Z",
+          "_type": "clientPage",
+          "slug": { "current": "massachusetts-blue-cross", "_type": "slug" }
+        }
       }
     },
     {
@@ -1123,50 +736,243 @@
       "link": {
         "documentLink": {
           "_id": "10c09c10-335c-4b5b-a700-4747717841e5",
+          "_createdAt": "2024-02-08T23:56:35Z",
+          "title": "Physician",
+          "slug": { "current": "rosio-macdonald", "_type": "slug" },
           "_updatedAt": "2024-02-09T00:20:25Z",
-          "pronouns": "she/her/hers",
-          "headshot": {
-            "crop": null,
-            "hotspot": null,
-            "_type": "richImage",
-            "_key": null,
-            "asset": {
-              "_id": "image-d950330dfdfac02edde78844586031900b28ac72-800x800-png",
-              "_type": "sanity.imageAsset",
-              "url": "https://cdn.sanity.io/images/xgbrv2vi/production/d950330dfdfac02edde78844586031900b28ac72-800x800.png",
-              "metadata": {
-                "lqip": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAIAAAAC64paAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEH0lEQVQ4jW3S/TdbdxwH8PxutTkHox5WJPKcm3tz7829kptEc0UWEcOo0pZIqoZpqXYtpR5Hm3W2cpQzyoputWrNHiprpce6rWPMDCchidx7Bb/sj9gJzlm603M+v32/r/N+fx9YNL0dNH6a3qWpXc8mtbSw9GzG/uzJzNLCktdD7S9tvzoMK4j5aWqHpnc3nO6Z6enP2q9fPld8obToVmuTw273bG4d7gnyB9hP0zs0Fcj0eZk5u/2T+pr6M6b6IsMHRsJiVNsaL/829zPl2+8V5FnBkqH31v5aHe+9Zas4MdVetTDY/uRmbWexoSZfP3qnx7nmYui9/+FDGRjfzq+zs7evVAyez/97uPWfn4apyduT18y1mXjb+bO/zDr2w3degxl6z+elZx5OdJWfGKnOWx64xkx+7hrtnKw31+jhqmzt/YG+/fD/mu/XpgKeofe23L7v7t/72JLzdV2R824LNX7D+UXzD01lDaYUKwl11lW+cDynfAd3FHxh1A5D73ndvunxkQ5LzoNLpzaGWjxDbas9V2carY1ZKcUq0cXTOY/G7m263AzzOux2eb4ZunMpj+wu0f/+ae1G//VFW+1YVU4ZwcuWJVTlG0b7e9ZWVl+tHTh2AK+vrA7a2k6pJBYl76u6kys9Hz1tsjSZ5Bn8t0lupNlADHbfXPlzmab9B+GHmKF3qa3tF0/trZXFJklcljC6u0T3vN3ab9blSWKJ+DfViWGZcHJDdfnU5OOFP5ZdLjdFBX5YoLPPu734cn7gRos5DTbwIvLBuD6r3tFmbs/FtAlvyY++gceFYgkReiVuLT3X1Nz1YGJqfd0VeCpqyz//crHX1lViUKYLovTJ4aV40tBZ/cPa3EoNTxF7BIoKkUaFSI6Gyfg8FCWUakP1hauzjjkWQ/udTs+Xd8cKTQYlOxKPDyU54RVKTl+BosMkM/Kj4JhQafQRaVQI/E4kKhaDkEIEKLNyTw+PjAfw/PxSY0MzKYfwhAgkPoxIDLfiiR0ZQHlKkjo5BmHHIexYBTc2FeCmyFApRAilKg2ZfaW+lUVT23a7o8xaoYZlKhEH5R6DEqPTxXFF8qQMkI1LJCgI4xBMoHICV8KwSggoBVI1JNcZswpZFMV8O/3jyUILKlNgcAoGyQBeoogdg/DjEUAMI2oYIxFch+DpMixNBKq4IlwgVQtBjQTSsCgf8+jx93kFFil8HMXTtMdJAgNFvGMyMRuBUUhOQrhehr8LYnoASeOLFRw+KgBUAkDNEWAsr9c3OjaRmX1GAmtRRboxIyPPlKpXgyQBIXKFGNJIUR0o1wEIKYJSk4VYEg/hA4QAUHH4GGtz093bN6hNf18MpUJyrS6N/LDYeNFiLHiPlKEKnlghgbUSWCsENXwJweYhSVxEIFUJpepkPvYvR+x2vvkxnfwAAAAASUVORK5CYII=",
-                "dimensions": { "aspectRatio": 1, "width": 800, "height": 800 }
-              }
-            },
-            "caption": null,
-            "altText": "Portrait of Riso Macdonald",
-            "crop": null,
-            "hotspot": null,
-            "_type": "richImage"
-          },
-          "blurb": [
-            {
-              "style": "normal",
-              "_key": "ea60c8c9de4c",
-              "_type": "block",
-              "markDefs": [],
-              "children": [
-                {
-                  "text": "All it took was an 8th grade anatomy class for me to realize I wanted to pursue a career in healthcare. Since then, I’ve dedicated myself to providing patients the individualized care they deserve. My commitment to giving people the support they need in their healthcare journey inspired me to join the Firefly team, providing primary care centered around each patient’s unique needs.",
-                  "_key": "6bd7b98608000",
-                  "_type": "span",
-                  "marks": []
-                }
-              ]
-            }
-          ],
-          "name": "Rosio Macdonald"
-        }
+          "_type": "practitioner"
+        },
+        "_type": "link"
       }
     }
   ],
   "contentBlockExamples": {
+    "imageBlock": {
+      "_type": "imageBlock",
+      "header": {
+        "_type": "contentBlockHeader",
+        "title": "Meet some of the team behind Firefly",
+        "description": [
+          {
+            "children": [
+              {
+                "_type": "span",
+                "marks": [],
+                "text": "Change in healthcare demands vision and persistence. Heart and resilience. Our Care Team infuses the Firefly culture with a balance of focused intensity, genuine caring, and earned wisdom.",
+                "_key": "dd25ef59bbec0"
+              }
+            ],
+            "style": "normal",
+            "markDefs": [],
+            "_key": "398559639a21",
+            "_type": "block"
+          }
+        ],
+        "cta": {
+          "variant": "primary",
+          "id": "care-team-cta",
+          "link": {
+            "_type": "link",
+            "_key": null,
+            "externalUrl": null,
+            "file": null,
+            "documentLink": {
+              "slug": { "current": "care-team", "_type": "slug" },
+              "title": "Care Team",
+              "parentPage": {
+                "_type": "genericPage",
+                "title": "About",
+                "slug": { "_type": "slug", "current": "about" }
+              },
+              "_id": "f5bd2bcc-f8e4-443c-9a30-14b16e505dd8",
+              "_createdAt": "2024-01-11T00:13:00Z",
+              "_updatedAt": "2024-01-31T16:37:09Z",
+              "_type": "subPage"
+            }
+          },
+          "_type": "cta",
+          "label": "Our care team",
+          "ariaLabel": null
+        }
+      },
+      "image": {
+        "caption": null,
+        "altText": "Portraits of members from the Firefly Care Team",
+        "crop": null,
+        "hotspot": null,
+        "_type": "richImage",
+        "_key": null,
+        "asset": {
+          "_id": "image-3a4e7a43978072d61ccdb0827d3295d4f9b67c5a-3564x1422-png",
+          "_type": "sanity.imageAsset",
+          "url": "https://cdn.sanity.io/images/xgbrv2vi/production/3a4e7a43978072d61ccdb0827d3295d4f9b67c5a-3564x1422.png",
+          "metadata": {
+            "lqip": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAYAAAD5nd/tAAAACXBIWXMAABYlAAAWJQFJUiTwAAACUElEQVQokR2M309SARxH7//VW6u2XD2k5VAbtcTMpUYT80c6TFGbEv5Ag9QUDLjXK5C6IkQcOBTNLJUUuWYokjathOgqMMf30/ThbOflHGZnZ5t80y4y6rWw8xwJggBRFJHJZEBE55x5Op1GIpHAj+gu1leXsSVs4OjoD5LJE0olk0inUnR6ekrMZmiDpkcNpHv6EJqGavLNeM/Ds1E6lcJ+NAJhbQWR8BYi22HMOifwVqeG12ZCWAhiLxKmzeV5bK0u0sF+lBghuAb/SB+MlVKqk0nAvTFiL7oLMfEXP6MRuOwWDL1Qwj3GIbC0AKehF/aGcvgGOxBcnMVn7yQ8Bg3NmLqx7JsC830zRF8mhslaV4iagixSq5Twu94htODB1wUfHG96wbaUwcP3I/BxDm7jSzib5FhldQj6PXCY9MQ3lmK8vZKcZj0x7kkHuYe7aFRZiCd5V0heJAWrfY45cw8+fbBhyWWF36KGl+/DuNUKXXMTDFUlmLe8wtLMFAY7m0lVIkF7RSF1qWqJaVLWQ/tMgZ7aYiqT5uB2bjYaK0pgUCnA9rbB47Bj1mnDgLYTRfcrcD0rD0W3JNAo62EaMqKzvRWKUhkpyh+gWiEHYzGbyDZipjHegqGBfqqpqsTd/Ju4l3sNj4rvgOfMCKytY9hsR55UjktXpbiRI4NM9hgtrd1gWZ54nsMIxxLHscSIopj5J4p0fHyCw8MD4lgTCiQ5uHzxAvIl2eBYMw5//cZKIAT9AIdWdR/aOl5DozWA5d8jGPpGsVgM8Xic4vEY/QckMOKcHRW/tAAAAABJRU5ErkJggg==",
+            "dimensions": {
+              "aspectRatio": 2.5063291139240507,
+              "width": 3564,
+              "height": 1422
+            }
+          }
+        }
+      }
+    },
+    "imageCarouselBlock": {
+      "_type": "imageCarouselBlock",
+      "header": {
+        "_type": "contentBlockHeader",
+        "title": "Life at Firefly",
+        "description": [
+          {
+            "_type": "block",
+            "markDefs": [],
+            "children": [
+              {
+                "_type": "span",
+                "marks": [],
+                "text": "To provide an exceptional member experience, of course we need problem solvers, big thinkers, and specific skill sets. But it’s more than that. Healthcare is intimate, personal, and daunting. That’s why we’re building a team grounded in trust, empathy, and dignity, where anyone and everyone feels safe, welcomed, and included.",
+                "_key": "34d0727ca9f00"
+              }
+            ],
+            "style": "normal",
+            "_key": "ccc6a5694dd7"
+          }
+        ],
+        "cta": null
+      },
+      "images": [
+        {
+          "_type": "richImage",
+          "_key": "ef9a9be3e9c6",
+          "asset": {
+            "_id": "image-83785696a5559f8e79085859c6f3cd699f189620-3130x2075-jpg",
+            "_type": "sanity.imageAsset",
+            "url": "https://cdn.sanity.io/images/xgbrv2vi/production/83785696a5559f8e79085859c6f3cd699f189620-3130x2075.jpg",
+            "metadata": {
+              "lqip": "data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAANABQDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAABgAE/8QAJBAAAgEDAgYDAAAAAAAAAAAAAQIDAAQFERIGExQhInExQVH/xAAWAQEBAQAAAAAAAAAAAAAAAAADAgT/xAAZEQEBAQEBAQAAAAAAAAAAAAABAgARQVH/2gAMAwEAAhEDEQA/AByBMHjoJra0jmkRfMltNx9VobOQ57Hsoxwt2hXfMzt4qKKX3Ebi8t7hLWIO0YUgkke9KzzZ0nruRaxw9VGI5NpP78iglqZ4u11Et9DJmgW6SOXH37cllHYRdgfvSqi9vlJ7WFIYiAiDQVVQH1xtV4G//9k=",
+              "dimensions": {
+                "aspectRatio": 1.508433734939759,
+                "width": 3130,
+                "height": 2075
+              }
+            }
+          },
+          "caption": null,
+          "altText": "Members of the firefly team enjoying a meal together",
+          "crop": null,
+          "hotspot": null
+        },
+        {
+          "_type": "richImage",
+          "_key": "974bfe0aa497",
+          "asset": {
+            "_id": "image-611f89951c615740915aba945c2a2ea4808975b4-3130x2075-jpg",
+            "_type": "sanity.imageAsset",
+            "url": "https://cdn.sanity.io/images/xgbrv2vi/production/611f89951c615740915aba945c2a2ea4808975b4-3130x2075.jpg",
+            "metadata": {
+              "lqip": "data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAANABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAYHBf/EACMQAAICAQQCAgMAAAAAAAAAAAECAwQABQYREhMhQVFhcYH/xAAUAQEAAAAAAAAAAAAAAAAAAAAF/8QAHhEAAgIBBQEAAAAAAAAAAAAAAQIAAxMhMkFCUaH/2gAMAwEAAhEDEQA/AGjc27KA01BUrrXqiQB5Q3BP4xcbfdXV4jTexKt2AdUY8j+A/ORWzruozOlKWwz1mlDlD985ULVGr4NPsLCqTL67L65BGHX3slio/b5E6akNResbfeZqXL9qSRfFuGaMKoUrHF2AP7wxA1W1YoXpYq0pWMntxx8nDEsgGkKxkz//2Q==",
+              "dimensions": {
+                "aspectRatio": 1.508433734939759,
+                "width": 3130,
+                "height": 2075
+              }
+            }
+          },
+          "caption": "Example with caption",
+          "altText": "Team members at the wharf",
+          "crop": null,
+          "hotspot": null
+        },
+        {
+          "caption": null,
+          "altText": "Team members",
+          "crop": null,
+          "hotspot": null,
+          "_type": "richImage",
+          "_key": "e81b82181732",
+          "asset": {
+            "_id": "image-b2fee87415df61e85e9987a28dd7e1b2548c1aff-3130x2075-jpg",
+            "_type": "sanity.imageAsset",
+            "url": "https://cdn.sanity.io/images/xgbrv2vi/production/b2fee87415df61e85e9987a28dd7e1b2548c1aff-3130x2075.jpg",
+            "metadata": {
+              "lqip": "data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAANABQDASIAAhEBAxEB/8QAGAAAAgMAAAAAAAAAAAAAAAAAAAYDBQf/xAAgEAACAQQDAAMAAAAAAAAAAAABAgMABAUREiExBkFR/8QAFgEBAQEAAAAAAAAAAAAAAAAABAID/8QAGxEAAgIDAQAAAAAAAAAAAAAAAQIAERITIUH/2gAMAwEAAhEDEQA/AMx+GyYlIbh8i8ZYITwfrdQZeK2TFQT2TkyTOQV9GvqlhOyB+mnG4xqWeOAV2YlVfZHh1uoWlbImakWMa7FOVpInKMNMPQeqKuJpxesJbmJWk1xLeb1RS9SnoMMGPs//2Q==",
+              "dimensions": {
+                "aspectRatio": 1.508433734939759,
+                "width": 3130,
+                "height": 2075
+              }
+            }
+          }
+        },
+        {
+          "_key": "2e4aa5742fda",
+          "asset": {
+            "_id": "image-c0f153f632b3be0d05c89a63ba2e3cf87b01dd28-2129x3200-jpg",
+            "_type": "sanity.imageAsset",
+            "url": "https://cdn.sanity.io/images/xgbrv2vi/production/c0f153f632b3be0d05c89a63ba2e3cf87b01dd28-2129x3200.jpg",
+            "metadata": {
+              "lqip": "data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAeABQDASIAAhEBAxEB/8QAGQAAAgMBAAAAAAAAAAAAAAAAAAYCBAcF/8QAKRAAAQQCAQIDCQAAAAAAAAAAAgEDBAUAEQYhMRITQQcUIiMyUVJhwf/EABYBAQEBAAAAAAAAAAAAAAAAAAMCBP/EABoRAAMAAwEAAAAAAAAAAAAAAAABEQISIQP/2gAMAwEAAhEDEQA/ANatqYEsG1AdDrtllmk8xhwt9R10zkck5rFg3iV0whYdbZEzd7ihKv05K+5bX0dSljIeVW3TEU9Np+sjmzZer1UGA+IMbRTfESVN6VcMULKzpuUPBZM3qsgYIPgE0TWsMW4BTMw/mU1rk1vYz48txpGVRWlTqDyJ2y3LuJ19UQIdwUU2RFDAddvTEug84IIRvMRUT7pvG+vUPd0Imx+V8KaTMvo3IjX5pN1jTw/jzsarMHYEchV4ibVfxXWv7hiJY+0+fDklHjN6bbTw9fXDEW06G9Lw/9k=",
+              "dimensions": {
+                "aspectRatio": 0.6653125,
+                "width": 2129,
+                "height": 3200
+              }
+            }
+          },
+          "caption": null,
+          "altText": "Firefly team members gathered around a table",
+          "crop": null,
+          "hotspot": null,
+          "_type": "richImage"
+        }
+      ]
+    },
+    "videoHeaderExample": {
+      "_type": "videoHeader",
+      "eyebrow": "Member stories",
+      "heading": "Firefly's on the tech frontier without losing the human factor.",
+      "body": [
+        {
+          "children": [
+            {
+              "_key": "af045951bdd90",
+              "_type": "span",
+              "marks": [],
+              "text": "How Firefly helped Paula through her diagnosis"
+            }
+          ],
+          "_type": "block",
+          "style": "normal",
+          "_key": "129c86edc708",
+          "markDefs": []
+        }
+      ],
+      "video": {
+        "_type": "video",
+        "videoLink": "https://vimeo.com/902416562/fdfdade255",
+        "posterImage": {
+          "asset": {
+            "_id": "image-21820f0a4428c37c61cd07aae1718a06e97c320d-2500x1945-png",
+            "_type": "sanity.imageAsset",
+            "url": "https://cdn.sanity.io/images/xgbrv2vi/production/21820f0a4428c37c61cd07aae1718a06e97c320d-2500x1945.png",
+            "metadata": {
+              "lqip": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAPCAIAAABr+ngCAAAACXBIWXMAAAsTAAALEwEAmpwYAAADnklEQVQokQGTA2z8ANa0vt6knu5+Uup3R9iZkNaqttmqtteuutawvdawvtyjrux4fPdZWu1sc9ubqNeyvtest8+BisZOVMY/RADOp8PXlqboblvkaVDTipXXkKzciqXUm7nOosTMn8HRnLrfh5/rcoXjfpbWmrnSpsbSoL3Ke4zCT1HCQj8AzZzKzYquz2Bnzlxez36d2Xuk3XKX0426yJTKwo7DyJTC1JXD2o+92JHA1JfI05rO05XE0nqMz1lK0E83ANCU0cSGuKtkfa9ke8h/rc11pspqlsyDuMaIu7+Bs8WKvs+Tz9GSz8yJvcmFtc2MxdOPyN1/judqQupiLADVlNLKkMm1ga26g7DKjMa4d62raprChKjLiJDIforMg6XQkcfLjsa7dpi0aoK/fKbOkMjei57veU73cCsA4I663J7Q1qHU2KHW1J3UuIW4q3qlx5GV0JFxz4l91ImN04+qx463s3OFqmNqtXWNxpHC0pS83oWB53hWAOZ6keGYw9+j2Nyf1taa0saNx8KMs9CUhcWEbbyDisOBgcV3fcF8lr12eLpuYLJwe6l6raZ9u6l3qKxwkwDec3DWiLLRjc/Lic3Fg8u+f8fDhKfLgnKua3KYY3+iW16tUku2YmDQfFXdg0a7c2CDXo1rWJ1qV5lpVpQAzYBWyIajxobBwYG9t3vDrXa5sm+Fu2pdpGhxjWFmiEg9jzwqoVAyznwy7JMzyH9Uf2CGYVWXXlSSXVSPALqETMeMkNWOmNaKjMWDoadzm5ZWYaVWSqt1YJt6X35USG44Knc8H6JcI9V9M86BX510kIdvn4VunIRtmwCjeVDQkXjvl2rzlFjciGqfZmdwP0B9QjOZakWog2CfeGWBVkJhNiFqNRyeUzHIe2TKkYzEk5TDkpLCkpEAlWxR2ZNo+5hc/ZJM3IFKhlE9Ti8qWjgri2E8wZBW2aRsxo5fi1o5WzIeZzglqW9N36Jt77B28a978q99AKN0Wd+TaPmIYPt9VdJtSXVAMFU0LX9XRLeFVtykXuyxbu6vdcuQX4NUN1w4IY1lLNKiOO+6R/i6Y/m2dwDSi3zijXrebmLlXVTIU0h7OTR/SUW7fXHZm4Hdn37foYPlpYndnYKqcV5zSzCFZR20lBbSsCHjslHpqX8A742f2n2OtFhfvEZIuEBAgzc3l1NdyH2Q04qd0Ymb0oqb04ub0omYtHJ5flNBc1kmiXIaqYwdyZhP25SMmXUIsMbcIbgAAAAASUVORK5CYII=",
+              "dimensions": {
+                "aspectRatio": 1.2853470437017995,
+                "width": 2500,
+                "height": 1945
+              }
+            }
+          },
+          "caption": "Poster Image",
+          "altText": "Digital illustration of two hands surrounded by mirrors, holding a piece of rectangular glass.",
+          "crop": null,
+          "hotspot": null,
+          "_type": "richImage",
+          "_key": null
+        }
+      }
+    },
     "ctaCardsBlock": {
       "_type": "ctaCardsBlock",
       "header": null,
@@ -1175,6 +981,7 @@
           "_type": "ctaCard",
           "_key": "b189c140028f",
           "image": {
+            "_type": "richImage",
             "_key": null,
             "asset": {
               "_id": "image-9aaf099e52c59ee92047f658c91746d01be51b8e-345x346-png",
@@ -1192,42 +999,37 @@
             "caption": null,
             "altText": "The Firefly Logo",
             "crop": null,
-            "hotspot": null,
-            "_type": "richImage"
+            "hotspot": null
           },
           "title": "Logos and Brand Guidelines",
           "cta": {
-            "label": "Download",
-            "ariaLabel": "Download ZIP file of logos and brand guidelines",
             "variant": "secondary",
             "id": "brand-guidelines-example-cta",
             "link": {
+              "_type": "link",
+              "_key": null,
               "externalUrl": null,
               "file": {
                 "asset": {
+                  "extension": "zip",
                   "size": 3556720,
                   "_type": "sanity.fileAsset",
                   "_id": "file-b62f9891e46d20e114cc4e0c3bbe32add28acedb-zip",
                   "originalFilename": "example-brand-guidelines-download.zip",
-                  "url": "https://cdn.sanity.io/files/xgbrv2vi/production/b62f9891e46d20e114cc4e0c3bbe32add28acedb.zip",
-                  "extension": "zip"
+                  "url": "https://cdn.sanity.io/files/xgbrv2vi/production/b62f9891e46d20e114cc4e0c3bbe32add28acedb.zip"
                 }
               },
-              "documentLink": null,
-              "_type": "link",
-              "_key": null
+              "documentLink": null
             },
-            "_type": "cta"
+            "_type": "cta",
+            "label": "Download",
+            "ariaLabel": "Download ZIP file of logos and brand guidelines"
           }
         },
         {
           "_type": "ctaCard",
           "_key": "f2e9f4d4b515",
           "image": {
-            "caption": "Photo by Example Person",
-            "altText": "A headshot of Example Person",
-            "crop": null,
-            "hotspot": null,
             "_type": "richImage",
             "_key": null,
             "asset": {
@@ -1242,37 +1044,46 @@
                   "height": 1465
                 }
               }
-            }
+            },
+            "caption": "Photo by Example Person",
+            "altText": "A headshot of Example Person",
+            "crop": null,
+            "hotspot": null
           },
           "title": "Headshots",
           "cta": {
+            "_type": "cta",
             "label": "Download",
             "ariaLabel": "Download a ZIP file of headshots",
             "variant": "secondary",
             "id": "headshots-download-example-cta",
             "link": {
+              "externalUrl": null,
               "file": {
                 "asset": {
-                  "size": 3556720,
-                  "_type": "sanity.fileAsset",
-                  "_id": "file-b62f9891e46d20e114cc4e0c3bbe32add28acedb-zip",
                   "originalFilename": "example-brand-guidelines-download.zip",
                   "url": "https://cdn.sanity.io/files/xgbrv2vi/production/b62f9891e46d20e114cc4e0c3bbe32add28acedb.zip",
-                  "extension": "zip"
+                  "extension": "zip",
+                  "size": 3556720,
+                  "_type": "sanity.fileAsset",
+                  "_id": "file-b62f9891e46d20e114cc4e0c3bbe32add28acedb-zip"
                 }
               },
               "documentLink": null,
               "_type": "link",
-              "_key": null,
-              "externalUrl": null
-            },
-            "_type": "cta"
+              "_key": null
+            }
           }
         },
         {
           "_type": "ctaCard",
           "_key": "59d6f0cfab06",
           "image": {
+            "caption": null,
+            "altText": "Image of a smartphone displaying a live chat with a doctor",
+            "crop": null,
+            "hotspot": null,
+            "_type": "richImage",
             "_key": null,
             "asset": {
               "_id": "image-0c5894d8f96d3bf63595679e52db0823450b27c3-533x539-png",
@@ -1286,19 +1097,10 @@
                   "height": 539
                 }
               }
-            },
-            "caption": null,
-            "altText": "Image of a smartphone displaying a live chat with a doctor",
-            "crop": null,
-            "hotspot": null,
-            "_type": "richImage"
+            }
           },
           "title": "Boilerplate",
           "cta": {
-            "_type": "cta",
-            "label": "Learn More",
-            "ariaLabel": null,
-            "variant": "secondary",
             "id": "download-boilerplate-example",
             "link": {
               "_type": "link",
@@ -1306,14 +1108,18 @@
               "externalUrl": null,
               "file": null,
               "documentLink": {
-                "_updatedAt": "2024-01-28T21:59:36Z",
                 "_type": "genericPage",
                 "slug": { "current": "about", "_type": "slug" },
                 "title": "About",
                 "_id": "edd5117c-0ac6-4140-9a0b-6ab84401f271",
-                "_createdAt": "2024-01-10T20:49:04Z"
+                "_createdAt": "2024-01-10T20:49:04Z",
+                "_updatedAt": "2024-01-28T21:59:36Z"
               }
-            }
+            },
+            "_type": "cta",
+            "label": "Learn More",
+            "ariaLabel": null,
+            "variant": "secondary"
           }
         }
       ]
@@ -1358,7 +1164,7 @@
           "copy": {
             "_type": "sequenceBlockTextFields",
             "title": "Take a brief questionnaire on our app to assess your needs, instantly",
-            "bellyButtonText": "vs",
+            "bellyButtonText": "vs.",
             "description": "Waiting around to schedule an appointment"
           },
           "theme": "white",
@@ -1366,19 +1172,12 @@
           "isHighlighted": false
         },
         {
-          "theme": "Midnight",
-          "flipAlignment": false,
-          "isHighlighted": false,
           "_type": "sequenceItem",
           "_key": "073572af440a",
           "video": {
             "_type": "video",
             "videoLink": "https://vimeo.com/911680221",
             "posterImage": {
-              "altText": "Woman at home in her kitchen using the Firefly app on her phone.",
-              "crop": null,
-              "hotspot": null,
-              "_type": "richImage",
               "_key": null,
               "asset": {
                 "_id": "image-95bb099febaeefea133efe53671646177c1d8412-580x357-png",
@@ -1393,25 +1192,29 @@
                   }
                 }
               },
-              "caption": null
+              "caption": null,
+              "altText": "Woman at home in her kitchen using the Firefly app on her phone.",
+              "crop": null,
+              "hotspot": null,
+              "_type": "richImage"
             }
           },
           "copy": {
             "_type": "sequenceBlockTextFields",
             "title": "Select your care team",
-            "bellyButtonText": "vs",
+            "bellyButtonText": "vs.",
             "description": "No stranger-danger - you pick your care team with Firefly and they get to know you, unlike other telehealth solutions. "
-          }
+          },
+          "theme": "Midnight",
+          "flipAlignment": false,
+          "isHighlighted": false
         },
         {
-          "_type": "sequenceItem",
           "_key": "bc934a665b48",
           "video": {
             "_type": "video",
-            "videoLink": "https://vimeo.com/911680942",
+            "videoLink": "https://vimeo.com/912264592",
             "posterImage": {
-              "altText": "Woman holding a phone watching a video",
-              "crop": null,
               "hotspot": null,
               "_type": "richImage",
               "_key": null,
@@ -1428,24 +1231,30 @@
                   }
                 }
               },
-              "caption": null
+              "caption": null,
+              "altText": "Woman holding a phone watching a video",
+              "crop": null
             }
           },
           "copy": {
             "_type": "sequenceBlockTextFields",
             "title": "Chat with your care team anytime, anywhere. ",
-            "bellyButtonText": "vs",
+            "bellyButtonText": "vs.",
             "description": "No need to Google your symptoms when you are looking for a quick answer - your care team is available every day via chat for any question that comes up."
           },
           "theme": "Midnight",
           "flipAlignment": false,
-          "isHighlighted": true
+          "isHighlighted": true,
+          "_type": "sequenceItem"
         },
         {
           "video": {
             "_type": "video",
             "videoLink": "https://vimeo.com/911680942",
             "posterImage": {
+              "altText": "Person ringing a doorbell",
+              "crop": null,
+              "hotspot": null,
               "_type": "richImage",
               "_key": null,
               "asset": {
@@ -1461,16 +1270,13 @@
                   }
                 }
               },
-              "caption": null,
-              "altText": "Person ringing a doorbell",
-              "crop": null,
-              "hotspot": null
+              "caption": null
             }
           },
           "copy": {
             "_type": "sequenceBlockTextFields",
             "title": "Firefly will refer doctors for in-person care.",
-            "bellyButtonText": "vs",
+            "bellyButtonText": "vs.",
             "description": "No being left to figure out where to go."
           },
           "theme": "white",
@@ -1480,12 +1286,22 @@
           "_key": "ca84edea4f44"
         },
         {
+          "copy": {
+            "_type": "sequenceBlockTextFields",
+            "title": "Know that you’re covered anywhere you go in the US.",
+            "bellyButtonText": "vs.",
+            "description": "No concern if you travel out of state - Firefly is available across the country."
+          },
+          "theme": "white",
+          "flipAlignment": false,
+          "isHighlighted": false,
           "_type": "sequenceItem",
           "_key": "8f25adb271c2",
           "video": {
             "_type": "video",
             "videoLink": "https://vimeo.com/911680942",
             "posterImage": {
+              "_type": "richImage",
               "_key": null,
               "asset": {
                 "_id": "image-b6b48f13c1278450e830f7620d80c130297e0425-580x357-png",
@@ -1503,248 +1319,399 @@
               "caption": null,
               "altText": "Man sitting in a parked car looking at his phone.",
               "crop": null,
-              "hotspot": null,
-              "_type": "richImage"
+              "hotspot": null
             }
-          },
-          "copy": {
-            "_type": "sequenceBlockTextFields",
-            "title": "Know that you’re covered anywhere you go in the US.",
-            "bellyButtonText": "vs",
-            "description": "No concern if you travel out of state - Firefly is available across the country."
-          },
-          "theme": "white",
-          "flipAlignment": false,
-          "isHighlighted": false
+          }
         }
       ],
       "sequenceFooter": "Our team will help you navigate the healthcare landscape throughout the whole process. "
+    }
+  },
+  "articleRichText": [
+    {
+      "children": [
+        {
+          "_type": "span",
+          "marks": [],
+          "text": "Good and Bad Cholesterol",
+          "_key": "2a6c1fa8737d"
+        }
+      ],
+      "style": "h2",
+      "_key": "f9549c2e94e7",
+      "_type": "block",
+      "markDefs": []
     },
-    "imageBlock": {
-      "_type": "imageBlock",
-      "header": {
-        "_type": "contentBlockHeader",
-        "title": "Meet some of the team behind Firefly",
-        "description": [
-          {
-            "_type": "block",
-            "markDefs": [],
-            "children": [
-              {
-                "_type": "span",
-                "marks": [],
-                "text": "Change in healthcare demands vision and persistence. Heart and resilience. Our Care Team infuses the Firefly culture with a balance of focused intensity, genuine caring, and earned wisdom.",
-                "_key": "dd25ef59bbec0"
-              }
-            ],
-            "style": "normal",
-            "_key": "398559639a21"
-          }
-        ],
-        "cta": {
-          "_type": "cta",
-          "label": "Our care team",
-          "ariaLabel": null,
-          "variant": "primary",
-          "id": "care-team-cta",
-          "link": {
-            "_type": "link",
-            "_key": null,
-            "externalUrl": null,
-            "file": null,
-            "documentLink": {
-              "_updatedAt": "2024-01-31T16:37:09Z",
-              "_type": "subPage",
-              "slug": { "current": "care-team", "_type": "slug" },
-              "title": "Care Team",
-              "parentPage": {
-                "_type": "genericPage",
-                "title": "About",
-                "slug": { "current": "about", "_type": "slug" }
-              },
-              "_id": "f5bd2bcc-f8e4-443c-9a30-14b16e505dd8",
-              "_createdAt": "2024-01-11T00:13:00Z"
-            }
+    {
+      "markDefs": [],
+      "children": [
+        {
+          "text": "It gets a bad rap, but cholesterol isn't always the villain. Your body actually needs cholesterol to survive and perform essential functions, such as building cells and making hormones. But, as is often the case, too much of a good thing can be bad for your health. Because high cholesterol is a major risk factor for heart disease and stroke, we’re breaking down the facts on cholesterol below.",
+          "_key": "57cbd81c29270",
+          "_type": "span",
+          "marks": []
+        }
+      ],
+      "style": "blockquote-large",
+      "_key": "1329dde686d3",
+      "_type": "block"
+    },
+    {
+      "hotspot": null,
+      "markDefs": null,
+      "_key": "85be266514e5",
+      "_type": "richImage",
+      "altText": "A person holding a kitchen knife over some chopped vegetables",
+      "caption": "On the chopping block",
+      "asset": {
+        "_id": "image-f61844b18db6925d6c1bb81512ee450d9224dc4a-3272x2177-png",
+        "_type": "sanity.imageAsset",
+        "url": "https://cdn.sanity.io/images/xgbrv2vi/production/f61844b18db6925d6c1bb81512ee450d9224dc4a-3272x2177.png",
+        "metadata": {
+          "lqip": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAIAAAAmMtkJAAAACXBIWXMAAAsTAAALEwEAmpwYAAADJElEQVQokQEZA+b8AJWIhJOBe4NtZXtqYIl5cJ6OiK2cmbain8Svq9PCvtbMysW9vrmrq7mpq7musLausLOsrrGpq7CmqK6jpQCHbGSCXFB5UEB2Tz98VkaHYVOQal2ZbmGneWu1joS5oJqslZCkgHmtiYS4pKS3r7G1rbCzqqyxp6mwpacAc0w/cUM0bz8ucEIydkw+fFZKgV5Th15SkmVXoX5zqY+Ho4N5oXFksn1xv5uVu6uruK6vt6yutKqrsqeqAGdMRXZXUHpaUH1cVIRpYodtZ4x0bpF4cpeAeKuVi7iXiLOBa7RzXMF+ZMWOd7SViLCemLmmorOgna6dmgBwZ2iFeXmPgH6QfnyQfXqKdG+LdG+NdW6Sem+pjXu2jnWqdVijbE6oeFinfF2ScVqPdGWhgnWfe26eemwAg4CDhoGCioGBkoWFkoF/hW9pgmRbflxOhGRPnYZqp5Fzl3pXg2U/eFw8dFc9blA4bEw5d1JCflVEg1lFAIWChG1oZ15XVXVpZohybH5eU3VNP3FIN3dZP4d6VI6FWIhzQXVcKWRJI146Il44I104JVo4KWA+MGRBMQCBfHxcVVFANS9WQTdyT0FqQzRdNylZNylfQy9sWTd0ZTNzWCRpSBppRiBxQSZ0QCZoOyROMB9FKx9KLSEAfXNoY1RLVD0yYT0ubEEuZTopXTcnXTgoXTkoZEIqbEwoaUUeZjsYdEUfiVIolFkph1IlYTsaPSIRNBsRAGxcSHFbS3lYS4FPP4NIM4JJMIJPMoNSM4JRLoFPKYFOI4RNG4pQGZdcHqVnIapqHaRmG4xWFmI5EUYlEQBgUUJ5ZVqWd2+cXk6WQiqXSSejYi6ucSuzdCKwcB2saxqtahq0ch69fyu+gjK1eSitbh6lZhmSWBV9SRYAeGtoh3Nuo4aBp29jjT8sfTUZl1ccvnoWyoALxHwOu3kctHMjvX4q0ZlD1qVWyZZOsXo3oWcnnF8cmlsUAI+DhZB0cKeCfqyGgH5SSVcrHHVDE7RzDMp+BMF4ELJ0KqdsL7p9MNmjTuW3aN6vY7+MSp1oNpFZJ5RYGuMqUudOyK6wAAAAAElFTkSuQmCC",
+          "dimensions": {
+            "aspectRatio": 1.5029857602204868,
+            "width": 3272,
+            "height": 2177
           }
         }
       },
-      "image": {
-        "caption": null,
-        "altText": "Portraits of members from the Firefly Care Team",
-        "crop": null,
-        "hotspot": null,
-        "_type": "richImage",
-        "_key": null,
-        "asset": {
-          "_id": "image-3a4e7a43978072d61ccdb0827d3295d4f9b67c5a-3564x1422-png",
-          "_type": "sanity.imageAsset",
-          "url": "https://cdn.sanity.io/images/xgbrv2vi/production/3a4e7a43978072d61ccdb0827d3295d4f9b67c5a-3564x1422.png",
-          "metadata": {
-            "lqip": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAYAAAD5nd/tAAAACXBIWXMAABYlAAAWJQFJUiTwAAACUElEQVQokR2M309SARxH7//VW6u2XD2k5VAbtcTMpUYT80c6TFGbEv5Ag9QUDLjXK5C6IkQcOBTNLJUUuWYokjathOgqMMf30/ThbOflHGZnZ5t80y4y6rWw8xwJggBRFJHJZEBE55x5Op1GIpHAj+gu1leXsSVs4OjoD5LJE0olk0inUnR6ekrMZmiDpkcNpHv6EJqGavLNeM/Ds1E6lcJ+NAJhbQWR8BYi22HMOifwVqeG12ZCWAhiLxKmzeV5bK0u0sF+lBghuAb/SB+MlVKqk0nAvTFiL7oLMfEXP6MRuOwWDL1Qwj3GIbC0AKehF/aGcvgGOxBcnMVn7yQ8Bg3NmLqx7JsC830zRF8mhslaV4iagixSq5Twu94htODB1wUfHG96wbaUwcP3I/BxDm7jSzib5FhldQj6PXCY9MQ3lmK8vZKcZj0x7kkHuYe7aFRZiCd5V0heJAWrfY45cw8+fbBhyWWF36KGl+/DuNUKXXMTDFUlmLe8wtLMFAY7m0lVIkF7RSF1qWqJaVLWQ/tMgZ7aYiqT5uB2bjYaK0pgUCnA9rbB47Bj1mnDgLYTRfcrcD0rD0W3JNAo62EaMqKzvRWKUhkpyh+gWiEHYzGbyDZipjHegqGBfqqpqsTd/Ju4l3sNj4rvgOfMCKytY9hsR55UjktXpbiRI4NM9hgtrd1gWZ54nsMIxxLHscSIopj5J4p0fHyCw8MD4lgTCiQ5uHzxAvIl2eBYMw5//cZKIAT9AIdWdR/aOl5DozWA5d8jGPpGsVgM8Xic4vEY/QckMOKcHRW/tAAAAABJRU5ErkJggg==",
-            "dimensions": {
-              "aspectRatio": 2.5063291139240507,
-              "width": 3564,
-              "height": 1422
-            }
-          }
-        }
-      }
+      "crop": null
     },
-    "imageCarouselBlock": {
-      "_type": "imageCarouselBlock",
-      "header": {
-        "_type": "contentBlockHeader",
-        "title": "Life at Firefly",
-        "description": [
-          {
-            "style": "normal",
-            "_key": "ccc6a5694dd7",
-            "_type": "block",
-            "markDefs": [],
-            "children": [
-              {
-                "_type": "span",
-                "marks": [],
-                "text": "To provide an exceptional member experience, of course we need problem solvers, big thinkers, and specific skill sets. But it’s more than that. Healthcare is intimate, personal, and daunting. That’s why we’re building a team grounded in trust, empathy, and dignity, where anyone and everyone feels safe, welcomed, and included.",
-                "_key": "34d0727ca9f00"
-              }
-            ]
-          }
-        ],
-        "cta": null
-      },
-      "images": [
+    {
+      "style": "h3",
+      "_key": "ae870c9982f1",
+      "_type": "block",
+      "markDefs": [],
+      "children": [
         {
-          "_key": "ef9a9be3e9c6",
-          "asset": {
-            "_id": "image-83785696a5559f8e79085859c6f3cd699f189620-3130x2075-jpg",
-            "_type": "sanity.imageAsset",
-            "url": "https://cdn.sanity.io/images/xgbrv2vi/production/83785696a5559f8e79085859c6f3cd699f189620-3130x2075.jpg",
-            "metadata": {
-              "lqip": "data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAANABQDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAABgAE/8QAJBAAAgEDAgYDAAAAAAAAAAAAAQIDAAQFERIGExQhInExQVH/xAAWAQEBAQAAAAAAAAAAAAAAAAADAgT/xAAZEQEBAQEBAQAAAAAAAAAAAAABAgARQVH/2gAMAwEAAhEDEQA/AByBMHjoJra0jmkRfMltNx9VobOQ57Hsoxwt2hXfMzt4qKKX3Ebi8t7hLWIO0YUgkke9KzzZ0nruRaxw9VGI5NpP78iglqZ4u11Et9DJmgW6SOXH37cllHYRdgfvSqi9vlJ7WFIYiAiDQVVQH1xtV4G//9k=",
-              "dimensions": {
-                "aspectRatio": 1.508433734939759,
-                "width": 3130,
-                "height": 2075
-              }
-            }
-          },
-          "caption": null,
-          "altText": "Members of the firefly team enjoying a meal together",
-          "crop": null,
-          "hotspot": null,
-          "_type": "richImage"
-        },
-        {
-          "_type": "richImage",
-          "_key": "974bfe0aa497",
-          "asset": {
-            "_id": "image-611f89951c615740915aba945c2a2ea4808975b4-3130x2075-jpg",
-            "_type": "sanity.imageAsset",
-            "url": "https://cdn.sanity.io/images/xgbrv2vi/production/611f89951c615740915aba945c2a2ea4808975b4-3130x2075.jpg",
-            "metadata": {
-              "lqip": "data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAANABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAYHBf/EACMQAAICAQQCAgMAAAAAAAAAAAECAwQABQYREhMhQVFhcYH/xAAUAQEAAAAAAAAAAAAAAAAAAAAF/8QAHhEAAgIBBQEAAAAAAAAAAAAAAQIAAxMhMkFCUaH/2gAMAwEAAhEDEQA/AGjc27KA01BUrrXqiQB5Q3BP4xcbfdXV4jTexKt2AdUY8j+A/ORWzruozOlKWwz1mlDlD985ULVGr4NPsLCqTL67L65BGHX3slio/b5E6akNResbfeZqXL9qSRfFuGaMKoUrHF2AP7wxA1W1YoXpYq0pWMntxx8nDEsgGkKxkz//2Q==",
-              "dimensions": {
-                "aspectRatio": 1.508433734939759,
-                "width": 3130,
-                "height": 2075
-              }
-            }
-          },
-          "caption": "Example with caption",
-          "altText": "Team members at the wharf",
-          "crop": null,
-          "hotspot": null
-        },
-        {
-          "_type": "richImage",
-          "_key": "e81b82181732",
-          "asset": {
-            "_id": "image-b2fee87415df61e85e9987a28dd7e1b2548c1aff-3130x2075-jpg",
-            "_type": "sanity.imageAsset",
-            "url": "https://cdn.sanity.io/images/xgbrv2vi/production/b2fee87415df61e85e9987a28dd7e1b2548c1aff-3130x2075.jpg",
-            "metadata": {
-              "lqip": "data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAANABQDASIAAhEBAxEB/8QAGAAAAgMAAAAAAAAAAAAAAAAAAAYDBQf/xAAgEAACAQQDAAMAAAAAAAAAAAABAgMABAUREiExBkFR/8QAFgEBAQEAAAAAAAAAAAAAAAAABAID/8QAGxEAAgIDAQAAAAAAAAAAAAAAAQIAERITIUH/2gAMAwEAAhEDEQA/AMx+GyYlIbh8i8ZYITwfrdQZeK2TFQT2TkyTOQV9GvqlhOyB+mnG4xqWeOAV2YlVfZHh1uoWlbImakWMa7FOVpInKMNMPQeqKuJpxesJbmJWk1xLeb1RS9SnoMMGPs//2Q==",
-              "dimensions": {
-                "aspectRatio": 1.508433734939759,
-                "width": 3130,
-                "height": 2075
-              }
-            }
-          },
-          "caption": null,
-          "altText": "Team members",
-          "crop": null,
-          "hotspot": null
-        },
-        {
-          "_type": "richImage",
-          "_key": "2e4aa5742fda",
-          "asset": {
-            "_id": "image-c0f153f632b3be0d05c89a63ba2e3cf87b01dd28-2129x3200-jpg",
-            "_type": "sanity.imageAsset",
-            "url": "https://cdn.sanity.io/images/xgbrv2vi/production/c0f153f632b3be0d05c89a63ba2e3cf87b01dd28-2129x3200.jpg",
-            "metadata": {
-              "lqip": "data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAeABQDASIAAhEBAxEB/8QAGQAAAgMBAAAAAAAAAAAAAAAAAAYCBAcF/8QAKRAAAQQCAQIDCQAAAAAAAAAAAgEDBAUAEQYhMRITQQcUIiMyUVJhwf/EABYBAQEBAAAAAAAAAAAAAAAAAAMCBP/EABoRAAMAAwEAAAAAAAAAAAAAAAABEQISIQP/2gAMAwEAAhEDEQA/ANatqYEsG1AdDrtllmk8xhwt9R10zkck5rFg3iV0whYdbZEzd7ihKv05K+5bX0dSljIeVW3TEU9Np+sjmzZer1UGA+IMbRTfESVN6VcMULKzpuUPBZM3qsgYIPgE0TWsMW4BTMw/mU1rk1vYz48txpGVRWlTqDyJ2y3LuJ19UQIdwUU2RFDAddvTEug84IIRvMRUT7pvG+vUPd0Imx+V8KaTMvo3IjX5pN1jTw/jzsarMHYEchV4ibVfxXWv7hiJY+0+fDklHjN6bbTw9fXDEW06G9Lw/9k=",
-              "dimensions": {
-                "aspectRatio": 0.6653125,
-                "width": 2129,
-                "height": 3200
-              }
-            }
-          },
-          "caption": null,
-          "altText": "Firefly team members gathered around a table",
-          "crop": null,
-          "hotspot": null
+          "text": "What is Cholesterol, anyway?",
+          "_key": "6d8a53e1302e",
+          "_type": "span",
+          "marks": []
         }
       ]
     },
-    "videoHeaderExample": {
-      "video": {
-        "_type": "video",
-        "videoLink": "https://vimeo.com/902416562/fdfdade255",
-        "posterImage": {
-          "altText": "Digital illustration of two hands surrounded by mirrors, holding a piece of rectangular glass.",
-          "crop": null,
-          "hotspot": null,
-          "_type": "richImage",
-          "_key": null,
-          "asset": {
-            "_id": "image-21820f0a4428c37c61cd07aae1718a06e97c320d-2500x1945-png",
-            "_type": "sanity.imageAsset",
-            "url": "https://cdn.sanity.io/images/xgbrv2vi/production/21820f0a4428c37c61cd07aae1718a06e97c320d-2500x1945.png",
-            "metadata": {
-              "lqip": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAPCAIAAABr+ngCAAAACXBIWXMAAAsTAAALEwEAmpwYAAADnklEQVQokQGTA2z8ANa0vt6knu5+Uup3R9iZkNaqttmqtteuutawvdawvtyjrux4fPdZWu1sc9ubqNeyvtest8+BisZOVMY/RADOp8PXlqboblvkaVDTipXXkKzciqXUm7nOosTMn8HRnLrfh5/rcoXjfpbWmrnSpsbSoL3Ke4zCT1HCQj8AzZzKzYquz2Bnzlxez36d2Xuk3XKX0426yJTKwo7DyJTC1JXD2o+92JHA1JfI05rO05XE0nqMz1lK0E83ANCU0cSGuKtkfa9ke8h/rc11pspqlsyDuMaIu7+Bs8WKvs+Tz9GSz8yJvcmFtc2MxdOPyN1/judqQupiLADVlNLKkMm1ga26g7DKjMa4d62raprChKjLiJDIforMg6XQkcfLjsa7dpi0aoK/fKbOkMjei57veU73cCsA4I663J7Q1qHU2KHW1J3UuIW4q3qlx5GV0JFxz4l91ImN04+qx463s3OFqmNqtXWNxpHC0pS83oWB53hWAOZ6keGYw9+j2Nyf1taa0saNx8KMs9CUhcWEbbyDisOBgcV3fcF8lr12eLpuYLJwe6l6raZ9u6l3qKxwkwDec3DWiLLRjc/Lic3Fg8u+f8fDhKfLgnKua3KYY3+iW16tUku2YmDQfFXdg0a7c2CDXo1rWJ1qV5lpVpQAzYBWyIajxobBwYG9t3vDrXa5sm+Fu2pdpGhxjWFmiEg9jzwqoVAyznwy7JMzyH9Uf2CGYVWXXlSSXVSPALqETMeMkNWOmNaKjMWDoadzm5ZWYaVWSqt1YJt6X35USG44Knc8H6JcI9V9M86BX510kIdvn4VunIRtmwCjeVDQkXjvl2rzlFjciGqfZmdwP0B9QjOZakWog2CfeGWBVkJhNiFqNRyeUzHIe2TKkYzEk5TDkpLCkpEAlWxR2ZNo+5hc/ZJM3IFKhlE9Ti8qWjgri2E8wZBW2aRsxo5fi1o5WzIeZzglqW9N36Jt77B28a978q99AKN0Wd+TaPmIYPt9VdJtSXVAMFU0LX9XRLeFVtykXuyxbu6vdcuQX4NUN1w4IY1lLNKiOO+6R/i6Y/m2dwDSi3zijXrebmLlXVTIU0h7OTR/SUW7fXHZm4Hdn37foYPlpYndnYKqcV5zSzCFZR20lBbSsCHjslHpqX8A742f2n2OtFhfvEZIuEBAgzc3l1NdyH2Q04qd0Ymb0oqb04ub0omYtHJ5flNBc1kmiXIaqYwdyZhP25SMmXUIsMbcIbgAAAAASUVORK5CYII=",
-              "dimensions": {
-                "aspectRatio": 1.2853470437017995,
-                "width": 2500,
-                "height": 1945
-              }
-            }
-          },
-          "caption": "Poster Image"
-        }
-      },
-      "_type": "videoHeader",
-      "eyebrow": "Member stories",
-      "heading": "Firefly's on the tech frontier without losing the human factor.",
-      "body": [
+    {
+      "children": [
         {
+          "_key": "d8dcaf64e2a60",
+          "_type": "span",
+          "marks": [],
+          "text": "When it comes to high cholesterol, the best treatment is prevention. Since high cholesterol is often the result of your lifestyle choices, there are ways you can help keep it in check by simply making healthy lifestyle choices."
+        }
+      ],
+      "style": "normal",
+      "_key": "a7386fd97ecb",
+      "_type": "block",
+      "markDefs": []
+    },
+    {
+      "_key": "b7855f92fb00",
+      "_type": "block",
+      "markDefs": [],
+      "children": [
+        {
+          "_type": "span",
+          "marks": [],
+          "text": "Two types of Cholesterol",
+          "_key": "22b597d9117e"
+        }
+      ],
+      "style": "h4"
+    },
+    {
+      "level": 1,
+      "_key": "e8ef046a9e1e",
+      "_type": "block",
+      "style": "normal",
+      "listItem": "number",
+      "markDefs": [],
+      "children": [
+        {
+          "_type": "span",
+          "marks": [],
+          "text": "The good kind",
+          "_key": "30a54005c774"
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "style": "normal",
+      "_key": "b039500d241d",
+      "_type": "block",
+      "listItem": "number",
+      "markDefs": [],
+      "children": [
+        {
+          "_type": "span",
+          "marks": [],
+          "text": "The bad kind",
+          "_key": "4f2ba1f42b30"
+        }
+      ]
+    },
+    {
+      "markDefs": [],
+      "children": [
+        {
+          "_key": "fdc875ebdf09",
+          "_type": "span",
+          "marks": [],
+          "text": "Fun Cholesterol Facts"
+        }
+      ],
+      "style": "h4",
+      "_key": "77296c9625db",
+      "_type": "block"
+    },
+    {
+      "listItem": "bullet",
+      "markDefs": [],
+      "children": [
+        {
+          "_type": "span",
+          "marks": [],
+          "text": "It is often misspelled.",
+          "_key": "675f0342bde7"
+        }
+      ],
+      "level": 1,
+      "_key": "38aff29e4632",
+      "_type": "block",
+      "style": "normal"
+    },
+    {
+      "markDefs": [],
+      "children": [
+        {
+          "_type": "span",
+          "marks": [],
+          "text": "The word ",
+          "_key": "18208473612e"
+        },
+        {
+          "_type": "span",
+          "marks": ["em"],
+          "text": "cholesterol",
+          "_key": "05b12cd8b11a1"
+        },
+        {
+          "_type": "span",
+          "marks": [],
+          "text": " comes from Ancient Greek ",
+          "_key": "05b12cd8b11a2"
+        },
+        {
+          "_key": "05b12cd8b11a3",
+          "_type": "span",
+          "marks": ["em"],
+          "text": "chole-"
+        },
+        {
+          "text": " 'bile' and ",
+          "_key": "05b12cd8b11a4",
+          "_type": "span",
+          "marks": []
+        },
+        {
+          "_key": "05b12cd8b11a5",
+          "_type": "span",
+          "marks": ["em"],
+          "text": "stereos"
+        },
+        {
+          "_type": "span",
+          "marks": [],
+          "text": " 'solid', followed by the chemical suffix ",
+          "_key": "05b12cd8b11a6"
+        },
+        {
+          "_type": "span",
+          "marks": ["em"],
+          "text": "-ol",
+          "_key": "05b12cd8b11a7"
+        },
+        {
+          "_type": "span",
+          "marks": [],
+          "text": " for an alcohol.",
+          "_key": "05b12cd8b11a8"
+        }
+      ],
+      "_key": "d2b90adb4e97",
+      "_type": "block",
+      "level": 1,
+      "style": "normal",
+      "listItem": "bullet"
+    },
+    {
+      "_key": "02f616b62bb9",
+      "_type": "block",
+      "style": "blockquote",
+      "markDefs": [],
+      "children": [
+        {
+          "text": "The best treatment for high cholesterol is prevention. This includes eating healthy foods, moving your body, and managing stress.",
+          "_key": "42fea3033a330",
+          "_type": "span",
+          "marks": []
+        }
+      ]
+    },
+    {
+      "_key": "e543f2d84e8d",
+      "_type": "block",
+      "children": [
+        {
+          "text": "Read more on Wikipedia",
+          "_key": "f7732c0d2526",
+          "_type": "span",
+          "marks": ["710b11d36947"]
+        },
+        {
+          "_key": "b712d1de4492",
+          "_type": "span",
+          "marks": [],
+          "text": " or "
+        },
+        {
+          "_type": "span",
+          "marks": ["ee04912cf484"],
+          "text": "read about the benefits of fiber",
+          "_key": "3a16b4bb47e0"
+        },
+        { "_type": "span", "marks": [], "text": ".", "_key": "7794a95a7f49" }
+      ],
+      "style": "normal",
+      "markDefs": [
+        {
+          "_key": "710b11d36947",
+          "_type": "link",
+          "link": {
+            "_type": "link",
+            "_key": null,
+            "externalUrl": "https://en.wikipedia.org/wiki/Cholesterol",
+            "file": null,
+            "documentLink": null
+          }
+        },
+        {
+          "_key": "ee04912cf484",
+          "_type": "link",
+          "link": {
+            "externalUrl": null,
+            "file": null,
+            "documentLink": {
+              "_id": "2efb1db1-1e1c-4367-9186-4c99a031f4a3",
+              "_createdAt": "2024-01-11T20:44:58Z",
+              "_updatedAt": "2024-01-18T16:54:25Z",
+              "_type": "blogArticle",
+              "slug": {
+                "current": "the-many-health-benefits-of-fiber",
+                "_type": "slug"
+              },
+              "title": "The Many Health Benefits of Fiber",
+              "category": {
+                "_type": "blog",
+                "slug": { "current": "for-members", "_type": "slug" },
+                "title": "For Members"
+              }
+            },
+            "_type": "link",
+            "_key": null
+          }
+        }
+      ]
+    },
+    {
+      "_key": "d2fd59018041",
+      "_type": "icon",
+      "icon": "doctors-office",
+      "markDefs": null
+    },
+    {
+      "_key": "aba8364ffedf",
+      "_type": "form",
+      "formId": "a6bbd062-c5e2-47f2-8ba4-33a62403bf07",
+      "markDefs": null
+    },
+    {
+      "barTwo": { "unit": 49, "description": "Industry Standard" },
+      "markDefs": null,
+      "_key": "048a1b09aaa7",
+      "_type": "barGraphObject",
+      "barOne": { "unit": 77, "description": "Firefly" }
+    },
+    {
+      "_type": "bigNumber",
+      "numberType": "none",
+      "description": [
+        {
+          "_key": "b7524a198205",
           "markDefs": [],
           "children": [
             {
               "_type": "span",
               "marks": [],
-              "text": "How Firefly helped Paula through her diagnosis",
-              "_key": "af045951bdd90"
+              "text": "Firefly members interact with their Care Team weekly",
+              "_key": "9c785077d6050"
+            }
+          ],
+          "_type": "block",
+          "style": "normal"
+        }
+      ],
+      "value": 20000,
+      "markDefs": null,
+      "_key": "039522a3dfb7"
+    },
+    {
+      "value": 25,
+      "markDefs": null,
+      "_key": "527a86ff5c9e",
+      "_type": "bigNumber",
+      "numberType": "percentage",
+      "description": [
+        {
+          "markDefs": [],
+          "children": [
+            {
+              "marks": [],
+              "text": "of Firefly members report improved health over 3 months",
+              "_key": "6e5e44577f1a0",
+              "_type": "span"
             }
           ],
           "_type": "block",
           "style": "normal",
-          "_key": "129c86edc708"
+          "_key": "7ce747cf4053"
         }
       ]
+    },
+    {
+      "description": [
+        {
+          "_key": "a0bf87037f7f",
+          "markDefs": [],
+          "children": [
+            {
+              "text": "savings in health spending on average by Firefly members",
+              "_key": "630fa6dfbfe30",
+              "_type": "span",
+              "marks": []
+            }
+          ],
+          "_type": "block",
+          "style": "normal"
+        }
+      ],
+      "value": 2400,
+      "markDefs": null,
+      "_key": "3b8d6694fd22",
+      "_type": "bigNumber",
+      "numberType": "dollar"
     }
   ],
   "footer": {
