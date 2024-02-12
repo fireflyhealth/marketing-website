@@ -1,19 +1,30 @@
 import { defineType, defineField } from 'sanity';
 import { richTextToString } from '../../lib/richTextToString';
+import { Maybe } from '../../lib/types';
 
 type BigNumberData = {
-  numberType: 'percentage' | 'dollar' | 'none';
+  unit: Maybe<{
+    unitValue?: string;
+    position?: 'before' | 'after';
+  }>;
   value: number;
 };
 
-const getBigNumberPreviewTitle = ({ numberType, value }: BigNumberData) => {
+const getBigNumberPreviewTitle = (bigNumber: Maybe<BigNumberData>) => {
+  if (!bigNumber?.value) {
+    return '(empty)';
+  }
+  const { unit, value } = bigNumber;
   const formattedValue = value.toLocaleString('en-US');
+  if (!unit) return formattedValue;
+  const { unitValue, position } = unit;
+  if (!unitValue || !position) {
+    return formattedValue;
+  }
   const title =
-    numberType === 'percentage'
-      ? `${formattedValue}%`
-      : numberType === 'dollar'
-        ? `$${formattedValue}`
-        : formattedValue;
+    position === 'before'
+      ? unitValue.concat(formattedValue)
+      : formattedValue.concat(unitValue);
   return title;
 };
 
@@ -23,24 +34,52 @@ export const BigNumber = defineType({
   type: 'object',
   fields: [
     defineField({
-      name: 'numberType',
-      type: 'string',
-      title: 'Number Type',
-      initialValue: 'none',
-      validation: (Rule) => Rule.required(),
-      options: {
-        list: [
-          { title: 'None', value: 'none' },
-          { title: 'Percentage (%)', value: 'percentage' },
-          { title: 'Dollar amount ($)', value: 'dollar' },
-        ],
-      },
-    }),
-    defineField({
       name: 'value',
       type: 'number',
       title: 'Value',
       validation: (Rule) => Rule.required(),
+    }),
+    defineField({
+      name: 'unit',
+      type: 'object',
+      title: 'Unit',
+      fields: [
+        defineField({
+          name: 'unitValue',
+          type: 'string',
+          title: 'Value',
+          description: 'i.e. "$" or "%"',
+          validation: (Rule) =>
+            Rule.custom((value, context) => {
+              // @ts-ignore
+              if (context?.parent?.position && !value) {
+                return 'Required when a Position is selected';
+              }
+              return true;
+            }),
+        }),
+        defineField({
+          name: 'position',
+          title: 'Position',
+          type: 'string',
+          initialValue: 'before',
+          validation: (Rule) =>
+            Rule.custom((value, context) => {
+              // @ts-ignore
+              if (context?.parent?.unitValue && !value) {
+                return 'Required when a Unit Value is present';
+              }
+              return true;
+            }),
+
+          options: {
+            list: [
+              { title: 'Before', value: 'before' },
+              { title: 'After', value: 'after' },
+            ],
+          },
+        }),
+      ],
     }),
     defineField({
       name: 'description',
@@ -51,12 +90,12 @@ export const BigNumber = defineType({
   ],
   preview: {
     select: {
-      numberType: 'numberType',
+      unit: 'unit',
       value: 'value',
       description: 'description',
     },
-    prepare: ({ numberType, value, description }) => {
-      const title = getBigNumberPreviewTitle({ numberType, value });
+    prepare: ({ unit, value, description }) => {
+      const title = getBigNumberPreviewTitle({ unit, value });
       return { title, subtitle: richTextToString(description) };
     },
   },
