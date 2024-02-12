@@ -9,7 +9,12 @@
   },
   "overrides": [
     {
-      "files": ["src/pages/**/*", "src/**/*.stories.*", "tailwind.config.ts"],
+      "files": [
+        "src/pages/**/*",
+        "src/**/*.stories.*",
+        "tailwind.config.ts",
+        "testing/mocks/**/*"
+      ],
       "rules": {
         "import/no-default-export": "off"
       }

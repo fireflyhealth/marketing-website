@@ -20,6 +20,9 @@ type RichTextProps = {
    * it should not be the usual font-size-8 (i.e. Contnent Block Header
    * descriptions). */
   fontSize?: string;
+  /* a theme-text-color className.
+   * Defaults to theme-text-color-primary */
+  textColor?: string;
   className?: string;
 };
 
@@ -103,9 +106,17 @@ export const RichText: FC<RichTextProps> = ({
   content,
   className,
   fontSize,
+  textColor,
 }) => {
   return (
-    <div className={cx('RichText', className, fontSize || 'font-size-8')}>
+    <div
+      className={cx(
+        'RichText',
+        textColor || 'theme-text-color-primary',
+        fontSize || 'font-size-8',
+        className,
+      )}
+    >
       <PortableText value={content} components={components} />
     </div>
   );

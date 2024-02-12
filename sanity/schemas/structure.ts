@@ -134,6 +134,14 @@ export const structure: StructureResolver = async (S, context) => {
           .child(
             S.documentTypeList('clientPage').filter('_type == "clientPage" '),
           ),
+        S.listItem()
+          .title('Practitioners')
+          .icon(icons.Practitioner)
+          .child(
+            S.documentTypeList('practitioner').filter(
+              '_type == "practitioner" ',
+            ),
+          ),
         S.divider(),
         S.listItem()
           .title('Blogs')

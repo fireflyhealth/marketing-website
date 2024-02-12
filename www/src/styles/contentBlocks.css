@@ -10,3 +10,27 @@
     left: 0;
   }
 }
+
+.PractitionerCard {
+  &__headshot {
+    position: relative;
+
+    @media screen(md) {
+      a:focus,
+      a:hover {
+        .PractitionerCard__blurb {
+          display: block;
+        }
+      }
+    }
+  }
+
+  &__blurb {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}

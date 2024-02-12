@@ -95,6 +95,16 @@ export const MockData = defineType({
           },
           validation: (Rule) => Rule.required(),
         }),
+        defineField({
+          name: 'practitionersBlock',
+          type: 'practitionersBlock',
+          title: 'Practitioners Block',
+          options: {
+            collapsible: true,
+            collapsed: true,
+          },
+          validation: (Rule) => Rule.required(),
+        }),
       ],
     }),
     defineField({

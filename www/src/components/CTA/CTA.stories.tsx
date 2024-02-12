@@ -13,12 +13,12 @@ const getCtaExample = (label: string) => {
 
 const CTAExamples = () => (
   <div className="p-3 rounded theme-bg-color">
-    <div className="mb-4 font-size-8 text-theme-secondary pr-4 flex-shrink-0 tracking-tight">
+    <div className="mb-4 font-size-8 theme-text-color-secondary pr-4 flex-shrink-0 tracking-tight">
       A LinkButton component rendered from the CTA object schema in sanity
     </div>
 
     <div className="mb-3">
-      <div className="font-size-9 font-mono text-theme-secondary tracking-tight">
+      <div className="font-size-9 font-mono theme-text-color-secondary tracking-tight">
         Primary
       </div>
 
@@ -26,7 +26,7 @@ const CTAExamples = () => (
     </div>
 
     <div className="mb-3">
-      <div className="font-size-9 font-mono text-theme-secondary tracking-tight">
+      <div className="font-size-9 font-mono theme-text-color-secondary tracking-tight">
         Secondary
       </div>
 
@@ -34,7 +34,7 @@ const CTAExamples = () => (
     </div>
 
     <div>
-      <div className="font-size-9 font-mono text-theme-secondary tracking-tight">
+      <div className="font-size-9 font-mono theme-text-color-secondary tracking-tight">
         Outlined
       </div>
 

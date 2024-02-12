@@ -11,6 +11,7 @@ import { BlogArticle } from './documents/blogArticle';
 import { Blog } from './documents/blog';
 import { MockData } from './documents/mockData';
 import { SiteSettings } from './documents/siteSettings';
+import { Practitioner } from './documents/practitioner';
 
 import { Metadata } from './fields/metadata';
 import { RichImage } from './fields/images';
@@ -36,6 +37,7 @@ import { CtaCard, CtaCardsBlock } from './blocks/ctaCardsBlock';
 import { DoubleCtaBlock } from './blocks/doubleCtaBlock';
 
 import { VideoHeader } from './headers/videoHeader';
+import { PractitionersBlock } from './blocks/practitionersBlock';
 
 export const schemaTypes = [
   /* Document Types */
@@ -52,6 +54,7 @@ export const schemaTypes = [
   SiteSettings,
   MockData,
   Navigation,
+  Practitioner,
 
   /* Header Blocks */
   HeaderArea,
@@ -63,6 +66,7 @@ export const schemaTypes = [
   CtaCardsBlock,
   CtaCard,
   DoubleCtaBlock,
+  PractitionersBlock,
 
   /* Field Types */
   ContentBlockHeader,

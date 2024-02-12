@@ -23,6 +23,7 @@ import { BiCarousel, BiSolidNavigation } from 'react-icons/bi';
 import { FaHubspot } from 'react-icons/fa';
 import { BsFileBarGraph, BsMenuDown } from 'react-icons/bs';
 import { MdOutlineCallToAction } from 'react-icons/md';
+import { FaUserDoctor } from 'react-icons/fa6';
 
 /*
  * Browse Sanity icons:
@@ -54,4 +55,5 @@ export const icons = {
   Hubspot: FaHubspot,
   BarGraph: BsFileBarGraph,
   DoubleCTA: MdOutlineCallToAction,
+  Practitioner: FaUserDoctor,
 };

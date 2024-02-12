@@ -51,8 +51,8 @@ export type LinkableDocument =
   | SubPage
   | Blog
   | BlogArticle
-  | ClientPage;
-/* TODO: SubPage, Blogs, Articles, ... */
+  | ClientPage
+  | Practitioner;
 
 export type LinkableDocumentData =
   | HomepageLinkData
@@ -63,7 +63,8 @@ export type LinkableDocumentData =
   | SubPageLinkData
   | BlogLinkData
   | BlogArticleLinkData
-  | ClientPageLinkData;
+  | ClientPageLinkData
+  | PractitionerLinkData;
 
 /**
  * Documents
@@ -166,6 +167,42 @@ export type ClientPage = SanityDocument & {
 export type ClientPageLinkData = Pick<
   ClientPage,
   '_type' | 'slug' | 'clientName'
+>;
+
+/* Practitioners */
+export type Institution = {
+  _type: 'institution';
+  /* i.e. "Harvard Medical School" */
+  name: string;
+};
+
+export type Practitioner = SanityDocument & {
+  _type: 'practitioner';
+  name: string;
+  slug: Slug;
+  /* i.e. "Nurse Practitioner" */
+  title: string;
+  /* i.e. "PsyD, MSW" */
+  qualifications: Maybe<string>;
+  pronouns: string;
+  headshot: Maybe<RichImage>;
+  education: KeyedArray<Institution>;
+  languagesSpoken: string[];
+  blurb: RichText;
+};
+
+/* Data needed to render practitioner profile cards */
+export type PractitionerLinkData = Pick<
+  Practitioner,
+  | '_id'
+  | '_type'
+  | 'name'
+  | 'slug'
+  | 'qualifications'
+  | 'headshot'
+  | 'blurb'
+  | 'pronouns'
+  | 'title'
 >;
 
 /* Blogs */
@@ -314,14 +351,31 @@ export type CTA = {
  * RichText Blocks
  */
 
-/* Note: You can add more types & serializers for
- * other blocks that may be included in the future, i.e.:
- * Array<PortableTextBlock | ImageBlock>[] */
-export type RichText = Array<PortableTextBlock | BarGraph | HubspotForm>;
+export type RichText = Array<
+  PortableTextBlock | BarGraph | HubspotForm | IconBlock
+>;
 
 export type HubspotForm = {
   _type: 'form';
   formId: string;
+};
+
+export type BarGraph = {
+  _type: 'barGraphItems';
+  _key: string;
+  barOne: {
+    unit: number;
+    description: string;
+  };
+  barTwo: {
+    unit: number;
+    description: string;
+  };
+};
+
+export type IconBlock = {
+  _type: 'icon';
+  icon: string;
 };
 
 /**
@@ -334,7 +388,11 @@ export type HeaderArea = HeaderBlockType[];
 /**
  * Content Area Blocks
  */
-export type ContentBlock = ImageBlock | ImageCarouselBlock | CTACardsBlock;
+export type ContentBlock =
+  | ImageBlock
+  | ImageCarouselBlock
+  | CTACardsBlock
+  | PractitionersBlock;
 
 export type ContentArea = KeyedArray<ContentBlock>;
 
@@ -365,19 +423,6 @@ export type ImageCarouselBlock = {
   images: KeyedArray<RichImage>;
 };
 
-export type BarGraph = {
-  _type: 'barGraphItems';
-  _key: string;
-  barOne: {
-    unit: number;
-    description: string;
-  };
-  barTwo: {
-    unit: number;
-    description: string;
-  };
-};
-
 export type CTACard = {
   _type: 'ctaCard';
   image: RichImage;
@@ -390,6 +435,7 @@ export type CTACardsBlock = {
   header: Maybe<ContentBlockHeader>;
   ctaCards: KeyedArray<CTACard>;
 };
+
 export type DoubleCtaBlock = {
   _type: 'doubleCtaBlock';
   doubleCta: DoubleCta;
@@ -408,4 +454,10 @@ export type DoubleCta = {
   _type: 'doubleCta';
   ctaOne: LargeCtaCard;
   ctaTwo: LargeCtaCard;
+};
+
+export type PractitionersBlock = {
+  _type: 'practitionersBlock';
+  header: Maybe<ContentBlockHeader>;
+  practitioners: PractitionerLinkData[];
 };

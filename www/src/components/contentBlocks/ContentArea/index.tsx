@@ -3,6 +3,7 @@ import { ContentBlock as ContentBlockType, KeyedArray } from '@/types/sanity';
 import { ImageBlock } from '../ImageBlock';
 import { ImageCarouselBlock } from '../ImageCarouselBlock';
 import { CTACardsBlock } from '../CTACardsBlock';
+import { PractitionersBlock } from '../PractitionersBlock';
 
 type ContentBlockProps = {
   block: ContentBlockType;
@@ -16,6 +17,8 @@ const ContentBlock: FC<ContentBlockProps> = ({ block }) => {
       return <ImageCarouselBlock imageCarouselBlock={block} />;
     case 'ctaCardsBlock':
       return <CTACardsBlock ctaCardsBlock={block} />;
+    case 'practitionersBlock':
+      return <PractitionersBlock practitionersBlock={block} />;
     default:
       console.warn(
         // @ts-expect-error
