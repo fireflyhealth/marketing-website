@@ -35,6 +35,7 @@ import { ImageBlock } from './blocks/imageBlock';
 import { ImageCarouselBlock } from './blocks/imageCarouselBlock';
 import { CtaCard, CtaCardsBlock } from './blocks/ctaCardsBlock';
 import { DoubleCtaBlock } from './blocks/doubleCtaBlock';
+import { ImageTextOverlapBlock } from './blocks/imageTextOverlapBlock';
 
 import { VideoHeader } from './headers/videoHeader';
 import { PractitionersBlock } from './blocks/practitionersBlock';
@@ -68,6 +69,7 @@ export const schemaTypes = [
   CtaCard,
   DoubleCtaBlock,
   PractitionersBlock,
+  ImageTextOverlapBlock,
 
   /* Field Types */
   ContentBlockHeader,

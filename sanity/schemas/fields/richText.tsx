@@ -124,5 +124,6 @@ export const ArticleRichText = defineField({
     { name: 'form', type: 'hubspotForm', title: 'Form' },
     { name: 'barGraphObject', type: 'barGraphItems', title: 'Bar Graph' },
     { name: 'bigNumbers', type: 'bigNumbers', title: 'Big Numbers' },
+    { name: 'cta', type: 'cta', title: 'CTA' },
   ],
 });

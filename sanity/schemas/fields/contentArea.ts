@@ -10,5 +10,6 @@ export const ContentArea = defineType({
     { type: 'ctaCardsBlock' },
     { type: 'doubleCtaBlock' },
     { type: 'practitionersBlock' },
+    { type: 'imageTextOverlapBlock' },
   ],
 });
