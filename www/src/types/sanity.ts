@@ -524,7 +524,7 @@ export type SequenceBlockItem = {
   _key: string;
   video: Video;
   copy: SequenceBlockTextFields;
-  theme: Theme;
+  theme: string;
   flipAlignment: boolean;
   isHighlighted: boolean;
 };
@@ -532,7 +532,7 @@ export type SequenceBlockItem = {
 export type SequenceBlock = {
   _type: 'sequenceBlock';
   sequenceHeader: SequenceBlockTextFields;
-  sequenceItems: SequenceBlockItem[];
+  sequenceItems: KeyedArray<SequenceBlockItem>;
   sequenceFooter: string;
 };
 

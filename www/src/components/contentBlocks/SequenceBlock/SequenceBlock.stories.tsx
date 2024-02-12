@@ -13,6 +13,13 @@ export const Primary: Story = {
   args: {
     sequenceBlock: sequenceBlockExample,
   },
+  decorators: [
+    (Story) => (
+      <div className="-m-[25px]">
+        <Story />
+      </div>
+    ),
+  ],
 };
 
 export default meta;
