@@ -53,16 +53,24 @@ export const SequenceCard: FC<Props> = ({ card }) => {
         <div
           className={cn(
             SequenceCardWrapper,
+            'theme-bg-color',
+            'md:bg-transparent md:py-24',
             flipAlignment
               ? 'md:flex-row-reverse md:space-x-reverse'
               : 'md:flex-row',
-            'md:py-24',
           )}
         >
           <div className={cn(VideoWrapper, 'lg:max-w-[580px]')}>
             <Video video={video} posterSizes={['90vw, 40vw']} />
           </div>
-          <div className={cn(CopyWrapper, 'lg:max-w-[580px] px-12')}>
+          <div
+            className={cn(
+              CopyWrapper,
+              'px-12 theme-bg-color',
+              'md:py-6',
+              'lg:max-w-[580px]',
+            )}
+          >
             <SequenceCopy copy={copy} />
           </div>
         </div>
