@@ -193,8 +193,11 @@ export const bigNumbersFragment = `
   bigNumbers[]{
     _key,
     _type,
+    unit {
+      unitValue,
+      position
+    },
     value,
-    numberType,
     description[]{
       ${simpleRichTextFragment}
     }

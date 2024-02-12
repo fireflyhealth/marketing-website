@@ -8,14 +8,12 @@ const bigNumbersBlock = articleRichText.find(
   (b) => b._type === 'bigNumbers',
 ) as BigNumbers;
 
-const noneType = bigNumbersBlock.bigNumbers.find(
-  (b) => b.numberType === 'none',
-);
+const noneType = bigNumbersBlock.bigNumbers.find((b) => !b.unit);
 const dollarType = bigNumbersBlock.bigNumbers.find(
-  (b) => b.numberType === 'dollar',
+  (b) => b.unit?.unitValue === '$',
 );
 const percentageType = bigNumbersBlock.bigNumbers.find(
-  (b) => b.numberType === 'percentage',
+  (b) => b.unit?.unitValue === '%',
 );
 
 if (!noneType) {
@@ -36,11 +34,11 @@ describe('BigNumber', () => {
 
   it('should display a formatted dollar amount', async () => {
     const { getByText } = render(<BigNumber bigNumber={dollarType} />);
-    expect(getByText(matchTextContent('$2,400'))).toBeTruthy();
+    expect(getByText(matchTextContent('$2,500'))).toBeTruthy();
   });
 
   it('should display a formatted percentage amount', async () => {
     const { getByText } = render(<BigNumber bigNumber={percentageType} />);
-    expect(getByText(matchTextContent('25%'))).toBeTruthy();
+    expect(getByText(matchTextContent('65%'))).toBeTruthy();
   });
 });

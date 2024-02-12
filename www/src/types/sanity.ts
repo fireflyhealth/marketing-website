@@ -379,8 +379,11 @@ export type IconBlock = {
 };
 export type BigNumber = {
   _type: 'bigNumber';
+  unit: Maybe<{
+    unitValue: string;
+    position: 'before' | 'after';
+  }>;
   value: number;
-  numberType: 'dollar' | 'percentage' | 'none';
   description: RichText;
 };
 

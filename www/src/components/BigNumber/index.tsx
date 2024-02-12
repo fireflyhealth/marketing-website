@@ -10,17 +10,21 @@ type BigNumberProps = {
 };
 
 export const BigNumber: FC<BigNumberProps> = ({ bigNumber }) => {
-  const { value, numberType, description } = bigNumber;
+  const { value, unit, description } = bigNumber;
   const formattedValue = value.toLocaleString('en-US');
   return (
     <div className="py-6">
       <div className="font-trust">
-        {numberType === 'dollar' ? (
-          <span className="font-size-6 align-top mr-[0.2em]">$</span>
+        {unit && unit.position === 'before' ? (
+          <span className="font-size-6 align-top mr-[0.2em]">
+            {unit.unitValue}
+          </span>
         ) : null}
         <span className="font-size-1">{formattedValue}</span>
-        {numberType === 'percentage' ? (
-          <span className="font-size-6 align-top ml-[0.2em]">%</span>
+        {unit && unit.position === 'after' ? (
+          <span className="font-size-6 align-top ml-[0.2em]">
+            {unit.unitValue}
+          </span>
         ) : null}
       </div>
       <div className="max-w-[300px]">
