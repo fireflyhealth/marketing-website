@@ -224,6 +224,7 @@ export const richTextFragment = `
   _type == "bigNumbers" => {
     ${bigNumbersFragment}
   },
+  _type == "cta" => {${ctaFragment}},
   markDefs[]{
     _key,
     _type,
@@ -261,6 +262,19 @@ export const doubleCtaFragment = `
     id,
     ariaLabel,
     link {${linkFragment}},
+  }
+`;
+
+export const imageTextOverlapFragment = `
+  _type,
+  header{
+    ${contentBlockHeaderFragment}
+  },
+  image{
+    ${imageFragment}
+  },
+  copy{
+    ${richTextFragment}
   }
 `;
 

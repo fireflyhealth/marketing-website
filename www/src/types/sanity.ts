@@ -352,7 +352,7 @@ export type CTA = {
  */
 
 export type RichText = Array<
-  PortableTextBlock | BarGraph | HubspotForm | IconBlock | BigNumbers
+  PortableTextBlock | BarGraph | HubspotForm | IconBlock | BigNumbers | CTA
 >;
 
 export type HubspotForm = {
@@ -406,7 +406,8 @@ export type ContentBlock =
   | ImageBlock
   | ImageCarouselBlock
   | CTACardsBlock
-  | PractitionersBlock;
+  | PractitionersBlock
+  | ImageTextOverlapBlock;
 
 export type ContentArea = KeyedArray<ContentBlock>;
 
@@ -474,4 +475,11 @@ export type PractitionersBlock = {
   _type: 'practitionersBlock';
   header: Maybe<ContentBlockHeader>;
   practitioners: PractitionerLinkData[];
+};
+
+export type ImageTextOverlapBlock = {
+  _type: 'imageTextOverlapBlock';
+  header: Maybe<ContentBlockHeader>;
+  image: RichImage;
+  copy: RichText;
 };

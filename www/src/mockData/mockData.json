@@ -1,6 +1,898 @@
 {
+  "articleRichText": [
+    {
+      "_type": "block",
+      "style": "h2",
+      "markDefs": [],
+      "children": [
+        {
+          "_type": "span",
+          "marks": [],
+          "text": "Good and Bad Cholesterol",
+          "_key": "2a6c1fa8737d"
+        }
+      ],
+      "_key": "f9549c2e94e7"
+    },
+    {
+      "_key": "1329dde686d3",
+      "_type": "block",
+      "markDefs": [],
+      "children": [
+        {
+          "_type": "span",
+          "marks": [],
+          "text": "It gets a bad rap, but cholesterol isn't always the villain. Your body actually needs cholesterol to survive and perform essential functions, such as building cells and making hormones. But, as is often the case, too much of a good thing can be bad for your health. Because high cholesterol is a major risk factor for heart disease and stroke, we’re breaking down the facts on cholesterol below.",
+          "_key": "57cbd81c29270"
+        }
+      ],
+      "style": "blockquote-large"
+    },
+    {
+      "asset": {
+        "_id": "image-f61844b18db6925d6c1bb81512ee450d9224dc4a-3272x2177-png",
+        "_type": "sanity.imageAsset",
+        "url": "https://cdn.sanity.io/images/xgbrv2vi/production/f61844b18db6925d6c1bb81512ee450d9224dc4a-3272x2177.png",
+        "metadata": {
+          "lqip": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAIAAAAmMtkJAAAACXBIWXMAAAsTAAALEwEAmpwYAAADJElEQVQokQEZA+b8AJWIhJOBe4NtZXtqYIl5cJ6OiK2cmbain8Svq9PCvtbMysW9vrmrq7mpq7musLausLOsrrGpq7CmqK6jpQCHbGSCXFB5UEB2Tz98VkaHYVOQal2ZbmGneWu1joS5oJqslZCkgHmtiYS4pKS3r7G1rbCzqqyxp6mwpacAc0w/cUM0bz8ucEIydkw+fFZKgV5Th15SkmVXoX5zqY+Ho4N5oXFksn1xv5uVu6uruK6vt6yutKqrsqeqAGdMRXZXUHpaUH1cVIRpYodtZ4x0bpF4cpeAeKuVi7iXiLOBa7RzXMF+ZMWOd7SViLCemLmmorOgna6dmgBwZ2iFeXmPgH6QfnyQfXqKdG+LdG+NdW6Sem+pjXu2jnWqdVijbE6oeFinfF2ScVqPdGWhgnWfe26eemwAg4CDhoGCioGBkoWFkoF/hW9pgmRbflxOhGRPnYZqp5Fzl3pXg2U/eFw8dFc9blA4bEw5d1JCflVEg1lFAIWChG1oZ15XVXVpZohybH5eU3VNP3FIN3dZP4d6VI6FWIhzQXVcKWRJI146Il44I104JVo4KWA+MGRBMQCBfHxcVVFANS9WQTdyT0FqQzRdNylZNylfQy9sWTd0ZTNzWCRpSBppRiBxQSZ0QCZoOyROMB9FKx9KLSEAfXNoY1RLVD0yYT0ubEEuZTopXTcnXTgoXTkoZEIqbEwoaUUeZjsYdEUfiVIolFkph1IlYTsaPSIRNBsRAGxcSHFbS3lYS4FPP4NIM4JJMIJPMoNSM4JRLoFPKYFOI4RNG4pQGZdcHqVnIapqHaRmG4xWFmI5EUYlEQBgUUJ5ZVqWd2+cXk6WQiqXSSejYi6ucSuzdCKwcB2saxqtahq0ch69fyu+gjK1eSitbh6lZhmSWBV9SRYAeGtoh3Nuo4aBp29jjT8sfTUZl1ccvnoWyoALxHwOu3kctHMjvX4q0ZlD1qVWyZZOsXo3oWcnnF8cmlsUAI+DhZB0cKeCfqyGgH5SSVcrHHVDE7RzDMp+BMF4ELJ0KqdsL7p9MNmjTuW3aN6vY7+MSp1oNpFZJ5RYGuMqUudOyK6wAAAAAElFTkSuQmCC",
+          "dimensions": {
+            "aspectRatio": 1.5029857602204868,
+            "width": 3272,
+            "height": 2177
+          }
+        }
+      },
+      "altText": "A person holding a kitchen knife over some chopped vegetables",
+      "caption": "On the chopping block",
+      "crop": null,
+      "hotspot": null,
+      "markDefs": null,
+      "_key": "85be266514e5",
+      "_type": "richImage"
+    },
+    {
+      "_key": "ae870c9982f1",
+      "_type": "block",
+      "style": "h3",
+      "markDefs": [],
+      "children": [
+        {
+          "_type": "span",
+          "marks": [],
+          "text": "What is Cholesterol, anyway?",
+          "_key": "6d8a53e1302e"
+        }
+      ]
+    },
+    {
+      "_key": "a7386fd97ecb",
+      "_type": "block",
+      "markDefs": [],
+      "children": [
+        {
+          "_type": "span",
+          "marks": [],
+          "text": "When it comes to high cholesterol, the best treatment is prevention. Since high cholesterol is often the result of your lifestyle choices, there are ways you can help keep it in check by simply making healthy lifestyle choices.",
+          "_key": "d8dcaf64e2a60"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_type": "block",
+      "children": [
+        {
+          "_type": "span",
+          "marks": [],
+          "text": "Two types of Cholesterol",
+          "_key": "22b597d9117e"
+        }
+      ],
+      "style": "h4",
+      "markDefs": [],
+      "_key": "b7855f92fb00"
+    },
+    {
+      "listItem": "number",
+      "markDefs": [],
+      "children": [
+        {
+          "_type": "span",
+          "marks": [],
+          "text": "The good kind",
+          "_key": "30a54005c774"
+        }
+      ],
+      "_key": "e8ef046a9e1e",
+      "_type": "block",
+      "level": 1,
+      "style": "normal"
+    },
+    {
+      "_key": "b039500d241d",
+      "_type": "block",
+      "listItem": "number",
+      "markDefs": [],
+      "children": [
+        {
+          "_key": "4f2ba1f42b30",
+          "_type": "span",
+          "marks": [],
+          "text": "The bad kind"
+        }
+      ],
+      "level": 1,
+      "style": "normal"
+    },
+    {
+      "_key": "77296c9625db",
+      "_type": "block",
+      "children": [
+        {
+          "_type": "span",
+          "marks": [],
+          "text": "Fun Cholesterol Facts",
+          "_key": "fdc875ebdf09"
+        }
+      ],
+      "style": "h4",
+      "markDefs": []
+    },
+    {
+      "style": "normal",
+      "listItem": "bullet",
+      "markDefs": [],
+      "children": [
+        {
+          "_type": "span",
+          "marks": [],
+          "text": "It is often misspelled.",
+          "_key": "675f0342bde7"
+        }
+      ],
+      "_key": "38aff29e4632",
+      "_type": "block",
+      "level": 1
+    },
+    {
+      "_key": "d2b90adb4e97",
+      "_type": "block",
+      "children": [
+        {
+          "_type": "span",
+          "marks": [],
+          "text": "The word ",
+          "_key": "18208473612e"
+        },
+        {
+          "_type": "span",
+          "marks": ["em"],
+          "text": "cholesterol",
+          "_key": "05b12cd8b11a1"
+        },
+        {
+          "_type": "span",
+          "marks": [],
+          "text": " comes from Ancient Greek ",
+          "_key": "05b12cd8b11a2"
+        },
+        {
+          "_key": "05b12cd8b11a3",
+          "_type": "span",
+          "marks": ["em"],
+          "text": "chole-"
+        },
+        {
+          "_type": "span",
+          "marks": [],
+          "text": " 'bile' and ",
+          "_key": "05b12cd8b11a4"
+        },
+        {
+          "_type": "span",
+          "marks": ["em"],
+          "text": "stereos",
+          "_key": "05b12cd8b11a5"
+        },
+        {
+          "_key": "05b12cd8b11a6",
+          "_type": "span",
+          "marks": [],
+          "text": " 'solid', followed by the chemical suffix "
+        },
+        {
+          "_type": "span",
+          "marks": ["em"],
+          "text": "-ol",
+          "_key": "05b12cd8b11a7"
+        },
+        {
+          "_key": "05b12cd8b11a8",
+          "_type": "span",
+          "marks": [],
+          "text": " for an alcohol."
+        }
+      ],
+      "level": 1,
+      "style": "normal",
+      "listItem": "bullet",
+      "markDefs": []
+    },
+    {
+      "markDefs": [],
+      "_key": "02f616b62bb9",
+      "_type": "block",
+      "children": [
+        {
+          "_type": "span",
+          "marks": [],
+          "text": "The best treatment for high cholesterol is prevention. This includes eating healthy foods, moving your body, and managing stress.",
+          "_key": "42fea3033a330"
+        }
+      ],
+      "style": "blockquote"
+    },
+    {
+      "_key": "e543f2d84e8d",
+      "_type": "block",
+      "children": [
+        {
+          "marks": ["710b11d36947"],
+          "text": "Read more on Wikipedia",
+          "_key": "f7732c0d2526",
+          "_type": "span"
+        },
+        {
+          "_type": "span",
+          "marks": [],
+          "text": " or ",
+          "_key": "b712d1de4492"
+        },
+        {
+          "_type": "span",
+          "marks": ["ee04912cf484"],
+          "text": "read about the benefits of fiber",
+          "_key": "3a16b4bb47e0"
+        },
+        { "_type": "span", "marks": [], "text": ".", "_key": "7794a95a7f49" }
+      ],
+      "style": "normal",
+      "markDefs": [
+        {
+          "_key": "710b11d36947",
+          "_type": "link",
+          "link": {
+            "externalUrl": "https://en.wikipedia.org/wiki/Cholesterol",
+            "file": null,
+            "documentLink": null,
+            "_type": "link",
+            "_key": null
+          }
+        },
+        {
+          "_key": "ee04912cf484",
+          "_type": "link",
+          "link": {
+            "_type": "link",
+            "_key": null,
+            "externalUrl": null,
+            "file": null,
+            "documentLink": {
+              "_id": "2efb1db1-1e1c-4367-9186-4c99a031f4a3",
+              "_createdAt": "2024-01-11T20:44:58Z",
+              "_updatedAt": "2024-01-18T16:54:25Z",
+              "_type": "blogArticle",
+              "slug": {
+                "current": "the-many-health-benefits-of-fiber",
+                "_type": "slug"
+              },
+              "title": "The Many Health Benefits of Fiber",
+              "category": {
+                "_type": "blog",
+                "slug": { "_type": "slug", "current": "for-members" },
+                "title": "For Members"
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "_key": "b4c34e8658cc",
+      "_type": "block",
+      "style": "normal",
+      "markDefs": [],
+      "children": [
+        { "_type": "span", "marks": [], "text": "", "_key": "767b3ee04dc6" }
+      ]
+    },
+    {
+      "_type": "block",
+      "markDefs": [],
+      "children": [
+        { "_key": "0bc636204428", "_type": "span", "marks": [], "text": "" }
+      ],
+      "style": "normal",
+      "_key": "55746b5f9652"
+    },
+    {
+      "id": "richtext-cta",
+      "markDefs": null,
+      "_key": "e1cd56c0bba0",
+      "_type": "cta",
+      "label": "Contact",
+      "ariaLabel": "Navigate to Contact page",
+      "link": {
+        "_type": "link",
+        "_key": null,
+        "externalUrl": null,
+        "file": null,
+        "documentLink": {
+          "_id": "contactPage",
+          "_createdAt": "2024-01-11T19:39:00Z",
+          "_updatedAt": "2024-02-01T15:33:32Z",
+          "_type": "contactPage"
+        }
+      },
+      "variant": "primary"
+    },
+    {
+      "style": "normal",
+      "markDefs": [],
+      "children": [
+        { "_type": "span", "marks": [], "text": "", "_key": "f122548ee26d" }
+      ],
+      "_key": "e03bea2df2b6",
+      "_type": "block"
+    },
+    {
+      "_key": "e3f7fe567332",
+      "_type": "icon",
+      "icon": "firefly-nearby",
+      "markDefs": null
+    },
+    {
+      "_key": "aba8364ffedf",
+      "_type": "form",
+      "formId": "a6bbd062-c5e2-47f2-8ba4-33a62403bf07",
+      "markDefs": null
+    },
+    {
+      "markDefs": null,
+      "_key": "048a1b09aaa7",
+      "_type": "barGraphObject",
+      "barOne": { "unit": 77, "description": "Firefly" },
+      "barTwo": { "unit": 49, "description": "Industry Standard" }
+    }
+  ],
+  "navigationExample": {
+    "globalNav": {
+      "_id": "92c15b20-9ba5-4da7-9484-4b36adfcfde6",
+      "_type": "navigation",
+      "navGroup": [
+        {
+          "_type": "labelWithDropdown",
+          "_key": "1c734079d92a",
+          "label": "For Businesses",
+          "subpages": [
+            {
+              "_type": "subpage",
+              "_key": "448bb68e627e",
+              "label": "For Members",
+              "link": {
+                "_id": "a5a3f11b-8942-4df9-a10d-6e3c0e76aba5",
+                "_createdAt": "2024-01-17T20:08:28Z",
+                "_updatedAt": "2024-02-07T23:23:03Z",
+                "_type": "genericPage",
+                "slug": { "current": "test-page", "_type": "slug" },
+                "title": "Test Page"
+              }
+            },
+            {
+              "_type": "subpage",
+              "_key": "ee610766c1eb",
+              "label": "Press",
+              "link": {
+                "_createdAt": "2024-01-26T15:08:13Z",
+                "_updatedAt": "2024-01-29T17:01:21Z",
+                "_type": "genericPage",
+                "slug": { "current": "individuals", "_type": "slug" },
+                "title": "Individuals",
+                "_id": "abe3bd78-f079-4051-b0cf-52c440ae9756"
+              }
+            }
+          ]
+        },
+        {
+          "_type": "labelWithDropdown",
+          "_key": "e22a5f48e2b5",
+          "label": "Stories",
+          "subpages": [
+            {
+              "_type": "subpage",
+              "_key": "2f30af252362",
+              "label": "For Members",
+              "link": {
+                "_id": "fce46946-009b-481d-b511-a3b731dca248",
+                "_createdAt": "2024-01-11T18:52:57Z",
+                "_updatedAt": "2024-01-29T19:38:54Z",
+                "_type": "genericPage",
+                "slug": { "current": "how-it-works", "_type": "slug" },
+                "title": "How It Works"
+              }
+            }
+          ]
+        }
+      ],
+      "showNavCTA": true
+    },
+    "doubleCta": {
+      "_type": "doubleCta",
+      "ctaOne": {
+        "eyebrow": "For Individuals",
+        "label": "Sign up",
+        "id": "double-cta-one-example",
+        "ariaLabel": "Sign up to start using Firefly",
+        "link": {
+          "_type": "link",
+          "_key": null,
+          "externalUrl": "https://members.firefly.health",
+          "file": null,
+          "documentLink": null
+        }
+      },
+      "ctaTwo": {
+        "id": "double-cta-two-example",
+        "ariaLabel": "Get in touch with Firefly",
+        "link": {
+          "file": null,
+          "documentLink": {
+            "_id": "contactPage",
+            "_createdAt": "2024-01-11T19:39:00Z",
+            "_updatedAt": "2024-02-01T15:33:32Z",
+            "_type": "contactPage"
+          },
+          "_type": "link",
+          "_key": null,
+          "externalUrl": null
+        },
+        "eyebrow": "For Businesses",
+        "label": "Get in touch"
+      }
+    }
+  },
+  "simpleRichText": [
+    {
+      "children": [
+        {
+          "text": "Some simple rich text with ",
+          "_key": "b8201dbc36e3",
+          "_type": "span",
+          "marks": []
+        },
+        {
+          "_type": "span",
+          "marks": ["strong", "em"],
+          "text": "bold, ",
+          "_key": "4aca0acaf27c"
+        },
+        {
+          "_type": "span",
+          "marks": ["em"],
+          "text": "italic",
+          "_key": "aaa0b6c86420"
+        },
+        {
+          "marks": [],
+          "text": ", and ",
+          "_key": "2e48a5b64bff",
+          "_type": "span"
+        },
+        {
+          "_type": "span",
+          "marks": ["underline"],
+          "text": "underlined",
+          "_key": "9604f46b64f7"
+        },
+        {
+          "_type": "span",
+          "marks": [],
+          "text": " text.",
+          "_key": "1003654503b2"
+        }
+      ],
+      "_type": "block",
+      "style": "normal",
+      "_key": "ba1ffe54724a",
+      "markDefs": []
+    },
+    {
+      "style": "normal",
+      "_key": "caacdb79d913",
+      "markDefs": [],
+      "children": [
+        {
+          "text": "A second line with ",
+          "_key": "1a12600685dd",
+          "_type": "span",
+          "marks": []
+        },
+        {
+          "marks": ["strong", "em", "underline"],
+          "text": "combined ",
+          "_key": "26b3a9714de2",
+          "_type": "span"
+        },
+        {
+          "_type": "span",
+          "marks": ["em", "underline"],
+          "text": "styles",
+          "_key": "fc363ff2e319"
+        }
+      ],
+      "_type": "block"
+    }
+  ],
+  "videoExample": {
+    "_type": "video",
+    "videoLink": "https://vimeo.com/861981495",
+    "posterImage": {
+      "altText": "Digital illustration of two hands surrounded by mirrors, holding a piece of rectangular glass.",
+      "crop": null,
+      "hotspot": null,
+      "_type": "richImage",
+      "_key": null,
+      "asset": {
+        "_id": "image-21820f0a4428c37c61cd07aae1718a06e97c320d-2500x1945-png",
+        "_type": "sanity.imageAsset",
+        "url": "https://cdn.sanity.io/images/xgbrv2vi/production/21820f0a4428c37c61cd07aae1718a06e97c320d-2500x1945.png",
+        "metadata": {
+          "lqip": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAPCAIAAABr+ngCAAAACXBIWXMAAAsTAAALEwEAmpwYAAADnklEQVQokQGTA2z8ANa0vt6knu5+Uup3R9iZkNaqttmqtteuutawvdawvtyjrux4fPdZWu1sc9ubqNeyvtest8+BisZOVMY/RADOp8PXlqboblvkaVDTipXXkKzciqXUm7nOosTMn8HRnLrfh5/rcoXjfpbWmrnSpsbSoL3Ke4zCT1HCQj8AzZzKzYquz2Bnzlxez36d2Xuk3XKX0426yJTKwo7DyJTC1JXD2o+92JHA1JfI05rO05XE0nqMz1lK0E83ANCU0cSGuKtkfa9ke8h/rc11pspqlsyDuMaIu7+Bs8WKvs+Tz9GSz8yJvcmFtc2MxdOPyN1/judqQupiLADVlNLKkMm1ga26g7DKjMa4d62raprChKjLiJDIforMg6XQkcfLjsa7dpi0aoK/fKbOkMjei57veU73cCsA4I663J7Q1qHU2KHW1J3UuIW4q3qlx5GV0JFxz4l91ImN04+qx463s3OFqmNqtXWNxpHC0pS83oWB53hWAOZ6keGYw9+j2Nyf1taa0saNx8KMs9CUhcWEbbyDisOBgcV3fcF8lr12eLpuYLJwe6l6raZ9u6l3qKxwkwDec3DWiLLRjc/Lic3Fg8u+f8fDhKfLgnKua3KYY3+iW16tUku2YmDQfFXdg0a7c2CDXo1rWJ1qV5lpVpQAzYBWyIajxobBwYG9t3vDrXa5sm+Fu2pdpGhxjWFmiEg9jzwqoVAyznwy7JMzyH9Uf2CGYVWXXlSSXVSPALqETMeMkNWOmNaKjMWDoadzm5ZWYaVWSqt1YJt6X35USG44Knc8H6JcI9V9M86BX510kIdvn4VunIRtmwCjeVDQkXjvl2rzlFjciGqfZmdwP0B9QjOZakWog2CfeGWBVkJhNiFqNRyeUzHIe2TKkYzEk5TDkpLCkpEAlWxR2ZNo+5hc/ZJM3IFKhlE9Ti8qWjgri2E8wZBW2aRsxo5fi1o5WzIeZzglqW9N36Jt77B28a978q99AKN0Wd+TaPmIYPt9VdJtSXVAMFU0LX9XRLeFVtykXuyxbu6vdcuQX4NUN1w4IY1lLNKiOO+6R/i6Y/m2dwDSi3zijXrebmLlXVTIU0h7OTR/SUW7fXHZm4Hdn37foYPlpYndnYKqcV5zSzCFZR20lBbSsCHjslHpqX8A742f2n2OtFhfvEZIuEBAgzc3l1NdyH2Q04qd0Ymb0oqb04ub0omYtHJ5flNBc1kmiXIaqYwdyZhP25SMmXUIsMbcIbgAAAAASUVORK5CYII=",
+          "dimensions": {
+            "aspectRatio": 1.2853470437017995,
+            "width": 2500,
+            "height": 1945
+          }
+        }
+      },
+      "caption": "Poster Image"
+    }
+  },
+  "ctas": [
+    {
+      "_type": "cta",
+      "label": "Learn More",
+      "ariaLabel": null,
+      "variant": "primary",
+      "id": "learn-more-example",
+      "link": {
+        "_key": null,
+        "externalUrl": null,
+        "file": null,
+        "documentLink": {
+          "title": "About",
+          "_id": "edd5117c-0ac6-4140-9a0b-6ab84401f271",
+          "_createdAt": "2024-01-10T20:49:04Z",
+          "_updatedAt": "2024-01-28T21:59:36Z",
+          "_type": "genericPage",
+          "slug": { "current": "about", "_type": "slug" }
+        },
+        "_type": "link"
+      }
+    },
+    {
+      "variant": "secondary",
+      "id": "cta-secondary-example",
+      "link": {
+        "_type": "link",
+        "_key": null,
+        "externalUrl": null,
+        "file": {
+          "asset": {
+            "size": 19092790,
+            "_type": "sanity.fileAsset",
+            "_id": "file-30de3ea5e39fd240e183acae6a11bd2df3a91b0e-zip",
+            "originalFilename": "firefly-images.zip",
+            "url": "https://cdn.sanity.io/files/xgbrv2vi/production/30de3ea5e39fd240e183acae6a11bd2df3a91b0e.zip",
+            "extension": "zip"
+          }
+        },
+        "documentLink": null
+      },
+      "_type": "cta",
+      "label": "Get the Goods",
+      "ariaLabel": null
+    },
+    {
+      "link": {
+        "_key": null,
+        "externalUrl": null,
+        "file": null,
+        "documentLink": {
+          "_id": "downloadPage",
+          "_createdAt": "2024-01-11T19:38:55Z",
+          "_updatedAt": "2024-02-01T15:30:03Z",
+          "_type": "downloadPage"
+        },
+        "_type": "link"
+      },
+      "_type": "cta",
+      "label": "Download",
+      "ariaLabel": "Download the Firefly Mobile app",
+      "variant": "outlined",
+      "id": "cta-example-outlined"
+    }
+  ],
+  "links": [
+    {
+      "_type": "linkWithLabel",
+      "_key": "6f603191d32e",
+      "label": "To External URL",
+      "link": {
+        "externalUrl": "https://www.sanctuary.computer",
+        "file": null,
+        "documentLink": null,
+        "_type": "link",
+        "_key": null
+      }
+    },
+    {
+      "_type": "linkWithLabel",
+      "_key": "a21b26cebea3",
+      "label": "File Download",
+      "link": {
+        "documentLink": null,
+        "_type": "link",
+        "_key": null,
+        "externalUrl": null,
+        "file": {
+          "asset": {
+            "_id": "file-30de3ea5e39fd240e183acae6a11bd2df3a91b0e-zip",
+            "originalFilename": "firefly-images.zip",
+            "url": "https://cdn.sanity.io/files/xgbrv2vi/production/30de3ea5e39fd240e183acae6a11bd2df3a91b0e.zip",
+            "extension": "zip",
+            "size": 19092790,
+            "_type": "sanity.fileAsset"
+          }
+        }
+      }
+    },
+    {
+      "_type": "linkWithLabel",
+      "_key": "a7b121785e18",
+      "label": "To Homepage",
+      "link": {
+        "_key": null,
+        "externalUrl": null,
+        "file": null,
+        "documentLink": {
+          "_id": "homepage",
+          "_createdAt": "2024-01-10T20:42:11Z",
+          "_updatedAt": "2024-01-18T16:56:15Z",
+          "_type": "homepage"
+        },
+        "_type": "link"
+      }
+    },
+    {
+      "_type": "linkWithLabel",
+      "_key": "854666308a5a",
+      "label": "To Contact Page",
+      "link": {
+        "file": null,
+        "documentLink": {
+          "_id": "contactPage",
+          "_createdAt": "2024-01-11T19:39:00Z",
+          "_updatedAt": "2024-02-01T15:33:32Z",
+          "_type": "contactPage"
+        },
+        "_type": "link",
+        "_key": null,
+        "externalUrl": null
+      }
+    },
+    {
+      "_type": "linkWithLabel",
+      "_key": "f8cb39204d36",
+      "label": "To Download Page",
+      "link": {
+        "_type": "link",
+        "_key": null,
+        "externalUrl": null,
+        "file": null,
+        "documentLink": {
+          "_id": "downloadPage",
+          "_createdAt": "2024-01-11T19:38:55Z",
+          "_updatedAt": "2024-02-01T15:30:03Z",
+          "_type": "downloadPage"
+        }
+      }
+    },
+    {
+      "_type": "linkWithLabel",
+      "_key": "b46e80fa1886",
+      "label": "To FAQ Page",
+      "link": {
+        "externalUrl": null,
+        "file": null,
+        "documentLink": {
+          "_id": "faqPage",
+          "_createdAt": "2024-01-11T19:39:23Z",
+          "_updatedAt": "2024-02-01T15:34:10Z",
+          "_type": "faqPage"
+        },
+        "_type": "link",
+        "_key": null
+      }
+    },
+    {
+      "_type": "linkWithLabel",
+      "_key": "261c00985061",
+      "label": "To Generic Page",
+      "link": {
+        "externalUrl": null,
+        "file": null,
+        "documentLink": {
+          "_type": "genericPage",
+          "slug": { "current": "how-it-works", "_type": "slug" },
+          "title": "How It Works",
+          "_id": "fce46946-009b-481d-b511-a3b731dca248",
+          "_createdAt": "2024-01-11T18:52:57Z",
+          "_updatedAt": "2024-01-29T19:38:54Z"
+        },
+        "_type": "link",
+        "_key": null
+      }
+    },
+    {
+      "_type": "linkWithLabel",
+      "_key": "5819dc756f12",
+      "label": "To Subpage",
+      "link": {
+        "documentLink": {
+          "_updatedAt": "2024-01-31T16:37:09Z",
+          "_type": "subPage",
+          "slug": { "current": "care-team", "_type": "slug" },
+          "title": "Care Team",
+          "parentPage": {
+            "_type": "genericPage",
+            "title": "About",
+            "slug": { "current": "about", "_type": "slug" }
+          },
+          "_id": "f5bd2bcc-f8e4-443c-9a30-14b16e505dd8",
+          "_createdAt": "2024-01-11T00:13:00Z"
+        },
+        "_type": "link",
+        "_key": null,
+        "externalUrl": null,
+        "file": null
+      }
+    },
+    {
+      "_type": "linkWithLabel",
+      "_key": "64204105f3bf",
+      "label": "To Blog",
+      "link": {
+        "_type": "link",
+        "_key": null,
+        "externalUrl": null,
+        "file": null,
+        "documentLink": {
+          "_id": "70157e61-164b-461f-916f-82c16dc68408",
+          "_createdAt": "2024-01-11T20:44:40Z",
+          "_updatedAt": "2024-01-18T16:55:05Z",
+          "_type": "blog",
+          "slug": { "current": "for-members", "_type": "slug" },
+          "title": "For Members"
+        }
+      }
+    },
+    {
+      "_type": "linkWithLabel",
+      "_key": "a44d2f4dc7b2",
+      "label": "To Blog Article",
+      "link": {
+        "externalUrl": null,
+        "file": null,
+        "documentLink": {
+          "_type": "blogArticle",
+          "slug": {
+            "current": "the-many-health-benefits-of-fiber",
+            "_type": "slug"
+          },
+          "title": "The Many Health Benefits of Fiber",
+          "category": {
+            "_type": "blog",
+            "slug": { "_type": "slug", "current": "for-members" },
+            "title": "For Members"
+          },
+          "_id": "2efb1db1-1e1c-4367-9186-4c99a031f4a3",
+          "_createdAt": "2024-01-11T20:44:58Z",
+          "_updatedAt": "2024-01-18T16:54:25Z"
+        },
+        "_type": "link",
+        "_key": null
+      }
+    },
+    {
+      "_type": "linkWithLabel",
+      "_key": "49c5e26f2a7b",
+      "label": "To Client Page",
+      "link": {
+        "documentLink": {
+          "_id": "8c64c2fb-4c72-43ed-a843-4595b9af5880",
+          "_createdAt": "2024-01-11T20:24:17Z",
+          "_updatedAt": "2024-01-18T16:55:35Z",
+          "_type": "clientPage",
+          "slug": { "current": "massachusetts-blue-cross", "_type": "slug" },
+          "clientName": "Massachusetts Blue Cross"
+        },
+        "_type": "link",
+        "_key": null,
+        "externalUrl": null,
+        "file": null
+      }
+    },
+    {
+      "_type": "linkWithLabel",
+      "_key": "2f5dc7de202e",
+      "label": "To Practitioner",
+      "link": {
+        "documentLink": {
+          "slug": { "current": "rosio-macdonald", "_type": "slug" },
+          "qualifications": "MD, MPH",
+          "_id": "10c09c10-335c-4b5b-a700-4747717841e5",
+          "headshot": {
+            "altText": "Portrait of Riso Macdonald",
+            "crop": null,
+            "hotspot": null,
+            "_type": "richImage",
+            "_key": null,
+            "asset": {
+              "_id": "image-d950330dfdfac02edde78844586031900b28ac72-800x800-png",
+              "_type": "sanity.imageAsset",
+              "url": "https://cdn.sanity.io/images/xgbrv2vi/production/d950330dfdfac02edde78844586031900b28ac72-800x800.png",
+              "metadata": {
+                "lqip": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAIAAAAC64paAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEH0lEQVQ4jW3S/TdbdxwH8PxutTkHox5WJPKcm3tz7829kptEc0UWEcOo0pZIqoZpqXYtpR5Hm3W2cpQzyoputWrNHiprpce6rWPMDCchidx7Bb/sj9gJzlm603M+v32/r/N+fx9YNL0dNH6a3qWpXc8mtbSw9GzG/uzJzNLCktdD7S9tvzoMK4j5aWqHpnc3nO6Z6enP2q9fPld8obToVmuTw273bG4d7gnyB9hP0zs0Fcj0eZk5u/2T+pr6M6b6IsMHRsJiVNsaL/829zPl2+8V5FnBkqH31v5aHe+9Zas4MdVetTDY/uRmbWexoSZfP3qnx7nmYui9/+FDGRjfzq+zs7evVAyez/97uPWfn4apyduT18y1mXjb+bO/zDr2w3degxl6z+elZx5OdJWfGKnOWx64xkx+7hrtnKw31+jhqmzt/YG+/fD/mu/XpgKeofe23L7v7t/72JLzdV2R824LNX7D+UXzD01lDaYUKwl11lW+cDynfAd3FHxh1A5D73ndvunxkQ5LzoNLpzaGWjxDbas9V2carY1ZKcUq0cXTOY/G7m263AzzOux2eb4ZunMpj+wu0f/+ae1G//VFW+1YVU4ZwcuWJVTlG0b7e9ZWVl+tHTh2AK+vrA7a2k6pJBYl76u6kys9Hz1tsjSZ5Bn8t0lupNlADHbfXPlzmab9B+GHmKF3qa3tF0/trZXFJklcljC6u0T3vN3ab9blSWKJ+DfViWGZcHJDdfnU5OOFP5ZdLjdFBX5YoLPPu734cn7gRos5DTbwIvLBuD6r3tFmbs/FtAlvyY++gceFYgkReiVuLT3X1Nz1YGJqfd0VeCpqyz//crHX1lViUKYLovTJ4aV40tBZ/cPa3EoNTxF7BIoKkUaFSI6Gyfg8FCWUakP1hauzjjkWQ/udTs+Xd8cKTQYlOxKPDyU54RVKTl+BosMkM/Kj4JhQafQRaVQI/E4kKhaDkEIEKLNyTw+PjAfw/PxSY0MzKYfwhAgkPoxIDLfiiR0ZQHlKkjo5BmHHIexYBTc2FeCmyFApRAilKg2ZfaW+lUVT23a7o8xaoYZlKhEH5R6DEqPTxXFF8qQMkI1LJCgI4xBMoHICV8KwSggoBVI1JNcZswpZFMV8O/3jyUILKlNgcAoGyQBeoogdg/DjEUAMI2oYIxFch+DpMixNBKq4IlwgVQtBjQTSsCgf8+jx93kFFil8HMXTtMdJAgNFvGMyMRuBUUhOQrhehr8LYnoASeOLFRw+KgBUAkDNEWAsr9c3OjaRmX1GAmtRRboxIyPPlKpXgyQBIXKFGNJIUR0o1wEIKYJSk4VYEg/hA4QAUHH4GGtz093bN6hNf18MpUJyrS6N/LDYeNFiLHiPlKEKnlghgbUSWCsENXwJweYhSVxEIFUJpepkPvYvR+x2vvkxnfwAAAAASUVORK5CYII=",
+                "dimensions": { "aspectRatio": 1, "width": 800, "height": 800 }
+              }
+            },
+            "caption": null
+          },
+          "blurb": [
+            {
+              "children": [
+                {
+                  "text": "All it took was an 8th grade anatomy class for me to realize I wanted to pursue a career in healthcare. Since then, I’ve dedicated myself to providing patients the individualized care they deserve. My commitment to giving people the support they need in their healthcare journey inspired me to join the Firefly team, providing primary care centered around each patient’s unique needs.",
+                  "_key": "6bd7b98608000",
+                  "_type": "span",
+                  "marks": []
+                }
+              ],
+              "style": "normal",
+              "_key": "ea60c8c9de4c",
+              "_type": "block",
+              "markDefs": []
+            }
+          ],
+          "name": "Rosio Macdonald",
+          "pronouns": "she/her/hers",
+          "_createdAt": "2024-02-08T23:56:35Z",
+          "_updatedAt": "2024-02-09T00:20:25Z",
+          "_type": "practitioner",
+          "title": "Physician"
+        },
+        "_type": "link",
+        "_key": null,
+        "externalUrl": null,
+        "file": null
+      }
+    }
+  ],
   "footer": {
     "mobileCta": {
+      "variant": "secondary",
+      "id": "footer-cta-get-the-app",
       "link": {
         "_type": "link",
         "_key": null,
@@ -15,9 +907,7 @@
       },
       "_type": "cta",
       "label": "Get the app",
-      "ariaLabel": null,
-      "variant": "secondary",
-      "id": "footer-cta-get-the-app"
+      "ariaLabel": null
     },
     "footerNavGroups": [
       {
@@ -28,6 +918,7 @@
             "_key": "0fb9aa07dec9",
             "label": "Contact Us",
             "link": {
+              "externalUrl": null,
               "file": null,
               "documentLink": {
                 "_id": "contactPage",
@@ -36,8 +927,7 @@
                 "_type": "contactPage"
               },
               "_type": "link",
-              "_key": null,
-              "externalUrl": null
+              "_key": null
             }
           },
           {
@@ -45,16 +935,16 @@
             "_key": "4bcd9f9b2a1b",
             "label": "FAQs",
             "link": {
-              "_type": "link",
-              "_key": null,
-              "externalUrl": null,
-              "file": null,
               "documentLink": {
                 "_id": "faqPage",
                 "_createdAt": "2024-01-11T19:39:23Z",
                 "_updatedAt": "2024-02-01T15:34:10Z",
                 "_type": "faqPage"
-              }
+              },
+              "_type": "link",
+              "_key": null,
+              "externalUrl": null,
+              "file": null
             }
           }
         ]
@@ -67,18 +957,18 @@
             "_key": "e38ebc9a704e",
             "label": "About",
             "link": {
+              "_type": "link",
               "_key": null,
               "externalUrl": null,
               "file": null,
               "documentLink": {
-                "slug": { "current": "about", "_type": "slug" },
-                "title": "About",
                 "_id": "edd5117c-0ac6-4140-9a0b-6ab84401f271",
                 "_createdAt": "2024-01-10T20:49:04Z",
                 "_updatedAt": "2024-01-28T21:59:36Z",
-                "_type": "genericPage"
-              },
-              "_type": "link"
+                "_type": "genericPage",
+                "slug": { "current": "about", "_type": "slug" },
+                "title": "About"
+              }
             }
           },
           {
@@ -86,23 +976,23 @@
             "_key": "45da080c309e",
             "label": "Care Team",
             "link": {
+              "_type": "link",
+              "_key": null,
               "externalUrl": null,
               "file": null,
               "documentLink": {
-                "_updatedAt": "2024-01-31T16:37:09Z",
-                "_type": "subPage",
-                "slug": { "current": "care-team", "_type": "slug" },
-                "title": "Care Team",
                 "parentPage": {
                   "_type": "genericPage",
                   "title": "About",
                   "slug": { "current": "about", "_type": "slug" }
                 },
                 "_id": "f5bd2bcc-f8e4-443c-9a30-14b16e505dd8",
-                "_createdAt": "2024-01-11T00:13:00Z"
-              },
-              "_type": "link",
-              "_key": null
+                "_createdAt": "2024-01-11T00:13:00Z",
+                "_updatedAt": "2024-01-31T16:37:09Z",
+                "_type": "subPage",
+                "slug": { "current": "care-team", "_type": "slug" },
+                "title": "Care Team"
+              }
             }
           }
         ]
@@ -115,18 +1005,18 @@
             "_key": "f80956eb214a",
             "label": "Resources for Members",
             "link": {
-              "file": null,
-              "documentLink": {
-                "_type": "blog",
-                "slug": { "current": "for-members", "_type": "slug" },
-                "title": "For Members",
-                "_id": "70157e61-164b-461f-916f-82c16dc68408",
-                "_createdAt": "2024-01-11T20:44:40Z",
-                "_updatedAt": "2024-01-18T16:55:05Z"
-              },
               "_type": "link",
               "_key": null,
-              "externalUrl": null
+              "externalUrl": null,
+              "file": null,
+              "documentLink": {
+                "_id": "70157e61-164b-461f-916f-82c16dc68408",
+                "_createdAt": "2024-01-11T20:44:40Z",
+                "_updatedAt": "2024-01-18T16:55:05Z",
+                "_type": "blog",
+                "slug": { "current": "for-members", "_type": "slug" },
+                "title": "For Members"
+              }
             }
           }
         ]
@@ -139,11 +1029,11 @@
           "_key": "aad4e9cc79ba",
           "label": "LinkedIn",
           "link": {
+            "_type": "link",
             "_key": null,
             "externalUrl": "https://www.linkedin.com/company/firefly-health/",
             "file": null,
-            "documentLink": null,
-            "_type": "link"
+            "documentLink": null
           }
         },
         {
@@ -163,11 +1053,11 @@
           "_key": "6d3334afddc4",
           "label": "Facebook",
           "link": {
+            "documentLink": null,
             "_type": "link",
             "_key": null,
             "externalUrl": "https://www.facebook.com/CareByFirefly",
-            "file": null,
-            "documentLink": null
+            "file": null
           }
         }
       ],
@@ -182,12 +1072,12 @@
             "externalUrl": null,
             "file": null,
             "documentLink": {
-              "slug": { "current": "privacy-policy", "_type": "slug" },
-              "title": "Privacy Policy",
               "_id": "710f85af-6bd8-4248-b6b3-05c40978b0f1",
               "_createdAt": "2024-01-29T17:06:51Z",
               "_updatedAt": "2024-01-29T17:06:51Z",
-              "_type": "genericPage"
+              "_type": "genericPage",
+              "slug": { "current": "privacy-policy", "_type": "slug" },
+              "title": "Privacy Policy"
             }
           }
         }
@@ -195,77 +1085,6 @@
     }
   },
   "contentBlockExamples": {
-    "imageBlock": {
-      "_type": "imageBlock",
-      "_key": null,
-      "header": {
-        "_type": "contentBlockHeader",
-        "title": "Meet some of the team behind Firefly",
-        "description": [
-          {
-            "markDefs": [],
-            "children": [
-              {
-                "marks": [],
-                "text": "Change in healthcare demands vision and persistence. Heart and resilience. Our Care Team infuses the Firefly culture with a balance of focused intensity, genuine caring, and earned wisdom.",
-                "_key": "dd25ef59bbec0",
-                "_type": "span"
-              }
-            ],
-            "style": "normal",
-            "_key": "398559639a21",
-            "_type": "block"
-          }
-        ],
-        "cta": {
-          "link": {
-            "_type": "link",
-            "_key": null,
-            "externalUrl": null,
-            "file": null,
-            "documentLink": {
-              "_createdAt": "2024-01-11T00:13:00Z",
-              "_updatedAt": "2024-01-31T16:37:09Z",
-              "_type": "subPage",
-              "slug": { "_type": "slug", "current": "care-team" },
-              "title": "Care Team",
-              "parentPage": {
-                "_type": "genericPage",
-                "title": "About",
-                "slug": { "_type": "slug", "current": "about" }
-              },
-              "_id": "f5bd2bcc-f8e4-443c-9a30-14b16e505dd8"
-            }
-          },
-          "_type": "cta",
-          "label": "Our care team",
-          "ariaLabel": null,
-          "variant": "primary",
-          "id": "care-team-cta"
-        }
-      },
-      "image": {
-        "_key": null,
-        "asset": {
-          "_id": "image-3a4e7a43978072d61ccdb0827d3295d4f9b67c5a-3564x1422-png",
-          "_type": "sanity.imageAsset",
-          "url": "https://cdn.sanity.io/images/xgbrv2vi/production/3a4e7a43978072d61ccdb0827d3295d4f9b67c5a-3564x1422.png",
-          "metadata": {
-            "lqip": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAYAAAD5nd/tAAAACXBIWXMAABYlAAAWJQFJUiTwAAACUElEQVQokR2M309SARxH7//VW6u2XD2k5VAbtcTMpUYT80c6TFGbEv5Ag9QUDLjXK5C6IkQcOBTNLJUUuWYokjathOgqMMf30/ThbOflHGZnZ5t80y4y6rWw8xwJggBRFJHJZEBE55x5Op1GIpHAj+gu1leXsSVs4OjoD5LJE0olk0inUnR6ekrMZmiDpkcNpHv6EJqGavLNeM/Ds1E6lcJ+NAJhbQWR8BYi22HMOifwVqeG12ZCWAhiLxKmzeV5bK0u0sF+lBghuAb/SB+MlVKqk0nAvTFiL7oLMfEXP6MRuOwWDL1Qwj3GIbC0AKehF/aGcvgGOxBcnMVn7yQ8Bg3NmLqx7JsC830zRF8mhslaV4iagixSq5Twu94htODB1wUfHG96wbaUwcP3I/BxDm7jSzib5FhldQj6PXCY9MQ3lmK8vZKcZj0x7kkHuYe7aFRZiCd5V0heJAWrfY45cw8+fbBhyWWF36KGl+/DuNUKXXMTDFUlmLe8wtLMFAY7m0lVIkF7RSF1qWqJaVLWQ/tMgZ7aYiqT5uB2bjYaK0pgUCnA9rbB47Bj1mnDgLYTRfcrcD0rD0W3JNAo62EaMqKzvRWKUhkpyh+gWiEHYzGbyDZipjHegqGBfqqpqsTd/Ju4l3sNj4rvgOfMCKytY9hsR55UjktXpbiRI4NM9hgtrd1gWZ54nsMIxxLHscSIopj5J4p0fHyCw8MD4lgTCiQ5uHzxAvIl2eBYMw5//cZKIAT9AIdWdR/aOl5DozWA5d8jGPpGsVgM8Xic4vEY/QckMOKcHRW/tAAAAABJRU5ErkJggg==",
-            "dimensions": {
-              "aspectRatio": 2.5063291139240507,
-              "width": 3564,
-              "height": 1422
-            }
-          }
-        },
-        "caption": null,
-        "altText": "Portraits of members from the Firefly Care Team",
-        "crop": null,
-        "hotspot": null,
-        "_type": "richImage"
-      }
-    },
     "imageCarouselBlock": {
       "_type": "imageCarouselBlock",
       "_key": null,
@@ -274,29 +1093,24 @@
         "title": "Life at Firefly",
         "description": [
           {
-            "children": [
-              {
-                "_type": "span",
-                "marks": [],
-                "text": "To provide an exceptional member experience, of course we need problem solvers, big thinkers, and specific skill sets. But it’s more than that. Healthcare is intimate, personal, and daunting. That’s why we’re building a team grounded in trust, empathy, and dignity, where anyone and everyone feels safe, welcomed, and included.",
-                "_key": "34d0727ca9f00"
-              }
-            ],
             "_key": "ccc6a5694dd7",
             "_type": "block",
-            "style": "normal",
-            "markDefs": []
+            "markDefs": [],
+            "children": [
+              {
+                "marks": [],
+                "text": "To provide an exceptional member experience, of course we need problem solvers, big thinkers, and specific skill sets. But it’s more than that. Healthcare is intimate, personal, and daunting. That’s why we’re building a team grounded in trust, empathy, and dignity, where anyone and everyone feels safe, welcomed, and included.",
+                "_key": "34d0727ca9f00",
+                "_type": "span"
+              }
+            ],
+            "style": "normal"
           }
         ],
         "cta": null
       },
       "images": [
         {
-          "altText": "Members of the firefly team enjoying a meal together",
-          "crop": null,
-          "hotspot": null,
-          "_type": "richImage",
-          "_key": "ef9a9be3e9c6",
           "asset": {
             "_id": "image-83785696a5559f8e79085859c6f3cd699f189620-3130x2075-jpg",
             "_type": "sanity.imageAsset",
@@ -310,11 +1124,14 @@
               }
             }
           },
-          "caption": null
+          "caption": null,
+          "altText": "Members of the firefly team enjoying a meal together",
+          "crop": null,
+          "hotspot": null,
+          "_type": "richImage",
+          "_key": "ef9a9be3e9c6"
         },
         {
-          "altText": "Team members at the wharf",
-          "crop": null,
           "hotspot": null,
           "_type": "richImage",
           "_key": "974bfe0aa497",
@@ -331,7 +1148,9 @@
               }
             }
           },
-          "caption": "Example with caption"
+          "caption": "Example with caption",
+          "altText": "Team members at the wharf",
+          "crop": null
         },
         {
           "_key": "e81b82181732",
@@ -355,6 +1174,9 @@
           "_type": "richImage"
         },
         {
+          "hotspot": null,
+          "_type": "richImage",
+          "_key": "2e4aa5742fda",
           "asset": {
             "_id": "image-c0f153f632b3be0d05c89a63ba2e3cf87b01dd28-2129x3200-jpg",
             "_type": "sanity.imageAsset",
@@ -370,20 +1192,16 @@
           },
           "caption": null,
           "altText": "Firefly team members gathered around a table",
-          "crop": null,
-          "hotspot": null,
-          "_type": "richImage",
-          "_key": "2e4aa5742fda"
+          "crop": null
         }
       ]
     },
     "videoHeaderExample": {
+      "_type": "videoHeader",
       "eyebrow": "Member stories",
       "heading": "Firefly's on the tech frontier without losing the human factor.",
       "body": [
         {
-          "_key": "129c86edc708",
-          "markDefs": [],
           "children": [
             {
               "_type": "span",
@@ -393,17 +1211,15 @@
             }
           ],
           "_type": "block",
-          "style": "normal"
+          "style": "normal",
+          "_key": "129c86edc708",
+          "markDefs": []
         }
       ],
       "video": {
         "_type": "video",
         "videoLink": "https://vimeo.com/902416562/fdfdade255",
         "posterImage": {
-          "crop": null,
-          "hotspot": null,
-          "_type": "richImage",
-          "_key": null,
           "asset": {
             "_id": "image-21820f0a4428c37c61cd07aae1718a06e97c320d-2500x1945-png",
             "_type": "sanity.imageAsset",
@@ -418,10 +1234,13 @@
             }
           },
           "caption": "Poster Image",
-          "altText": "Digital illustration of two hands surrounded by mirrors, holding a piece of rectangular glass."
+          "altText": "Digital illustration of two hands surrounded by mirrors, holding a piece of rectangular glass.",
+          "crop": null,
+          "hotspot": null,
+          "_type": "richImage",
+          "_key": null
         }
-      },
-      "_type": "videoHeader"
+      }
     },
     "ctaCardsBlock": {
       "_type": "ctaCardsBlock",
@@ -429,12 +1248,8 @@
       "header": null,
       "ctaCards": [
         {
-          "_type": "ctaCard",
           "_key": "b189c140028f",
           "image": {
-            "crop": null,
-            "hotspot": null,
-            "_type": "richImage",
             "_key": null,
             "asset": {
               "_id": "image-9aaf099e52c59ee92047f658c91746d01be51b8e-345x346-png",
@@ -450,37 +1265,45 @@
               }
             },
             "caption": null,
-            "altText": "The Firefly Logo"
+            "altText": "The Firefly Logo",
+            "crop": null,
+            "hotspot": null,
+            "_type": "richImage"
           },
           "title": "Logos and Brand Guidelines",
           "cta": {
+            "ariaLabel": "Download ZIP file of logos and brand guidelines",
             "variant": "secondary",
             "id": "brand-guidelines-example-cta",
             "link": {
+              "_type": "link",
               "_key": null,
               "externalUrl": null,
               "file": {
                 "asset": {
-                  "extension": "zip",
-                  "size": 3556720,
-                  "_type": "sanity.fileAsset",
                   "_id": "file-b62f9891e46d20e114cc4e0c3bbe32add28acedb-zip",
                   "originalFilename": "example-brand-guidelines-download.zip",
-                  "url": "https://cdn.sanity.io/files/xgbrv2vi/production/b62f9891e46d20e114cc4e0c3bbe32add28acedb.zip"
+                  "url": "https://cdn.sanity.io/files/xgbrv2vi/production/b62f9891e46d20e114cc4e0c3bbe32add28acedb.zip",
+                  "extension": "zip",
+                  "size": 3556720,
+                  "_type": "sanity.fileAsset"
                 }
               },
-              "documentLink": null,
-              "_type": "link"
+              "documentLink": null
             },
             "_type": "cta",
-            "label": "Download",
-            "ariaLabel": "Download ZIP file of logos and brand guidelines"
-          }
+            "label": "Download"
+          },
+          "_type": "ctaCard"
         },
         {
           "_type": "ctaCard",
           "_key": "f2e9f4d4b515",
           "image": {
+            "caption": "Photo by Example Person",
+            "altText": "A headshot of Example Person",
+            "crop": null,
+            "hotspot": null,
             "_type": "richImage",
             "_key": null,
             "asset": {
@@ -495,11 +1318,7 @@
                   "height": 1465
                 }
               }
-            },
-            "caption": "Photo by Example Person",
-            "altText": "A headshot of Example Person",
-            "crop": null,
-            "hotspot": null
+            }
           },
           "title": "Headshots",
           "cta": {
@@ -514,12 +1333,12 @@
               "externalUrl": null,
               "file": {
                 "asset": {
+                  "_type": "sanity.fileAsset",
+                  "_id": "file-b62f9891e46d20e114cc4e0c3bbe32add28acedb-zip",
                   "originalFilename": "example-brand-guidelines-download.zip",
                   "url": "https://cdn.sanity.io/files/xgbrv2vi/production/b62f9891e46d20e114cc4e0c3bbe32add28acedb.zip",
                   "extension": "zip",
-                  "size": 3556720,
-                  "_type": "sanity.fileAsset",
-                  "_id": "file-b62f9891e46d20e114cc4e0c3bbe32add28acedb-zip"
+                  "size": 3556720
                 }
               },
               "documentLink": null
@@ -530,9 +1349,6 @@
           "_type": "ctaCard",
           "_key": "59d6f0cfab06",
           "image": {
-            "caption": null,
-            "altText": "Image of a smartphone displaying a live chat with a doctor",
-            "crop": null,
             "hotspot": null,
             "_type": "richImage",
             "_key": null,
@@ -548,29 +1364,32 @@
                   "height": 539
                 }
               }
-            }
+            },
+            "caption": null,
+            "altText": "Image of a smartphone displaying a live chat with a doctor",
+            "crop": null
           },
           "title": "Boilerplate",
           "cta": {
-            "id": "download-boilerplate-example",
             "link": {
-              "_key": null,
-              "externalUrl": null,
               "file": null,
               "documentLink": {
+                "_createdAt": "2024-01-10T20:49:04Z",
+                "_updatedAt": "2024-01-28T21:59:36Z",
                 "_type": "genericPage",
                 "slug": { "current": "about", "_type": "slug" },
                 "title": "About",
-                "_id": "edd5117c-0ac6-4140-9a0b-6ab84401f271",
-                "_createdAt": "2024-01-10T20:49:04Z",
-                "_updatedAt": "2024-01-28T21:59:36Z"
+                "_id": "edd5117c-0ac6-4140-9a0b-6ab84401f271"
               },
-              "_type": "link"
+              "_type": "link",
+              "_key": null,
+              "externalUrl": null
             },
             "_type": "cta",
             "label": "Learn More",
             "ariaLabel": null,
-            "variant": "secondary"
+            "variant": "secondary",
+            "id": "download-boilerplate-example"
           }
         }
       ]
@@ -581,11 +1400,11 @@
         "_type": "doubleCta",
         "ctaOne": {
           "link": {
+            "_type": "link",
+            "_key": null,
             "externalUrl": "https://members.firefly.health",
             "file": null,
-            "documentLink": null,
-            "_type": "link",
-            "_key": null
+            "documentLink": null
           },
           "eyebrow": "For Individuals",
           "label": "Sign up",
@@ -593,6 +1412,7 @@
           "ariaLabel": "double-cta-one-example"
         },
         "ctaTwo": {
+          "eyebrow": "For Businesses",
           "label": "Get in touch",
           "id": "double-cta-two-example",
           "ariaLabel": "Get in touch with Firefly",
@@ -607,8 +1427,7 @@
               "_updatedAt": "2024-02-01T15:33:32Z",
               "_type": "contactPage"
             }
-          },
-          "eyebrow": "For Businesses"
+          }
         }
       },
       "header": {
@@ -618,6 +1437,7 @@
           {
             "_key": "6f76a047b1b4",
             "_type": "block",
+            "style": "normal",
             "markDefs": [],
             "children": [
               {
@@ -626,28 +1446,27 @@
                 "text": "testt",
                 "_key": "e09c5965e4f8"
               }
-            ],
-            "style": "normal"
+            ]
           }
         ],
         "cta": {
-          "_type": "cta",
-          "label": "test",
-          "ariaLabel": "et",
-          "variant": "primary",
-          "id": "sd",
           "link": {
+            "_type": "link",
+            "_key": null,
+            "externalUrl": null,
             "file": null,
             "documentLink": {
               "_id": "contactPage",
               "_createdAt": "2024-01-11T19:39:00Z",
               "_updatedAt": "2024-02-01T15:33:32Z",
               "_type": "contactPage"
-            },
-            "_type": "link",
-            "_key": null,
-            "externalUrl": null
-          }
+            }
+          },
+          "_type": "cta",
+          "label": "test",
+          "ariaLabel": "et",
+          "variant": "primary",
+          "id": "sd"
         }
       }
     },
@@ -659,10 +1478,6 @@
         "title": "Physicians and nurse practitioners",
         "description": [
           {
-            "_key": "522379e18f8e",
-            "_type": "block",
-            "style": "normal",
-            "markDefs": [],
             "children": [
               {
                 "_type": "span",
@@ -670,19 +1485,19 @@
                 "text": "Meet the physicians and nurse practitioners who guide your team and provide your medical care.",
                 "_key": "a06acede2a5c0"
               }
-            ]
+            ],
+            "style": "normal",
+            "_key": "522379e18f8e",
+            "_type": "block",
+            "markDefs": []
           }
         ],
         "cta": null
       },
       "practitioners": [
         {
-          "_id": "0cf9a836-8ef9-45b3-96c5-c566850ba2e6",
-          "_updatedAt": "2024-02-09T00:20:21Z",
-          "name": "Laurene Foreman",
-          "qualifications": null,
+          "title": "Acupuncturist",
           "headshot": {
-            "_type": "richImage",
             "_key": null,
             "asset": {
               "_id": "image-1e5311a97bc3bb6c249ebcc0dc63c9b7d8016558-800x800-png",
@@ -696,238 +1511,42 @@
             "caption": null,
             "altText": "Portrait of Laurene Foreman",
             "crop": null,
-            "hotspot": null
+            "hotspot": null,
+            "_type": "richImage"
           },
           "blurb": [
             {
               "_key": "d4ab17f3ecc1",
               "_type": "block",
-              "style": "normal",
-              "markDefs": [],
-              "children": [
-                {
-                  "marks": [],
-                  "text": "I’m from a family of nurses, doctors, and other healthcare providers. My father is a retired anesthesiologist who practiced in Greenfield, MA for over 40 years. His hospital’s community outreach and network of providers impacted me at a young age and I was eager to be a part of a system like his. I chose family medicine because it aligns with one of my strengths — fostering connections with patients. I’m from a family of nurses, doctors, and other healthcare providers. My father is a retired anesthesiologist who practiced in Greenfield, MA for over 40 years. His hospital’s community outreach and network of providers impacted me at a young age and I was eager to be a part of a system like his. I chose family medicine because it aligns with one of my strengths — fostering connections with patients.\n",
-                  "_key": "4cc096b63a890",
-                  "_type": "span"
-                }
-              ]
-            }
-          ],
-          "_createdAt": "2024-02-08T23:53:40Z",
-          "_type": "practitioner",
-          "slug": { "current": "laurene-foreman", "_type": "slug" },
-          "title": "Acupuncturist",
-          "pronouns": "they/them"
-        },
-        {
-          "slug": { "current": "rosio-macdonald", "_type": "slug" },
-          "title": "Physician",
-          "pronouns": "she/her/hers",
-          "_createdAt": "2024-02-08T23:56:35Z",
-          "_updatedAt": "2024-02-09T00:20:25Z",
-          "blurb": [
-            {
-              "_key": "ea60c8c9de4c",
-              "_type": "block",
               "markDefs": [],
               "children": [
                 {
                   "_type": "span",
                   "marks": [],
-                  "text": "All it took was an 8th grade anatomy class for me to realize I wanted to pursue a career in healthcare. Since then, I’ve dedicated myself to providing patients the individualized care they deserve. My commitment to giving people the support they need in their healthcare journey inspired me to join the Firefly team, providing primary care centered around each patient’s unique needs.",
-                  "_key": "6bd7b98608000"
+                  "text": "I’m from a family of nurses, doctors, and other healthcare providers. My father is a retired anesthesiologist who practiced in Greenfield, MA for over 40 years. His hospital’s community outreach and network of providers impacted me at a young age and I was eager to be a part of a system like his. I chose family medicine because it aligns with one of my strengths — fostering connections with patients. I’m from a family of nurses, doctors, and other healthcare providers. My father is a retired anesthesiologist who practiced in Greenfield, MA for over 40 years. His hospital’s community outreach and network of providers impacted me at a young age and I was eager to be a part of a system like his. I chose family medicine because it aligns with one of my strengths — fostering connections with patients.\n",
+                  "_key": "4cc096b63a890"
                 }
               ],
               "style": "normal"
             }
           ],
-          "name": "Rosio Macdonald",
-          "qualifications": "MD, MPH",
-          "headshot": {
-            "crop": null,
-            "hotspot": null,
-            "_type": "richImage",
-            "_key": null,
-            "asset": {
-              "_id": "image-d950330dfdfac02edde78844586031900b28ac72-800x800-png",
-              "_type": "sanity.imageAsset",
-              "url": "https://cdn.sanity.io/images/xgbrv2vi/production/d950330dfdfac02edde78844586031900b28ac72-800x800.png",
-              "metadata": {
-                "lqip": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAIAAAAC64paAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEH0lEQVQ4jW3S/TdbdxwH8PxutTkHox5WJPKcm3tz7829kptEc0UWEcOo0pZIqoZpqXYtpR5Hm3W2cpQzyoputWrNHiprpce6rWPMDCchidx7Bb/sj9gJzlm603M+v32/r/N+fx9YNL0dNH6a3qWpXc8mtbSw9GzG/uzJzNLCktdD7S9tvzoMK4j5aWqHpnc3nO6Z6enP2q9fPld8obToVmuTw273bG4d7gnyB9hP0zs0Fcj0eZk5u/2T+pr6M6b6IsMHRsJiVNsaL/829zPl2+8V5FnBkqH31v5aHe+9Zas4MdVetTDY/uRmbWexoSZfP3qnx7nmYui9/+FDGRjfzq+zs7evVAyez/97uPWfn4apyduT18y1mXjb+bO/zDr2w3degxl6z+elZx5OdJWfGKnOWx64xkx+7hrtnKw31+jhqmzt/YG+/fD/mu/XpgKeofe23L7v7t/72JLzdV2R824LNX7D+UXzD01lDaYUKwl11lW+cDynfAd3FHxh1A5D73ndvunxkQ5LzoNLpzaGWjxDbas9V2carY1ZKcUq0cXTOY/G7m263AzzOux2eb4ZunMpj+wu0f/+ae1G//VFW+1YVU4ZwcuWJVTlG0b7e9ZWVl+tHTh2AK+vrA7a2k6pJBYl76u6kys9Hz1tsjSZ5Bn8t0lupNlADHbfXPlzmab9B+GHmKF3qa3tF0/trZXFJklcljC6u0T3vN3ab9blSWKJ+DfViWGZcHJDdfnU5OOFP5ZdLjdFBX5YoLPPu734cn7gRos5DTbwIvLBuD6r3tFmbs/FtAlvyY++gceFYgkReiVuLT3X1Nz1YGJqfd0VeCpqyz//crHX1lViUKYLovTJ4aV40tBZ/cPa3EoNTxF7BIoKkUaFSI6Gyfg8FCWUakP1hauzjjkWQ/udTs+Xd8cKTQYlOxKPDyU54RVKTl+BosMkM/Kj4JhQafQRaVQI/E4kKhaDkEIEKLNyTw+PjAfw/PxSY0MzKYfwhAgkPoxIDLfiiR0ZQHlKkjo5BmHHIexYBTc2FeCmyFApRAilKg2ZfaW+lUVT23a7o8xaoYZlKhEH5R6DEqPTxXFF8qQMkI1LJCgI4xBMoHICV8KwSggoBVI1JNcZswpZFMV8O/3jyUILKlNgcAoGyQBeoogdg/DjEUAMI2oYIxFch+DpMixNBKq4IlwgVQtBjQTSsCgf8+jx93kFFil8HMXTtMdJAgNFvGMyMRuBUUhOQrhehr8LYnoASeOLFRw+KgBUAkDNEWAsr9c3OjaRmX1GAmtRRboxIyPPlKpXgyQBIXKFGNJIUR0o1wEIKYJSk4VYEg/hA4QAUHH4GGtz093bN6hNf18MpUJyrS6N/LDYeNFiLHiPlKEKnlghgbUSWCsENXwJweYhSVxEIFUJpepkPvYvR+x2vvkxnfwAAAAASUVORK5CYII=",
-                "dimensions": { "aspectRatio": 1, "width": 800, "height": 800 }
-              }
-            },
-            "caption": null,
-            "altText": "Portrait of Riso Macdonald"
-          },
-          "_id": "10c09c10-335c-4b5b-a700-4747717841e5",
+          "_id": "0cf9a836-8ef9-45b3-96c5-c566850ba2e6",
+          "slug": { "current": "laurene-foreman", "_type": "slug" },
+          "qualifications": null,
+          "name": "Laurene Foreman",
+          "pronouns": "they/them",
+          "_createdAt": "2024-02-08T23:53:40Z",
+          "_updatedAt": "2024-02-09T00:20:21Z",
           "_type": "practitioner"
         },
         {
-          "slug": { "current": "titus-sanford", "_type": "slug" },
-          "_id": "18131791-b42c-49ba-8aa4-0e40ae2c5bb3",
-          "_updatedAt": "2024-02-09T00:20:00Z",
-          "_type": "practitioner",
-          "title": "Nurse Practitioner",
-          "pronouns": "he/him/his",
-          "blurb": [
-            {
-              "_type": "block",
-              "style": "normal",
-              "markDefs": [],
-              "children": [
-                {
-                  "_type": "span",
-                  "marks": [],
-                  "text": "I’ve worked in various healthcare settings, including primary and urgent care. After years in conventional medicine, I joined Firefly to help patients navigate the healthcare system and foster a more personal provider-patient relationship. I have a passion for healthcare and continuing education, and I’m an adjunct faculty member at Northeastern University.",
-                  "_key": "2d135ec2f9d20"
-                }
-              ],
-              "_key": "2d2831d1fc0d"
-            }
-          ],
-          "_createdAt": "2024-02-09T00:03:37Z",
-          "headshot": {
-            "_type": "richImage",
-            "_key": null,
-            "asset": {
-              "_id": "image-e7da55a02be09adc44d33fee896e133322c4918e-800x800-png",
-              "_type": "sanity.imageAsset",
-              "url": "https://cdn.sanity.io/images/xgbrv2vi/production/e7da55a02be09adc44d33fee896e133322c4918e-800x800.png",
-              "metadata": {
-                "lqip": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAIAAAAC64paAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEDElEQVQ4jW3RV2/bZhQGYP7jAEUXWhRN4KJJ7Tqjie2odpxE0fBQZEkW9VHWMEltWZZFWYMSKVLc/Li1kyAXhUfRmwLn9sF7znsQReZVRYS6YhiaZRmOY008e+LZnm16UJ1BbeE6y9l8tVh+Wq4+LVerxXI+nU0nE8/zEEXmNVXUdcU0dNs2XddyHdOQOK1dMy/Op1RlyfdXFlzN53dyOV/Mp7OJ57mO+z8YymO2fDZK7Fvgw7KS+tIpfxYHK9daLZarxXIxm88mU891bcu6wxLUVdOEtm3atinSFBXdY4IbLub/3Mh87VW+sK2VLq5ms9X8Bk8nU9d2LMP8D1smdBzLMvXRZfEy8LT3dk1N7E5Kp4tmfnJFTEfdhef+u/PEsWwTGjdYVcX7ZMeEEk/n4429tabvl877dSG2q4DAGIThVWlmwfldrONapmXoBqJInHaPdds2VLbfjb5tbP98vb82CD4Tjrak2BsxFbauSjNDm02nnufZtm0ahqFDRBZYVR7rmmLAm1fpPEODg+buo77/yfjwpRD6S47s6uDQaZWnhjaZeK7j3MZCqOmINBrKwui+M0M3dUWkqu3IduPvh83th+3tteHeJhv2yZWsoyu3Jd9cq2u6pqiIMKQlbqhKPFRl47Y2hRtcpwKFVz+Rf37XfPEr7dugD3aFC9KC6q00oQY1RVVlBeHorsDSypjVZcHUFKgpw9ZlObSV2/wG3/z24uWjzv6zIfioDDsmhCY04G2mKiuKJCNM75ob9ERuqIocVKQxwxRREH/6GP3tQfrxg+z690Xfeh9Pa+LY0KGuapqiyqIsCZI0FhG6S7H9zpjpixzD04NmoZ70R8ObW5HHa4nffwRPfjjf2aDyGYkba7KqSrIsiiIvCNx4zPFI77o56FJs77p3RdXPK9nIWXw/drRzcPjybeT5q9jGH8kXz8ko2mv0eJoTWF4c8cKI49kRx46QDtXoUpetaq2AEenjdCoEQBCggVT8XTziOwhu+j5sbCX9J/XMRbvU7l102c6AGzAcw7BDBmk3641yGU/msEMMDQIQwjJH2fzJeS6aB6FUdPf4+HUIC6eq6Woj22jkGu1Sm6b6TH/ADIbIZbVEglz6EAPhNBrEUkEsc5gl4mQBLZEJMnucSR9geByvZWr1bL2WrtUzF63iVb/VZfoDpJTLnx2jIAiwUPrUnzp9j54dZIkYWUwWi8kiHsNzH3NkkqxkqrVsrYpVS8lyBVSoSmvQoZFMDEUDCfAhBQJY7E38ZC+WDp3hUYKMk2SigMeJ/EmeOCVKoFjGymVQIWOF8494LVvvNbsIGo6evjsBfjTlB5HXkaOdYxDA8pFzPIoTMZKIE0QcJ5Nk4WYKpVSJOCHToSyZKLar1D8XMcsbsfu+vgAAAABJRU5ErkJggg==",
-                "dimensions": { "aspectRatio": 1, "width": 800, "height": 800 }
-              }
-            },
-            "caption": null,
-            "altText": "Portrait of Titus Sanford",
-            "crop": null,
-            "hotspot": null
-          },
-          "name": "Titus Sanford",
-          "qualifications": "NP"
-        },
-        {
-          "title": "Primary Care Provider",
-          "pronouns": "he/him",
-          "headshot": {
-            "_type": "richImage",
-            "_key": null,
-            "asset": {
-              "_id": "image-c918405a6e3ba2cb785e5deddaac967bcc9c7bb9-800x800-png",
-              "_type": "sanity.imageAsset",
-              "url": "https://cdn.sanity.io/images/xgbrv2vi/production/c918405a6e3ba2cb785e5deddaac967bcc9c7bb9-800x800.png",
-              "metadata": {
-                "lqip": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAIAAAAC64paAAAACXBIWXMAAAsTAAALEwEAmpwYAAADrUlEQVQ4jWWSe1MaVxjG+RzluguoIdBGCMsCgkYkUWJCq6YG74pxlJhojZpCpynUW5OxqabRmlqUhmi0idiMuVRzcTTVYq3BCirLsrtn7Rdp2VUI02feOf+c83uf9z3zcGJHwnE8Ho8TjEhGGBbd2dnZjUTwOE4xIkmSJEj2DUEQHBZLkkcYtrq64vOO9/e4B2/2zz2aDb3bIgiCacC0YMR535C9xjDsxfOnXzk7bWfNxTmqT/K1rfU234+j2++2AAUABdgpKIrivE+y/X5/u/q1q6vShDpMSveFvN7K085yU097428LT4g4QdM0YJQGkyQJKCqO449mphtKLC25Cm+DZbmn5Y/bn827qofbqgJTPgzDkjAAIB0GAMOik+NjlYUGR658rN6y5GlZvdX+S1fFyFXbnO/e/t7uwf9hdmCapqN7u967Q7Vn9JdPKQYvmqZaywNdNT5HyUR7xTPf6H4knOactKUoEtB0NBKeujPYXmz0nNfeb7TONpctdNS8dNpf9bSuz3pju5G0nY/IhACgCQxbmp7sq7UOlBr89VZ/Q8mvbbVvnE1vv7m2vfCQxKIA0KnfZsnkJDQAobWVnzydfeX5dy+aJ+yl8532Z111L/vbt5fmyTjOerIUJ42k6YODfyJ/b/uHB27YCm6WGR80lS25ml59eWl5xB1eX05EBIBUSJIwzWhvPxp4HLhxpclRhHQWKodt5kBbxWLvleDcRGx3J2l7GE8GS8BRLLa2vuGdnK5vcJhQ3QWtotn00fVzmqG6whlP69rzuTgeA4xtKttMM3JrK+Sfenyt21NUXHVMngOJFDrFicYz+r7qgrHL57wu+8z4yMbGBvu7KZgkqWDwz++GxqyldkV2gUiq5UMnuYJsCFaaUL2r6vz96xUT3VXuq023v73z+vXKfjSagkOh7aHhH04XlcOZOh6E8GFEINYIxBoerBZL1UbEcOnjws8ri6stBZaikm5n7+LSGwyLHcL+Bw/LPq2DpRoehAhgDR9G+GKNUKoVZegTpwSVyVC9SqdTIjKZJtdUNnDr+83Nvw7hZkfHCdUprlApEKMCMcqDEC50UiBBocycRGUlSpKll2ZpxBma49nmGnvHwtNFHMcTsN5ogaRqrlAlEKNCCcqHkQ9EKh6MCCWoKEMHHzNI5XlSeZ7kuFEiM2Qq8s1nq0fv/RwORwiS4MgUOgGk5EJqPrMqH1ZzhUquSMWH1AIJCmcl4MwP89mSyvOQHOsX7sFgcPM/538BF/jPoZeFyFUAAAAASUVORK5CYII=",
-                "dimensions": { "aspectRatio": 1, "width": 800, "height": 800 }
-              }
-            },
-            "caption": null,
-            "altText": "Portrait of Andy Ellner",
-            "crop": null,
-            "hotspot": null
-          },
-          "blurb": [
-            {
-              "_key": "f7a5c9759b1c",
-              "_type": "block",
-              "children": [
-                {
-                  "_key": "fbf4f0551b850",
-                  "_type": "span",
-                  "marks": [],
-                  "text": "I try to really listen to my patients—to understand them as people: what drives them, what they're worried about and what's really going on in their lives."
-                }
-              ],
-              "style": "normal",
-              "markDefs": []
-            }
-          ],
-          "name": "Bennett Weiss",
-          "_id": "5fc2b2f0-bfc2-4966-87b2-0cde955f8453",
-          "_createdAt": "2024-02-08T23:49:15Z",
-          "_updatedAt": "2024-02-09T00:19:49Z",
-          "_type": "practitioner",
-          "slug": { "current": "bennett-weiss", "_type": "slug" },
-          "qualifications": "MD, MSc"
-        },
-        {
-          "_createdAt": "2024-02-09T00:07:05Z",
-          "_updatedAt": "2024-02-09T22:53:32Z",
-          "_type": "practitioner",
-          "headshot": null,
-          "blurb": [
-            {
-              "style": "normal",
-              "_key": "9561038d7c0c",
-              "_type": "block",
-              "markDefs": [],
-              "children": [
-                {
-                  "marks": [],
-                  "text": "I have a genuine passion for helping people. In fact, making connections and positively impacting a person’s well-being led me to a career in healthcare. As one of Firefly’s behavioral health specialists, I aim to make healthcare more collaborative and patient-focused. I work closely with my patients to help them feel empowered and healthy.",
-                  "_key": "cfa9680bc3e70",
-                  "_type": "span"
-                }
-              ]
-            }
-          ],
-          "name": "Antonio Cross",
-          "slug": { "_type": "slug", "current": "antonio-cross" },
-          "_id": "b47e62b5-4301-4815-bba2-d3107adcd75c",
-          "title": "Behavioral Health Specialist",
-          "qualifications": "LICSW",
-          "pronouns": "he/him/his"
-        },
-        {
-          "_id": "facb99b0-b6fe-4f09-8cdc-a7c52c7159fa",
-          "_updatedAt": "2024-02-09T19:52:15Z",
-          "_type": "practitioner",
-          "title": "Health guide",
-          "slug": { "current": "shoshana-zimmerman", "_type": "slug" },
-          "_createdAt": "2024-02-09T00:09:29Z",
-          "qualifications": "CNS, NP",
-          "pronouns": "she/her/hers",
-          "headshot": {
-            "_type": "richImage",
-            "_key": null,
-            "asset": {
-              "_id": "image-fe0dd8568684ccc269a91de92fbd5d66a479cb27-800x800-png",
-              "_type": "sanity.imageAsset",
-              "url": "https://cdn.sanity.io/images/xgbrv2vi/production/fe0dd8568684ccc269a91de92fbd5d66a479cb27-800x800.png",
-              "metadata": {
-                "lqip": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAIAAAAC64paAAAACXBIWXMAAAsTAAALEwEAmpwYAAADjUlEQVQ4jW2T/08TZxzH+2fMLHOJZrF37V3vrqVfQCYqloLbItJMgVKoFQmlEtpRdDhwQDGofBs02dp1K/gFnaIJLUW+KBK1xdJY7nStlaT02rvn/o7lem2FZK8fLndP8nren889n0dEF8hkMtkCTIHiO8uyxZUiokyBvVomk0nE4xsvXwb8/vX19Xgins35bG6Lz/LenbLZLMuyNE1vRSJej9t22XrBUO/otNzxebfJbYZhAAB7/X2yUB5Jkq6p387X1erK1U3asi59Zb+15fHcnZ2dTxzHFfMZhsnLxcZomvYvLJiam46p5K015bMOw7PhNrftvGvo57fhECgg+PtkAEAikZianNCeqDiplA026d5M2hKz1xd+NU9fbV8N+rPZLMdxgsyyrGhvLABgKxLp6f5Jo8Br1OhIS/XzG23RaXtgwOzr71jzP0nTtCAL5GXezFWyurLc3GSQS8WG44qZzrrXw63vJi6Hx63LU9fCq4v0/8u5mtPp9MO5e9+frsaOHGrXqQJX6sNDF2O3O8hpW8jrjL1+USw7LwuxLMNwHPfxY2JybPSoWokcPthWSfzTeWattzk02B4asbzwDL+PhITWPstC6/wqx0W3Ig57FyL+RnzwQGMZ7L6gXblqDDk7lp2WgHf8XzIGCqn5H5Y3AWAYZuXZUuOPdYe/OiD9+gtjOTxpqPA7zm04W+eHrP4536dkkuPAvnMWPjiO291Nzfzt1VaUo4e+1JdCYy0nnlypWxs0bNw0B8a7Xy09Te/uFs9JGDJeFiqJRqN913o1CkKnkg43n3o+Yor/ZduZdSR83TFfHxWcpd6++vCeSqVSxRuST6Yoyu12n62txWVohQq36k/e7TVs/9nNPupnHvbR9395N3N9Zqx/fPTW4/l5kiSFiyQCAKRSqQcP5hoaGuRyOYogGIqWlhCNp49PdDWsjVqjv9tjf9ifOi9Z6r+rOlVpNBo9Hg9FUbzMAfCBopyDAxqNGoZhBEEQKf+Q45juWGmbvqrPfGbg0lnLuerKbzUETiiVKrP54uIiPzB8ciT8xt5pxTEMgmBpDgRBUBTFZLISOVGmKjmqUaqVJQo5D47jWm2Vy+VKJpP8kKwsLZoa6xGpBIIgGIYhCJJIJCiKyvJgMgzDcJwgCIVCgeOERlPa09OzubkpSqfTj+7f1f9QI4GOQDnEYrFQP+/xVh5BzsUrTCZTMBj8D82e7S502d27AAAAAElFTkSuQmCC",
-                "dimensions": { "aspectRatio": 1, "width": 800, "height": 800 }
-              }
-            },
-            "caption": null,
-            "altText": "Portrait of Shoshanna Zimmerman",
-            "crop": null,
-            "hotspot": null
-          },
-          "blurb": [
-            {
-              "markDefs": [],
-              "children": [
-                {
-                  "_key": "a674ee757e630",
-                  "_type": "span",
-                  "marks": [],
-                  "text": "I always wanted a profession where I could make a real difference helping others. As a registered dietitian nutritionist and certified diabetes care and education specialist, I pair clinical expertise with empathy and active listening to support patients on their health journey. I believe in working together to build healthy, enjoyable habits that patients can stick with over the long haul."
-                }
-              ],
-              "style": "normal",
-              "_key": "24462c4d3c46",
-              "_type": "block"
-            }
-          ],
-          "name": "Shoshana Zimmerman"
-        },
-        {
+          "_id": "10c09c10-335c-4b5b-a700-4747717841e5",
           "_createdAt": "2024-02-08T23:56:35Z",
-          "name": "Rosio Macdonald",
+          "_updatedAt": "2024-02-09T00:20:25Z",
+          "title": "Physician",
           "pronouns": "she/her/hers",
+          "slug": { "current": "rosio-macdonald", "_type": "slug" },
+          "_type": "practitioner",
           "headshot": {
             "hotspot": null,
             "_type": "richImage",
@@ -945,142 +1564,27 @@
             "altText": "Portrait of Riso Macdonald",
             "crop": null
           },
-          "_id": "10c09c10-335c-4b5b-a700-4747717841e5",
-          "_updatedAt": "2024-02-09T00:20:25Z",
-          "_type": "practitioner",
-          "slug": { "current": "rosio-macdonald", "_type": "slug" },
-          "qualifications": "MD, MPH",
-          "title": "Physician",
           "blurb": [
             {
               "_key": "ea60c8c9de4c",
               "_type": "block",
-              "style": "normal",
               "markDefs": [],
               "children": [
                 {
-                  "_type": "span",
                   "marks": [],
                   "text": "All it took was an 8th grade anatomy class for me to realize I wanted to pursue a career in healthcare. Since then, I’ve dedicated myself to providing patients the individualized care they deserve. My commitment to giving people the support they need in their healthcare journey inspired me to join the Firefly team, providing primary care centered around each patient’s unique needs.",
-                  "_key": "6bd7b98608000"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "qualifications": null,
-          "_id": "0cf9a836-8ef9-45b3-96c5-c566850ba2e6",
-          "_createdAt": "2024-02-08T23:53:40Z",
-          "_updatedAt": "2024-02-09T00:20:21Z",
-          "blurb": [
-            {
-              "_type": "block",
-              "children": [
-                {
-                  "marks": [],
-                  "text": "I’m from a family of nurses, doctors, and other healthcare providers. My father is a retired anesthesiologist who practiced in Greenfield, MA for over 40 years. His hospital’s community outreach and network of providers impacted me at a young age and I was eager to be a part of a system like his. I chose family medicine because it aligns with one of my strengths — fostering connections with patients. I’m from a family of nurses, doctors, and other healthcare providers. My father is a retired anesthesiologist who practiced in Greenfield, MA for over 40 years. His hospital’s community outreach and network of providers impacted me at a young age and I was eager to be a part of a system like his. I chose family medicine because it aligns with one of my strengths — fostering connections with patients.\n",
-                  "_key": "4cc096b63a890",
+                  "_key": "6bd7b98608000",
                   "_type": "span"
                 }
               ],
-              "style": "normal",
-              "markDefs": [],
-              "_key": "d4ab17f3ecc1"
+              "style": "normal"
             }
           ],
-          "name": "Laurene Foreman",
-          "_type": "practitioner",
-          "pronouns": "they/them",
-          "headshot": {
-            "_type": "richImage",
-            "_key": null,
-            "asset": {
-              "_id": "image-1e5311a97bc3bb6c249ebcc0dc63c9b7d8016558-800x800-png",
-              "_type": "sanity.imageAsset",
-              "url": "https://cdn.sanity.io/images/xgbrv2vi/production/1e5311a97bc3bb6c249ebcc0dc63c9b7d8016558-800x800.png",
-              "metadata": {
-                "lqip": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAIAAAAC64paAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEqklEQVQ4jT3N6VMTBwDG4f0LkGx2I4caRiSkIuFoqfXCIjA4U6siUgWvgpITFIONMJZTMASteBAPDm0RiOMRWxUFqeGSCIEQCTFNAkk292Y3uxvUfu8kH/r7/rwvgGEojvuJQIAiyZUg9WklSJGEx+kw6ud1M5PLxgUS9//75fOXz58/rawEg8EgFaRIiqKoYDAIYBgaCGAkQQQpKgxxi1H/8lGvXPpre12lQn5JNzGEeZ1hF6QoiiRIIkAQBEmRFIDjKEHgJEmGNoOkw2Z+MdAtO1vazC24LDgorzqqvFmnnxzye5wEQRCBQADHcQzH8dAAgOG+/58DODo3OXy7XnRNkP+yRThx/fzzZqGivmy4W2rUjPu8HhzHMMwfDsMxDPCjbhz3EQGMIgk3sjTYL78iyr9/pkAjrzE9kE3dvKBsKHvYxBt+cNO8qEN9PhT1oeH8KAqgHieGegI4SuB+04Kmv73mUmnuHcHekdaK+a4mza0G1WXx47rSPql4+u9Bl8Ph9Xq9Hq8vHOBxIqjHhfu9fq9rbuJVVwNfdjKnpyJ/+CJfK6819EgXOhuHpMK+iyKVst9qNrldLrfL7fGEJgAHsuxxIX6v22W3qJ71XqsqauflKqoOqpq4c+3n/+m6ZOhsfNsmHGjivertMGg1DjvidLidDo/L6QGsVnPIO5Elg+5J128XuT+0lmR2cPOeiA9Ny8TGuy0z16uVdcfuVRf3tv4yNqi0mMwI4kTsLgRxARaL0WY1I1aLTq3qbpXUHs9qOrZNcmCztChL1cRbvF2vrOW2luS1leVdOVP89Pc7xkW93Y7YbYjd7gBMRv2S+eOyaXFq+OndBr6Mmy0t3flzNufULs6jc4XTV093VhSU5aYL92Q08goV3Xe0s1qLZdlqtdlsdsC4OG8y6k0G3fjgw85GvoyXI/lpy56MhMNbE3srf9RcFygkh07lpBXu2MQtyKsRV8o7br94Maib/7C0vAwsfpj9qNdqNVMD92/VCA4LD2w5mpOSnbK+dBfnr9oi8z3J65aTZbsztm6K/zqJlcpJztyx89RJbn+fwmAwAgtzar12ZvC5slxQti0jZXsa6/v0xEzOhrP7toxf4dn6ap81lOzfzlkXE7UaDhUdFZWell5f2zirmQfmZybn3k/0dN7Kzc6KiY5aExPFXBOTymJKCrePtZXMdpRf5e3ZnLQeokMgDaTT6TAEsxPZ4spz6nczwNz78amxEWlL4zfpaQwYZsAwBMFJ8WsvFO0YbS0eaj5csf87FjMWBMHIyEgajQbR6WwWu/KMeHJCDWjUY6o3r6olVRvZbIhOZ8AwDMGcBGbD8SxV2xFF9b7CnclrolfTaLRVq1ZFRkZCdIjNYp8urxwfnQRm1KNDL/+sEPE3xMeDNFroF4JTWHHNJTkjsiM3RLszUxMYDDiMI2g0GgNmsBPZQn752zdjwPQ7lfLxwIljxXFMJgiCUBinJsa1lGS/bj5UdzQzOYEJwRAIghERESAIRkdFf8VOEvDLR4ZGAfXk274/evL371u3di1EDwVBUCorrvlE1rML+aK938avi4VgmB7GdDo9NiY2aWOySFAxMqz6D1qbnzdDKh2tAAAAAElFTkSuQmCC",
-                "dimensions": { "aspectRatio": 1, "width": 800, "height": 800 }
-              }
-            },
-            "caption": null,
-            "altText": "Portrait of Laurene Foreman",
-            "crop": null,
-            "hotspot": null
-          },
-          "slug": { "current": "laurene-foreman", "_type": "slug" },
-          "title": "Acupuncturist"
+          "name": "Rosio Macdonald",
+          "qualifications": "MD, MPH"
         },
         {
           "_type": "practitioner",
-          "pronouns": "he/him",
-          "_updatedAt": "2024-02-09T00:19:49Z",
-          "_createdAt": "2024-02-08T23:49:15Z",
-          "slug": { "current": "bennett-weiss", "_type": "slug" },
-          "qualifications": "MD, MSc",
-          "title": "Primary Care Provider",
-          "headshot": {
-            "asset": {
-              "_id": "image-c918405a6e3ba2cb785e5deddaac967bcc9c7bb9-800x800-png",
-              "_type": "sanity.imageAsset",
-              "url": "https://cdn.sanity.io/images/xgbrv2vi/production/c918405a6e3ba2cb785e5deddaac967bcc9c7bb9-800x800.png",
-              "metadata": {
-                "lqip": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAIAAAAC64paAAAACXBIWXMAAAsTAAALEwEAmpwYAAADrUlEQVQ4jWWSe1MaVxjG+RzluguoIdBGCMsCgkYkUWJCq6YG74pxlJhojZpCpynUW5OxqabRmlqUhmi0idiMuVRzcTTVYq3BCirLsrtn7Rdp2VUI02feOf+c83uf9z3zcGJHwnE8Ho8TjEhGGBbd2dnZjUTwOE4xIkmSJEj2DUEQHBZLkkcYtrq64vOO9/e4B2/2zz2aDb3bIgiCacC0YMR535C9xjDsxfOnXzk7bWfNxTmqT/K1rfU234+j2++2AAUABdgpKIrivE+y/X5/u/q1q6vShDpMSveFvN7K085yU097428LT4g4QdM0YJQGkyQJKCqO449mphtKLC25Cm+DZbmn5Y/bn827qofbqgJTPgzDkjAAIB0GAMOik+NjlYUGR658rN6y5GlZvdX+S1fFyFXbnO/e/t7uwf9hdmCapqN7u967Q7Vn9JdPKQYvmqZaywNdNT5HyUR7xTPf6H4knOactKUoEtB0NBKeujPYXmz0nNfeb7TONpctdNS8dNpf9bSuz3pju5G0nY/IhACgCQxbmp7sq7UOlBr89VZ/Q8mvbbVvnE1vv7m2vfCQxKIA0KnfZsnkJDQAobWVnzydfeX5dy+aJ+yl8532Z111L/vbt5fmyTjOerIUJ42k6YODfyJ/b/uHB27YCm6WGR80lS25ml59eWl5xB1eX05EBIBUSJIwzWhvPxp4HLhxpclRhHQWKodt5kBbxWLvleDcRGx3J2l7GE8GS8BRLLa2vuGdnK5vcJhQ3QWtotn00fVzmqG6whlP69rzuTgeA4xtKttMM3JrK+Sfenyt21NUXHVMngOJFDrFicYz+r7qgrHL57wu+8z4yMbGBvu7KZgkqWDwz++GxqyldkV2gUiq5UMnuYJsCFaaUL2r6vz96xUT3VXuq023v73z+vXKfjSagkOh7aHhH04XlcOZOh6E8GFEINYIxBoerBZL1UbEcOnjws8ri6stBZaikm5n7+LSGwyLHcL+Bw/LPq2DpRoehAhgDR9G+GKNUKoVZegTpwSVyVC9SqdTIjKZJtdUNnDr+83Nvw7hZkfHCdUprlApEKMCMcqDEC50UiBBocycRGUlSpKll2ZpxBma49nmGnvHwtNFHMcTsN5ogaRqrlAlEKNCCcqHkQ9EKh6MCCWoKEMHHzNI5XlSeZ7kuFEiM2Qq8s1nq0fv/RwORwiS4MgUOgGk5EJqPrMqH1ZzhUquSMWH1AIJCmcl4MwP89mSyvOQHOsX7sFgcPM/538BF/jPoZeFyFUAAAAASUVORK5CYII=",
-                "dimensions": { "aspectRatio": 1, "width": 800, "height": 800 }
-              }
-            },
-            "caption": null,
-            "altText": "Portrait of Andy Ellner",
-            "crop": null,
-            "hotspot": null,
-            "_type": "richImage",
-            "_key": null
-          },
-          "blurb": [
-            {
-              "children": [
-                {
-                  "_key": "fbf4f0551b850",
-                  "_type": "span",
-                  "marks": [],
-                  "text": "I try to really listen to my patients—to understand them as people: what drives them, what they're worried about and what's really going on in their lives."
-                }
-              ],
-              "style": "normal",
-              "_key": "f7a5c9759b1c",
-              "_type": "block",
-              "markDefs": []
-            }
-          ],
-          "name": "Bennett Weiss",
-          "_id": "5fc2b2f0-bfc2-4966-87b2-0cde955f8453"
-        },
-        {
-          "title": "Nurse Practitioner",
-          "pronouns": "he/him/his",
-          "blurb": [
-            {
-              "_type": "block",
-              "markDefs": [],
-              "children": [
-                {
-                  "_type": "span",
-                  "marks": [],
-                  "text": "I’ve worked in various healthcare settings, including primary and urgent care. After years in conventional medicine, I joined Firefly to help patients navigate the healthcare system and foster a more personal provider-patient relationship. I have a passion for healthcare and continuing education, and I’m an adjunct faculty member at Northeastern University.",
-                  "_key": "2d135ec2f9d20"
-                }
-              ],
-              "style": "normal",
-              "_key": "2d2831d1fc0d"
-            }
-          ],
-          "_createdAt": "2024-02-09T00:03:37Z",
-          "_updatedAt": "2024-02-09T00:20:00Z",
-          "_type": "practitioner",
-          "name": "Titus Sanford",
-          "slug": { "current": "titus-sanford", "_type": "slug" },
-          "qualifications": "NP",
           "headshot": {
             "crop": null,
             "hotspot": null,
@@ -1098,85 +1602,34 @@
             "caption": null,
             "altText": "Portrait of Titus Sanford"
           },
-          "_id": "18131791-b42c-49ba-8aa4-0e40ae2c5bb3"
-        },
-        {
-          "qualifications": "LICSW",
-          "title": "Behavioral Health Specialist",
-          "_createdAt": "2024-02-09T00:07:05Z",
-          "_type": "practitioner",
-          "name": "Antonio Cross",
           "blurb": [
             {
-              "_key": "9561038d7c0c",
+              "_key": "2d2831d1fc0d",
               "_type": "block",
               "markDefs": [],
               "children": [
                 {
-                  "marks": [],
-                  "text": "I have a genuine passion for helping people. In fact, making connections and positively impacting a person’s well-being led me to a career in healthcare. As one of Firefly’s behavioral health specialists, I aim to make healthcare more collaborative and patient-focused. I work closely with my patients to help them feel empowered and healthy.",
-                  "_key": "cfa9680bc3e70",
-                  "_type": "span"
-                }
-              ],
-              "style": "normal"
-            }
-          ],
-          "slug": { "_type": "slug", "current": "antonio-cross" },
-          "pronouns": "he/him/his",
-          "_id": "b47e62b5-4301-4815-bba2-d3107adcd75c",
-          "_updatedAt": "2024-02-09T22:53:32Z",
-          "headshot": null
-        },
-        {
-          "name": "Shoshana Zimmerman",
-          "_updatedAt": "2024-02-09T19:52:15Z",
-          "_type": "practitioner",
-          "qualifications": "CNS, NP",
-          "title": "Health guide",
-          "pronouns": "she/her/hers",
-          "headshot": {
-            "_type": "richImage",
-            "_key": null,
-            "asset": {
-              "_id": "image-fe0dd8568684ccc269a91de92fbd5d66a479cb27-800x800-png",
-              "_type": "sanity.imageAsset",
-              "url": "https://cdn.sanity.io/images/xgbrv2vi/production/fe0dd8568684ccc269a91de92fbd5d66a479cb27-800x800.png",
-              "metadata": {
-                "lqip": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAIAAAAC64paAAAACXBIWXMAAAsTAAALEwEAmpwYAAADjUlEQVQ4jW2T/08TZxzH+2fMLHOJZrF37V3vrqVfQCYqloLbItJMgVKoFQmlEtpRdDhwQDGofBs02dp1K/gFnaIJLUW+KBK1xdJY7nStlaT02rvn/o7lem2FZK8fLndP8nren889n0dEF8hkMtkCTIHiO8uyxZUiokyBvVomk0nE4xsvXwb8/vX19Xgins35bG6Lz/LenbLZLMuyNE1vRSJej9t22XrBUO/otNzxebfJbYZhAAB7/X2yUB5Jkq6p387X1erK1U3asi59Zb+15fHcnZ2dTxzHFfMZhsnLxcZomvYvLJiam46p5K015bMOw7PhNrftvGvo57fhECgg+PtkAEAikZianNCeqDiplA026d5M2hKz1xd+NU9fbV8N+rPZLMdxgsyyrGhvLABgKxLp6f5Jo8Br1OhIS/XzG23RaXtgwOzr71jzP0nTtCAL5GXezFWyurLc3GSQS8WG44qZzrrXw63vJi6Hx63LU9fCq4v0/8u5mtPp9MO5e9+frsaOHGrXqQJX6sNDF2O3O8hpW8jrjL1+USw7LwuxLMNwHPfxY2JybPSoWokcPthWSfzTeWattzk02B4asbzwDL+PhITWPstC6/wqx0W3Ig57FyL+RnzwQGMZ7L6gXblqDDk7lp2WgHf8XzIGCqn5H5Y3AWAYZuXZUuOPdYe/OiD9+gtjOTxpqPA7zm04W+eHrP4536dkkuPAvnMWPjiO291Nzfzt1VaUo4e+1JdCYy0nnlypWxs0bNw0B8a7Xy09Te/uFs9JGDJeFiqJRqN913o1CkKnkg43n3o+Yor/ZduZdSR83TFfHxWcpd6++vCeSqVSxRuST6Yoyu12n62txWVohQq36k/e7TVs/9nNPupnHvbR9395N3N9Zqx/fPTW4/l5kiSFiyQCAKRSqQcP5hoaGuRyOYogGIqWlhCNp49PdDWsjVqjv9tjf9ifOi9Z6r+rOlVpNBo9Hg9FUbzMAfCBopyDAxqNGoZhBEEQKf+Q45juWGmbvqrPfGbg0lnLuerKbzUETiiVKrP54uIiPzB8ciT8xt5pxTEMgmBpDgRBUBTFZLISOVGmKjmqUaqVJQo5D47jWm2Vy+VKJpP8kKwsLZoa6xGpBIIgGIYhCJJIJCiKyvJgMgzDcJwgCIVCgeOERlPa09OzubkpSqfTj+7f1f9QI4GOQDnEYrFQP+/xVh5BzsUrTCZTMBj8D82e7S502d27AAAAAElFTkSuQmCC",
-                "dimensions": { "aspectRatio": 1, "width": 800, "height": 800 }
-              }
-            },
-            "caption": null,
-            "altText": "Portrait of Shoshanna Zimmerman",
-            "crop": null,
-            "hotspot": null
-          },
-          "_id": "facb99b0-b6fe-4f09-8cdc-a7c52c7159fa",
-          "_createdAt": "2024-02-09T00:09:29Z",
-          "blurb": [
-            {
-              "_key": "24462c4d3c46",
-              "_type": "block",
-              "markDefs": [],
-              "children": [
-                {
-                  "_key": "a674ee757e630",
                   "_type": "span",
                   "marks": [],
-                  "text": "I always wanted a profession where I could make a real difference helping others. As a registered dietitian nutritionist and certified diabetes care and education specialist, I pair clinical expertise with empathy and active listening to support patients on their health journey. I believe in working together to build healthy, enjoyable habits that patients can stick with over the long haul."
+                  "text": "I’ve worked in various healthcare settings, including primary and urgent care. After years in conventional medicine, I joined Firefly to help patients navigate the healthcare system and foster a more personal provider-patient relationship. I have a passion for healthcare and continuing education, and I’m an adjunct faculty member at Northeastern University.",
+                  "_key": "2d135ec2f9d20"
                 }
               ],
               "style": "normal"
             }
           ],
-          "slug": { "current": "shoshana-zimmerman", "_type": "slug" }
+          "slug": { "current": "titus-sanford", "_type": "slug" },
+          "pronouns": "he/him/his",
+          "_id": "18131791-b42c-49ba-8aa4-0e40ae2c5bb3",
+          "_createdAt": "2024-02-09T00:03:37Z",
+          "_updatedAt": "2024-02-09T00:20:00Z",
+          "name": "Titus Sanford",
+          "qualifications": "NP",
+          "title": "Nurse Practitioner"
         },
         {
-          "_createdAt": "2024-02-08T23:49:15Z",
-          "_type": "practitioner",
-          "title": "Primary Care Provider",
           "headshot": {
+            "_type": "richImage",
             "_key": null,
             "asset": {
               "_id": "image-c918405a6e3ba2cb785e5deddaac967bcc9c7bb9-800x800-png",
@@ -1190,98 +1643,154 @@
             "caption": null,
             "altText": "Portrait of Andy Ellner",
             "crop": null,
-            "hotspot": null,
-            "_type": "richImage"
+            "hotspot": null
           },
           "blurb": [
             {
-              "_key": "f7a5c9759b1c",
-              "_type": "block",
+              "children": [
+                {
+                  "_type": "span",
+                  "marks": [],
+                  "text": "I try to really listen to my patients—to understand them as people: what drives them, what they're worried about and what's really going on in their lives.",
+                  "_key": "fbf4f0551b850"
+                }
+              ],
               "style": "normal",
+              "markDefs": [],
+              "_key": "f7a5c9759b1c",
+              "_type": "block"
+            }
+          ],
+          "name": "Bennett Weiss",
+          "slug": { "current": "bennett-weiss", "_type": "slug" },
+          "qualifications": "MD, MSc",
+          "_id": "5fc2b2f0-bfc2-4966-87b2-0cde955f8453",
+          "_updatedAt": "2024-02-09T00:19:49Z",
+          "pronouns": "he/him",
+          "title": "Primary Care Provider",
+          "_createdAt": "2024-02-08T23:49:15Z",
+          "_type": "practitioner"
+        },
+        {
+          "_id": "b47e62b5-4301-4815-bba2-d3107adcd75c",
+          "_createdAt": "2024-02-09T00:07:05Z",
+          "qualifications": "LICSW",
+          "title": "Behavioral Health Specialist",
+          "blurb": [
+            {
+              "_key": "9561038d7c0c",
+              "_type": "block",
               "markDefs": [],
               "children": [
                 {
-                  "_key": "fbf4f0551b850",
+                  "text": "I have a genuine passion for helping people. In fact, making connections and positively impacting a person’s well-being led me to a career in healthcare. As one of Firefly’s behavioral health specialists, I aim to make healthcare more collaborative and patient-focused. I work closely with my patients to help them feel empowered and healthy.",
+                  "_key": "cfa9680bc3e70",
                   "_type": "span",
-                  "marks": [],
-                  "text": "I try to really listen to my patients—to understand them as people: what drives them, what they're worried about and what's really going on in their lives."
+                  "marks": []
                 }
-              ]
+              ],
+              "style": "normal"
             }
           ],
-          "_id": "5fc2b2f0-bfc2-4966-87b2-0cde955f8453",
-          "_updatedAt": "2024-02-09T00:19:49Z",
-          "qualifications": "MD, MSc",
-          "pronouns": "he/him",
-          "name": "Bennett Weiss",
-          "slug": { "current": "bennett-weiss", "_type": "slug" }
+          "slug": { "current": "antonio-cross", "_type": "slug" },
+          "_updatedAt": "2024-02-09T22:53:32Z",
+          "_type": "practitioner",
+          "pronouns": "he/him/his",
+          "headshot": null,
+          "name": "Antonio Cross"
         },
         {
-          "name": "Titus Sanford",
+          "_updatedAt": "2024-02-09T19:52:15Z",
+          "_type": "practitioner",
+          "name": "Shoshana Zimmerman",
+          "slug": { "current": "shoshana-zimmerman", "_type": "slug" },
+          "title": "Health guide",
+          "blurb": [
+            {
+              "_key": "24462c4d3c46",
+              "_type": "block",
+              "markDefs": [],
+              "children": [
+                {
+                  "text": "I always wanted a profession where I could make a real difference helping others. As a registered dietitian nutritionist and certified diabetes care and education specialist, I pair clinical expertise with empathy and active listening to support patients on their health journey. I believe in working together to build healthy, enjoyable habits that patients can stick with over the long haul.",
+                  "_key": "a674ee757e630",
+                  "_type": "span",
+                  "marks": []
+                }
+              ],
+              "style": "normal"
+            }
+          ],
+          "_id": "facb99b0-b6fe-4f09-8cdc-a7c52c7159fa",
+          "_createdAt": "2024-02-09T00:09:29Z",
+          "qualifications": "CNS, NP",
+          "pronouns": "she/her/hers",
           "headshot": {
-            "asset": {
-              "_id": "image-e7da55a02be09adc44d33fee896e133322c4918e-800x800-png",
-              "_type": "sanity.imageAsset",
-              "url": "https://cdn.sanity.io/images/xgbrv2vi/production/e7da55a02be09adc44d33fee896e133322c4918e-800x800.png",
-              "metadata": {
-                "lqip": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAIAAAAC64paAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEDElEQVQ4jW3RV2/bZhQGYP7jAEUXWhRN4KJJ7Tqjie2odpxE0fBQZEkW9VHWMEltWZZFWYMSKVLc/Li1kyAXhUfRmwLn9sF7znsQReZVRYS6YhiaZRmOY008e+LZnm16UJ1BbeE6y9l8tVh+Wq4+LVerxXI+nU0nE8/zEEXmNVXUdcU0dNs2XddyHdOQOK1dMy/Op1RlyfdXFlzN53dyOV/Mp7OJ57mO+z8YymO2fDZK7Fvgw7KS+tIpfxYHK9daLZarxXIxm88mU891bcu6wxLUVdOEtm3atinSFBXdY4IbLub/3Mh87VW+sK2VLq5ms9X8Bk8nU9d2LMP8D1smdBzLMvXRZfEy8LT3dk1N7E5Kp4tmfnJFTEfdhef+u/PEsWwTGjdYVcX7ZMeEEk/n4429tabvl877dSG2q4DAGIThVWlmwfldrONapmXoBqJInHaPdds2VLbfjb5tbP98vb82CD4Tjrak2BsxFbauSjNDm02nnufZtm0ahqFDRBZYVR7rmmLAm1fpPEODg+buo77/yfjwpRD6S47s6uDQaZWnhjaZeK7j3MZCqOmINBrKwui+M0M3dUWkqu3IduPvh83th+3tteHeJhv2yZWsoyu3Jd9cq2u6pqiIMKQlbqhKPFRl47Y2hRtcpwKFVz+Rf37XfPEr7dugD3aFC9KC6q00oQY1RVVlBeHorsDSypjVZcHUFKgpw9ZlObSV2/wG3/z24uWjzv6zIfioDDsmhCY04G2mKiuKJCNM75ob9ERuqIocVKQxwxRREH/6GP3tQfrxg+z690Xfeh9Pa+LY0KGuapqiyqIsCZI0FhG6S7H9zpjpixzD04NmoZ70R8ObW5HHa4nffwRPfjjf2aDyGYkba7KqSrIsiiIvCNx4zPFI77o56FJs77p3RdXPK9nIWXw/drRzcPjybeT5q9jGH8kXz8ko2mv0eJoTWF4c8cKI49kRx46QDtXoUpetaq2AEenjdCoEQBCggVT8XTziOwhu+j5sbCX9J/XMRbvU7l102c6AGzAcw7BDBmk3641yGU/msEMMDQIQwjJH2fzJeS6aB6FUdPf4+HUIC6eq6Woj22jkGu1Sm6b6TH/ADIbIZbVEglz6EAPhNBrEUkEsc5gl4mQBLZEJMnucSR9geByvZWr1bL2WrtUzF63iVb/VZfoDpJTLnx2jIAiwUPrUnzp9j54dZIkYWUwWi8kiHsNzH3NkkqxkqrVsrYpVS8lyBVSoSmvQoZFMDEUDCfAhBQJY7E38ZC+WDp3hUYKMk2SigMeJ/EmeOCVKoFjGymVQIWOF8494LVvvNbsIGo6evjsBfjTlB5HXkaOdYxDA8pFzPIoTMZKIE0QcJ5Nk4WYKpVSJOCHToSyZKLar1D8XMcsbsfu+vgAAAABJRU5ErkJggg==",
-                "dimensions": { "aspectRatio": 1, "width": 800, "height": 800 }
-              }
-            },
-            "caption": null,
-            "altText": "Portrait of Titus Sanford",
+            "altText": "Portrait of Shoshanna Zimmerman",
             "crop": null,
             "hotspot": null,
             "_type": "richImage",
-            "_key": null
-          },
-          "_createdAt": "2024-02-09T00:03:37Z",
-          "_updatedAt": "2024-02-09T00:20:00Z",
-          "_type": "practitioner",
-          "slug": { "current": "titus-sanford", "_type": "slug" },
-          "qualifications": "NP",
-          "title": "Nurse Practitioner",
-          "pronouns": "he/him/his",
-          "_id": "18131791-b42c-49ba-8aa4-0e40ae2c5bb3",
-          "blurb": [
-            {
-              "markDefs": [],
-              "children": [
-                {
-                  "_type": "span",
-                  "marks": [],
-                  "text": "I’ve worked in various healthcare settings, including primary and urgent care. After years in conventional medicine, I joined Firefly to help patients navigate the healthcare system and foster a more personal provider-patient relationship. I have a passion for healthcare and continuing education, and I’m an adjunct faculty member at Northeastern University.",
-                  "_key": "2d135ec2f9d20"
-                }
-              ],
-              "_key": "2d2831d1fc0d",
-              "_type": "block",
-              "style": "normal"
-            }
-          ]
+            "_key": null,
+            "asset": {
+              "_id": "image-fe0dd8568684ccc269a91de92fbd5d66a479cb27-800x800-png",
+              "_type": "sanity.imageAsset",
+              "url": "https://cdn.sanity.io/images/xgbrv2vi/production/fe0dd8568684ccc269a91de92fbd5d66a479cb27-800x800.png",
+              "metadata": {
+                "lqip": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAIAAAAC64paAAAACXBIWXMAAAsTAAALEwEAmpwYAAADjUlEQVQ4jW2T/08TZxzH+2fMLHOJZrF37V3vrqVfQCYqloLbItJMgVKoFQmlEtpRdDhwQDGofBs02dp1K/gFnaIJLUW+KBK1xdJY7nStlaT02rvn/o7lem2FZK8fLndP8nren889n0dEF8hkMtkCTIHiO8uyxZUiokyBvVomk0nE4xsvXwb8/vX19Xgins35bG6Lz/LenbLZLMuyNE1vRSJej9t22XrBUO/otNzxebfJbYZhAAB7/X2yUB5Jkq6p387X1erK1U3asi59Zb+15fHcnZ2dTxzHFfMZhsnLxcZomvYvLJiam46p5K015bMOw7PhNrftvGvo57fhECgg+PtkAEAikZianNCeqDiplA026d5M2hKz1xd+NU9fbV8N+rPZLMdxgsyyrGhvLABgKxLp6f5Jo8Br1OhIS/XzG23RaXtgwOzr71jzP0nTtCAL5GXezFWyurLc3GSQS8WG44qZzrrXw63vJi6Hx63LU9fCq4v0/8u5mtPp9MO5e9+frsaOHGrXqQJX6sNDF2O3O8hpW8jrjL1+USw7LwuxLMNwHPfxY2JybPSoWokcPthWSfzTeWattzk02B4asbzwDL+PhITWPstC6/wqx0W3Ig57FyL+RnzwQGMZ7L6gXblqDDk7lp2WgHf8XzIGCqn5H5Y3AWAYZuXZUuOPdYe/OiD9+gtjOTxpqPA7zm04W+eHrP4536dkkuPAvnMWPjiO291Nzfzt1VaUo4e+1JdCYy0nnlypWxs0bNw0B8a7Xy09Te/uFs9JGDJeFiqJRqN913o1CkKnkg43n3o+Yor/ZduZdSR83TFfHxWcpd6++vCeSqVSxRuST6Yoyu12n62txWVohQq36k/e7TVs/9nNPupnHvbR9395N3N9Zqx/fPTW4/l5kiSFiyQCAKRSqQcP5hoaGuRyOYogGIqWlhCNp49PdDWsjVqjv9tjf9ifOi9Z6r+rOlVpNBo9Hg9FUbzMAfCBopyDAxqNGoZhBEEQKf+Q45juWGmbvqrPfGbg0lnLuerKbzUETiiVKrP54uIiPzB8ciT8xt5pxTEMgmBpDgRBUBTFZLISOVGmKjmqUaqVJQo5D47jWm2Vy+VKJpP8kKwsLZoa6xGpBIIgGIYhCJJIJCiKyvJgMgzDcJwgCIVCgeOERlPa09OzubkpSqfTj+7f1f9QI4GOQDnEYrFQP+/xVh5BzsUrTCZTMBj8D82e7S502d27AAAAAElFTkSuQmCC",
+                "dimensions": { "aspectRatio": 1, "width": 800, "height": 800 }
+              }
+            },
+            "caption": null
+          }
         },
         {
-          "name": "Laurene Foreman",
-          "qualifications": null,
-          "_createdAt": "2024-02-08T23:53:40Z",
-          "pronouns": "they/them",
+          "_createdAt": "2024-02-08T23:56:35Z",
           "blurb": [
             {
-              "_key": "d4ab17f3ecc1",
-              "_type": "block",
-              "markDefs": [],
               "children": [
                 {
                   "marks": [],
-                  "text": "I’m from a family of nurses, doctors, and other healthcare providers. My father is a retired anesthesiologist who practiced in Greenfield, MA for over 40 years. His hospital’s community outreach and network of providers impacted me at a young age and I was eager to be a part of a system like his. I chose family medicine because it aligns with one of my strengths — fostering connections with patients. I’m from a family of nurses, doctors, and other healthcare providers. My father is a retired anesthesiologist who practiced in Greenfield, MA for over 40 years. His hospital’s community outreach and network of providers impacted me at a young age and I was eager to be a part of a system like his. I chose family medicine because it aligns with one of my strengths — fostering connections with patients.\n",
-                  "_key": "4cc096b63a890",
+                  "text": "All it took was an 8th grade anatomy class for me to realize I wanted to pursue a career in healthcare. Since then, I’ve dedicated myself to providing patients the individualized care they deserve. My commitment to giving people the support they need in their healthcare journey inspired me to join the Firefly team, providing primary care centered around each patient’s unique needs.",
+                  "_key": "6bd7b98608000",
                   "_type": "span"
                 }
               ],
-              "style": "normal"
+              "_key": "ea60c8c9de4c",
+              "_type": "block",
+              "style": "normal",
+              "markDefs": []
             }
           ],
-          "title": "Acupuncturist",
+          "name": "Rosio Macdonald",
+          "slug": { "current": "rosio-macdonald", "_type": "slug" },
+          "_id": "10c09c10-335c-4b5b-a700-4747717841e5",
+          "_updatedAt": "2024-02-09T00:20:25Z",
+          "_type": "practitioner",
+          "pronouns": "she/her/hers",
+          "headshot": {
+            "caption": null,
+            "altText": "Portrait of Riso Macdonald",
+            "crop": null,
+            "hotspot": null,
+            "_type": "richImage",
+            "_key": null,
+            "asset": {
+              "_id": "image-d950330dfdfac02edde78844586031900b28ac72-800x800-png",
+              "_type": "sanity.imageAsset",
+              "url": "https://cdn.sanity.io/images/xgbrv2vi/production/d950330dfdfac02edde78844586031900b28ac72-800x800.png",
+              "metadata": {
+                "lqip": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAIAAAAC64paAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEH0lEQVQ4jW3S/TdbdxwH8PxutTkHox5WJPKcm3tz7829kptEc0UWEcOo0pZIqoZpqXYtpR5Hm3W2cpQzyoputWrNHiprpce6rWPMDCchidx7Bb/sj9gJzlm603M+v32/r/N+fx9YNL0dNH6a3qWpXc8mtbSw9GzG/uzJzNLCktdD7S9tvzoMK4j5aWqHpnc3nO6Z6enP2q9fPld8obToVmuTw273bG4d7gnyB9hP0zs0Fcj0eZk5u/2T+pr6M6b6IsMHRsJiVNsaL/829zPl2+8V5FnBkqH31v5aHe+9Zas4MdVetTDY/uRmbWexoSZfP3qnx7nmYui9/+FDGRjfzq+zs7evVAyez/97uPWfn4apyduT18y1mXjb+bO/zDr2w3degxl6z+elZx5OdJWfGKnOWx64xkx+7hrtnKw31+jhqmzt/YG+/fD/mu/XpgKeofe23L7v7t/72JLzdV2R824LNX7D+UXzD01lDaYUKwl11lW+cDynfAd3FHxh1A5D73ndvunxkQ5LzoNLpzaGWjxDbas9V2carY1ZKcUq0cXTOY/G7m263AzzOux2eb4ZunMpj+wu0f/+ae1G//VFW+1YVU4ZwcuWJVTlG0b7e9ZWVl+tHTh2AK+vrA7a2k6pJBYl76u6kys9Hz1tsjSZ5Bn8t0lupNlADHbfXPlzmab9B+GHmKF3qa3tF0/trZXFJklcljC6u0T3vN3ab9blSWKJ+DfViWGZcHJDdfnU5OOFP5ZdLjdFBX5YoLPPu734cn7gRos5DTbwIvLBuD6r3tFmbs/FtAlvyY++gceFYgkReiVuLT3X1Nz1YGJqfd0VeCpqyz//crHX1lViUKYLovTJ4aV40tBZ/cPa3EoNTxF7BIoKkUaFSI6Gyfg8FCWUakP1hauzjjkWQ/udTs+Xd8cKTQYlOxKPDyU54RVKTl+BosMkM/Kj4JhQafQRaVQI/E4kKhaDkEIEKLNyTw+PjAfw/PxSY0MzKYfwhAgkPoxIDLfiiR0ZQHlKkjo5BmHHIexYBTc2FeCmyFApRAilKg2ZfaW+lUVT23a7o8xaoYZlKhEH5R6DEqPTxXFF8qQMkI1LJCgI4xBMoHICV8KwSggoBVI1JNcZswpZFMV8O/3jyUILKlNgcAoGyQBeoogdg/DjEUAMI2oYIxFch+DpMixNBKq4IlwgVQtBjQTSsCgf8+jx93kFFil8HMXTtMdJAgNFvGMyMRuBUUhOQrhehr8LYnoASeOLFRw+KgBUAkDNEWAsr9c3OjaRmX1GAmtRRboxIyPPlKpXgyQBIXKFGNJIUR0o1wEIKYJSk4VYEg/hA4QAUHH4GGtz093bN6hNf18MpUJyrS6N/LDYeNFiLHiPlKEKnlghgbUSWCsENXwJweYhSVxEIFUJpepkPvYvR+x2vvkxnfwAAAAASUVORK5CYII=",
+                "dimensions": { "aspectRatio": 1, "width": 800, "height": 800 }
+              }
+            }
+          },
+          "qualifications": "MD, MPH",
+          "title": "Physician"
+        },
+        {
+          "_createdAt": "2024-02-08T23:53:40Z",
+          "_type": "practitioner",
+          "pronouns": "they/them",
           "headshot": {
             "_type": "richImage",
             "_key": null,
@@ -1299,38 +1808,149 @@
             "crop": null,
             "hotspot": null
           },
+          "name": "Laurene Foreman",
           "slug": { "current": "laurene-foreman", "_type": "slug" },
           "_id": "0cf9a836-8ef9-45b3-96c5-c566850ba2e6",
           "_updatedAt": "2024-02-09T00:20:21Z",
-          "_type": "practitioner"
-        },
-        {
-          "name": "Shoshana Zimmerman",
-          "slug": { "current": "shoshana-zimmerman", "_type": "slug" },
-          "qualifications": "CNS, NP",
           "blurb": [
             {
+              "_key": "d4ab17f3ecc1",
+              "_type": "block",
+              "style": "normal",
+              "markDefs": [],
               "children": [
                 {
-                  "_key": "a674ee757e630",
                   "_type": "span",
                   "marks": [],
-                  "text": "I always wanted a profession where I could make a real difference helping others. As a registered dietitian nutritionist and certified diabetes care and education specialist, I pair clinical expertise with empathy and active listening to support patients on their health journey. I believe in working together to build healthy, enjoyable habits that patients can stick with over the long haul."
+                  "text": "I’m from a family of nurses, doctors, and other healthcare providers. My father is a retired anesthesiologist who practiced in Greenfield, MA for over 40 years. His hospital’s community outreach and network of providers impacted me at a young age and I was eager to be a part of a system like his. I chose family medicine because it aligns with one of my strengths — fostering connections with patients. I’m from a family of nurses, doctors, and other healthcare providers. My father is a retired anesthesiologist who practiced in Greenfield, MA for over 40 years. His hospital’s community outreach and network of providers impacted me at a young age and I was eager to be a part of a system like his. I chose family medicine because it aligns with one of my strengths — fostering connections with patients.\n",
+                  "_key": "4cc096b63a890"
+                }
+              ]
+            }
+          ],
+          "qualifications": null,
+          "title": "Acupuncturist"
+        },
+        {
+          "name": "Bennett Weiss",
+          "qualifications": "MD, MSc",
+          "title": "Primary Care Provider",
+          "_id": "5fc2b2f0-bfc2-4966-87b2-0cde955f8453",
+          "_type": "practitioner",
+          "pronouns": "he/him",
+          "headshot": {
+            "crop": null,
+            "hotspot": null,
+            "_type": "richImage",
+            "_key": null,
+            "asset": {
+              "_id": "image-c918405a6e3ba2cb785e5deddaac967bcc9c7bb9-800x800-png",
+              "_type": "sanity.imageAsset",
+              "url": "https://cdn.sanity.io/images/xgbrv2vi/production/c918405a6e3ba2cb785e5deddaac967bcc9c7bb9-800x800.png",
+              "metadata": {
+                "lqip": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAIAAAAC64paAAAACXBIWXMAAAsTAAALEwEAmpwYAAADrUlEQVQ4jWWSe1MaVxjG+RzluguoIdBGCMsCgkYkUWJCq6YG74pxlJhojZpCpynUW5OxqabRmlqUhmi0idiMuVRzcTTVYq3BCirLsrtn7Rdp2VUI02feOf+c83uf9z3zcGJHwnE8Ho8TjEhGGBbd2dnZjUTwOE4xIkmSJEj2DUEQHBZLkkcYtrq64vOO9/e4B2/2zz2aDb3bIgiCacC0YMR535C9xjDsxfOnXzk7bWfNxTmqT/K1rfU234+j2++2AAUABdgpKIrivE+y/X5/u/q1q6vShDpMSveFvN7K085yU097428LT4g4QdM0YJQGkyQJKCqO449mphtKLC25Cm+DZbmn5Y/bn827qofbqgJTPgzDkjAAIB0GAMOik+NjlYUGR658rN6y5GlZvdX+S1fFyFXbnO/e/t7uwf9hdmCapqN7u967Q7Vn9JdPKQYvmqZaywNdNT5HyUR7xTPf6H4knOactKUoEtB0NBKeujPYXmz0nNfeb7TONpctdNS8dNpf9bSuz3pju5G0nY/IhACgCQxbmp7sq7UOlBr89VZ/Q8mvbbVvnE1vv7m2vfCQxKIA0KnfZsnkJDQAobWVnzydfeX5dy+aJ+yl8532Z111L/vbt5fmyTjOerIUJ42k6YODfyJ/b/uHB27YCm6WGR80lS25ml59eWl5xB1eX05EBIBUSJIwzWhvPxp4HLhxpclRhHQWKodt5kBbxWLvleDcRGx3J2l7GE8GS8BRLLa2vuGdnK5vcJhQ3QWtotn00fVzmqG6whlP69rzuTgeA4xtKttMM3JrK+Sfenyt21NUXHVMngOJFDrFicYz+r7qgrHL57wu+8z4yMbGBvu7KZgkqWDwz++GxqyldkV2gUiq5UMnuYJsCFaaUL2r6vz96xUT3VXuq023v73z+vXKfjSagkOh7aHhH04XlcOZOh6E8GFEINYIxBoerBZL1UbEcOnjws8ri6stBZaikm5n7+LSGwyLHcL+Bw/LPq2DpRoehAhgDR9G+GKNUKoVZegTpwSVyVC9SqdTIjKZJtdUNnDr+83Nvw7hZkfHCdUprlApEKMCMcqDEC50UiBBocycRGUlSpKll2ZpxBma49nmGnvHwtNFHMcTsN5ogaRqrlAlEKNCCcqHkQ9EKh6MCCWoKEMHHzNI5XlSeZ7kuFEiM2Qq8s1nq0fv/RwORwiS4MgUOgGk5EJqPrMqH1ZzhUquSMWH1AIJCmcl4MwP89mSyvOQHOsX7sFgcPM/538BF/jPoZeFyFUAAAAASUVORK5CYII=",
+                "dimensions": { "aspectRatio": 1, "width": 800, "height": 800 }
+              }
+            },
+            "caption": null,
+            "altText": "Portrait of Andy Ellner"
+          },
+          "blurb": [
+            {
+              "_key": "f7a5c9759b1c",
+              "_type": "block",
+              "children": [
+                {
+                  "_type": "span",
+                  "marks": [],
+                  "text": "I try to really listen to my patients—to understand them as people: what drives them, what they're worried about and what's really going on in their lives.",
+                  "_key": "fbf4f0551b850"
                 }
               ],
               "style": "normal",
-              "_key": "24462c4d3c46",
-              "_type": "block",
               "markDefs": []
             }
           ],
+          "slug": { "current": "bennett-weiss", "_type": "slug" },
+          "_createdAt": "2024-02-08T23:49:15Z",
+          "_updatedAt": "2024-02-09T00:19:49Z"
+        },
+        {
+          "blurb": [
+            {
+              "_type": "block",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "marks": [],
+                  "text": "I’ve worked in various healthcare settings, including primary and urgent care. After years in conventional medicine, I joined Firefly to help patients navigate the healthcare system and foster a more personal provider-patient relationship. I have a passion for healthcare and continuing education, and I’m an adjunct faculty member at Northeastern University.",
+                  "_key": "2d135ec2f9d20"
+                }
+              ],
+              "_key": "2d2831d1fc0d"
+            }
+          ],
+          "_createdAt": "2024-02-09T00:03:37Z",
+          "_type": "practitioner",
+          "name": "Titus Sanford",
+          "slug": { "current": "titus-sanford", "_type": "slug" },
+          "qualifications": "NP",
+          "pronouns": "he/him/his",
+          "_id": "18131791-b42c-49ba-8aa4-0e40ae2c5bb3",
+          "_updatedAt": "2024-02-09T00:20:00Z",
+          "title": "Nurse Practitioner",
+          "headshot": {
+            "altText": "Portrait of Titus Sanford",
+            "crop": null,
+            "hotspot": null,
+            "_type": "richImage",
+            "_key": null,
+            "asset": {
+              "_id": "image-e7da55a02be09adc44d33fee896e133322c4918e-800x800-png",
+              "_type": "sanity.imageAsset",
+              "url": "https://cdn.sanity.io/images/xgbrv2vi/production/e7da55a02be09adc44d33fee896e133322c4918e-800x800.png",
+              "metadata": {
+                "lqip": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAIAAAAC64paAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEDElEQVQ4jW3RV2/bZhQGYP7jAEUXWhRN4KJJ7Tqjie2odpxE0fBQZEkW9VHWMEltWZZFWYMSKVLc/Li1kyAXhUfRmwLn9sF7znsQReZVRYS6YhiaZRmOY008e+LZnm16UJ1BbeE6y9l8tVh+Wq4+LVerxXI+nU0nE8/zEEXmNVXUdcU0dNs2XddyHdOQOK1dMy/Op1RlyfdXFlzN53dyOV/Mp7OJ57mO+z8YymO2fDZK7Fvgw7KS+tIpfxYHK9daLZarxXIxm88mU891bcu6wxLUVdOEtm3atinSFBXdY4IbLub/3Mh87VW+sK2VLq5ms9X8Bk8nU9d2LMP8D1smdBzLMvXRZfEy8LT3dk1N7E5Kp4tmfnJFTEfdhef+u/PEsWwTGjdYVcX7ZMeEEk/n4429tabvl877dSG2q4DAGIThVWlmwfldrONapmXoBqJInHaPdds2VLbfjb5tbP98vb82CD4Tjrak2BsxFbauSjNDm02nnufZtm0ahqFDRBZYVR7rmmLAm1fpPEODg+buo77/yfjwpRD6S47s6uDQaZWnhjaZeK7j3MZCqOmINBrKwui+M0M3dUWkqu3IduPvh83th+3tteHeJhv2yZWsoyu3Jd9cq2u6pqiIMKQlbqhKPFRl47Y2hRtcpwKFVz+Rf37XfPEr7dugD3aFC9KC6q00oQY1RVVlBeHorsDSypjVZcHUFKgpw9ZlObSV2/wG3/z24uWjzv6zIfioDDsmhCY04G2mKiuKJCNM75ob9ERuqIocVKQxwxRREH/6GP3tQfrxg+z690Xfeh9Pa+LY0KGuapqiyqIsCZI0FhG6S7H9zpjpixzD04NmoZ70R8ObW5HHa4nffwRPfjjf2aDyGYkba7KqSrIsiiIvCNx4zPFI77o56FJs77p3RdXPK9nIWXw/drRzcPjybeT5q9jGH8kXz8ko2mv0eJoTWF4c8cKI49kRx46QDtXoUpetaq2AEenjdCoEQBCggVT8XTziOwhu+j5sbCX9J/XMRbvU7l102c6AGzAcw7BDBmk3641yGU/msEMMDQIQwjJH2fzJeS6aB6FUdPf4+HUIC6eq6Woj22jkGu1Sm6b6TH/ADIbIZbVEglz6EAPhNBrEUkEsc5gl4mQBLZEJMnucSR9geByvZWr1bL2WrtUzF63iVb/VZfoDpJTLnx2jIAiwUPrUnzp9j54dZIkYWUwWi8kiHsNzH3NkkqxkqrVsrYpVS8lyBVSoSmvQoZFMDEUDCfAhBQJY7E38ZC+WDp3hUYKMk2SigMeJ/EmeOCVKoFjGymVQIWOF8494LVvvNbsIGo6evjsBfjTlB5HXkaOdYxDA8pFzPIoTMZKIE0QcJ5Nk4WYKpVSJOCHToSyZKLar1D8XMcsbsfu+vgAAAABJRU5ErkJggg==",
+                "dimensions": { "aspectRatio": 1, "width": 800, "height": 800 }
+              }
+            },
+            "caption": null
+          }
+        },
+        {
+          "title": "Behavioral Health Specialist",
+          "headshot": null,
+          "_type": "practitioner",
+          "blurb": [
+            {
+              "_key": "9561038d7c0c",
+              "_type": "block",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "text": "I have a genuine passion for helping people. In fact, making connections and positively impacting a person’s well-being led me to a career in healthcare. As one of Firefly’s behavioral health specialists, I aim to make healthcare more collaborative and patient-focused. I work closely with my patients to help them feel empowered and healthy.",
+                  "_key": "cfa9680bc3e70",
+                  "_type": "span",
+                  "marks": []
+                }
+              ]
+            }
+          ],
+          "name": "Antonio Cross",
+          "slug": { "current": "antonio-cross", "_type": "slug" },
+          "pronouns": "he/him/his",
+          "_id": "b47e62b5-4301-4815-bba2-d3107adcd75c",
+          "_createdAt": "2024-02-09T00:07:05Z",
+          "_updatedAt": "2024-02-09T22:53:32Z",
+          "qualifications": "LICSW"
+        },
+        {
           "_createdAt": "2024-02-09T00:09:29Z",
           "_updatedAt": "2024-02-09T19:52:15Z",
-          "_type": "practitioner",
-          "title": "Health guide",
-          "pronouns": "she/her/hers",
           "headshot": {
-            "crop": null,
             "hotspot": null,
             "_type": "richImage",
             "_key": null,
@@ -1344,43 +1964,245 @@
               }
             },
             "caption": null,
-            "altText": "Portrait of Shoshanna Zimmerman"
+            "altText": "Portrait of Shoshanna Zimmerman",
+            "crop": null
           },
-          "_id": "facb99b0-b6fe-4f09-8cdc-a7c52c7159fa"
-        },
-        {
-          "_updatedAt": "2024-02-09T22:53:32Z",
-          "_type": "practitioner",
-          "headshot": null,
           "blurb": [
             {
-              "_key": "9561038d7c0c",
+              "_key": "24462c4d3c46",
+              "_type": "block",
+              "markDefs": [],
+              "children": [
+                {
+                  "text": "I always wanted a profession where I could make a real difference helping others. As a registered dietitian nutritionist and certified diabetes care and education specialist, I pair clinical expertise with empathy and active listening to support patients on their health journey. I believe in working together to build healthy, enjoyable habits that patients can stick with over the long haul.",
+                  "_key": "a674ee757e630",
+                  "_type": "span",
+                  "marks": []
+                }
+              ],
+              "style": "normal"
+            }
+          ],
+          "slug": { "current": "shoshana-zimmerman", "_type": "slug" },
+          "_id": "facb99b0-b6fe-4f09-8cdc-a7c52c7159fa",
+          "_type": "practitioner",
+          "pronouns": "she/her/hers",
+          "name": "Shoshana Zimmerman",
+          "qualifications": "CNS, NP",
+          "title": "Health guide"
+        },
+        {
+          "_updatedAt": "2024-02-09T00:19:49Z",
+          "_type": "practitioner",
+          "headshot": {
+            "hotspot": null,
+            "_type": "richImage",
+            "_key": null,
+            "asset": {
+              "_id": "image-c918405a6e3ba2cb785e5deddaac967bcc9c7bb9-800x800-png",
+              "_type": "sanity.imageAsset",
+              "url": "https://cdn.sanity.io/images/xgbrv2vi/production/c918405a6e3ba2cb785e5deddaac967bcc9c7bb9-800x800.png",
+              "metadata": {
+                "lqip": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAIAAAAC64paAAAACXBIWXMAAAsTAAALEwEAmpwYAAADrUlEQVQ4jWWSe1MaVxjG+RzluguoIdBGCMsCgkYkUWJCq6YG74pxlJhojZpCpynUW5OxqabRmlqUhmi0idiMuVRzcTTVYq3BCirLsrtn7Rdp2VUI02feOf+c83uf9z3zcGJHwnE8Ho8TjEhGGBbd2dnZjUTwOE4xIkmSJEj2DUEQHBZLkkcYtrq64vOO9/e4B2/2zz2aDb3bIgiCacC0YMR535C9xjDsxfOnXzk7bWfNxTmqT/K1rfU234+j2++2AAUABdgpKIrivE+y/X5/u/q1q6vShDpMSveFvN7K085yU097428LT4g4QdM0YJQGkyQJKCqO449mphtKLC25Cm+DZbmn5Y/bn827qofbqgJTPgzDkjAAIB0GAMOik+NjlYUGR658rN6y5GlZvdX+S1fFyFXbnO/e/t7uwf9hdmCapqN7u967Q7Vn9JdPKQYvmqZaywNdNT5HyUR7xTPf6H4knOactKUoEtB0NBKeujPYXmz0nNfeb7TONpctdNS8dNpf9bSuz3pju5G0nY/IhACgCQxbmp7sq7UOlBr89VZ/Q8mvbbVvnE1vv7m2vfCQxKIA0KnfZsnkJDQAobWVnzydfeX5dy+aJ+yl8532Z111L/vbt5fmyTjOerIUJ42k6YODfyJ/b/uHB27YCm6WGR80lS25ml59eWl5xB1eX05EBIBUSJIwzWhvPxp4HLhxpclRhHQWKodt5kBbxWLvleDcRGx3J2l7GE8GS8BRLLa2vuGdnK5vcJhQ3QWtotn00fVzmqG6whlP69rzuTgeA4xtKttMM3JrK+Sfenyt21NUXHVMngOJFDrFicYz+r7qgrHL57wu+8z4yMbGBvu7KZgkqWDwz++GxqyldkV2gUiq5UMnuYJsCFaaUL2r6vz96xUT3VXuq023v73z+vXKfjSagkOh7aHhH04XlcOZOh6E8GFEINYIxBoerBZL1UbEcOnjws8ri6stBZaikm5n7+LSGwyLHcL+Bw/LPq2DpRoehAhgDR9G+GKNUKoVZegTpwSVyVC9SqdTIjKZJtdUNnDr+83Nvw7hZkfHCdUprlApEKMCMcqDEC50UiBBocycRGUlSpKll2ZpxBma49nmGnvHwtNFHMcTsN5ogaRqrlAlEKNCCcqHkQ9EKh6MCCWoKEMHHzNI5XlSeZ7kuFEiM2Qq8s1nq0fv/RwORwiS4MgUOgGk5EJqPrMqH1ZzhUquSMWH1AIJCmcl4MwP89mSyvOQHOsX7sFgcPM/538BF/jPoZeFyFUAAAAASUVORK5CYII=",
+                "dimensions": { "aspectRatio": 1, "width": 800, "height": 800 }
+              }
+            },
+            "caption": null,
+            "altText": "Portrait of Andy Ellner",
+            "crop": null
+          },
+          "title": "Primary Care Provider",
+          "_id": "5fc2b2f0-bfc2-4966-87b2-0cde955f8453",
+          "_createdAt": "2024-02-08T23:49:15Z",
+          "blurb": [
+            {
+              "_key": "f7a5c9759b1c",
               "_type": "block",
               "children": [
                 {
+                  "_type": "span",
                   "marks": [],
-                  "text": "I have a genuine passion for helping people. In fact, making connections and positively impacting a person’s well-being led me to a career in healthcare. As one of Firefly’s behavioral health specialists, I aim to make healthcare more collaborative and patient-focused. I work closely with my patients to help them feel empowered and healthy.",
-                  "_key": "cfa9680bc3e70",
-                  "_type": "span"
+                  "text": "I try to really listen to my patients—to understand them as people: what drives them, what they're worried about and what's really going on in their lives.",
+                  "_key": "fbf4f0551b850"
                 }
               ],
               "style": "normal",
               "markDefs": []
             }
           ],
-          "name": "Antonio Cross",
-          "title": "Behavioral Health Specialist",
-          "_createdAt": "2024-02-09T00:07:05Z",
-          "slug": { "_type": "slug", "current": "antonio-cross" },
-          "qualifications": "LICSW",
-          "pronouns": "he/him/his",
-          "_id": "b47e62b5-4301-4815-bba2-d3107adcd75c"
+          "name": "Bennett Weiss",
+          "slug": { "current": "bennett-weiss", "_type": "slug" },
+          "qualifications": "MD, MSc",
+          "pronouns": "he/him"
         },
         {
-          "_id": "5fc2b2f0-bfc2-4966-87b2-0cde955f8453",
-          "_updatedAt": "2024-02-09T00:19:49Z",
+          "_updatedAt": "2024-02-09T00:20:00Z",
+          "headshot": {
+            "hotspot": null,
+            "_type": "richImage",
+            "_key": null,
+            "asset": {
+              "_id": "image-e7da55a02be09adc44d33fee896e133322c4918e-800x800-png",
+              "_type": "sanity.imageAsset",
+              "url": "https://cdn.sanity.io/images/xgbrv2vi/production/e7da55a02be09adc44d33fee896e133322c4918e-800x800.png",
+              "metadata": {
+                "lqip": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAIAAAAC64paAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEDElEQVQ4jW3RV2/bZhQGYP7jAEUXWhRN4KJJ7Tqjie2odpxE0fBQZEkW9VHWMEltWZZFWYMSKVLc/Li1kyAXhUfRmwLn9sF7znsQReZVRYS6YhiaZRmOY008e+LZnm16UJ1BbeE6y9l8tVh+Wq4+LVerxXI+nU0nE8/zEEXmNVXUdcU0dNs2XddyHdOQOK1dMy/Op1RlyfdXFlzN53dyOV/Mp7OJ57mO+z8YymO2fDZK7Fvgw7KS+tIpfxYHK9daLZarxXIxm88mU891bcu6wxLUVdOEtm3atinSFBXdY4IbLub/3Mh87VW+sK2VLq5ms9X8Bk8nU9d2LMP8D1smdBzLMvXRZfEy8LT3dk1N7E5Kp4tmfnJFTEfdhef+u/PEsWwTGjdYVcX7ZMeEEk/n4429tabvl877dSG2q4DAGIThVWlmwfldrONapmXoBqJInHaPdds2VLbfjb5tbP98vb82CD4Tjrak2BsxFbauSjNDm02nnufZtm0ahqFDRBZYVR7rmmLAm1fpPEODg+buo77/yfjwpRD6S47s6uDQaZWnhjaZeK7j3MZCqOmINBrKwui+M0M3dUWkqu3IduPvh83th+3tteHeJhv2yZWsoyu3Jd9cq2u6pqiIMKQlbqhKPFRl47Y2hRtcpwKFVz+Rf37XfPEr7dugD3aFC9KC6q00oQY1RVVlBeHorsDSypjVZcHUFKgpw9ZlObSV2/wG3/z24uWjzv6zIfioDDsmhCY04G2mKiuKJCNM75ob9ERuqIocVKQxwxRREH/6GP3tQfrxg+z690Xfeh9Pa+LY0KGuapqiyqIsCZI0FhG6S7H9zpjpixzD04NmoZ70R8ObW5HHa4nffwRPfjjf2aDyGYkba7KqSrIsiiIvCNx4zPFI77o56FJs77p3RdXPK9nIWXw/drRzcPjybeT5q9jGH8kXz8ko2mv0eJoTWF4c8cKI49kRx46QDtXoUpetaq2AEenjdCoEQBCggVT8XTziOwhu+j5sbCX9J/XMRbvU7l102c6AGzAcw7BDBmk3641yGU/msEMMDQIQwjJH2fzJeS6aB6FUdPf4+HUIC6eq6Woj22jkGu1Sm6b6TH/ADIbIZbVEglz6EAPhNBrEUkEsc5gl4mQBLZEJMnucSR9geByvZWr1bL2WrtUzF63iVb/VZfoDpJTLnx2jIAiwUPrUnzp9j54dZIkYWUwWi8kiHsNzH3NkkqxkqrVsrYpVS8lyBVSoSmvQoZFMDEUDCfAhBQJY7E38ZC+WDp3hUYKMk2SigMeJ/EmeOCVKoFjGymVQIWOF8494LVvvNbsIGo6evjsBfjTlB5HXkaOdYxDA8pFzPIoTMZKIE0QcJ5Nk4WYKpVSJOCHToSyZKLar1D8XMcsbsfu+vgAAAABJRU5ErkJggg==",
+                "dimensions": { "aspectRatio": 1, "width": 800, "height": 800 }
+              }
+            },
+            "caption": null,
+            "altText": "Portrait of Titus Sanford",
+            "crop": null
+          },
+          "blurb": [
+            {
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "marks": [],
+                  "text": "I’ve worked in various healthcare settings, including primary and urgent care. After years in conventional medicine, I joined Firefly to help patients navigate the healthcare system and foster a more personal provider-patient relationship. I have a passion for healthcare and continuing education, and I’m an adjunct faculty member at Northeastern University.",
+                  "_key": "2d135ec2f9d20"
+                }
+              ],
+              "style": "normal",
+              "_key": "2d2831d1fc0d",
+              "_type": "block"
+            }
+          ],
+          "name": "Titus Sanford",
+          "qualifications": "NP",
+          "_createdAt": "2024-02-09T00:03:37Z",
           "_type": "practitioner",
-          "name": "Bennett Weiss",
+          "pronouns": "he/him/his",
+          "slug": { "current": "titus-sanford", "_type": "slug" },
+          "title": "Nurse Practitioner",
+          "_id": "18131791-b42c-49ba-8aa4-0e40ae2c5bb3"
+        },
+        {
+          "_createdAt": "2024-02-08T23:53:40Z",
+          "headshot": {
+            "_key": null,
+            "asset": {
+              "_id": "image-1e5311a97bc3bb6c249ebcc0dc63c9b7d8016558-800x800-png",
+              "_type": "sanity.imageAsset",
+              "url": "https://cdn.sanity.io/images/xgbrv2vi/production/1e5311a97bc3bb6c249ebcc0dc63c9b7d8016558-800x800.png",
+              "metadata": {
+                "lqip": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAIAAAAC64paAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEqklEQVQ4jT3N6VMTBwDG4f0LkGx2I4caRiSkIuFoqfXCIjA4U6siUgWvgpITFIONMJZTMASteBAPDm0RiOMRWxUFqeGSCIEQCTFNAkk292Y3uxvUfu8kH/r7/rwvgGEojvuJQIAiyZUg9WklSJGEx+kw6ud1M5PLxgUS9//75fOXz58/rawEg8EgFaRIiqKoYDAIYBgaCGAkQQQpKgxxi1H/8lGvXPpre12lQn5JNzGEeZ1hF6QoiiRIIkAQBEmRFIDjKEHgJEmGNoOkw2Z+MdAtO1vazC24LDgorzqqvFmnnxzye5wEQRCBQADHcQzH8dAAgOG+/58DODo3OXy7XnRNkP+yRThx/fzzZqGivmy4W2rUjPu8HhzHMMwfDsMxDPCjbhz3EQGMIgk3sjTYL78iyr9/pkAjrzE9kE3dvKBsKHvYxBt+cNO8qEN9PhT1oeH8KAqgHieGegI4SuB+04Kmv73mUmnuHcHekdaK+a4mza0G1WXx47rSPql4+u9Bl8Ph9Xq9Hq8vHOBxIqjHhfu9fq9rbuJVVwNfdjKnpyJ/+CJfK6819EgXOhuHpMK+iyKVst9qNrldLrfL7fGEJgAHsuxxIX6v22W3qJ71XqsqauflKqoOqpq4c+3n/+m6ZOhsfNsmHGjivertMGg1DjvidLidDo/L6QGsVnPIO5Elg+5J128XuT+0lmR2cPOeiA9Ny8TGuy0z16uVdcfuVRf3tv4yNqi0mMwI4kTsLgRxARaL0WY1I1aLTq3qbpXUHs9qOrZNcmCztChL1cRbvF2vrOW2luS1leVdOVP89Pc7xkW93Y7YbYjd7gBMRv2S+eOyaXFq+OndBr6Mmy0t3flzNufULs6jc4XTV093VhSU5aYL92Q08goV3Xe0s1qLZdlqtdlsdsC4OG8y6k0G3fjgw85GvoyXI/lpy56MhMNbE3srf9RcFygkh07lpBXu2MQtyKsRV8o7br94Maib/7C0vAwsfpj9qNdqNVMD92/VCA4LD2w5mpOSnbK+dBfnr9oi8z3J65aTZbsztm6K/zqJlcpJztyx89RJbn+fwmAwAgtzar12ZvC5slxQti0jZXsa6/v0xEzOhrP7toxf4dn6ap81lOzfzlkXE7UaDhUdFZWell5f2zirmQfmZybn3k/0dN7Kzc6KiY5aExPFXBOTymJKCrePtZXMdpRf5e3ZnLQeokMgDaTT6TAEsxPZ4spz6nczwNz78amxEWlL4zfpaQwYZsAwBMFJ8WsvFO0YbS0eaj5csf87FjMWBMHIyEgajQbR6WwWu/KMeHJCDWjUY6o3r6olVRvZbIhOZ8AwDMGcBGbD8SxV2xFF9b7CnclrolfTaLRVq1ZFRkZCdIjNYp8urxwfnQRm1KNDL/+sEPE3xMeDNFroF4JTWHHNJTkjsiM3RLszUxMYDDiMI2g0GgNmsBPZQn752zdjwPQ7lfLxwIljxXFMJgiCUBinJsa1lGS/bj5UdzQzOYEJwRAIghERESAIRkdFf8VOEvDLR4ZGAfXk274/evL371u3di1EDwVBUCorrvlE1rML+aK938avi4VgmB7GdDo9NiY2aWOySFAxMqz6D1qbnzdDKh2tAAAAAElFTkSuQmCC",
+                "dimensions": { "aspectRatio": 1, "width": 800, "height": 800 }
+              }
+            },
+            "caption": null,
+            "altText": "Portrait of Laurene Foreman",
+            "crop": null,
+            "hotspot": null,
+            "_type": "richImage"
+          },
+          "blurb": [
+            {
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "marks": [],
+                  "text": "I’m from a family of nurses, doctors, and other healthcare providers. My father is a retired anesthesiologist who practiced in Greenfield, MA for over 40 years. His hospital’s community outreach and network of providers impacted me at a young age and I was eager to be a part of a system like his. I chose family medicine because it aligns with one of my strengths — fostering connections with patients. I’m from a family of nurses, doctors, and other healthcare providers. My father is a retired anesthesiologist who practiced in Greenfield, MA for over 40 years. His hospital’s community outreach and network of providers impacted me at a young age and I was eager to be a part of a system like his. I chose family medicine because it aligns with one of my strengths — fostering connections with patients.\n",
+                  "_key": "4cc096b63a890"
+                }
+              ],
+              "_key": "d4ab17f3ecc1",
+              "_type": "block",
+              "style": "normal"
+            }
+          ],
+          "pronouns": "they/them",
+          "_id": "0cf9a836-8ef9-45b3-96c5-c566850ba2e6",
+          "_updatedAt": "2024-02-09T00:20:21Z",
+          "_type": "practitioner",
+          "name": "Laurene Foreman",
+          "slug": { "current": "laurene-foreman", "_type": "slug" },
+          "qualifications": null,
+          "title": "Acupuncturist"
+        },
+        {
+          "_type": "practitioner",
+          "slug": { "current": "shoshana-zimmerman", "_type": "slug" },
+          "qualifications": "CNS, NP",
+          "pronouns": "she/her/hers",
+          "name": "Shoshana Zimmerman",
+          "_id": "facb99b0-b6fe-4f09-8cdc-a7c52c7159fa",
+          "_createdAt": "2024-02-09T00:09:29Z",
+          "_updatedAt": "2024-02-09T19:52:15Z",
+          "title": "Health guide",
+          "headshot": {
+            "asset": {
+              "_id": "image-fe0dd8568684ccc269a91de92fbd5d66a479cb27-800x800-png",
+              "_type": "sanity.imageAsset",
+              "url": "https://cdn.sanity.io/images/xgbrv2vi/production/fe0dd8568684ccc269a91de92fbd5d66a479cb27-800x800.png",
+              "metadata": {
+                "lqip": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAIAAAAC64paAAAACXBIWXMAAAsTAAALEwEAmpwYAAADjUlEQVQ4jW2T/08TZxzH+2fMLHOJZrF37V3vrqVfQCYqloLbItJMgVKoFQmlEtpRdDhwQDGofBs02dp1K/gFnaIJLUW+KBK1xdJY7nStlaT02rvn/o7lem2FZK8fLndP8nren889n0dEF8hkMtkCTIHiO8uyxZUiokyBvVomk0nE4xsvXwb8/vX19Xgins35bG6Lz/LenbLZLMuyNE1vRSJej9t22XrBUO/otNzxebfJbYZhAAB7/X2yUB5Jkq6p387X1erK1U3asi59Zb+15fHcnZ2dTxzHFfMZhsnLxcZomvYvLJiam46p5K015bMOw7PhNrftvGvo57fhECgg+PtkAEAikZianNCeqDiplA026d5M2hKz1xd+NU9fbV8N+rPZLMdxgsyyrGhvLABgKxLp6f5Jo8Br1OhIS/XzG23RaXtgwOzr71jzP0nTtCAL5GXezFWyurLc3GSQS8WG44qZzrrXw63vJi6Hx63LU9fCq4v0/8u5mtPp9MO5e9+frsaOHGrXqQJX6sNDF2O3O8hpW8jrjL1+USw7LwuxLMNwHPfxY2JybPSoWokcPthWSfzTeWattzk02B4asbzwDL+PhITWPstC6/wqx0W3Ig57FyL+RnzwQGMZ7L6gXblqDDk7lp2WgHf8XzIGCqn5H5Y3AWAYZuXZUuOPdYe/OiD9+gtjOTxpqPA7zm04W+eHrP4536dkkuPAvnMWPjiO291Nzfzt1VaUo4e+1JdCYy0nnlypWxs0bNw0B8a7Xy09Te/uFs9JGDJeFiqJRqN913o1CkKnkg43n3o+Yor/ZduZdSR83TFfHxWcpd6++vCeSqVSxRuST6Yoyu12n62txWVohQq36k/e7TVs/9nNPupnHvbR9395N3N9Zqx/fPTW4/l5kiSFiyQCAKRSqQcP5hoaGuRyOYogGIqWlhCNp49PdDWsjVqjv9tjf9ifOi9Z6r+rOlVpNBo9Hg9FUbzMAfCBopyDAxqNGoZhBEEQKf+Q45juWGmbvqrPfGbg0lnLuerKbzUETiiVKrP54uIiPzB8ciT8xt5pxTEMgmBpDgRBUBTFZLISOVGmKjmqUaqVJQo5D47jWm2Vy+VKJpP8kKwsLZoa6xGpBIIgGIYhCJJIJCiKyvJgMgzDcJwgCIVCgeOERlPa09OzubkpSqfTj+7f1f9QI4GOQDnEYrFQP+/xVh5BzsUrTCZTMBj8D82e7S502d27AAAAAElFTkSuQmCC",
+                "dimensions": { "aspectRatio": 1, "width": 800, "height": 800 }
+              }
+            },
+            "caption": null,
+            "altText": "Portrait of Shoshanna Zimmerman",
+            "crop": null,
+            "hotspot": null,
+            "_type": "richImage",
+            "_key": null
+          },
+          "blurb": [
+            {
+              "style": "normal",
+              "_key": "24462c4d3c46",
+              "_type": "block",
+              "markDefs": [],
+              "children": [
+                {
+                  "text": "I always wanted a profession where I could make a real difference helping others. As a registered dietitian nutritionist and certified diabetes care and education specialist, I pair clinical expertise with empathy and active listening to support patients on their health journey. I believe in working together to build healthy, enjoyable habits that patients can stick with over the long haul.",
+                  "_key": "a674ee757e630",
+                  "_type": "span",
+                  "marks": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "blurb": [
+            {
+              "_type": "block",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "text": "I have a genuine passion for helping people. In fact, making connections and positively impacting a person’s well-being led me to a career in healthcare. As one of Firefly’s behavioral health specialists, I aim to make healthcare more collaborative and patient-focused. I work closely with my patients to help them feel empowered and healthy.",
+                  "_key": "cfa9680bc3e70",
+                  "_type": "span",
+                  "marks": []
+                }
+              ],
+              "_key": "9561038d7c0c"
+            }
+          ],
+          "slug": { "current": "antonio-cross", "_type": "slug" },
+          "qualifications": "LICSW",
+          "pronouns": "he/him/his",
+          "headshot": null,
+          "name": "Antonio Cross",
+          "title": "Behavioral Health Specialist",
+          "_id": "b47e62b5-4301-4815-bba2-d3107adcd75c",
+          "_createdAt": "2024-02-09T00:07:05Z",
+          "_updatedAt": "2024-02-09T22:53:32Z",
+          "_type": "practitioner"
+        },
+        {
+          "title": "Primary Care Provider",
+          "slug": { "current": "bennett-weiss", "_type": "slug" },
+          "qualifications": "MD, MSc",
+          "_updatedAt": "2024-02-09T00:19:49Z",
+          "_createdAt": "2024-02-08T23:49:15Z",
+          "_type": "practitioner",
+          "pronouns": "he/him",
           "headshot": {
             "hotspot": null,
             "_type": "richImage",
@@ -1402,26 +2224,46 @@
             {
               "_key": "f7a5c9759b1c",
               "_type": "block",
-              "style": "normal",
-              "markDefs": [],
               "children": [
                 {
-                  "_key": "fbf4f0551b850",
                   "_type": "span",
                   "marks": [],
-                  "text": "I try to really listen to my patients—to understand them as people: what drives them, what they're worried about and what's really going on in their lives."
+                  "text": "I try to really listen to my patients—to understand them as people: what drives them, what they're worried about and what's really going on in their lives.",
+                  "_key": "fbf4f0551b850"
                 }
-              ]
+              ],
+              "style": "normal",
+              "markDefs": []
             }
           ],
-          "slug": { "current": "bennett-weiss", "_type": "slug" },
-          "_createdAt": "2024-02-08T23:49:15Z",
-          "qualifications": "MD, MSc",
-          "title": "Primary Care Provider",
-          "pronouns": "he/him"
+          "name": "Bennett Weiss",
+          "_id": "5fc2b2f0-bfc2-4966-87b2-0cde955f8453"
         },
         {
+          "blurb": [
+            {
+              "_key": "ea60c8c9de4c",
+              "_type": "block",
+              "children": [
+                {
+                  "marks": [],
+                  "text": "All it took was an 8th grade anatomy class for me to realize I wanted to pursue a career in healthcare. Since then, I’ve dedicated myself to providing patients the individualized care they deserve. My commitment to giving people the support they need in their healthcare journey inspired me to join the Firefly team, providing primary care centered around each patient’s unique needs.",
+                  "_key": "6bd7b98608000",
+                  "_type": "span"
+                }
+              ],
+              "style": "normal",
+              "markDefs": []
+            }
+          ],
+          "qualifications": "MD, MPH",
+          "title": "Physician",
+          "_id": "10c09c10-335c-4b5b-a700-4747717841e5",
+          "_createdAt": "2024-02-08T23:56:35Z",
+          "_type": "practitioner",
+          "pronouns": "she/her/hers",
           "headshot": {
+            "altText": "Portrait of Riso Macdonald",
             "crop": null,
             "hotspot": null,
             "_type": "richImage",
@@ -1435,206 +2277,117 @@
                 "dimensions": { "aspectRatio": 1, "width": 800, "height": 800 }
               }
             },
-            "caption": null,
-            "altText": "Portrait of Riso Macdonald"
+            "caption": null
           },
-          "_id": "10c09c10-335c-4b5b-a700-4747717841e5",
-          "name": "Rosio Macdonald",
-          "slug": { "current": "rosio-macdonald", "_type": "slug" },
-          "blurb": [
-            {
-              "_key": "ea60c8c9de4c",
-              "_type": "block",
-              "markDefs": [],
-              "children": [
-                {
-                  "_type": "span",
-                  "marks": [],
-                  "text": "All it took was an 8th grade anatomy class for me to realize I wanted to pursue a career in healthcare. Since then, I’ve dedicated myself to providing patients the individualized care they deserve. My commitment to giving people the support they need in their healthcare journey inspired me to join the Firefly team, providing primary care centered around each patient’s unique needs.",
-                  "_key": "6bd7b98608000"
-                }
-              ],
-              "style": "normal"
-            }
-          ],
-          "qualifications": "MD, MPH",
-          "title": "Physician",
-          "pronouns": "she/her/hers",
-          "_createdAt": "2024-02-08T23:56:35Z",
           "_updatedAt": "2024-02-09T00:20:25Z",
-          "_type": "practitioner"
+          "name": "Rosio Macdonald",
+          "slug": { "current": "rosio-macdonald", "_type": "slug" }
         }
       ]
-    }
-  },
-  "navigationExample": {
-    "globalNav": {
-      "_id": "92c15b20-9ba5-4da7-9484-4b36adfcfde6",
-      "_type": "navigation",
-      "navGroup": [
-        {
-          "_type": "labelWithDropdown",
-          "_key": "1c734079d92a",
-          "label": "For Businesses",
-          "subpages": [
-            {
-              "_type": "subpage",
-              "_key": "448bb68e627e",
-              "label": "For Members",
-              "link": {
-                "_updatedAt": "2024-02-07T23:23:03Z",
+    },
+    "imageTextOverlapBlock": {
+      "_type": "imageTextOverlapBlock",
+      "header": {
+        "_type": "contentBlockHeader",
+        "title": "If you want to make healthcare better, you’ve got to be all in. That’s why our payment rides on your wellness. Bold? You bet. But when it comes to care, accountability counts for everything.",
+        "description": null,
+        "cta": null
+      },
+      "image": {
+        "_type": "richImage",
+        "_key": null,
+        "asset": {
+          "_id": "image-21820f0a4428c37c61cd07aae1718a06e97c320d-2500x1945-png",
+          "_type": "sanity.imageAsset",
+          "url": "https://cdn.sanity.io/images/xgbrv2vi/production/21820f0a4428c37c61cd07aae1718a06e97c320d-2500x1945.png",
+          "metadata": {
+            "lqip": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAPCAIAAABr+ngCAAAACXBIWXMAAAsTAAALEwEAmpwYAAADnklEQVQokQGTA2z8ANa0vt6knu5+Uup3R9iZkNaqttmqtteuutawvdawvtyjrux4fPdZWu1sc9ubqNeyvtest8+BisZOVMY/RADOp8PXlqboblvkaVDTipXXkKzciqXUm7nOosTMn8HRnLrfh5/rcoXjfpbWmrnSpsbSoL3Ke4zCT1HCQj8AzZzKzYquz2Bnzlxez36d2Xuk3XKX0426yJTKwo7DyJTC1JXD2o+92JHA1JfI05rO05XE0nqMz1lK0E83ANCU0cSGuKtkfa9ke8h/rc11pspqlsyDuMaIu7+Bs8WKvs+Tz9GSz8yJvcmFtc2MxdOPyN1/judqQupiLADVlNLKkMm1ga26g7DKjMa4d62raprChKjLiJDIforMg6XQkcfLjsa7dpi0aoK/fKbOkMjei57veU73cCsA4I663J7Q1qHU2KHW1J3UuIW4q3qlx5GV0JFxz4l91ImN04+qx463s3OFqmNqtXWNxpHC0pS83oWB53hWAOZ6keGYw9+j2Nyf1taa0saNx8KMs9CUhcWEbbyDisOBgcV3fcF8lr12eLpuYLJwe6l6raZ9u6l3qKxwkwDec3DWiLLRjc/Lic3Fg8u+f8fDhKfLgnKua3KYY3+iW16tUku2YmDQfFXdg0a7c2CDXo1rWJ1qV5lpVpQAzYBWyIajxobBwYG9t3vDrXa5sm+Fu2pdpGhxjWFmiEg9jzwqoVAyznwy7JMzyH9Uf2CGYVWXXlSSXVSPALqETMeMkNWOmNaKjMWDoadzm5ZWYaVWSqt1YJt6X35USG44Knc8H6JcI9V9M86BX510kIdvn4VunIRtmwCjeVDQkXjvl2rzlFjciGqfZmdwP0B9QjOZakWog2CfeGWBVkJhNiFqNRyeUzHIe2TKkYzEk5TDkpLCkpEAlWxR2ZNo+5hc/ZJM3IFKhlE9Ti8qWjgri2E8wZBW2aRsxo5fi1o5WzIeZzglqW9N36Jt77B28a978q99AKN0Wd+TaPmIYPt9VdJtSXVAMFU0LX9XRLeFVtykXuyxbu6vdcuQX4NUN1w4IY1lLNKiOO+6R/i6Y/m2dwDSi3zijXrebmLlXVTIU0h7OTR/SUW7fXHZm4Hdn37foYPlpYndnYKqcV5zSzCFZR20lBbSsCHjslHpqX8A742f2n2OtFhfvEZIuEBAgzc3l1NdyH2Q04qd0Ymb0oqb04ub0omYtHJ5flNBc1kmiXIaqYwdyZhP25SMmXUIsMbcIbgAAAAASUVORK5CYII=",
+            "dimensions": {
+              "aspectRatio": 1.2853470437017995,
+              "width": 2500,
+              "height": 1945
+            }
+          }
+        },
+        "caption": null,
+        "altText": "Digital illustration of two hands surrounded by mirrors, holding a piece of rectangular glass.",
+        "crop": null,
+        "hotspot": null
+      },
+      "copy": null
+    },
+    "imageBlock": {
+      "_type": "imageBlock",
+      "_key": null,
+      "header": {
+        "_type": "contentBlockHeader",
+        "title": "Meet some of the team behind Firefly",
+        "description": [
+          {
+            "_key": "398559639a21",
+            "_type": "block",
+            "style": "normal",
+            "markDefs": [],
+            "children": [
+              {
+                "_type": "span",
+                "marks": [],
+                "text": "Change in healthcare demands vision and persistence. Heart and resilience. Our Care Team infuses the Firefly culture with a balance of focused intensity, genuine caring, and earned wisdom.",
+                "_key": "dd25ef59bbec0"
+              }
+            ]
+          }
+        ],
+        "cta": {
+          "label": "Our care team",
+          "ariaLabel": null,
+          "variant": "primary",
+          "id": "care-team-cta",
+          "link": {
+            "documentLink": {
+              "_id": "f5bd2bcc-f8e4-443c-9a30-14b16e505dd8",
+              "_createdAt": "2024-01-11T00:13:00Z",
+              "_updatedAt": "2024-01-31T16:37:09Z",
+              "_type": "subPage",
+              "slug": { "current": "care-team", "_type": "slug" },
+              "title": "Care Team",
+              "parentPage": {
                 "_type": "genericPage",
-                "slug": { "current": "test-page", "_type": "slug" },
-                "title": "Test Page",
-                "_id": "a5a3f11b-8942-4df9-a10d-6e3c0e76aba5",
-                "_createdAt": "2024-01-17T20:08:28Z"
+                "title": "About",
+                "slug": { "current": "about", "_type": "slug" }
               }
             },
-            {
-              "_type": "subpage",
-              "_key": "ee610766c1eb",
-              "label": "Press",
-              "link": {
-                "_id": "abe3bd78-f079-4051-b0cf-52c440ae9756",
-                "_createdAt": "2024-01-26T15:08:13Z",
-                "_updatedAt": "2024-01-29T17:01:21Z",
-                "_type": "genericPage",
-                "slug": { "current": "individuals", "_type": "slug" },
-                "title": "Individuals"
-              }
-            }
-          ]
-        },
-        {
-          "_type": "labelWithDropdown",
-          "_key": "e22a5f48e2b5",
-          "label": "Stories",
-          "subpages": [
-            {
-              "_type": "subpage",
-              "_key": "2f30af252362",
-              "label": "For Members",
-              "link": {
-                "_updatedAt": "2024-01-29T19:38:54Z",
-                "_type": "genericPage",
-                "slug": { "current": "how-it-works", "_type": "slug" },
-                "title": "How It Works",
-                "_id": "fce46946-009b-481d-b511-a3b731dca248",
-                "_createdAt": "2024-01-11T18:52:57Z"
-              }
-            }
-          ]
-        }
-      ],
-      "showNavCTA": true
-    },
-    "doubleCta": {
-      "_type": "doubleCta",
-      "ctaOne": {
-        "link": {
-          "documentLink": null,
-          "_type": "link",
-          "_key": null,
-          "externalUrl": "https://members.firefly.health",
-          "file": null
-        },
-        "eyebrow": "For Individuals",
-        "label": "Sign up",
-        "id": "double-cta-one-example",
-        "ariaLabel": "Sign up to start using Firefly"
-      },
-      "ctaTwo": {
-        "label": "Get in touch",
-        "id": "double-cta-two-example",
-        "ariaLabel": "Get in touch with Firefly",
-        "link": {
-          "_key": null,
-          "externalUrl": null,
-          "file": null,
-          "documentLink": {
-            "_id": "contactPage",
-            "_createdAt": "2024-01-11T19:39:00Z",
-            "_updatedAt": "2024-02-01T15:33:32Z",
-            "_type": "contactPage"
+            "_type": "link",
+            "_key": null,
+            "externalUrl": null,
+            "file": null
           },
-          "_type": "link"
+          "_type": "cta"
+        }
+      },
+      "image": {
+        "asset": {
+          "_id": "image-3a4e7a43978072d61ccdb0827d3295d4f9b67c5a-3564x1422-png",
+          "_type": "sanity.imageAsset",
+          "url": "https://cdn.sanity.io/images/xgbrv2vi/production/3a4e7a43978072d61ccdb0827d3295d4f9b67c5a-3564x1422.png",
+          "metadata": {
+            "lqip": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAYAAAD5nd/tAAAACXBIWXMAABYlAAAWJQFJUiTwAAACUElEQVQokR2M309SARxH7//VW6u2XD2k5VAbtcTMpUYT80c6TFGbEv5Ag9QUDLjXK5C6IkQcOBTNLJUUuWYokjathOgqMMf30/ThbOflHGZnZ5t80y4y6rWw8xwJggBRFJHJZEBE55x5Op1GIpHAj+gu1leXsSVs4OjoD5LJE0olk0inUnR6ekrMZmiDpkcNpHv6EJqGavLNeM/Ds1E6lcJ+NAJhbQWR8BYi22HMOifwVqeG12ZCWAhiLxKmzeV5bK0u0sF+lBghuAb/SB+MlVKqk0nAvTFiL7oLMfEXP6MRuOwWDL1Qwj3GIbC0AKehF/aGcvgGOxBcnMVn7yQ8Bg3NmLqx7JsC830zRF8mhslaV4iagixSq5Twu94htODB1wUfHG96wbaUwcP3I/BxDm7jSzib5FhldQj6PXCY9MQ3lmK8vZKcZj0x7kkHuYe7aFRZiCd5V0heJAWrfY45cw8+fbBhyWWF36KGl+/DuNUKXXMTDFUlmLe8wtLMFAY7m0lVIkF7RSF1qWqJaVLWQ/tMgZ7aYiqT5uB2bjYaK0pgUCnA9rbB47Bj1mnDgLYTRfcrcD0rD0W3JNAo62EaMqKzvRWKUhkpyh+gWiEHYzGbyDZipjHegqGBfqqpqsTd/Ju4l3sNj4rvgOfMCKytY9hsR55UjktXpbiRI4NM9hgtrd1gWZ54nsMIxxLHscSIopj5J4p0fHyCw8MD4lgTCiQ5uHzxAvIl2eBYMw5//cZKIAT9AIdWdR/aOl5DozWA5d8jGPpGsVgM8Xic4vEY/QckMOKcHRW/tAAAAABJRU5ErkJggg==",
+            "dimensions": {
+              "aspectRatio": 2.5063291139240507,
+              "width": 3564,
+              "height": 1422
+            }
+          }
         },
-        "eyebrow": "For Businesses"
+        "caption": null,
+        "altText": "Portraits of members from the Firefly Care Team",
+        "crop": null,
+        "hotspot": null,
+        "_type": "richImage",
+        "_key": null
       }
     }
   },
-  "simpleRichText": [
-    {
-      "style": "normal",
-      "_key": "ba1ffe54724a",
-      "markDefs": [],
-      "children": [
-        {
-          "_type": "span",
-          "marks": [],
-          "text": "Some simple rich text with ",
-          "_key": "b8201dbc36e3"
-        },
-        {
-          "_type": "span",
-          "marks": ["strong", "em"],
-          "text": "bold, ",
-          "_key": "4aca0acaf27c"
-        },
-        {
-          "_type": "span",
-          "marks": ["em"],
-          "text": "italic",
-          "_key": "aaa0b6c86420"
-        },
-        {
-          "marks": [],
-          "text": ", and ",
-          "_key": "2e48a5b64bff",
-          "_type": "span"
-        },
-        {
-          "marks": ["underline"],
-          "text": "underlined",
-          "_key": "9604f46b64f7",
-          "_type": "span"
-        },
-        {
-          "_type": "span",
-          "marks": [],
-          "text": " text.",
-          "_key": "1003654503b2"
-        }
-      ],
-      "_type": "block"
-    },
-    {
-      "markDefs": [],
-      "children": [
-        {
-          "text": "A second line with ",
-          "_key": "1a12600685dd",
-          "_type": "span",
-          "marks": []
-        },
-        {
-          "marks": ["strong", "em", "underline"],
-          "text": "combined ",
-          "_key": "26b3a9714de2",
-          "_type": "span"
-        },
-        {
-          "_type": "span",
-          "marks": ["em", "underline"],
-          "text": "styles",
-          "_key": "fc363ff2e319"
-        }
-      ],
-      "_type": "block",
-      "style": "normal",
-      "_key": "caacdb79d913"
-    }
-  ],
   "imageExamples": [
     {
       "label": "Download",
@@ -1663,8 +2416,6 @@
     {
       "label": "Download - Vertical Crop",
       "image": {
-        "_type": "richImage",
-        "_key": null,
         "asset": {
           "_id": "image-21820f0a4428c37c61cd07aae1718a06e97c320d-2500x1945-png",
           "_type": "sanity.imageAsset",
@@ -1681,37 +2432,40 @@
         "caption": null,
         "altText": "A trippy image of two hands holding a phone-shaped pane of glass",
         "crop": {
+          "top": 0,
+          "left": 0.21564885496183217,
           "bottom": 0,
           "_type": "sanity.imageCrop",
-          "right": 0.2709923664122138,
-          "top": 0,
-          "left": 0.21564885496183217
+          "right": 0.2709923664122138
         },
         "hotspot": {
+          "width": 0.4751908396946564,
           "x": 0.47232824427480924,
           "y": 0.5,
           "height": 1,
-          "_type": "sanity.imageHotspot",
-          "width": 0.4751908396946564
-        }
+          "_type": "sanity.imageHotspot"
+        },
+        "_type": "richImage",
+        "_key": null
       }
     },
     {
       "label": "Download - upper-right hot spot",
       "image": {
+        "altText": "A trippy image of two hands holding a phone-shaped pane of glass",
         "crop": {
-          "top": 0,
-          "left": 0,
           "bottom": 0,
           "_type": "sanity.imageCrop",
-          "right": 0
+          "right": 0,
+          "top": 0,
+          "left": 0
         },
         "hotspot": {
+          "_type": "sanity.imageHotspot",
           "width": 0.1870229007633585,
           "x": 0.9064885496183208,
           "y": 0.11488647736415543,
-          "height": 0.22977295472831086,
-          "_type": "sanity.imageHotspot"
+          "height": 0.22977295472831086
         },
         "_type": "richImage",
         "_key": null,
@@ -1728,773 +2482,7 @@
             }
           }
         },
-        "caption": null,
-        "altText": "A trippy image of two hands holding a phone-shaped pane of glass"
-      }
-    }
-  ],
-  "videoExample": {
-    "_type": "video",
-    "videoLink": "https://vimeo.com/861981495",
-    "posterImage": {
-      "asset": {
-        "_id": "image-21820f0a4428c37c61cd07aae1718a06e97c320d-2500x1945-png",
-        "_type": "sanity.imageAsset",
-        "url": "https://cdn.sanity.io/images/xgbrv2vi/production/21820f0a4428c37c61cd07aae1718a06e97c320d-2500x1945.png",
-        "metadata": {
-          "lqip": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAPCAIAAABr+ngCAAAACXBIWXMAAAsTAAALEwEAmpwYAAADnklEQVQokQGTA2z8ANa0vt6knu5+Uup3R9iZkNaqttmqtteuutawvdawvtyjrux4fPdZWu1sc9ubqNeyvtest8+BisZOVMY/RADOp8PXlqboblvkaVDTipXXkKzciqXUm7nOosTMn8HRnLrfh5/rcoXjfpbWmrnSpsbSoL3Ke4zCT1HCQj8AzZzKzYquz2Bnzlxez36d2Xuk3XKX0426yJTKwo7DyJTC1JXD2o+92JHA1JfI05rO05XE0nqMz1lK0E83ANCU0cSGuKtkfa9ke8h/rc11pspqlsyDuMaIu7+Bs8WKvs+Tz9GSz8yJvcmFtc2MxdOPyN1/judqQupiLADVlNLKkMm1ga26g7DKjMa4d62raprChKjLiJDIforMg6XQkcfLjsa7dpi0aoK/fKbOkMjei57veU73cCsA4I663J7Q1qHU2KHW1J3UuIW4q3qlx5GV0JFxz4l91ImN04+qx463s3OFqmNqtXWNxpHC0pS83oWB53hWAOZ6keGYw9+j2Nyf1taa0saNx8KMs9CUhcWEbbyDisOBgcV3fcF8lr12eLpuYLJwe6l6raZ9u6l3qKxwkwDec3DWiLLRjc/Lic3Fg8u+f8fDhKfLgnKua3KYY3+iW16tUku2YmDQfFXdg0a7c2CDXo1rWJ1qV5lpVpQAzYBWyIajxobBwYG9t3vDrXa5sm+Fu2pdpGhxjWFmiEg9jzwqoVAyznwy7JMzyH9Uf2CGYVWXXlSSXVSPALqETMeMkNWOmNaKjMWDoadzm5ZWYaVWSqt1YJt6X35USG44Knc8H6JcI9V9M86BX510kIdvn4VunIRtmwCjeVDQkXjvl2rzlFjciGqfZmdwP0B9QjOZakWog2CfeGWBVkJhNiFqNRyeUzHIe2TKkYzEk5TDkpLCkpEAlWxR2ZNo+5hc/ZJM3IFKhlE9Ti8qWjgri2E8wZBW2aRsxo5fi1o5WzIeZzglqW9N36Jt77B28a978q99AKN0Wd+TaPmIYPt9VdJtSXVAMFU0LX9XRLeFVtykXuyxbu6vdcuQX4NUN1w4IY1lLNKiOO+6R/i6Y/m2dwDSi3zijXrebmLlXVTIU0h7OTR/SUW7fXHZm4Hdn37foYPlpYndnYKqcV5zSzCFZR20lBbSsCHjslHpqX8A742f2n2OtFhfvEZIuEBAgzc3l1NdyH2Q04qd0Ymb0oqb04ub0omYtHJ5flNBc1kmiXIaqYwdyZhP25SMmXUIsMbcIbgAAAAASUVORK5CYII=",
-          "dimensions": {
-            "aspectRatio": 1.2853470437017995,
-            "width": 2500,
-            "height": 1945
-          }
-        }
-      },
-      "caption": "Poster Image",
-      "altText": "Digital illustration of two hands surrounded by mirrors, holding a piece of rectangular glass.",
-      "crop": null,
-      "hotspot": null,
-      "_type": "richImage",
-      "_key": null
-    }
-  },
-  "articleRichText": [
-    {
-      "_type": "block",
-      "markDefs": [],
-      "children": [
-        {
-          "_type": "span",
-          "marks": [],
-          "text": "Good and Bad Cholesterol",
-          "_key": "2a6c1fa8737d"
-        }
-      ],
-      "style": "h2",
-      "_key": "f9549c2e94e7"
-    },
-    {
-      "_type": "block",
-      "style": "blockquote-large",
-      "markDefs": [],
-      "children": [
-        {
-          "_type": "span",
-          "marks": [],
-          "text": "It gets a bad rap, but cholesterol isn't always the villain. Your body actually needs cholesterol to survive and perform essential functions, such as building cells and making hormones. But, as is often the case, too much of a good thing can be bad for your health. Because high cholesterol is a major risk factor for heart disease and stroke, we’re breaking down the facts on cholesterol below.",
-          "_key": "57cbd81c29270"
-        }
-      ],
-      "_key": "1329dde686d3"
-    },
-    {
-      "caption": "On the chopping block",
-      "asset": {
-        "_id": "image-f61844b18db6925d6c1bb81512ee450d9224dc4a-3272x2177-png",
-        "_type": "sanity.imageAsset",
-        "url": "https://cdn.sanity.io/images/xgbrv2vi/production/f61844b18db6925d6c1bb81512ee450d9224dc4a-3272x2177.png",
-        "metadata": {
-          "lqip": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAIAAAAmMtkJAAAACXBIWXMAAAsTAAALEwEAmpwYAAADJElEQVQokQEZA+b8AJWIhJOBe4NtZXtqYIl5cJ6OiK2cmbain8Svq9PCvtbMysW9vrmrq7mpq7musLausLOsrrGpq7CmqK6jpQCHbGSCXFB5UEB2Tz98VkaHYVOQal2ZbmGneWu1joS5oJqslZCkgHmtiYS4pKS3r7G1rbCzqqyxp6mwpacAc0w/cUM0bz8ucEIydkw+fFZKgV5Th15SkmVXoX5zqY+Ho4N5oXFksn1xv5uVu6uruK6vt6yutKqrsqeqAGdMRXZXUHpaUH1cVIRpYodtZ4x0bpF4cpeAeKuVi7iXiLOBa7RzXMF+ZMWOd7SViLCemLmmorOgna6dmgBwZ2iFeXmPgH6QfnyQfXqKdG+LdG+NdW6Sem+pjXu2jnWqdVijbE6oeFinfF2ScVqPdGWhgnWfe26eemwAg4CDhoGCioGBkoWFkoF/hW9pgmRbflxOhGRPnYZqp5Fzl3pXg2U/eFw8dFc9blA4bEw5d1JCflVEg1lFAIWChG1oZ15XVXVpZohybH5eU3VNP3FIN3dZP4d6VI6FWIhzQXVcKWRJI146Il44I104JVo4KWA+MGRBMQCBfHxcVVFANS9WQTdyT0FqQzRdNylZNylfQy9sWTd0ZTNzWCRpSBppRiBxQSZ0QCZoOyROMB9FKx9KLSEAfXNoY1RLVD0yYT0ubEEuZTopXTcnXTgoXTkoZEIqbEwoaUUeZjsYdEUfiVIolFkph1IlYTsaPSIRNBsRAGxcSHFbS3lYS4FPP4NIM4JJMIJPMoNSM4JRLoFPKYFOI4RNG4pQGZdcHqVnIapqHaRmG4xWFmI5EUYlEQBgUUJ5ZVqWd2+cXk6WQiqXSSejYi6ucSuzdCKwcB2saxqtahq0ch69fyu+gjK1eSitbh6lZhmSWBV9SRYAeGtoh3Nuo4aBp29jjT8sfTUZl1ccvnoWyoALxHwOu3kctHMjvX4q0ZlD1qVWyZZOsXo3oWcnnF8cmlsUAI+DhZB0cKeCfqyGgH5SSVcrHHVDE7RzDMp+BMF4ELJ0KqdsL7p9MNmjTuW3aN6vY7+MSp1oNpFZJ5RYGuMqUudOyK6wAAAAAElFTkSuQmCC",
-          "dimensions": {
-            "aspectRatio": 1.5029857602204868,
-            "width": 3272,
-            "height": 2177
-          }
-        }
-      },
-      "crop": null,
-      "hotspot": null,
-      "markDefs": null,
-      "_key": "85be266514e5",
-      "_type": "richImage",
-      "altText": "A person holding a kitchen knife over some chopped vegetables"
-    },
-    {
-      "_key": "ae870c9982f1",
-      "_type": "block",
-      "markDefs": [],
-      "children": [
-        {
-          "_type": "span",
-          "marks": [],
-          "text": "What is Cholesterol, anyway?",
-          "_key": "6d8a53e1302e"
-        }
-      ],
-      "style": "h3"
-    },
-    {
-      "_key": "a7386fd97ecb",
-      "_type": "block",
-      "markDefs": [],
-      "children": [
-        {
-          "_type": "span",
-          "marks": [],
-          "text": "When it comes to high cholesterol, the best treatment is prevention. Since high cholesterol is often the result of your lifestyle choices, there are ways you can help keep it in check by simply making healthy lifestyle choices.",
-          "_key": "d8dcaf64e2a60"
-        }
-      ],
-      "style": "normal"
-    },
-    {
-      "_type": "block",
-      "markDefs": [],
-      "children": [
-        {
-          "_type": "span",
-          "marks": [],
-          "text": "Two types of Cholesterol",
-          "_key": "22b597d9117e"
-        }
-      ],
-      "style": "h4",
-      "_key": "b7855f92fb00"
-    },
-    {
-      "style": "normal",
-      "listItem": "number",
-      "markDefs": [],
-      "children": [
-        {
-          "_type": "span",
-          "marks": [],
-          "text": "The good kind",
-          "_key": "30a54005c774"
-        }
-      ],
-      "_key": "e8ef046a9e1e",
-      "_type": "block",
-      "level": 1
-    },
-    {
-      "listItem": "number",
-      "markDefs": [],
-      "children": [
-        {
-          "_type": "span",
-          "marks": [],
-          "text": "The bad kind",
-          "_key": "4f2ba1f42b30"
-        }
-      ],
-      "level": 1,
-      "_key": "b039500d241d",
-      "_type": "block",
-      "style": "normal"
-    },
-    {
-      "style": "h4",
-      "markDefs": [],
-      "_key": "77296c9625db",
-      "_type": "block",
-      "children": [
-        {
-          "_type": "span",
-          "marks": [],
-          "text": "Fun Cholesterol Facts",
-          "_key": "fdc875ebdf09"
-        }
-      ]
-    },
-    {
-      "level": 1,
-      "_key": "38aff29e4632",
-      "_type": "block",
-      "style": "normal",
-      "listItem": "bullet",
-      "markDefs": [],
-      "children": [
-        {
-          "_type": "span",
-          "marks": [],
-          "text": "It is often misspelled.",
-          "_key": "675f0342bde7"
-        }
-      ]
-    },
-    {
-      "listItem": "bullet",
-      "markDefs": [],
-      "_key": "d2b90adb4e97",
-      "_type": "block",
-      "children": [
-        {
-          "_type": "span",
-          "marks": [],
-          "text": "The word ",
-          "_key": "18208473612e"
-        },
-        {
-          "_type": "span",
-          "marks": ["em"],
-          "text": "cholesterol",
-          "_key": "05b12cd8b11a1"
-        },
-        {
-          "_key": "05b12cd8b11a2",
-          "_type": "span",
-          "marks": [],
-          "text": " comes from Ancient Greek "
-        },
-        {
-          "_type": "span",
-          "marks": ["em"],
-          "text": "chole-",
-          "_key": "05b12cd8b11a3"
-        },
-        {
-          "_type": "span",
-          "marks": [],
-          "text": " 'bile' and ",
-          "_key": "05b12cd8b11a4"
-        },
-        {
-          "_type": "span",
-          "marks": ["em"],
-          "text": "stereos",
-          "_key": "05b12cd8b11a5"
-        },
-        {
-          "_type": "span",
-          "marks": [],
-          "text": " 'solid', followed by the chemical suffix ",
-          "_key": "05b12cd8b11a6"
-        },
-        {
-          "text": "-ol",
-          "_key": "05b12cd8b11a7",
-          "_type": "span",
-          "marks": ["em"]
-        },
-        {
-          "_type": "span",
-          "marks": [],
-          "text": " for an alcohol.",
-          "_key": "05b12cd8b11a8"
-        }
-      ],
-      "level": 1,
-      "style": "normal"
-    },
-    {
-      "_key": "02f616b62bb9",
-      "_type": "block",
-      "style": "blockquote",
-      "markDefs": [],
-      "children": [
-        {
-          "text": "The best treatment for high cholesterol is prevention. This includes eating healthy foods, moving your body, and managing stress.",
-          "_key": "42fea3033a330",
-          "_type": "span",
-          "marks": []
-        }
-      ]
-    },
-    {
-      "_type": "block",
-      "children": [
-        {
-          "_type": "span",
-          "marks": ["710b11d36947"],
-          "text": "Read more on Wikipedia",
-          "_key": "f7732c0d2526"
-        },
-        {
-          "_key": "b712d1de4492",
-          "_type": "span",
-          "marks": [],
-          "text": " or "
-        },
-        {
-          "_type": "span",
-          "marks": ["ee04912cf484"],
-          "text": "read about the benefits of fiber",
-          "_key": "3a16b4bb47e0"
-        },
-        { "text": ".", "_key": "7794a95a7f49", "_type": "span", "marks": [] }
-      ],
-      "style": "normal",
-      "markDefs": [
-        {
-          "_key": "710b11d36947",
-          "_type": "link",
-          "link": {
-            "_type": "link",
-            "_key": null,
-            "externalUrl": "https://en.wikipedia.org/wiki/Cholesterol",
-            "file": null,
-            "documentLink": null
-          }
-        },
-        {
-          "_key": "ee04912cf484",
-          "_type": "link",
-          "link": {
-            "externalUrl": null,
-            "file": null,
-            "documentLink": {
-              "_type": "blogArticle",
-              "slug": {
-                "current": "the-many-health-benefits-of-fiber",
-                "_type": "slug"
-              },
-              "title": "The Many Health Benefits of Fiber",
-              "category": {
-                "_type": "blog",
-                "slug": { "current": "for-members", "_type": "slug" },
-                "title": "For Members"
-              },
-              "_id": "2efb1db1-1e1c-4367-9186-4c99a031f4a3",
-              "_createdAt": "2024-01-11T20:44:58Z",
-              "_updatedAt": "2024-01-18T16:54:25Z"
-            },
-            "_type": "link",
-            "_key": null
-          }
-        }
-      ],
-      "_key": "e543f2d84e8d"
-    },
-    {
-      "children": [
-        { "_type": "span", "marks": [], "text": "", "_key": "767b3ee04dc6" }
-      ],
-      "style": "normal",
-      "markDefs": [],
-      "_key": "b4c34e8658cc",
-      "_type": "block"
-    },
-    {
-      "_type": "block",
-      "markDefs": [],
-      "children": [
-        { "_type": "span", "marks": [], "text": "", "_key": "0bc636204428" }
-      ],
-      "style": "normal",
-      "_key": "55746b5f9652"
-    },
-    {
-      "_key": "9e6413a705f3",
-      "_type": "bigNumbers",
-      "bigNumbers": [
-        {
-          "description": [
-            {
-              "_type": "block",
-              "markDefs": [],
-              "children": [
-                {
-                  "marks": [],
-                  "text": "Firefly members interact with their team weekly",
-                  "_key": "f78b24e9a400",
-                  "_type": "span"
-                }
-              ],
-              "style": "normal",
-              "_key": "b028d373e6f0"
-            }
-          ],
-          "_key": "14adb8c35092",
-          "_type": "bigNumber",
-          "unit": null,
-          "value": 20000
-        },
-        {
-          "description": [
-            {
-              "markDefs": [],
-              "children": [
-                {
-                  "_type": "span",
-                  "marks": [],
-                  "text": "of Firefly members report improved health over 3 months",
-                  "_key": "eda7fb074999"
-                }
-              ],
-              "style": "normal",
-              "_key": "895118dbf2ba",
-              "_type": "block"
-            }
-          ],
-          "_key": "61b24ee5cd08",
-          "_type": "bigNumber",
-          "unit": { "unitValue": "%", "position": "after" },
-          "value": 65
-        },
-        {
-          "_key": "52b6e403a167",
-          "_type": "bigNumber",
-          "unit": { "unitValue": "$", "position": "before" },
-          "value": 2500,
-          "description": [
-            {
-              "children": [
-                {
-                  "_type": "span",
-                  "marks": [],
-                  "text": "average annual savings by Firefly members",
-                  "_key": "082d66bed68c"
-                }
-              ],
-              "_key": "c72c4ceb398f",
-              "_type": "block",
-              "style": "normal",
-              "markDefs": []
-            }
-          ]
-        }
-      ],
-      "markDefs": null
-    },
-    {
-      "_key": "e3f7fe567332",
-      "_type": "icon",
-      "icon": "firefly-nearby",
-      "markDefs": null
-    },
-    {
-      "_key": "aba8364ffedf",
-      "_type": "form",
-      "formId": "a6bbd062-c5e2-47f2-8ba4-33a62403bf07",
-      "markDefs": null
-    },
-    {
-      "_key": "048a1b09aaa7",
-      "_type": "barGraphObject",
-      "barOne": { "unit": 77, "description": "Firefly" },
-      "barTwo": { "unit": 49, "description": "Industry Standard" },
-      "markDefs": null
-    }
-  ],
-  "ctas": [
-    {
-      "label": "Learn More",
-      "ariaLabel": null,
-      "variant": "primary",
-      "id": "learn-more-example",
-      "link": {
-        "externalUrl": null,
-        "file": null,
-        "documentLink": {
-          "_type": "genericPage",
-          "slug": { "_type": "slug", "current": "about" },
-          "title": "About",
-          "_id": "edd5117c-0ac6-4140-9a0b-6ab84401f271",
-          "_createdAt": "2024-01-10T20:49:04Z",
-          "_updatedAt": "2024-01-28T21:59:36Z"
-        },
-        "_type": "link",
-        "_key": null
-      },
-      "_type": "cta"
-    },
-    {
-      "_type": "cta",
-      "label": "Get the Goods",
-      "ariaLabel": null,
-      "variant": "secondary",
-      "id": "cta-secondary-example",
-      "link": {
-        "_type": "link",
-        "_key": null,
-        "externalUrl": null,
-        "file": {
-          "asset": {
-            "originalFilename": "firefly-images.zip",
-            "url": "https://cdn.sanity.io/files/xgbrv2vi/production/30de3ea5e39fd240e183acae6a11bd2df3a91b0e.zip",
-            "extension": "zip",
-            "size": 19092790,
-            "_type": "sanity.fileAsset",
-            "_id": "file-30de3ea5e39fd240e183acae6a11bd2df3a91b0e-zip"
-          }
-        },
-        "documentLink": null
-      }
-    },
-    {
-      "variant": "outlined",
-      "id": "cta-example-outlined",
-      "link": {
-        "file": null,
-        "documentLink": {
-          "_id": "downloadPage",
-          "_createdAt": "2024-01-11T19:38:55Z",
-          "_updatedAt": "2024-02-01T15:30:03Z",
-          "_type": "downloadPage"
-        },
-        "_type": "link",
-        "_key": null,
-        "externalUrl": null
-      },
-      "_type": "cta",
-      "label": "Download",
-      "ariaLabel": "Download the Firefly Mobile app"
-    }
-  ],
-  "links": [
-    {
-      "_type": "linkWithLabel",
-      "_key": "6f603191d32e",
-      "label": "To External URL",
-      "link": {
-        "externalUrl": "https://www.sanctuary.computer",
-        "file": null,
-        "documentLink": null,
-        "_type": "link",
-        "_key": null
-      }
-    },
-    {
-      "_type": "linkWithLabel",
-      "_key": "a21b26cebea3",
-      "label": "File Download",
-      "link": {
-        "_key": null,
-        "externalUrl": null,
-        "file": {
-          "asset": {
-            "_type": "sanity.fileAsset",
-            "_id": "file-30de3ea5e39fd240e183acae6a11bd2df3a91b0e-zip",
-            "originalFilename": "firefly-images.zip",
-            "url": "https://cdn.sanity.io/files/xgbrv2vi/production/30de3ea5e39fd240e183acae6a11bd2df3a91b0e.zip",
-            "extension": "zip",
-            "size": 19092790
-          }
-        },
-        "documentLink": null,
-        "_type": "link"
-      }
-    },
-    {
-      "_type": "linkWithLabel",
-      "_key": "a7b121785e18",
-      "label": "To Homepage",
-      "link": {
-        "_type": "link",
-        "_key": null,
-        "externalUrl": null,
-        "file": null,
-        "documentLink": {
-          "_id": "homepage",
-          "_createdAt": "2024-01-10T20:42:11Z",
-          "_updatedAt": "2024-01-18T16:56:15Z",
-          "_type": "homepage"
-        }
-      }
-    },
-    {
-      "_type": "linkWithLabel",
-      "_key": "854666308a5a",
-      "label": "To Contact Page",
-      "link": {
-        "_key": null,
-        "externalUrl": null,
-        "file": null,
-        "documentLink": {
-          "_id": "contactPage",
-          "_createdAt": "2024-01-11T19:39:00Z",
-          "_updatedAt": "2024-02-01T15:33:32Z",
-          "_type": "contactPage"
-        },
-        "_type": "link"
-      }
-    },
-    {
-      "_type": "linkWithLabel",
-      "_key": "f8cb39204d36",
-      "label": "To Download Page",
-      "link": {
-        "_type": "link",
-        "_key": null,
-        "externalUrl": null,
-        "file": null,
-        "documentLink": {
-          "_id": "downloadPage",
-          "_createdAt": "2024-01-11T19:38:55Z",
-          "_updatedAt": "2024-02-01T15:30:03Z",
-          "_type": "downloadPage"
-        }
-      }
-    },
-    {
-      "_type": "linkWithLabel",
-      "_key": "b46e80fa1886",
-      "label": "To FAQ Page",
-      "link": {
-        "_type": "link",
-        "_key": null,
-        "externalUrl": null,
-        "file": null,
-        "documentLink": {
-          "_id": "faqPage",
-          "_createdAt": "2024-01-11T19:39:23Z",
-          "_updatedAt": "2024-02-01T15:34:10Z",
-          "_type": "faqPage"
-        }
-      }
-    },
-    {
-      "_type": "linkWithLabel",
-      "_key": "261c00985061",
-      "label": "To Generic Page",
-      "link": {
-        "_type": "link",
-        "_key": null,
-        "externalUrl": null,
-        "file": null,
-        "documentLink": {
-          "slug": { "current": "how-it-works", "_type": "slug" },
-          "title": "How It Works",
-          "_id": "fce46946-009b-481d-b511-a3b731dca248",
-          "_createdAt": "2024-01-11T18:52:57Z",
-          "_updatedAt": "2024-01-29T19:38:54Z",
-          "_type": "genericPage"
-        }
-      }
-    },
-    {
-      "_type": "linkWithLabel",
-      "_key": "5819dc756f12",
-      "label": "To Subpage",
-      "link": {
-        "file": null,
-        "documentLink": {
-          "_updatedAt": "2024-01-31T16:37:09Z",
-          "_type": "subPage",
-          "slug": { "current": "care-team", "_type": "slug" },
-          "title": "Care Team",
-          "parentPage": {
-            "_type": "genericPage",
-            "title": "About",
-            "slug": { "current": "about", "_type": "slug" }
-          },
-          "_id": "f5bd2bcc-f8e4-443c-9a30-14b16e505dd8",
-          "_createdAt": "2024-01-11T00:13:00Z"
-        },
-        "_type": "link",
-        "_key": null,
-        "externalUrl": null
-      }
-    },
-    {
-      "_type": "linkWithLabel",
-      "_key": "64204105f3bf",
-      "label": "To Blog",
-      "link": {
-        "_type": "link",
-        "_key": null,
-        "externalUrl": null,
-        "file": null,
-        "documentLink": {
-          "title": "For Members",
-          "_id": "70157e61-164b-461f-916f-82c16dc68408",
-          "_createdAt": "2024-01-11T20:44:40Z",
-          "_updatedAt": "2024-01-18T16:55:05Z",
-          "_type": "blog",
-          "slug": { "current": "for-members", "_type": "slug" }
-        }
-      }
-    },
-    {
-      "_type": "linkWithLabel",
-      "_key": "a44d2f4dc7b2",
-      "label": "To Blog Article",
-      "link": {
-        "_key": null,
-        "externalUrl": null,
-        "file": null,
-        "documentLink": {
-          "slug": {
-            "current": "the-many-health-benefits-of-fiber",
-            "_type": "slug"
-          },
-          "title": "The Many Health Benefits of Fiber",
-          "category": {
-            "_type": "blog",
-            "slug": { "current": "for-members", "_type": "slug" },
-            "title": "For Members"
-          },
-          "_id": "2efb1db1-1e1c-4367-9186-4c99a031f4a3",
-          "_createdAt": "2024-01-11T20:44:58Z",
-          "_updatedAt": "2024-01-18T16:54:25Z",
-          "_type": "blogArticle"
-        },
-        "_type": "link"
-      }
-    },
-    {
-      "_type": "linkWithLabel",
-      "_key": "49c5e26f2a7b",
-      "label": "To Client Page",
-      "link": {
-        "externalUrl": null,
-        "file": null,
-        "documentLink": {
-          "clientName": "Massachusetts Blue Cross",
-          "_id": "8c64c2fb-4c72-43ed-a843-4595b9af5880",
-          "_createdAt": "2024-01-11T20:24:17Z",
-          "_updatedAt": "2024-01-18T16:55:35Z",
-          "_type": "clientPage",
-          "slug": { "current": "massachusetts-blue-cross", "_type": "slug" }
-        },
-        "_type": "link",
-        "_key": null
-      }
-    },
-    {
-      "_type": "linkWithLabel",
-      "_key": "2f5dc7de202e",
-      "label": "To Practitioner",
-      "link": {
-        "_key": null,
-        "externalUrl": null,
-        "file": null,
-        "documentLink": {
-          "_id": "10c09c10-335c-4b5b-a700-4747717841e5",
-          "qualifications": "MD, MPH",
-          "pronouns": "she/her/hers",
-          "headshot": {
-            "_type": "richImage",
-            "_key": null,
-            "asset": {
-              "_id": "image-d950330dfdfac02edde78844586031900b28ac72-800x800-png",
-              "_type": "sanity.imageAsset",
-              "url": "https://cdn.sanity.io/images/xgbrv2vi/production/d950330dfdfac02edde78844586031900b28ac72-800x800.png",
-              "metadata": {
-                "lqip": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAIAAAAC64paAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEH0lEQVQ4jW3S/TdbdxwH8PxutTkHox5WJPKcm3tz7829kptEc0UWEcOo0pZIqoZpqXYtpR5Hm3W2cpQzyoputWrNHiprpce6rWPMDCchidx7Bb/sj9gJzlm603M+v32/r/N+fx9YNL0dNH6a3qWpXc8mtbSw9GzG/uzJzNLCktdD7S9tvzoMK4j5aWqHpnc3nO6Z6enP2q9fPld8obToVmuTw273bG4d7gnyB9hP0zs0Fcj0eZk5u/2T+pr6M6b6IsMHRsJiVNsaL/829zPl2+8V5FnBkqH31v5aHe+9Zas4MdVetTDY/uRmbWexoSZfP3qnx7nmYui9/+FDGRjfzq+zs7evVAyez/97uPWfn4apyduT18y1mXjb+bO/zDr2w3degxl6z+elZx5OdJWfGKnOWx64xkx+7hrtnKw31+jhqmzt/YG+/fD/mu/XpgKeofe23L7v7t/72JLzdV2R824LNX7D+UXzD01lDaYUKwl11lW+cDynfAd3FHxh1A5D73ndvunxkQ5LzoNLpzaGWjxDbas9V2carY1ZKcUq0cXTOY/G7m263AzzOux2eb4ZunMpj+wu0f/+ae1G//VFW+1YVU4ZwcuWJVTlG0b7e9ZWVl+tHTh2AK+vrA7a2k6pJBYl76u6kys9Hz1tsjSZ5Bn8t0lupNlADHbfXPlzmab9B+GHmKF3qa3tF0/trZXFJklcljC6u0T3vN3ab9blSWKJ+DfViWGZcHJDdfnU5OOFP5ZdLjdFBX5YoLPPu734cn7gRos5DTbwIvLBuD6r3tFmbs/FtAlvyY++gceFYgkReiVuLT3X1Nz1YGJqfd0VeCpqyz//crHX1lViUKYLovTJ4aV40tBZ/cPa3EoNTxF7BIoKkUaFSI6Gyfg8FCWUakP1hauzjjkWQ/udTs+Xd8cKTQYlOxKPDyU54RVKTl+BosMkM/Kj4JhQafQRaVQI/E4kKhaDkEIEKLNyTw+PjAfw/PxSY0MzKYfwhAgkPoxIDLfiiR0ZQHlKkjo5BmHHIexYBTc2FeCmyFApRAilKg2ZfaW+lUVT23a7o8xaoYZlKhEH5R6DEqPTxXFF8qQMkI1LJCgI4xBMoHICV8KwSggoBVI1JNcZswpZFMV8O/3jyUILKlNgcAoGyQBeoogdg/DjEUAMI2oYIxFch+DpMixNBKq4IlwgVQtBjQTSsCgf8+jx93kFFil8HMXTtMdJAgNFvGMyMRuBUUhOQrhehr8LYnoASeOLFRw+KgBUAkDNEWAsr9c3OjaRmX1GAmtRRboxIyPPlKpXgyQBIXKFGNJIUR0o1wEIKYJSk4VYEg/hA4QAUHH4GGtz093bN6hNf18MpUJyrS6N/LDYeNFiLHiPlKEKnlghgbUSWCsENXwJweYhSVxEIFUJpepkPvYvR+x2vvkxnfwAAAAASUVORK5CYII=",
-                "dimensions": { "aspectRatio": 1, "width": 800, "height": 800 }
-              }
-            },
-            "caption": null,
-            "altText": "Portrait of Riso Macdonald",
-            "crop": null,
-            "hotspot": null
-          },
-          "_createdAt": "2024-02-08T23:56:35Z",
-          "_updatedAt": "2024-02-09T00:20:25Z",
-          "_type": "practitioner",
-          "title": "Physician",
-          "blurb": [
-            {
-              "children": [
-                {
-                  "_type": "span",
-                  "marks": [],
-                  "text": "All it took was an 8th grade anatomy class for me to realize I wanted to pursue a career in healthcare. Since then, I’ve dedicated myself to providing patients the individualized care they deserve. My commitment to giving people the support they need in their healthcare journey inspired me to join the Firefly team, providing primary care centered around each patient’s unique needs.",
-                  "_key": "6bd7b98608000"
-                }
-              ],
-              "style": "normal",
-              "_key": "ea60c8c9de4c",
-              "_type": "block",
-              "markDefs": []
-            }
-          ],
-          "name": "Rosio Macdonald",
-          "slug": { "current": "rosio-macdonald", "_type": "slug" }
-        },
-        "_type": "link"
+        "caption": null
       }
     }
   ]
