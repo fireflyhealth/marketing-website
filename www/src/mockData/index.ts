@@ -14,6 +14,7 @@ import {
   PractitionersBlock,
   ImageTextOverlapBlock,
   QuoteBlock,
+  DrawerListBlock,
 } from '@/types/sanity';
 import mockData from './mockData.json';
 
@@ -48,6 +49,9 @@ export const practitionersBlockExample = {
       }),
     ),
 } as PractitionersBlock;
+
+export const drawerListBlockExample = mockData.contentBlockExamples
+  .drawerListBlock as DrawerListBlock;
 
 export const simpleRichText = mockData.simpleRichText as RichText;
 export const articleRichText = mockData.articleRichText as RichText;

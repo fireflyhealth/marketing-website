@@ -22,6 +22,18 @@ export const imageFragment = `
   hotspot
 `;
 
+export const responsiveImageSetFragment = `
+  desktop {
+    ${imageFragment}
+  },
+  tablet{
+    ${imageFragment}
+  },
+  mobile{
+    ${imageFragment}
+  },
+`;
+
 export const hubspotFormFragment = `
   _type,
   formId,
@@ -366,7 +378,30 @@ export const contentBlockFragment = `
   },
   _type == "imageTextOverlapBlock" => {${imageTextOverlapFragment}},
   _type == "quoteBlock" => {${quoteBlockFragment}},
-  _type == "videoHeader" => {${videoHeaderFragment}}
+  _type == "videoHeader" => {${videoHeaderFragment}},
+  _type == "drawerListBlock" => {
+    header {
+      ${contentBlockHeaderFragment}
+    },
+    drawerListItems[]{
+      _key,
+      _type,
+      title,
+      body[]{
+        ${richTextFragment}
+      },
+      ctaLink{
+        ${linkWithLabelFragment}
+      },
+      featuredImage{
+        ${imageFragment}
+      },
+      backgroundImage{
+        ${responsiveImageSetFragment}
+      },
+      backgroundColor
+    }
+  }
 `;
 
 export const headerAreaFragment = `

@@ -20,7 +20,8 @@ export const mockDataQuery = `
       doubleCtaBlockExample{${contentBlockFragment}},
       practitionersBlock{${contentBlockFragment}},
       imageTextOverlapBlock{${contentBlockFragment}},
-      quoteBlock{${contentBlockFragment}}
+      quoteBlock{${contentBlockFragment}},
+      drawerListBlock{${contentBlockFragment}}
     },
     navigationExample{
       globalNav->{${navigationFragment}},

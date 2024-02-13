@@ -234,7 +234,6 @@ export type BlogArticleLinkData = Pick<
 /* Navigation */
 export type LinkWithLabel = {
   _type: 'linkWithLabel';
-  _key: string;
   label: string;
   link: Link | LinkableDocument;
 };
@@ -280,6 +279,21 @@ export type RichImage = Omit<Image, '_type'> & {
   _type: 'richImage';
   altText: string;
   caption: Maybe<string>;
+};
+
+/* These are all typed as "maybe", but at least one is
+ * required in sanity. */
+export type ResponsiveImageSet = {
+  desktop: Maybe<RichImage>;
+  tablet: Maybe<RichImage>;
+  mobile: Maybe<RichImage>;
+};
+
+export type ColorSwatch = {
+  /* Name of the color, i.e. "Midnight" | "Sienna" */
+  label: string;
+  /* Value is a hex code */
+  value: string;
 };
 
 export type ImageCrop = {
@@ -420,7 +434,9 @@ export type ContentBlock =
   | CTACardsBlock
   | PractitionersBlock
   | ImageTextOverlapBlock
-  | QuoteBlock;
+  | QuoteBlock
+  | DoubleCtaBlock
+  | DrawerListBlock;
 
 export type ContentArea = KeyedArray<ContentBlock>;
 
@@ -508,4 +524,22 @@ export type QuoteBlock = {
   header: Maybe<ContentBlockHeader>;
   quoteObject: QuoteObject;
   cta: CTA;
+};
+export type DrawerListItem = {
+  _type: 'drawerListItem';
+  title: string;
+  body: RichText;
+  ctaLink: Maybe<LinkWithLabel>;
+  featuredImage: RichImage;
+} & (
+  | {
+      backgroundImage: ResponsiveImageSet;
+    }
+  | { backgroundColor: ColorSwatch }
+);
+
+export type DrawerListBlock = {
+  _type: 'drawerListBlock';
+  header: Maybe<ContentBlockHeader>;
+  drawerListItems: KeyedArray<DrawerListItem>;
 };
