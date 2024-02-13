@@ -14,7 +14,7 @@ import { SiteSettings } from './documents/siteSettings';
 import { Practitioner } from './documents/practitioner';
 
 import { Metadata } from './fields/metadata';
-import { RichImage } from './fields/images';
+import { ResponsiveImageSet, RichImage } from './fields/images';
 import { Link, LinkableDocument } from './fields/linking';
 import { CTA } from './fields/cta';
 import { SimpleRichText, ArticleRichText } from './fields/richText';
@@ -43,6 +43,7 @@ import { QuoteBlock } from './blocks/quoteBlock';
 import { VideoHeader } from './headers/videoHeader';
 import { PractitionersBlock } from './blocks/practitionersBlock';
 import { BigNumber, BigNumbers } from './fields/bigNumbers';
+import { DrawerListBlock, DrawerListItem } from './blocks/drawerListBlock';
 
 export const schemaTypes = [
   /* Document Types */
@@ -74,11 +75,14 @@ export const schemaTypes = [
   PractitionersBlock,
   ImageTextOverlapBlock,
   QuoteBlock,
+  DrawerListBlock,
+  DrawerListItem,
 
   /* Field Types */
   ContentBlockHeader,
   Metadata,
   RichImage,
+  ResponsiveImageSet,
   Link,
   LinkableDocument,
   CTA,

@@ -10,8 +10,15 @@ export const MockData = defineType({
   type: 'document',
   title: 'MockData',
   icon: icons.Code,
+  groups: [
+    { title: 'Navigation', name: 'navigation' },
+    { title: 'Rich Text', name: 'richText' },
+    { title: 'Content Blocks', name: 'contentBlocks' },
+    { title: 'Media', name: 'media' },
+  ],
   fields: [
     defineField({
+      group: 'navigation',
       name: 'navigationExample',
       type: 'object',
       fields: [
@@ -29,18 +36,21 @@ export const MockData = defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
+      group: 'richText',
       name: 'simpleRichText',
       type: 'simpleRichText',
       title: 'Simple Rich Text',
       validation: (Rule) => Rule.required(),
     }),
     defineField({
+      group: 'richText',
       name: 'articleRichText',
       type: 'articleRichText',
       title: 'Article Rich Text',
       validation: (Rule) => Rule.required(),
     }),
     defineField({
+      group: 'contentBlocks',
       name: 'contentBlockExamples',
       title: 'Content Blocks',
       type: 'object',
@@ -119,6 +129,11 @@ export const MockData = defineType({
           name: 'quoteBlock',
           type: 'quoteBlock',
           title: 'Quote Block',
+        }),
+        defineField({
+          name: 'drawerListBlock',
+          type: 'drawerListBlock',
+          title: 'Drawer List Block',
           options: {
             collapsible: true,
             collapsed: true,
@@ -128,6 +143,7 @@ export const MockData = defineType({
       ],
     }),
     defineField({
+      group: 'media',
       title: 'Image Examples',
       name: 'imageExamples',
       type: 'array',
@@ -159,17 +175,20 @@ export const MockData = defineType({
       ],
     }),
     defineField({
+      group: 'media',
       name: 'videoExample',
       title: 'Video Example',
       type: 'video',
     }),
     defineField({
+      group: 'navigation',
       name: 'links',
       title: 'Link Examples',
       type: 'array',
       of: [{ type: 'linkWithLabel' }],
     }),
     defineField({
+      group: 'navigation',
       name: 'ctas',
       title: 'CTA Examples',
       type: 'array',

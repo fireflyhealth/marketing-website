@@ -1,4 +1,5 @@
 import { defineField } from 'sanity';
+
 /**
  * An image with an additional caption field
  * and enabled hotspot/cropping
@@ -90,4 +91,31 @@ export const RichImage = defineField({
         : { title: altText, media: asset };
     },
   },
+});
+
+export const ResponsiveImageSet = defineField({
+  name: 'responsiveImageSet',
+  title: 'Responsive Image Set',
+  type: 'object',
+  description:
+    'Provide alternate images to use at different screen sizes. Only one is required.',
+  validation: (Rule) =>
+    Rule.custom((value?: Record<string, { asset: any } | undefined>) => {
+      if (
+        !value?.desktop?.asset &&
+        !value?.tablet?.asset &&
+        !value?.mobile?.asset
+      ) {
+        return 'You must provide at least one image';
+      }
+      return true;
+    }),
+  fields: [
+    defineField({
+      name: 'desktop',
+      type: 'richImage',
+    }),
+    defineField({ name: 'tablet', type: 'richImage' }),
+    defineField({ name: 'mobile', type: 'richImage' }),
+  ],
 });
