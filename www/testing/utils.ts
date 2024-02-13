@@ -27,5 +27,4 @@ export const matchTextContent =
       (child) => !hasText(child),
     );
     return elementHasText && childrenDontHaveText;
-    // return false;
   };

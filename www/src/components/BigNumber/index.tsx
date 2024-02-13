@@ -40,7 +40,7 @@ type BigNumbersProps = {
 
 export const BigNumbers: FC<BigNumbersProps> = ({ bigNumbers }) => {
   return (
-    <div className="">
+    <div>
       {bigNumbers.bigNumbers.map((bigNumber) => (
         <BigNumber key={bigNumber._key} bigNumber={bigNumber} />
       ))}
