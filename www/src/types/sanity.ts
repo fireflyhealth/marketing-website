@@ -352,7 +352,7 @@ export type CTA = {
  */
 
 export type RichText = Array<
-  PortableTextBlock | BarGraph | HubspotForm | IconBlock
+  PortableTextBlock | BarGraph | HubspotForm | IconBlock | BigNumbers
 >;
 
 export type HubspotForm = {
@@ -376,6 +376,20 @@ export type BarGraph = {
 export type IconBlock = {
   _type: 'icon';
   icon: string;
+};
+export type BigNumber = {
+  _type: 'bigNumber';
+  unit: Maybe<{
+    unitValue: string;
+    position: 'before' | 'after';
+  }>;
+  value: number;
+  description: RichText;
+};
+
+export type BigNumbers = {
+  _type: 'bigNumbers';
+  bigNumbers: KeyedArray<BigNumber>;
 };
 
 /**

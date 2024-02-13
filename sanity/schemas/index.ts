@@ -38,6 +38,7 @@ import { DoubleCtaBlock } from './blocks/doubleCtaBlock';
 
 import { VideoHeader } from './headers/videoHeader';
 import { PractitionersBlock } from './blocks/practitionersBlock';
+import { BigNumber, BigNumbers } from './fields/bigNumbers';
 
 export const schemaTypes = [
   /* Document Types */
@@ -87,4 +88,6 @@ export const schemaTypes = [
   BarGraphItems,
   DoubleCta,
   LargeCTACard,
+  BigNumber,
+  BigNumbers,
 ];

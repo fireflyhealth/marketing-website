@@ -4,23 +4,27 @@ import { MatcherFunction } from '@testing-library/react';
  * @testing-library's getByText function does not match text content
  * when it is broken up by multiple HTML elements. For instance:
  *
- * getByText('Adventures of Blondie and Dagwood')
+ * getByText('Learn about Firefly Health')
  *
  * will match:
- *   <p>Adventures of Blondie and Dagwood</p>
+ *   <p>Learn about Firefly Health</p>
  *
  * but will not match:
- *   <p>Adventures of <b>Blondie and Dagwood</b></p>
+ *   <p>Learn about <b>Firefly Health</b></p>
  *
  * Use this matcher function to find matches split up by HTML elements:
  *
- * getByText(matchTextContent('Adventures of Blondie and Dagwood'))
+ * getByText(matchTextContent('Learn about Firefly Health'))
  *
  *
  */
 export const matchTextContent =
   (searchValue: string): MatcherFunction =>
   (content: string, element: Element | null): boolean => {
-    if (element && element.textContent === searchValue) return true;
-    return false;
+    const hasText = (element: Element) => element.textContent === searchValue;
+    const elementHasText = Boolean(element && hasText(element));
+    const childrenDontHaveText = Array.from(element?.children || []).every(
+      (child) => !hasText(child),
+    );
+    return elementHasText && childrenDontHaveText;
   };

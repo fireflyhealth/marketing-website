@@ -122,6 +122,7 @@ export const ArticleRichText = defineField({
     },
     { name: 'richImage', type: 'richImage', title: 'Image' },
     { name: 'form', type: 'hubspotForm', title: 'Form' },
-    { name: 'barGraphObject', type: 'barGraphItems', title: 'barGraph' },
+    { name: 'barGraphObject', type: 'barGraphItems', title: 'Bar Graph' },
+    { name: 'bigNumbers', type: 'bigNumbers', title: 'Big Numbers' },
   ],
 });

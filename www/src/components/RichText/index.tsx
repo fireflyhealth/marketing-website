@@ -12,6 +12,7 @@ import { Link } from '@/atoms/Link';
 import { SanityImage } from '@/atoms/Image/SanityImage';
 import { HubspotForm } from '@/components/HubspotForm';
 import { BarGraph } from '@/components/BarGraph';
+import { BigNumbers } from '../BigNumber';
 
 type RichTextProps = {
   content: RichTextType;
@@ -85,6 +86,9 @@ const components: Partial<PortableTextReactComponents> = {
     },
     barGraphObject: (props) => {
       return <BarGraph barGraph={props.value} />;
+    },
+    bigNumbers: (props) => {
+      return <BigNumbers bigNumbers={props.value} />;
     },
   },
   marks: {
