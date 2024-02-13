@@ -1,10 +1,32 @@
 import { FC } from 'react';
-import * as SanityTypes from '@/types/sanity';
+import cn from 'classnames';
+import { ImageTextOverlapBlock as ImageTextOverlapBlockType } from '@/types/sanity';
+// import * as SanityTypes from '@/types/sanity';
+import { RichText } from '@/components/RichText';
+import { SanityImage } from '@/atoms/Image/SanityImage';
+import { Theme, ColorTheme } from '@/components/Theme';
+import { ContentBlockWrapper } from '../ContentBlockWrapper';
+import { Wrapper, ImageWrapper, TextContainer } from './styles';
 
 type Props = {
-  imageTextOverlapBlock: SanityTypes.ImageTextOverlapBlock;
+  imageTextOverlapBlock: ImageTextOverlapBlockType;
 };
 
 export const ImageTextOverlapBlock: FC<Props> = ({ imageTextOverlapBlock }) => {
-  return <div>Image Text Overlap Block</div>;
+  const { header, image, copy } = imageTextOverlapBlock;
+
+  return (
+    <ContentBlockWrapper header={header}>
+      <div id="image-text-overlap-block" className={cn(Wrapper)}>
+        <div className={cn(ImageWrapper)}>
+          <SanityImage image={image} sizes={['100vw, 85vw']} />
+        </div>
+        <Theme theme={ColorTheme.Grey}>
+          <div className={cn(TextContainer)}>
+            <RichText content={copy} />
+          </div>
+        </Theme>
+      </div>
+    </ContentBlockWrapper>
+  );
 };

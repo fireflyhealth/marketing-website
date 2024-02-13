@@ -1,5 +1,5 @@
 import { Meta, StoryObj } from '@storybook/react';
-import { practitionersBlockExample } from '@/mockData';
+import { imageTextOverlapBlockExample } from '@/mockData';
 import { ImageTextOverlapBlock } from './';
 
 const meta = {
@@ -11,11 +11,11 @@ type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
   args: {
-    imageTextOverlapBlock: {},
+    imageTextOverlapBlock: imageTextOverlapBlockExample,
   },
   decorators: [
     (Story) => (
-      <div className="theme-bg-color">
+      <div className="theme-bg-color -m-[25px]">
         <Story />
       </div>
     ),

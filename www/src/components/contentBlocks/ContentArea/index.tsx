@@ -4,6 +4,7 @@ import { ImageBlock } from '../ImageBlock';
 import { ImageCarouselBlock } from '../ImageCarouselBlock';
 import { CTACardsBlock } from '../CTACardsBlock';
 import { PractitionersBlock } from '../PractitionersBlock';
+import { ImageTextOverlapBlock } from '../ImageTextOverlapBlock';
 
 type ContentBlockProps = {
   block: ContentBlockType;
@@ -19,6 +20,8 @@ const ContentBlock: FC<ContentBlockProps> = ({ block }) => {
       return <CTACardsBlock ctaCardsBlock={block} />;
     case 'practitionersBlock':
       return <PractitionersBlock practitionersBlock={block} />;
+    case 'imageTextOverlapBlock':
+      return <ImageTextOverlapBlock imageTextOverlapBlock={block} />;
     default:
       console.warn(
         // @ts-expect-error
