@@ -419,7 +419,7 @@ svg {
   }
 
   &--textLink {
-    background-color: var(--bg-color);
+    background-color: transparent;
     color: var(--text-color-primary);
     border-color: var(--text-color-primary);
     border-width: 0;
