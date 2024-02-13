@@ -37,7 +37,6 @@ export const mockDataQuery = `
         ${contentBlockFragment}
       },
       imageTextOverlapBlock{
-        _type,
         ${imageTextOverlapFragment}
       }
     },

@@ -59,4 +59,5 @@ export const videoExample = mockData.videoExample as Video;
 export const videoHeaderExample = mockData.contentBlockExamples
   .videoHeaderExample as VideoHeader;
 
-// export const imageTextOverlapBlockExample = mockData.contentBlockExamples.imageTextOverlapBlock as ImageTextOverlapBlock;
+export const imageTextOverlapBlockExample = mockData.contentBlockExamples
+  .imageTextOverlapBlock as ImageTextOverlapBlock;

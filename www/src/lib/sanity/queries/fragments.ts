@@ -273,7 +273,7 @@ export const imageTextOverlapFragment = `
   image{
     ${imageFragment}
   },
-  copy{
+  copy[]{
     ${richTextFragment}
   }
 `;
