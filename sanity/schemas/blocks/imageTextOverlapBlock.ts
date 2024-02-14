@@ -22,6 +22,7 @@ export const ImageTextOverlapBlock = defineType({
       description:
         'All text content, CTAs and bullets within the rich text field.',
       type: 'articleRichText',
+      validation: (Rule) => Rule.required(),
     }),
   ],
 });
