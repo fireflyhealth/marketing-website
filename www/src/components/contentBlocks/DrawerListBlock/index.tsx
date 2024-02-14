@@ -10,6 +10,7 @@ import { slugify } from '@/utils/text';
 import { filterMaybes } from '@/utils/arrays';
 import { ColorTheme, Theme } from '@/components/Theme';
 import { SanityImage } from '@/atoms/Image/SanityImage';
+import { ResponsiveSanityImage } from '@/atoms/Image/ResponsiveSanityImage';
 import { ContentBlockWrapper } from '../ContentBlockWrapper';
 
 /**
@@ -54,21 +55,45 @@ export const DrawerListItem: FC<DrawerListItemProps> = ({
     <Theme theme={ColorTheme.Midnight}>
       <div
         className={cn(
-          'p-6 md:p-12 relative rounded-lg',
+          'p-6 md:p-12 relative rounded-lg z-[10] overflow-hidden',
           /* All list items except the last have extra padding at the
            * bottom to account for sibling overlap */
           isLast ? 'pb-6 md:pb-12' : 'pb-16 md:pb-24',
           /* All list items except the first are nudged up to overlap
            * extra bottom padding on the previous card */
           isFirst ? '' : 'mt-[-2.5rem] md:mt-[-3.5rem]',
-          isExpanded ? 'grid grid-cols-1 md:grid-cols-2' : 'block',
         )}
         style={{
-          backgroundColor: backgroundColor?.value || '#131D2B',
+          backgroundColor: backgroundColor?.value || 'transparent',
         }}
       >
+        {backgroundImage ? (
+          <div
+            className={cn(
+              'DrawerListItem__background',
+              'absolute top-0 left-0 w-full z-[10]',
+              /* Items with background images have a min-height of 600px,
+               * this height accounts for that plus padding. It must be set
+               * explicitly to avoid the position of the background image
+               * shifting when the drawer is open. */
+              'h-[550px] md:h-[744px]',
+            )}
+          >
+            <ResponsiveSanityImage
+              imageSet={backgroundImage}
+              sizes={['100vw']}
+            />
+          </div>
+        ) : null}
         {isExpanded ? (
-          <>
+          <div
+            className={cn(
+              isExpanded
+                ? 'grid grid-cols-1 gap-12 lg:grid-cols-2 md:pb-6 relative z-[20]'
+                : 'hidden',
+              Boolean(backgroundImage) ? 'min-h-[450px] md:min-h-[600px]' : '',
+            )}
+          >
             <div>
               <h3 className="font-size-5 font-trust pb-5">{title}</h3>
               <div className={isExpanded ? 'block' : 'hidden'}>
@@ -90,16 +115,18 @@ export const DrawerListItem: FC<DrawerListItemProps> = ({
             {featuredImage ? (
               <SanityImage image={featuredImage} sizes={['100vw', '50vw']} />
             ) : null}
-          </>
+          </div>
         ) : (
-          <button
-            onClick={expand}
-            disabled={isExpanded}
-            className="text-left"
-            aria-label={`Expand "${title}" content`}
-          >
-            <h3 className="font-size-5 font-trust">{title}</h3>
-          </button>
+          <div className="relative z-[20]">
+            <button
+              onClick={expand}
+              disabled={isExpanded}
+              className="text-left"
+              aria-label={`Expand "${title}" content`}
+            >
+              <h3 className="font-size-5 font-trust">{title}</h3>
+            </button>
+          </div>
         )}
       </div>
     </Theme>
