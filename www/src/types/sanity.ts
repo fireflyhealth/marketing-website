@@ -531,6 +531,7 @@ export type SequenceBlockItem = {
 
 export type SequenceBlock = {
   _type: 'sequenceBlock';
+  header: Maybe<ContentBlockHeader>;
   sequenceHeader: SequenceBlockTextFields;
   sequenceItems: KeyedArray<SequenceBlockItem>;
   sequenceFooter: string;

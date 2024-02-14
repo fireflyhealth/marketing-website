@@ -98,8 +98,13 @@ export const SequenceBlock = defineType({
   type: 'object',
   fields: [
     defineField({
-      name: 'sequenceHeader',
+      name: 'header',
+      type: 'contentBlockHeader',
       title: 'Header',
+    }),
+    defineField({
+      name: 'sequenceHeader',
+      title: 'Sequence Heading',
       type: 'sequenceBlockTextFields',
       validation: (Rule) => Rule.required(),
     }),
@@ -111,7 +116,7 @@ export const SequenceBlock = defineType({
     }),
     defineField({
       name: 'sequenceFooter',
-      title: 'Footer',
+      title: 'Sequence Footer',
       type: 'string',
       validation: (Rule) => Rule.required(),
     }),

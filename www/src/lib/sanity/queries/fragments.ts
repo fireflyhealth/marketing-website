@@ -413,6 +413,7 @@ const sequenceItemFragment = `
 `;
 
 export const sequenceBlockFragment = `
+  header{${contentBlockHeaderFragment}},
   sequenceHeader{${sequenceBlockTextFieldsFragment}},
   sequenceItems[]{${sequenceItemFragment}},
   sequenceFooter
