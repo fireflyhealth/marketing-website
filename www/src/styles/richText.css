@@ -39,4 +39,8 @@
       }
     }
   }
+
+  .cta__inner a {
+    border-bottom: none;
+  }
 }

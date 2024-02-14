@@ -35,13 +35,8 @@
   }
 }
 
-/* style cta */
-.image-text-overlap-block a {
-  border-bottom: none;
-}
-
 /* style unordered list and list elements */
-.image-text-overlap-block ul {
+.ImageTextOverlapBlock ul {
   display: grid;
   grid-template-rows: repeat(1, minmax(0, 1fr));
   margin-top: 52px;
@@ -59,6 +54,6 @@
 }
 
 /* style bullet of list style */
-.image-text-overlap-block ul li::before {
+.ImageTextOverlapBlock ul li::before {
   top: calc(1.5em);
 }
