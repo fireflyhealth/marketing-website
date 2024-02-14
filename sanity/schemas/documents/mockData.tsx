@@ -147,7 +147,6 @@ export const MockData = defineType({
       title: 'Image Examples',
       name: 'imageExamples',
       type: 'array',
-
       of: [
         defineArrayMember({
           title: 'Image Example',
@@ -173,6 +172,17 @@ export const MockData = defineType({
           },
         }),
       ],
+    }),
+    defineField({
+      group: 'media',
+      name: 'responsiveImageSet',
+      type: 'responsiveImageSet',
+      title: 'Responsive Image Set',
+      options: {
+        collapsed: true,
+        collapsible: true,
+      },
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       group: 'media',
