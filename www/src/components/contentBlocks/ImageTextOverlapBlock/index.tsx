@@ -1,7 +1,6 @@
 import { FC } from 'react';
 import cn from 'classnames';
 import { ImageTextOverlapBlock as ImageTextOverlapBlockType } from '@/types/sanity';
-// import * as SanityTypes from '@/types/sanity';
 import { RichText } from '@/components/RichText';
 import { SanityImage } from '@/atoms/Image/SanityImage';
 import { Theme, ColorTheme } from '@/components/Theme';
