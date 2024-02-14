@@ -31,8 +31,7 @@ export const Sequence_Pathway_1 = [
 
 export const Sequence_Pathway_2 = [
   'bg-yellow-dark w-[1.5px] h-5/6 absolute top-0 left-1/2 z-10',
-  'md:left-[73.5%] md:top-[10%]',
-  'lg:left-[68.75%]',
+  'md:top-[10%]',
 ];
 
 export const Sequence_Pathway_3 = [

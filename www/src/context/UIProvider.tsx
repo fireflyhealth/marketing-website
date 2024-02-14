@@ -14,6 +14,8 @@ type UIProviderProps = {
   toggleGlobalNav: () => void;
   currentNavItem: string | null;
   setCurrentNavItem: (newNavItem: string | null) => void;
+  sequenceLinePosition: number;
+  setSequenceLinePosition: (position: number) => void;
 };
 
 export const UIContext = createContext<UIProviderProps | undefined>(undefined);
@@ -41,6 +43,8 @@ export const UIProvider: FC<PropsWithChildren> = ({ children }) => {
   /* Uses the nav item's '_key' prop as an identifier */
   const [currentNavItem, setCurrentNavItem] = useState<string | null>(null);
 
+  const [sequenceLinePosition, setSequenceLinePosition] = useState<number>(0);
+
   return (
     <UIContext.Provider
       value={{
@@ -51,6 +55,8 @@ export const UIProvider: FC<PropsWithChildren> = ({ children }) => {
         toggleGlobalNav,
         currentNavItem,
         setCurrentNavItem,
+        sequenceLinePosition,
+        setSequenceLinePosition,
       }}
     >
       {children}
