@@ -1,8 +1,6 @@
 import { FC } from 'react';
 import * as SanityTypes from '@/types/sanity';
 
-// TODO: update theme text styles
-
 type Props = {
   copy: SanityTypes.SequenceBlockTextFields;
   headerCopy?: boolean;
