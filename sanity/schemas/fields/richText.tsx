@@ -125,5 +125,10 @@ export const ArticleRichText = defineField({
     { name: 'barGraphObject', type: 'barGraphItems', title: 'Bar Graph' },
     { name: 'bigNumbers', type: 'bigNumbers', title: 'Big Numbers' },
     { name: 'cta', type: 'cta', title: 'CTA' },
+    {
+      name: 'twoColumnUnorderedList',
+      type: 'twoColumnUnorderedList',
+      title: '2 Column Unordered List',
+    },
   ],
 });

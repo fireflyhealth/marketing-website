@@ -352,7 +352,13 @@ export type CTA = {
  */
 
 export type RichText = Array<
-  PortableTextBlock | BarGraph | HubspotForm | IconBlock | BigNumbers | CTA
+  | PortableTextBlock
+  | BarGraph
+  | HubspotForm
+  | IconBlock
+  | BigNumbers
+  | CTA
+  | TwoColumnUnorderedList
 >;
 
 export type HubspotForm = {
@@ -390,6 +396,12 @@ export type BigNumber = {
 export type BigNumbers = {
   _type: 'bigNumbers';
   bigNumbers: KeyedArray<BigNumber>;
+};
+
+export type TwoColumnUnorderedList = {
+  _type: 'twoColumnUnorderedList';
+  _key: string;
+  listItems: string[];
 };
 
 /**

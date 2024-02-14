@@ -34,27 +34,3 @@
     height: 100%;
   }
 }
-
-/* style unordered list and list elements */
-.ImageTextOverlapBlock ul {
-  display: grid;
-  grid-template-rows: repeat(1, minmax(0, 1fr));
-  margin-top: 52px;
-
-  li {
-    border-top: 1px solid var(--border-color);
-    padding-top: 20px;
-    padding-bottom: 20px;
-  }
-
-  @screen md {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    column-gap: 30px;
-  }
-}
-
-/* style bullet of list style */
-.ImageTextOverlapBlock ul li::before {
-  /* same em value as normal, but adding in the same top-padding the LI has */
-  top: calc(20px + 0.5em);
-}

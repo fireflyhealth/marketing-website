@@ -29,6 +29,7 @@ import { HubspotForm } from './fields/hubSpotForm';
 import { HeaderArea } from './fields/headerArea';
 import { BarGraphItems } from './fields/barGraphItems';
 import { DoubleCta, LargeCTACard } from './fields/doubleCta';
+import { TwoColumnUnorderedList } from './fields/twoColumnUnorderedList';
 
 import { ContentBlockHeader } from './blocks/contentBlockHeader';
 import { ImageBlock } from './blocks/imageBlock';
@@ -92,4 +93,5 @@ export const schemaTypes = [
   LargeCTACard,
   BigNumber,
   BigNumbers,
+  TwoColumnUnorderedList,
 ];

@@ -40,6 +40,12 @@ export const barGraphFragment = `
   }
 `;
 
+export const twoColumnUnorderedListFragment = `
+  _type,
+  _key,
+  listItems[]
+`;
+
 /* It's necessary to have this additional fragment because
  * we fetch rich text within the linkableDocumentFragment,
  * which is included in the other richTextFragment -
@@ -55,6 +61,9 @@ export const richTextFragmentNoLink = `
   _type == "form" => {${hubspotFormFragment}},
   _type == "barGraphObject" => {
     ${barGraphFragment}
+  },
+  _type == "twoColumnUnorderedList" => {
+    ${twoColumnUnorderedListFragment}
   },
   markDefs[]{
     _key,
@@ -225,6 +234,9 @@ export const richTextFragment = `
     ${bigNumbersFragment}
   },
   _type == "cta" => {${ctaFragment}},
+  _type == "twoColumnUnorderedList" => {
+    ${twoColumnUnorderedListFragment}
+  },
   markDefs[]{
     _key,
     _type,
