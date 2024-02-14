@@ -55,5 +55,6 @@
 
 /* style bullet of list style */
 .ImageTextOverlapBlock ul li::before {
-  top: calc(1.5em);
+  /* same em value as normal, but adding in the same top-padding the LI has */
+  top: calc(20px + 0.5em);
 }
