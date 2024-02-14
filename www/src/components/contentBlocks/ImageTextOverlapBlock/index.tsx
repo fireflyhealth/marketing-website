@@ -16,7 +16,7 @@ export const ImageTextOverlapBlock: FC<Props> = ({ imageTextOverlapBlock }) => {
 
   return (
     <ContentBlockWrapper header={header}>
-      <div id="image-text-overlap-block" className={cn(Wrapper)}>
+      <div className={cn(Wrapper, 'image-text-overlap-block')}>
         <div className={cn(ImageWrapper)}>
           <SanityImage image={image} sizes={['100vw, 85vw']} />
         </div>
