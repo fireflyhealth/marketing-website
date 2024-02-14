@@ -6,6 +6,7 @@ import {
   imageFragment,
   linkWithLabelFragment,
   navigationFragment,
+  responsiveImageSetFragment,
   richTextFragment,
   videoFragment,
 } from '@/lib/sanity/queries/fragments';
@@ -36,6 +37,9 @@ export const mockDataQuery = `
       image {
         ${imageFragment}
       }
+    },
+    responsiveImageSet{
+      ${responsiveImageSetFragment}
     },
     videoExample{
       ${videoFragment},

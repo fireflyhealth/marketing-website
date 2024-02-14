@@ -15,6 +15,7 @@ import {
   ImageTextOverlapBlock,
   QuoteBlock,
   DrawerListBlock,
+  ResponsiveImageSet,
 } from '@/types/sanity';
 import mockData from './mockData.json';
 
@@ -58,7 +59,8 @@ export const articleRichText = mockData.articleRichText as RichText;
 export const ctaExamples = mockData.ctas as CTA[];
 
 export const linkWithLabelExamples = mockData.links as LinkWithLabel[];
-
+export const responsiveImageSetExample =
+  mockData.responsiveImageSet as ResponsiveImageSet;
 export const videoExample = mockData.videoExample as Video;
 
 export const videoHeaderExample = mockData.contentBlockExamples
