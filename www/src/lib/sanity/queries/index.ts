@@ -3,7 +3,7 @@ import {
   navigationFragment,
   navigationOverridesFragment,
   headerAreaFragment,
-  contentAreaFragment,
+  contentBlockFragment,
   footerFragment,
   doubleCtaFragment,
 } from './fragments';
@@ -31,7 +31,7 @@ export const genericPageFragment = `
   slug,
   navigationOverrides {${navigationOverridesFragment}},
   header {${headerAreaFragment}}[],
-  content {${contentAreaFragment}}[],
+  content {${contentBlockFragment}}[],
   metadataFragment{${metadataFragment}}
 `;
 
