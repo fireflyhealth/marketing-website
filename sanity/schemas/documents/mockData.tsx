@@ -162,6 +162,16 @@ export const MockData = defineType({
           },
           validation: (Rule) => Rule.required(),
         }),
+        defineField({
+          name: 'reviewBlock',
+          title: 'Review Block',
+          type: 'reviewBlock',
+          options: {
+            collapsible: true,
+            collapsed: true,
+          },
+          validation: (Rule) => Rule.required(),
+        }),
       ],
     }),
     defineField({

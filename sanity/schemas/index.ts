@@ -38,6 +38,7 @@ import {
   SequenceBlockTextFields,
   SequenceItem,
 } from './blocks/sequenceBlock';
+import { ReviewBlock, ReviewItem } from './blocks/reviewBlock';
 
 /* Fields */
 import { Metadata } from './fields/metadata';
@@ -101,6 +102,7 @@ export const schemaTypes = [
   DrawerListItem,
   TwoUpBlock,
   SequenceBlock,
+  ReviewBlock,
 
   /* Child blocks (used within other blocks, i.e. 2-up block) */
   ChildContentBlock,
@@ -137,4 +139,5 @@ export const schemaTypes = [
   RichTextCtaRow,
   SequenceBlockTextFields,
   SequenceItem,
+  ReviewItem,
 ];
