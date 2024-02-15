@@ -19,7 +19,7 @@ export const mockDataQuery = `
       ctaCardsBlock{${contentBlockFragment}},
       doubleCtaBlockExample{${contentBlockFragment}},
       practitionersBlock{${contentBlockFragment}},
-      imageTextOverlapBlock{${contentBlockFragment}}
+      imageTextOverlapBlock{${contentBlockFragment}},
       quoteBlock{${contentBlockFragment}}
     },
     navigationExample{
