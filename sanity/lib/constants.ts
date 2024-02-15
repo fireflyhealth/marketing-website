@@ -84,3 +84,36 @@ export const themeOptions = [
   { title: 'Midnight', value: 'midnight' },
   { title: 'Sky', value: 'sky' },
 ];
+
+/**
+ * Content blocks that can appear in the main
+ * "content area" column
+ *
+ * (These always have a 'header' field)
+ */
+export const defaultContentBlockTypes = [
+  { type: 'imageBlock' },
+  { type: 'imageCarouselBlock' },
+  { type: 'ctaCardsBlock' },
+  { type: 'doubleCtaBlock' },
+  { type: 'practitionersBlock' },
+  { type: 'twoUpBlock' },
+  { type: 'imageTextOverlapBlock' },
+  { type: 'quoteBlock' },
+  { type: 'drawerListBlock' },
+];
+
+/**
+ * Content blocks that are used as children within
+ * other blocks (i.e. 2-up block).
+ *
+ * Note that some of these also appear as options within
+ * Rich Text.
+ *
+ * (These do not have a 'header' field)
+ */
+export const childContentBlockTypes = [
+  { type: 'richTextChildBlock' },
+  { type: 'imageChildBlock' },
+  { type: 'bigNumbers' },
+];

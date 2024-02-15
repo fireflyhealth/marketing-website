@@ -138,6 +138,13 @@ export const MockData = defineType({
             collapsible: true,
             collapsed: true,
           },
+        }),
+
+        defineField({
+          name: 'twoUpBlocks',
+          title: '2-up Blocks',
+          type: 'array',
+          of: [{ type: 'twoUpBlock' }],
           validation: (Rule) => Rule.required(),
         }),
       ],

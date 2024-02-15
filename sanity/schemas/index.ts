@@ -12,16 +12,19 @@ import { Blog } from './documents/blog';
 import { MockData } from './documents/mockData';
 import { SiteSettings } from './documents/siteSettings';
 import { Practitioner } from './documents/practitioner';
-
 import { Metadata } from './fields/metadata';
 import { ResponsiveImageSet, RichImage } from './fields/images';
 import { Link, LinkableDocument } from './fields/linking';
 import { CTA } from './fields/cta';
-import { SimpleRichText, ArticleRichText } from './fields/richText';
+import {
+  SimpleRichText,
+  ArticleRichText,
+  LimitedRichText,
+} from './fields/richText';
 import { Navigation } from './documents/navigation';
 import { LinkWithLabel } from './fields/linkWithLabel';
 import { LabelWithDropdown } from './fields/labelWithDropdown';
-import { ContentArea } from './fields/contentArea';
+import { ChildContentBlock, ContentArea } from './fields/contentArea';
 import { NavigationOverrides } from './fields/navigationOverrides';
 import { AnnouncementBanner } from './fields/announcementBanner';
 import { Video } from './fields/video';
@@ -33,7 +36,7 @@ import { TwoColumnUnorderedList } from './fields/twoColumnUnorderedList';
 import { Quote } from './fields/quote';
 
 import { ContentBlockHeader } from './blocks/contentBlockHeader';
-import { ImageBlock } from './blocks/imageBlock';
+import { ImageBlock, ImageChildBlock } from './blocks/imageBlock';
 import { ImageCarouselBlock } from './blocks/imageCarouselBlock';
 import { CtaCard, CtaCardsBlock } from './blocks/ctaCardsBlock';
 import { DoubleCtaBlock } from './blocks/doubleCtaBlock';
@@ -45,6 +48,9 @@ import { PractitionersBlock } from './blocks/practitionersBlock';
 import { BigNumber, BigNumbers } from './fields/bigNumbers';
 import { DrawerListBlock, DrawerListItem } from './blocks/drawerListBlock';
 import { Theme } from './fields/theme';
+import { TwoUpBlock } from './blocks/twoUpBlock';
+import { RichTextChildBlock } from './blocks/richTextBlock';
+import { RichTextCtaRow } from './fields/richTextCtaRow';
 
 export const schemaTypes = [
   /* Document Types */
@@ -67,7 +73,7 @@ export const schemaTypes = [
   HeaderArea,
   VideoHeader,
 
-  /* Blocks */
+  /* Default Blocks (used within ContentArea, each has a heading) */
   ImageBlock,
   ImageCarouselBlock,
   CtaCardsBlock,
@@ -78,6 +84,11 @@ export const schemaTypes = [
   QuoteBlock,
   DrawerListBlock,
   DrawerListItem,
+  TwoUpBlock,
+  /* Child blocks (used within other blocks, i.e. 2-up block) */
+  ChildContentBlock,
+  RichTextChildBlock,
+  ImageChildBlock,
 
   /* Field Types */
   ContentBlockHeader,
@@ -88,6 +99,7 @@ export const schemaTypes = [
   LinkableDocument,
   CTA,
   SimpleRichText,
+  LimitedRichText,
   ArticleRichText,
   LinkWithLabel,
   LabelWithDropdown,
@@ -104,4 +116,5 @@ export const schemaTypes = [
   TwoColumnUnorderedList,
   Quote,
   Theme,
+  RichTextCtaRow,
 ];
