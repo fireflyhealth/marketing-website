@@ -3,3 +3,5 @@ export const Wrapper = [
   'md:px-[34px] md:py-24 md:space-y-[43px]',
   'lg:px-[164px] lg:py-40',
 ];
+
+export const CTAWrapper = ['w-full', 'md:w-fit'];

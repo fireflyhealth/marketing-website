@@ -5,7 +5,7 @@ import { ContentBlockWrapper } from '@/components/contentBlocks/ContentBlockWrap
 import { Theme, ColorTheme } from '@/components/Theme';
 import { QuoteObject } from '@/components/Quote';
 import { CTA } from '@/components/CTA';
-import { Wrapper } from './styles';
+import { Wrapper, CTAWrapper } from './styles';
 
 type Props = {
   quoteBlock: QuoteBlockType;
@@ -18,7 +18,9 @@ export const QuoteBlock: FC<Props> = ({ quoteBlock }) => {
       <Theme theme={ColorTheme.White}>
         <div className={cn(Wrapper)}>
           <QuoteObject quoteObject={quoteObject} />
-          <CTA cta={cta} width="auto" align="left" />
+          <div className={cn(CTAWrapper)}>
+            <CTA cta={cta} />
+          </div>
         </div>
       </Theme>
     </ContentBlockWrapper>
