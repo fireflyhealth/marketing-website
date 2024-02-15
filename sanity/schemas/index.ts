@@ -29,12 +29,14 @@ import { HubspotForm } from './fields/hubSpotForm';
 import { HeaderArea } from './fields/headerArea';
 import { BarGraphItems } from './fields/barGraphItems';
 import { DoubleCta, LargeCTACard } from './fields/doubleCta';
+import { TwoColumnUnorderedList } from './fields/twoColumnUnorderedList';
 
 import { ContentBlockHeader } from './blocks/contentBlockHeader';
 import { ImageBlock } from './blocks/imageBlock';
 import { ImageCarouselBlock } from './blocks/imageCarouselBlock';
 import { CtaCard, CtaCardsBlock } from './blocks/ctaCardsBlock';
 import { DoubleCtaBlock } from './blocks/doubleCtaBlock';
+import { ImageTextOverlapBlock } from './blocks/imageTextOverlapBlock';
 
 import { VideoHeader } from './headers/videoHeader';
 import { PractitionersBlock } from './blocks/practitionersBlock';
@@ -68,6 +70,7 @@ export const schemaTypes = [
   CtaCard,
   DoubleCtaBlock,
   PractitionersBlock,
+  ImageTextOverlapBlock,
 
   /* Field Types */
   ContentBlockHeader,
@@ -90,4 +93,5 @@ export const schemaTypes = [
   LargeCTACard,
   BigNumber,
   BigNumbers,
+  TwoColumnUnorderedList,
 ];

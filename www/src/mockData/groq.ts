@@ -5,6 +5,7 @@ import {
   doubleCtaFragment,
   footerFragment,
   imageFragment,
+  imageTextOverlapFragment,
   linkWithLabelFragment,
   navigationFragment,
   richTextFragment,
@@ -34,6 +35,9 @@ export const mockDataQuery = `
       },
       practitionersBlock{
         ${contentBlockFragment}
+      },
+      imageTextOverlapBlock{
+        ${imageTextOverlapFragment}
       }
     },
     navigationExample{

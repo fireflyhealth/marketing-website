@@ -24,6 +24,7 @@ import { FaHubspot } from 'react-icons/fa';
 import { BsFileBarGraph, BsMenuDown } from 'react-icons/bs';
 import { MdOutlineCallToAction } from 'react-icons/md';
 import { FaUserDoctor } from 'react-icons/fa6';
+import { GoColumns } from 'react-icons/go';
 
 /*
  * Browse Sanity icons:
@@ -56,4 +57,5 @@ export const icons = {
   BarGraph: BsFileBarGraph,
   DoubleCTA: MdOutlineCallToAction,
   Practitioner: FaUserDoctor,
+  TwoColumn: GoColumns,
 };

@@ -15,7 +15,7 @@
   &__headshot {
     position: relative;
 
-    @media screen(md) {
+    @screen md {
       a:focus,
       a:hover {
         .PractitionerCard__blurb {

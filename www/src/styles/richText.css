@@ -39,4 +39,17 @@
       }
     }
   }
+
+  .cta__inner a {
+    border-bottom: none;
+  }
+
+  .TwoColumnUnorderedList {
+    margin-top: 52px;
+  }
+
+  /* style bullet of list style */
+  .TwoColumnUnorderedList li::before {
+    top: calc(20px + 0.375em);
+  }
 }

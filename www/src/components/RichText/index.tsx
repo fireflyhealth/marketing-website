@@ -13,6 +13,8 @@ import { SanityImage } from '@/atoms/Image/SanityImage';
 import { HubspotForm } from '@/components/HubspotForm';
 import { BarGraph } from '@/components/BarGraph';
 import { BigNumbers } from '../BigNumber';
+import { CTA } from '../CTA';
+import { TwoColumnUnorderedList } from '../TwoColumnUnorderedList';
 
 type RichTextProps = {
   content: RichTextType;
@@ -89,6 +91,12 @@ const components: Partial<PortableTextReactComponents> = {
     },
     bigNumbers: (props) => {
       return <BigNumbers bigNumbers={props.value} />;
+    },
+    cta: (props) => {
+      return <CTA cta={props.value} width="auto" align="left" />;
+    },
+    twoColumnUnorderedList: (props) => {
+      return <TwoColumnUnorderedList twoColumnUnorderedList={props.value} />;
     },
   },
   marks: {

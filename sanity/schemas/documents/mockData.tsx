@@ -105,6 +105,16 @@ export const MockData = defineType({
           },
           validation: (Rule) => Rule.required(),
         }),
+        defineField({
+          name: 'imageTextOverlapBlock',
+          type: 'imageTextOverlapBlock',
+          options: {
+            collapsible: true,
+            collapsed: true,
+          },
+          title: 'Image Text Overlap Block',
+          validation: (Rule) => Rule.required(),
+        }),
       ],
     }),
     defineField({
