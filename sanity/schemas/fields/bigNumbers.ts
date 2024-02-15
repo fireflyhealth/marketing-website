@@ -1,6 +1,7 @@
 import { defineType, defineField } from 'sanity';
 import { richTextToString } from '../../lib/richTextToString';
 import { Maybe } from '../../lib/types';
+import { icons } from '../../lib/icons';
 
 type BigNumberData = {
   unit: Maybe<{
@@ -62,7 +63,6 @@ export const BigNumber = defineType({
           name: 'position',
           title: 'Position',
           type: 'string',
-          initialValue: 'before',
           validation: (Rule) =>
             Rule.custom((value, context) => {
               // @ts-ignore
@@ -104,6 +104,7 @@ export const BigNumber = defineType({
 export const BigNumbers = defineType({
   name: 'bigNumbers',
   type: 'object',
+  icon: icons.Percentage,
   fields: [
     defineField({
       name: 'bigNumbers',
@@ -117,6 +118,9 @@ export const BigNumbers = defineType({
       bigNumbers: 'bigNumbers',
     },
     prepare: ({ bigNumbers }) => {
+      if (!bigNumbers) {
+        return { title: '(empty)' };
+      }
       const firstBigNumberTitle = getBigNumberPreviewTitle(bigNumbers[0]);
       const firstBigNumberDescription = bigNumbers[0]?.description
         ? richTextToString(bigNumbers[0].description)
