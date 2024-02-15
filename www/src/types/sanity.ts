@@ -500,10 +500,7 @@ export type ImageTextOverlapBlock = {
 export type QuoteObject = {
   _type: 'quoteObject';
   quote: string;
-  attribution: Pick<
-    Practitioner,
-    '_type' | 'slug' | 'name' | 'headshot' | 'title' | 'qualifications'
-  >;
+  attribution: PractitionerLinkData;
 };
 
 export type QuoteBlock = {
