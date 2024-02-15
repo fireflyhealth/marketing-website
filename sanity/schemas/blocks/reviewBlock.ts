@@ -91,6 +91,7 @@ export const ReviewBlock = defineType({
       title: 'Reviews',
       type: 'array',
       of: [{ type: 'reviewItem' }],
+      validation: (Rule) => Rule.required().min(1),
     }),
   ],
   preview: {

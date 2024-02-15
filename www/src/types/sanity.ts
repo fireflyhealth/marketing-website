@@ -481,7 +481,8 @@ export type ContentBlock =
   | DoubleCtaBlock
   | DrawerListBlock
   | TwoUpBlock
-  | SequenceBlock;
+  | SequenceBlock
+  | ReviewBlock;
 
 export type ContentArea = KeyedArray<ContentBlock>;
 
@@ -617,6 +618,7 @@ export type DrawerListBlock = {
   header: Maybe<ContentBlockHeader>;
   drawerListItems: KeyedArray<DrawerListItem>;
 };
+
 export type TwoUpBlockLayout =
   | 'normal-50-50'
   | 'normal-60-40'
@@ -635,4 +637,23 @@ export type TwoUpBlock = {
   }>;
   blockOne: ChildContentBlock;
   blockTwo: ChildContentBlock;
+};
+
+export type ReviewItem = {
+  _type: 'reviewItem';
+  _key: string;
+  starRating: number;
+  title: string;
+  review: string;
+  reviewer: {
+    name: string;
+    age: Maybe<number>;
+  };
+  date: string;
+};
+
+export type ReviewBlock = {
+  _type: 'reviewBlock';
+  header: Maybe<ContentBlockHeader>;
+  reviews: ReviewItem[];
 };

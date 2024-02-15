@@ -401,6 +401,23 @@ const twoUpBlockFragment = `
     ${childContentBlockFragment}
   }[0]
 `;
+export const reviewFragment = `
+  _type,
+  _key,
+  starRating,
+  title,
+  review,
+  reviewer{
+    name,
+    age,
+  },
+  date
+`;
+
+export const reviewBlockFragmnet = `
+  header{${contentBlockHeaderFragment}},
+  reviews[]{${reviewFragment}}
+`;
 
 const sequenceItemFragment = `
   _type,
@@ -491,8 +508,10 @@ export const contentBlockFragment = `
       theme
      }
    },
+  _type == "sequenceBlock" => {${sequenceBlockFragment}},
   _type == "twoUpBlock" => {${twoUpBlockFragment}},
-  _type == "sequenceBlock" => {${sequenceBlockFragment}}
+  _type == "reviewBlock" => {${reviewBlockFragmnet}}
+  }
 `;
 
 export const videoHeaderFragment = `
@@ -501,8 +520,7 @@ export const videoHeaderFragment = `
   video{${videoFragment}},
   body[]{
     ${richTextFragment}
-  },
-  _type == "twoUpBlock" => {${twoUpBlockFragment}}
+  }
 `;
 
 export const headerBlockFragment = `
