@@ -16,11 +16,13 @@ export const QuoteBlock = defineType({
       name: 'quoteObject',
       type: 'quoteObject',
       title: 'Quote',
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'cta',
       type: 'cta',
       title: 'CTA',
+      validation: (Rule) => Rule.required(),
     }),
   ],
 });
