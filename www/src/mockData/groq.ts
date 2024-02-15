@@ -1,44 +1,26 @@
 import {
   contentBlockFragment,
-  contentBlockHeaderFragment,
   ctaFragment,
   doubleCtaFragment,
   footerFragment,
   imageFragment,
-  imageTextOverlapFragment,
   linkWithLabelFragment,
   navigationFragment,
   richTextFragment,
   videoFragment,
-  videoHeaderFragment,
 } from '@/lib/sanity/queries/fragments';
 
 export const mockDataQuery = `
   *[_type == "mockData" && _id == "mockData"]{
     contentBlockExamples{
-      imageBlock{
-        ${contentBlockFragment}
-      },
-      imageCarouselBlock{
-        ${contentBlockFragment}
-      },
-      videoHeaderExample{
-        ${videoHeaderFragment}
-      },
-      ctaCardsBlock{
-        ${contentBlockFragment}
-      },
-      doubleCtaBlockExample{
-        _type,
-        doubleCta{${doubleCtaFragment}},
-        header{${contentBlockHeaderFragment}},
-      },
-      practitionersBlock{
-        ${contentBlockFragment}
-      },
-      imageTextOverlapBlock{
-        ${imageTextOverlapFragment}
-      }
+      imageBlock{${contentBlockFragment}},
+      imageCarouselBlock{${contentBlockFragment}},
+      videoHeaderExample{${contentBlockFragment}},
+      ctaCardsBlock{${contentBlockFragment}},
+      doubleCtaBlockExample{${contentBlockFragment}},
+      practitionersBlock{${contentBlockFragment}},
+      imageTextOverlapBlock{${contentBlockFragment}}
+      quoteBlock{${contentBlockFragment}}
     },
     navigationExample{
       globalNav->{${navigationFragment}},

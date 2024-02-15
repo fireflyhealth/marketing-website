@@ -419,7 +419,8 @@ export type ContentBlock =
   | ImageCarouselBlock
   | CTACardsBlock
   | PractitionersBlock
-  | ImageTextOverlapBlock;
+  | ImageTextOverlapBlock
+  | QuoteBlock;
 
 export type ContentArea = KeyedArray<ContentBlock>;
 
@@ -494,4 +495,20 @@ export type ImageTextOverlapBlock = {
   header: Maybe<ContentBlockHeader>;
   image: RichImage;
   copy: RichText;
+};
+
+export type QuoteObject = {
+  _type: 'quoteObject';
+  quote: string;
+  attribution: Pick<
+    Practitioner,
+    '_type' | 'slug' | 'name' | 'headshot' | 'title' | 'qualifications'
+  >;
+};
+
+export type QuoteBlock = {
+  _type: 'quoteBlock';
+  header: Maybe<ContentBlockHeader>;
+  quoteObject: QuoteObject;
+  cta: CTA;
 };

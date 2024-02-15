@@ -13,6 +13,7 @@ import {
   DoubleCtaBlock,
   PractitionersBlock,
   ImageTextOverlapBlock,
+  QuoteBlock,
 } from '@/types/sanity';
 import mockData from './mockData.json';
 
@@ -61,3 +62,5 @@ export const videoHeaderExample = mockData.contentBlockExamples
 
 export const imageTextOverlapBlockExample = mockData.contentBlockExamples
   .imageTextOverlapBlock as ImageTextOverlapBlock;
+export const quoteBlock = mockData.contentBlockExamples
+  .quoteBlock as QuoteBlock;

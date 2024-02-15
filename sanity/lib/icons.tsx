@@ -20,7 +20,7 @@ import { SlSettings } from 'react-icons/sl';
 import { PiHandPointing, PiBracketsAngleBold } from 'react-icons/pi';
 import { RxComponent2 } from 'react-icons/rx';
 import { BiCarousel, BiSolidNavigation } from 'react-icons/bi';
-import { FaHubspot } from 'react-icons/fa';
+import { FaHubspot, FaQuoteLeft } from 'react-icons/fa';
 import { BsFileBarGraph, BsMenuDown } from 'react-icons/bs';
 import { MdOutlineCallToAction } from 'react-icons/md';
 import { FaUserDoctor } from 'react-icons/fa6';
@@ -58,4 +58,5 @@ export const icons = {
   DoubleCTA: MdOutlineCallToAction,
   Practitioner: FaUserDoctor,
   TwoColumn: GoColumns,
+  Quote: FaQuoteLeft,
 };
