@@ -26,16 +26,18 @@ export const FooterText = ['font-roobert font-size-8 theme-text-primary'];
 export const Sequence_Pathway_1 = [
   'w-[14px] absolute top-full left-[47.75%] z-10',
   'md:left-1/2',
-  '',
+  'hidden',
 ];
 
 export const Sequence_Pathway_2 = [
   'bg-yellow-dark w-[1.5px] h-5/6 absolute top-0 left-1/2 z-10',
   'md:top-[10%]',
+  'hidden',
 ];
 
 export const Sequence_Pathway_3 = [
   'w-[14px] absolute bottom-[90%] left-[47.75%] z-10 transform -scale-y-100',
   'md:w-[201px] md:left-[48.5%]',
   'lg:w-[321px]',
+  'hidden',
 ];
