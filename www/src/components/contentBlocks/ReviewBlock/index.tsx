@@ -24,7 +24,8 @@ export const ReviewBlock: FC<Props> = ({ reviewBlock }) => {
     setReviewListIndex(reviewListIndex + 6);
   };
 
-  // only show the load more button if there are more than 3 reviews
+  // only show the load more button if the number of reviews on
+  // display are less than the full list of reviews
   useEffect(() => {
     if (reviews.length > 3) {
       setIsLoadMoreVisible(true);
