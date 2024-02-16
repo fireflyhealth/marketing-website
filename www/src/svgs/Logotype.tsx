@@ -131,21 +131,3 @@ export const LogotypeMonochrome = () => (
     />
   </svg>
 );
-
-export const LogoTypeDoctorsReviews = () => (
-  <svg viewBox="0 0 115 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <desc>doctors.com</desc>
-    <rect x="0.941406" width="114.059" height="28" fill="url(#pattern0)" />
-    <defs>
-      <pattern
-        id="pattern0"
-        patternContentUnits="objectBoundingBox"
-        width="1"
-        height="1"
-      >
-        <use transform="matrix(0.00472091 0 0 0.0192308 -0.0193002 0)" />
-      </pattern>
-      <image id="image0_7698_2239" width="100%" height="auto" />
-    </defs>
-  </svg>
-);

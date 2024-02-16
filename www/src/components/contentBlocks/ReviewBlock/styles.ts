@@ -11,7 +11,11 @@ export const Reviews = [
   'md:p-0 md:space-y-6',
 ];
 
-export const ReviewWrapper = ['bg-grey p-4 rounded-xl flex flex-col space-y-6'];
+export const ReviewWrapper = [
+  'bg-grey p-4 rounded-xl flex flex-col space-y-6',
+  'md:p-6',
+  'lg:p-10',
+];
 
 export const Title = ['theme-text-color-primary font-roobert font-size-7'];
 
