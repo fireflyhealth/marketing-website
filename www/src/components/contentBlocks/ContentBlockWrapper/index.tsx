@@ -19,9 +19,13 @@ import {
 
 type ContentBlockHeaderProps = {
   header: ContentBlockHeaderType;
+  descriptionOverrides?: string;
 };
 
-export const ContentBlockHeader: FC<ContentBlockHeaderProps> = ({ header }) => {
+export const ContentBlockHeader: FC<ContentBlockHeaderProps> = ({
+  header,
+  descriptionOverrides,
+}) => {
   const { title, description, cta } = header;
 
   return (
@@ -31,7 +35,14 @@ export const ContentBlockHeader: FC<ContentBlockHeaderProps> = ({ header }) => {
 
         {description ? (
           <div className={cn(Description)}>
-            <RichText fontSize="font-size-6--quote" content={description} />
+            <RichText
+              fontSize={cn(
+                descriptionOverrides
+                  ? descriptionOverrides
+                  : 'font-size-6--quote',
+              )}
+              content={description}
+            />
           </div>
         ) : null}
       </div>

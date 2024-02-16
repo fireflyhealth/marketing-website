@@ -71,8 +71,8 @@ export const NavGroup: FC<Props> = ({ navItem, isMobile }) => {
             <p>{navItem.label}</p>
             <SimpleIcon
               type="arrow-down"
-              className={cn(
-                isCurrentNavItem ? 'rotate-90' : '',
+              wrapperStyles={cn(
+                isCurrentNavItem ? 'rotate-180' : '',
                 'transition ease-in-out w-3',
                 navItemHighlightState,
               )}

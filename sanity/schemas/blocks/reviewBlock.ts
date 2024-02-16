@@ -85,6 +85,7 @@ export const ReviewBlock = defineType({
       name: 'header',
       type: 'contentBlockHeader',
       title: 'Header',
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'reviews',
