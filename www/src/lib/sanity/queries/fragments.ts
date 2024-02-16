@@ -278,7 +278,6 @@ export const doubleCtaFragment = `
 `;
 
 export const imageTextOverlapFragment = `
-  _type,
   header{
     ${contentBlockHeaderFragment}
   },
@@ -288,6 +287,33 @@ export const imageTextOverlapFragment = `
   copy[]{
     ${richTextFragment}
   }
+`;
+
+export const quoteObjectFragment = `
+  _type,
+  quote,
+  attribution->{${linkableDocumentFragment}}
+`;
+
+export const quoteBlockFragment = `
+  header{${contentBlockHeaderFragment}},
+  quoteObject{${quoteObjectFragment}},
+  cta{${ctaFragment}}
+`;
+
+export const videoFragment = `
+  _type,
+  videoLink,
+  posterImage {
+    ${imageFragment}
+  }
+`;
+
+export const videoHeaderFragment = `
+  eyebrow,
+  heading,
+  body,
+  video {${videoFragment}}
 `;
 
 export const contentBlockFragment = `
@@ -337,7 +363,14 @@ export const contentBlockFragment = `
     practitioners[]->{
       ${linkableDocumentFragment}
     }
-  }
+  },
+  _type == "imageTextOverlapBlock" => {${imageTextOverlapFragment}},
+  _type == "quoteBlock" => {${quoteBlockFragment}},
+  _type == "videoHeader" => {${videoHeaderFragment}}
+`;
+
+export const headerAreaFragment = `
+  _type == "videoHeader" => {${videoHeaderFragment}}
 `;
 
 export const navGroupFragment = `
@@ -412,25 +445,3 @@ export const navigationOverridesFragment = `
     body,
   },
   `;
-
-export const videoFragment = `
-  _type,
-  videoLink,
-  posterImage {
-    ${imageFragment}
-  }
-`;
-
-export const videoHeaderFragment = `
-  _type,
-  eyebrow,
-  heading,
-  body,
-  video {${videoFragment}}
-`;
-
-export const headerAreaFragment = `
-  _type == "videoHeader" => {${videoHeaderFragment}}
-`;
-
-export const contentAreaFragment = ``;

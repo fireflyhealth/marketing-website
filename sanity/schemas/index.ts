@@ -30,6 +30,7 @@ import { HeaderArea } from './fields/headerArea';
 import { BarGraphItems } from './fields/barGraphItems';
 import { DoubleCta, LargeCTACard } from './fields/doubleCta';
 import { TwoColumnUnorderedList } from './fields/twoColumnUnorderedList';
+import { Quote } from './fields/quote';
 
 import { ContentBlockHeader } from './blocks/contentBlockHeader';
 import { ImageBlock } from './blocks/imageBlock';
@@ -37,6 +38,7 @@ import { ImageCarouselBlock } from './blocks/imageCarouselBlock';
 import { CtaCard, CtaCardsBlock } from './blocks/ctaCardsBlock';
 import { DoubleCtaBlock } from './blocks/doubleCtaBlock';
 import { ImageTextOverlapBlock } from './blocks/imageTextOverlapBlock';
+import { QuoteBlock } from './blocks/quoteBlock';
 
 import { VideoHeader } from './headers/videoHeader';
 import { PractitionersBlock } from './blocks/practitionersBlock';
@@ -71,6 +73,7 @@ export const schemaTypes = [
   DoubleCtaBlock,
   PractitionersBlock,
   ImageTextOverlapBlock,
+  QuoteBlock,
 
   /* Field Types */
   ContentBlockHeader,
@@ -94,4 +97,5 @@ export const schemaTypes = [
   BigNumber,
   BigNumbers,
   TwoColumnUnorderedList,
+  Quote,
 ];
