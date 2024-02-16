@@ -1,4 +1,4 @@
-export const Wrapper = ['mb-16'];
+export const Wrapper = ['mb-16 relative'];
 
 export const Header = ['relative px-4 py-8 mb-48', 'md:mb-[229px]'];
 
@@ -25,8 +25,8 @@ export const FooterText = ['font-roobert font-size-8 theme-text-primary'];
 
 export const Sequence_Pathway_1 = [
   'w-[14px] absolute top-full left-[47.75%] z-10',
-  'md:w-[196px] md:left-1/2',
-  'lg:w-[314px]',
+  'md:left-1/2',
+  '',
 ];
 
 export const Sequence_Pathway_2 = [

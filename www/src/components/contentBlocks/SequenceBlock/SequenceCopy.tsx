@@ -16,19 +16,15 @@ export const SequenceCopy: FC<Props> = ({ copy, headerCopy }) => {
   useEffect(() => {
     const getLinePosition = () => {
       if (!bellyButtonTextRef.current) return;
-      const width =
-        bellyButtonTextRef.current.getBoundingClientRect().width / 2;
-      const marker =
-        bellyButtonTextRef.current.getBoundingClientRect().left + width;
+      const width = bellyButtonTextRef.current.offsetWidth / 2;
+      const marker = bellyButtonTextRef.current.offsetLeft + width;
       setSequenceLinePosition(marker);
     };
 
     if (sequenceLinePosition === 0) {
       if (!bellyButtonTextRef.current) return;
-      const width =
-        bellyButtonTextRef.current.getBoundingClientRect().width / 2;
-      const marker =
-        bellyButtonTextRef.current.getBoundingClientRect().left + width;
+      const width = bellyButtonTextRef.current.offsetWidth / 2;
+      const marker = bellyButtonTextRef.current.offsetLeft + width;
       setSequenceLinePosition(marker);
     }
 

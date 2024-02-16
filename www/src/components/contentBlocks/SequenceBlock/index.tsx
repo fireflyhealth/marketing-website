@@ -16,6 +16,7 @@ import {
   Sequence_Pathway_2,
   Sequence_Pathway_3,
 } from './styles';
+import { SequenceLines } from './SequenceLines';
 
 type Props = {
   sequenceBlock: SanityTypes.SequenceBlock;
@@ -26,88 +27,80 @@ export const SequenceBlock: FC<Props> = ({ sequenceBlock }) => {
     sequenceBlock;
 
   const { sequenceLinePosition } = useUIProvider();
-  const [anchorPathwayWidth, setAnchorPathwayWidth] = useState<number>(0);
-  const [halfWindowWidth, setHalfWindowWidth] = useState<number>(0);
+  const [sequenceAnchorWidth, setSequenceAnchorWidth] = useState(0);
 
   useEffect(() => {
     const windowWidth = window.screen.width / 2;
     const width = sequenceLinePosition - windowWidth;
-    setAnchorPathwayWidth(width);
-  }, [sequenceLinePosition]);
-
-  useEffect(() => {
-    const windowWidth = window.screen.width / 2;
-    setHalfWindowWidth(windowWidth);
-  }, []);
+    setSequenceAnchorWidth(width * -1);
+  }, [sequenceLinePosition, sequenceAnchorWidth]);
   return (
     <>
       <ContentBlockWrapper header={header}>
         <div className={cn(Wrapper)}>
           <div className={cn(Header)}>
             <SequenceCopy copy={sequenceHeader} headerCopy />
-            <div className={cn(Sequence_Pathway_1)}>
-              <BrandedIcon
-                type="straight-pathway"
-                wrapperStyles="md:hidden"
-                iconStyles="text-yellow-dark"
-              />
-              <BrandedIcon
-                type="bent-pathway-small"
-                wrapperStyles="hidden md:block lg:hidden"
-                iconStyles="text-yellow-dark"
-              />
-              <div className="border-sienna border-2 w-full h-full">
+            <div className="relative pt-12">
+              <SequenceLines />
+
+              <div
+                className={cn(Sequence_Pathway_1, 'hidden')}
+                style={{ width: `${sequenceAnchorWidth}px` }}
+              >
+                <BrandedIcon
+                  type="straight-pathway"
+                  wrapperStyles="md:hidden"
+                  iconStyles="text-yellow-dark"
+                />
+                <BrandedIcon
+                  type="bent-pathway-small"
+                  wrapperStyles="hidden md:block lg:hidden"
+                  iconStyles="text-yellow-dark"
+                />
                 <BrandedIcon
                   type="bent-pathway-large"
                   wrapperStyles="hidden lg:block"
                   iconStyles="text-yellow-dark"
                 />
               </div>
+
+              <div className={cn(SequenceItems)}>
+                {sequenceItems.map((item) => (
+                  <SequenceCard key={item._key} card={item} />
+                ))}
+                <div
+                  className={cn(Sequence_Pathway_2)}
+                  style={{ left: `${sequenceLinePosition}px` }}
+                />
+              </div>
+              <div className={cn(FooterWrapper)}>
+                <div className={cn(Sequence_Pathway_3)}>
+                  <BrandedIcon
+                    type="straight-pathway"
+                    wrapperStyles="md:hidden"
+                    iconStyles="text-yellow-dark"
+                  />
+                  <BrandedIcon
+                    type="bent-pathway-small"
+                    wrapperStyles="hidden md:block lg:hidden"
+                    iconStyles="text-yellow-dark"
+                  />
+                  <BrandedIcon
+                    type="bent-pathway-large"
+                    wrapperStyles="hidden lg:block"
+                    iconStyles="text-yellow-dark"
+                  />
+                </div>
+                <BrandedIcon
+                  type="navigation-compass"
+                  wrapperStyles="w-12 mb-8 z-20"
+                />
+                <p className={cn(FooterText)}>{sequenceFooter}</p>
+              </div>
             </div>
-          </div>
-          <div className={cn(SequenceItems)}>
-            {sequenceItems.map((item) => (
-              <SequenceCard key={item._key} card={item} />
-            ))}
-            <div
-              className={cn(Sequence_Pathway_2)}
-              style={{ left: `${sequenceLinePosition}px` }}
-            />
-          </div>
-          <div className={cn(FooterWrapper)}>
-            <div className={cn(Sequence_Pathway_3)}>
-              <BrandedIcon
-                type="straight-pathway"
-                wrapperStyles="md:hidden"
-                iconStyles="text-yellow-dark"
-              />
-              <BrandedIcon
-                type="bent-pathway-small"
-                wrapperStyles="hidden md:block lg:hidden"
-                iconStyles="text-yellow-dark"
-              />
-              <BrandedIcon
-                type="bent-pathway-large"
-                wrapperStyles="hidden lg:block"
-                iconStyles="text-yellow-dark"
-              />
-            </div>
-            <BrandedIcon
-              type="navigation-compass"
-              wrapperStyles="w-12 mb-8 z-20"
-            />
-            <p className={cn(FooterText)}>{sequenceFooter}</p>
           </div>
         </div>
       </ContentBlockWrapper>
-      <div
-        className="absolute top-0 w-px h-[500px] bg-sienna z-[99999999]"
-        style={{ left: `${halfWindowWidth}px` }}
-      />
-      <div
-        className="absolute top-0 w-px h-[500px] bg-sienna z-[99999999]"
-        style={{ left: `${sequenceLinePosition}px` }}
-      />
     </>
   );
 };
