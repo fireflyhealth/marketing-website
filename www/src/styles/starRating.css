@@ -1,15 +1,11 @@
-.MuiRating-root
-  .MuiRating-sizeMedium
-  .Mui-readOnly
-  .MuiRating-readOnly
-  .css-15befwp-MuiRating-root {
-  .MuiRating-icon .MuiRating-iconFilled .css-7qmtgc-MuiRating-icon {
-    .icon-wrapper {
-      color: theme('colors.black');
-    }
-
-    .icon-wrapper:nth-child(5) {
-      color: theme('colors.yellow-dark');
+/* The last star for a 5 star rating should be yellow */
+.MuiRating-root {
+  @apply flex flex-row space-x-1;
+  span:nth-child(5) {
+    .MuiRating-iconFilled {
+      .icon-wrapper {
+        color: theme('colors.yellow-dark');
+      }
     }
   }
 }
