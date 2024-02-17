@@ -126,20 +126,25 @@ export const MockData = defineType({
           validation: (Rule) => Rule.required(),
         }),
         defineField({
-          name: 'quoteBlock',
+          name: 'quoteBlockExample',
           type: 'quoteBlock',
           title: 'Quote Block',
-        }),
-        defineField({
-          name: 'drawerListBlock',
-          type: 'drawerListBlock',
-          title: 'Drawer List Block',
+          validation: (Rule) => Rule.required(),
           options: {
             collapsible: true,
             collapsed: true,
           },
         }),
-
+        defineField({
+          name: 'drawerListBlock',
+          type: 'drawerListBlock',
+          title: 'Drawer List Block',
+          validation: (Rule) => Rule.required(),
+          options: {
+            collapsible: true,
+            collapsed: true,
+          },
+        }),
         defineField({
           name: 'twoUpBlocks',
           title: '2-up Blocks',
