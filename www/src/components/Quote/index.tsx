@@ -1,7 +1,6 @@
 import { FC } from 'react';
 import cn from 'classnames';
 import { QuoteObject as QuoteObjectType } from '@/types/sanity';
-import { Link } from '@/atoms/Link';
 import { SanityImage } from '@/atoms/Image/SanityImage';
 import {
   Wrapper,
@@ -26,22 +25,19 @@ export const QuoteObject: FC<Props> = ({ quoteObject }) => {
   return (
     <div className={cn(Wrapper, 'space-y-6 md:space-y-[43px]')}>
       <div className={cn(Quote)}>{quote}</div>
-      <Link link={attribution}>
-        <div className={cn(AttributionContainer)}>
-          {attribution.headshot && (
-            <div className={cn(Headshot)}>
-              <SanityImage image={attribution.headshot} sizes={['48px']} />
-            </div>
-          )}
-          <div className={cn(Attribution)}>
-            <div className={cn(Name)}>{attribution.name}</div>
-            <div className={cn(About)}>
-              {attribution.title}
-              {attribution.qualifications && `, ${attribution.qualifications}`}
-            </div>
+      <div className={cn(AttributionContainer)}>
+        {attribution.image && (
+          <div className={cn(Headshot)}>
+            <SanityImage image={attribution.image} sizes={['48px']} />
           </div>
+        )}
+        <div className={cn(Attribution)}>
+          <div className={cn(Name)}>{attribution.label}</div>
+          {attribution.labelSubtitle ? (
+            <div className={cn(About)}>{attribution.labelSubtitle}</div>
+          ) : null}
         </div>
-      </Link>
+      </div>
     </div>
   );
 };
