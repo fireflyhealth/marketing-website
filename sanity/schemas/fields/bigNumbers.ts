@@ -112,12 +112,18 @@ export const BigNumbers = defineType({
       of: [{ type: 'bigNumber' }],
       validation: (Rule) => Rule.required().min(1),
     }),
+    defineField({
+      name: 'citation',
+      type: 'simpleRichText',
+      title: 'Citation',
+    }),
   ],
   preview: {
     select: {
       bigNumbers: 'bigNumbers',
+      citation: 'citation',
     },
-    prepare: ({ bigNumbers }) => {
+    prepare: ({ bigNumbers, citation }) => {
       if (!bigNumbers) {
         return { title: '(empty)' };
       }
@@ -131,12 +137,15 @@ export const BigNumbers = defineType({
         : undefined;
 
       const title = [firstBigNumberTitle, firstBigNumberDescription].join(' ');
-      const subtitle =
+      const citationSubtitle = citation
+        ? richTextToString(citation)
+        : undefined;
+      const lengthSubtitle =
         bigNumbers.length > 1 ? `+ ${bigNumbers.length - 1} more` : undefined;
 
       return {
         title,
-        subtitle,
+        subtitle: citationSubtitle || lengthSubtitle,
       };
     },
   },
