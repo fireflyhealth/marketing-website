@@ -222,6 +222,9 @@ export const bigNumbersFragment = `
     description[]{
       ${simpleRichTextFragment}
     }
+  },
+  citation[]{
+    ${simpleRichTextFragment}
   }
 `;
 
@@ -264,6 +267,20 @@ export const richTextFragment = `
     },
   }
 `;
+export const quoteObjectFragment = `
+  _type,
+  quote,
+  badgeImage {
+    ${imageFragment}
+  },
+  attribution {
+   label,
+    labelSubtitle,
+    image {
+      ${imageFragment}
+    }
+  }
+`;
 
 /**
  * Child content blocks
@@ -283,7 +300,13 @@ const childContentBlockFragment = `
   },
   _type == "bigNumbers" => {
     ${bigNumbersFragment}
+  },
+  _type == "quoteChildBlock" => {
+    quote{
+      ${quoteObjectFragment}
+    }
   }
+
 `;
 
 /**
@@ -331,21 +354,6 @@ export const imageTextOverlapFragment = `
   },
   copy[]{
     ${richTextFragment}
-  }
-`;
-
-export const quoteObjectFragment = `
-  _type,
-  quote,
-  badgeImage {
-    ${imageFragment}
-  },
-  attribution {
-   label,
-    labelSubtitle,
-    image {
-      ${imageFragment}
-    }
   }
 `;
 

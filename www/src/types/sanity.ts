@@ -425,6 +425,7 @@ export type BigNumber = {
 export type BigNumbers = {
   _type: 'bigNumbers';
   bigNumbers: KeyedArray<BigNumber>;
+  citation: Maybe<RichText>;
 };
 
 export type TwoColumnUnorderedList = {
@@ -447,6 +448,7 @@ export type HeaderArea = HeaderBlock;
 export type ChildContentBlock =
   | RichTextChildBlock
   | ImageChildBlock
+  | QuoteChildBlock
   | BigNumbers;
 
 export type RichTextChildBlock = {
@@ -458,6 +460,11 @@ export type RichTextChildBlock = {
 export type ImageChildBlock = {
   _type: 'imageChildBlock';
   image: RichImage;
+};
+
+export type QuoteChildBlock = {
+  _type: 'quoteChildBlock';
+  quote: QuoteObject;
 };
 /**
  * Content Area Blocks
