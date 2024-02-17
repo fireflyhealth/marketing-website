@@ -36,7 +36,6 @@ export const Quote = defineType({
           title: 'Label (Line 2)',
           type: 'string',
           description: 'i.e. "Firefly member since 2018"',
-          validation: (Rule) => Rule.required(),
         }),
         defineField({
           name: 'image',

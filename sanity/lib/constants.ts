@@ -116,4 +116,5 @@ export const childContentBlockTypes = [
   { type: 'richTextChildBlock' },
   { type: 'imageChildBlock' },
   { type: 'bigNumbers' },
+  { type: 'quoteChildBlock' },
 ];

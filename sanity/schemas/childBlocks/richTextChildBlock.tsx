@@ -1,10 +1,6 @@
 import { defineField, defineType } from 'sanity';
 import { icons } from '../../lib/icons';
 
-/**
- * TODO: RichTextBlock
- */
-
 export const RichTextChildBlock = defineType({
   name: 'richTextChildBlock',
   title: 'Rich Text Block',

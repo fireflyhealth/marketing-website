@@ -1,3 +1,4 @@
+/* Documents */
 import { Homepage } from './documents/homepage';
 import { GenericPage, SubPage } from './documents/genericPage';
 import {
@@ -12,6 +13,28 @@ import { Blog } from './documents/blog';
 import { MockData } from './documents/mockData';
 import { SiteSettings } from './documents/siteSettings';
 import { Practitioner } from './documents/practitioner';
+import { Navigation } from './documents/navigation';
+
+/* Headers */
+import { VideoHeader } from './headers/videoHeader';
+
+/* Child Blocks */
+
+import { RichTextChildBlock } from './childBlocks/richTextChildBlock';
+import { ImageChildBlock } from './childBlocks/imageChildBlock';
+
+/* Content Blocks */
+import { ContentBlockHeader } from './blocks/contentBlockHeader';
+import { ImageBlock } from './blocks/imageBlock';
+import { ImageCarouselBlock } from './blocks/imageCarouselBlock';
+import { CtaCard, CtaCardsBlock } from './blocks/ctaCardsBlock';
+import { DoubleCtaBlock } from './blocks/doubleCtaBlock';
+import { ImageTextOverlapBlock } from './blocks/imageTextOverlapBlock';
+import { QuoteBlock } from './blocks/quoteBlock';
+import { PractitionersBlock } from './blocks/practitionersBlock';
+import { TwoUpBlock } from './blocks/twoUpBlock';
+
+/* Fields */
 import { Metadata } from './fields/metadata';
 import { ResponsiveImageSet, RichImage } from './fields/images';
 import { Link, LinkableDocument } from './fields/linking';
@@ -21,7 +44,6 @@ import {
   ArticleRichText,
   LimitedRichText,
 } from './fields/richText';
-import { Navigation } from './documents/navigation';
 import { LinkWithLabel } from './fields/linkWithLabel';
 import { LabelWithDropdown } from './fields/labelWithDropdown';
 import { ChildContentBlock, ContentArea } from './fields/contentArea';
@@ -34,23 +56,11 @@ import { BarGraphItems } from './fields/barGraphItems';
 import { DoubleCta, LargeCTACard } from './fields/doubleCta';
 import { TwoColumnUnorderedList } from './fields/twoColumnUnorderedList';
 import { Quote } from './fields/quote';
-
-import { ContentBlockHeader } from './blocks/contentBlockHeader';
-import { ImageBlock, ImageChildBlock } from './blocks/imageBlock';
-import { ImageCarouselBlock } from './blocks/imageCarouselBlock';
-import { CtaCard, CtaCardsBlock } from './blocks/ctaCardsBlock';
-import { DoubleCtaBlock } from './blocks/doubleCtaBlock';
-import { ImageTextOverlapBlock } from './blocks/imageTextOverlapBlock';
-import { QuoteBlock } from './blocks/quoteBlock';
-
-import { VideoHeader } from './headers/videoHeader';
-import { PractitionersBlock } from './blocks/practitionersBlock';
 import { BigNumber, BigNumbers } from './fields/bigNumbers';
 import { DrawerListBlock, DrawerListItem } from './blocks/drawerListBlock';
 import { Theme } from './fields/theme';
-import { TwoUpBlock } from './blocks/twoUpBlock';
-import { RichTextChildBlock } from './blocks/richTextBlock';
 import { RichTextCtaRow } from './fields/richTextCtaRow';
+import { QuoteChildBlock } from './childBlocks/quoteChildBlock';
 
 export const schemaTypes = [
   /* Document Types */
@@ -88,6 +98,7 @@ export const schemaTypes = [
   /* Child blocks (used within other blocks, i.e. 2-up block) */
   ChildContentBlock,
   RichTextChildBlock,
+  QuoteChildBlock,
   ImageChildBlock,
 
   /* Field Types */
