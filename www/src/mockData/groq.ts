@@ -23,7 +23,9 @@ export const mockDataQuery = `
       imageTextOverlapBlock{${contentBlockFragment}},
       quoteBlock{${contentBlockFragment}},
       drawerListBlock{${contentBlockFragment}},
-      quoteBlockExample{${contentBlockFragment}}
+      quoteBlockExample{${contentBlockFragment}},
+      quoteBlockExample{${contentBlockFragment}},
+      twoUpBlocks[]{${contentBlockFragment}}
     },
     navigationExample{
       globalNav->{${navigationFragment}},

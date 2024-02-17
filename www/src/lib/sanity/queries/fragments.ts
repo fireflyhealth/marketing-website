@@ -260,6 +260,30 @@ export const richTextFragment = `
   }
 `;
 
+/**
+ * Child content blocks
+ */
+const childContentBlockFragment = `
+  _type,
+  _type == "richTextChildBlock" => {
+    heading,
+    body[]{
+      ${richTextFragment}
+    }
+  },
+  _type == "imageChildBlock" => {
+    image {
+      ${imageFragment}
+    }
+  },
+  _type == "bigNumbers" => {
+    ${bigNumbersFragment}
+  }
+`;
+
+/**
+ * Main content blocks
+ */
 export const contentBlockHeaderFragment = `
   _type,
   title,
@@ -334,6 +358,37 @@ export const videoFragment = `
   }
 `;
 
+export const videoHeaderFragment = `
+  eyebrow,
+  heading,
+  body[]{
+    ${richTextFragment}
+  },
+  video {${videoFragment}}
+`;
+
+/**
+ * blockOne and blockTwo are actually arrays
+ * in Sanity, but validated to always have only
+ * one item. The [0] is added to coerce these
+ * into single objects in the result. */
+const twoUpBlockFragment = `
+  header {
+    ${contentBlockHeaderFragment}
+  },
+  layout,
+  blockThemes {
+    blockOneTheme,
+    blockTwoTheme
+  },
+  blockOne {
+    ${childContentBlockFragment}
+  }[0],
+  blockTwo {
+    ${childContentBlockFragment}
+  }[0]
+`;
+
 export const contentBlockFragment = `
   _type,
   _key,
@@ -406,16 +461,8 @@ export const contentBlockFragment = `
       },
       theme
     }
-  }
-`;
-
-export const videoHeaderFragment = `
-  eyebrow,
-  heading,
-  body[]{
-    ${richTextFragment}
   },
-  video {${videoFragment}}
+  _type == "twoUpBlock" => {${twoUpBlockFragment}}
 `;
 
 export const headerBlockFragment = `

@@ -436,6 +436,25 @@ export type HeaderBlock = VideoHeader;
 export type HeaderArea = HeaderBlock;
 
 /**
+ * Child Content Blocks
+ */
+
+export type ChildContentBlock =
+  | RichTextChildBlock
+  | ImageChildBlock
+  | BigNumbers;
+
+export type RichTextChildBlock = {
+  _type: 'richTextChildBlock';
+  heading: string;
+  body: RichText;
+};
+
+export type ImageChildBlock = {
+  _type: 'imageChildBlock';
+  image: RichImage;
+};
+/**
  * Content Area Blocks
  */
 export type ContentBlock =
@@ -446,7 +465,8 @@ export type ContentBlock =
   | ImageTextOverlapBlock
   | QuoteBlock
   | DoubleCtaBlock
-  | DrawerListBlock;
+  | DrawerListBlock
+  | TwoUpBlock;
 
 export type ContentArea = KeyedArray<ContentBlock>;
 
@@ -557,4 +577,22 @@ export type DrawerListBlock = {
   _type: 'drawerListBlock';
   header: Maybe<ContentBlockHeader>;
   drawerListItems: KeyedArray<DrawerListItem>;
+};
+export type TwoUpBlockLayout =
+  | 'normal-50-50'
+  | 'normal-60-40'
+  | 'normal-40-60'
+  | 'overlap-50-50';
+
+export type TwoUpBlock = {
+  _type: 'twoUpBlock';
+  header: Maybe<ContentBlockHeader>;
+  layout: TwoUpBlockLayout;
+  /* Only present when the layout is 'overlap-50-50' */
+  blockThemes: Maybe<{
+    blockOneTheme: ColorTheme;
+    blockTwoTheme: ColorTheme;
+  }>;
+  blockOne: ChildContentBlock;
+  blockTwo: ChildContentBlock;
 };
