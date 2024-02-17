@@ -1,22 +1,18 @@
 import React, { FC } from 'react';
-import { ContentBlock as ContentBlockType, KeyedArray } from '@/types/sanity';
-import { filterMaybes } from '@/utils/arrays';
-
+import { ContentBlock as ContentBlockType } from '@/types/sanity';
 import { ImageBlock } from '../ImageBlock';
 import { ImageCarouselBlock } from '../ImageCarouselBlock';
 import { CTACardsBlock } from '../CTACardsBlock';
 import { PractitionersBlock } from '../PractitionersBlock';
 import { ImageTextOverlapBlock } from '../ImageTextOverlapBlock';
 import { QuoteBlock } from '../QuoteBlock';
-import { DoubleCtaBlock } from '../DoubleCtaBlock';
-import { DrawerListBlock } from '../DrawerListBlock';
 import { TwoUpBlock } from '../TwoUpBlock';
 
 type ContentBlockProps = {
   block: ContentBlockType;
 };
 
-const ContentBlock: FC<ContentBlockProps> = ({ block }) => {
+export const ContentBlock: FC<ContentBlockProps> = ({ block }) => {
   switch (block._type) {
     case 'imageBlock':
       return <ImageBlock imageBlock={block} />;
@@ -30,10 +26,6 @@ const ContentBlock: FC<ContentBlockProps> = ({ block }) => {
       return <ImageTextOverlapBlock imageTextOverlapBlock={block} />;
     case 'quoteBlock':
       return <QuoteBlock quoteBlock={block} />;
-    case 'drawerListBlock':
-      return <DrawerListBlock drawerListBlock={block} />;
-    case 'doubleCtaBlock':
-      return <DoubleCtaBlock doubleCtaBlock={block} />;
     case 'twoUpBlock':
       return <TwoUpBlock twoUpBlock={block} />;
     default:
@@ -43,15 +35,3 @@ const ContentBlock: FC<ContentBlockProps> = ({ block }) => {
       );
   }
 };
-
-type ContentAreaProps = {
-  blocks: KeyedArray<ContentBlockType>;
-};
-
-export const ContentArea: FC<ContentAreaProps> = ({ blocks }) => (
-  <>
-    {filterMaybes(blocks).map((block) => (
-      <ContentBlock block={block} key={block._key} />
-    ))}
-  </>
-);

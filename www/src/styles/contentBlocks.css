@@ -34,3 +34,35 @@
     height: 100%;
   }
 }
+
+.TwoUpBlock {
+  &__wrapper {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-gap: 3rem;
+  }
+
+  &__child {
+    grid-column: span 6;
+  }
+}
+
+.TwoUpBlock--layout-normal-60-40 {
+  .TwoUpBlock__child:nth-child(1) {
+    grid-column: span 5;
+  }
+
+  .TwoUpBlock__child:nth-child(2) {
+    grid-column: span 7;
+  }
+}
+
+.TwoUpBlock--layout-normal-40-60 {
+  .TwoUpBlock__child:nth-child(1) {
+    grid-column: span 7;
+  }
+
+  .TwoUpBlock__child:nth-child(2) {
+    grid-column: span 5;
+  }
+}
