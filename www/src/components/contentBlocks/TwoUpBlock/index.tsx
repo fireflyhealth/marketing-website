@@ -4,7 +4,6 @@ import { TwoUpBlock as TwoUpBlockType } from '@/types/sanity';
 import { ChildContentBlock } from '@/components/childContentBlocks/ChildContentBlock';
 import { ColorTheme, Theme } from '@/components/Theme';
 import { ContentBlockWrapper } from '../ContentBlockWrapper';
-import { TwoUpBlockWrapper } from './styles';
 
 type TwoUpBlockProps = {
   twoUpBlock: TwoUpBlockType;

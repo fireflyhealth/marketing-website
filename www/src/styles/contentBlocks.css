@@ -66,3 +66,16 @@
     grid-column: span 5;
   }
 }
+
+.TwoUpBlock--layout-overlap-50-50 {
+  display: flex;
+  flex-direction: flex-row;
+
+  .TwoUpBlock__child {
+    width: calc(50% + 3rem);
+
+    &:nth-child(2) {
+      margin-left: -6rem;
+    }
+  }
+}
