@@ -1,5 +1,6 @@
 import {
   contentBlockFragment,
+  headerAreaFragment,
   ctaFragment,
   doubleCtaFragment,
   footerFragment,
@@ -9,7 +10,6 @@ import {
   responsiveImageSetFragment,
   richTextFragment,
   videoFragment,
-  videoHeaderFragment,
 } from '@/lib/sanity/queries/fragments';
 
 export const mockDataQuery = `
@@ -17,7 +17,7 @@ export const mockDataQuery = `
     contentBlockExamples{
       imageBlock{${contentBlockFragment}},
       imageCarouselBlock{${contentBlockFragment}},
-      videoHeaderExample{${videoHeaderFragment}},
+      videoHeaderExample{${headerAreaFragment}},
       ctaCardsBlock{${contentBlockFragment}},
       doubleCtaBlockExample{${contentBlockFragment}},
       practitionersBlock{${contentBlockFragment}},
