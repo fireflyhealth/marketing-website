@@ -8,7 +8,7 @@ import { RichText } from '@/components/RichText';
 import { LinkButton } from '@/atoms/Button';
 import { slugify } from '@/utils/text';
 import { filterMaybes } from '@/utils/arrays';
-import { ColorTheme, Theme } from '@/components/Theme';
+import { Theme } from '@/components/Theme';
 import { SanityImage } from '@/atoms/Image/SanityImage';
 import { ResponsiveSanityImage } from '@/atoms/Image/ResponsiveSanityImage';
 import { ContentBlockWrapper } from '../ContentBlockWrapper';
@@ -22,6 +22,7 @@ type DrawerListItemProps = {
   drawerListItem: DrawerListItemType;
   isFirst: boolean;
   isLast: boolean;
+  index: number;
   isExpanded: boolean;
   expand: () => void;
 };
@@ -32,17 +33,11 @@ export const DrawerListItem: FC<DrawerListItemProps> = ({
   blockHeaderTitle,
   isExpanded,
   expand,
+  index,
   drawerListItem,
 }) => {
-  const { title, body, ctaLink, featuredImage } = drawerListItem;
-  const backgroundColor =
-    'backgroundColor' in drawerListItem
-      ? drawerListItem.backgroundColor
-      : undefined;
-  const backgroundImage =
-    'backgroundImage' in drawerListItem
-      ? drawerListItem.backgroundImage
-      : undefined;
+  const { title, body, ctaLink, featuredImage, theme, backgroundImage } =
+    drawerListItem;
   const linkButtonId = filterMaybes([
     'drawer-list-item',
     blockHeaderTitle,
@@ -52,10 +47,10 @@ export const DrawerListItem: FC<DrawerListItemProps> = ({
     .map(slugify)
     .join('-');
   return (
-    <Theme theme={ColorTheme.Midnight}>
+    <Theme theme={theme}>
       <div
         className={cn(
-          'p-6 md:p-12 relative rounded-lg z-[10] overflow-hidden',
+          'p-6 md:p-12 relative rounded-lg z-[10] overflow-hidden theme-bg-color',
           /* All list items except the last have extra padding at the
            * bottom to account for sibling overlap */
           isLast ? 'pb-6 md:pb-12' : 'pb-16 md:pb-24',
@@ -63,9 +58,6 @@ export const DrawerListItem: FC<DrawerListItemProps> = ({
            * extra bottom padding on the previous card */
           isFirst ? '' : 'mt-[-2.5rem] md:mt-[-3.5rem]',
         )}
-        style={{
-          backgroundColor: backgroundColor?.value || 'transparent',
-        }}
       >
         {backgroundImage ? (
           <div
@@ -85,49 +77,53 @@ export const DrawerListItem: FC<DrawerListItemProps> = ({
             />
           </div>
         ) : null}
-        {isExpanded ? (
-          <div
-            className={cn(
-              isExpanded
-                ? 'grid grid-cols-1 gap-12 lg:grid-cols-2 md:pb-6 relative z-[20]'
-                : 'hidden',
-              Boolean(backgroundImage) ? 'min-h-[450px] md:min-h-[600px]' : '',
-            )}
+        <div
+          className={cn('relative z-[20]', isExpanded ? 'hidden' : '')}
+          aria-hidden={isExpanded}
+        >
+          <button
+            onClick={expand}
+            disabled={isExpanded}
+            className="text-left"
+            aria-label={`Expand drawer ${index}: ${title}`}
           >
-            <div>
-              <h3 className="font-size-5 font-trust pb-5">{title}</h3>
-              <div className={isExpanded ? 'block' : 'hidden'}>
-                <RichText fontSize="font-size-8" content={body} />
-                {ctaLink ? (
-                  <div className="pt-5">
-                    <LinkButton
-                      id={linkButtonId}
-                      link={ctaLink.link}
-                      variant="textLink"
-                      width="auto"
-                      align="left"
-                      label={ctaLink.label}
-                    />
-                  </div>
-                ) : null}
-              </div>
+            <h3 className="font-size-5 font-trust">{title}</h3>
+          </button>
+        </div>
+
+        <div
+          aria-hidden={!isExpanded}
+          className={cn(
+            isExpanded
+              ? 'grid grid-cols-1 gap-12 lg:grid-cols-2 md:pb-6 relative z-[20]'
+              : 'opacity-0 h-0',
+            Boolean(backgroundImage && isExpanded)
+              ? 'min-h-[450px] md:min-h-[600px]'
+              : '',
+          )}
+        >
+          <div>
+            <h3 className="font-size-5 font-trust pb-5">{title}</h3>
+            <div className={isExpanded ? 'block' : 'hidden'}>
+              <RichText fontSize="font-size-8" content={body} />
+              {ctaLink ? (
+                <div className="pt-5">
+                  <LinkButton
+                    id={linkButtonId}
+                    link={ctaLink.link}
+                    variant="textLink"
+                    width="auto"
+                    align="left"
+                    label={ctaLink.label}
+                  />
+                </div>
+              ) : null}
             </div>
-            {featuredImage ? (
-              <SanityImage image={featuredImage} sizes={['100vw', '50vw']} />
-            ) : null}
           </div>
-        ) : (
-          <div className="relative z-[20]">
-            <button
-              onClick={expand}
-              disabled={isExpanded}
-              className="text-left"
-              aria-label={`Expand "${title}" content`}
-            >
-              <h3 className="font-size-5 font-trust">{title}</h3>
-            </button>
-          </div>
-        )}
+          {featuredImage ? (
+            <SanityImage image={featuredImage} sizes={['100vw', '50vw']} />
+          ) : null}
+        </div>
       </div>
     </Theme>
   );
@@ -155,6 +151,7 @@ export const DrawerListBlock: FC<DrawerListBlockProps> = ({
         <DrawerListItem
           blockHeaderTitle={header?.title}
           key={drawerListItem._key}
+          index={index}
           isFirst={index === 0}
           isLast={index === drawerListItems.length - 1}
           isExpanded={drawerListItem._key === currentListItem}
