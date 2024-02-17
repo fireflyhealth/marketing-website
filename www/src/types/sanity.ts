@@ -381,9 +381,14 @@ export type RichText = Array<
   | HubspotForm
   | IconBlock
   | BigNumbers
-  | CTA
+  | RichTextCtaRow
   | TwoColumnUnorderedList
 >;
+
+export type RichTextCtaRow = {
+  _type: 'richTextCtaRow';
+  ctas: KeyedArray<CTA>;
+};
 
 export type HubspotForm = {
   _type: 'form';

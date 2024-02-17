@@ -249,6 +249,11 @@ export const richTextFragment = `
   _type == "twoColumnUnorderedList" => {
     ${twoColumnUnorderedListFragment}
   },
+  _type == "richTextCtaRow" => {
+    ctas[]{
+      ${ctaFragment}
+    }
+  },
   markDefs[]{
     _key,
     _type,
