@@ -1,5 +1,4 @@
 import { defineType, defineField } from 'sanity';
-import { backgroundColorList } from '../../lib/constants';
 import { richTextToString } from '../../lib/richTextToString';
 
 export const DrawerListBlock = defineType({
@@ -48,55 +47,39 @@ export const DrawerListItem = defineType({
       type: 'richImage',
     }),
     defineField({
-      name: 'backgroundColor',
-      title: 'Background Color',
-      type: 'simplerColor',
-      options: {
-        colorList: backgroundColorList,
-      },
-      validation: (Rule) =>
-        Rule.custom((value, context) => {
-          // @ts-ignore
-          if (!value && !context?.parent?.backgroundImage) {
-            return 'Either a Background Color or Background Image is required';
-          }
-          // @ts-ignore
-          if (value && context?.parent?.backgroundImage) {
-            return 'Must be empty when a Background image is selected';
-          }
-          return true;
-        }),
+      name: 'theme',
+      type: 'theme',
+      title: 'Theme',
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'backgroundImage',
       title: 'Background Image',
       type: 'responsiveImageSet',
       description:
-        'Note: When providing a background image, make sure it is dark enough for the light yellow text to have contrast',
-      validation: (Rule) =>
-        Rule.custom((value, context) => {
-          // @ts-ignore
-          if (!value && !context?.parent?.backgroundColor) {
-            return 'Either a Background Color or Background Image is required';
-          }
-          // @ts-ignore
-          if (value && context?.parent?.backgroundColor) {
-            return 'Must be empty when a Background image is selected';
-          }
-          return true;
-        }),
+        'Note: When providing a background image, pick an appropriate theme that will make the text have contrast against the image',
     }),
   ],
   preview: {
     select: {
       title: 'title',
       body: 'body',
+      theme: 'theme',
       featuredImage: 'featuredImage',
     },
-    prepare: ({ title, body, featuredImage }) => ({
-      title,
-      subtitle: body ? richTextToString(body) : undefined,
-      media: featuredImage,
-    }),
+    prepare: ({ title, body, theme, featuredImage }) => {
+      const subtitle =
+        [
+          theme ? `(${theme})` : undefined,
+          body ? richTextToString(body) : undefined,
+        ]
+          .filter(Boolean)
+          .join(' ') || undefined;
+      return {
+        title,
+        subtitle,
+        media: featuredImage,
+      };
+    },
   },
 });

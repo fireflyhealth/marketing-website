@@ -99,17 +99,6 @@ export const ResponsiveImageSet = defineField({
   type: 'object',
   description:
     'Provide alternate images to use at different screen sizes. Only one is required.',
-  validation: (Rule) =>
-    Rule.custom((value?: Record<string, { asset: any } | undefined>) => {
-      if (
-        !value?.desktop?.asset &&
-        !value?.tablet?.asset &&
-        !value?.mobile?.asset
-      ) {
-        return 'You must provide at least one image';
-      }
-      return true;
-    }),
   fields: [
     defineField({
       name: 'desktop',

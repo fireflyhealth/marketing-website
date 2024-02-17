@@ -77,13 +77,10 @@ export const brandedIcons = [
   { title: 'Video Call', value: 'video-call' },
 ];
 
-/* Note: this is currently used only in the DrawerListItem type.
- * If you need to extend this with more colors:
- * - Make sure that the text color in DrawerListItem is accessible
- * - Or, define a separate list of background colors for your use case.
- */
-export const backgroundColorList = [
-  /* Make sure these hex values match those in tailwind.config.ts */
-  { label: 'Midnight', value: '#131D2B' },
-  { label: 'Sienna', value: '#7D320C' },
+export const themeOptions = [
+  { title: 'White', value: 'white' },
+  { title: 'Grey', value: 'grey' },
+  { title: 'Sienna', value: 'sienna' },
+  { title: 'Midnight', value: 'midnight' },
+  { title: 'Sky', value: 'sky' },
 ];

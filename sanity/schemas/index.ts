@@ -44,6 +44,7 @@ import { VideoHeader } from './headers/videoHeader';
 import { PractitionersBlock } from './blocks/practitionersBlock';
 import { BigNumber, BigNumbers } from './fields/bigNumbers';
 import { DrawerListBlock, DrawerListItem } from './blocks/drawerListBlock';
+import { Theme } from './fields/theme';
 
 export const schemaTypes = [
   /* Document Types */
@@ -102,4 +103,5 @@ export const schemaTypes = [
   BigNumbers,
   TwoColumnUnorderedList,
   Quote,
+  Theme,
 ];
