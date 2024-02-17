@@ -22,7 +22,8 @@ export const mockDataQuery = `
       practitionersBlock{${contentBlockFragment}},
       imageTextOverlapBlock{${contentBlockFragment}},
       quoteBlock{${contentBlockFragment}},
-      drawerListBlock{${contentBlockFragment}}
+      drawerListBlock{${contentBlockFragment}},
+      quoteBlockExample{${contentBlockFragment}}
     },
     navigationExample{
       globalNav->{${navigationFragment}},
@@ -42,7 +43,7 @@ export const mockDataQuery = `
       ${responsiveImageSetFragment}
     },
     videoExample{
-      ${videoFragment},
+      ${videoFragment}
     },
     ctas[]{
       ${ctaFragment}

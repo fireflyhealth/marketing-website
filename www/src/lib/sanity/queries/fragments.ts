@@ -308,7 +308,16 @@ export const imageTextOverlapFragment = `
 export const quoteObjectFragment = `
   _type,
   quote,
-  attribution->{${linkableDocumentFragment}}
+  badgeImage {
+    ${imageFragment}
+  },
+  attribution {
+   label,
+    labelSubtitle,
+    image {
+      ${imageFragment}
+    }
+  }
 `;
 
 export const quoteBlockFragment = `

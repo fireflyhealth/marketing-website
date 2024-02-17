@@ -523,10 +523,17 @@ export type ImageTextOverlapBlock = {
   copy: RichText;
 };
 
+export type QuoteAttribution = {
+  label: string;
+  labelSubtitle: Maybe<string>;
+  image: Maybe<Image>;
+};
+
 export type QuoteObject = {
   _type: 'quoteObject';
+  badgeImage: Maybe<Image>;
   quote: string;
-  attribution: PractitionerLinkData;
+  attribution: QuoteAttribution;
 };
 
 export type QuoteBlock = {
