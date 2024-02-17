@@ -1,4 +1,5 @@
 import { PortableTextBlock } from '@portabletext/types';
+import { ColorTheme } from '@/components/Theme';
 
 /**
  * Generic
@@ -525,18 +526,16 @@ export type QuoteBlock = {
   quoteObject: QuoteObject;
   cta: CTA;
 };
+
 export type DrawerListItem = {
   _type: 'drawerListItem';
   title: string;
   body: RichText;
   ctaLink: Maybe<LinkWithLabel>;
   featuredImage: RichImage;
-} & (
-  | {
-      backgroundImage: ResponsiveImageSet;
-    }
-  | { backgroundColor: ColorSwatch }
-);
+  theme: ColorTheme;
+  backgroundImage: Maybe<ResponsiveImageSet>;
+};
 
 export type DrawerListBlock = {
   _type: 'drawerListBlock';

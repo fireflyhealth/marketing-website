@@ -399,7 +399,7 @@ export const contentBlockFragment = `
       backgroundImage{
         ${responsiveImageSetFragment}
       },
-      backgroundColor
+      theme
     }
   }
 `;
