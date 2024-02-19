@@ -22,12 +22,12 @@ export const ImageGridBlock = defineType({
   ],
   preview: {
     select: {
-      subtitle: 'images.length',
+      subtitle: 'images',
     },
     prepare: ({ subtitle }) => {
       return {
         title: 'Image Grid Block',
-        subtitle: subtitle,
+        subtitle: `${subtitle.length} Images`,
       };
     },
   },
