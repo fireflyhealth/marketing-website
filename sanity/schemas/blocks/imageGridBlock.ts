@@ -17,6 +17,7 @@ export const ImageGridBlock = defineType({
       title: 'Images',
       type: 'array',
       of: [{ type: 'richImage' }],
+      validation: (Rule) => Rule.required().min(1),
     }),
   ],
   preview: {

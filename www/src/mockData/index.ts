@@ -19,6 +19,7 @@ import {
   TwoUpBlock,
   SequenceBlock,
   ReviewBlock,
+  ImageGridBlock,
 } from '@/types/sanity';
 import mockData from './mockData.json';
 
@@ -29,6 +30,7 @@ export const imageExamples = mockData.imageExamples as Array<{
 
 export const navigationExample =
   mockData.navigationExample as NavigationExample;
+
 export const footerExample = mockData.footer as Footer;
 
 export const imageBlockExample = mockData.contentBlockExamples
@@ -82,3 +84,6 @@ export const sequenceBlockExample = mockData.contentBlockExamples
 
 export const reviewBlockExample = mockData.contentBlockExamples
   .reviewBlock as ReviewBlock;
+
+export const imageGridBlockExample = mockData.contentBlockExamples
+  .imageGridBlockExample as ImageGridBlock;

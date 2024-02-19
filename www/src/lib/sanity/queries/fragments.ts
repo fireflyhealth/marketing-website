@@ -444,6 +444,13 @@ export const sequenceBlockFragment = `
   sequenceFooter
 `;
 
+export const imageGridBlockFragment = `
+  header{${contentBlockHeaderFragment}},
+  images[]{
+    ${imageFragment}
+  }
+`;
+
 export const contentBlockFragment = `
   _type,
   _key,
@@ -519,7 +526,9 @@ export const contentBlockFragment = `
    },
   _type == "sequenceBlock" => {${sequenceBlockFragment}},
   _type == "twoUpBlock" => {${twoUpBlockFragment}},
-  _type == "reviewBlock" => {${reviewBlockFragmnet}}
+  _type == "reviewBlock" => {${reviewBlockFragmnet}},
+  _type == "sequenceBlock" => {${sequenceBlockFragment}},
+  _type == "imageGridBlock" => {${imageGridBlockFragment}}
 `;
 
 export const videoHeaderFragment = `
