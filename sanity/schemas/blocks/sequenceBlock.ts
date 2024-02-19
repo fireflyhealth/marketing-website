@@ -1,6 +1,5 @@
 import { defineType, defineField, defineArrayMember } from 'sanity';
 import { icons } from '../../lib/icons';
-import { themeOptions } from '../../lib/constants';
 
 export const SequenceBlockTextFields = defineField({
   name: 'sequenceBlockTextFields',
@@ -60,10 +59,7 @@ export const SequenceItem = defineType({
     defineField({
       name: 'theme',
       title: 'Theme',
-      type: 'string',
-      options: {
-        list: themeOptions,
-      },
+      type: 'theme',
       hidden: ({ parent }) => parent.isHighlighted === false,
       validation: (Rule) =>
         Rule.custom((value, context) => {
