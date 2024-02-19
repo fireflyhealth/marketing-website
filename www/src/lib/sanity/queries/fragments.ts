@@ -408,7 +408,6 @@ const sequenceItemFragment = `
   video{${videoFragment}},
   copy{${sequenceBlockTextFieldsFragment}},
   theme,
-  flipAlignment,
   isHighlighted
 `;
 

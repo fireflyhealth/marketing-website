@@ -524,8 +524,7 @@ export type SequenceBlockItem = {
   _key: string;
   video: Video;
   copy: SequenceBlockTextFields;
-  theme: string;
-  flipAlignment: boolean;
+  theme: Maybe<string>;
   isHighlighted: boolean;
 };
 

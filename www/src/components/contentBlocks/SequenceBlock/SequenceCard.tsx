@@ -12,11 +12,11 @@ type Props = {
 };
 
 export const SequenceCard: FC<Props> = ({ card }) => {
-  const { video, copy, theme, flipAlignment, isHighlighted } = card;
+  const { video, copy, isHighlighted, theme } = card;
 
   return (
     <>
-      {isHighlighted ? (
+      {isHighlighted && theme ? (
         <Theme theme={getColorTheme(theme)}>
           <div
             className={cn(
@@ -39,10 +39,7 @@ export const SequenceCard: FC<Props> = ({ card }) => {
           className={cn(
             SequenceCardWrapper,
             'theme-bg-color',
-            'md:bg-transparent md:py-24',
-            flipAlignment
-              ? 'md:flex-row-reverse md:space-x-reverse'
-              : 'md:flex-row',
+            'md:bg-transparent md:py-24 md:flex-row',
           )}
         >
           <div className={cn(VideoWrapper, 'lg:max-w-[580px]')}>

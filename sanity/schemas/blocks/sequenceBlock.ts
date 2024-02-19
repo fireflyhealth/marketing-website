@@ -50,29 +50,30 @@ export const SequenceItem = defineType({
       type: 'sequenceBlockTextFields',
     }),
     defineField({
-      name: 'theme',
-      title: 'Theme',
-      type: 'string',
-      options: {
-        list: themeOptions,
-      },
-      validation: (Rule) => Rule.required(),
-    }),
-    defineField({
-      name: 'flipAlignment',
-      title: 'flipAlignment',
-      type: 'boolean',
-      description:
-        'Toggle on to flip the alignment of the sequence item (default alignment is video on left and text on right).',
-      validation: (Rule) => Rule.required(),
-    }),
-    defineField({
       name: 'isHighlighted',
       title: 'Highlight Sequence Item',
       type: 'boolean',
       description:
         'Highlighted items render with additional styles to make it standout amongst the other sequence items.',
       validation: (Rule) => Rule.required(),
+    }),
+    defineField({
+      name: 'theme',
+      title: 'Theme',
+      type: 'string',
+      options: {
+        list: themeOptions,
+      },
+      hidden: ({ parent }) => parent.isHighlighted === false,
+      validation: (Rule) =>
+        Rule.custom((value, context) => {
+          // @ts-ignore
+          if (context?.parent?.isHighlighted === true && !value) {
+            return 'Theme is required for highlighted sequence items.';
+          }
+
+          return true;
+        }),
     }),
   ],
   preview: {
