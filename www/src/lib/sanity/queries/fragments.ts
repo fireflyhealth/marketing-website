@@ -490,6 +490,23 @@ export const imageGridBlockFragment = `
   }
 `;
 
+export const cardFragment = `
+  _type,
+  _key,
+  title,
+  description,
+  media{
+    isBackgroundImage,
+    image{${imageFragment}}
+  },
+  cta{${ctaFragment}}
+`;
+
+export const cardlistBlockFragment = `
+  header{${contentBlockHeaderFragment}},
+  cardList[]{${cardFragment}}
+`;
+
 export const contentBlockFragment = `
   _type,
   _key,
@@ -591,7 +608,8 @@ export const contentBlockFragment = `
         ${simpleRichTextFragment}
       }
     }
-  }
+  },
+  _type == "cardListBlock" => {${cardlistBlockFragment}}
 `;
 
 export const videoHeaderFragment = `

@@ -32,6 +32,7 @@ export const mockDataQuery = `
       quoteBlockExample{${contentBlockFragment}},
       twoUpBlocks[]{${contentBlockFragment}},
       faqBlock{${contentBlockFragment}},
+      cardListBlockExample{${contentBlockFragment}}
     },
     navigationExample{
       globalNav->{${navigationFragment}},

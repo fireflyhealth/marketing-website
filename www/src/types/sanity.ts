@@ -522,7 +522,8 @@ export type ContentBlock =
   | SequenceBlock
   | ReviewBlock
   | ImageGridBlock
-  | FAQBlock;
+  | FAQBlock
+  | CardListBlock;
 
 export type ContentArea = KeyedArray<ContentBlock>;
 
@@ -732,4 +733,21 @@ export type FAQBlock = {
   blockDescription: Maybe<SimpleRichText>;
   blockCta: Maybe<CTA>;
   faqs: Array<FAQ>;
+};
+
+export type Card = {
+  _type: 'card';
+  title: string;
+  description: string;
+  media: {
+    isBackgroundImage: boolean;
+    image: RichImage;
+  };
+  cta: CTA;
+};
+
+export type CardListBlock = {
+  _type: 'cardListBlock';
+  header: Maybe<ContentBlockHeader>;
+  cardList: KeyedArray<Card>;
 };
