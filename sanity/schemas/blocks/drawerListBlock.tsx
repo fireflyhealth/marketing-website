@@ -1,10 +1,12 @@
 import { defineType, defineField } from 'sanity';
 import { richTextToString } from '../../lib/richTextToString';
+import { icons } from '../../lib/icons';
 
 export const DrawerListBlock = defineType({
   name: 'drawerListBlock',
-  title: 'Drawer List',
+  title: 'Drawer List Block',
   type: 'object',
+  icon: icons.Drawer,
   fields: [
     defineField({
       name: 'header',
@@ -17,6 +19,15 @@ export const DrawerListBlock = defineType({
       of: [{ type: 'drawerListItem' }],
     }),
   ],
+  preview: {
+    select: {
+      header: 'header',
+    },
+    prepare: ({ header }) => ({
+      title: 'Drawer List Block',
+      subtitle: header.title,
+    }),
+  },
 });
 
 export const DrawerListItem = defineType({
