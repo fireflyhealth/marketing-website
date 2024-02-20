@@ -76,3 +76,11 @@ export const brandedIcons = [
   { title: 'Pill', value: 'pill' },
   { title: 'Video Call', value: 'video-call' },
 ];
+
+export const themeOptions = [
+  { title: 'White', value: 'white' },
+  { title: 'Grey', value: 'grey' },
+  { title: 'Sienna', value: 'sienna' },
+  { title: 'Midnight', value: 'midnight' },
+  { title: 'Sky', value: 'sky' },
+];

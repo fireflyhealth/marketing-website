@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import cn from 'classnames';
-import { Link as LinkType, Maybe } from '@/types/sanity';
+import { Link as LinkType, LinkableDocumentData, Maybe } from '@/types/sanity';
 import { Link } from '@/atoms/Link';
 
 type ButtonVariant = 'primary' | 'secondary' | 'outlined' | 'textLink';
@@ -43,7 +43,8 @@ export const Button: FC<ButtonProps> = ({
           bgColorOverride,
           'cta',
           `cta--${variant}`,
-          width === 'full' ? 'w-full' : 'w-auto',
+          /* TextLink width should always be auto */
+          variant === 'textLink' || width === 'auto' ? 'w-auto' : 'w-full',
         )}
         aria-label={ariaLabel || undefined}
         id={id}
@@ -57,7 +58,7 @@ export const Button: FC<ButtonProps> = ({
 };
 
 type LinkButtonProps = Omit<ButtonProps, 'onClick'> & {
-  link: LinkType;
+  link: LinkType | LinkableDocumentData;
 };
 
 export const LinkButton: FC<LinkButtonProps> = ({
@@ -83,7 +84,9 @@ export const LinkButton: FC<LinkButtonProps> = ({
           'cta',
           `cta--${variant}`,
           disabled && 'cta--disabled',
-          width === 'full' ? 'w-full' : 'w-auto',
+
+          /* TextLink width should always be auto */
+          variant === 'textLink' || width === 'auto' ? 'w-auto' : 'w-full',
         )}
         id={id}
       >
