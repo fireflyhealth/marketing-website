@@ -14,31 +14,17 @@ type Props = {
 export const ReviewBlock: FC<Props> = ({ reviewBlock }) => {
   const { header, reviewHeading, reviews } = reviewBlock;
 
-  const [isLoadMoreVisible, setIsLoadMoreVisible] = useState(true);
   // State handling the number of reviews to show at a time
-  const [reviewListIndex, setReviewListIndex] = useState(3);
+  const [visibleReviewsCount, setVisibleReviewsCount] = useState(3);
 
-  // Slice reviews so it's length = reviewListIndex
-  const initialReviewList = reviews.slice(0, reviewListIndex);
+  // Slice reviews so it's length = visibleReviewsCount
+  const visibleReviews = reviews.slice(0, visibleReviewsCount);
 
   const handleLoadMore = () => {
-    setReviewListIndex(reviewListIndex + 6);
+    setVisibleReviewsCount(visibleReviewsCount + 6);
   };
 
-  // only show the load more button if the number of reviews on
-  // display are less than the full list of reviews
-  useEffect(() => {
-    if (reviews.length > 3) {
-      setIsLoadMoreVisible(true);
-    } else setIsLoadMoreVisible(false);
-  }, [reviews]);
-
-  // Hide 'Load more' button when all reviews are shown
-  useEffect(() => {
-    if (reviewListIndex >= reviews.length) {
-      setIsLoadMoreVisible(false);
-    }
-  }, [reviewListIndex, reviews.length]);
+  const isLoadMoreVisible = reviews.length > visibleReviewsCount;
 
   return (
     <>
@@ -55,12 +41,12 @@ export const ReviewBlock: FC<Props> = ({ reviewBlock }) => {
           </div>
         </div>
         <div className={cn(Reviews)}>
-          {initialReviewList.map((review) => (
+          {visibleReviews.map((review) => (
             <ReviewItem key={review._key} reviewItem={review} />
           ))}
           {isLoadMoreVisible && (
             <Button
-              id=""
+              id="load-more-reviews"
               label="Load more"
               onClick={handleLoadMore}
               width="auto"
