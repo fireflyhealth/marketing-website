@@ -38,7 +38,7 @@ import {
   SequenceBlockTextFields,
   SequenceItem,
 } from './blocks/sequenceBlock';
-import { ReviewBlock, ReviewItem } from './blocks/reviewBlock';
+import { ReviewBlock, ReviewItem, ReviewHeading } from './blocks/reviewBlock';
 
 /* Fields */
 import { Metadata } from './fields/metadata';
@@ -139,5 +139,6 @@ export const schemaTypes = [
   RichTextCtaRow,
   SequenceBlockTextFields,
   SequenceItem,
+  ReviewHeading,
   ReviewItem,
 ];

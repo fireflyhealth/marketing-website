@@ -655,5 +655,10 @@ export type ReviewItem = {
 export type ReviewBlock = {
   _type: 'reviewBlock';
   header: Maybe<ContentBlockHeader>;
+  reviewHeading: {
+    _type: 'reviewHeading';
+    title: string;
+    description: RichText;
+  };
   reviews: ReviewItem[];
 };

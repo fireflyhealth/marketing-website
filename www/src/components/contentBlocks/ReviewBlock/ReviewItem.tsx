@@ -5,7 +5,7 @@ import { ReviewItem as ReviewItemType } from '@/types/sanity';
 import { StarRating } from '@/components/StarRating';
 import { RichText } from '@/components/RichText';
 import doctorsReviewLogo from '../../../../public/images/doctorsReviewLogo.png';
-import { ReviewWrapper, Title, Reviewee } from './styles';
+import { ReviewWrapper, ReviewTitle, Reviewee } from './styles';
 
 type Props = {
   reviewItem: ReviewItemType;
@@ -26,7 +26,7 @@ export const ReviewItem: FC<Props> = ({ reviewItem }) => {
         <StarRating starRating={starRating} />
         <Image src={doctorsReviewLogo} width={114} alt="doctors.com logo" />
       </div>
-      <h5 className={cn(Title)}>{title}</h5>
+      <h5 className={cn(ReviewTitle)}>{title}</h5>
       <RichText
         content={review}
         fontSize="font-roobert font-size-8"

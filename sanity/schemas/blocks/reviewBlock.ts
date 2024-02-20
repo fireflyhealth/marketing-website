@@ -1,6 +1,27 @@
 import { defineType, defineField } from 'sanity';
 import { icons } from '../../lib/icons';
 
+export const ReviewHeading = defineType({
+  name: 'reviewHeading',
+  title: 'Review Heading',
+  type: 'object',
+  fields: [
+    defineField({
+      name: 'title',
+      title: 'Title',
+      type: 'text',
+      rows: 3,
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
+      name: 'description',
+      title: 'Description',
+      type: 'simpleRichText',
+      validation: (Rule) => Rule.required(),
+    }),
+  ],
+});
+
 export const ReviewItem = defineType({
   name: 'reviewItem',
   title: 'Review Item',
@@ -84,6 +105,13 @@ export const ReviewBlock = defineType({
       name: 'header',
       type: 'contentBlockHeader',
       title: 'Header',
+      description: 'Optional heading that displays on top of the component.',
+    }),
+    defineField({
+      name: 'reviewHeading',
+      type: 'reviewHeading',
+      title: 'Review Heading',
+      description: 'Required heading that displays inside of the component.',
       validation: (Rule) => Rule.required(),
     }),
     defineField({

@@ -416,6 +416,13 @@ export const reviewFragment = `
 
 export const reviewBlockFragmnet = `
   header{${contentBlockHeaderFragment}},
+  reviewHeading{
+    _type,
+    title,
+    description[]{
+      ${richTextFragment}
+    }
+  },
   reviews[]{${reviewFragment}}
 `;
 
