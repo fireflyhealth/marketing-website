@@ -21,7 +21,7 @@ export const ContentBlockHeader = defineType({
     defineField({
       title: 'CTA',
       name: 'cta',
-      type: 'cta',
+      type: 'notRequiredCta',
     }),
   ],
   preview: {

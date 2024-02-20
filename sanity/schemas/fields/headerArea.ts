@@ -5,11 +5,13 @@ export const HeaderArea = defineType({
   title: 'Header Area',
   type: 'array',
   of: [{ type: 'videoHeader' }],
-  validation: (Rule) =>
-    Rule.required()
-      .min(1)
-      .max(1)
-      .error(
-        'Ony one header is allowed per page and is required to publish the page.',
-      ),
+  // TODO: add validation back in. This is commented out to allow for the screen to be published.
+  // When there is more header gets added, this validation should be added back in.
+  // validation: (Rule) =>
+  // Rule.required()
+  //   .min(1)
+  //   .max(1)
+  //   .error(
+  //     'Ony one header is allowed per page and is required to publish the page.',
+  //   ),
 });
