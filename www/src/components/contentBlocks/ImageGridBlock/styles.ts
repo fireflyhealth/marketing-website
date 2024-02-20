@@ -10,6 +10,6 @@ export const ImagesContainer = [
 
 export const ImageWrapper = [
   'flex w-[143px] h-[136px] items-center justify-center',
-  'md:w-[200px] h-[146px]',
-  'lg:w-[276px] h-[146px]',
+  'md:w-[200px] md:h-[146px]',
+  'lg:w-[276px]',
 ];
