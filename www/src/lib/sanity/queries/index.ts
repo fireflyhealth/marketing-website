@@ -25,6 +25,7 @@ export const siteSettingsFragment = `
   defaultMetadata {${metadataFragment}}
 `;
 
+// This fragment is used for home page and generic page
 export const genericPageFragment = `
   _id,
   title,
@@ -40,6 +41,8 @@ export const subPageFragment = `
   title,
   slug,
   navigationOverrides {${navigationOverridesFragment}},
+  header {${headerBlockFragment}}[],
+  content {${contentBlockFragment}}[],
   metadataFragment{${metadataFragment}},
   meta
 `;
@@ -49,6 +52,8 @@ export const specialPageFragment = `
   title,
   slug,
   navigationOverrides {${navigationOverridesFragment}},
+  header {${headerBlockFragment}}[],
+  content {${contentBlockFragment}}[],
   metadataFragment{${metadataFragment}}
 `;
 
@@ -65,6 +70,8 @@ export const clientPageFragment = `
   clientName,
   slug,
   navigationOverrides {${navigationOverridesFragment}},
+  header {${headerBlockFragment}}[],
+  content {${contentBlockFragment}}[],
   metadataFragment{${metadataFragment}}
 `;
 

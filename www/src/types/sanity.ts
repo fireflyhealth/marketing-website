@@ -104,6 +104,8 @@ export type DownloadPage = SanityDocument & {
   _type: 'downloadPage';
   title: string;
   navigationOverrides?: NavigationOverrides;
+  header: HeaderArea;
+  content: ContentArea;
   metadata?: Metadata;
 };
 export type DownloadPageLinkData = Pick<DownloadPage, '_type'>;
@@ -112,6 +114,8 @@ export type ContactPage = SanityDocument & {
   _type: 'contactPage';
   title: string;
   navigationOverrides?: NavigationOverrides;
+  header: HeaderArea;
+  content: ContentArea;
   metadata?: Metadata;
 };
 export type ContactPageLinkData = Pick<ContactPage, '_type'>;
@@ -120,6 +124,8 @@ export type NotFoundPage = SanityDocument & {
   _type: 'notFoundPage';
   title: string;
   navigationOverrides?: NavigationOverrides;
+  header: HeaderArea;
+  content: ContentArea;
   metadata?: Metadata;
 };
 
@@ -163,6 +169,8 @@ export type ClientPage = SanityDocument & {
   clientName: string;
   slug: Slug;
   navigationOverrides?: NavigationOverrides;
+  header: HeaderArea;
+  content: ContentArea;
   metadata?: Metadata;
 };
 export type ClientPageLinkData = Pick<
