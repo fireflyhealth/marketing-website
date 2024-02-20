@@ -27,10 +27,7 @@ export type Props = {
     | 'navigation-compass'
     | 'navigation-map'
     | 'pill'
-    | 'video-call'
-    | 'straight-pathway'
-    | 'bent-pathway-large'
-    | 'bent-pathway-small';
+    | 'video-call';
   wrapperStyles?: string;
   iconStyles?: string;
   id?: string;
@@ -710,51 +707,6 @@ export const BrandedIcon: FC<Props> = ({ type, wrapperStyles, iconStyles }) => {
               d="M71.5 77C64.5964 77 59 71.4036 59 64.5C59 57.5964 64.5964 52 71.5 52C78.4036 52 84 57.5964 84 64.5C84 71.4036 78.4036 77 71.5 77ZM92.0097 92H57.2734C60.3277 84.9326 67.2479 80 75.2957 80C83.3047 80 90.1969 84.8851 93.2734 91.8978C92.8619 91.9651 92.4398 92 92.0097 92Z"
               className="icon-overlap"
             />
-          </svg>
-        );
-      case 'straight-pathway':
-        return (
-          <svg
-            className={iconStyles}
-            viewBox="0 0 14 192"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <desc>{type}</desc>
-            <path d="M6.99999 6.99989L7 192" className="icon-overlap-stroke" />
-            <circle cx="7" cy="7" r="7" className="icon-overlap" />
-          </svg>
-        );
-      case 'bent-pathway-large':
-        return (
-          <svg
-            className={iconStyles}
-            viewBox="0 0 322 377"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <desc>{type}</desc>
-            <path
-              d="M321 377L321 217.6C321 208.639 321 204.159 319.256 200.736C317.722 197.725 315.274 195.278 312.264 193.744C308.841 192 304.361 192 295.4 192L32.6 192C23.6391 192 19.1587 192 15.7361 190.256C12.7255 188.722 10.2778 186.274 8.74386 183.264C6.99996 179.841 6.99996 175.361 6.99996 166.4L6.99995 7.00011"
-              className="icon-overlap-stroke"
-            />
-            <circle cx="7" cy="7" r="7" className="icon-overlap" />
-          </svg>
-        );
-      case 'bent-pathway-small':
-        return (
-          <svg
-            className={iconStyles}
-            viewBox="0 0 253 360"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <desc>{type}</desc>
-            <path
-              d="M252 360L252 208.942C252 199.981 252 195.501 250.256 192.078C248.722 189.067 246.274 186.62 243.264 185.086C239.841 183.342 235.361 183.342 226.4 183.342L31.0953 183.342C22.1345 183.342 17.654 183.342 14.2315 181.598C11.2209 180.064 8.77318 177.616 7.2392 174.606C5.49531 171.183 5.49531 166.703 5.49531 157.742L5.4953 6.68421"
-              className="icon-overlap-stroke"
-            />
-            <circle cx="7" cy="7" r="7" className="icon-overlap" />
           </svg>
         );
     }
