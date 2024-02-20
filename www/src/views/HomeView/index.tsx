@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 
 import { Homepage } from '@/types/sanity';
-import { RichText } from '@/components/RichText';
+import { ContentArea } from '@/components/contentBlocks/ContentArea';
 
 type HomeViewProps = {
   homepage: Homepage;
@@ -10,11 +10,7 @@ type HomeViewProps = {
 export const HomeView: FC<HomeViewProps> = ({ homepage }) => {
   return (
     <div>
-      Home
-      <hr />
-      {homepage.sampleSimpleRichText ? (
-        <RichText content={homepage.sampleSimpleRichText} />
-      ) : null}
+      <ContentArea blocks={homepage.content} />
     </div>
   );
 };

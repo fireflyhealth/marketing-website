@@ -12,6 +12,7 @@ type CTACardsBlockProps = {
 
 export const CTACardsBlock: FC<CTACardsBlockProps> = ({ ctaCardsBlock }) => {
   const { header, ctaCards } = ctaCardsBlock;
+
   return (
     <ContentBlockWrapper header={header}>
       <div className={cn(CardsWrapper)}>

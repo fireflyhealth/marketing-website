@@ -94,7 +94,7 @@ export type Homepage = SanityDocument & {
   _type: 'homepage';
   navigationOverrides?: NavigationOverrides;
   metadata?: Metadata;
-  sampleSimpleRichText?: RichText;
+  content: ContentArea;
 };
 export type HomepageLinkData = Pick<Homepage, '_type'>;
 
@@ -420,7 +420,8 @@ export type ContentBlock =
   | CTACardsBlock
   | PractitionersBlock
   | ImageTextOverlapBlock
-  | QuoteBlock;
+  | QuoteBlock
+  | DoubleCtaBlock;
 
 export type ContentArea = KeyedArray<ContentBlock>;
 

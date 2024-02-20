@@ -266,15 +266,19 @@ export const doubleCtaFragment = `
     label,
     id,
     ariaLabel,
-    link {${linkFragment}},
+    link {
+      ${linkFragment}
+    },
   },
   ctaTwo{
     eyebrow,
     label,
     id,
     ariaLabel,
-    link {${linkFragment}},
-  }
+    link {
+      ${linkFragment}
+    },
+  },
 `;
 
 export const imageTextOverlapFragment = `

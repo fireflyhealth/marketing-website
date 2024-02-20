@@ -111,7 +111,7 @@ export const siteSettings = {
 export const homepage = {
   get: async (): Promise<Homepage> => {
     const homepage = await client.fetch(
-      `*[_type == "homepage" && _id == "${HOMEPAGE_DOCUMENT_ID}"][0]`,
+      `*[_type == "homepage" && _id == "${HOMEPAGE_DOCUMENT_ID}"][0] {${genericPageFragment}}`,
     );
     if (!homepage) {
       throw new Error('Could not fetch homepage');
