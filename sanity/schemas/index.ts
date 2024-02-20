@@ -42,6 +42,7 @@ import {
 } from './blocks/sequenceBlock';
 import { ReviewBlock, ReviewItem, ReviewHeading } from './blocks/reviewBlock';
 import { ImageGridBlock } from './blocks/imageGridBlock';
+import { CardListBlock } from './blocks/cardListBlock';
 
 /* Fields */
 import { Metadata } from './fields/metadata';
@@ -71,6 +72,7 @@ import { Theme } from './fields/theme';
 import { RichTextCtaRow } from './fields/richTextCtaRow';
 import { QuoteChildBlock } from './childBlocks/quoteChildBlock';
 import { FAQBlock } from './blocks/faqBlock';
+import { Card } from './fields/card';
 
 export const schemaTypes = [
   /* Document Types */
@@ -111,6 +113,7 @@ export const schemaTypes = [
   ReviewBlock,
   ImageGridBlock,
   FAQBlock,
+  CardListBlock,
 
   /* Child blocks (used within other blocks, i.e. 2-up block) */
   ChildContentBlock,
@@ -149,4 +152,5 @@ export const schemaTypes = [
   SequenceItem,
   ReviewHeading,
   ReviewItem,
+  Card,
 ];
