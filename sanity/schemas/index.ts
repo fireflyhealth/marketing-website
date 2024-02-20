@@ -41,6 +41,7 @@ import { ImageTextOverlapBlock } from './blocks/imageTextOverlapBlock';
 import { QuoteBlock } from './blocks/quoteBlock';
 
 import { VideoHeader } from './headers/videoHeader';
+import { TextHeader } from './headers/textHeader';
 import { PractitionersBlock } from './blocks/practitionersBlock';
 import { BigNumber, BigNumbers } from './fields/bigNumbers';
 import { DrawerListBlock, DrawerListItem } from './blocks/drawerListBlock';
@@ -66,6 +67,7 @@ export const schemaTypes = [
   /* Header Blocks */
   HeaderArea,
   VideoHeader,
+  TextHeader,
 
   /* Blocks */
   ImageBlock,

@@ -1,15 +1,20 @@
 import { defineType, defineField } from 'sanity';
 
-export const VideoHeader = defineType({
-  name: 'videoHeader',
-  title: 'Video Header',
+export const TextHeader = defineType({
+  name: 'textHeader',
+  title: 'Text Header',
   type: 'object',
   fields: [
+    defineField({
+      name: 'theme',
+      type: 'theme',
+      title: 'Theme',
+      validation: (Rule) => Rule.required(),
+    }),
     defineField({
       name: 'eyebrow',
       title: 'Eyebrow',
       type: 'string',
-      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'heading',
@@ -23,9 +28,14 @@ export const VideoHeader = defineType({
       type: 'simpleRichText',
     }),
     defineField({
-      name: 'video',
-      title: 'Video',
-      type: 'video',
+      title: 'CTA',
+      name: 'cta',
+      type: 'cta',
+    }),
+    defineField({
+      title: 'Gradient Background',
+      name: 'gradientBackground',
+      type: 'boolean',
     }),
   ],
   preview: {
@@ -34,7 +44,7 @@ export const VideoHeader = defineType({
     },
     prepare: ({ title }) => {
       return {
-        title: 'Video Header',
+        title: 'Text Header',
         subtitle: title,
       };
     },

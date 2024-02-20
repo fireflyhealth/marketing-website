@@ -4,7 +4,7 @@ export const HeaderArea = defineType({
   name: 'headerArea',
   title: 'Header Area',
   type: 'array',
-  of: [{ type: 'videoHeader' }],
+  of: [{ type: 'videoHeader' }, { type: 'textHeader' }],
   // TODO: add validation back in. This is commented out to allow for the screen to be published.
   // When there is more header gets added, this validation should be added back in.
   // validation: (Rule) =>
