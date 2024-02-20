@@ -25,8 +25,7 @@ export const siteSettingsFragment = `
   defaultMetadata {${metadataFragment}}
 `;
 
-// This fragment is used for home page and generic page
-export const genericPageFragment = `
+export const pageFragment = `
   _id,
   title,
   slug,
@@ -36,44 +35,13 @@ export const genericPageFragment = `
   metadataFragment{${metadataFragment}}
 `;
 
-export const subPageFragment = `
-  _id,
-  title,
-  slug,
-  navigationOverrides {${navigationOverridesFragment}},
-  header {${headerBlockFragment}}[],
-  content {${contentBlockFragment}}[],
-  metadataFragment{${metadataFragment}},
-  meta
-`;
+export const downloadPageFragment = `${pageFragment}`;
 
-export const specialPageFragment = `
-  _id,
-  title,
-  slug,
-  navigationOverrides {${navigationOverridesFragment}},
-  header {${headerBlockFragment}}[],
-  content {${contentBlockFragment}}[],
-  metadataFragment{${metadataFragment}}
-`;
+export const contactPageFragment = `${pageFragment}`;
 
-export const downloadPageFragment = `${specialPageFragment}`;
+export const notFoundPageFragment = `${pageFragment}`;
 
-export const contactPageFragment = `${specialPageFragment}`;
-
-export const notFoundPageFragment = `${specialPageFragment}`;
-
-export const faqPageFragment = `${specialPageFragment}`;
-
-export const clientPageFragment = `
-  _id,
-  clientName,
-  slug,
-  navigationOverrides {${navigationOverridesFragment}},
-  header {${headerBlockFragment}}[],
-  content {${contentBlockFragment}}[],
-  metadataFragment{${metadataFragment}}
-`;
+export const faqPageFragment = `${pageFragment}`;
 
 export const blogFragment = `
   _id,

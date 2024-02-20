@@ -16,7 +16,7 @@ import { Practitioner } from './documents/practitioner';
 import { Metadata } from './fields/metadata';
 import { ResponsiveImageSet, RichImage } from './fields/images';
 import { Link, LinkableDocument } from './fields/linking';
-import { CTA, NotRequiredCTA } from './fields/cta';
+import { CTA } from './fields/cta';
 import { SimpleRichText, ArticleRichText } from './fields/richText';
 import { Navigation } from './documents/navigation';
 import { LinkWithLabel } from './fields/linkWithLabel';
@@ -87,7 +87,6 @@ export const schemaTypes = [
   Link,
   LinkableDocument,
   CTA,
-  NotRequiredCTA,
   SimpleRichText,
   ArticleRichText,
   LinkWithLabel,

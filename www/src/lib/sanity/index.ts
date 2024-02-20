@@ -19,14 +19,12 @@ import { sleep } from '@/utils/misc';
 import {
   blogArticleFragment,
   blogFragment,
-  clientPageFragment,
   contactPageFragment,
   downloadPageFragment,
   faqPageFragment,
-  genericPageFragment,
+  pageFragment,
   notFoundPageFragment,
   siteSettingsFragment,
-  subPageFragment,
 } from './queries';
 
 export const client = createClient({
@@ -111,7 +109,7 @@ export const siteSettings = {
 export const homepage = {
   get: async (): Promise<Homepage> => {
     const homepage = await client.fetch(
-      `*[_type == "homepage" && _id == "${HOMEPAGE_DOCUMENT_ID}"][0] {${genericPageFragment}}`,
+      `*[_type == "homepage" && _id == "${HOMEPAGE_DOCUMENT_ID}"][0] {${pageFragment}}`,
     );
     if (!homepage) {
       throw new Error('Could not fetch homepage');
@@ -141,7 +139,7 @@ export const homepage = {
 export const page = {
   get: (slug: string): Promise<GenericPage | null> =>
     client.fetch(
-      `*[_type == "genericPage" && slug.current == $slug][0]{${genericPageFragment}}`,
+      `*[_type == "genericPage" && slug.current == $slug][0]{${pageFragment}}`,
       {
         slug,
       },
@@ -153,7 +151,7 @@ export const page = {
       }`),
   findPreview(id: string, previewToken: string) {
     return createPreviewClient(previewToken).fetch<GenericPage>(
-      `*[_type == "genericPage" && _id == $id][0]{${genericPageFragment}}`,
+      `*[_type == "genericPage" && _id == $id][0]{${pageFragment}}`,
       {
         id,
       },
@@ -186,7 +184,7 @@ export const subPage = {
       `*[_type == "subPage"
             && slug.current == $subpageSlug
           ]{
-            ${subPageFragment},
+            ${pageFragment},
             "parentPage": *[
               _type == "genericPage"
               && slug.current == $parentSlug
@@ -202,7 +200,7 @@ export const subPage = {
   },
   findPreview(id: string, previewToken: string) {
     return createPreviewClient(previewToken).fetch<SubPage>(
-      `*[_type == "subPage" && _id == $id][0]{${subPageFragment}}`,
+      `*[_type == "subPage" && _id == $id][0]{${pageFragment}}`,
       {
         id,
       },
@@ -336,7 +334,7 @@ export const faqPage = {
 export const clientPage = {
   get: (clientSlug: string): Promise<ClientPage | null> =>
     client.fetch(
-      `*[_type == "clientPage" && slug.current == $clientSlug][0]{${clientPageFragment}}`,
+      `*[_type == "clientPage" && slug.current == $clientSlug][0]{${pageFragment}}`,
       {
         clientSlug,
       },
@@ -347,7 +345,7 @@ export const clientPage = {
       }`),
   findPreview(id: string, previewToken: string) {
     return createPreviewClient(previewToken).fetch<ClientPage>(
-      `*[_type == "clientPage" && _id == $id][0]{${clientPageFragment}}`,
+      `*[_type == "clientPage" && _id == $id][0]{${pageFragment}}`,
       {
         id,
       },
