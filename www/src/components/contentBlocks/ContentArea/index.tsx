@@ -41,9 +41,5 @@ type ContentAreaProps = {
 };
 
 export const ContentArea: FC<ContentAreaProps> = ({ blocks }) => (
-  <>
-    {blocks.map((block) => (
-      <ContentBlock block={block} key={block._key} />
-    ))}
-  </>
+  <>{blocks?.map((block) => <ContentBlock block={block} key={block._key} />)}</>
 );

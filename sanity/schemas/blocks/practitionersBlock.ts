@@ -19,4 +19,13 @@ export const PractitionersBlock = defineType({
       validation: (Rule) => Rule.required().min(1),
     }),
   ],
+  preview: {
+    select: {
+      header: 'header',
+    },
+    prepare: ({ header }) => ({
+      title: 'Practitioners block',
+      subtitle: header.title,
+    }),
+  },
 });

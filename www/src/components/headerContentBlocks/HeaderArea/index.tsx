@@ -24,9 +24,5 @@ type HeaderAreaProps = {
 };
 
 export const HeaderArea: FC<HeaderAreaProps> = ({ blocks }) => (
-  <>
-    {blocks.map((block) => (
-      <HeaderBlock block={block} key={block._key} />
-    ))}
-  </>
+  <>{blocks?.map((block) => <HeaderBlock block={block} key={block._key} />)}</>
 );

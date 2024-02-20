@@ -22,11 +22,12 @@ export const ImageBlock = defineType({
   preview: {
     select: {
       image: 'image',
+      header: 'header',
     },
-    prepare: ({ image }) => ({
-      title: image.altText,
+    prepare: ({ image, header }) => ({
+      title: 'Image Block',
       media: image.asset,
-      subtitle: image.caption,
+      subtitle: header.title || image.caption || image.altText,
     }),
   },
 });

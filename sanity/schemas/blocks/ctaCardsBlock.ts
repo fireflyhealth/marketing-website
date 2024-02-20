@@ -33,8 +33,8 @@ export const CtaCard = defineType({
     },
     prepare: ({ image, title, cta }) => ({
       media: image,
-      subtitle: `CTA (${cta.variant}): ${cta.label}`,
       title: title,
+      subtitle: `CTA (${cta.variant}): ${cta.label}`,
     }),
   },
 });
@@ -57,4 +57,13 @@ export const CtaCardsBlock = defineType({
       validation: (Rule) => Rule.required().min(1),
     }),
   ],
+  preview: {
+    select: {
+      header: 'header',
+    },
+    prepare: ({ header }) => ({
+      title: 'CTA Cards Block',
+      subtitle: header.title || '',
+    }),
+  },
 });

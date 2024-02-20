@@ -15,4 +15,14 @@ export const DoubleCtaBlock = defineType({
       type: 'doubleCta',
     }),
   ],
+  preview: {
+    select: {
+      header: 'header',
+    },
+    prepare: ({ header }) => ({
+      title: '2-up Big CTA Block',
+      // TODO: This is causing "invalid preview config" error. It should be fixed.
+      // subtitle: header.title,
+    }),
+  },
 });
