@@ -7,6 +7,7 @@ import { PractitionersBlock } from '../PractitionersBlock';
 import { ImageTextOverlapBlock } from '../ImageTextOverlapBlock';
 import { QuoteBlock } from '../QuoteBlock';
 import { DoubleCtaBlock } from '../DoubleCtaBlock';
+import { DrawerListBlock } from '../DrawerListBlock';
 
 type ContentBlockProps = {
   block: ContentBlockType;
@@ -26,6 +27,8 @@ const ContentBlock: FC<ContentBlockProps> = ({ block }) => {
       return <ImageTextOverlapBlock imageTextOverlapBlock={block} />;
     case 'quoteBlock':
       return <QuoteBlock quoteBlock={block} />;
+    case 'drawerListBlock':
+      return <DrawerListBlock drawerListBlock={block} />;
     case 'doubleCtaBlock':
       return <DoubleCtaBlock doubleCtaBlock={block} />;
     default:

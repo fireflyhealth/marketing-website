@@ -14,6 +14,7 @@ const config = defineConfig({
   dataset: 'production',
 
   plugins: [
+    // @ts-ignore
     deskTool({ structure, defaultDocumentNode }),
     visionTool(),
     documentInternationalization({

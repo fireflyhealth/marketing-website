@@ -1,4 +1,5 @@
 import { PortableTextBlock } from '@portabletext/types';
+import { ColorTheme } from '@/components/Theme';
 
 /**
  * Generic
@@ -243,7 +244,6 @@ export type BlogArticleLinkData = Pick<
 /* Navigation */
 export type LinkWithLabel = {
   _type: 'linkWithLabel';
-  _key: string;
   label: string;
   link: Link | LinkableDocument;
 };
@@ -251,7 +251,7 @@ export type LinkWithLabel = {
 export type LabelWithDropdown = {
   _type: 'labelWithDropdown';
   label: string;
-  subpages: LinkWithLabel[];
+  subpages: KeyedArray<LinkWithLabel>;
 };
 
 export type NavGroupType = LinkWithLabel | LabelWithDropdown;
@@ -289,6 +289,21 @@ export type RichImage = Omit<Image, '_type'> & {
   _type: 'richImage';
   altText: string;
   caption: Maybe<string>;
+};
+
+/* These are all typed as "maybe", but at least one is
+ * required in sanity. */
+export type ResponsiveImageSet = {
+  desktop: Maybe<RichImage>;
+  tablet: Maybe<RichImage>;
+  mobile: Maybe<RichImage>;
+};
+
+export type ColorSwatch = {
+  /* Name of the color, i.e. "Midnight" | "Sienna" */
+  label: string;
+  /* Value is a hex code */
+  value: string;
 };
 
 export type ImageCrop = {
@@ -430,7 +445,8 @@ export type ContentBlock =
   | PractitionersBlock
   | ImageTextOverlapBlock
   | QuoteBlock
-  | DoubleCtaBlock;
+  | DoubleCtaBlock
+  | DrawerListBlock;
 
 export type ContentArea = KeyedArray<ContentBlock>;
 
@@ -518,4 +534,20 @@ export type QuoteBlock = {
   header: Maybe<ContentBlockHeader>;
   quoteObject: QuoteObject;
   cta: CTA;
+};
+
+export type DrawerListItem = {
+  _type: 'drawerListItem';
+  title: string;
+  body: RichText;
+  ctaLink: Maybe<LinkWithLabel>;
+  featuredImage: RichImage;
+  theme: ColorTheme;
+  backgroundImage: Maybe<ResponsiveImageSet>;
+};
+
+export type DrawerListBlock = {
+  _type: 'drawerListBlock';
+  header: Maybe<ContentBlockHeader>;
+  drawerListItems: KeyedArray<DrawerListItem>;
 };

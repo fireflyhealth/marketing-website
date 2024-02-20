@@ -8,7 +8,10 @@ import {
 import { imageBuilder } from '@/lib/sanity';
 import { GenericImage, GenericImageProps } from './GenericImage';
 
-type SanityImageProps = Omit<GenericImageProps, 'src' | 'width' | 'height'> & {
+export type SanityImageProps = Omit<
+  GenericImageProps,
+  'src' | 'width' | 'height'
+> & {
   image: SanityImageType | RichImage;
   width?: number;
   height?: number;
