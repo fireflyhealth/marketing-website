@@ -14,7 +14,7 @@ export const StarRating: FC<Props> = ({ starRating }) => {
         defaultValue={starRating}
         icon={<SimpleIcon type="star" wrapperStyles="w-3 text-black" />}
         emptyIcon={
-          <SimpleIcon type="star" wrapperStyles="w-3 text-grey-darker" />
+          <SimpleIcon type="star" wrapperStyles="w-3 text-grey-dark" />
         }
         readOnly
       />
