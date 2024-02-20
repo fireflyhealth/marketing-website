@@ -129,7 +129,6 @@ export const MockData = defineType({
           name: 'quoteBlockExample',
           type: 'quoteBlock',
           title: 'Quote Block',
-          validation: (Rule) => Rule.required(),
           options: {
             collapsible: true,
             collapsed: true,

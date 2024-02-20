@@ -32,8 +32,7 @@ export const ReviewItem = defineType({
     defineField({
       name: 'review',
       title: 'Review',
-      type: 'text',
-      rows: 3,
+      type: 'simpleRichText',
       validation: (Rule) => Rule.required(),
     }),
     defineField({
