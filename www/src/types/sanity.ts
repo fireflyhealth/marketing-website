@@ -650,6 +650,7 @@ export type ReviewItem = {
     age: Maybe<number>;
   };
   date: string;
+  logo: RichImage;
 };
 
 export type ReviewBlock = {

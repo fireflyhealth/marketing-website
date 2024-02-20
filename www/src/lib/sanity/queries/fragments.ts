@@ -411,7 +411,8 @@ export const reviewFragment = `
     name,
     age,
   },
-  date
+  date,
+  logo{${imageFragment}}
 `;
 
 export const reviewBlockFragmnet = `

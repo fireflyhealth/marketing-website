@@ -1,10 +1,9 @@
 import { FC } from 'react';
 import cn from 'classnames';
-import Image from 'next/image';
 import { ReviewItem as ReviewItemType } from '@/types/sanity';
 import { StarRating } from '@/components/StarRating';
+import { SanityImage } from '@/atoms/Image/SanityImage';
 import { RichText } from '@/components/RichText';
-import doctorsReviewLogo from '../../../../public/images/doctorsReviewLogo.png';
 import { ReviewWrapper, ReviewTitle, Reviewee } from './styles';
 
 type Props = {
@@ -12,7 +11,7 @@ type Props = {
 };
 
 export const ReviewItem: FC<Props> = ({ reviewItem }) => {
-  const { starRating, title, review, reviewer, date } = reviewItem;
+  const { starRating, title, review, reviewer, date, logo } = reviewItem;
 
   const formatedDate = new Date(date).toLocaleDateString('en-us', {
     year: 'numeric',
@@ -22,9 +21,9 @@ export const ReviewItem: FC<Props> = ({ reviewItem }) => {
 
   return (
     <div className={cn(ReviewWrapper)}>
-      <div className="flex flex-row justify-between">
+      <div className="flex flex-row justify-between items-center">
         <StarRating starRating={starRating} />
-        <Image src={doctorsReviewLogo} width={114} alt="doctors.com logo" />
+        <SanityImage image={logo} sizes={['114px']} width={114} />
       </div>
       <h5 className={cn(ReviewTitle)}>{title}</h5>
       <RichText

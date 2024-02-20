@@ -82,6 +82,12 @@ export const ReviewItem = defineType({
         dateFormat: 'MMMM DD, YYYY',
       },
     }),
+    defineField({
+      name: 'logo',
+      title: 'logo',
+      type: 'richImage',
+      validation: (Rule) => Rule.required(),
+    }),
   ],
   preview: {
     select: {
