@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react';
 import { videoHeaderExample } from '@/mockData';
-import { VideoHeader } from './';
+import { VideoHeader } from '.';
 
 const meta = {
   title: 'Header Blocks/Video Header',

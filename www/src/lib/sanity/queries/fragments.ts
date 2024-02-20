@@ -313,13 +313,6 @@ export const videoFragment = `
   }
 `;
 
-export const videoHeaderFragment = `
-  eyebrow,
-  heading,
-  body,
-  video {${videoFragment}}
-`;
-
 export const contentBlockFragment = `
   _type,
   _key,
@@ -370,10 +363,18 @@ export const contentBlockFragment = `
   },
   _type == "imageTextOverlapBlock" => {${imageTextOverlapFragment}},
   _type == "quoteBlock" => {${quoteBlockFragment}},
-  _type == "videoHeader" => {${videoHeaderFragment}}
 `;
 
-export const headerAreaFragment = `
+export const videoHeaderFragment = `
+  eyebrow,
+  heading,
+  body,
+  video {${videoFragment}}
+`;
+
+export const headerBlockFragment = `
+  _type,
+  _key,
   _type == "videoHeader" => {${videoHeaderFragment}}
 `;
 

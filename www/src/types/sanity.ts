@@ -94,6 +94,7 @@ export type Homepage = SanityDocument & {
   _type: 'homepage';
   navigationOverrides?: NavigationOverrides;
   metadata?: Metadata;
+  header: HeaderArea;
   content: ContentArea;
 };
 export type HomepageLinkData = Pick<Homepage, '_type'>;
@@ -407,9 +408,9 @@ export type TwoColumnUnorderedList = {
 /**
  * Header Area Blocks
  */
-export type HeaderBlockType = VideoHeader;
+export type HeaderBlock = VideoHeader;
 
-export type HeaderArea = HeaderBlockType[];
+export type HeaderArea = KeyedArray<HeaderBlock>;
 
 /**
  * Content Area Blocks
