@@ -406,7 +406,7 @@ export const reviewFragment = `
   _key,
   starRating,
   title,
-  review,
+  review[]{${simpleRichTextFragment}},
   reviewer{
     name,
     age,

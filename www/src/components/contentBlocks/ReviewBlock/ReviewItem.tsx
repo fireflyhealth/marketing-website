@@ -3,8 +3,9 @@ import cn from 'classnames';
 import Image from 'next/image';
 import { ReviewItem as ReviewItemType } from '@/types/sanity';
 import { StarRating } from '@/components/StarRating';
+import { RichText } from '@/components/RichText';
 import doctorsReviewLogo from '../../../../public/images/doctorsReviewLogo.png';
-import { ReviewWrapper, Title, Review, Reviewee } from './styles';
+import { ReviewWrapper, Title, Reviewee } from './styles';
 
 type Props = {
   reviewItem: ReviewItemType;
@@ -18,6 +19,7 @@ export const ReviewItem: FC<Props> = ({ reviewItem }) => {
     month: 'long',
     day: 'numeric',
   });
+
   return (
     <div className={cn(ReviewWrapper)}>
       <div className="flex flex-row justify-between">
@@ -25,7 +27,11 @@ export const ReviewItem: FC<Props> = ({ reviewItem }) => {
         <Image src={doctorsReviewLogo} width={114} alt="doctors.com logo" />
       </div>
       <h5 className={cn(Title)}>{title}</h5>
-      <p className={cn(Review)}>{review}</p>
+      <RichText
+        content={review}
+        fontSize="font-roobert font-size-8"
+        textColor="theme-text-color-secondary"
+      />
       <div className={cn(Reviewee)}>
         <div>
           {reviewer.name}

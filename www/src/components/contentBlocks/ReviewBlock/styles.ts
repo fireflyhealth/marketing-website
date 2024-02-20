@@ -19,6 +19,4 @@ export const ReviewWrapper = [
 
 export const Title = ['theme-text-color-primary font-roobert font-size-7'];
 
-export const Review = ['theme-text-color-secondary font-roobert font-size-8'];
-
 export const Reviewee = ['theme-text-color-primary font-trust font-size-9'];

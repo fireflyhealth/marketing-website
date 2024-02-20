@@ -644,7 +644,7 @@ export type ReviewItem = {
   _key: string;
   starRating: number;
   title: string;
-  review: string;
+  review: RichText;
   reviewer: {
     name: string;
     age: Maybe<number>;
