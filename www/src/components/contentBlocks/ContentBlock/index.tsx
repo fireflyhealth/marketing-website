@@ -7,6 +7,8 @@ import { PractitionersBlock } from '../PractitionersBlock';
 import { ImageTextOverlapBlock } from '../ImageTextOverlapBlock';
 import { QuoteBlock } from '../QuoteBlock';
 import { TwoUpBlock } from '../TwoUpBlock';
+import { DoubleCtaBlock } from '../DoubleCtaBlock';
+import { DrawerListBlock } from '../DrawerListBlock';
 
 type ContentBlockProps = {
   block: ContentBlockType;
@@ -28,6 +30,10 @@ export const ContentBlock: FC<ContentBlockProps> = ({ block }) => {
       return <QuoteBlock quoteBlock={block} />;
     case 'twoUpBlock':
       return <TwoUpBlock twoUpBlock={block} />;
+    case 'drawerListBlock':
+      return <DrawerListBlock drawerListBlock={block} />;
+    case 'doubleCtaBlock':
+      return <DoubleCtaBlock doubleCtaBlock={block} />;
     default:
       console.warn(
         // @ts-expect-error
