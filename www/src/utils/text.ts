@@ -21,3 +21,25 @@ export const toQuotation = (quote: string): string =>
       .replace(/["'“”]$/, ''),
     '”',
   ].join('');
+
+/**
+ * Formats a sanity date string, i.e. "1986-07-12" -> July 12, 1986
+ *
+ *
+ * TODO: this was yanked from Bryan's review component code ReviewItem.tsx,
+ * replace that implementation with this function
+ */
+export const formatSanityDate = (date: string) => {
+  /* For this website, we can assume that dates entered into Sanity refer
+   * to the New York timezone. Here we modify the bare date string
+   * (i.e. '2024-02-02') to have an EST offset. */
+  const timeZonedDate = date.concat('T00:00:00.000-05:00');
+  return new Date(timeZonedDate).toLocaleDateString('en-us', {
+    /* Here we define the timezone which we want our formatted
+     * date to reflect. */
+    timeZone: 'America/New_York',
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  });
+};
