@@ -30,7 +30,7 @@ export const SequenceCard: FC<Props> = ({ card }) => {
               <Video video={video} posterSizes={['90vw, 40vw']} />
             </div>
             <div className={cn(CopyWrapper)}>
-              <SequenceCopy copy={copy} />
+              <SequenceCopy copy={copy} isHighlighted={isHighlighted} />
             </div>
           </div>
         </Theme>

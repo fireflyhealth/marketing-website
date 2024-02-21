@@ -5,7 +5,7 @@
   --segment-bottom-offset: 0px;
   /* Adds some extra width to help the segments
    * have correct overlapping */
-  --segment-radius-offset: 18%;
+  --segment-radius-offset: 15%;
 }
 
 .SequenceLines {

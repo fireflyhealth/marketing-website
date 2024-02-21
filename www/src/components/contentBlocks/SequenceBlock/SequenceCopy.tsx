@@ -1,12 +1,18 @@
 import { FC } from 'react';
+import cn from 'classnames';
 import * as SanityTypes from '@/types/sanity';
 
 type Props = {
   copy: SanityTypes.SequenceBlockTextFields;
   headerCopy?: boolean;
+  isHighlighted?: boolean;
 };
 
-export const SequenceCopy: FC<Props> = ({ copy, headerCopy }) => {
+export const SequenceCopy: FC<Props> = ({
+  copy,
+  headerCopy,
+  isHighlighted,
+}) => {
   const { title, bellyButtonText, description } = copy;
 
   return (
@@ -20,7 +26,12 @@ export const SequenceCopy: FC<Props> = ({ copy, headerCopy }) => {
           {title}
         </h3>
       )}
-      <span className="font-size-10 font-roobert text-yellow w-fit">
+      <span
+        className={cn(
+          'font-size-10 font-roobert w-fit',
+          isHighlighted ? 'theme-text-color-decorative' : 'text-yellow',
+        )}
+      >
         {bellyButtonText}
       </span>
       <p className="font-size-8 font-roobert theme-text-color-secondary">
