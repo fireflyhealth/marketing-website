@@ -17,7 +17,7 @@ export const Homepage = defineType({
       type: 'headerArea',
     }),
     defineField({
-      name: 'subnab',
+      name: 'subnav',
       title: 'Subnavigation',
       type: 'subnav',
     }),

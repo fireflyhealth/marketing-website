@@ -486,3 +486,9 @@ export const navigationOverridesFragment = `
     body,
   },
   `;
+
+export const subnavItemFragment = `
+  _key,
+  label,
+  contentBlockId,
+  `;

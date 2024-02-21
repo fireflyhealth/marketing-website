@@ -82,6 +82,12 @@ export type NavigationExample = {
   doubleCta: DoubleCta;
 };
 
+export type SubnavItem = {
+  _type: 'subnavItem';
+  contentBlockId: string;
+  label: string;
+};
+
 export type SiteSettings = SanityDocument & {
   _type: 'siteSettings';
   globalNav: Navigation;
@@ -96,6 +102,7 @@ export type Homepage = SanityDocument & {
   navigationOverrides?: NavigationOverrides;
   metadata?: Metadata;
   header: HeaderArea;
+  subnav: KeyedArray<SubnavItem>;
   content: ContentArea;
 };
 export type HomepageLinkData = Pick<Homepage, '_type'>;
@@ -142,6 +149,7 @@ export type FAQPageLinkData = Pick<FAQPage, '_type'>;
 type CommonPage = SanityDocument & {
   title: string;
   header: HeaderArea;
+  subnav: KeyedArray<SubnavItem>;
   content: ContentArea;
   metadata?: Metadata;
   slug: Slug;
