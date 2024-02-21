@@ -34,6 +34,11 @@ export const TwoUpBlock = defineType({
       },
     }),
     defineField({
+      name: 'mobileReverseBlockOrder',
+      title: '(Mobile) Reverse block order',
+      type: 'boolean',
+    }),
+    defineField({
       name: 'blockThemes',
       title: 'Block Themes',
       type: 'object',
