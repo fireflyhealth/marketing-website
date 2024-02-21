@@ -24,7 +24,12 @@ export const TextHeader: FC<Props> = ({ textHeader }) => {
   const { eyebrow, heading, body, theme, cta, gradientBackground } = textHeader;
 
   return (
-    <Theme theme={theme} className={cn(ThemeWrapper)}>
+    <Theme
+      theme={theme}
+      className={cn(ThemeWrapper, {
+        'theme-bg-color': !gradientBackground,
+      })}
+    >
       {gradientBackground && <div className={cn(Glow)}></div>}
       <div className={cn(Wrapper)}>
         <div className={cn(WarpperInner)}>
