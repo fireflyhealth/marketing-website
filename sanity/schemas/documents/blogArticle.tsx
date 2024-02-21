@@ -18,6 +18,15 @@ export const BlogArticle = defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
+      name: 'publishDate',
+      title: 'Publish Date',
+      type: 'date',
+      options: {
+        dateFormat: 'MMMM DD, YYYY',
+      },
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
       name: 'category',
       title: 'Parent Blog',
       type: 'reference',
@@ -74,6 +83,12 @@ export const BlogArticle = defineType({
         source: 'title',
         isUnique: isUniqueAcrossDocuments,
       },
+    }),
+    defineField({
+      name: 'thumbnail',
+      title: 'Thumbnail',
+      description: 'Used in Featured Story card',
+      type: 'richImage',
     }),
     defineField({
       name: 'navigationOverrides',
