@@ -31,6 +31,7 @@ import { BarGraphItems } from './fields/barGraphItems';
 import { DoubleCta, LargeCTACard } from './fields/doubleCta';
 import { TwoColumnUnorderedList } from './fields/twoColumnUnorderedList';
 import { Quote } from './fields/quote';
+import { Subnav, SubnavItem } from './fields/subnav';
 
 import { ContentBlockHeader } from './blocks/contentBlockHeader';
 import { ImageBlock } from './blocks/imageBlock';
@@ -62,6 +63,9 @@ export const schemaTypes = [
   MockData,
   Navigation,
   Practitioner,
+
+  Subnav,
+  SubnavItem,
 
   /* Header Blocks */
   HeaderArea,
