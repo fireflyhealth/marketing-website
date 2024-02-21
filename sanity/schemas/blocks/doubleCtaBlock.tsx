@@ -1,15 +1,12 @@
 import { defineType, defineField } from 'sanity';
+import { requiredBlockFields } from './utils/requiredBlockFields';
 
 export const DoubleCtaBlock = defineType({
   name: 'doubleCtaBlock',
   title: '2-up Big CTA Block',
   type: 'object',
   fields: [
-    defineField({
-      name: 'header',
-      type: 'contentBlockHeader',
-      title: 'Header',
-    }),
+    ...requiredBlockFields,
     defineField({
       name: 'doubleCta',
       type: 'doubleCta',

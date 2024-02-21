@@ -11,10 +11,10 @@ type CTACardsBlockProps = {
 };
 
 export const CTACardsBlock: FC<CTACardsBlockProps> = ({ ctaCardsBlock }) => {
-  const { header, ctaCards } = ctaCardsBlock;
+  const { header, ctaCards, id } = ctaCardsBlock;
 
   return (
-    <ContentBlockWrapper header={header}>
+    <ContentBlockWrapper id={id} header={header}>
       <div className={cn(CardsWrapper)}>
         {ctaCards.map((ctaCard) => (
           <div key={ctaCard._key} className={cn(CardWrapper)}>

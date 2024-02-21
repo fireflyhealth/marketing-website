@@ -12,7 +12,7 @@ export const SubnavItem = defineField({
       title: 'Content Block ID',
       type: 'string',
       description:
-        'The ID of the content block to scroll to when this item is clicked',
+        'The ID of the content block to scroll to when this item is clicked. This must match the ID of the corresponding content block.',
       validation: idValidationRule,
     }),
     defineField({

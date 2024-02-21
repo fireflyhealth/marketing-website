@@ -1,5 +1,6 @@
 import { defineType, defineField } from 'sanity';
 import { icons } from '../../lib/icons';
+import { requiredBlockFields } from './utils/requiredBlockFields';
 
 export const CtaCard = defineType({
   name: 'ctaCard',
@@ -45,11 +46,7 @@ export const CtaCardsBlock = defineType({
   type: 'object',
   icon: icons.CTA,
   fields: [
-    defineField({
-      name: 'header',
-      type: 'contentBlockHeader',
-      title: 'Header',
-    }),
+    ...requiredBlockFields,
     defineField({
       name: 'ctaCards',
       type: 'array',

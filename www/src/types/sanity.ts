@@ -475,12 +475,14 @@ export type VideoHeader = {
 
 export type ImageBlock = {
   _type: 'imageBlock';
+  id: Maybe<string>;
   header: Maybe<ContentBlockHeader>;
   image: RichImage;
 };
 
 export type ImageCarouselBlock = {
   _type: 'imageCarouselBlock';
+  id: Maybe<string>;
   header: Maybe<ContentBlockHeader>;
   images: KeyedArray<RichImage>;
 };
@@ -494,12 +496,14 @@ export type CTACard = {
 
 export type CTACardsBlock = {
   _type: 'ctaCardsBlock';
+  id: Maybe<string>;
   header: Maybe<ContentBlockHeader>;
   ctaCards: KeyedArray<CTACard>;
 };
 
 export type DoubleCtaBlock = {
   _type: 'doubleCtaBlock';
+  id: Maybe<string>;
   doubleCta: DoubleCta;
   header: Maybe<ContentBlockHeader>;
 };
@@ -520,12 +524,14 @@ export type DoubleCta = {
 
 export type PractitionersBlock = {
   _type: 'practitionersBlock';
+  id: Maybe<string>;
   header: Maybe<ContentBlockHeader>;
   practitioners: PractitionerLinkData[];
 };
 
 export type ImageTextOverlapBlock = {
   _type: 'imageTextOverlapBlock';
+  id: Maybe<string>;
   header: Maybe<ContentBlockHeader>;
   image: RichImage;
   copy: RichText;
@@ -539,6 +545,7 @@ export type QuoteObject = {
 
 export type QuoteBlock = {
   _type: 'quoteBlock';
+  id: Maybe<string>;
   header: Maybe<ContentBlockHeader>;
   quoteObject: QuoteObject;
   cta: CTA;
@@ -556,6 +563,7 @@ export type DrawerListItem = {
 
 export type DrawerListBlock = {
   _type: 'drawerListBlock';
+  id: Maybe<string>;
   header: Maybe<ContentBlockHeader>;
   drawerListItems: KeyedArray<DrawerListItem>;
 };

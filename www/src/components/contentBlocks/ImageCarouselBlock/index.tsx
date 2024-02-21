@@ -17,9 +17,9 @@ export const ImageCarouselBlock: FC<ImageCarouselBlockProps> = ({
   vwHeightEnabled,
   vwHeightSetting,
 }) => {
-  const { images, header } = imageCarouselBlock;
+  const { images, header, id } = imageCarouselBlock;
   return (
-    <ContentBlockWrapper header={header}>
+    <ContentBlockWrapper id={id} header={header}>
       <Carousel vwHeightSetting={vwHeightEnabled ? vwHeightSetting : undefined}>
         {images.map((image, index) => (
           <div

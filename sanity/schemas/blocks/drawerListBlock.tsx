@@ -1,6 +1,7 @@
 import { defineType, defineField } from 'sanity';
 import { richTextToString } from '../../lib/richTextToString';
 import { icons } from '../../lib/icons';
+import { requiredBlockFields } from './utils/requiredBlockFields';
 
 export const DrawerListBlock = defineType({
   name: 'drawerListBlock',
@@ -8,11 +9,7 @@ export const DrawerListBlock = defineType({
   type: 'object',
   icon: icons.Drawer,
   fields: [
-    defineField({
-      name: 'header',
-      type: 'contentBlockHeader',
-      title: 'Header',
-    }),
+    ...requiredBlockFields,
     defineField({
       name: 'drawerListItems',
       type: 'array',

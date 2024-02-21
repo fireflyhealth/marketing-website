@@ -6,6 +6,10 @@
   --bar-graph-width: 0px;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 svg {
   .icon-base,
   .icon-overlap {

@@ -328,6 +328,7 @@ export const videoFragment = `
 export const contentBlockFragment = `
   _type,
   _key,
+  id,
   _type == "imageBlock" => {
     header {
       ${contentBlockHeaderFragment}

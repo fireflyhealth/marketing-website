@@ -12,9 +12,9 @@ type Props = {
 };
 
 export const QuoteBlock: FC<Props> = ({ quoteBlock }) => {
-  const { header, quoteObject, cta } = quoteBlock;
+  const { header, quoteObject, cta, id } = quoteBlock;
   return (
-    <ContentBlockWrapper header={header}>
+    <ContentBlockWrapper id={id} header={header}>
       <Theme theme={ColorTheme.White}>
         <div className={cn(Wrapper)}>
           <QuoteObject quoteObject={quoteObject} />
