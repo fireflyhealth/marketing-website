@@ -116,8 +116,15 @@ export const SequenceBlock = defineType({
     }),
   ],
   preview: {
-    prepare() {
-      return { title: 'Sequence Block' };
+    select: {
+      header: 'header',
+      sequenceHeader: 'sequenceHeader',
+    },
+    prepare: ({ header, sequenceHeader }) => {
+      return {
+        title: 'Sequence Block',
+        subtitle: header?.title || sequenceHeader?.title,
+      };
     },
   },
 });
