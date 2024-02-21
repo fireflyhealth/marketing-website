@@ -1,5 +1,7 @@
 import React, { FC } from 'react';
 import { ContentBlock as ContentBlockType, KeyedArray } from '@/types/sanity';
+import { filterMaybes } from '@/utils/arrays';
+
 import { ImageBlock } from '../ImageBlock';
 import { ImageCarouselBlock } from '../ImageCarouselBlock';
 import { CTACardsBlock } from '../CTACardsBlock';
@@ -8,7 +10,6 @@ import { ImageTextOverlapBlock } from '../ImageTextOverlapBlock';
 import { QuoteBlock } from '../QuoteBlock';
 import { DoubleCtaBlock } from '../DoubleCtaBlock';
 import { DrawerListBlock } from '../DrawerListBlock';
-import { filterMaybes } from '@/utils/arrays';
 
 type ContentBlockProps = {
   block: ContentBlockType;
