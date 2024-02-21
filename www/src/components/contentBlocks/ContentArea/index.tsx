@@ -8,6 +8,7 @@ import { ImageTextOverlapBlock } from '../ImageTextOverlapBlock';
 import { QuoteBlock } from '../QuoteBlock';
 import { DoubleCtaBlock } from '../DoubleCtaBlock';
 import { DrawerListBlock } from '../DrawerListBlock';
+import { filterMaybes } from '@/utils/arrays';
 
 type ContentBlockProps = {
   block: ContentBlockType;
@@ -44,5 +45,9 @@ type ContentAreaProps = {
 };
 
 export const ContentArea: FC<ContentAreaProps> = ({ blocks }) => (
-  <>{blocks?.map((block) => <ContentBlock block={block} key={block._key} />)}</>
+  <>
+    {filterMaybes(blocks).map((block) => (
+      <ContentBlock block={block} key={block._key} />
+    ))}
+  </>
 );

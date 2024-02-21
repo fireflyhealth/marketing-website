@@ -30,7 +30,7 @@ export const pageFragment = `
   title,
   slug,
   navigationOverrides {${navigationOverridesFragment}},
-  header {${headerBlockFragment}}[],
+  'header': header[] {${headerBlockFragment}}[0],
   content {${contentBlockFragment}}[],
   metadataFragment{${metadataFragment}}
 `;

@@ -11,7 +11,7 @@ type HomeViewProps = {
 export const HomeView: FC<HomeViewProps> = ({ homepage }) => {
   return (
     <div>
-      <HeaderArea blocks={homepage.header} />
+      <HeaderArea block={homepage.header} />
       <ContentArea blocks={homepage.content} />
     </div>
   );

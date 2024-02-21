@@ -55,11 +55,11 @@ export const ContentBlockWrapper: FC<ContentBlockWrapperProps> = ({
   children,
 }) => {
   const cta = header?.cta && header?.cta?.label ? header.cta : null;
-  const headerHasContet = header?.title || header?.description || cta;
+  const headerHasContent = header?.title || header?.description || cta;
 
   return (
     <div className={cn(ContentBlockContainer)}>
-      {header && headerHasContet ? (
+      {header && headerHasContent ? (
         <ContentBlockHeader header={header} />
       ) : null}
       <div className={cn(ContentBlockInner)}>{children}</div>

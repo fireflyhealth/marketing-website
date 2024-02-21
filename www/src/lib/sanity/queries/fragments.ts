@@ -403,13 +403,14 @@ export const contentBlockFragment = `
 export const videoHeaderFragment = `
   eyebrow,
   heading,
-  body,
+  body[]{
+    ${richTextFragment}
+  },
   video {${videoFragment}}
 `;
 
 export const headerBlockFragment = `
   _type,
-  _key,
   _type == "videoHeader" => {${videoHeaderFragment}}
 `;
 

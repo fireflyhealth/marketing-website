@@ -429,11 +429,11 @@ export type TwoColumnUnorderedList = {
 };
 
 /**
- * Header Area Blocks
+ * Header Area Block
  */
 export type HeaderBlock = VideoHeader;
 
-export type HeaderArea = KeyedArray<HeaderBlock>;
+export type HeaderArea = HeaderBlock;
 
 /**
  * Content Area Blocks
