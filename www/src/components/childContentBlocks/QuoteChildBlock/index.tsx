@@ -13,7 +13,7 @@ export const QuoteChildBlock: FC<QuoteChildBlockProps> = ({
 }) => {
   const { quote, attribution, badgeImage } = quoteChildBlock.quote;
   return (
-    <div className={cn(Wrapper)}>
+    <div className={cn('ChildBlockWrapper', Wrapper)}>
       {badgeImage ? (
         <div className="pb-9">
           <SanityImage width={120} image={badgeImage} sizes={['120px']} />

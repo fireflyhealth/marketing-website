@@ -11,7 +11,7 @@ type BigNumbersChildBlockProps = {
 export const BigNumbersChildBlock: FC<BigNumbersChildBlockProps> = ({
   bigNumbers,
 }) => (
-  <div className={cn(Wrapper)}>
+  <div className={cn('ChildBlockWrapper', Wrapper)}>
     <BigNumbers bigNumbers={bigNumbers} />
   </div>
 );

@@ -129,6 +129,18 @@
       flex-grow: 1;
     }
 
+    &:nth-child(1) {
+      padding-bottom: theme('spacing.4');
+      @screen lg {
+        /* Add extra padding to the inner Child Block Wrapper
+         * to account for the overlap */
+        .ChildBlockWrapper {
+          padding-bottom: theme('spacing.12');
+          padding-right: theme('spacing.24');
+        }
+      }
+    }
+
     &:nth-child(2) {
       margin-top: -24px;
       max-width: calc(630px - 48px);
