@@ -1,6 +1,6 @@
 import {
   contentBlockFragment,
-  headerAreaFragment,
+  headerBlockFragment,
   ctaFragment,
   doubleCtaFragment,
   footerFragment,
@@ -17,7 +17,7 @@ export const mockDataQuery = `
     contentBlockExamples{
       imageBlock{${contentBlockFragment}},
       imageCarouselBlock{${contentBlockFragment}},
-      videoHeaderExample{${headerAreaFragment}},
+      videoHeaderExample{${headerBlockFragment}},
       ctaCardsBlock{${contentBlockFragment}},
       doubleCtaBlockExample{${contentBlockFragment}},
       practitionersBlock{${contentBlockFragment}},
