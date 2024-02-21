@@ -6,6 +6,10 @@
   --bar-graph-width: 0px;
 }
 
+body {
+  overflow-x: hidden;
+}
+
 svg {
   .icon-base,
   .icon-overlap {

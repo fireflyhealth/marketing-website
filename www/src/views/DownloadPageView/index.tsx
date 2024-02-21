@@ -12,7 +12,7 @@ export const DownloadPageView: FC<DownloadPageViewProps> = ({
 }) => {
   return (
     <div>
-      <HeaderArea blocks={downloadPage.header} />
+      <HeaderArea block={downloadPage.header} />
       <ContentArea blocks={downloadPage.content} />
     </div>
   );

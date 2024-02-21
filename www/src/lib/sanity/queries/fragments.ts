@@ -412,7 +412,9 @@ export const videoHeaderFragment = `
 export const textHeaderFragment = `
   eyebrow,
   heading,
-  body,
+  body[]{
+    ${richTextFragment}
+  },
   theme,
   cta {${ctaFragment}},
   gradientBackground,

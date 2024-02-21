@@ -1,4 +1,4 @@
-export const ThemeWrapper = ['relative'];
+export const ThemeWrapper = ['relative theme-bg-color'];
 
 export const Glow = [
   'absolute -z-50 opacity-90 blur-3xl -top-[30%] left-[50%] -translate-x-[50%] h-full w-[120vw] bg-yellow-light rounded-[674.12px]',

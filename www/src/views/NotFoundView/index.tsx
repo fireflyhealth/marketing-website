@@ -12,7 +12,7 @@ export const NotFoundPageView: FC<NotFoundPageViewProps> = ({
 }) => {
   return (
     <div>
-      <HeaderArea blocks={notFoundPage.header} />
+      <HeaderArea block={notFoundPage.header} />
       <ContentArea blocks={notFoundPage.content} />
     </div>
   );

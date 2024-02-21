@@ -26,6 +26,5 @@ type HeaderAreaProps = {
   block: HeaderBlockType;
 };
 
-export const HeaderArea: FC<HeaderAreaProps> = ({ block }) => (
-  <HeaderBlock block={block} />
-);
+export const HeaderArea: FC<HeaderAreaProps> = ({ block }) =>
+  block && <HeaderBlock block={block} />;
