@@ -49,7 +49,7 @@ export const BlogArticle = defineType({
           }
           // @ts-ignore
           const parentBlogId = document.category?._ref;
-          const blogId = document._id;
+          const blogArticleId = document._id.replace(/^drafts\./, '');
           if (!parentBlogId) {
             return true;
           }
@@ -65,17 +65,19 @@ export const BlogArticle = defineType({
             client.fetch(
               `*[
               _type == "blogArticle"
-              && _id != $blogId
+              && _id != $blogArticleId
+              && !(_id in path("drafts.**"))
               && category._ref == $parentBlogId
               ]{
+                _id,
                 slug
               }`,
-              { parentBlogId, blogId },
+              { parentBlogId, blogArticleId },
             ),
           ]);
           const siblingSlugs = siblings.map((article) => article.slug.current);
           if (siblingSlugs.includes(currentSlug.current)) {
-            return `There is already an article within the ${parentBlog.title} blog with the slug ${currentSlug}`;
+            return `There is already an article within the ${parentBlog.title} blog with the slug ${currentSlug.current}`;
           }
           return true;
         }),
