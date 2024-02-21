@@ -26,14 +26,16 @@ export const SequenceCopy: FC<Props> = ({
           {title}
         </h3>
       )}
-      <span
-        className={cn(
-          'font-size-10 font-roobert w-fit',
-          isHighlighted ? 'theme-text-color-decorative' : 'text-yellow',
-        )}
-      >
-        {bellyButtonText}
-      </span>
+      {bellyButtonText && (
+        <span
+          className={cn(
+            'font-size-10 font-roobert w-fit',
+            isHighlighted ? 'theme-text-color-decorative' : 'text-yellow',
+          )}
+        >
+          {bellyButtonText}
+        </span>
+      )}
       <p className="font-size-8 font-roobert theme-text-color-secondary">
         {description}
       </p>

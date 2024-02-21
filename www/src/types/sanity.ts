@@ -515,7 +515,7 @@ export type ImageCarouselBlock = {
 export type SequenceBlockTextFields = {
   _type: 'sequenceBlockTextFields';
   title: string;
-  bellyButtonText: string;
+  bellyButtonText: Maybe<string>;
   description: string;
 };
 

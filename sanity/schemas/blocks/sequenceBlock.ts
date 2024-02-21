@@ -17,7 +17,6 @@ export const SequenceBlockTextFields = defineField({
       title: 'Belly button text',
       type: 'string',
       description: 'Small text that appears between the Title and Description',
-      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'description',
