@@ -26,3 +26,13 @@ export const FooterWrapper = [
 ];
 
 export const FooterText = ['font-roobert font-size-8 theme-text-primary'];
+
+export const Copy = ['flex flex-col space-y-2 text-center items-center'];
+
+export const Title = ['font-trust theme-text-color-primary'];
+
+export const BellyButtonText = ['font-size-10 font-roobert w-fit'];
+
+export const Description = [
+  'font-size-8 font-roobert theme-text-color-secondary',
+];

@@ -1,6 +1,7 @@
 import { FC } from 'react';
 import cn from 'classnames';
 import * as SanityTypes from '@/types/sanity';
+import { Copy, Title, BellyButtonText, Description } from './styles';
 
 type Props = {
   copy: SanityTypes.SequenceBlockTextFields;
@@ -16,29 +17,23 @@ export const SequenceCopy: FC<Props> = ({
   const { title, bellyButtonText, description } = copy;
 
   return (
-    <div className="flex flex-col space-y-2 text-center items-center">
+    <div className={cn(Copy)}>
       {headerCopy ? (
-        <h2 className="font-size-4 font-trust theme-text-color-primary">
-          {title}
-        </h2>
+        <h2 className={cn(Title, 'font-size-4')}>{title}</h2>
       ) : (
-        <h3 className="font-size-6 font-trust theme-text-color-primary">
-          {title}
-        </h3>
+        <h3 className={cn(Title, 'font-size-6')}>{title}</h3>
       )}
       {bellyButtonText && (
         <span
           className={cn(
-            'font-size-10 font-roobert w-fit',
+            BellyButtonText,
             isHighlighted ? 'theme-text-color-decorative' : 'text-yellow',
           )}
         >
           {bellyButtonText}
         </span>
       )}
-      <p className="font-size-8 font-roobert theme-text-color-secondary">
-        {description}
-      </p>
+      <p className={cn(Description)}>{description}</p>
     </div>
   );
 };
