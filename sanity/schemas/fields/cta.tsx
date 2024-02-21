@@ -47,7 +47,6 @@ export const CTA = defineType({
           { title: 'Outlined', value: 'outlined' },
         ],
       },
-      initialValue: 'primary',
       validation: (Rule) => Rule.required(),
     }),
     defineField({

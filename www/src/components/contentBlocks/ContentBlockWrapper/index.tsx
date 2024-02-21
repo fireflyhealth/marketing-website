@@ -23,6 +23,7 @@ type ContentBlockHeaderProps = {
 
 export const ContentBlockHeader: FC<ContentBlockHeaderProps> = ({ header }) => {
   const { title, description, cta } = header;
+
   return (
     <div className={cn(HeaderWrapper)}>
       <div className={cn(HeaderBody)}>
@@ -35,7 +36,7 @@ export const ContentBlockHeader: FC<ContentBlockHeaderProps> = ({ header }) => {
         ) : null}
       </div>
 
-      {cta ? (
+      {cta?.label ? (
         <div className={cn(CTAWrapper)}>
           <CTA cta={cta} />
         </div>
@@ -53,10 +54,14 @@ export const ContentBlockWrapper: FC<ContentBlockWrapperProps> = ({
   header,
   children,
 }) => {
-  const cta = header?.cta;
+  const cta = header?.cta && header?.cta?.label ? header.cta : null;
+  const headerHasContent = header?.title || header?.description || cta;
+
   return (
     <div className={cn(ContentBlockContainer)}>
-      {header ? <ContentBlockHeader header={header} /> : null}
+      {header && headerHasContent ? (
+        <ContentBlockHeader header={header} />
+      ) : null}
       <div className={cn(ContentBlockInner)}>{children}</div>
       {cta ? (
         <div className={cn(MobileCTAWrapper)}>

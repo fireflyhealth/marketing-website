@@ -5,6 +5,10 @@ export const ContentBlockHeader = defineType({
   name: 'contentBlockHeader',
   title: 'Block Header',
   type: 'object',
+  options: {
+    collapsed: true,
+    collapsible: true,
+  },
   icon: icons.Component,
   fields: [
     defineField({
@@ -24,15 +28,4 @@ export const ContentBlockHeader = defineType({
       type: 'cta',
     }),
   ],
-  preview: {
-    select: {
-      title: 'title',
-    },
-    prepare: ({ title }) => {
-      return {
-        title,
-        subtitle: 'Header Block',
-      };
-    },
-  },
 });

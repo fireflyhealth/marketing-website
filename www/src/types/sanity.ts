@@ -95,7 +95,8 @@ export type Homepage = SanityDocument & {
   _type: 'homepage';
   navigationOverrides?: NavigationOverrides;
   metadata?: Metadata;
-  sampleSimpleRichText?: RichText;
+  header: HeaderArea;
+  content: ContentArea;
 };
 export type HomepageLinkData = Pick<Homepage, '_type'>;
 
@@ -104,6 +105,8 @@ export type DownloadPage = SanityDocument & {
   _type: 'downloadPage';
   title: string;
   navigationOverrides?: NavigationOverrides;
+  header: HeaderArea;
+  content: ContentArea;
   metadata?: Metadata;
 };
 export type DownloadPageLinkData = Pick<DownloadPage, '_type'>;
@@ -112,6 +115,8 @@ export type ContactPage = SanityDocument & {
   _type: 'contactPage';
   title: string;
   navigationOverrides?: NavigationOverrides;
+  header: HeaderArea;
+  content: ContentArea;
   metadata?: Metadata;
 };
 export type ContactPageLinkData = Pick<ContactPage, '_type'>;
@@ -120,6 +125,8 @@ export type NotFoundPage = SanityDocument & {
   _type: 'notFoundPage';
   title: string;
   navigationOverrides?: NavigationOverrides;
+  header: HeaderArea;
+  content: ContentArea;
   metadata?: Metadata;
 };
 
@@ -163,6 +170,8 @@ export type ClientPage = SanityDocument & {
   clientName: string;
   slug: Slug;
   navigationOverrides?: NavigationOverrides;
+  header: HeaderArea;
+  content: ContentArea;
   metadata?: Metadata;
 };
 export type ClientPageLinkData = Pick<
@@ -420,11 +429,11 @@ export type TwoColumnUnorderedList = {
 };
 
 /**
- * Header Area Blocks
+ * Header Area Block
  */
-export type HeaderBlockType = VideoHeader;
+export type HeaderBlock = VideoHeader;
 
-export type HeaderArea = HeaderBlockType[];
+export type HeaderArea = HeaderBlock;
 
 /**
  * Content Area Blocks

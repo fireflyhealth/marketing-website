@@ -25,4 +25,14 @@ export const QuoteBlock = defineType({
       validation: (Rule) => Rule.required(),
     }),
   ],
+  preview: {
+    select: {
+      quote: 'quoteObject',
+      header: 'header',
+    },
+    prepare: ({ quote, header }) => ({
+      title: 'Quote Block',
+      subtitle: header?.title || quote?.quote,
+    }),
+  },
 });

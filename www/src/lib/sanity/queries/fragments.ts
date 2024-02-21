@@ -278,15 +278,19 @@ export const doubleCtaFragment = `
     label,
     id,
     ariaLabel,
-    link {${linkFragment}},
+    link {
+      ${linkFragment}
+    },
   },
   ctaTwo{
     eyebrow,
     label,
     id,
     ariaLabel,
-    link {${linkFragment}},
-  }
+    link {
+      ${linkFragment}
+    },
+  },
 `;
 
 export const imageTextOverlapFragment = `
@@ -319,13 +323,6 @@ export const videoFragment = `
   posterImage {
     ${imageFragment}
   }
-`;
-
-export const videoHeaderFragment = `
-  eyebrow,
-  heading,
-  body,
-  video {${videoFragment}}
 `;
 
 export const contentBlockFragment = `
@@ -378,7 +375,6 @@ export const contentBlockFragment = `
   },
   _type == "imageTextOverlapBlock" => {${imageTextOverlapFragment}},
   _type == "quoteBlock" => {${quoteBlockFragment}},
-  _type == "videoHeader" => {${videoHeaderFragment}},
   _type == "drawerListBlock" => {
     header {
       ${contentBlockHeaderFragment}
@@ -404,7 +400,17 @@ export const contentBlockFragment = `
   }
 `;
 
-export const headerAreaFragment = `
+export const videoHeaderFragment = `
+  eyebrow,
+  heading,
+  body[]{
+    ${richTextFragment}
+  },
+  video {${videoFragment}}
+`;
+
+export const headerBlockFragment = `
+  _type,
   _type == "videoHeader" => {${videoHeaderFragment}}
 `;
 

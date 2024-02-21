@@ -25,6 +25,7 @@ import { BsFileBarGraph, BsMenuDown } from 'react-icons/bs';
 import { MdOutlineCallToAction } from 'react-icons/md';
 import { FaUserDoctor } from 'react-icons/fa6';
 import { GoColumns } from 'react-icons/go';
+import { RiArchiveDrawerLine } from 'react-icons/ri';
 
 /*
  * Browse Sanity icons:
@@ -59,4 +60,5 @@ export const icons = {
   Practitioner: FaUserDoctor,
   TwoColumn: GoColumns,
   Quote: FaQuoteLeft,
+  Drawer: RiArchiveDrawerLine,
 };

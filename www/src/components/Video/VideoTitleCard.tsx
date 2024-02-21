@@ -29,9 +29,7 @@ export const VideoTitleCard: FC<Props> = ({
     <div className={cn(TitleCardWrapper)}>
       <div className={cn(ContentWrapper)}>
         <p className={cn(Eyebrow)}>{eyebrow}</p>
-        <h1 className={cn(Heading)}>
-          <q>{heading}</q>
-        </h1>
+        <h1 className={cn(Heading)}>{heading}</h1>
         <RichText content={body} />
       </div>
       <div className={cn(CTA)}>

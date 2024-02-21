@@ -25,4 +25,15 @@ export const ImageTextOverlapBlock = defineType({
       validation: (Rule) => Rule.required(),
     }),
   ],
+  preview: {
+    select: {
+      image: 'image',
+      header: 'header',
+    },
+    prepare: ({ image, header }) => ({
+      title: 'Image Text Overlap Block',
+      media: image?.asset,
+      subtitle: header?.title || image?.caption || image?.altText,
+    }),
+  },
 });

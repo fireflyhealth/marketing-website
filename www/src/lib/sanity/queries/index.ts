@@ -2,7 +2,7 @@ import {
   metadataFragment,
   navigationFragment,
   navigationOverridesFragment,
-  headerAreaFragment,
+  headerBlockFragment,
   contentBlockFragment,
   footerFragment,
   doubleCtaFragment,
@@ -25,48 +25,23 @@ export const siteSettingsFragment = `
   defaultMetadata {${metadataFragment}}
 `;
 
-export const genericPageFragment = `
+export const pageFragment = `
   _id,
   title,
   slug,
   navigationOverrides {${navigationOverridesFragment}},
-  header {${headerAreaFragment}}[],
+  'header': header[] {${headerBlockFragment}}[0],
   content {${contentBlockFragment}}[],
   metadataFragment{${metadataFragment}}
 `;
 
-export const subPageFragment = `
-  _id,
-  title,
-  slug,
-  navigationOverrides {${navigationOverridesFragment}},
-  metadataFragment{${metadataFragment}},
-  meta
-`;
+export const downloadPageFragment = `${pageFragment}`;
 
-export const specialPageFragment = `
-  _id,
-  title,
-  slug,
-  navigationOverrides {${navigationOverridesFragment}},
-  metadataFragment{${metadataFragment}}
-`;
+export const contactPageFragment = `${pageFragment}`;
 
-export const downloadPageFragment = `${specialPageFragment}`;
+export const notFoundPageFragment = `${pageFragment}`;
 
-export const contactPageFragment = `${specialPageFragment}`;
-
-export const notFoundPageFragment = `${specialPageFragment}`;
-
-export const faqPageFragment = `${specialPageFragment}`;
-
-export const clientPageFragment = `
-  _id,
-  clientName,
-  slug,
-  navigationOverrides {${navigationOverridesFragment}},
-  metadataFragment{${metadataFragment}}
-`;
+export const faqPageFragment = `${pageFragment}`;
 
 export const blogFragment = `
   _id,
