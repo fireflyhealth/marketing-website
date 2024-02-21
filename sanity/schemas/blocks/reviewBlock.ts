@@ -17,7 +17,6 @@ export const ReviewHeading = defineType({
       name: 'description',
       title: 'Description',
       type: 'simpleRichText',
-      validation: (Rule) => Rule.required(),
     }),
   ],
 });
@@ -73,7 +72,6 @@ export const ReviewItem = defineType({
           type: 'number',
         }),
       ],
-      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'date',
@@ -81,12 +79,12 @@ export const ReviewItem = defineType({
       options: {
         dateFormat: 'MMMM DD, YYYY',
       },
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'logo',
       title: 'logo',
       type: 'richImage',
-      validation: (Rule) => Rule.required(),
     }),
   ],
   preview: {

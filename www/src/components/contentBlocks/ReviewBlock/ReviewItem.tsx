@@ -13,17 +13,18 @@ type Props = {
 export const ReviewItem: FC<Props> = ({ reviewItem }) => {
   const { starRating, title, review, reviewer, date, logo } = reviewItem;
 
-  const formatedDate = new Date(date).toLocaleDateString('en-us', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-  });
+  const formatedDate = (date: string) =>
+    new Date(date).toLocaleDateString('en-us', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+    });
 
   return (
     <div className={cn(ReviewWrapper)}>
       <div className="flex flex-row justify-between items-center">
         <StarRating starRating={starRating} />
-        <SanityImage image={logo} sizes={['114px']} width={114} />
+        {logo && <SanityImage image={logo} sizes={['114px']} width={114} />}
       </div>
       <h5 className={cn(ReviewTitle)}>{title}</h5>
       <RichText
@@ -36,7 +37,7 @@ export const ReviewItem: FC<Props> = ({ reviewItem }) => {
           {reviewer.name}
           {reviewer.age && <span>, {reviewer.age}</span>}
         </div>
-        <div className="theme-text-color-secondary">{formatedDate}</div>
+        <div className="theme-text-color-secondary">{formatedDate(date)}</div>
       </div>
     </div>
   );

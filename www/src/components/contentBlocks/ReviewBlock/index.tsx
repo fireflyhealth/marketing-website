@@ -33,11 +33,13 @@ export const ReviewBlock: FC<Props> = ({ reviewBlock }) => {
         <div className={cn(Header)}>
           <h2 className={cn(Title)}>{reviewHeading.title}</h2>
           <div className={cn(Description)}>
-            <RichText
-              content={reviewHeading.description}
-              fontSize="font-size-8 font-roobert"
-              textColor="theme-text-color-secondary"
-            />
+            {reviewHeading.description && (
+              <RichText
+                content={reviewHeading.description}
+                fontSize="font-size-8 font-roobert"
+                textColor="theme-text-color-secondary"
+              />
+            )}
           </div>
         </div>
         <div className={cn(Reviews)}>

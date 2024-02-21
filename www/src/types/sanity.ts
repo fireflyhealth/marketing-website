@@ -650,7 +650,7 @@ export type ReviewItem = {
     age: Maybe<number>;
   };
   date: string;
-  logo: RichImage;
+  logo: Maybe<RichImage>;
 };
 
 export type ReviewBlock = {
@@ -659,7 +659,7 @@ export type ReviewBlock = {
   reviewHeading: {
     _type: 'reviewHeading';
     title: string;
-    description: RichText;
+    description: Maybe<RichText>;
   };
   reviews: ReviewItem[];
 };
