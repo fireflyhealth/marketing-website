@@ -10,6 +10,7 @@ type Props = {
 
 export const VideoHeader: FC<Props> = ({ videoHeader }) => {
   const { video, eyebrow, heading, body } = videoHeader;
+
   return (
     <div className={cn(Wrapper)}>
       <Video

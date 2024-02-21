@@ -403,7 +403,9 @@ export const contentBlockFragment = `
 export const videoHeaderFragment = `
   eyebrow,
   heading,
-  body,
+  body[]{
+    ${richTextFragment}
+  },
   video {${videoFragment}}
 `;
 

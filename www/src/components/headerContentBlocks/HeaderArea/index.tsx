@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { HeaderBlock as HeaderBlockType, KeyedArray } from '@/types/sanity';
+import { HeaderBlock as HeaderBlockType } from '@/types/sanity';
 
 import { VideoHeader } from '../VideoHeader';
 import { TextHeader } from '../TextHeader';
@@ -23,9 +23,9 @@ const HeaderBlock: FC<HeaderBlockProps> = ({ block }) => {
 };
 
 type HeaderAreaProps = {
-  blocks: KeyedArray<HeaderBlockType>;
+  block: HeaderBlockType;
 };
 
-export const HeaderArea: FC<HeaderAreaProps> = ({ blocks }) => (
-  <>{blocks?.map((block) => <HeaderBlock block={block} key={block._key} />)}</>
+export const HeaderArea: FC<HeaderAreaProps> = ({ block }) => (
+  <HeaderBlock block={block} />
 );

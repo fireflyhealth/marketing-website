@@ -26,7 +26,7 @@ export const ImageCarouselBlock = defineType({
     },
     prepare: ({ header }) => ({
       title: 'Image carousel block',
-      subtitle: header.title,
+      subtitle: header?.title,
     }),
   },
 });

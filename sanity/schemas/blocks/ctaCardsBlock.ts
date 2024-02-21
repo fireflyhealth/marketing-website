@@ -60,10 +60,11 @@ export const CtaCardsBlock = defineType({
   preview: {
     select: {
       header: 'header',
+      ctaCardTitle: 'ctaCards.0.title',
     },
-    prepare: ({ header }) => ({
+    prepare: ({ header, ctaCardTitle }) => ({
       title: 'CTA Cards Block',
-      subtitle: header.title || '',
+      subtitle: header?.title || ctaCardTitle,
     }),
   },
 });
