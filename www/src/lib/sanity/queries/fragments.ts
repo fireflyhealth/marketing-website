@@ -124,6 +124,10 @@ export const linkableDocumentFragment = `
   _type == "blogArticle" => {
     slug,
     title,
+    publishDate,
+    thumbnail{
+      ${imageFragment}
+    },
     category->{
       _type,
       slug,
@@ -595,6 +599,14 @@ export const contentBlockFragment = `
       answer[]{
         ${simpleRichTextFragment}
       }
+    },
+  },
+  _type == "featuredStoriesBlock" => {
+    header {
+      ${contentBlockHeaderFragment}
+    },
+    stories[]->{
+      ${linkableDocumentFragment}
     }
   },
   _type == "cardListBlock" => {${cardlistBlockFragment}}

@@ -246,16 +246,17 @@ export type BlogLinkData = Pick<Blog, '_type' | 'slug' | 'title'>;
 export type BlogArticle = SanityDocument & {
   _type: 'blogArticle';
   title: string;
+  publishDate: string;
+  thumbnail?: Maybe<RichImage>;
   slug: Slug;
   navigationOverrides?: NavigationOverrides;
-  /* TODO linking - change this to BlogPageLinkData */
   category: BlogLinkData;
   metadata?: Metadata;
 };
 
 export type BlogArticleLinkData = Pick<
   BlogArticle,
-  '_type' | 'slug' | 'title' | 'category'
+  '_type' | 'slug' | 'title' | 'category' | 'thumbnail' | 'publishDate'
 >;
 
 /* Navigation */
@@ -523,7 +524,8 @@ export type ContentBlock =
   | ReviewBlock
   | ImageGridBlock
   | FAQBlock
-  | CardListBlock;
+  | CardListBlock
+  | FeaturedStoriesBlock;
 
 export type ContentArea = KeyedArray<ContentBlock>;
 
@@ -722,6 +724,12 @@ export type ImageGridBlock = {
   header: Maybe<ContentBlockHeader>;
   theme: string;
   images: KeyedArray<RichImage>;
+};
+
+export type FeaturedStoriesBlock = {
+  _type: 'featuredStoriesBlock';
+  header: Maybe<ContentBlockHeader>;
+  stories: Array<BlogArticleLinkData>;
 };
 
 export type FAQBlock = {
