@@ -10,11 +10,24 @@ type TwoUpBlockProps = {
 };
 
 export const TwoUpBlock: FC<TwoUpBlockProps> = ({ twoUpBlock }) => {
-  const { header, layout, blockOne, blockTwo, blockThemes } = twoUpBlock;
+  const {
+    header,
+    layout,
+    mobileReverseBlockOrder,
+    blockOne,
+    blockTwo,
+    blockThemes,
+  } = twoUpBlock;
   return (
     <ContentBlockWrapper header={header}>
       <div
-        className={cn('TwoUpBlock__wrapper', `TwoUpBlock--layout-${layout}`)}
+        className={cn(
+          'TwoUpBlock',
+          `TwoUpBlock--layout-${layout}`,
+          mobileReverseBlockOrder
+            ? 'TwoUpBlock--mobileReverse'
+            : 'TwoUpBlock--mobileNormal',
+        )}
       >
         <div
           className={cn(

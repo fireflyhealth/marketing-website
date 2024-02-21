@@ -600,6 +600,7 @@ export type TwoUpBlock = {
   _type: 'twoUpBlock';
   header: Maybe<ContentBlockHeader>;
   layout: TwoUpBlockLayout;
+  mobileReverseBlockOrder: Maybe<boolean>;
   /* Only present when the layout is 'overlap-50-50' */
   blockThemes: Maybe<{
     blockOneTheme: ColorTheme;

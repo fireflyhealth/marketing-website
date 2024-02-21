@@ -390,6 +390,7 @@ const twoUpBlockFragment = `
     ${contentBlockHeaderFragment}
   },
   layout,
+  mobileReverseBlockOrder,
   blockThemes {
     blockOneTheme,
     blockTwoTheme
