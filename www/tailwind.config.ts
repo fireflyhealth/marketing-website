@@ -68,6 +68,8 @@ const config: Config = {
           'calc(var(--desktop-globalnav-height) + var(--announcement-banner-height))',
         'bar-graph-height': 'var(--bar-graph-height)',
         'bar-graph-width': 'var(--bar-graph-width)',
+        'block-wrapper-lg-padding': '48px',
+        'block-wrapper-sm-padding': '24px',
       },
       backgroundImage: {
         'yellow-linear-gradient':

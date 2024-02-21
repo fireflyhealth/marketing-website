@@ -21,12 +21,16 @@ export const Link: FC<LinkProps> = ({
   ...props
 }) => {
   if ('externalUrl' in link && link.externalUrl) {
+    const url = link.externalUrl;
+    const target =
+      url.startsWith('mailto:') || url.startsWith('tel:') ? '_self' : '_blank';
+
     return (
       <a
-        href={link.externalUrl}
+        href={url}
         id={id || undefined}
         aria-label={ariaLabel || undefined}
-        target="_blank"
+        target={target}
       >
         {children}
       </a>

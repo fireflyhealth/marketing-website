@@ -407,10 +407,20 @@ export const videoHeaderFragment = `
   video {${videoFragment}}
 `;
 
+export const textHeaderFragment = `
+  eyebrow,
+  heading,
+  body,
+  theme,
+  cta {${ctaFragment}},
+  gradientBackground,
+`;
+
 export const headerBlockFragment = `
   _type,
   _key,
-  _type == "videoHeader" => {${videoHeaderFragment}}
+  _type == "videoHeader" => {${videoHeaderFragment}},
+  _type == "textHeader" => {${textHeaderFragment}},
 `;
 
 export const navGroupFragment = `
