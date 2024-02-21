@@ -19,8 +19,10 @@ export const VideoWrapper = ['w-full'];
 
 export const CopyWrapper = ['w-full'];
 
+export const FooterIconWrapper = ['flex justify-center'];
+
 export const FooterWrapper = [
-  'bg-white relative flex flex-col items-center text-center px-12 max-w-[416px] mx-auto',
+  'bg-white relative flex flex-col items-center text-center px-12 pt-8 max-w-[416px] mx-auto',
 ];
 
 export const FooterText = ['font-roobert font-size-8 theme-text-primary'];

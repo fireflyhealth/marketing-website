@@ -1,8 +1,8 @@
 :root {
   --segment-top-height: 5%;
   --segment-top-offset: 44px;
-  --segment-bottom-height: 170px;
-  --segment-bottom-offset: 140px;
+  --segment-bottom-height: 280px;
+  --segment-bottom-offset: 0px;
   /* Adds some extra width to help the segments
    * have correct overlapping */
   --segment-radius-offset: 18%;
@@ -73,7 +73,9 @@
     position: absolute;
     top: var(--segment-top-offset);
     width: var(--segment-radius-offset);
-    height: -webkit-fill-available;
+    height: calc(
+      100% - var(--segment-top-offset) - var(--segment-bottom-offset)
+    );
     border-width: 0 0 0 1px;
     left: calc(50% - 0.5px);
     border-color: theme('colors.yellow');
@@ -109,9 +111,8 @@
         100% - var(--segment-bottom-height) - var(--segment-bottom-offset)
       );
       left: calc(50% - 0.5px);
-      height: -webkit-fill-available;
+      height: var(--segment-bottom-height);
       width: var(--segment-radius-offset);
-
       border-width: 1px 0 0 1px;
       border-color: theme('colors.yellow');
       border-radius: 16px 0 0 0;

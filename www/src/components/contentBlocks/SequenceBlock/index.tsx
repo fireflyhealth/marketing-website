@@ -12,6 +12,7 @@ import {
   SequenceItems,
   FooterWrapper,
   FooterText,
+  FooterIconWrapper,
 } from './styles';
 import { SequenceLines } from './SequenceLines';
 
@@ -39,13 +40,16 @@ export const SequenceBlock: FC<Props> = ({ sequenceBlock }) => {
                 <SequenceCard key={item._key} card={item} />
               ))}
             </div>
-            <div className={cn(FooterWrapper)}>
+            <div className={cn(FooterIconWrapper)}>
               <BrandedIcon
                 type="navigation-compass"
-                wrapperStyles="w-12 mb-8 z-20"
+                wrapperStyles="w-12 md:w-[100px] z-20 my-auto"
               />
-              <p className={cn(FooterText)}>{sequenceFooter}</p>
             </div>
+          </div>
+
+          <div className={cn(FooterWrapper)}>
+            <p className={cn(FooterText)}>{sequenceFooter}</p>
           </div>
         </div>
       </div>

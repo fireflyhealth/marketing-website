@@ -1,5 +1,4 @@
 import { FC } from 'react';
-import cn from 'classnames';
 
 export const SequenceLines: FC = () => {
   return (
