@@ -103,7 +103,7 @@ export const BlogArticle = defineType({
     prepare: ({ parentBlogTitle, title }) => {
       return {
         title,
-        subtitle: parentBlogTitle,
+        subtitle: parentBlogTitle || '⚠ No parent blog',
         /* TODO: Add preview config that displays the publish date in the subtitle */
       };
     },

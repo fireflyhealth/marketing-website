@@ -22,7 +22,7 @@ const validateOnlyOne = (Rule: Rule) =>
     return true;
   });
 
-const validateNotOrphanedSubpage = (Rule: Rule) =>
+export const validateNotOrphanedSubpage = (Rule: Rule) =>
   Rule.custom(async (value: Maybe<{ _ref: string }>, context) => {
     if (!value) return true;
     const client = context.getClient({ apiVersion: API_VERSION });

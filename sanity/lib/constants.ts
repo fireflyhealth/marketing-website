@@ -106,6 +106,7 @@ export const defaultContentBlockTypes = [
   { type: 'imageGridBlock' },
   { type: 'faqBlock' },
   { type: 'cardListBlock' },
+  { type: 'featuredStoriesBlock' },
 ];
 
 /**

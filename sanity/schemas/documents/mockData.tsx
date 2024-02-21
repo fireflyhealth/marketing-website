@@ -133,6 +133,7 @@ export const MockData = defineType({
             collapsible: true,
             collapsed: true,
           },
+          validation: (Rule) => Rule.required(),
         }),
         defineField({
           name: 'drawerListBlock',
@@ -195,6 +196,16 @@ export const MockData = defineType({
           name: 'cardListBlockExample',
           type: 'cardListBlock',
           title: 'Card List Block Example',
+          options: {
+            collapsible: true,
+            collapsed: true,
+          },
+          validation: (Rule) => Rule.required(),
+        }),
+        defineField({
+          name: 'featuredStoriesBlock',
+          type: 'featuredStoriesBlock',
+          title: 'Featured Stories Block',
           options: {
             collapsible: true,
             collapsed: true,
