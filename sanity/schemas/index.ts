@@ -137,5 +137,4 @@ export const schemaTypes = [
   RichTextCtaRow,
   SequenceBlockTextFields,
   SequenceItem,
-  Theme,
 ];

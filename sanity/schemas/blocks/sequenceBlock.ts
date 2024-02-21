@@ -33,8 +33,6 @@ export const SequenceItem = defineType({
   title: 'Sequence Item',
   type: 'object',
   initialValue: {
-    theme: 'white',
-    flipAlignment: false,
     isHighlighted: false,
   },
   fields: [
