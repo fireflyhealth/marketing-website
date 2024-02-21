@@ -26,8 +26,8 @@ export const ImageBlock = defineType({
     },
     prepare: ({ image, header }) => ({
       title: 'Image Block',
-      media: image.asset,
-      subtitle: header.title || image.caption || image.altText,
+      media: image?.asset,
+      subtitle: header?.title || image?.caption || image?.altText,
     }),
   },
 });

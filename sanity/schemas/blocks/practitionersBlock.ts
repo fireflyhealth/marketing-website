@@ -25,7 +25,7 @@ export const PractitionersBlock = defineType({
     },
     prepare: ({ header }) => ({
       title: 'Practitioners block',
-      subtitle: header.title,
+      subtitle: header?.title,
     }),
   },
 });

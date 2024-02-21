@@ -32,7 +32,7 @@ export const QuoteBlock = defineType({
     },
     prepare: ({ quote, header }) => ({
       title: 'Quote Block',
-      subtitle: header.title || quote.quote,
+      subtitle: header?.title || quote?.quote,
     }),
   },
 });
