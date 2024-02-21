@@ -1,6 +1,10 @@
 import { FC } from 'react';
 import cn from 'classnames';
 import * as SanityTypes from '@/types/sanity';
+import { Theme } from '@/components/Theme';
+import { RichText } from '@/components/RichText';
+import { CTA } from '@/components/CTA';
+
 import {
   ThemeWrapper,
   Wrapper,
@@ -11,9 +15,6 @@ import {
   CTAWrapper,
   Glow,
 } from './styles';
-import { Theme } from '@/components/Theme';
-import { RichText } from '@/components/RichText';
-import { CTA } from '@/components/CTA';
 
 type Props = {
   textHeader: SanityTypes.TextHeader;
