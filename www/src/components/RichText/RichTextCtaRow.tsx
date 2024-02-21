@@ -9,9 +9,11 @@ type RichTextCtaRowProps = {
 export const RichTextCtaRow: FC<RichTextCtaRowProps> = ({ richTextCtaRow }) => {
   const { ctas } = richTextCtaRow;
   return (
-    <div className="flex flex-row space-x-4">
+    <div className="flex flex-row flex-wrap mb-[-1rem]">
       {ctas.map((cta) => (
-        <CTA key={cta._key} width="auto" cta={cta} />
+        <div key={cta._key} className="mr-4 mb-4">
+          <CTA width="auto" cta={cta} />
+        </div>
       ))}
     </div>
   );

@@ -16,28 +16,34 @@ export const TwoUpBlock: FC<TwoUpBlockProps> = ({ twoUpBlock }) => {
       <div
         className={cn('TwoUpBlock__wrapper', `TwoUpBlock--layout-${layout}`)}
       >
-        <div className="TwoUpBlock__child">
+        <div
+          className={cn(
+            'TwoUpBlock__child',
+            `TwoUpBlock__child--${blockOne._type}`,
+          )}
+        >
           <Theme
             theme={
               (layout === 'overlap-50-50' && blockThemes?.blockOneTheme) ||
               ColorTheme.White
             }
           >
-            <div className="theme-bg-color">
-              <ChildContentBlock block={blockOne} />
-            </div>
+            <ChildContentBlock block={blockOne} />
           </Theme>
         </div>
-        <div className="TwoUpBlock__child">
+        <div
+          className={cn(
+            'TwoUpBlock__child',
+            `TwoUpBlock__child--${blockTwo._type}`,
+          )}
+        >
           <Theme
             theme={
-              (layout === 'overlap-50-50' && blockThemes?.blockOneTheme) ||
+              (layout === 'overlap-50-50' && blockThemes?.blockTwoTheme) ||
               ColorTheme.White
             }
           >
-            <div className="theme-bg-color">
-              <ChildContentBlock block={blockTwo} />
-            </div>
+            <ChildContentBlock block={blockTwo} />
           </Theme>
         </div>
       </div>

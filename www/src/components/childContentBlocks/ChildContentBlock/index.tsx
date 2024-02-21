@@ -1,9 +1,9 @@
 import React, { FC } from 'react';
 import { ChildContentBlock as ChildContentBlockType } from '@/types/sanity';
-import { BigNumbers } from '@/components/BigNumber';
 import { ImageChildBlock } from '../ImageChildBlock';
 import { RichTextChildBlock } from '../RichTextChildBlock';
 import { QuoteChildBlock } from '../QuoteChildBlock';
+import { BigNumbersChildBlock } from '../BigNumbersChildBlock';
 
 type ChildContentBlockProps = {
   block: ChildContentBlockType;
@@ -18,7 +18,7 @@ export const ChildContentBlock: FC<ChildContentBlockProps> = ({ block }) => {
     case 'quoteChildBlock':
       return <QuoteChildBlock quoteChildBlock={block} />;
     case 'bigNumbers':
-      return <BigNumbers bigNumbers={block} />;
+      return <BigNumbersChildBlock bigNumbers={block} />;
     default:
       console.warn(
         // @ts-expect-error
