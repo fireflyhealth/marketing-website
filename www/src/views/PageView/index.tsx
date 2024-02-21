@@ -10,7 +10,7 @@ type PageViewProps = {
 export const PageView: FC<PageViewProps> = ({ page }) => {
   return (
     <div>
-      <HeaderArea blocks={page.header} />
+      <HeaderArea block={page.header} />
       <ContentArea blocks={page.content} />
     </div>
   );

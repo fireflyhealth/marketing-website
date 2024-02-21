@@ -10,7 +10,7 @@ type ClientPageViewProps = {
 export const ClientPageView: FC<ClientPageViewProps> = ({ clientPage }) => {
   return (
     <div>
-      <HeaderArea blocks={clientPage.header} />
+      <HeaderArea block={clientPage.header} />
       <ContentArea blocks={clientPage.content} />
     </div>
   );
