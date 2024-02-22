@@ -446,6 +446,7 @@ export const sequenceBlockFragment = `
 
 export const imageGridBlockFragment = `
   header{${contentBlockHeaderFragment}},
+  theme,
   images[]{
     ${imageFragment}
   }

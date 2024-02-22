@@ -1,6 +1,4 @@
-export const Wrapper = ['p-4', 'md:p-8', 'lg:p-12'];
-
-export const Header = ['mb-4', 'md:mb-8', 'lg:mb-12'];
+export const Wrapper = ['theme-bg-color p-4 rounded-2xl', 'md:p-8', 'lg:p-12'];
 
 export const ImagesContainer = [
   'flex flex-wrap justify-center items-center gap-x-4',

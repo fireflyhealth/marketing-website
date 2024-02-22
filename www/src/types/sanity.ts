@@ -668,5 +668,6 @@ export type ReviewBlock = {
 export type ImageGridBlock = {
   _type: 'imageGridBlock';
   header: Maybe<ContentBlockHeader>;
+  theme: string;
   images: KeyedArray<RichImage>;
 };

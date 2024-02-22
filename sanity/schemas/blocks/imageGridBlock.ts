@@ -13,6 +13,19 @@ export const ImageGridBlock = defineType({
       title: 'Header',
     }),
     defineField({
+      name: 'theme',
+      title: 'Theme',
+      type: 'string',
+      initialValue: 'White',
+      options: {
+        list: [
+          { title: 'White', value: 'white' },
+          { title: 'Grey', value: 'grey' },
+        ],
+      },
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
       name: 'images',
       title: 'Images',
       type: 'array',
