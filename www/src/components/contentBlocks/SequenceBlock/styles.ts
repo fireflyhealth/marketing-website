@@ -10,7 +10,7 @@ export const SequenceItems = [
 ];
 
 export const SequenceCardWrapper = [
-  'relative rounded-2xl flex flex-col space-y-8 p-4 z-20',
+  'theme-bg-color relative rounded-2xl flex flex-col space-y-8 p-4 z-20',
   'md:space-y-0 md:space-x-8 md:items-center md:justify-center',
   'lg:h-[523px] lg:space-x-12 lg:p-12',
 ];

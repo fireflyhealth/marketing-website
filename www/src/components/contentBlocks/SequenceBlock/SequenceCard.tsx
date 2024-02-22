@@ -21,7 +21,6 @@ export const SequenceCard: FC<Props> = ({ card }) => {
           <div
             className={cn(
               SequenceCardWrapper,
-              'theme-bg-color',
               'md:p-12 md:flex-row-reverse md:space-x-reverse',
               'lg:space-x-reverse',
             )}
@@ -38,7 +37,6 @@ export const SequenceCard: FC<Props> = ({ card }) => {
         <div
           className={cn(
             SequenceCardWrapper,
-            'theme-bg-color',
             'md:bg-transparent md:py-24 md:flex-row',
           )}
         >
