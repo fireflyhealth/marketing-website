@@ -86,6 +86,7 @@ export type SubnavItem = {
   _type: 'subnavItem';
   contentBlockId: string;
   label: string;
+  ariaLabel: Maybe<string>;
 };
 
 export type SiteSettings = SanityDocument & {

@@ -21,6 +21,13 @@ export const SubnavItem = defineField({
       type: 'string',
       validation: (Rule) => Rule.required(),
     }),
+    defineField({
+      name: 'ariaLabel',
+      type: 'string',
+      title: 'Aria Label',
+      description:
+        'Optional. Provide an Aria Label when the button\'s text label does not convey its function adequately or if the label is too generic. For example: a button with the label "OK" should be given an Aria Label such as "Accept terms & conditions"',
+    }),
   ],
 });
 

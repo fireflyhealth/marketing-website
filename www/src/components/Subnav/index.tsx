@@ -1,14 +1,19 @@
 import { FC } from 'react';
 import cn from 'classnames';
 import { SubnavItem } from '@/types/sanity';
-import { Wrapper } from './styles';
+import { Wrapper, SubnavItemWrapper, SubnavItemCircle } from './styles';
 
 const SubnavItem: FC<{ item: SubnavItem }> = ({ item }) => {
-  const { label, contentBlockId } = item;
+  const { label, contentBlockId, ariaLabel } = item;
   return (
-    <div className={cn('flex', 'justify-center')}>
-      <a href={`#${contentBlockId}`}>{label}</a>
-    </div>
+    <a
+      href={`#${contentBlockId}`}
+      className={cn(SubnavItemWrapper)}
+      aria-label={ariaLabel || undefined}
+    >
+      <div className={cn(SubnavItemCircle)} />
+      {label}
+    </a>
   );
 };
 

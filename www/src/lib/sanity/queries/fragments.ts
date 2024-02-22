@@ -492,4 +492,5 @@ export const subnavItemFragment = `
   _key,
   label,
   contentBlockId,
+  ariaLabel,
   `;
