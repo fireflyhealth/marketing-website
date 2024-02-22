@@ -2,15 +2,15 @@ import { ColorTheme } from '@/components/Theme';
 
 export const getColorTheme = (colorTheme: string) => {
   switch (colorTheme) {
-    case 'White':
+    case 'white':
       return ColorTheme.White;
-    case 'Grey':
+    case 'grey':
       return ColorTheme.Grey;
-    case 'Sienna':
+    case 'sienna':
       return ColorTheme.Sienna;
-    case 'Midnight':
+    case 'midnight':
       return ColorTheme.Midnight;
-    case 'Sky':
+    case 'sky':
       return ColorTheme.Sky;
     default:
       return ColorTheme.White;
