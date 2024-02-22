@@ -1,3 +1,4 @@
+/* Documents */
 import { Homepage } from './documents/homepage';
 import { GenericPage, SubPage } from './documents/genericPage';
 import {
@@ -12,16 +13,41 @@ import { Blog } from './documents/blog';
 import { MockData } from './documents/mockData';
 import { SiteSettings } from './documents/siteSettings';
 import { Practitioner } from './documents/practitioner';
+import { Navigation } from './documents/navigation';
 
+/* Headers */
+import { VideoHeader } from './headers/videoHeader';
+import { TextHeader } from './headers/textHeader';
+
+/* Child Blocks */
+
+import { RichTextChildBlock } from './childBlocks/richTextChildBlock';
+import { ImageChildBlock } from './childBlocks/imageChildBlock';
+
+/* Content Blocks */
+import { ContentBlockHeader } from './blocks/contentBlockHeader';
+import { ImageBlock } from './blocks/imageBlock';
+import { ImageCarouselBlock } from './blocks/imageCarouselBlock';
+import { CtaCard, CtaCardsBlock } from './blocks/ctaCardsBlock';
+import { DoubleCtaBlock } from './blocks/doubleCtaBlock';
+import { ImageTextOverlapBlock } from './blocks/imageTextOverlapBlock';
+import { QuoteBlock } from './blocks/quoteBlock';
+import { PractitionersBlock } from './blocks/practitionersBlock';
+import { TwoUpBlock } from './blocks/twoUpBlock';
+
+/* Fields */
 import { Metadata } from './fields/metadata';
 import { ResponsiveImageSet, RichImage } from './fields/images';
 import { Link, LinkableDocument } from './fields/linking';
 import { CTA } from './fields/cta';
-import { SimpleRichText, ArticleRichText } from './fields/richText';
-import { Navigation } from './documents/navigation';
+import {
+  SimpleRichText,
+  ArticleRichText,
+  LimitedRichText,
+} from './fields/richText';
 import { LinkWithLabel } from './fields/linkWithLabel';
 import { LabelWithDropdown } from './fields/labelWithDropdown';
-import { ContentArea } from './fields/contentArea';
+import { ChildContentBlock, ContentArea } from './fields/contentArea';
 import { NavigationOverrides } from './fields/navigationOverrides';
 import { AnnouncementBanner } from './fields/announcementBanner';
 import { Video } from './fields/video';
@@ -31,21 +57,11 @@ import { BarGraphItems } from './fields/barGraphItems';
 import { DoubleCta, LargeCTACard } from './fields/doubleCta';
 import { TwoColumnUnorderedList } from './fields/twoColumnUnorderedList';
 import { Quote } from './fields/quote';
-
-import { ContentBlockHeader } from './blocks/contentBlockHeader';
-import { ImageBlock } from './blocks/imageBlock';
-import { ImageCarouselBlock } from './blocks/imageCarouselBlock';
-import { CtaCard, CtaCardsBlock } from './blocks/ctaCardsBlock';
-import { DoubleCtaBlock } from './blocks/doubleCtaBlock';
-import { ImageTextOverlapBlock } from './blocks/imageTextOverlapBlock';
-import { QuoteBlock } from './blocks/quoteBlock';
-
-import { VideoHeader } from './headers/videoHeader';
-import { TextHeader } from './headers/textHeader';
-import { PractitionersBlock } from './blocks/practitionersBlock';
 import { BigNumber, BigNumbers } from './fields/bigNumbers';
 import { DrawerListBlock, DrawerListItem } from './blocks/drawerListBlock';
 import { Theme } from './fields/theme';
+import { RichTextCtaRow } from './fields/richTextCtaRow';
+import { QuoteChildBlock } from './childBlocks/quoteChildBlock';
 
 export const schemaTypes = [
   /* Document Types */
@@ -69,7 +85,7 @@ export const schemaTypes = [
   VideoHeader,
   TextHeader,
 
-  /* Blocks */
+  /* Default Blocks (used within ContentArea, each has a heading) */
   ImageBlock,
   ImageCarouselBlock,
   CtaCardsBlock,
@@ -80,6 +96,12 @@ export const schemaTypes = [
   QuoteBlock,
   DrawerListBlock,
   DrawerListItem,
+  TwoUpBlock,
+  /* Child blocks (used within other blocks, i.e. 2-up block) */
+  ChildContentBlock,
+  RichTextChildBlock,
+  QuoteChildBlock,
+  ImageChildBlock,
 
   /* Field Types */
   ContentBlockHeader,
@@ -90,6 +112,7 @@ export const schemaTypes = [
   LinkableDocument,
   CTA,
   SimpleRichText,
+  LimitedRichText,
   ArticleRichText,
   LinkWithLabel,
   LabelWithDropdown,
@@ -106,4 +129,5 @@ export const schemaTypes = [
   TwoColumnUnorderedList,
   Quote,
   Theme,
+  RichTextCtaRow,
 ];

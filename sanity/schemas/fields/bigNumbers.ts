@@ -1,6 +1,7 @@
 import { defineType, defineField } from 'sanity';
 import { richTextToString } from '../../lib/richTextToString';
 import { Maybe } from '../../lib/types';
+import { icons } from '../../lib/icons';
 
 type BigNumberData = {
   unit: Maybe<{
@@ -62,7 +63,6 @@ export const BigNumber = defineType({
           name: 'position',
           title: 'Position',
           type: 'string',
-          initialValue: 'before',
           validation: (Rule) =>
             Rule.custom((value, context) => {
               // @ts-ignore
@@ -104,6 +104,7 @@ export const BigNumber = defineType({
 export const BigNumbers = defineType({
   name: 'bigNumbers',
   type: 'object',
+  icon: icons.Percentage,
   fields: [
     defineField({
       name: 'bigNumbers',
@@ -111,12 +112,21 @@ export const BigNumbers = defineType({
       of: [{ type: 'bigNumber' }],
       validation: (Rule) => Rule.required().min(1),
     }),
+    defineField({
+      name: 'citation',
+      type: 'simpleRichText',
+      title: 'Citation',
+    }),
   ],
   preview: {
     select: {
       bigNumbers: 'bigNumbers',
+      citation: 'citation',
     },
-    prepare: ({ bigNumbers }) => {
+    prepare: ({ bigNumbers, citation }) => {
+      if (!bigNumbers) {
+        return { title: '(empty)' };
+      }
       const firstBigNumberTitle = getBigNumberPreviewTitle(bigNumbers[0]);
       const firstBigNumberDescription = bigNumbers[0]?.description
         ? richTextToString(bigNumbers[0].description)
@@ -127,12 +137,15 @@ export const BigNumbers = defineType({
         : undefined;
 
       const title = [firstBigNumberTitle, firstBigNumberDescription].join(' ');
-      const subtitle =
+      const citationSubtitle = citation
+        ? richTextToString(citation)
+        : undefined;
+      const lengthSubtitle =
         bigNumbers.length > 1 ? `+ ${bigNumbers.length - 1} more` : undefined;
 
       return {
         title,
-        subtitle,
+        subtitle: citationSubtitle || lengthSubtitle,
       };
     },
   },
