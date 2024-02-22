@@ -1,4 +1,0 @@
-/* The last star for a 5 star rating should be yellow */
-.MuiRating-root {
-  @apply flex flex-row space-x-1;
-}
