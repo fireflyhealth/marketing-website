@@ -17,6 +17,8 @@ export type DocumentReference = {
   _weak?: boolean;
 };
 
+export type Theme = 'white' | 'grey' | 'sienna' | 'midnight' | 'sky';
+
 interface SanityDocument {
   _id: string;
   _type: string;
@@ -478,7 +480,8 @@ export type ContentBlock =
   | QuoteBlock
   | DoubleCtaBlock
   | DrawerListBlock
-  | TwoUpBlock;
+  | TwoUpBlock
+  | SequenceBlock;
 
 export type ContentArea = KeyedArray<ContentBlock>;
 
@@ -507,6 +510,30 @@ export type ImageCarouselBlock = {
   _type: 'imageCarouselBlock';
   header: Maybe<ContentBlockHeader>;
   images: KeyedArray<RichImage>;
+};
+
+export type SequenceBlockTextFields = {
+  _type: 'sequenceBlockTextFields';
+  title: string;
+  bellyButtonText: Maybe<string>;
+  description: string;
+};
+
+export type SequenceBlockItem = {
+  _type: 'sequenceItem';
+  _key: string;
+  video: Video;
+  copy: SequenceBlockTextFields;
+  theme: Maybe<string>;
+  isHighlighted: boolean;
+};
+
+export type SequenceBlock = {
+  _type: 'sequenceBlock';
+  header: Maybe<ContentBlockHeader>;
+  sequenceHeader: SequenceBlockTextFields;
+  sequenceItems: KeyedArray<SequenceBlockItem>;
+  sequenceFooter: string;
 };
 
 export type CTACard = {

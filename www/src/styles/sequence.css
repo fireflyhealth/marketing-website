@@ -1,0 +1,121 @@
+:root {
+  --segment-top-height: 5%;
+  --segment-top-offset: 44px;
+  --segment-bottom-height: 280px;
+  --segment-bottom-offset: 0px;
+  /* Adds some extra width to help the segments
+   * have correct overlapping */
+  --segment-radius-offset: 15%;
+}
+
+.SequenceLines {
+  &__container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Uncomment to debug */
+    /* background-color: rgba(255, 0, 0, 0.2); */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 0rem 1rem;
+
+    @screen lg {
+      padding: 0rem 3rem;
+    }
+  }
+
+  /**
+   * These two columns should align with
+   * the items in SequenceCard
+   */
+  &__col-left {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    /* Uncomment to debug */
+    /* background-color: rgba(0, 255, 0, 0.2); */
+
+    @screen lg {
+      max-width: 580px;
+    }
+  }
+
+  &__col-right {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    /* Uncomment to debug */
+    /* background-color: rgba(0, 0, 255, 0.2); */
+    margin-left: 2rem;
+    padding: 0 3rem;
+
+    @screen lg {
+      margin-left: 3rem;
+      padding: 0 3rem;
+      max-width: 580px;
+    }
+  }
+
+  &__point {
+    position: absolute;
+    top: var(--segment-top-offset);
+    left: calc(50% - 7px);
+    width: 14px;
+    height: 14px;
+    border-radius: 100px;
+    background-color: theme('colors.yellow');
+  }
+
+  &__segment--top {
+    position: absolute;
+    top: var(--segment-top-offset);
+    width: var(--segment-radius-offset);
+    height: calc(
+      100% - var(--segment-top-offset) - var(--segment-bottom-offset)
+    );
+    border-width: 0 0 0 1px;
+    left: calc(50% - 0.5px);
+    border-color: theme('colors.yellow');
+
+    @screen md {
+      height: var(--segment-top-height);
+      border-width: 0 0 1px 1px;
+      border-radius: 0 0 0 16px;
+    }
+  }
+
+  &__segment--middle {
+    @screen md {
+      position: absolute;
+      /* top - 1px to account for border height offset */
+      top: calc(var(--segment-top-height) + var(--segment-top-offset) - 1px);
+      left: var(--segment-radius-offset);
+      width: calc(50% - var(--segment-radius-offset));
+      height: calc(
+        100% - var(--segment-top-height) - var(--segment-top-offset) -
+          var(--segment-bottom-height) - var(--segment-bottom-offset) + 2px
+      );
+      border-width: 1px 1px 1px 0;
+      border-radius: 0 16px 16px 0;
+      border-color: theme('colors.yellow');
+    }
+  }
+
+  &__segment--bottom {
+    @screen md {
+      position: absolute;
+      top: calc(
+        100% - var(--segment-bottom-height) - var(--segment-bottom-offset)
+      );
+      left: calc(50% - 0.5px);
+      height: var(--segment-bottom-height);
+      width: var(--segment-radius-offset);
+      border-width: 1px 0 0 1px;
+      border-color: theme('colors.yellow');
+      border-radius: 16px 0 0 0;
+    }
+  }
+}
