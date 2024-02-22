@@ -338,6 +338,10 @@ img {
   background-color: var(--cta-bg-color-secondary);
 }
 
+.theme-icon-overlap {
+  color: var(--icon-overlap);
+}
+
 svg {
   .icon-base {
     fill: var(--icon-base);
