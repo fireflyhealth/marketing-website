@@ -19,7 +19,6 @@ export const QuoteBlock = defineType({
       name: 'cta',
       type: 'cta',
       title: 'CTA',
-      validation: (Rule) => Rule.required(),
     }),
   ],
   preview: {

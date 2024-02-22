@@ -22,10 +22,12 @@ import { RxComponent2 } from 'react-icons/rx';
 import { BiCarousel, BiSolidNavigation } from 'react-icons/bi';
 import { FaHubspot, FaQuoteLeft } from 'react-icons/fa';
 import { BsFileBarGraph, BsMenuDown, BsSegmentedNav } from 'react-icons/bs';
-import { MdOutlineCallToAction } from 'react-icons/md';
+import { MdOutlineCallToAction, MdPercent } from 'react-icons/md';
 import { FaUserDoctor } from 'react-icons/fa6';
 import { GoColumns } from 'react-icons/go';
 import { RiArchiveDrawerLine } from 'react-icons/ri';
+import { CgViewSplit } from 'react-icons/cg';
+import { VscCaseSensitive } from 'react-icons/vsc';
 
 /*
  * Browse Sanity icons:
@@ -62,4 +64,7 @@ export const icons = {
   Quote: FaQuoteLeft,
   Drawer: RiArchiveDrawerLine,
   Subnav: BsSegmentedNav,
+  TwoUp: CgViewSplit,
+  Percentage: MdPercent,
+  Text: VscCaseSensitive,
 };

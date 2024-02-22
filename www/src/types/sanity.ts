@@ -390,9 +390,14 @@ export type RichText = Array<
   | HubspotForm
   | IconBlock
   | BigNumbers
-  | CTA
+  | RichTextCtaRow
   | TwoColumnUnorderedList
 >;
+
+export type RichTextCtaRow = {
+  _type: 'richTextCtaRow';
+  ctas: KeyedArray<CTA>;
+};
 
 export type HubspotForm = {
   _type: 'form';
@@ -429,6 +434,7 @@ export type BigNumber = {
 export type BigNumbers = {
   _type: 'bigNumbers';
   bigNumbers: KeyedArray<BigNumber>;
+  citation: Maybe<RichText>;
 };
 
 export type TwoColumnUnorderedList = {
@@ -445,6 +451,31 @@ export type HeaderBlock = VideoHeader;
 export type HeaderArea = HeaderBlock;
 
 /**
+ * Child Content Blocks
+ */
+
+export type ChildContentBlock =
+  | RichTextChildBlock
+  | ImageChildBlock
+  | QuoteChildBlock
+  | BigNumbers;
+
+export type RichTextChildBlock = {
+  _type: 'richTextChildBlock';
+  heading: string;
+  body: RichText;
+};
+
+export type ImageChildBlock = {
+  _type: 'imageChildBlock';
+  image: RichImage;
+};
+
+export type QuoteChildBlock = {
+  _type: 'quoteChildBlock';
+  quote: QuoteObject;
+};
+/**
  * Content Area Blocks
  */
 export type ContentBlock =
@@ -455,7 +486,8 @@ export type ContentBlock =
   | ImageTextOverlapBlock
   | QuoteBlock
   | DoubleCtaBlock
-  | DrawerListBlock;
+  | DrawerListBlock
+  | TwoUpBlock;
 
 export type ContentArea = KeyedArray<ContentBlock>;
 
@@ -538,10 +570,17 @@ export type ImageTextOverlapBlock = {
   copy: RichText;
 };
 
+export type QuoteAttribution = {
+  label: string;
+  labelSubtitle: Maybe<string>;
+  image: Maybe<Image>;
+};
+
 export type QuoteObject = {
   _type: 'quoteObject';
+  badgeImage: Maybe<Image>;
   quote: string;
-  attribution: PractitionerLinkData;
+  attribution: QuoteAttribution;
 };
 
 export type QuoteBlock = {
@@ -567,4 +606,23 @@ export type DrawerListBlock = {
   id: Maybe<string>;
   header: Maybe<ContentBlockHeader>;
   drawerListItems: KeyedArray<DrawerListItem>;
+};
+export type TwoUpBlockLayout =
+  | 'normal-50-50'
+  | 'normal-60-40'
+  | 'normal-40-60'
+  | 'overlap-50-50';
+
+export type TwoUpBlock = {
+  _type: 'twoUpBlock';
+  header: Maybe<ContentBlockHeader>;
+  layout: TwoUpBlockLayout;
+  mobileReverseBlockOrder: Maybe<boolean>;
+  /* Only present when the layout is 'overlap-50-50' */
+  blockThemes: Maybe<{
+    blockOneTheme: ColorTheme;
+    blockTwoTheme: ColorTheme;
+  }>;
+  blockOne: ChildContentBlock;
+  blockTwo: ChildContentBlock;
 };

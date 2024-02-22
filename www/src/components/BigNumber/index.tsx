@@ -41,9 +41,16 @@ type BigNumbersProps = {
 export const BigNumbers: FC<BigNumbersProps> = ({ bigNumbers }) => {
   return (
     <div>
-      {bigNumbers.bigNumbers.map((bigNumber) => (
-        <BigNumber key={bigNumber._key} bigNumber={bigNumber} />
-      ))}
+      <div className="grid grid-cols-1 md:grid-cols-2 md:gap-4">
+        {bigNumbers.bigNumbers.map((bigNumber) => (
+          <BigNumber key={bigNumber._key} bigNumber={bigNumber} />
+        ))}
+      </div>
+      {bigNumbers.citation ? (
+        <div className="pt-14 md:pt-12">
+          <RichText content={bigNumbers.citation} fontSize="font-size-10" />
+        </div>
+      ) : null}
     </div>
   );
 };

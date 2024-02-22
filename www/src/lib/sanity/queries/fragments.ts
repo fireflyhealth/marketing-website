@@ -222,6 +222,9 @@ export const bigNumbersFragment = `
     description[]{
       ${simpleRichTextFragment}
     }
+  },
+  citation[]{
+    ${simpleRichTextFragment}
   }
 `;
 
@@ -249,6 +252,12 @@ export const richTextFragment = `
   _type == "twoColumnUnorderedList" => {
     ${twoColumnUnorderedListFragment}
   },
+  _type == "richTextCtaRow" => {
+    ctas[]{
+      _key,
+      ${ctaFragment}
+    }
+  },
   markDefs[]{
     _key,
     _type,
@@ -259,7 +268,51 @@ export const richTextFragment = `
     },
   }
 `;
+export const quoteObjectFragment = `
+  _type,
+  quote,
+  badgeImage {
+    ${imageFragment}
+  },
+  attribution {
+   label,
+    labelSubtitle,
+    image {
+      ${imageFragment}
+    }
+  }
+`;
 
+/**
+ * Child content blocks
+ */
+const childContentBlockFragment = `
+  _type,
+  _type == "richTextChildBlock" => {
+    heading,
+    body[]{
+      ${richTextFragment}
+    }
+  },
+  _type == "imageChildBlock" => {
+    image {
+      ${imageFragment}
+    }
+  },
+  _type == "bigNumbers" => {
+    ${bigNumbersFragment}
+  },
+  _type == "quoteChildBlock" => {
+    quote{
+      ${quoteObjectFragment}
+    }
+  }
+
+`;
+
+/**
+ * Main content blocks
+ */
 export const contentBlockHeaderFragment = `
   _type,
   title,
@@ -305,12 +358,6 @@ export const imageTextOverlapFragment = `
   }
 `;
 
-export const quoteObjectFragment = `
-  _type,
-  quote,
-  attribution->{${linkableDocumentFragment}}
-`;
-
 export const quoteBlockFragment = `
   header{${contentBlockHeaderFragment}},
   quoteObject{${quoteObjectFragment}},
@@ -323,6 +370,38 @@ export const videoFragment = `
   posterImage {
     ${imageFragment}
   }
+`;
+
+export const videoHeaderFragment = `
+  eyebrow,
+  heading,
+  body[]{
+    ${richTextFragment}
+  },
+  video {${videoFragment}}
+`;
+
+/**
+ * blockOne and blockTwo are actually arrays
+ * in Sanity, but validated to always have only
+ * one item. The [0] is added to coerce these
+ * into single objects in the result. */
+const twoUpBlockFragment = `
+  header {
+    ${contentBlockHeaderFragment}
+  },
+  layout,
+  mobileReverseBlockOrder,
+  blockThemes {
+    blockOneTheme,
+    blockTwoTheme
+  },
+  blockOne {
+    ${childContentBlockFragment}
+  }[0],
+  blockTwo {
+    ${childContentBlockFragment}
+  }[0]
 `;
 
 export const contentBlockFragment = `
@@ -398,16 +477,8 @@ export const contentBlockFragment = `
       },
       theme
     }
-  }
-`;
-
-export const videoHeaderFragment = `
-  eyebrow,
-  heading,
-  body[]{
-    ${richTextFragment}
   },
-  video {${videoFragment}}
+  _type == "twoUpBlock" => {${twoUpBlockFragment}}
 `;
 
 export const headerBlockFragment = `
