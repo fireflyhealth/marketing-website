@@ -401,6 +401,7 @@ const twoUpBlockFragment = `
     ${childContentBlockFragment}
   }[0]
 `;
+
 export const reviewFragment = `
   _type,
   _key,
@@ -481,7 +482,7 @@ export const contentBlockFragment = `
   _type == "doubleCtaBlock" => {
     _type,
     doubleCta{${doubleCtaFragment}},
-    header{${contentBlockHeaderFragment}},
+    header{${contentBlockHeaderFragment}}
   },
   _type == "practitionersBlock" => {
     header {
@@ -519,7 +520,6 @@ export const contentBlockFragment = `
   _type == "sequenceBlock" => {${sequenceBlockFragment}},
   _type == "twoUpBlock" => {${twoUpBlockFragment}},
   _type == "reviewBlock" => {${reviewBlockFragmnet}}
-  }
 `;
 
 export const videoHeaderFragment = `
