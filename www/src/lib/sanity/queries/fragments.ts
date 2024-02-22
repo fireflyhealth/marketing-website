@@ -491,12 +491,14 @@ export const contentBlockFragment = `
       theme
      }
    },
+  _type == "twoUpBlock" => {${twoUpBlockFragment}},
   _type == "sequenceBlock" => {${sequenceBlockFragment}}
 `;
 
 export const videoHeaderFragment = `
   eyebrow,
   heading,
+  video{${videoFragment}},
   body[]{
     ${richTextFragment}
   },
