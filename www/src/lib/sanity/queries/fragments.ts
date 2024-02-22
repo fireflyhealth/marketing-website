@@ -254,6 +254,7 @@ export const richTextFragment = `
   },
   _type == "richTextCtaRow" => {
     ctas[]{
+      _key,
       ${ctaFragment}
     }
   },
