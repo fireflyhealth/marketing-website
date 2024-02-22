@@ -1,5 +1,4 @@
 import {
-  headerBlockFragment,
   contentBlockFragment,
   headerBlockFragment,
   ctaFragment,
