@@ -19,9 +19,6 @@
     "update-mock-data": "esno ./scripts/getMockData.ts"
   },
   "dependencies": {
-    "@emotion/react": "^11.11.3",
-    "@emotion/styled": "^11.11.0",
-    "@mui/material": "^5.15.10",
     "@sanity/client": "^6.11.1",
     "@sentry/nextjs": "^7.93.0",
     "@types/vimeo__player": "^2.18.3",
