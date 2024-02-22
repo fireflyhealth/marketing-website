@@ -83,7 +83,7 @@ export type NavigationExample = {
 };
 
 export type SubnavItem = {
-  _type: 'subnavItem';
+  _type: string;
   contentBlockId: string;
   label: string;
   ariaLabel: Maybe<string>;

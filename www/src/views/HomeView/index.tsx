@@ -10,7 +10,6 @@ type HomeViewProps = {
 };
 
 export const HomeView: FC<HomeViewProps> = ({ homepage }) => {
-  console.log(homepage);
   return (
     <div>
       <HeaderArea block={homepage.header} />

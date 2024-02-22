@@ -36,6 +36,9 @@
 }
 
 .Subnav {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+
   &__item {
     .Subnav__item-circle {
       transition: all 200ms;
@@ -44,11 +47,28 @@
       max-width: 13px;
       max-height: 13px;
     }
+
     &:hover {
       .Subnav__item-circle {
         width: 13px;
         height: 13px;
       }
+    }
+  }
+
+  &__mobile--avtice {
+    transform: translateY(0);
+  }
+
+  .Subnav__item-circle--active {
+    width: 13px;
+    height: 13px;
+  }
+
+  .Subnav__item-circle--active-top {
+    @screen lg {
+      width: 13px;
+      height: 13px;
     }
   }
 }
