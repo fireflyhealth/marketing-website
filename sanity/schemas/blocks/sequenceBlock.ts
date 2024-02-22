@@ -78,7 +78,7 @@ export const SequenceItem = defineType({
     prepare({ title, media, subtitle }) {
       return {
         media,
-        title,
+        title: title || '(empty)',
         subtitle,
       };
     },
