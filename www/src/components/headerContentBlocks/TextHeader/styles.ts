@@ -21,4 +21,8 @@ export const Body = [
   'theme-text-color-primary roobert-body text-center mt-8 md:mt-12',
 ];
 
-export const CTAWrapper = ['mt-8 md:mt-12 flex items-center justify-center'];
+export const CTAsWrapper = [
+  'mt-8 md:mt-12 flex items-center justify-center flex-wrap space-x-3',
+];
+
+export const CTAWrapper = ['mb-3'];

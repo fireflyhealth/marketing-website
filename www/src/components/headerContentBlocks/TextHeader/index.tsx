@@ -13,6 +13,7 @@ import {
   Heading,
   Body,
   CTAWrapper,
+  CTAsWrapper,
   Glow,
 } from './styles';
 
@@ -21,7 +22,8 @@ type Props = {
 };
 
 export const TextHeader: FC<Props> = ({ textHeader }) => {
-  const { eyebrow, heading, body, theme, cta, gradientBackground } = textHeader;
+  const { eyebrow, heading, body, theme, ctas, gradientBackground } =
+    textHeader;
 
   return (
     <Theme
@@ -36,9 +38,13 @@ export const TextHeader: FC<Props> = ({ textHeader }) => {
           {eyebrow && <p className={cn(Eyebrow)}>{eyebrow}</p>}
           <h1 className={cn(Heading)}>{heading}</h1>
           {body && <RichText className={cn(Body)} content={body} />}
-          {cta ? (
-            <div className={cn(CTAWrapper)}>
-              <CTA cta={cta} />
+          {ctas?.length > 0 ? (
+            <div className={cn(CTAsWrapper)}>
+              {ctas.map((cta) => (
+                <div key={cta.id} className={cn(CTAWrapper)}>
+                  <CTA cta={cta} />
+                </div>
+              ))}
             </div>
           ) : null}
         </div>

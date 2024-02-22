@@ -455,7 +455,7 @@ export type TextHeader = {
   heading: string;
   body: Maybe<RichText>;
   theme: ColorTheme;
-  cta: Maybe<CTA>;
+  ctas: Array<CTA>;
   gradientBackground: boolean;
 };
 

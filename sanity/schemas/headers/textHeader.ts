@@ -1,4 +1,4 @@
-import { defineType, defineField } from 'sanity';
+import { defineType, defineField, defineArrayMember } from 'sanity';
 
 export const TextHeader = defineType({
   name: 'textHeader',
@@ -28,9 +28,16 @@ export const TextHeader = defineType({
       type: 'simpleRichText',
     }),
     defineField({
-      title: 'CTA',
-      name: 'cta',
-      type: 'cta',
+      title: 'CTAs',
+      name: 'ctas',
+      type: 'array',
+      of: [
+        defineArrayMember({
+          title: 'CTA',
+          name: 'cta',
+          type: 'cta',
+        }),
+      ],
     }),
     defineField({
       title: 'Gradient Background',

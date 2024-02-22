@@ -487,7 +487,7 @@ export const textHeaderFragment = `
     ${richTextFragment}
   },
   theme,
-  cta {${ctaFragment}},
+  ctas[] {${ctaFragment}},
   gradientBackground,
 `;
 
