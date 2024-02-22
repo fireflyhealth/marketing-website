@@ -349,7 +349,7 @@ const sequenceBlockTextFieldsFragment = `
   _type,
   title,
   bellyButtonText,
-  description  
+  description
 `;
 
 export const imageTextOverlapFragment = `
@@ -528,7 +528,22 @@ export const contentBlockFragment = `
   _type == "twoUpBlock" => {${twoUpBlockFragment}},
   _type == "reviewBlock" => {${reviewBlockFragmnet}},
   _type == "sequenceBlock" => {${sequenceBlockFragment}},
-  _type == "imageGridBlock" => {${imageGridBlockFragment}}
+  _type == "imageGridBlock" => {${imageGridBlockFragment}},
+  _type == "sequenceBlock" => {${sequenceBlockFragment}},
+  _type == "faqBlock" => {
+    header {
+      ${contentBlockHeaderFragment}
+    },
+    blockTitle,
+    faqs[]->{
+      _id,
+      _type,
+      question,
+      answer[]{
+        ${richTextFragment}
+      }
+    }
+  }
 `;
 
 export const videoHeaderFragment = `

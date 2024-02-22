@@ -140,6 +140,12 @@ export type FAQPage = SanityDocument & {
 };
 export type FAQPageLinkData = Pick<FAQPage, '_type'>;
 
+export type FAQ = SanityDocument & {
+  _type: 'faq';
+  question: string;
+  answer: RichText;
+};
+
 /* Properties common to both GenericPage & SubPage */
 type CommonPage = SanityDocument & {
   title: string;
@@ -501,7 +507,8 @@ export type ContentBlock =
   | TwoUpBlock
   | SequenceBlock
   | ReviewBlock
-  | ImageGridBlock;
+  | ImageGridBlock
+  | FAQBlock;
 
 export type ContentArea = KeyedArray<ContentBlock>;
 
@@ -680,4 +687,11 @@ export type ImageGridBlock = {
   header: Maybe<ContentBlockHeader>;
   theme: string;
   images: KeyedArray<RichImage>;
+};
+
+export type FAQBlock = {
+  _type: 'faqBlock';
+  header: Maybe<ContentBlockHeader>;
+  blockTitle: string;
+  faqs: Array<FAQ>;
 };
