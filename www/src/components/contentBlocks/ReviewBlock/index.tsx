@@ -3,7 +3,7 @@ import cn from 'classnames';
 import { ReviewBlock as ReviewBlockType } from '@/types/sanity';
 import { Button } from '@/atoms/Button';
 import { RichText } from '@/components/RichText';
-import { ContentBlockHeader } from '../ContentBlockWrapper';
+import { ContentBlockWrapper } from '../ContentBlockWrapper';
 import { ReviewItem } from './ReviewItem';
 import { Wrapper, Header, Title, Description, Reviews } from './styles';
 
@@ -27,8 +27,7 @@ export const ReviewBlock: FC<Props> = ({ reviewBlock }) => {
   const isLoadMoreVisible = reviews.length > visibleReviewsCount;
 
   return (
-    <>
-      {header && <ContentBlockHeader header={header} />}
+    <ContentBlockWrapper header={header}>
       <div className={cn(Wrapper)}>
         <div className={cn(Header)}>
           <h2 className={cn(Title)}>{reviewHeading.title}</h2>
@@ -57,6 +56,6 @@ export const ReviewBlock: FC<Props> = ({ reviewBlock }) => {
           )}
         </div>
       </div>
-    </>
+    </ContentBlockWrapper>
   );
 };

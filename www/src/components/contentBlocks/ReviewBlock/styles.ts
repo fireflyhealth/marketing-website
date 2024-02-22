@@ -1,8 +1,4 @@
-export const Wrapper = [
-  'flex flex-col',
-  'md:flex-row md:px-[34px] md:py-12 md:space-x-12',
-  'lg:p-12',
-];
+export const Wrapper = ['flex flex-col', 'md:flex-row md:space-x-12'];
 
 export const Header = ['px-4 py-12', 'md:p-0'];
 
@@ -11,7 +7,7 @@ export const Title = ['font-trust font-size-4 theme-text-color-primary'];
 export const Description = ['mt-5', 'md:mt-6'];
 
 export const Reviews = [
-  'flex flex-col space-y-4 px-4 pt-0 pb-4',
+  'flex flex-col grow space-y-4 px-4 pt-0 pb-4',
   'md:p-0 md:space-y-6',
 ];
 
