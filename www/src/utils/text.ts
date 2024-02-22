@@ -7,3 +7,17 @@ export const slugify = (value: string): string =>
     .trim()
     .replace(/[^a-z0-9 ]/g, '') // remove all chars not letters, numbers and spaces (to be replaced)
     .replace(/\s+/g, '-'); // separator
+
+/**
+ * Ensures a string is surrounded by curly quotes
+ */
+export const toQuotation = (quote: string): string =>
+  [
+    '“',
+    quote
+      /* Remove existing beginning & end quotation marks
+       * (straight quotes, single quote, curly quotes) */
+      .replace(/^["'“”]/, '')
+      .replace(/["'“”]$/, ''),
+    '”',
+  ].join('');

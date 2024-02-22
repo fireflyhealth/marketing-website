@@ -51,6 +51,62 @@ export const SimpleRichText = defineField({
   ],
 });
 
+/**
+ * Rich text blocks that are used within ChildBlockRichText
+ * and ArticleRichText
+ **/
+const commonRichTextBlocks = [
+  { name: 'barGraphObject', type: 'barGraphItems', title: 'Bar Graph' },
+  { name: 'bigNumbers', type: 'bigNumbers', title: 'Big Numbers' },
+  { name: 'richTextCtaRow', type: 'richTextCtaRow', title: 'CTAs' },
+];
+
+/**
+ * A Rich Text block with some, but not all, rich text options.
+ * This is used in places that have limited space, i.e., as a child
+ * of a 2-Up block. */
+export const LimitedRichText = defineField({
+  name: 'limitedRichText',
+  title: 'Rich Text',
+  type: 'array',
+  of: [
+    {
+      type: 'block',
+      styles: [
+        { title: 'Paragraph', value: 'normal' },
+        /* Note: custom editor styling for this is in lib/styles.css */
+      ],
+      lists: [
+        { title: 'Bullet', value: 'bullet' },
+        { title: 'Numbered', value: 'number' },
+      ],
+      marks: {
+        decorators: [
+          { title: 'Bold', value: 'strong' },
+          { title: 'Italic', value: 'em' },
+          { title: 'Underline', value: 'underline' },
+        ],
+        annotations: [
+          {
+            name: 'link',
+            type: 'object',
+            title: 'Link',
+            fields: [
+              {
+                name: 'link',
+                type: 'link',
+                title: 'Linked Page, URL, or File',
+                validation: (Rule) => Rule.required(),
+              },
+            ],
+          },
+        ],
+      },
+    },
+    ...commonRichTextBlocks,
+  ],
+});
+
 export const ArticleRichText = defineField({
   name: 'articleRichText',
   title: 'Article Rich Text',
@@ -122,13 +178,11 @@ export const ArticleRichText = defineField({
     },
     { name: 'richImage', type: 'richImage', title: 'Image' },
     { name: 'form', type: 'hubspotForm', title: 'Form' },
-    { name: 'barGraphObject', type: 'barGraphItems', title: 'Bar Graph' },
-    { name: 'bigNumbers', type: 'bigNumbers', title: 'Big Numbers' },
-    { name: 'cta', type: 'cta', title: 'CTA' },
     {
       name: 'twoColumnUnorderedList',
       type: 'twoColumnUnorderedList',
       title: '2 Column Unordered List',
     },
+    ...commonRichTextBlocks,
   ],
 });

@@ -21,13 +21,38 @@ export const ImageBlock = defineType({
   ],
   preview: {
     select: {
-      image: 'image',
       header: 'header',
+      image: 'image',
     },
     prepare: ({ image, header }) => ({
       title: 'Image Block',
       media: image?.asset,
       subtitle: header?.title || image?.caption || image?.altText,
+    }),
+  },
+});
+
+export const ImageChildBlock = defineType({
+  name: 'imageChildBlock',
+  title: 'Image Block',
+  type: 'object',
+  icon: icons.Image,
+  fields: [
+    defineField({
+      name: 'image',
+      type: 'richImage',
+      title: 'Image',
+      validation: (Rule) => Rule.required(),
+    }),
+  ],
+  preview: {
+    select: {
+      image: 'image',
+    },
+    prepare: ({ image }) => ({
+      title: 'Image Block',
+      media: image?.asset,
+      subtitle: image?.caption || image?.altText || '(empty)',
     }),
   },
 });
