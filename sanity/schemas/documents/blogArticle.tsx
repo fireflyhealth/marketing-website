@@ -4,6 +4,7 @@ import { API_VERSION } from '../../lib/constants';
 import { readOnlyIfNotBaseLang } from '../../lib/readOnlyIfNotBaseLang';
 import localizationSlugField from '../../lib/localizationSlugField';
 import { isUniqueAcrossDocuments } from '../../lib/isUniqueAcrossDocuments';
+import { formatSanityDate } from '../../lib/utils';
 
 export const BlogArticle = defineType({
   name: 'blogArticle',
@@ -21,10 +22,10 @@ export const BlogArticle = defineType({
       name: 'publishDate',
       title: 'Publish Date',
       type: 'date',
+      description: 'Defaults to the date of the most recent update when empty',
       options: {
         dateFormat: 'MMMM DD, YYYY',
       },
-      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'category',
@@ -117,12 +118,16 @@ export const BlogArticle = defineType({
     select: {
       parentBlogTitle: 'category.title',
       title: 'title',
+      _updatedAt: '_updatedAt',
+      publishDate: 'publishDate',
     },
-    prepare: ({ parentBlogTitle, title }) => {
+    prepare: ({ parentBlogTitle, title, _updatedAt, publishDate }) => {
+      const formattedDate = formatSanityDate(publishDate || _updatedAt);
+      const parentBlog = parentBlogTitle || '⚠ No parent blog';
+      const subtitle = [formattedDate, parentBlog].join(' | ');
       return {
         title,
-        subtitle: parentBlogTitle || '⚠ No parent blog',
-        /* TODO: Add preview config that displays the publish date in the subtitle */
+        subtitle,
       };
     },
   },
