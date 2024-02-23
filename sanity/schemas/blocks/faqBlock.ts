@@ -13,10 +13,27 @@ export const FAQBlock = defineType({
       title: 'Header',
     }),
     defineField({
+      name: 'theme',
+      title: 'Theme',
+      type: 'theme',
+      initialValue: 'white',
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
       name: 'blockTitle',
       title: 'Block Title',
       type: 'string',
       validation: (Rule) => Rule.required(),
+    }),
+    defineField({
+      name: 'blockDescription',
+      title: 'Description',
+      type: 'simpleRichText',
+    }),
+    defineField({
+      name: 'blockCta',
+      title: 'CTA',
+      type: 'cta',
     }),
     defineField({
       name: 'faqs',
