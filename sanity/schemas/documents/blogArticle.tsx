@@ -91,6 +91,7 @@ export const BlogArticle = defineType({
       title: 'Thumbnail',
       description: 'Used in Featured Story card',
       type: 'richImage',
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'navigationOverrides',
