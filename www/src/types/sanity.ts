@@ -554,6 +554,7 @@ export type QuoteChildBlock = {
 /**
  * Content Area Blocks
  */
+
 export type ContentBlock =
   | ImageBlock
   | ImageCarouselBlock
@@ -570,7 +571,8 @@ export type ContentBlock =
   | FAQBlock
   | CardListBlock
   | FeaturedStoriesBlock
-  | ColumnsBlock;
+  | ColumnsBlock
+  | TabsBlock;
 
 export type ContentArea = KeyedArray<ContentBlock>;
 
@@ -718,7 +720,6 @@ export type TwoUpBlock = ContentBlockCommon & {
   blockTwo: ChildContentBlock;
 };
 
-<<<<<<< HEAD
 export type ReviewItem = {
   _type: 'reviewItem';
   _key: string;
@@ -766,7 +767,7 @@ export type FAQBlock = ContentBlockCommon & {
 export type CardListBlock = ContentBlockCommon & {
   _type: 'cardListBlock';
   drawerListItems: KeyedArray<DrawerListItem>;
-}
+};
 
 /* Used as a child of the TabsBlock component */
 export type TwoUpObject = Omit<TwoUpBlock, '_type' | 'header'> & {
