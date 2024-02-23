@@ -27,17 +27,14 @@ export const RichTextChildBlock = defineType({
     }),
   ],
   preview: {
-    select: {
-      heading: 'heading',
-      body: 'body',
-      icon: 'icon',
-    },
+    select: { heading: 'heading', body: 'body', icon: 'icon' },
     prepare: ({ heading, body, icon }) => {
-      const bodyString = body ? richTextToString(body) : undefined;
-      const [title, subtitle] = [heading, bodyString].filter(Boolean);
-
+      const subtitle =
+        [heading, body ? richTextToString(body) : undefined]
+          .filter(Boolean)
+          .join(' | ') || undefined;
       return {
-        title: title || '(empty)',
+        title: 'Rich Text Block',
         subtitle,
         media: icon?.icon ? <BrandedIcon type={icon.icon} /> : undefined,
       };

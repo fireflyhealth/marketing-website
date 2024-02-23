@@ -26,6 +26,15 @@ const sharedFields = [
     type: 'boolean',
   }),
   defineField({
+    name: 'normalLayoutTheme',
+    title: 'Theme',
+    type: 'theme',
+    /* Only show these fields when a normal option is selected */
+    hidden: (context) => {
+      return Boolean(context.parent.layout === 'overlap-50-50');
+    },
+  }),
+  defineField({
     name: 'blockThemes',
     title: 'Block Themes',
     type: 'object',
