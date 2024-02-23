@@ -32,4 +32,8 @@ describe('formatSanityDate', () => {
   it('should format a sanity date string', async () => {
     expect(formatSanityDate('1986-07-12')).toBe('July 12, 1986');
   });
+
+  it('should format a date string that has time & timezone information', () => {
+    expect(formatSanityDate('2024-02-23T19:13:25Z')).toBe('February 23, 2024');
+  });
 });
