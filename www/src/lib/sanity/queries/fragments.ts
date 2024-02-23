@@ -429,12 +429,11 @@ export const videoFragment = `
  * in Sanity, but validated to always have only
  * one item. The [0] is added to coerce these
  * into single objects in the result. */
-const twoUpBlockFragment = `
-  header {
-    ${contentBlockHeaderFragment}
-  },
+const twoUpObjectFragment = `
+  _type,
   layout,
   mobileReverseBlockOrder,
+  normalLayoutTheme,
   blockThemes {
     blockOneTheme,
     blockTwoTheme
@@ -473,6 +472,13 @@ export const reviewBlockFragmnet = `
   reviews[]{${reviewFragment}}
 `;
 
+const twoUpBlockFragment = `
+  header {
+    ${contentBlockHeaderFragment}
+  },
+  ${twoUpObjectFragment}
+`;
+
 const sequenceItemFragment = `
   _type,
   _key,
@@ -487,6 +493,53 @@ export const sequenceBlockFragment = `
   sequenceHeader{${sequenceBlockTextFieldsFragment}},
   sequenceItems[]{${sequenceItemFragment}},
   sequenceFooter
+`;
+
+const tabsBlockFragment = `
+  header {
+    ${contentBlockHeaderFragment}
+  },
+  tabs[]{
+    _key,
+    _type,
+    label,
+    content[]{
+      _type == "twoUpObject" => {
+        ${twoUpObjectFragment}
+      },
+    }[0]
+  }
+`;
+
+const faqBlockFragment = `
+  header {
+    ${contentBlockHeaderFragment}
+  },
+  theme,
+  blockTitle,
+  blockDescription[]{
+    ${simpleRichTextFragment}
+  },
+  blockCta{
+    ${ctaFragment}
+  },
+  faqs[]->{
+    _id,
+    _type,
+    question,
+    answer[]{
+      ${simpleRichTextFragment}
+    }
+  }
+`;
+
+const featuredStoriesBlockFragment = `
+  header {
+    ${contentBlockHeaderFragment}
+  },
+  stories[]->{
+    ${linkableDocumentFragment}
+  }
 `;
 
 export const subnavItemFragment = `
@@ -595,37 +648,12 @@ export const contentBlockFragment = `
   _type == "sequenceBlock" => {${sequenceBlockFragment}},
   _type == "imageGridBlock" => {${imageGridBlockFragment}},
   _type == "sequenceBlock" => {${sequenceBlockFragment}},
-  _type == "faqBlock" => {
-    header {
-      ${contentBlockHeaderFragment}
-    },
-    theme,
-    blockTitle,
-    blockDescription[]{
-      ${simpleRichTextFragment}
-    },
-    blockCta{
-      ${ctaFragment}
-    },
-    faqs[]->{
-      _id,
-      _type,
-      question,
-      answer[]{
-        ${simpleRichTextFragment}
-      }
-    },
-  },
-  _type == "featuredStoriesBlock" => {
-    header {
-      ${contentBlockHeaderFragment}
-    },
-    stories[]->{
-      ${linkableDocumentFragment}
-    }
-  },
   _type == "cardListBlock" => {${cardlistBlockFragment}},
-  _type == "columnsBlock" => {${columnsBlockFragment}}
+  _type == "columnsBlock" => {${columnsBlockFragment}},
+  _type == "faqBlock" => {${faqBlockFragment}},
+  _type == "featuredStoriesBlock" => {${featuredStoriesBlockFragment}},
+  _type == "cardListBlock" => {${cardlistBlockFragment}},
+  _type == "tabsBlock" => {${tabsBlockFragment}}
 `;
 
 export const videoHeaderFragment = `

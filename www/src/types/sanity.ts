@@ -707,6 +707,8 @@ export type TwoUpBlock = ContentBlockCommon & {
   _type: 'twoUpBlock';
   layout: TwoUpBlockLayout;
   mobileReverseBlockOrder: Maybe<boolean>;
+  /* Only present when the layout is not 'overlap-50-50' */
+  normalLayoutTheme: Maybe<ColorTheme>;
   /* Only present when the layout is 'overlap-50-50' */
   blockThemes: Maybe<{
     blockOneTheme: ColorTheme;
@@ -716,6 +718,7 @@ export type TwoUpBlock = ContentBlockCommon & {
   blockTwo: ChildContentBlock;
 };
 
+<<<<<<< HEAD
 export type ReviewItem = {
   _type: 'reviewItem';
   _key: string;
@@ -763,6 +766,24 @@ export type FAQBlock = ContentBlockCommon & {
 export type CardListBlock = ContentBlockCommon & {
   _type: 'cardListBlock';
   drawerListItems: KeyedArray<DrawerListItem>;
+}
+
+/* Used as a child of the TabsBlock component */
+export type TwoUpObject = Omit<TwoUpBlock, '_type' | 'header'> & {
+  _type: 'twoUpObject';
+};
+
+export type TabsBlock = ContentBlockCommon & {
+  _type: 'tabsBlock';
+  tabs: KeyedArray<TabsBlockTab>;
+};
+
+type TabsBlockChild = TwoUpObject;
+
+export type TabsBlockTab = {
+  _type: 'tabsBlockTab';
+  label: string;
+  content: TabsBlockChild;
 };
 
 export type ColumnsBlockContent = RichTextChildBlock | BigNumber;
