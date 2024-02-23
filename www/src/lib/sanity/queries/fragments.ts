@@ -124,6 +124,7 @@ export const linkableDocumentFragment = `
   _type == "blogArticle" => {
     slug,
     title,
+    _updatedAt,
     publishDate,
     thumbnail{
       ${imageFragment}

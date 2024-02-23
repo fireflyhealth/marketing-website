@@ -245,9 +245,14 @@ export type BlogLinkData = Pick<Blog, '_type' | 'slug' | 'title'>;
 
 export type BlogArticle = SanityDocument & {
   _type: 'blogArticle';
+  /* Usually this is typed as optional because we do not fetch
+   * the field on most documents, even though this value is always
+   * present in sanity documents. It's required here because we use
+   * it in rendering the publish date of documents. */
+  _updatedAt: string;
   title: string;
-  publishDate: string;
-  thumbnail?: Maybe<RichImage>;
+  publishDate: Maybe<string>;
+  thumbnail: RichImage;
   slug: Slug;
   navigationOverrides?: NavigationOverrides;
   category: BlogLinkData;
@@ -256,7 +261,13 @@ export type BlogArticle = SanityDocument & {
 
 export type BlogArticleLinkData = Pick<
   BlogArticle,
-  '_type' | 'slug' | 'title' | 'category' | 'thumbnail' | 'publishDate'
+  | '_type'
+  | 'slug'
+  | 'title'
+  | 'category'
+  | 'thumbnail'
+  | 'publishDate'
+  | '_updatedAt'
 >;
 
 /* Navigation */
