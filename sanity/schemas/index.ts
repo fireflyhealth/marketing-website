@@ -36,7 +36,7 @@ import { DoubleCtaBlock } from './blocks/doubleCtaBlock';
 import { ImageTextOverlapBlock } from './blocks/imageTextOverlapBlock';
 import { QuoteBlock } from './blocks/quoteBlock';
 import { PractitionersBlock } from './blocks/practitionersBlock';
-import { TwoUpBlock } from './blocks/twoUpBlock';
+import { TwoUpBlock, TwoUpObject } from './blocks/twoUpBlock';
 import {
   SequenceBlock,
   SequenceBlockTextFields,
@@ -45,6 +45,7 @@ import {
 import { ReviewBlock, ReviewItem, ReviewHeading } from './blocks/reviewBlock';
 import { ImageGridBlock } from './blocks/imageGridBlock';
 import { CardListBlock } from './blocks/cardListBlock';
+import { TabsBlock, TabsBlockTab } from './blocks/tabsBlock';
 
 /* Fields */
 import { Metadata } from './fields/metadata';
@@ -121,6 +122,8 @@ export const schemaTypes = [
   FAQBlock,
   CardListBlock,
   ColumnsBlock,
+  TabsBlock,
+  TabsBlockTab,
 
   /* Child blocks (used within other blocks, i.e. 2-up block) */
   ChildContentBlock,
@@ -128,6 +131,9 @@ export const schemaTypes = [
   QuoteChildBlock,
   ImageChildBlock,
   FeaturedStoriesBlock,
+
+  /* Child blocks (used within Tabs) */
+  TwoUpObject,
 
   /* Field Types */
   ContentBlockHeader,
