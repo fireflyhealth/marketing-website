@@ -1,9 +1,21 @@
+const SharedWrapperStyle = 'Subnav z-50 top-0 pb-5 flex';
+
 export const Wrapper = [
-  'Subnav z-50 lg:sticky top-0 my-8 pb-5 px-4 md:px-12 flex justify-center space-x-3 lg:space-x-[30px] flex-wrap',
+  SharedWrapperStyle,
+  'lg:sticky my-8 justify-center items-center',
 ];
 
 export const MobileWrapper = [
-  'Subnav transition-all z-50 fixed top-0 transition -translate-y-[148px] w-full pb-5 px-4 md:px-12 flex space-x-3 lg:hidden overflow-x-scroll',
+  SharedWrapperStyle,
+  'Subnav__mobile transition-all fixed transition -translate-y-[148px] lg:hidden w-full',
+];
+
+export const InnerWrapper = [
+  'space-x-3 lg:space-x-[30px] flex flex-wrap items-center md:px-12 justify-center',
+];
+
+export const MobileInnerWrapper = [
+  'Subnav__mobile-inner-wrapper mx-auto space-x-3 flex overflow-x-scroll px-4 md:px-12',
 ];
 
 export const SubnavItemWrapper = [

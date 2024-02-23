@@ -2,7 +2,7 @@ import { FC, RefObject, useEffect, useRef } from 'react';
 import cn from 'classnames';
 import { Maybe, SubnavItem } from '@/types/sanity';
 
-import useHash from '@/lib/hooks/useHash';
+import { useHash } from '@/lib/hooks/useHash';
 import { useRect } from '@/lib/hooks/useRect';
 
 import {
@@ -10,6 +10,8 @@ import {
   MobileWrapper,
   SubnavItemWrapper,
   SubnavItemCircle,
+  InnerWrapper,
+  MobileInnerWrapper,
 } from './styles';
 
 const SubnavItem: FC<{
@@ -44,19 +46,30 @@ export const SubnavContainer: FC<{
   subnav: SubnavItem[];
   subnavRef?: RefObject<HTMLDivElement>;
   wrapperClassName: string;
+  innerWrapperClassName: string;
   hash: Maybe<string>;
   top?: number;
-}> = ({ id, subnav, subnavRef, hash, top, wrapperClassName }) => {
+}> = ({
+  id,
+  subnav,
+  subnavRef,
+  hash,
+  top,
+  wrapperClassName,
+  innerWrapperClassName,
+}) => {
   return (
     <div ref={subnavRef} className={cn(wrapperClassName)}>
-      {subnav.map((item) => (
-        <SubnavItem
-          key={`${id}-${item.contentBlockId}`}
-          item={item}
-          hash={hash}
-          isOnTop={Number.isInteger(top) && top === 0}
-        />
-      ))}
+      <div className={cn(innerWrapperClassName)}>
+        {subnav.map((item) => (
+          <SubnavItem
+            key={`${id}-${item.contentBlockId}`}
+            item={item}
+            hash={hash}
+            isOnTop={Number.isInteger(top) && top === 0}
+          />
+        ))}
+      </div>
     </div>
   );
 };
@@ -75,6 +88,7 @@ export const Subnav: FC<{ subnav: SubnavItem[] }> = ({ subnav }) => {
         hash={hash}
         top={top}
         wrapperClassName={cn(Wrapper)}
+        innerWrapperClassName={cn(InnerWrapper)}
       />
       <SubnavContainer
         id="subnav-2"
@@ -83,6 +97,7 @@ export const Subnav: FC<{ subnav: SubnavItem[] }> = ({ subnav }) => {
         wrapperClassName={cn(MobileWrapper, {
           'Subnav__mobile--avtice': bottom && bottom < 0,
         })}
+        innerWrapperClassName={cn(MobileInnerWrapper)}
       />
     </>
   );

@@ -36,9 +36,6 @@
 }
 
 .Subnav {
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-
   &__item {
     .Subnav__item-circle {
       transition: all 200ms;
@@ -54,6 +51,11 @@
         height: 13px;
       }
     }
+  }
+
+  &__mobile-inner-wrapper {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
   }
 
   &__mobile--avtice {
