@@ -1,38 +1,43 @@
 import React, { FC } from 'react';
 import cn from 'classnames';
-import { FAQBlock as FAQBlockType, FAQPageLinkData } from '@/types/sanity';
+import { FAQBlock as FAQBlockType } from '@/types/sanity';
 import { ColorTheme, Theme } from '@/components/Theme';
 import { Accordion } from '@/atoms/Accordion';
 import { RichText } from '@/components/RichText';
-import { LinkButton } from '@/atoms/Button';
+import { CTA } from '@/components/CTA';
 import { ContentBlockWrapper } from '../ContentBlockWrapper';
-import { FAQListItem, FAQListWrapper, TitleWrapper, Wrapper } from './styles';
+import {
+  FAQListItem,
+  FAQListWrapper,
+  TitleWrapper,
+  Wrapper,
+  Description,
+} from './styles';
 
 type FAQBlockProps = {
   faqBlock: FAQBlockType;
 };
 
-const faqPageLink = {
-  _type: 'faqPage',
-} as FAQPageLinkData;
-
 export const FAQBlock: FC<FAQBlockProps> = ({ faqBlock }) => {
-  const { header, blockTitle, faqs } = faqBlock;
+  const { theme, header, blockTitle, blockDescription, blockCta, faqs } =
+    faqBlock;
   return (
     <ContentBlockWrapper header={header}>
-      <Theme theme={ColorTheme.Sky}>
+      <Theme theme={theme || ColorTheme.Sky}>
         <div className={cn(Wrapper)}>
           <div className={cn(TitleWrapper)}>
             <h3 className="font-size-5">{blockTitle}</h3>
-            <div className="hidden md:block">
-              <LinkButton
-                id="faq-block-all-faqs"
-                link={faqPageLink}
-                label="All FAQs"
-                variant="secondary"
-              />
-            </div>
+            {blockCta ? (
+              <div className="hidden md:block">
+                <CTA cta={blockCta} />
+              </div>
+            ) : null}
           </div>
+          {blockDescription ? (
+            <div className={cn(Description)}>
+              <RichText content={blockDescription} />
+            </div>
+          ) : null}
           <div className={cn(FAQListWrapper)}>
             {faqs.map((faq) => (
               <div key={faq._id} className={cn(FAQListItem)}>
@@ -44,15 +49,11 @@ export const FAQBlock: FC<FAQBlockProps> = ({ faqBlock }) => {
               </div>
             ))}
           </div>
-          <div className="block md:hidden">
-            <LinkButton
-              id="faq-block-all-faqs"
-              link={faqPageLink}
-              label="All FAQs"
-              variant="secondary"
-              width="full"
-            />
-          </div>
+          {blockCta ? (
+            <div className="block md:hidden">
+              <CTA cta={blockCta} />
+            </div>
+          ) : null}
         </div>
       </Theme>
     </ContentBlockWrapper>

@@ -692,6 +692,9 @@ export type ImageGridBlock = {
 export type FAQBlock = {
   _type: 'faqBlock';
   header: Maybe<ContentBlockHeader>;
+  theme: ColorTheme;
   blockTitle: string;
+  blockDescription: Maybe<RichText>;
+  blockCta: Maybe<CTA>;
   faqs: Array<FAQ>;
 };

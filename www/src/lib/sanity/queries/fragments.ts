@@ -534,7 +534,14 @@ export const contentBlockFragment = `
     header {
       ${contentBlockHeaderFragment}
     },
+    theme,
     blockTitle,
+    blockDescription[]{
+      ${richTextFragment}
+    },
+    blockCta{
+      ${ctaFragment}
+    },
     faqs[]->{
       _id,
       _type,
