@@ -101,6 +101,7 @@ export const defaultContentBlockTypes = [
   { type: 'imageTextOverlapBlock' },
   { type: 'quoteBlock' },
   { type: 'drawerListBlock' },
+  { type: 'sequenceBlock' },
 ];
 
 /**

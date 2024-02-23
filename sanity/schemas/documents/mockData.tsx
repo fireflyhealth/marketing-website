@@ -152,6 +152,16 @@ export const MockData = defineType({
           of: [{ type: 'twoUpBlock' }],
           validation: (Rule) => Rule.required(),
         }),
+        defineField({
+          name: 'sequenceBlock',
+          type: 'sequenceBlock',
+          title: 'Sequence Block',
+          options: {
+            collapsible: true,
+            collapsed: true,
+          },
+          validation: (Rule) => Rule.required(),
+        }),
       ],
     }),
     defineField({
