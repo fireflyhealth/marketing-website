@@ -72,7 +72,6 @@ import { Theme } from './fields/theme';
 import { RichTextCtaRow } from './fields/richTextCtaRow';
 import { QuoteChildBlock } from './childBlocks/quoteChildBlock';
 import { FAQBlock } from './blocks/faqBlock';
-import { Card } from './fields/card';
 
 export const schemaTypes = [
   /* Document Types */
@@ -152,5 +151,4 @@ export const schemaTypes = [
   SequenceItem,
   ReviewHeading,
   ReviewItem,
-  Card,
 ];

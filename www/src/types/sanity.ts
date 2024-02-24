@@ -735,19 +735,8 @@ export type FAQBlock = {
   faqs: Array<FAQ>;
 };
 
-export type Card = {
-  _type: 'card';
-  title: string;
-  description: string;
-  media: {
-    isBackgroundImage: boolean;
-    image: RichImage;
-  };
-  cta: CTA;
-};
-
 export type CardListBlock = {
   _type: 'cardListBlock';
   header: Maybe<ContentBlockHeader>;
-  cardList: KeyedArray<Card>;
+  drawerListItems: KeyedArray<DrawerListItem>;
 };

@@ -482,6 +482,25 @@ export const subnavItemFragment = `
   ariaLabel
 `;
 
+export const drawerListItem = `
+  _key,
+  _type,
+  title,
+  body[]{
+    ${richTextFragment}
+  },
+  ctaLink{
+    ${linkWithLabelFragment}
+  },
+  featuredImage{
+    ${imageFragment}
+  },
+  backgroundImage{
+    ${responsiveImageSetFragment}
+  },
+  theme
+`;
+
 export const imageGridBlockFragment = `
   header{${contentBlockHeaderFragment}},
   theme,
@@ -490,21 +509,9 @@ export const imageGridBlockFragment = `
   }
 `;
 
-export const cardFragment = `
-  _type,
-  _key,
-  title,
-  description,
-  media{
-    isBackgroundImage,
-    image{${imageFragment}}
-  },
-  cta{${ctaFragment}}
-`;
-
 export const cardlistBlockFragment = `
   header{${contentBlockHeaderFragment}},
-  cardList[]{${cardFragment}}
+  drawerListItems[]{${drawerListItem}}
 `;
 
 export const contentBlockFragment = `
@@ -560,28 +567,9 @@ export const contentBlockFragment = `
   _type == "imageTextOverlapBlock" => {${imageTextOverlapFragment}},
   _type == "quoteBlock" => {${quoteBlockFragment}},
   _type == "drawerListBlock" => {
-    header {
-      ${contentBlockHeaderFragment}
-    },
-    drawerListItems[]{
-      _key,
-      _type,
-      title,
-      body[]{
-        ${simpleRichTextFragment}
-      },
-      ctaLink{
-        ${linkWithLabelFragment}
-      },
-      featuredImage{
-        ${imageFragment}
-      },
-      backgroundImage{
-        ${responsiveImageSetFragment}
-      },
-      theme
-     }
-   },
+    header{${contentBlockHeaderFragment}},
+    drawerListItems[]{${drawerListItem}}
+  },
   _type == "sequenceBlock" => {${sequenceBlockFragment}},
   _type == "twoUpBlock" => {${twoUpBlockFragment}},
   _type == "reviewBlock" => {${reviewBlockFragmnet}},

@@ -3,6 +3,9 @@ import { richTextToString } from '../../lib/richTextToString';
 import { icons } from '../../lib/icons';
 import { requiredBlockFields } from './utils/requiredBlockFields';
 
+// DrawerListBlock and CardListBlock share the same fields
+// but have render different styles based on sreen size
+
 export const DrawerListBlock = defineType({
   name: 'drawerListBlock',
   title: 'Drawer List Block',
@@ -74,8 +77,9 @@ export const DrawerListItem = defineType({
       body: 'body',
       theme: 'theme',
       featuredImage: 'featuredImage',
+      backgroundImage: 'backgroundImage',
     },
-    prepare: ({ title, body, theme, featuredImage }) => {
+    prepare: ({ title, body, theme, featuredImage, backgroundImage }) => {
       const subtitle =
         [
           theme ? `(${theme})` : undefined,
@@ -86,7 +90,11 @@ export const DrawerListItem = defineType({
       return {
         title,
         subtitle,
-        media: featuredImage,
+        media:
+          featuredImage ||
+          backgroundImage.desktop ||
+          backgroundImage.tablet ||
+          backgroundImage.mobile,
       };
     },
   },
