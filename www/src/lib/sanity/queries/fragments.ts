@@ -31,7 +31,7 @@ export const responsiveImageSetFragment = `
   },
   mobile{
     ${imageFragment}
-  },
+  }
 `;
 
 export const hubspotFormFragment = `
@@ -206,7 +206,7 @@ export const linkWithLabelFragment = `
   label,
   link {
     ${linkFragment}
-  },
+  }
 `;
 
 export const bigNumbersFragment = `
@@ -307,7 +307,6 @@ const childContentBlockFragment = `
       ${quoteObjectFragment}
     }
   }
-
 `;
 
 /**
@@ -343,7 +342,7 @@ export const doubleCtaFragment = `
     link {
       ${linkFragment}
     },
-  },
+  }
 `;
 
 export const imageTextOverlapFragment = `
@@ -487,8 +486,10 @@ export const textHeaderFragment = `
     ${richTextFragment}
   },
   theme,
-  ctas[] {${ctaFragment}},
-  gradientBackground,
+  ctas[]{
+    ${ctaFragment}
+  },
+  gradientBackground
 `;
 
 export const headerBlockFragment = `
@@ -526,7 +527,7 @@ export const navigationFragment = `
   navGroup {
     ${navGroupFragment}
   }[],
-  showNavCTA,
+  showNavCTA
 `;
 
 export const footerFragment = `
