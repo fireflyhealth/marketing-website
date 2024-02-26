@@ -20,7 +20,7 @@ export const FooterNavGroups = [
   'md:grid-cols-3 max-w-[900px]',
 ];
 
-export const FooterNavGroup = ['grid grid-cols-1 gap-y-3'];
+export const FooterNavGroup = ['flex flex-col space-y-3'];
 
 export const FooterBottomNavGroup = ['grid grid-cols-1 gap-y-3', 'md:flex'];
 
