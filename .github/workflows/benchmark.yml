@@ -35,6 +35,13 @@ jobs:
         run: yarn test:types
         continue-on-error: false
 
+      # Check sanity query byte lengths
+      - name: Check Sanity Query byte lengths
+        id: check_byte_lengths
+        run: yarn test:queryByteLengths
+        continue-on-error: false
+
+
       - name: Run Test Suite
         id: run_test_suite
         run: yarn run test:jest --ci
@@ -45,6 +52,8 @@ jobs:
         run: |
           echo "| Benchmark | Metric | Result |" >> $GITHUB_STEP_SUMMARY
           echo "| :-- | :-- | :-: |" >> $GITHUB_STEP_SUMMARY
+          echo "| Statistics | | |" >> $GITHUB_STEP_SUMMARY
+          echo "| | Sanity query byte lengths | ${{ steps.check_byte_lengths.outcome == 'success' && '✅' || '❌' }} |" >> $GITHUB_STEP_SUMMARY
           echo "| Correctness | | |" >> $GITHUB_STEP_SUMMARY
           echo "| | Test Suite | ${{ steps.run_test_suite.outcome == 'success' && '✅' || '❌' }} |" >> $GITHUB_STEP_SUMMARY
           echo "| | Type Correctness | ${{ steps.check_type_correctness.outcome == 'success' && '✅' || '❌' }} |" >> $GITHUB_STEP_SUMMARY

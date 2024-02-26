@@ -19,10 +19,19 @@ import {
 import { SlSettings } from 'react-icons/sl';
 import { PiHandPointing, PiBracketsAngleBold } from 'react-icons/pi';
 import { RxComponent2 } from 'react-icons/rx';
-import { BiCarousel, BiSolidNavigation } from 'react-icons/bi';
+import {
+  BiCarousel,
+  BiSolidNavigation,
+  BiGridHorizontal,
+} from 'react-icons/bi';
 import { FaHubspot, FaQuoteLeft } from 'react-icons/fa';
 import { BsFileBarGraph, BsMenuDown } from 'react-icons/bs';
-import { MdOutlineCallToAction, MdPercent } from 'react-icons/md';
+import {
+  MdOutlineCallToAction,
+  MdPercent,
+  MdOutlineViewTimeline,
+  MdRateReview,
+} from 'react-icons/md';
 import { FaUserDoctor } from 'react-icons/fa6';
 import { GoColumns } from 'react-icons/go';
 import { RiArchiveDrawerLine } from 'react-icons/ri';
@@ -66,4 +75,7 @@ export const icons = {
   TwoUp: CgViewSplit,
   Percentage: MdPercent,
   Text: VscCaseSensitive,
+  SequenceBlock: MdOutlineViewTimeline,
+  Reviews: MdRateReview,
+  Grid: BiGridHorizontal,
 };

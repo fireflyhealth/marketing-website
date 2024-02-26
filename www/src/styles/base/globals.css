@@ -15,6 +15,10 @@ svg {
   .icon-overlap {
     fill: currentColor;
   }
+  .icon-base-stroke,
+  .icon-overlap-stroke {
+    stroke: currentColor;
+  }
 }
 
 button:disabled,

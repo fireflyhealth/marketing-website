@@ -33,7 +33,7 @@ export const VideoTitleCard: FC<Props> = ({
         <RichText content={body} />
       </div>
       <div className={cn(CTA)}>
-        <SimpleIcon type="play" className="w-4 theme-text-color-primary" />
+        <SimpleIcon type="play" wrapperStyles="w-4 theme-text-color-primary" />
         <Button
           id="video-title-card-button"
           label="Play video"

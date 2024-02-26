@@ -17,6 +17,8 @@ export type DocumentReference = {
   _weak?: boolean;
 };
 
+export type Theme = 'white' | 'grey' | 'sienna' | 'midnight' | 'sky';
+
 interface SanityDocument {
   _id: string;
   _type: string;
@@ -496,7 +498,10 @@ export type ContentBlock =
   | QuoteBlock
   | DoubleCtaBlock
   | DrawerListBlock
-  | TwoUpBlock;
+  | TwoUpBlock
+  | SequenceBlock
+  | ReviewBlock
+  | ImageGridBlock;
 
 export type ContentArea = KeyedArray<ContentBlock>;
 
@@ -517,6 +522,30 @@ export type ImageCarouselBlock = {
   _type: 'imageCarouselBlock';
   header: Maybe<ContentBlockHeader>;
   images: KeyedArray<RichImage>;
+};
+
+export type SequenceBlockTextFields = {
+  _type: 'sequenceBlockTextFields';
+  title: string;
+  bellyButtonText: Maybe<string>;
+  description: string;
+};
+
+export type SequenceBlockItem = {
+  _type: 'sequenceItem';
+  _key: string;
+  video: Video;
+  copy: SequenceBlockTextFields;
+  theme: Maybe<string>;
+  isHighlighted: boolean;
+};
+
+export type SequenceBlock = {
+  _type: 'sequenceBlock';
+  header: Maybe<ContentBlockHeader>;
+  sequenceHeader: SequenceBlockTextFields;
+  sequenceItems: KeyedArray<SequenceBlockItem>;
+  sequenceFooter: string;
 };
 
 export type CTACard = {
@@ -600,6 +629,7 @@ export type DrawerListBlock = {
   header: Maybe<ContentBlockHeader>;
   drawerListItems: KeyedArray<DrawerListItem>;
 };
+
 export type TwoUpBlockLayout =
   | 'normal-50-50'
   | 'normal-60-40'
@@ -618,4 +648,36 @@ export type TwoUpBlock = {
   }>;
   blockOne: ChildContentBlock;
   blockTwo: ChildContentBlock;
+};
+
+export type ReviewItem = {
+  _type: 'reviewItem';
+  _key: string;
+  starRating: number;
+  title: string;
+  review: RichText;
+  reviewer: {
+    name: string;
+    age: Maybe<number>;
+  };
+  date: string;
+  logo: Maybe<RichImage>;
+};
+
+export type ReviewBlock = {
+  _type: 'reviewBlock';
+  header: Maybe<ContentBlockHeader>;
+  reviewHeading: {
+    _type: 'reviewHeading';
+    title: string;
+    description: Maybe<RichText>;
+  };
+  reviews: ReviewItem[];
+};
+
+export type ImageGridBlock = {
+  _type: 'imageGridBlock';
+  header: Maybe<ContentBlockHeader>;
+  theme: string;
+  images: KeyedArray<RichImage>;
 };

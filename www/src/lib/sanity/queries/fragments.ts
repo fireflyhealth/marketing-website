@@ -36,7 +36,7 @@ export const responsiveImageSetFragment = `
 
 export const hubspotFormFragment = `
   _type,
-  formId,
+  formId
 `;
 
 export const barGraphFragment = `
@@ -345,6 +345,13 @@ export const doubleCtaFragment = `
   }
 `;
 
+const sequenceBlockTextFieldsFragment = `
+  _type,
+  title,
+  bellyButtonText,
+  description  
+`;
+
 export const imageTextOverlapFragment = `
   header{
     ${contentBlockHeaderFragment}
@@ -371,15 +378,6 @@ export const videoFragment = `
   }
 `;
 
-export const videoHeaderFragment = `
-  eyebrow,
-  heading,
-  body[]{
-    ${richTextFragment}
-  },
-  video {${videoFragment}}
-`;
-
 /**
  * blockOne and blockTwo are actually arrays
  * in Sanity, but validated to always have only
@@ -401,6 +399,56 @@ const twoUpBlockFragment = `
   blockTwo {
     ${childContentBlockFragment}
   }[0]
+`;
+
+export const reviewFragment = `
+  _type,
+  _key,
+  starRating,
+  title,
+  review[]{${simpleRichTextFragment}},
+  reviewer{
+    name,
+    age,
+  },
+  date,
+  logo{${imageFragment}}
+`;
+
+export const reviewBlockFragmnet = `
+  header{${contentBlockHeaderFragment}},
+  reviewHeading{
+    _type,
+    title,
+    description[]{
+      ${richTextFragment}
+    }
+  },
+  reviews[]{${reviewFragment}}
+`;
+
+const sequenceItemFragment = `
+  _type,
+  _key,
+  video{${videoFragment}},
+  copy{${sequenceBlockTextFieldsFragment}},
+  theme,
+  isHighlighted
+`;
+
+export const sequenceBlockFragment = `
+  header{${contentBlockHeaderFragment}},
+  sequenceHeader{${sequenceBlockTextFieldsFragment}},
+  sequenceItems[]{${sequenceItemFragment}},
+  sequenceFooter
+`;
+
+export const imageGridBlockFragment = `
+  header{${contentBlockHeaderFragment}},
+  theme,
+  images[]{
+    ${imageFragment}
+  }
 `;
 
 export const contentBlockFragment = `
@@ -441,7 +489,7 @@ export const contentBlockFragment = `
   _type == "doubleCtaBlock" => {
     _type,
     doubleCta{${doubleCtaFragment}},
-    header{${contentBlockHeaderFragment}},
+    header{${contentBlockHeaderFragment}}
   },
   _type == "practitionersBlock" => {
     header {
@@ -474,9 +522,22 @@ export const contentBlockFragment = `
         ${responsiveImageSetFragment}
       },
       theme
-    }
-  },
-  _type == "twoUpBlock" => {${twoUpBlockFragment}}
+     }
+   },
+  _type == "sequenceBlock" => {${sequenceBlockFragment}},
+  _type == "twoUpBlock" => {${twoUpBlockFragment}},
+  _type == "reviewBlock" => {${reviewBlockFragmnet}},
+  _type == "sequenceBlock" => {${sequenceBlockFragment}},
+  _type == "imageGridBlock" => {${imageGridBlockFragment}}
+`;
+
+export const videoHeaderFragment = `
+  eyebrow,
+  heading,
+  video{${videoFragment}},
+  body[]{
+    ${richTextFragment}
+  }
 `;
 
 export const textHeaderFragment = `

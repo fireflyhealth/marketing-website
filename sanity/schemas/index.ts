@@ -34,6 +34,13 @@ import { ImageTextOverlapBlock } from './blocks/imageTextOverlapBlock';
 import { QuoteBlock } from './blocks/quoteBlock';
 import { PractitionersBlock } from './blocks/practitionersBlock';
 import { TwoUpBlock } from './blocks/twoUpBlock';
+import {
+  SequenceBlock,
+  SequenceBlockTextFields,
+  SequenceItem,
+} from './blocks/sequenceBlock';
+import { ReviewBlock, ReviewItem, ReviewHeading } from './blocks/reviewBlock';
+import { ImageGridBlock } from './blocks/imageGridBlock';
 
 /* Fields */
 import { Metadata } from './fields/metadata';
@@ -97,6 +104,10 @@ export const schemaTypes = [
   DrawerListBlock,
   DrawerListItem,
   TwoUpBlock,
+  SequenceBlock,
+  ReviewBlock,
+  ImageGridBlock,
+
   /* Child blocks (used within other blocks, i.e. 2-up block) */
   ChildContentBlock,
   RichTextChildBlock,
@@ -130,4 +141,8 @@ export const schemaTypes = [
   Quote,
   Theme,
   RichTextCtaRow,
+  SequenceBlockTextFields,
+  SequenceItem,
+  ReviewHeading,
+  ReviewItem,
 ];

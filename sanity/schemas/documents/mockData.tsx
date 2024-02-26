@@ -129,7 +129,6 @@ export const MockData = defineType({
           name: 'quoteBlockExample',
           type: 'quoteBlock',
           title: 'Quote Block',
-          validation: (Rule) => Rule.required(),
           options: {
             collapsible: true,
             collapsed: true,
@@ -150,6 +149,36 @@ export const MockData = defineType({
           title: '2-up Blocks',
           type: 'array',
           of: [{ type: 'twoUpBlock' }],
+          validation: (Rule) => Rule.required(),
+        }),
+        defineField({
+          name: 'sequenceBlock',
+          type: 'sequenceBlock',
+          title: 'Sequence Block',
+          options: {
+            collapsible: true,
+            collapsed: true,
+          },
+          validation: (Rule) => Rule.required(),
+        }),
+        defineField({
+          name: 'reviewBlock',
+          title: 'Review Block',
+          type: 'reviewBlock',
+          options: {
+            collapsible: true,
+            collapsed: true,
+          },
+          validation: (Rule) => Rule.required(),
+        }),
+        defineField({
+          name: 'imageGridBlockExample',
+          type: 'imageGridBlock',
+          title: 'Image Grid Block Example',
+          options: {
+            collapsible: true,
+            collapsed: true,
+          },
           validation: (Rule) => Rule.required(),
         }),
       ],

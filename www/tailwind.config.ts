@@ -80,6 +80,9 @@ const config: Config = {
         navigationCTAGradient: '1010',
         navigationCTAContent: '1020',
       },
+      scale: {
+        '-100': '-1',
+      },
     },
   },
   plugins: [],

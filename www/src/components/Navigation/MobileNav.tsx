@@ -38,9 +38,9 @@ export const MobileNav: FC<Props> = ({
         {/* menu button only visible on tablet and mobile */}
         <button className="md:hidden" onClick={toggleGlobalNav}>
           {mobileNavOpen ? (
-            <SimpleIcon type="close" width={24} className="text-yellow-light" />
+            <SimpleIcon type="close" wrapperStyles="w-6 text-yellow-light" />
           ) : (
-            <SimpleIcon type="menu" width={24} className="text-black" />
+            <SimpleIcon type="menu" wrapperStyles="w-6 text-black" />
           )}
         </button>
       </div>
