@@ -39,6 +39,7 @@ import {
   SequenceItem,
 } from './blocks/sequenceBlock';
 import { ReviewBlock, ReviewItem, ReviewHeading } from './blocks/reviewBlock';
+import { ImageGridBlock } from './blocks/imageGridBlock';
 
 /* Fields */
 import { Metadata } from './fields/metadata';
@@ -103,6 +104,7 @@ export const schemaTypes = [
   TwoUpBlock,
   SequenceBlock,
   ReviewBlock,
+  ImageGridBlock,
 
   /* Child blocks (used within other blocks, i.e. 2-up block) */
   ChildContentBlock,

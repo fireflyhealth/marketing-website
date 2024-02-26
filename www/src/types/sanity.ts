@@ -482,7 +482,8 @@ export type ContentBlock =
   | DrawerListBlock
   | TwoUpBlock
   | SequenceBlock
-  | ReviewBlock;
+  | ReviewBlock
+  | ImageGridBlock;
 
 export type ContentArea = KeyedArray<ContentBlock>;
 
@@ -662,4 +663,11 @@ export type ReviewBlock = {
     description: Maybe<RichText>;
   };
   reviews: ReviewItem[];
+};
+
+export type ImageGridBlock = {
+  _type: 'imageGridBlock';
+  header: Maybe<ContentBlockHeader>;
+  theme: string;
+  images: KeyedArray<RichImage>;
 };

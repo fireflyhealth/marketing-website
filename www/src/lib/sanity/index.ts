@@ -118,13 +118,13 @@ export const homepage = {
   },
   fetchPreview(previewToken: string) {
     return createPreviewClient(previewToken).fetch<Homepage>(
-      `*[_type == "homepage" && (_id == "${HOMEPAGE_DRAFT_DOCUMENT_ID}" || _id == "${HOMEPAGE_DOCUMENT_ID}")][0]`,
+      `*[_type == "homepage" && (_id == "${HOMEPAGE_DRAFT_DOCUMENT_ID}" || _id == "${HOMEPAGE_DOCUMENT_ID}")][0]{${pageFragment}}`,
     );
   },
   streamPreview(previewToken: string, callback: (homepage: Homepage) => void) {
     return createPreviewClient(previewToken)
       .listen(
-        `*[_type == "homepage" && _id == "${HOMEPAGE_DRAFT_DOCUMENT_ID}"][0]`,
+        `*[_type == "homepage" && _id == "${HOMEPAGE_DRAFT_DOCUMENT_ID}"][0]{${pageFragment}}`,
         {},
         { visibility: 'query' },
       )

@@ -19,7 +19,11 @@ import {
 import { SlSettings } from 'react-icons/sl';
 import { PiHandPointing, PiBracketsAngleBold } from 'react-icons/pi';
 import { RxComponent2 } from 'react-icons/rx';
-import { BiCarousel, BiSolidNavigation } from 'react-icons/bi';
+import {
+  BiCarousel,
+  BiSolidNavigation,
+  BiGridHorizontal,
+} from 'react-icons/bi';
 import { FaHubspot, FaQuoteLeft } from 'react-icons/fa';
 import { BsFileBarGraph, BsMenuDown } from 'react-icons/bs';
 import {
@@ -73,4 +77,5 @@ export const icons = {
   Text: VscCaseSensitive,
   SequenceBlock: MdOutlineViewTimeline,
   Reviews: MdRateReview,
+  Grid: BiGridHorizontal,
 };
