@@ -22,7 +22,7 @@ export const MobileNav: FC<Props> = ({
 }) => {
   const { mobileNavOpen, toggleGlobalNav } = useUIProvider();
   return (
-    <nav className={cn(NavWrapper, 'absolute md:hidden')}>
+    <nav className={cn(NavWrapper, 'absolute lg:hidden')}>
       <div
         className={cn(
           NavContainer,
@@ -30,13 +30,13 @@ export const MobileNav: FC<Props> = ({
         )}
       >
         <Link href="/">
-          <div className="w-[120px]">
+          <div className="w-[120px] md:w-[175px]">
             {mobileNavOpen ? <LogotypeMonochrome /> : <LogotypeColor />}
           </div>
         </Link>
 
         {/* menu button only visible on tablet and mobile */}
-        <button className="md:hidden" onClick={toggleGlobalNav}>
+        <button className="lg:hidden" onClick={toggleGlobalNav}>
           {mobileNavOpen ? (
             <SimpleIcon type="close" wrapperStyles="w-6 text-yellow-light" />
           ) : (
