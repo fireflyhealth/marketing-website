@@ -1,5 +1,6 @@
-import { defineType, defineField } from 'sanity';
+import { defineType } from 'sanity';
 import { icons } from '../../lib/icons';
+import { DrawerListBlockFields } from './drawerListBlock';
 
 // CardListBlock and DrawerListBlock share the same fields
 // but have render different styles based on sreen size
@@ -9,27 +10,15 @@ export const CardListBlock = defineType({
   title: 'Card List Block',
   type: 'object',
   icon: icons.Cards,
-  fields: [
-    defineField({
-      name: 'header',
-      type: 'contentBlockHeader',
-      title: 'Header',
-    }),
-    defineField({
-      name: 'drawerListItems',
-      type: 'array',
-      of: [{ type: 'drawerListItem' }],
-      validation: (Rule) => Rule.required().min(1),
-    }),
-  ],
+  fields: DrawerListBlockFields,
   preview: {
     select: {
-      subtitle: 'cardListItems',
+      subtitle: 'header',
     },
     prepare: ({ subtitle }) => {
       return {
         title: 'Card List Block',
-        subtitle: `${subtitle.length} Card(s)`,
+        subtitle: subtitle?.title,
       };
     },
   },

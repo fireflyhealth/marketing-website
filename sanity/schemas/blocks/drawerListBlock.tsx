@@ -6,19 +6,25 @@ import { requiredBlockFields } from './utils/requiredBlockFields';
 // DrawerListBlock and CardListBlock share the same fields
 // but have render different styles based on sreen size
 
+export const DrawerListBlockFields = [
+  defineField({
+    name: 'header',
+    type: 'contentBlockHeader',
+    title: 'Header',
+  }),
+  defineField({
+    name: 'drawerListItems',
+    type: 'array',
+    of: [{ type: 'drawerListItem' }],
+  }),
+];
+
 export const DrawerListBlock = defineType({
   name: 'drawerListBlock',
   title: 'Drawer List Block',
   type: 'object',
   icon: icons.Drawer,
-  fields: [
-    ...requiredBlockFields,
-    defineField({
-      name: 'drawerListItems',
-      type: 'array',
-      of: [{ type: 'drawerListItem' }],
-    }),
-  ],
+  fields: DrawerListBlockFields,
   preview: {
     select: {
       header: 'header',
