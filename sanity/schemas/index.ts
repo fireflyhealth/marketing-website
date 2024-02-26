@@ -17,6 +17,7 @@ import { Navigation } from './documents/navigation';
 
 /* Headers */
 import { VideoHeader } from './headers/videoHeader';
+import { TextHeader } from './headers/textHeader';
 
 /* Child Blocks */
 
@@ -38,6 +39,8 @@ import {
   SequenceBlockTextFields,
   SequenceItem,
 } from './blocks/sequenceBlock';
+import { ReviewBlock, ReviewItem, ReviewHeading } from './blocks/reviewBlock';
+import { ImageGridBlock } from './blocks/imageGridBlock';
 
 /* Fields */
 import { Metadata } from './fields/metadata';
@@ -87,6 +90,7 @@ export const schemaTypes = [
   /* Header Blocks */
   HeaderArea,
   VideoHeader,
+  TextHeader,
 
   /* Default Blocks (used within ContentArea, each has a heading) */
   ImageBlock,
@@ -101,6 +105,8 @@ export const schemaTypes = [
   DrawerListItem,
   TwoUpBlock,
   SequenceBlock,
+  ReviewBlock,
+  ImageGridBlock,
 
   /* Child blocks (used within other blocks, i.e. 2-up block) */
   ChildContentBlock,
@@ -137,4 +143,6 @@ export const schemaTypes = [
   RichTextCtaRow,
   SequenceBlockTextFields,
   SequenceItem,
+  ReviewHeading,
+  ReviewItem,
 ];

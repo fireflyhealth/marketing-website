@@ -146,4 +146,38 @@ describe('Link', () => {
       '/care-team/rosio-macdonald',
     );
   });
+
+  it('should have _self as target when link starts with  "tel:"', () => {
+    const { getByText } = render(
+      <Link
+        link={{
+          _type: 'link',
+          externalUrl: 'tel:111-222-3333',
+          file: null,
+          documentLink: null,
+        }}
+      >
+        call
+      </Link>,
+    );
+
+    expect(getByText('call').getAttribute('target')).toBe('_self');
+  });
+
+  it('should have _self as target when link starts with "mailto:"', () => {
+    const { getByText } = render(
+      <Link
+        link={{
+          _type: 'link',
+          externalUrl: 'mailto:test@gmail.com',
+          file: null,
+          documentLink: null,
+        }}
+      >
+        mail
+      </Link>,
+    );
+
+    expect(getByText('mail').getAttribute('target')).toBe('_self');
+  });
 });

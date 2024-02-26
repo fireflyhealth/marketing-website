@@ -34,8 +34,8 @@ export const VideoHeader = defineType({
     },
     prepare: ({ title }) => {
       return {
-        title,
-        subtitle: 'Video Header',
+        title: 'Video Header',
+        subtitle: title,
       };
     },
   },

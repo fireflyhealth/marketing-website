@@ -2,6 +2,7 @@ import React, { FC } from 'react';
 import { HeaderBlock as HeaderBlockType } from '@/types/sanity';
 
 import { VideoHeader } from '../VideoHeader';
+import { TextHeader } from '../TextHeader';
 
 type HeaderBlockProps = {
   block: HeaderBlockType;
@@ -11,6 +12,8 @@ const HeaderBlock: FC<HeaderBlockProps> = ({ block }) => {
   switch (block._type) {
     case 'videoHeader':
       return <VideoHeader videoHeader={block} />;
+    case 'textHeader':
+      return <TextHeader textHeader={block} />;
     default:
       console.warn(
         // @ts-expect-error

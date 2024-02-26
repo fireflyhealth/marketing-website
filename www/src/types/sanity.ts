@@ -448,9 +448,27 @@ export type TwoColumnUnorderedList = {
 /**
  * Header Area Block
  */
-export type HeaderBlock = VideoHeader;
+export type HeaderBlock = VideoHeader | TextHeader;
 
 export type HeaderArea = HeaderBlock;
+
+export type VideoHeader = {
+  _type: 'videoHeader';
+  eyebrow: string;
+  heading: string;
+  body: RichText;
+  video: Video;
+};
+
+export type TextHeader = {
+  _type: 'textHeader';
+  eyebrow: Maybe<string>;
+  heading: string;
+  body: Maybe<RichText>;
+  theme: ColorTheme;
+  ctas: Array<CTA>;
+  gradientBackground: boolean;
+};
 
 /**
  * Child Content Blocks
@@ -490,7 +508,9 @@ export type ContentBlock =
   | DoubleCtaBlock
   | DrawerListBlock
   | TwoUpBlock
-  | SequenceBlock;
+  | SequenceBlock
+  | ReviewBlock
+  | ImageGridBlock;
 
 export type ContentArea = KeyedArray<ContentBlock>;
 
@@ -499,14 +519,6 @@ export type ContentBlockHeader = {
   title: string;
   description: Maybe<RichText>;
   cta: Maybe<CTA>;
-};
-
-export type VideoHeader = {
-  _type: 'videoHeader';
-  eyebrow: string;
-  heading: string;
-  body: RichText;
-  video: Video;
 };
 
 export type ImageBlock = {
@@ -643,6 +655,7 @@ export type DrawerListBlock = {
   header: Maybe<ContentBlockHeader>;
   drawerListItems: KeyedArray<DrawerListItem>;
 };
+
 export type TwoUpBlockLayout =
   | 'normal-50-50'
   | 'normal-60-40'
@@ -662,4 +675,36 @@ export type TwoUpBlock = {
   }>;
   blockOne: ChildContentBlock;
   blockTwo: ChildContentBlock;
+};
+
+export type ReviewItem = {
+  _type: 'reviewItem';
+  _key: string;
+  starRating: number;
+  title: string;
+  review: RichText;
+  reviewer: {
+    name: string;
+    age: Maybe<number>;
+  };
+  date: string;
+  logo: Maybe<RichImage>;
+};
+
+export type ReviewBlock = {
+  _type: 'reviewBlock';
+  header: Maybe<ContentBlockHeader>;
+  reviewHeading: {
+    _type: 'reviewHeading';
+    title: string;
+    description: Maybe<RichText>;
+  };
+  reviews: ReviewItem[];
+};
+
+export type ImageGridBlock = {
+  _type: 'imageGridBlock';
+  header: Maybe<ContentBlockHeader>;
+  theme: string;
+  images: KeyedArray<RichImage>;
 };

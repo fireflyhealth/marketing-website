@@ -5,10 +5,12 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "build:analyze": "ANALYZE=true next build",
     "start": "next start",
     "lint": "next lint",
-    "test:all": "yarn test:types && yarn test:prettier && yarn test:lint && yarn test:jest",
+    "test:all": "yarn test:types && yarn test:prettier && yarn test:lint && yarn test:queryByteLengths && yarn test:jest",
     "test:lint": "next lint",
+    "test:queryByteLengths": "esno ./scripts/testQueryByteLengths.ts",
     "test:prettier": "prettier --check ./src",
     "test:types": "tsc --noEmit",
     "test:jest": "jest",
@@ -29,6 +31,7 @@
     "react-swipeable": "^7.0.1"
   },
   "devDependencies": {
+    "@next/bundle-analyzer": "^14.1.0",
     "@portabletext/types": "^2.0.8",
     "@storybook/addon-essentials": "^7.6.7",
     "@storybook/addon-interactions": "^7.6.7",
