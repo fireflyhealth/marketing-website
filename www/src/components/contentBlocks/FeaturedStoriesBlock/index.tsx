@@ -12,10 +12,10 @@ type FeaturedStoriesBlockProps = {
 export const FeaturedStoriesBlock: FC<FeaturedStoriesBlockProps> = ({
   featuredStoriesBlock,
 }) => {
-  const { header, stories } = featuredStoriesBlock;
+  const { header, stories, subnav } = featuredStoriesBlock;
 
   return (
-    <ContentBlockWrapper header={header}>
+    <ContentBlockWrapper id={subnav?.contentBlockId} header={header}>
       <div className={cn(FeaturedStoriesGrid)}>
         {stories.map((story, index) => (
           <div
