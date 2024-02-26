@@ -2,10 +2,7 @@ import { FC } from 'react';
 import cn from 'classnames';
 import { DoubleCTA } from '@/components/DoubleCTA';
 import * as SanityTypes from '@/types/sanity';
-import {
-  ContentBlockHeader,
-  ContentBlockWrapper,
-} from '../ContentBlockWrapper';
+import { ContentBlockWrapper } from '../ContentBlockWrapper';
 import { Wrapper } from './styles';
 
 type Props = {
