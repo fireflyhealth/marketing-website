@@ -522,7 +522,6 @@ export const cardlistBlockFragment = `
 export const contentBlockFragment = `
   _type,
   _key,
-  id,
   subnav {${subnavItemFragment}},
   _type == "imageBlock" => {
     header {
