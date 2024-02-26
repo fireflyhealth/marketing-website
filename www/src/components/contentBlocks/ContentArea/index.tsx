@@ -12,6 +12,7 @@ import { DoubleCtaBlock } from '../DoubleCtaBlock';
 import { DrawerListBlock } from '../DrawerListBlock';
 import { TwoUpBlock } from '../TwoUpBlock';
 import { SequenceBlock } from '../SequenceBlock';
+import { ReviewBlock } from '../ReviewBlock';
 
 type ContentBlockProps = {
   block: ContentBlockType;
@@ -39,6 +40,8 @@ const ContentBlock: FC<ContentBlockProps> = ({ block }) => {
       return <TwoUpBlock twoUpBlock={block} />;
     case 'sequenceBlock':
       return <SequenceBlock sequenceBlock={block} />;
+    case 'reviewBlock':
+      return <ReviewBlock reviewBlock={block} />;
     default:
       console.warn(
         // @ts-expect-error

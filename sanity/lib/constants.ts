@@ -102,6 +102,7 @@ export const defaultContentBlockTypes = [
   { type: 'quoteBlock' },
   { type: 'drawerListBlock' },
   { type: 'sequenceBlock' },
+  { type: 'reviewBlock' }
 ];
 
 /**

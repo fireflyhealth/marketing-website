@@ -402,6 +402,32 @@ const twoUpBlockFragment = `
   }[0]
 `;
 
+export const reviewFragment = `
+  _type,
+  _key,
+  starRating,
+  title,
+  review[]{${simpleRichTextFragment}},
+  reviewer{
+    name,
+    age,
+  },
+  date,
+  logo{${imageFragment}}
+`;
+
+export const reviewBlockFragmnet = `
+  header{${contentBlockHeaderFragment}},
+  reviewHeading{
+    _type,
+    title,
+    description[]{
+      ${richTextFragment}
+    }
+  },
+  reviews[]{${reviewFragment}}
+`;
+
 const sequenceItemFragment = `
   _type,
   _key,
@@ -456,7 +482,7 @@ export const contentBlockFragment = `
   _type == "doubleCtaBlock" => {
     _type,
     doubleCta{${doubleCtaFragment}},
-    header{${contentBlockHeaderFragment}},
+    header{${contentBlockHeaderFragment}}
   },
   _type == "practitionersBlock" => {
     header {
@@ -491,8 +517,9 @@ export const contentBlockFragment = `
       theme
      }
    },
+  _type == "sequenceBlock" => {${sequenceBlockFragment}},
   _type == "twoUpBlock" => {${twoUpBlockFragment}},
-  _type == "sequenceBlock" => {${sequenceBlockFragment}}
+  _type == "reviewBlock" => {${reviewBlockFragmnet}}
 `;
 
 export const videoHeaderFragment = `
@@ -501,8 +528,7 @@ export const videoHeaderFragment = `
   video{${videoFragment}},
   body[]{
     ${richTextFragment}
-  },
-  _type == "twoUpBlock" => {${twoUpBlockFragment}}
+  }
 `;
 
 export const headerBlockFragment = `

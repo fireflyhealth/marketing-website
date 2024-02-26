@@ -26,6 +26,7 @@ import {
   MdOutlineCallToAction,
   MdPercent,
   MdOutlineViewTimeline,
+  MdRateReview,
 } from 'react-icons/md';
 import { FaUserDoctor } from 'react-icons/fa6';
 import { GoColumns } from 'react-icons/go';
@@ -71,4 +72,5 @@ export const icons = {
   Percentage: MdPercent,
   Text: VscCaseSensitive,
   SequenceBlock: MdOutlineViewTimeline,
+  Reviews: MdRateReview,
 };
