@@ -439,9 +439,27 @@ export type TwoColumnUnorderedList = {
 /**
  * Header Area Block
  */
-export type HeaderBlock = VideoHeader;
+export type HeaderBlock = VideoHeader | TextHeader;
 
 export type HeaderArea = HeaderBlock;
+
+export type VideoHeader = {
+  _type: 'videoHeader';
+  eyebrow: string;
+  heading: string;
+  body: RichText;
+  video: Video;
+};
+
+export type TextHeader = {
+  _type: 'textHeader';
+  eyebrow: Maybe<string>;
+  heading: string;
+  body: Maybe<RichText>;
+  theme: ColorTheme;
+  ctas: Array<CTA>;
+  gradientBackground: boolean;
+};
 
 /**
  * Child Content Blocks
@@ -492,14 +510,6 @@ export type ContentBlockHeader = {
   title: string;
   description: Maybe<RichText>;
   cta: Maybe<CTA>;
-};
-
-export type VideoHeader = {
-  _type: 'videoHeader';
-  eyebrow: string;
-  heading: string;
-  body: RichText;
-  video: Video;
 };
 
 export type ImageBlock = {

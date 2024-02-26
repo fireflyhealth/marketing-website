@@ -17,6 +17,7 @@ import { Navigation } from './documents/navigation';
 
 /* Headers */
 import { VideoHeader } from './headers/videoHeader';
+import { TextHeader } from './headers/textHeader';
 
 /* Child Blocks */
 
@@ -89,6 +90,7 @@ export const schemaTypes = [
   /* Header Blocks */
   HeaderArea,
   VideoHeader,
+  TextHeader,
 
   /* Default Blocks (used within ContentArea, each has a heading) */
   ImageBlock,

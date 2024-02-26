@@ -31,7 +31,7 @@ export const responsiveImageSetFragment = `
   },
   mobile{
     ${imageFragment}
-  },
+  }
 `;
 
 export const hubspotFormFragment = `
@@ -206,7 +206,7 @@ export const linkWithLabelFragment = `
   label,
   link {
     ${linkFragment}
-  },
+  }
 `;
 
 export const bigNumbersFragment = `
@@ -307,7 +307,6 @@ const childContentBlockFragment = `
       ${quoteObjectFragment}
     }
   }
-
 `;
 
 /**
@@ -343,7 +342,7 @@ export const doubleCtaFragment = `
     link {
       ${linkFragment}
     },
-  },
+  }
 `;
 
 const sequenceBlockTextFieldsFragment = `
@@ -541,9 +540,24 @@ export const videoHeaderFragment = `
   }
 `;
 
+export const textHeaderFragment = `
+  eyebrow,
+  heading,
+  body[]{
+    ${richTextFragment}
+  },
+  theme,
+  ctas[]{
+    ${ctaFragment}
+  },
+  gradientBackground
+`;
+
 export const headerBlockFragment = `
   _type,
-  _type == "videoHeader" => {${videoHeaderFragment}}
+  _key,
+  _type == "videoHeader" => {${videoHeaderFragment}},
+  _type == "textHeader" => {${textHeaderFragment}},
 `;
 
 export const navGroupFragment = `
@@ -574,7 +588,7 @@ export const navigationFragment = `
   navGroup {
     ${navGroupFragment}
   }[],
-  showNavCTA,
+  showNavCTA
 `;
 
 export const footerFragment = `
