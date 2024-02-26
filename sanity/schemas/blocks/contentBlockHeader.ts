@@ -6,6 +6,10 @@ export const ContentBlockHeader = defineType({
   title: 'Block Header',
   type: 'object',
   icon: icons.Component,
+  options: {
+    collapsible: true,
+    collapsed: true,
+  },
   description:
     /* Would be nice to use the hidden: (context) => { ... } function to hide this field when used
      * within a block that is the child of a "Parent Block" (i.e. 2-up block), but the context only

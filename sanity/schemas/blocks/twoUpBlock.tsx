@@ -2,6 +2,7 @@ import { defineType, defineField } from 'sanity';
 
 import { icons } from '../../lib/icons';
 import { camelCaseToSentence } from '../../lib/utils';
+import { requiredBlockFields } from './utils/requiredBlockFields';
 
 export const TwoUpBlock = defineType({
   name: 'twoUpBlock',
@@ -9,15 +10,7 @@ export const TwoUpBlock = defineType({
   type: 'object',
   icon: icons.TwoUp,
   fields: [
-    defineField({
-      name: 'header',
-      type: 'contentBlockHeader',
-      title: 'Header',
-      options: {
-        collapsible: true,
-        collapsed: true,
-      },
-    }),
+    ...requiredBlockFields,
     defineField({
       name: 'layout',
       title: 'Layout',
