@@ -14,6 +14,7 @@ import { MockData } from './documents/mockData';
 import { SiteSettings } from './documents/siteSettings';
 import { Practitioner } from './documents/practitioner';
 import { Navigation } from './documents/navigation';
+import { FrequentlyAskedQuestion } from './documents/faq';
 
 /* Headers */
 import { VideoHeader } from './headers/videoHeader';
@@ -69,6 +70,7 @@ import { DrawerListBlock, DrawerListItem } from './blocks/drawerListBlock';
 import { Theme } from './fields/theme';
 import { RichTextCtaRow } from './fields/richTextCtaRow';
 import { QuoteChildBlock } from './childBlocks/quoteChildBlock';
+import { FAQBlock } from './blocks/faqBlock';
 
 export const schemaTypes = [
   /* Document Types */
@@ -86,6 +88,7 @@ export const schemaTypes = [
   MockData,
   Navigation,
   Practitioner,
+  FrequentlyAskedQuestion,
 
   /* Header Blocks */
   HeaderArea,
@@ -107,6 +110,7 @@ export const schemaTypes = [
   SequenceBlock,
   ReviewBlock,
   ImageGridBlock,
+  FAQBlock,
 
   /* Child blocks (used within other blocks, i.e. 2-up block) */
   ChildContentBlock,

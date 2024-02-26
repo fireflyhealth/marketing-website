@@ -127,6 +127,10 @@ export const structure: StructureResolver = async (S, context) => {
           schemaType: 'faqPage',
           icon: icons.Question,
         }),
+        S.listItem()
+          .title('Frequently Asked Questions')
+          .icon(icons.Question)
+          .child(S.documentTypeList('faq')),
         S.divider(),
         S.listItem()
           .title('Clients')

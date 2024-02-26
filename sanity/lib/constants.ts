@@ -103,7 +103,8 @@ export const defaultContentBlockTypes = [
   { type: 'drawerListBlock' },
   { type: 'sequenceBlock' },
   { type: 'reviewBlock' },
-  { type: 'imageGridBlock' }
+  { type: 'imageGridBlock' },
+  { type: 'faqBlock' },
 ];
 
 /**
