@@ -143,7 +143,7 @@ export type FAQPageLinkData = Pick<FAQPage, '_type'>;
 export type FAQ = SanityDocument & {
   _type: 'faq';
   question: string;
-  answer: RichText;
+  answer: SimpleRichText;
 };
 
 /* Properties common to both GenericPage & SubPage */
@@ -393,6 +393,11 @@ export type RichText = Array<
   | TwoColumnUnorderedList
 >;
 
+export type SimpleRichText = Array<PortableTextBlock>;
+export type LimitedRichText = Array<
+  PortableTextBlock | BigNumbers | RichTextCtaRow
+>;
+
 export type RichTextCtaRow = {
   _type: 'richTextCtaRow';
   ctas: KeyedArray<CTA>;
@@ -427,13 +432,13 @@ export type BigNumber = {
     position: 'before' | 'after';
   }>;
   value: number;
-  description: RichText;
+  description: SimpleRichText;
 };
 
 export type BigNumbers = {
   _type: 'bigNumbers';
   bigNumbers: KeyedArray<BigNumber>;
-  citation: Maybe<RichText>;
+  citation: Maybe<SimpleRichText>;
 };
 
 export type TwoColumnUnorderedList = {
@@ -453,7 +458,7 @@ export type VideoHeader = {
   _type: 'videoHeader';
   eyebrow: string;
   heading: string;
-  body: RichText;
+  body: SimpleRichText;
   video: Video;
 };
 
@@ -480,7 +485,7 @@ export type ChildContentBlock =
 export type RichTextChildBlock = {
   _type: 'richTextChildBlock';
   heading: string;
-  body: RichText;
+  body: LimitedRichText;
 };
 
 export type ImageChildBlock = {
@@ -515,7 +520,7 @@ export type ContentArea = KeyedArray<ContentBlock>;
 export type ContentBlockHeader = {
   _type: 'contentBlockHeader';
   title: string;
-  description: Maybe<RichText>;
+  description: Maybe<SimpleRichText>;
   cta: Maybe<CTA>;
 };
 
@@ -624,7 +629,7 @@ export type QuoteBlock = {
 export type DrawerListItem = {
   _type: 'drawerListItem';
   title: string;
-  body: RichText;
+  body: SimpleRichText;
   ctaLink: Maybe<LinkWithLabel>;
   featuredImage: RichImage;
   theme: ColorTheme;
@@ -662,7 +667,7 @@ export type ReviewItem = {
   _key: string;
   starRating: number;
   title: string;
-  review: RichText;
+  review: SimpleRichText;
   reviewer: {
     name: string;
     age: Maybe<number>;
@@ -677,7 +682,7 @@ export type ReviewBlock = {
   reviewHeading: {
     _type: 'reviewHeading';
     title: string;
-    description: Maybe<RichText>;
+    description: Maybe<SimpleRichText>;
   };
   reviews: ReviewItem[];
 };
@@ -694,7 +699,7 @@ export type FAQBlock = {
   header: Maybe<ContentBlockHeader>;
   theme: ColorTheme;
   blockTitle: string;
-  blockDescription: Maybe<RichText>;
+  blockDescription: Maybe<SimpleRichText>;
   blockCta: Maybe<CTA>;
   faqs: Array<FAQ>;
 };
