@@ -1,10 +1,8 @@
 import React, { FC } from 'react';
-import { ClientPage } from '@/types/sanity';
+import { ClientPage, SubnavItem, ContentBlock } from '@/types/sanity';
 import { ContentArea } from '@/components/contentBlocks/ContentArea';
 import { HeaderArea } from '@/components/headerContentBlocks/HeaderArea';
 import { Subnav } from '@/components/Subnav';
-
-import { SubnavItem, ContentBlock } from '@/types/sanity';
 
 type ClientPageViewProps = {
   clientPage: ClientPage;

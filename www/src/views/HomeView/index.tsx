@@ -1,11 +1,9 @@
 import React, { FC } from 'react';
 
-import { Homepage } from '@/types/sanity';
+import { Homepage, SubnavItem, ContentBlock } from '@/types/sanity';
 import { ContentArea } from '@/components/contentBlocks/ContentArea';
 import { HeaderArea } from '@/components/headerContentBlocks/HeaderArea';
 import { Subnav } from '@/components/Subnav';
-
-import { SubnavItem, ContentBlock } from '@/types/sanity';
 
 type HomeViewProps = {
   homepage: Homepage;

@@ -2,7 +2,8 @@ import { FC } from 'react';
 import cn from 'classnames';
 import * as SanityTypes from '@/types/sanity';
 import { BrandedIcon } from '@/svgs/BrandedIcon';
-import { ContentBlockHeader } from '../ContentBlockWrapper';
+import { ContentBlockWrapper } from '@/components/contentBlocks/ContentBlockWrapper';
+
 import { SequenceCard } from './SequenceCard';
 import { SequenceCopy } from './SequenceCopy';
 import {
@@ -15,7 +16,6 @@ import {
   FooterIconWrapper,
 } from './styles';
 import { SequenceLines } from './SequenceLines';
-import { ContentBlockWrapper } from '@/components/contentBlocks/ContentBlockWrapper';
 
 type Props = {
   sequenceBlock: SanityTypes.SequenceBlock;
