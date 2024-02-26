@@ -1,5 +1,6 @@
 import { defineType, defineField } from 'sanity';
 import { icons } from '../../lib/icons';
+import idValidationRule from '../util/idValidationRule';
 
 export const LargeCTACard = defineField({
   name: 'largeCtaCard',
@@ -28,17 +29,7 @@ export const LargeCTACard = defineField({
       type: 'string',
       title: 'ID',
       description: 'Used for tracking in analytics',
-      validation: (Rule) =>
-        Rule.custom((value?: string) => {
-          if (!value) return 'Required';
-          if (value.toLowerCase() !== value) {
-            return 'Must be all lowercase';
-          }
-          if (!/^([A-Za-z0-9-_])+$/.test(value)) {
-            return 'Can only be letters, numbers, hyphens, and underscores (no spaces or special characters)';
-          }
-          return true;
-        }),
+      validation: idValidationRule,
     }),
     defineField({
       name: 'ariaLabel',

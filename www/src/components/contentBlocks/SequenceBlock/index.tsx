@@ -2,7 +2,8 @@ import { FC } from 'react';
 import cn from 'classnames';
 import * as SanityTypes from '@/types/sanity';
 import { BrandedIcon } from '@/svgs/BrandedIcon';
-import { ContentBlockHeader } from '../ContentBlockWrapper';
+import { ContentBlockWrapper } from '@/components/contentBlocks/ContentBlockWrapper';
+
 import { SequenceCard } from './SequenceCard';
 import { SequenceCopy } from './SequenceCopy';
 import {
@@ -21,12 +22,11 @@ type Props = {
 };
 
 export const SequenceBlock: FC<Props> = ({ sequenceBlock }) => {
-  const { header, sequenceHeader, sequenceItems, sequenceFooter } =
+  const { header, sequenceHeader, sequenceItems, sequenceFooter, subnav } =
     sequenceBlock;
 
   return (
-    <>
-      {header && <ContentBlockHeader header={header} />}
+    <ContentBlockWrapper id={subnav?.contentBlockId} header={header}>
       <div className={cn(Wrapper)}>
         <div className={cn(Container)}>
           <div className={cn(Header)}>
@@ -53,6 +53,6 @@ export const SequenceBlock: FC<Props> = ({ sequenceBlock }) => {
           </div>
         </div>
       </div>
-    </>
+    </ContentBlockWrapper>
   );
 };

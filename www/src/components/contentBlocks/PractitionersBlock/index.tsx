@@ -15,11 +15,11 @@ export const PractitionersBlock: FC<PractitionersBlockProps> = ({
   practitionersBlock,
 }) => {
   const [showMoreEnabled, setShowMoreEnabled] = useState(false);
-  const { header, practitioners } = practitionersBlock;
+  const { header, practitioners, subnav } = practitionersBlock;
 
   const enableShowMore = () => setShowMoreEnabled(true);
   return (
-    <ContentBlockWrapper header={header}>
+    <ContentBlockWrapper id={subnav?.contentBlockId} header={header}>
       <div
         className={cn(
           'PractitionersBlock',

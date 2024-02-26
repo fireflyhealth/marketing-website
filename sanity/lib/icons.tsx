@@ -25,7 +25,7 @@ import {
   BiGridHorizontal,
 } from 'react-icons/bi';
 import { FaHubspot, FaQuoteLeft } from 'react-icons/fa';
-import { BsFileBarGraph, BsMenuDown } from 'react-icons/bs';
+import { BsFileBarGraph, BsMenuDown, BsSegmentedNav } from 'react-icons/bs';
 import {
   MdOutlineCallToAction,
   MdPercent,
@@ -72,6 +72,7 @@ export const icons = {
   TwoColumn: GoColumns,
   Quote: FaQuoteLeft,
   Drawer: RiArchiveDrawerLine,
+  Subnav: BsSegmentedNav,
   TwoUp: CgViewSplit,
   Percentage: MdPercent,
   Text: VscCaseSensitive,

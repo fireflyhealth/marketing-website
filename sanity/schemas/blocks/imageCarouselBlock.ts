@@ -1,5 +1,6 @@
 import { defineType, defineField } from 'sanity';
 import { icons } from '../../lib/icons';
+import { requiredBlockFields } from './utils/requiredBlockFields';
 
 export const ImageCarouselBlock = defineType({
   name: 'imageCarouselBlock',
@@ -7,11 +8,7 @@ export const ImageCarouselBlock = defineType({
   type: 'object',
   icon: icons.Carousel,
   fields: [
-    defineField({
-      name: 'header',
-      type: 'contentBlockHeader',
-      title: 'Header',
-    }),
+    ...requiredBlockFields,
     defineField({
       name: 'images',
       title: 'Images',

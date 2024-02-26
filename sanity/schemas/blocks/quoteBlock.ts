@@ -1,5 +1,6 @@
 import { defineType, defineField } from 'sanity';
 import { icons } from '../../lib/icons';
+import { requiredBlockFields } from './utils/requiredBlockFields';
 
 export const QuoteBlock = defineType({
   name: 'quoteBlock',
@@ -7,11 +8,7 @@ export const QuoteBlock = defineType({
   type: 'object',
   icon: icons.Quote,
   fields: [
-    defineField({
-      name: 'header',
-      type: 'contentBlockHeader',
-      title: 'Header',
-    }),
+    ...requiredBlockFields,
     defineField({
       name: 'quoteObject',
       type: 'quoteObject',

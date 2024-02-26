@@ -1,5 +1,6 @@
 import { defineType, defineField } from 'sanity';
 import { icons } from '../../lib/icons';
+import { requiredBlockFields } from './utils/requiredBlockFields';
 
 export const ImageGridBlock = defineType({
   name: 'imageGridBlock',
@@ -7,11 +8,7 @@ export const ImageGridBlock = defineType({
   type: 'object',
   icon: icons.Grid,
   fields: [
-    defineField({
-      name: 'header',
-      type: 'contentBlockHeader',
-      title: 'Header',
-    }),
+    ...requiredBlockFields,
     defineField({
       name: 'theme',
       title: 'Theme',

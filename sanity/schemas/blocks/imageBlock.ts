@@ -1,5 +1,6 @@
 import { defineType, defineField } from 'sanity';
 import { icons } from '../../lib/icons';
+import { requiredBlockFields } from './utils/requiredBlockFields';
 
 export const ImageBlock = defineType({
   name: 'imageBlock',
@@ -7,11 +8,7 @@ export const ImageBlock = defineType({
   type: 'object',
   icon: icons.Image,
   fields: [
-    defineField({
-      name: 'header',
-      type: 'contentBlockHeader',
-      title: 'Header',
-    }),
+    ...requiredBlockFields,
     defineField({
       name: 'image',
       type: 'richImage',

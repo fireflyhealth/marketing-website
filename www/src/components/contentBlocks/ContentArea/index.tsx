@@ -53,6 +53,7 @@ const ContentBlock: FC<ContentBlockProps> = ({ block }) => {
         // @ts-expect-error
         `"${block._type.toString()} is not a valid content block type"`,
       );
+      return null;
   }
 };
 

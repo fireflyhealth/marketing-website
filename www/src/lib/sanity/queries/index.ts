@@ -31,17 +31,28 @@ export const pageFragment = `
   slug,
   navigationOverrides {${navigationOverridesFragment}},
   'header': header[] {${headerBlockFragment}}[0],
+  subnav,
   content {${contentBlockFragment}}[],
   metadataFragment{${metadataFragment}}
 `;
 
-export const downloadPageFragment = `${pageFragment}`;
+export const specialPageFragment = `
+  _id,
+  title,
+  slug,
+  navigationOverrides {${navigationOverridesFragment}},
+  'header': header[] {${headerBlockFragment}}[0],
+  content {${contentBlockFragment}}[],
+  metadataFragment{${metadataFragment}}
+`;
 
-export const contactPageFragment = `${pageFragment}`;
+export const downloadPageFragment = `${specialPageFragment}`;
 
-export const notFoundPageFragment = `${pageFragment}`;
+export const contactPageFragment = `${specialPageFragment}`;
 
-export const faqPageFragment = `${pageFragment}`;
+export const notFoundPageFragment = `${specialPageFragment}`;
+
+export const faqPageFragment = `${specialPageFragment}`;
 
 export const blogFragment = `
   _id,

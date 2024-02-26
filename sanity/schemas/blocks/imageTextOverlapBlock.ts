@@ -1,15 +1,12 @@
 import { defineType, defineField } from 'sanity';
+import { requiredBlockFields } from './utils/requiredBlockFields';
 
 export const ImageTextOverlapBlock = defineType({
   name: 'imageTextOverlapBlock',
   title: 'Image Text Overlap Block',
   type: 'object',
   fields: [
-    defineField({
-      name: 'header',
-      title: 'Header',
-      type: 'contentBlockHeader',
-    }),
+    ...requiredBlockFields,
     defineField({
       name: 'image',
       title: 'Image',

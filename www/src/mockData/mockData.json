@@ -885,6 +885,8 @@
     "practitionersBlock": {
       "_type": "practitionersBlock",
       "_key": null,
+      "subnav": null,
+      "id": "practitioners-block",
       "header": {
         "_type": "contentBlockHeader",
         "title": "Physicians and nurse practitioners",
@@ -1756,6 +1758,8 @@
         "description": null,
         "cta": null
       },
+      "id": "richtext-image-text-overlap",
+      "subnav": null,
       "image": {
         "_type": "richImage",
         "_key": null,
@@ -1779,6 +1783,7 @@
       }
     },
     "faqBlock": {
+      "subnav": null,
       "theme": "sky",
       "blockTitle": "Key Questions",
       "blockDescription": [
@@ -2031,7 +2036,9 @@
       },
       "_type": "quoteBlock",
       "_key": null,
-      "header": null
+      "header": null,
+      "subnav": null,
+      "id": "mock-quote-block"
     },
     "videoHeaderExample": {
       "heading": "Firefly's on the tech frontier without losing the human factor.",
@@ -2082,6 +2089,8 @@
     "ctaCardsBlock": {
       "_type": "ctaCardsBlock",
       "_key": null,
+      "subnav": null,
+      "id": "cta-cards-example",
       "header": null,
       "ctaCards": [
         {
@@ -2234,6 +2243,8 @@
     "doubleCtaBlockExample": {
       "_type": "doubleCtaBlock",
       "_key": null,
+      "subnav": null,
+      "id": "double-cta-example",
       "doubleCta": {
         "_type": "doubleCta",
         "ctaOne": {
@@ -2311,6 +2322,8 @@
     "imageBlock": {
       "_type": "imageBlock",
       "_key": null,
+      "subnav": null,
+      "id": "image-block-example",
       "header": {
         "_type": "contentBlockHeader",
         "title": "Meet some of the team behind Firefly",
@@ -2382,6 +2395,8 @@
     "imageCarouselBlock": {
       "_type": "imageCarouselBlock",
       "_key": null,
+      "subnav": null,
+      "id": "image-carousel-example",
       "header": {
         "_type": "contentBlockHeader",
         "title": "Life at Firefly",
@@ -2493,6 +2508,8 @@
     "drawerListBlock": {
       "_type": "drawerListBlock",
       "_key": null,
+      "subnav": null,
+      "id": "drawer-list-example",
       "header": {
         "_type": "contentBlockHeader",
         "title": "How It Works",
@@ -3092,7 +3109,8 @@
             "_type": "richImage"
           }
         },
-        "_type": "twoUpBlock"
+        "_type": "twoUpBlock",
+        "subnav": null
       },
       {
         "layout": "normal-60-40",
@@ -3653,6 +3671,7 @@
     "sequenceBlock": {
       "_type": "sequenceBlock",
       "_key": null,
+      "subnav": null,
       "header": null,
       "sequenceHeader": {
         "_type": "sequenceBlockTextFields",
@@ -3852,6 +3871,7 @@
     "reviewBlock": {
       "_type": "reviewBlock",
       "_key": null,
+      "subnav": null,
       "header": null,
       "reviewHeading": {
         "_type": "reviewHeading",
@@ -4059,6 +4079,7 @@
     "imageGridBlockExample": {
       "_type": "imageGridBlock",
       "_key": null,
+      "subnav": null,
       "header": {
         "_type": "contentBlockHeader",
         "title": "Leading organizations provide care with Firefly",

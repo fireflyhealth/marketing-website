@@ -2,7 +2,7 @@ import { FC } from 'react';
 import cn from 'classnames';
 import { DoubleCTA } from '@/components/DoubleCTA';
 import * as SanityTypes from '@/types/sanity';
-import { ContentBlockHeader } from '../ContentBlockWrapper';
+import { ContentBlockWrapper } from '../ContentBlockWrapper';
 import { Wrapper } from './styles';
 
 type Props = {
@@ -10,14 +10,17 @@ type Props = {
 };
 
 export const DoubleCtaBlock: FC<Props> = ({ doubleCtaBlock }) => {
+  const { subnav, header, doubleCta } = doubleCtaBlock;
+
   return (
-    <>
-      {doubleCtaBlock.header && (
-        <ContentBlockHeader header={doubleCtaBlock.header} />
-      )}
+    <ContentBlockWrapper
+      id={subnav?.contentBlockId}
+      header={header}
+      wrapperPadding={false}
+    >
       <div className={cn(Wrapper)}>
-        <DoubleCTA doubleCta={doubleCtaBlock.doubleCta} />
+        <DoubleCTA doubleCta={doubleCta} />
       </div>
-    </>
+    </ContentBlockWrapper>
   );
 };

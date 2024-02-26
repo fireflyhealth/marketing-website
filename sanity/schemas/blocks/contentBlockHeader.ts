@@ -5,10 +5,6 @@ export const ContentBlockHeader = defineType({
   name: 'contentBlockHeader',
   title: 'Block Header',
   type: 'object',
-  options: {
-    collapsed: true,
-    collapsible: true,
-  },
   icon: icons.Component,
   description:
     /* Would be nice to use the hidden: (context) => { ... } function to hide this field when used

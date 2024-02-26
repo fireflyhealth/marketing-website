@@ -19,10 +19,17 @@ type FAQBlockProps = {
 };
 
 export const FAQBlock: FC<FAQBlockProps> = ({ faqBlock }) => {
-  const { theme, header, blockTitle, blockDescription, blockCta, faqs } =
-    faqBlock;
+  const {
+    theme,
+    header,
+    blockTitle,
+    blockDescription,
+    blockCta,
+    faqs,
+    subnav,
+  } = faqBlock;
   return (
-    <ContentBlockWrapper header={header}>
+    <ContentBlockWrapper id={subnav?.contentBlockId} header={header}>
       <Theme theme={theme || ColorTheme.Sky}>
         <div className={cn(Wrapper)}>
           <div className={cn(TitleWrapper)}>

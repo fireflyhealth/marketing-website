@@ -40,6 +40,11 @@ export const ClientPage = defineType({
       type: 'headerArea',
     }),
     defineField({
+      name: 'subnav',
+      title: 'Render Subnav',
+      type: 'boolean',
+    }),
+    defineField({
       name: 'content',
       title: 'Content',
       type: 'contentArea',
