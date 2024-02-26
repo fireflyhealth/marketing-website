@@ -22,7 +22,7 @@ export const Accordion: FC<AccordionProps> = ({ title, children }) => {
         <div>
           <SimpleIcon
             type={isOpen ? 'arrow-up' : 'arrow-down'}
-            className="theme-icon-overlap"
+            iconStyles="theme-icon-overlap"
           />
         </div>
       </button>
@@ -30,7 +30,7 @@ export const Accordion: FC<AccordionProps> = ({ title, children }) => {
         aria-hidden={!isOpen}
         className={isOpen ? 'block' : 'opacity-0 h-0 pointer-events-none'}
       >
-        {children}
+        <div className="pt-3">{children}</div>
       </div>
     </div>
   );
