@@ -12,10 +12,10 @@ type Props = {
 };
 
 export const ImageGridBlock: FC<Props> = ({ imageGridBlock }) => {
-  const { header, theme, images } = imageGridBlock;
+  const { header, theme, images, subnav } = imageGridBlock;
 
   return (
-    <ContentBlockWrapper header={header}>
+    <ContentBlockWrapper id={subnav?.contentBlockId} header={header}>
       <Theme theme={getColorTheme(theme)}>
         <div className={cn(Wrapper)}>
           <div className={cn(ImagesContainer)}>

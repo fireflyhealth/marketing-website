@@ -693,6 +693,7 @@ export type ReviewItem = {
 
 export type ReviewBlock = {
   _type: 'reviewBlock';
+  subnav: Maybe<SubnavItem>;
   header: Maybe<ContentBlockHeader>;
   reviewHeading: {
     _type: 'reviewHeading';
@@ -704,6 +705,7 @@ export type ReviewBlock = {
 
 export type ImageGridBlock = {
   _type: 'imageGridBlock';
+  subnav: Maybe<SubnavItem>;
   header: Maybe<ContentBlockHeader>;
   theme: string;
   images: KeyedArray<RichImage>;

@@ -1,5 +1,6 @@
 import { defineType, defineField } from 'sanity';
 import { icons } from '../../lib/icons';
+import { requiredBlockFields } from './utils/requiredBlockFields';
 
 export const ReviewHeading = defineType({
   name: 'reviewHeading',
@@ -105,12 +106,7 @@ export const ReviewBlock = defineType({
   type: 'object',
   icon: icons.Reviews,
   fields: [
-    defineField({
-      name: 'header',
-      type: 'contentBlockHeader',
-      title: 'Header',
-      description: 'Optional heading that displays on top of the component.',
-    }),
+    ...requiredBlockFields,
     defineField({
       name: 'reviewHeading',
       type: 'reviewHeading',

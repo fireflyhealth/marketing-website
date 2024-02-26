@@ -2,9 +2,11 @@
   "contentBlockExamples": {
     "quoteBlock": null,
     "quoteBlockExample": {
+      "id": "mock-quote-block",
       "_type": "quoteBlock",
       "_key": null,
       "header": null,
+      "subnav": null,
       "quoteObject": {
         "_type": "quoteObject",
         "quote": "My old doctor said, “Yeah, we can totally see you…in two and a half months.” I thought, “So what do I do until then?” I looked around and found Firefly. They saw me the same day with a virtual appointment.",
@@ -107,7 +109,9 @@
     "ctaCardsBlock": {
       "_type": "ctaCardsBlock",
       "_key": null,
+      "id": "mock-cta-cards-block",
       "header": null,
+      "subnav": null,
       "ctaCards": [
         {
           "image": {
@@ -257,6 +261,7 @@
       ]
     },
     "reviewBlock": {
+      "subnav": null,
       "header": null,
       "reviewHeading": {
         "_type": "reviewHeading",
@@ -464,6 +469,7 @@
       "_key": null
     },
     "imageGridBlockExample": {
+      "subnav": null,
       "images": [
         {
           "caption": null,
@@ -563,6 +569,8 @@
     "practitionersBlock": {
       "_type": "practitionersBlock",
       "_key": null,
+      "subnav": null,
+      "id": "practitioners",
       "header": {
         "_type": "contentBlockHeader",
         "title": "Physicians and nurse practitioners",
@@ -1467,6 +1475,7 @@
             "hotspot": null
           }
         },
+        "subnav": null,
         "header": {
           "_type": "contentBlockHeader",
           "title": "Normal 50/50",
@@ -2036,6 +2045,8 @@
     "imageCarouselBlock": {
       "_type": "imageCarouselBlock",
       "_key": null,
+      "id": "image-carousel-1",
+      "subnav": null,
       "header": {
         "_type": "contentBlockHeader",
         "title": "Life at Firefly",
@@ -2147,6 +2158,8 @@
     "doubleCtaBlockExample": {
       "_type": "doubleCtaBlock",
       "_key": null,
+      "subnav": null,
+      "id": "double-cta-block-example",
       "doubleCta": {
         "_type": "doubleCta",
         "ctaOne": {
@@ -2222,8 +2235,10 @@
       }
     },
     "drawerListBlock": {
+      "id": "mock-list-about-firefly",
       "_type": "drawerListBlock",
       "_key": null,
+      "subnav": null,
       "header": {
         "_type": "contentBlockHeader",
         "title": "How It Works",
@@ -2724,6 +2739,7 @@
       ]
     },
     "sequenceBlock": {
+      "subnav": null,
       "sequenceFooter": "Our team will help you navigate the healthcare landscape throughout the whole process. ",
       "_type": "sequenceBlock",
       "_key": null,
@@ -2925,6 +2941,8 @@
     "imageBlock": {
       "_type": "imageBlock",
       "_key": null,
+      "subnav": null,
+      "id": "image-block-1",
       "header": {
         "_type": "contentBlockHeader",
         "title": "Meet some of the team behind Firefly",
@@ -2994,8 +3012,10 @@
       }
     },
     "imageTextOverlapBlock": {
+      "id": "mock-image-text-overlap-block",
       "_type": "imageTextOverlapBlock",
       "_key": null,
+      "subnav": null,
       "header": {
         "_type": "contentBlockHeader",
         "title": "If you want to make healthcare better, you’ve got to be all in. That’s why our payment rides on your wellness. Bold? You bet. But when it comes to care, accountability counts for everything.",

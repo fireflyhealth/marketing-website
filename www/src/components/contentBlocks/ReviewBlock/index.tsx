@@ -12,7 +12,7 @@ type Props = {
 };
 
 export const ReviewBlock: FC<Props> = ({ reviewBlock }) => {
-  const { header, reviewHeading, reviews } = reviewBlock;
+  const { header, reviewHeading, reviews, subnav } = reviewBlock;
 
   // State handling the number of reviews to show at a time
   const [visibleReviewsCount, setVisibleReviewsCount] = useState(3);
@@ -27,7 +27,7 @@ export const ReviewBlock: FC<Props> = ({ reviewBlock }) => {
   const isLoadMoreVisible = reviews.length > visibleReviewsCount;
 
   return (
-    <ContentBlockWrapper header={header}>
+    <ContentBlockWrapper id={subnav?.contentBlockId} header={header}>
       <div className={cn(Wrapper)}>
         <div className={cn(Header)}>
           <h2 className={cn(Title)}>{reviewHeading.title}</h2>
