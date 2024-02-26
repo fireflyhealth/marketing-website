@@ -85,7 +85,6 @@ export type NavigationExample = {
 };
 
 export type SubnavItem = {
-  _type: string;
   contentBlockId: string;
   label: string;
   ariaLabel: Maybe<string>;
@@ -105,7 +104,7 @@ export type Homepage = SanityDocument & {
   navigationOverrides?: NavigationOverrides;
   metadata?: Metadata;
   header: HeaderArea;
-  subnav: KeyedArray<SubnavItem>;
+  subnav: Maybe<boolean>;
   content: ContentArea;
 };
 export type HomepageLinkData = Pick<Homepage, '_type'>;
@@ -152,8 +151,8 @@ export type FAQPageLinkData = Pick<FAQPage, '_type'>;
 type CommonPage = SanityDocument & {
   title: string;
   header: HeaderArea;
-  subnav: KeyedArray<SubnavItem>;
   content: ContentArea;
+  subnav: Maybe<boolean>;
   metadata?: Metadata;
   slug: Slug;
   navigationOverrides?: NavigationOverrides;
@@ -182,6 +181,7 @@ export type ClientPage = SanityDocument & {
   slug: Slug;
   navigationOverrides?: NavigationOverrides;
   header: HeaderArea;
+  subnav: Maybe<boolean>;
   content: ContentArea;
   metadata?: Metadata;
 };
@@ -511,6 +511,7 @@ export type VideoHeader = {
 
 export type ImageBlock = {
   _type: 'imageBlock';
+  subnav: Maybe<SubnavItem>;
   id: Maybe<string>;
   header: Maybe<ContentBlockHeader>;
   image: RichImage;
@@ -518,6 +519,7 @@ export type ImageBlock = {
 
 export type ImageCarouselBlock = {
   _type: 'imageCarouselBlock';
+  subnav: Maybe<SubnavItem>;
   id: Maybe<string>;
   header: Maybe<ContentBlockHeader>;
   images: KeyedArray<RichImage>;
@@ -541,6 +543,7 @@ export type SequenceBlockItem = {
 
 export type SequenceBlock = {
   _type: 'sequenceBlock';
+  subnav: Maybe<SubnavItem>;
   header: Maybe<ContentBlockHeader>;
   sequenceHeader: SequenceBlockTextFields;
   sequenceItems: KeyedArray<SequenceBlockItem>;
@@ -556,6 +559,7 @@ export type CTACard = {
 
 export type CTACardsBlock = {
   _type: 'ctaCardsBlock';
+  subnav: Maybe<SubnavItem>;
   id: Maybe<string>;
   header: Maybe<ContentBlockHeader>;
   ctaCards: KeyedArray<CTACard>;
@@ -563,6 +567,7 @@ export type CTACardsBlock = {
 
 export type DoubleCtaBlock = {
   _type: 'doubleCtaBlock';
+  subnav: Maybe<SubnavItem>;
   id: Maybe<string>;
   doubleCta: DoubleCta;
   header: Maybe<ContentBlockHeader>;
@@ -584,6 +589,7 @@ export type DoubleCta = {
 
 export type PractitionersBlock = {
   _type: 'practitionersBlock';
+  subnav: Maybe<SubnavItem>;
   id: Maybe<string>;
   header: Maybe<ContentBlockHeader>;
   practitioners: PractitionerLinkData[];
@@ -591,6 +597,7 @@ export type PractitionersBlock = {
 
 export type ImageTextOverlapBlock = {
   _type: 'imageTextOverlapBlock';
+  subnav: Maybe<SubnavItem>;
   id: Maybe<string>;
   header: Maybe<ContentBlockHeader>;
   image: RichImage;
@@ -612,6 +619,7 @@ export type QuoteObject = {
 
 export type QuoteBlock = {
   _type: 'quoteBlock';
+  subnav: Maybe<SubnavItem>;
   id: Maybe<string>;
   header: Maybe<ContentBlockHeader>;
   quoteObject: QuoteObject;
@@ -630,6 +638,7 @@ export type DrawerListItem = {
 
 export type DrawerListBlock = {
   _type: 'drawerListBlock';
+  subnav: Maybe<SubnavItem>;
   id: Maybe<string>;
   header: Maybe<ContentBlockHeader>;
   drawerListItems: KeyedArray<DrawerListItem>;
@@ -642,6 +651,7 @@ export type TwoUpBlockLayout =
 
 export type TwoUpBlock = {
   _type: 'twoUpBlock';
+  subnav: Maybe<SubnavItem>;
   header: Maybe<ContentBlockHeader>;
   layout: TwoUpBlockLayout;
   mobileReverseBlockOrder: Maybe<boolean>;

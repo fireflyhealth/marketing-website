@@ -8,9 +8,9 @@ type ImageBlockProps = {
 };
 
 export const ImageBlock: FC<ImageBlockProps> = ({ imageBlock }) => {
-  const { header, image, id } = imageBlock;
+  const { header, image, subnav } = imageBlock;
   return (
-    <ContentBlockWrapper id={id} header={header}>
+    <ContentBlockWrapper id={subnav?.contentBlockId} header={header}>
       <SanityImage image={image} sizes="100vw" />
     </ContentBlockWrapper>
   );

@@ -15,18 +15,18 @@ import {
   FooterIconWrapper,
 } from './styles';
 import { SequenceLines } from './SequenceLines';
+import { ContentBlockWrapper } from '@/components/contentBlocks/ContentBlockWrapper';
 
 type Props = {
   sequenceBlock: SanityTypes.SequenceBlock;
 };
 
 export const SequenceBlock: FC<Props> = ({ sequenceBlock }) => {
-  const { header, sequenceHeader, sequenceItems, sequenceFooter } =
+  const { header, sequenceHeader, sequenceItems, sequenceFooter, subnav } =
     sequenceBlock;
 
   return (
-    <>
-      {header && <ContentBlockHeader header={header} />}
+    <ContentBlockWrapper id={subnav?.contentBlockId} header={header}>
       <div className={cn(Wrapper)}>
         <div className={cn(Container)}>
           <div className={cn(Header)}>
@@ -53,6 +53,6 @@ export const SequenceBlock: FC<Props> = ({ sequenceBlock }) => {
           </div>
         </div>
       </div>
-    </>
+    </ContentBlockWrapper>
   );
 };

@@ -6,7 +6,6 @@ import {
   contentBlockFragment,
   footerFragment,
   doubleCtaFragment,
-  subnavItemFragment,
 } from './fragments';
 
 export const siteSettingsFragment = `
@@ -32,7 +31,7 @@ export const pageFragment = `
   slug,
   navigationOverrides {${navigationOverridesFragment}},
   'header': header[] {${headerBlockFragment}}[0],
-  subnav[] {${subnavItemFragment}},
+  subnav,
   content {${contentBlockFragment}}[],
   metadataFragment{${metadataFragment}}
 `;

@@ -13,10 +13,14 @@ type Props = {
 };
 
 export const DoubleCtaBlock: FC<Props> = ({ doubleCtaBlock }) => {
-  const { id, header, doubleCta } = doubleCtaBlock;
+  const { subnav, header, doubleCta } = doubleCtaBlock;
 
   return (
-    <ContentBlockWrapper id={id} header={header} wrapperPadding={false}>
+    <ContentBlockWrapper
+      id={subnav?.contentBlockId}
+      header={header}
+      wrapperPadding={false}
+    >
       <div className={cn(Wrapper)}>
         <DoubleCTA doubleCta={doubleCta} />
       </div>

@@ -18,8 +18,8 @@ export const Homepage = defineType({
     }),
     defineField({
       name: 'subnav',
-      title: 'Subnavigation',
-      type: 'subnav',
+      title: 'Render Subnav',
+      type: 'boolean',
     }),
     defineField({
       name: 'content',

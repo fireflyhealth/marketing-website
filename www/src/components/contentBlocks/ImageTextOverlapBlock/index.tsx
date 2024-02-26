@@ -12,10 +12,10 @@ type Props = {
 };
 
 export const ImageTextOverlapBlock: FC<Props> = ({ imageTextOverlapBlock }) => {
-  const { header, image, copy, id } = imageTextOverlapBlock;
+  const { header, image, copy, subnav } = imageTextOverlapBlock;
 
   return (
-    <ContentBlockWrapper id={id} header={header}>
+    <ContentBlockWrapper id={subnav?.contentBlockId} header={header}>
       <div className={cn(Wrapper, 'ImageTextOverlapBlock')}>
         <div className={cn(ImageWrapper)}>
           <SanityImage image={image} sizes={['100vw, 85vw']} />

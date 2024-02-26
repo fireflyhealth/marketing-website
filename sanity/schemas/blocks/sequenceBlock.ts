@@ -1,5 +1,6 @@
 import { defineType, defineField, defineArrayMember } from 'sanity';
 import { icons } from '../../lib/icons';
+import { requiredBlockFields } from './utils/requiredBlockFields';
 
 export const SequenceBlockTextFields = defineField({
   name: 'sequenceBlockTextFields',
@@ -91,11 +92,7 @@ export const SequenceBlock = defineType({
   icon: icons.SequenceBlock,
   type: 'object',
   fields: [
-    defineField({
-      name: 'header',
-      type: 'contentBlockHeader',
-      title: 'Header',
-    }),
+    ...requiredBlockFields,
     defineField({
       name: 'sequenceHeader',
       title: 'Sequence Heading',

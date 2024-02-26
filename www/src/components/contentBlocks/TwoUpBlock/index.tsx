@@ -17,9 +17,10 @@ export const TwoUpBlock: FC<TwoUpBlockProps> = ({ twoUpBlock }) => {
     blockOne,
     blockTwo,
     blockThemes,
+    subnav,
   } = twoUpBlock;
   return (
-    <ContentBlockWrapper header={header}>
+    <ContentBlockWrapper id={subnav?.contentBlockId} header={header}>
       <div
         className={cn(
           'TwoUpBlock',

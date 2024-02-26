@@ -418,10 +418,17 @@ export const sequenceBlockFragment = `
   sequenceFooter
 `;
 
+export const subnavItemFragment = `
+  label,
+  contentBlockId,
+  ariaLabel,
+`;
+
 export const contentBlockFragment = `
   _type,
   _key,
   id,
+  subnav {${subnavItemFragment}},
   _type == "imageBlock" => {
     header {
       ${contentBlockHeaderFragment}
@@ -582,11 +589,4 @@ export const navigationOverridesFragment = `
     _type,
     body,
   },
-  `;
-
-export const subnavItemFragment = `
-  _key,
-  label,
-  contentBlockId,
-  ariaLabel,
   `;

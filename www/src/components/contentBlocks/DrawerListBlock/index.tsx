@@ -140,13 +140,13 @@ type DrawerListBlockProps = {
 export const DrawerListBlock: FC<DrawerListBlockProps> = ({
   drawerListBlock,
 }) => {
-  const { header, drawerListItems, id } = drawerListBlock;
+  const { header, drawerListItems, subnav } = drawerListBlock;
   const [currentListItem, setCurrentListItem] = useState<string>(
     drawerListItems[0]._key,
   );
   const createExpandListItem = (key: string) => () => setCurrentListItem(key);
   return (
-    <ContentBlockWrapper id={id} header={header}>
+    <ContentBlockWrapper id={subnav?.contentBlockId} header={header}>
       {drawerListItems.map((drawerListItem, index) => (
         <DrawerListItem
           blockHeaderTitle={header?.title}

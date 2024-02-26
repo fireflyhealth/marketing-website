@@ -66,7 +66,6 @@ import { DrawerListBlock, DrawerListItem } from './blocks/drawerListBlock';
 import { Theme } from './fields/theme';
 import { RichTextCtaRow } from './fields/richTextCtaRow';
 import { QuoteChildBlock } from './childBlocks/quoteChildBlock';
-import { Subnav, SubnavItem } from './fields/subnav';
 
 export const schemaTypes = [
   /* Document Types */
@@ -84,9 +83,6 @@ export const schemaTypes = [
   MockData,
   Navigation,
   Practitioner,
-
-  Subnav,
-  SubnavItem,
 
   /* Header Blocks */
   HeaderArea,

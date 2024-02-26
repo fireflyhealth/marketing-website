@@ -61,7 +61,7 @@ export const SubnavContainer: FC<{
   return (
     <div ref={subnavRef} className={cn(wrapperClassName)}>
       <div className={cn(innerWrapperClassName)}>
-        {subnav.map((item) => (
+        {subnav?.map((item) => (
           <SubnavItem
             key={`${id}-${item.contentBlockId}`}
             item={item}
