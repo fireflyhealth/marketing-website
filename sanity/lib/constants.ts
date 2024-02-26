@@ -104,6 +104,7 @@ export const defaultContentBlockTypes = [
   { type: 'sequenceBlock' },
   { type: 'reviewBlock' },
   { type: 'imageGridBlock' },
+  { type: 'faqBlock' },
 ];
 
 /**

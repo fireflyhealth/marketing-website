@@ -83,6 +83,12 @@ export const richTextFragmentNoLink = `
   }
 `;
 
+export const simpleRichTextFragmentNoLink = `
+  _key,
+  _type,
+  ...,
+`;
+
 /* Fetches the fields needed to create URLs for documents
  * based on the _type. See the LinkableDocument type
  * in @types/sanity
@@ -150,7 +156,7 @@ export const linkableDocumentFragment = `
       ${imageFragment}
     },
     blurb[]{
-      ${richTextFragmentNoLink}
+      ${simpleRichTextFragmentNoLink}
     }
   }
 `;
@@ -228,6 +234,33 @@ export const bigNumbersFragment = `
   }
 `;
 
+export const limitedRichTextFragment = `
+  _key,
+  _type,
+  ...,
+  _type == "barGraphObject" => {
+    ${barGraphFragment}
+  },
+  _type == "bigNumbers" => {
+    ${bigNumbersFragment}
+  },
+  _type == "richTextCtaRow" => {
+    ctas[]{
+      _key,
+      ${ctaFragment}
+    }
+  },
+  markDefs[]{
+    _key,
+    _type,
+    _type == "link" => {
+      link {
+        ${linkFragment}
+      }
+    },
+  }
+`;
+
 /* Make sure the parent property includes the brackets, i.e.
  *
  * content[]{
@@ -291,7 +324,7 @@ const childContentBlockFragment = `
   _type == "richTextChildBlock" => {
     heading,
     body[]{
-      ${richTextFragment}
+      ${limitedRichTextFragment}
     }
   },
   _type == "imageChildBlock" => {
@@ -316,7 +349,7 @@ export const contentBlockHeaderFragment = `
   _type,
   title,
   description[]{
-    ${richTextFragment}
+    ${simpleRichTextFragment}
   },
   cta {
     ${ctaFragment}
@@ -349,7 +382,7 @@ const sequenceBlockTextFieldsFragment = `
   _type,
   title,
   bellyButtonText,
-  description  
+  description
 `;
 
 export const imageTextOverlapFragment = `
@@ -421,7 +454,7 @@ export const reviewBlockFragmnet = `
     _type,
     title,
     description[]{
-      ${richTextFragment}
+      ${simpleRichTextFragment}
     }
   },
   reviews[]{${reviewFragment}}
@@ -518,7 +551,7 @@ export const contentBlockFragment = `
       _type,
       title,
       body[]{
-        ${richTextFragment}
+        ${simpleRichTextFragment}
       },
       ctaLink{
         ${linkWithLabelFragment}
@@ -536,7 +569,29 @@ export const contentBlockFragment = `
   _type == "twoUpBlock" => {${twoUpBlockFragment}},
   _type == "reviewBlock" => {${reviewBlockFragmnet}},
   _type == "sequenceBlock" => {${sequenceBlockFragment}},
-  _type == "imageGridBlock" => {${imageGridBlockFragment}}
+  _type == "imageGridBlock" => {${imageGridBlockFragment}},
+  _type == "sequenceBlock" => {${sequenceBlockFragment}},
+  _type == "faqBlock" => {
+    header {
+      ${contentBlockHeaderFragment}
+    },
+    theme,
+    blockTitle,
+    blockDescription[]{
+      ${simpleRichTextFragment}
+    },
+    blockCta{
+      ${ctaFragment}
+    },
+    faqs[]->{
+      _id,
+      _type,
+      question,
+      answer[]{
+        ${simpleRichTextFragment}
+      }
+    }
+  }
 `;
 
 export const videoHeaderFragment = `
@@ -544,7 +599,7 @@ export const videoHeaderFragment = `
   heading,
   video{${videoFragment}},
   body[]{
-    ${richTextFragment}
+    ${simpleRichTextFragment}
   }
 `;
 

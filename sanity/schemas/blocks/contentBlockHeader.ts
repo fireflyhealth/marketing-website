@@ -11,10 +11,6 @@ export const ContentBlockHeader = defineType({
      * within a block that is the child of a "Parent Block" (i.e. 2-up block), but the context only
      * includes the immediate parent, so we can't determine if it is within one of these parent blocks. */
     'Note: The Header is ignored on content blocks that are children of other content blocks, i.e. those used within a 2-Up Block',
-  options: {
-    collapsible: true,
-    collapsed: true,
-  },
   fields: [
     defineField({
       name: 'title',
