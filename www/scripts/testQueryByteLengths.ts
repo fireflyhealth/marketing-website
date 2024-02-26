@@ -14,7 +14,7 @@ type Result = { queryName: string; byteLength: number };
 
 const main = () => {
   console.log(
-    `Checking that sanity queries to not exceed the byte maximum of ${SANITY_MAX}`,
+    `Checking that sanity queries do not exceed the byte maximum of ${SANITY_MAX}`,
   );
   const results = Object.entries(queries).reduce<Result[]>(
     (prev, [key, query]) => [
