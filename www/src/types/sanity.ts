@@ -725,6 +725,7 @@ export type ImageGridBlock = {
 
 export type FAQBlock = {
   _type: 'faqBlock';
+  subnav: Maybe<SubnavItem>;
   header: Maybe<ContentBlockHeader>;
   theme: ColorTheme;
   blockTitle: string;

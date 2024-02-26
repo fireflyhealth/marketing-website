@@ -1,5 +1,6 @@
 import { defineType, defineField, defineArrayMember } from 'sanity';
 import { icons } from '../../lib/icons';
+import { requiredBlockFields } from './utils/requiredBlockFields';
 
 export const FAQBlock = defineType({
   name: 'faqBlock',
@@ -7,11 +8,7 @@ export const FAQBlock = defineType({
   type: 'object',
   icon: icons.Question,
   fields: [
-    defineField({
-      name: 'header',
-      type: 'contentBlockHeader',
-      title: 'Header',
-    }),
+    ...requiredBlockFields,
     defineField({
       name: 'theme',
       title: 'Theme',
