@@ -44,4 +44,24 @@ export const TabsBlock = defineType({
       of: [defineArrayMember({ type: 'tabsBlockTab' })],
     }),
   ],
+  preview: {
+    select: {
+      header: 'header',
+      tabs: 'tabs',
+    },
+    prepare: ({ header, tabs }) => {
+      const subtitle = header?.title
+        ? header.title
+        : tabs?.length
+          ? tabs
+              .map((tab) => tab.label)
+              .filter(Boolean)
+              .join(', ')
+          : undefined;
+      return {
+        title: 'Tabs Block',
+        subtitle,
+      };
+    },
+  },
 });
