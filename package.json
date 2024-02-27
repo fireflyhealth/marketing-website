@@ -8,7 +8,7 @@
   "license": "UNLICENSED",
   "private": true,
   "scripts": {
-    "prepare": "husky install"
+    "prepare": "husky install && yarn workspace firefly-health-website update-mock-data"
   },
   "workspaces": [
     "www",
