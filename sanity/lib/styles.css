@@ -18,6 +18,14 @@ div[data-testid='text-style--blockquote-large'] span {
   }
 }
 
+.icon-base {
+  fill: #ffd714;
+}
+
+.icon-overlap {
+  fill: #f9bb2c;
+}
+
 div[data-testid='text-style--blockquote'] span {
   font-size: 22px;
   line-height: 130%;

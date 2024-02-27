@@ -36,3 +36,11 @@ export const formatSanityDate = (date: string) => {
     day: 'numeric',
   });
 };
+
+/**
+ * Removes '-' and capitalizes first letter in string passed to the function.
+ */
+export function normalizeString(str: string) {
+  str = str.replace(/-/g, ' ');
+  return str.charAt(0).toUpperCase() + str.slice(1);
+}

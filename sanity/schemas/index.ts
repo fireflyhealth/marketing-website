@@ -74,6 +74,7 @@ import { RichTextCtaRow } from './fields/richTextCtaRow';
 import { QuoteChildBlock } from './childBlocks/quoteChildBlock';
 import { FAQBlock } from './blocks/faqBlock';
 import { FeaturedStoriesBlock } from './blocks/featuredStoriesBlock';
+import { Icon } from './fields/icon';
 
 export const schemaTypes = [
   /* Document Types */
@@ -155,4 +156,5 @@ export const schemaTypes = [
   SequenceItem,
   ReviewHeading,
   ReviewItem,
+  Icon,
 ];

@@ -1,33 +1,38 @@
 import { FC } from 'react';
 import cn from 'classnames';
 
+export const iconTypes = [
+  'arrow-left',
+  'arrow-right',
+  'arrow-up',
+  'arrow-down',
+  'checkmark',
+  'house',
+  'navigation-pin',
+  'star',
+  'video-camera',
+  'close',
+  'app',
+  'business',
+  'care-team',
+  'cost',
+  'clipboard',
+  'doctor',
+  'doctors-office',
+  'firefly-nearby',
+  'health-cross',
+  'heart',
+  'id',
+  'navigation-compass',
+  'navigation-map',
+  'pill',
+  'video-call',
+] as const;
+
+export type IconTypeName = (typeof iconTypes)[number];
+
 export type Props = {
-  type:
-    | 'arrow-left'
-    | 'arrow-right'
-    | 'arrow-up'
-    | 'arrow-down'
-    | 'checkmark'
-    | 'house'
-    | 'navigation-pin'
-    | 'star'
-    | 'video-camera'
-    | 'close'
-    | 'app'
-    | 'business'
-    | 'care-team'
-    | 'cost'
-    | 'clipboard'
-    | 'doctor'
-    | 'doctors-office'
-    | 'firefly-nearby'
-    | 'health-cross'
-    | 'heart'
-    | 'id'
-    | 'navigation-compass'
-    | 'navigation-map'
-    | 'pill'
-    | 'video-call';
+  type: IconTypeName;
   wrapperStyles?: string;
   iconStyles?: string;
   id?: string;
