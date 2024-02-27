@@ -212,6 +212,16 @@ export const MockData = defineType({
           },
           validation: (Rule) => Rule.required(),
         }),
+        defineField({
+          name: 'columnsBlocks',
+          type: 'array',
+          of: [
+            {
+              type: 'columnsBlock',
+            },
+          ],
+          validation: (Rule) => Rule.required(),
+        }),
       ],
     }),
     defineField({

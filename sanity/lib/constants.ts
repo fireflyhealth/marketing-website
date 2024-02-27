@@ -59,24 +59,6 @@ export const linkableDocumentTypes = [
   'practitioner',
 ];
 
-export const brandedIcons = [
-  { title: 'App', value: 'app' },
-  { title: 'Business', value: 'business' },
-  { title: 'Care Team', value: 'care-team' },
-  { title: 'Cost', value: 'cost' },
-  { title: 'Clipboard', value: 'clipboard' },
-  { title: 'Doctor', value: 'doctor' },
-  { title: 'Doctors Office', value: 'doctors-office' },
-  { title: 'Firefly Nearby', value: 'firefly-nearby' },
-  { title: 'Health Cross', value: 'health-cross' },
-  { title: 'Heart', value: 'heart' },
-  { title: 'ID', value: 'id' },
-  { title: 'Navigation Compass', value: 'navigation-compass' },
-  { title: 'Navigation Map', value: 'navigation-map' },
-  { title: 'Pill', value: 'pill' },
-  { title: 'Video Call', value: 'video-call' },
-];
-
 export const themeOptions = [
   { title: 'White', value: 'white' },
   { title: 'Grey', value: 'grey' },
@@ -91,6 +73,9 @@ export const themeOptions = [
  *
  * (These always have a 'header' field)
  */
+
+/* TODO: Would be nice to better organize these for editors.
+ * Alphabetically? Grouped by content type? */
 export const defaultContentBlockTypes = [
   { type: 'imageBlock' },
   { type: 'imageCarouselBlock' },
@@ -107,20 +92,5 @@ export const defaultContentBlockTypes = [
   { type: 'faqBlock' },
   { type: 'cardListBlock' },
   { type: 'featuredStoriesBlock' },
-];
-
-/**
- * Content blocks that are used as children within
- * other blocks (i.e. 2-up block).
- *
- * Note that some of these also appear as options within
- * Rich Text.
- *
- * (These do not have a 'header' field)
- */
-export const childContentBlockTypes = [
-  { type: 'richTextChildBlock' },
-  { type: 'imageChildBlock' },
-  { type: 'bigNumbers' },
-  { type: 'quoteChildBlock' },
+  { type: 'columnsBlock' },
 ];

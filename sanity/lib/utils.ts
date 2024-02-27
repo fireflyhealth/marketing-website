@@ -1,3 +1,9 @@
+/**
+ * Converts camelCase text into Sentence Case
+ * (actually all uppercase words sentence case)
+ *
+ * frankTheDog => Frank The Dog
+ */
 export const camelCaseToSentence = (value: string): string => {
   /* Make the first character uppercase */
   const upCased = [value.charAt(0).toUpperCase(), ...value.slice(1)].join('');
@@ -9,6 +15,19 @@ export const camelCaseToSentence = (value: string): string => {
   }
   return Array.from(matches).join(' ');
 };
+
+/**
+ * Converts snake-case text into Sentence Case
+ * (actually all uppercase words sentence case)
+ *
+ * Removes '-' and capitalizes first letter in string passed to the function.
+ *
+ * frank-the-dog => Frank The Dog
+ */
+export function snakeCaseToSentence(str: string) {
+  str = str.replace(/-/g, ' ');
+  return str.charAt(0).toUpperCase() + str.slice(1);
+}
 
 /**
  * Formats a sanity date string, i.e. "1986-07-12" -> July 12, 1986
@@ -36,11 +55,3 @@ export const formatSanityDate = (date: string) => {
     day: 'numeric',
   });
 };
-
-/**
- * Removes '-' and capitalizes first letter in string passed to the function.
- */
-export function normalizeString(str: string) {
-  str = str.replace(/-/g, ' ');
-  return str.charAt(0).toUpperCase() + str.slice(1);
-}
