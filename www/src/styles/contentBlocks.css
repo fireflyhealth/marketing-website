@@ -208,3 +208,22 @@
     }
   }
 }
+
+.TextWithDualCtaHeader {
+  &__cta--bottom:hover,
+  &__cta--top:hover {
+    height: 288px;
+
+    @screen md {
+      height: 638px;
+    }
+  }
+
+  .TextWithDualCtaHeader__cta-wrapper:hover > a:not(:hover) {
+    height: 132px;
+
+    img {
+      opacity: 0;
+    }
+  }
+}

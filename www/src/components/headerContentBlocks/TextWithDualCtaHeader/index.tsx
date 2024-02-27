@@ -1,9 +1,13 @@
 import { FC } from 'react';
 import cn from 'classnames';
+
 import * as SanityTypes from '@/types/sanity';
 import { Theme } from '@/components/Theme';
 import { RichText } from '@/components/RichText';
 import { CTA } from '@/components/CTA';
+import { SanityImage } from '@/atoms/Image/SanityImage';
+import { Link } from '@/atoms/Link';
+import { BrandedIcon } from '@/svgs/BrandedIcon';
 
 import {
   ThemeWrapper,
@@ -14,14 +18,66 @@ import {
   Body,
   CTAWrapper,
   CTAsWrapper,
+  DualCtaWrapper,
+  DualCta as DualCtaStyles,
+  DualCtaImage,
+  DualCtaImageTop,
+  DualCtaImageBottom,
+  ButtonEyebrow,
+  ButtonLabel,
+  ButtonTextContentWrapper,
+  ButtonContentWrapper,
+  DualCtaTop,
+  DualCtaBottom,
+  DualCtaTheme,
 } from './styles';
+
+const DualCta: FC<{
+  cta: SanityTypes.TextWithDualCtaHeaderCta;
+  position: 'top' | 'bottom';
+}> = ({ cta, position }) => {
+  const { image, eyebrow, label, link, ariaLabel, theme } = cta;
+  const isTop = position === 'top';
+
+  return (
+    <Link
+      className={cn(DualCtaStyles, isTop ? DualCtaTop : DualCtaBottom)}
+      link={link}
+      ariaLabel={ariaLabel}
+    >
+      <Theme className={cn(DualCtaTheme)} theme={theme}>
+        <div className={cn(ButtonContentWrapper)}>
+          {eyebrow && <p className={cn(ButtonEyebrow)}>{eyebrow}</p>}
+          <div className={cn(ButtonTextContentWrapper)}>
+            <p className={cn(ButtonLabel)}>{label}</p>
+            <BrandedIcon
+              type="arrow-right"
+              wrapperStyles="w-12"
+              iconStyles="theme-white"
+            />
+          </div>
+        </div>
+        <SanityImage
+          image={image}
+          sizes={['50vw, 100vw']}
+          className={cn(
+            DualCtaImage,
+            isTop ? DualCtaImageTop : DualCtaImageBottom,
+          )}
+          rounded={false}
+        />
+      </Theme>
+    </Link>
+  );
+};
 
 type Props = {
   texWithDualCtaHeader: SanityTypes.TextWithDualCtaHeader;
 };
 
 export const TexWithDualCtaHeader: FC<Props> = ({ texWithDualCtaHeader }) => {
-  const { eyebrow, heading, body, theme, ctas } = texWithDualCtaHeader;
+  const { eyebrow, heading, body, theme, ctas, topCta, bottomCta } =
+    texWithDualCtaHeader;
 
   return (
     <Theme theme={theme} className={cn(ThemeWrapper)}>
@@ -40,6 +96,10 @@ export const TexWithDualCtaHeader: FC<Props> = ({ texWithDualCtaHeader }) => {
             </div>
           ) : null}
         </div>
+      </div>
+      <div className={cn(DualCtaWrapper)}>
+        <DualCta cta={topCta} position="top" />
+        <DualCta cta={bottomCta} position="bottom" />
       </div>
     </Theme>
   );

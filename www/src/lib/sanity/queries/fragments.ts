@@ -627,8 +627,7 @@ const dualCtaHeaderCtaFragment = `
   link {
     ${linkFragment}
   },
-  activeTheme,
-  inactiveTheme
+  theme
 `;
 
 export const textWithDualCtaHeaderFragment = `

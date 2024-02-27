@@ -481,14 +481,13 @@ export type TextHeader = {
   gradientBackground: boolean;
 };
 
-type TextWithDualCtaHeaderCta = {
+export type TextWithDualCtaHeaderCta = {
   image: RichImage;
   eyebrow: Maybe<string>;
   label: string;
   link: Link;
   ariaLabel: Maybe<string>;
-  activeTheme: ColorTheme;
-  inactiveTheme: ColorTheme;
+  theme: ColorTheme;
 };
 
 export type TextWithDualCtaHeader = {
