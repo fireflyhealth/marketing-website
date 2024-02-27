@@ -1,6 +1,7 @@
 import { defineType, defineField, defineArrayMember } from 'sanity';
 
 import { icons } from '../../lib/icons';
+import { requiredBlockFields } from './utils/requiredBlockFields';
 
 export const TabsBlockTab = defineType({
   name: 'tabsBlockTab',
@@ -29,15 +30,7 @@ export const TabsBlock = defineType({
   type: 'object',
   icon: icons.Tabs,
   fields: [
-    defineField({
-      name: 'header',
-      type: 'contentBlockHeader',
-      title: 'Header',
-      options: {
-        collapsible: true,
-        collapsed: true,
-      },
-    }),
+    ...requiredBlockFields,
     defineField({
       name: 'tabs',
       type: 'array',
