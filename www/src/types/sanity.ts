@@ -770,7 +770,7 @@ export type CardListBlock = ContentBlockCommon & {
 };
 
 /* Used as a child of the TabsBlock component */
-export type TwoUpObject = Omit<TwoUpBlock, '_type' | 'header'> & {
+export type TwoUpObject = Omit<TwoUpBlock, '_type' | 'header' | 'subnav'> & {
   _type: 'twoUpObject';
 };
 

@@ -29,9 +29,9 @@ type TabsBlockProps = {
 };
 
 export const TabsBlock: FC<TabsBlockProps> = ({ tabsBlock }) => {
-  const { header, tabs } = tabsBlock;
+  const { header, tabs, subnav } = tabsBlock;
   return (
-    <ContentBlockWrapper header={header}>
+    <ContentBlockWrapper header={header} id={subnav?.contentBlockId}>
       <Tabs
         tabs={tabs.map((tab) => ({
           _key: tab._key,
