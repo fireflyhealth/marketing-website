@@ -4,7 +4,6 @@ import { GenericPage, SubPage } from './documents/genericPage';
 import {
   ContactPage,
   DownloadPage,
-  FAQPage,
   NotFoundPage,
 } from './documents/specialPages';
 import { ClientPage } from './documents/clientPage';
@@ -82,6 +81,7 @@ import { FeaturedStoriesBlock } from './blocks/featuredStoriesBlock';
 import { Icon } from './fields/icon';
 import { ColumnsBlock, ColumnsObject } from './blocks/columnsBlock';
 import { BlogArticleTag } from './documents/blogArticleTag';
+import { FAQPage } from './documents/faqPage';
 
 export const schemaTypes = [
   /* Document Types */
