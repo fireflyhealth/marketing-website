@@ -23,6 +23,8 @@ import {
   FAQBlock,
   CardListBlock,
   FeaturedStoriesBlock,
+  ColumnsBlock,
+  KeyedArray,
 } from '@/types/sanity';
 import mockData from './mockData.json';
 
@@ -97,3 +99,6 @@ export const faqBlockExample = mockData.contentBlockExamples
 
 export const cardListBlockExample = mockData.contentBlockExamples
   .cardListBlockExample as CardListBlock;
+
+export const columnsBlockExamples = mockData.contentBlockExamples
+  .columnsBlocks as KeyedArray<ColumnsBlock>;

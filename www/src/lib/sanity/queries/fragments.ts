@@ -220,19 +220,23 @@ export const linkWithLabelFragment = `
   }
 `;
 
+const bigNumberFragment = `
+  _key,
+  _type,
+  unit {
+    unitValue,
+    position
+  },
+  value,
+  description[]{
+    ${simpleRichTextFragment}
+  }
+`;
+
 export const bigNumbersFragment = `
   _type,
   bigNumbers[]{
-    _key,
-    _type,
-    unit {
-      unitValue,
-      position
-    },
-    value,
-    description[]{
-      ${simpleRichTextFragment}
-    }
+    ${bigNumberFragment}
   },
   citation[]{
     ${simpleRichTextFragment}
@@ -327,6 +331,7 @@ export const quoteObjectFragment = `
 const childContentBlockFragment = `
   _type,
   _type == "richTextChildBlock" => {
+    icon,
     heading,
     body[]{
       ${limitedRichTextFragment}
@@ -336,6 +341,9 @@ const childContentBlockFragment = `
     image {
       ${imageFragment}
     }
+  },
+  _type == "bigNumber" => {
+    ${bigNumberFragment}
   },
   _type == "bigNumbers" => {
     ${bigNumbersFragment}
@@ -519,10 +527,17 @@ export const cardlistBlockFragment = `
   drawerListItems[]{${drawerListItem}}
 `;
 
+export const columnsBlockFragment = `
+  columnCount,
+  theme,
+  content[]{${childContentBlockFragment}}
+`;
+
 export const contentBlockFragment = `
   _type,
   _key,
   subnav {${subnavItemFragment}},
+  header{${contentBlockHeaderFragment}},
   _type == "imageBlock" => {
     header {
       ${contentBlockHeaderFragment}
@@ -609,7 +624,8 @@ export const contentBlockFragment = `
       ${linkableDocumentFragment}
     }
   },
-  _type == "cardListBlock" => {${cardlistBlockFragment}}
+  _type == "cardListBlock" => {${cardlistBlockFragment}},
+  _type == "columnsBlock" => {${columnsBlockFragment}}
 `;
 
 export const videoHeaderFragment = `

@@ -1,5 +1,6 @@
 import { PortableTextBlock } from '@portabletext/types';
 import { ColorTheme } from '@/components/Theme';
+import { IconTypeName } from '@/svgs/BrandedIcon';
 
 /**
  * Generic
@@ -16,8 +17,6 @@ export type DocumentReference = {
   _ref: string;
   _weak?: boolean;
 };
-
-export type Theme = 'white' | 'grey' | 'sienna' | 'midnight' | 'sky';
 
 interface SanityDocument {
   _id: string;
@@ -446,7 +445,7 @@ export type BarGraph = {
 
 export type IconBlock = {
   _type: 'icon';
-  icon: string;
+  icon: IconTypeName;
 };
 export type BigNumber = {
   _type: 'bigNumber';
@@ -509,11 +508,13 @@ export type ChildContentBlock =
   | RichTextChildBlock
   | ImageChildBlock
   | QuoteChildBlock
-  | BigNumbers;
+  | BigNumbers
+  | BigNumber;
 
 export type RichTextChildBlock = {
   _type: 'richTextChildBlock';
-  heading: string;
+  icon: Maybe<IconBlock>;
+  heading: Maybe<string>;
   body: LimitedRichText;
 };
 
@@ -544,7 +545,8 @@ export type ContentBlock =
   | ImageGridBlock
   | FAQBlock
   | CardListBlock
-  | FeaturedStoriesBlock;
+  | FeaturedStoriesBlock
+  | ColumnsBlock;
 
 export type ContentArea = KeyedArray<ContentBlock>;
 
@@ -584,7 +586,7 @@ export type SequenceBlockItem = {
   _key: string;
   video: Video;
   copy: SequenceBlockTextFields;
-  theme: Maybe<string>;
+  theme: Maybe<ColorTheme>;
   isHighlighted: boolean;
 };
 
@@ -734,9 +736,16 @@ export type FAQBlock = ContentBlockCommon & {
   faqs: Array<FAQ>;
 };
 
-export type CardListBlock = {
+export type CardListBlock = ContentBlockCommon & {
   _type: 'cardListBlock';
-  subnav: Maybe<SubnavItem>;
-  header: Maybe<ContentBlockHeader>;
   drawerListItems: KeyedArray<DrawerListItem>;
+};
+
+export type ColumnsBlockContent = RichTextChildBlock | BigNumber;
+
+export type ColumnsBlock = ContentBlockCommon & {
+  _type: 'columnsBlock';
+  columnCount: 4 | 3 | 2;
+  theme: ColorTheme;
+  content: KeyedArray<ColumnsBlockContent>;
 };
