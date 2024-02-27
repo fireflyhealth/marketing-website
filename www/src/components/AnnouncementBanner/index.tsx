@@ -27,11 +27,15 @@ export const AnnouncementBanner: FC<Props> = ({ announcementBanner }) => {
       );
   }, [bannerRef, announcementBanner]);
   return (
-    <div
-      ref={bannerRef}
-      className={cn(Wrapper, announcementBanner ? 'absolute' : 'hidden')}
-    >
-      <p>{announcementBanner.body}</p>
-    </div>
+    <>
+      {announcementBanner && (
+        <div
+          ref={bannerRef}
+          className={cn(Wrapper, announcementBanner ? 'absolute' : 'hidden')}
+        >
+          <p>{announcementBanner.body}</p>
+        </div>
+      )}
+    </>
   );
 };
