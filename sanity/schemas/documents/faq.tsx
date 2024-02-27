@@ -15,6 +15,15 @@ export const FrequentlyAskedQuestion = defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
+      name: 'slug',
+      type: 'slug',
+      title: 'Slug',
+      options: {
+        source: 'question',
+      },
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
       name: 'answer',
       title: 'Answer',
       type: 'simpleRichText',
