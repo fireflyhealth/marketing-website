@@ -40,11 +40,6 @@ export const Blog = defineType({
       type: 'headerArea',
     }),
     defineField({
-      name: 'content',
-      title: 'Content',
-      type: 'contentArea',
-    }),
-    defineField({
       name: 'metadata',
       type: 'metadata',
       title: 'Metadata',

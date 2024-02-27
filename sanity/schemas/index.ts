@@ -19,6 +19,7 @@ import { FrequentlyAskedQuestion } from './documents/faq';
 /* Headers */
 import { VideoHeader } from './headers/videoHeader';
 import { TextHeader } from './headers/textHeader';
+import { SimpleTextHeader } from './headers/simpleTextHeader';
 
 /* Child Blocks */
 
@@ -96,6 +97,7 @@ export const schemaTypes = [
   HeaderArea,
   VideoHeader,
   TextHeader,
+  SimpleTextHeader,
 
   /* Default Blocks (used within ContentArea, each has a heading) */
   ImageBlock,
