@@ -533,7 +533,8 @@ export type ChildContentBlock =
   | ImageChildBlock
   | QuoteChildBlock
   | BigNumbers
-  | BigNumber;
+  | BigNumber
+  | CTACard;
 
 export type RichTextChildBlock = {
   _type: 'richTextChildBlock';
@@ -787,7 +788,7 @@ export type TabsBlockTab = {
   content: TabsBlockChild;
 };
 
-export type ColumnsBlockContent = RichTextChildBlock | BigNumber;
+export type ColumnsBlockContent = RichTextChildBlock | BigNumber | CTACard;
 
 type ColumnsObjectCommon = {
   columnCount: 4 | 3 | 2;
