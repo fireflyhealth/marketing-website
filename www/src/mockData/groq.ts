@@ -1,9 +1,9 @@
 import {
   contentBlockFragment,
-  headerBlockFragment,
   ctaFragment,
   doubleCtaFragment,
   footerFragment,
+  headerBlockFragment,
   imageFragment,
   linkWithLabelFragment,
   navigationFragment,
@@ -32,7 +32,8 @@ export const mockDataQuery = `
       quoteBlockExample{${contentBlockFragment}},
       twoUpBlocks[]{${contentBlockFragment}},
       faqBlock{${contentBlockFragment}},
-      cardListBlockExample{${contentBlockFragment}}
+      cardListBlockExample{${contentBlockFragment}},
+      featuredStoriesBlock{${contentBlockFragment}},
     },
     navigationExample{
       globalNav->{${navigationFragment}},

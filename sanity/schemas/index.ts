@@ -72,6 +72,7 @@ import { Theme } from './fields/theme';
 import { RichTextCtaRow } from './fields/richTextCtaRow';
 import { QuoteChildBlock } from './childBlocks/quoteChildBlock';
 import { FAQBlock } from './blocks/faqBlock';
+import { FeaturedStoriesBlock } from './blocks/featuredStoriesBlock';
 
 export const schemaTypes = [
   /* Document Types */
@@ -119,6 +120,7 @@ export const schemaTypes = [
   RichTextChildBlock,
   QuoteChildBlock,
   ImageChildBlock,
+  FeaturedStoriesBlock,
 
   /* Field Types */
   ContentBlockHeader,

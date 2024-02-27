@@ -22,6 +22,7 @@ import {
   ImageGridBlock,
   FAQBlock,
   CardListBlock,
+  FeaturedStoriesBlock,
 } from '@/types/sanity';
 import mockData from './mockData.json';
 
@@ -60,6 +61,8 @@ export const practitionersBlockExample = {
 
 export const drawerListBlockExample = mockData.contentBlockExamples
   .drawerListBlock as DrawerListBlock;
+export const featuredStoriesBlockExample = mockData.contentBlockExamples
+  .featuredStoriesBlock as FeaturedStoriesBlock;
 
 export const simpleRichText = mockData.simpleRichText as RichText;
 export const articleRichText = mockData.articleRichText as RichText;
