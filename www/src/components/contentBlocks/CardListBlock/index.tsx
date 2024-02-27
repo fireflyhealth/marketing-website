@@ -16,13 +16,13 @@ type Props = {
 };
 
 export const CardListBlock: FC<Props> = ({ cardListBlock }) => {
-  const { header, drawerListItems } = cardListBlock;
+  const { subnav, header, drawerListItems } = cardListBlock;
 
   return (
     <>
       {/* Render cards on desktop */}
       <div className={cn(ONLY_SHOW_ON_DESKTOP)}>
-        <ContentBlockWrapper header={header}>
+        <ContentBlockWrapper header={header} id={subnav?.contentBlockId}>
           <div className={cn(Wrapper)}>
             <div className={cn(CardListWrapper)}>
               {drawerListItems.map((card) => (

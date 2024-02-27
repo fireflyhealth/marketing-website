@@ -7,11 +7,7 @@ import { requiredBlockFields } from './utils/requiredBlockFields';
 // but have render different styles based on sreen size
 
 export const DrawerListBlockFields = [
-  defineField({
-    name: 'header',
-    type: 'contentBlockHeader',
-    title: 'Header',
-  }),
+  ...requiredBlockFields,
   defineField({
     name: 'drawerListItems',
     type: 'array',

@@ -737,6 +737,7 @@ export type FAQBlock = {
 
 export type CardListBlock = {
   _type: 'cardListBlock';
+  subnav: Maybe<SubnavItem>;
   header: Maybe<ContentBlockHeader>;
   drawerListItems: KeyedArray<DrawerListItem>;
 };
