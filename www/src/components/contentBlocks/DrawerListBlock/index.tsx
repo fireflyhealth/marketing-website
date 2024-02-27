@@ -3,6 +3,7 @@ import cn from 'classnames';
 import {
   DrawerListItem as DrawerListItemType,
   DrawerListBlock as DrawerListBlockType,
+  CardListBlock,
 } from '@/types/sanity';
 import { RichText } from '@/components/RichText';
 import { LinkButton } from '@/atoms/Button';
@@ -134,7 +135,7 @@ export const DrawerListItem: FC<DrawerListItemProps> = ({
  */
 
 type DrawerListBlockProps = {
-  drawerListBlock: DrawerListBlockType;
+  drawerListBlock: DrawerListBlockType | CardListBlock;
 };
 
 export const DrawerListBlock: FC<DrawerListBlockProps> = ({

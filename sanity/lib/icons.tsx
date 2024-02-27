@@ -17,7 +17,11 @@ import {
   GrImage,
 } from 'react-icons/gr';
 import { SlSettings } from 'react-icons/sl';
-import { PiHandPointing, PiBracketsAngleBold } from 'react-icons/pi';
+import {
+  PiHandPointing,
+  PiBracketsAngleBold,
+  PiCardsFill,
+} from 'react-icons/pi';
 import { RxComponent2 } from 'react-icons/rx';
 import {
   BiCarousel,
@@ -79,4 +83,5 @@ export const icons = {
   SequenceBlock: MdOutlineViewTimeline,
   Reviews: MdRateReview,
   Grid: BiGridHorizontal,
+  Cards: PiCardsFill,
 };

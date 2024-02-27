@@ -522,7 +522,8 @@ export type ContentBlock =
   | SequenceBlock
   | ReviewBlock
   | ImageGridBlock
-  | FAQBlock;
+  | FAQBlock
+  | CardListBlock;
 
 export type ContentArea = KeyedArray<ContentBlock>;
 
@@ -732,4 +733,11 @@ export type FAQBlock = {
   blockDescription: Maybe<SimpleRichText>;
   blockCta: Maybe<CTA>;
   faqs: Array<FAQ>;
+};
+
+export type CardListBlock = {
+  _type: 'cardListBlock';
+  subnav: Maybe<SubnavItem>;
+  header: Maybe<ContentBlockHeader>;
+  drawerListItems: KeyedArray<DrawerListItem>;
 };
