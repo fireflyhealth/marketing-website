@@ -144,6 +144,7 @@ export type FAQPage = SanityDocument & {
   title: string;
   navigationOverrides?: NavigationOverrides;
   metadata?: Metadata;
+  header: HeaderArea;
 };
 export type FAQPageLinkData = Pick<FAQPage, '_type'>;
 
@@ -237,9 +238,10 @@ export type Blog = SanityDocument & {
   _type: 'blog';
   title: string;
   slug: Slug;
-  navigationOverrides?: NavigationOverrides;
-  articles?: BlogArticle[];
   metadata?: Metadata;
+  navigationOverrides?: NavigationOverrides;
+  header: HeaderArea;
+  articles?: BlogArticle[];
 };
 export type BlogLinkData = Pick<Blog, '_type' | 'slug' | 'title'>;
 
@@ -471,7 +473,7 @@ export type TwoColumnUnorderedList = {
 /**
  * Header Area Block
  */
-export type HeaderBlock = VideoHeader | TextHeader;
+export type HeaderBlock = VideoHeader | TextHeader | SimpleTextHeader;
 
 export type HeaderArea = HeaderBlock;
 
@@ -491,6 +493,12 @@ export type TextHeader = {
   theme: ColorTheme;
   ctas: Array<CTA>;
   gradientBackground: boolean;
+};
+
+export type SimpleTextHeader = {
+  _type: 'simpleTextHeader';
+  heading: string;
+  theme: ColorTheme;
 };
 
 /**
