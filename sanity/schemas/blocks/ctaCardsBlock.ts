@@ -6,6 +6,7 @@ export const CtaCard = defineType({
   name: 'ctaCard',
   title: 'CTA Card',
   type: 'object',
+  icon: icons.CTA,
   fields: [
     /* TODO: this needs a header */
     defineField({
@@ -36,7 +37,7 @@ export const CtaCard = defineType({
     prepare: ({ image, title, cta }) => ({
       media: image,
       title: title,
-      subtitle: `CTA (${cta.variant}): ${cta.label}`,
+      subtitle: cta ? `CTA (${cta.variant}): ${cta.label}` : undefined,
     }),
   },
 });
