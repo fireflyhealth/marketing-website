@@ -98,7 +98,17 @@ export const Tabs: FC<TabsProps> = ({ tabs }) => {
               TabContentWrapper,
               tab._key === activeTab
                 ? ''
-                : 'absolute opacity-0 height-0 overflow-hidden pointer-events-none',
+                : /* TODO: For some reason, even though inactive tabs have a tabIndex of
+                   * -1, hiding them with the 'absolute opacity-0 ...' classNames still
+                   * allows the user to tab through them. You can test this in Storybook
+                   * by tabbing to the tab 6 label, hitting enter, then tabbing until you
+                   * focus on the inner content - you will see that you need to tab 5 times
+                   * (to cycle through the other tabPanels). The fix for this is to simply
+                   * mark inactive tabs with the 'hidden' className so they get a display: none.
+                   * The only negative impact I see here is that SEO won't be pick up content
+                   * within these tabs.  -- Joseph */
+                  // : 'absolute opacity-0 height-0 overflow-hidden pointer-events-none',
+                  'hidden',
             )}
           >
             {tab.children}
