@@ -52,8 +52,8 @@ export const TextWithDualCtaHeader = defineType({
       fields: [
         defineField({
           name: 'image',
-          type: 'richImage',
           title: 'Image',
+          type: 'responsiveImageSet',
           validation: (Rule) => Rule.required(),
         }),
         defineField({
@@ -107,8 +107,8 @@ export const TextWithDualCtaHeader = defineType({
       fields: [
         defineField({
           name: 'image',
-          type: 'richImage',
           title: 'Image',
+          type: 'responsiveImageSet',
           validation: (Rule) => Rule.required(),
         }),
         defineField({

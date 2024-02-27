@@ -618,7 +618,7 @@ export const textHeaderFragment = `
 
 const dualCtaHeaderCtaFragment = `
   image {
-    ${imageFragment}
+    ${responsiveImageSetFragment}
   },
   eyebrow,
   label,

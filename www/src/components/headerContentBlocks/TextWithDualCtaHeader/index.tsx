@@ -5,9 +5,9 @@ import * as SanityTypes from '@/types/sanity';
 import { Theme } from '@/components/Theme';
 import { RichText } from '@/components/RichText';
 import { CTA } from '@/components/CTA';
-import { SanityImage } from '@/atoms/Image/SanityImage';
 import { Link } from '@/atoms/Link';
 import { BrandedIcon } from '@/svgs/BrandedIcon';
+import { ResponsiveSanityImage } from '@/atoms/Image/ResponsiveSanityImage';
 
 import {
   ThemeWrapper,
@@ -57,14 +57,13 @@ const DualCta: FC<{
             />
           </div>
         </div>
-        <SanityImage
-          image={image}
+        <ResponsiveSanityImage
+          imageSet={image}
           sizes={['50vw, 100vw']}
           className={cn(
             DualCtaImage,
             isTop ? DualCtaImageTop : DualCtaImageBottom,
           )}
-          rounded={false}
         />
       </Theme>
     </Link>

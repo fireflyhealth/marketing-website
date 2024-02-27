@@ -482,7 +482,7 @@ export type TextHeader = {
 };
 
 export type TextWithDualCtaHeaderCta = {
-  image: RichImage;
+  image: ResponsiveImageSet;
   eyebrow: Maybe<string>;
   label: string;
   link: Link;
