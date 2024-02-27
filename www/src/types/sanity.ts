@@ -459,7 +459,7 @@ export type TwoColumnUnorderedList = {
 /**
  * Header Area Block
  */
-export type HeaderBlock = VideoHeader | TextHeader;
+export type HeaderBlock = VideoHeader | TextHeader | TextWithDualCtaHeader;
 
 export type HeaderArea = HeaderBlock;
 
@@ -479,6 +479,27 @@ export type TextHeader = {
   theme: ColorTheme;
   ctas: Array<CTA>;
   gradientBackground: boolean;
+};
+
+type TextWithDualCtaHeaderCta = {
+  image: RichImage;
+  eyebrow: Maybe<string>;
+  label: string;
+  link: Link;
+  ariaLabel: Maybe<string>;
+  activeTheme: ColorTheme;
+  inactiveTheme: ColorTheme;
+};
+
+export type TextWithDualCtaHeader = {
+  _type: 'textWithDualCtaHeader';
+  eyebrow: Maybe<string>;
+  heading: string;
+  body: Maybe<RichText>;
+  theme: ColorTheme;
+  ctas: Array<CTA>;
+  topCta: TextWithDualCtaHeaderCta;
+  bottomCta: TextWithDualCtaHeaderCta;
 };
 
 /**

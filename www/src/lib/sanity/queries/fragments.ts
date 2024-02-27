@@ -616,11 +616,45 @@ export const textHeaderFragment = `
   gradientBackground
 `;
 
+const dualCtaHeaderCtaFragment = `
+  image {
+    ${imageFragment}
+  },
+  eyebrow,
+  label,
+  id,
+  ariaLabel,
+  link {
+    ${linkFragment}
+  },
+  activeTheme,
+  inactiveTheme
+`;
+
+export const textWithDualCtaHeaderFragment = `
+  eyebrow,
+  heading,
+  body[]{
+    ${richTextFragment}
+  },
+  theme,
+  ctas[]{
+    ${ctaFragment}
+  },
+  topCta {
+    ${dualCtaHeaderCtaFragment}
+  },
+  bottomCta {
+    ${dualCtaHeaderCtaFragment}
+  }
+`;
+
 export const headerBlockFragment = `
   _type,
   _key,
   _type == "videoHeader" => {${videoHeaderFragment}},
   _type == "textHeader" => {${textHeaderFragment}},
+  _type == "textWithDualCtaHeader" => {${textWithDualCtaHeaderFragment}},
 `;
 
 export const navGroupFragment = `

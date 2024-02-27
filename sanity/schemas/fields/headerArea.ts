@@ -4,7 +4,11 @@ export const HeaderArea = defineType({
   name: 'headerArea',
   title: 'Header Area',
   type: 'array',
-  of: [{ type: 'videoHeader' }, { type: 'textHeader' }],
+  of: [
+    { type: 'videoHeader' },
+    { type: 'textHeader' },
+    { type: 'textWithDualCtaHeader' },
+  ],
   validation: (Rule) =>
     Rule.required()
       .min(1)

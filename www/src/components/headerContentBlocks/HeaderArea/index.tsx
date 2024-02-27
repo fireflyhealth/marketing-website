@@ -3,6 +3,7 @@ import { HeaderBlock as HeaderBlockType } from '@/types/sanity';
 
 import { VideoHeader } from '../VideoHeader';
 import { TextHeader } from '../TextHeader';
+import { TexWithDualCtaHeader } from '../TextWithDualCtaHeader';
 
 type HeaderBlockProps = {
   block: HeaderBlockType;
@@ -14,6 +15,8 @@ const HeaderBlock: FC<HeaderBlockProps> = ({ block }) => {
       return <VideoHeader videoHeader={block} />;
     case 'textHeader':
       return <TextHeader textHeader={block} />;
+    case 'textWithDualCtaHeader':
+      return <TexWithDualCtaHeader texWithDualCtaHeader={block} />;
     default:
       console.warn(
         // @ts-expect-error
