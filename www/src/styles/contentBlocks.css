@@ -241,3 +241,25 @@
     }
   }
 }
+
+.TabsTab {
+  opacity: 1;
+}
+
+.TabsTab--inactive {
+  opacity: 0;
+  pointer-events: none;
+  height: 100%;
+  /* overflow: hidden; */
+  position: absolute;
+  top: 0;
+}
+
+.TabsTab--animated {
+  transition: 0.2s;
+  transition-delay: 0.2s;
+  &.TabsTab--inactive {
+    transition-delay: 0s;
+    transform: translateY(10px);
+  }
+}

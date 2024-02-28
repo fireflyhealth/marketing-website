@@ -33,6 +33,7 @@ export const TabsBlock: FC<TabsBlockProps> = ({ tabsBlock }) => {
   return (
     <ContentBlockWrapper header={header} id={subnav?.contentBlockId}>
       <Tabs
+        animated
         tabs={tabs.map((tab) => ({
           _key: tab._key,
           label: tab.label,

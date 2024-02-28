@@ -10,6 +10,7 @@ type Tab = {
 
 type TabsProps = {
   tabs: Keyed<Tab>[];
+  animated?: boolean;
 };
 
 const getTabId = (tab: Keyed<Tab>) => `tab-${tab._key}`;
@@ -29,7 +30,7 @@ const getTabId = (tab: Keyed<Tab>) => `tab-${tab._key}`;
  *
  * Read more: https://dev.to/link2twenty/accessibility-first-tabs-ken
  */
-export const Tabs: FC<TabsProps> = ({ tabs }) => {
+export const Tabs: FC<TabsProps> = ({ tabs, animated }) => {
   const [activeTab, setActiveTab] = useState<string>(tabs[0]._key);
   const createTabFocusHandler = (key: string) => () => setActiveTab(key);
   const activateAndFocusTab = (tab: Keyed<Tab>) => {
@@ -95,20 +96,10 @@ export const Tabs: FC<TabsProps> = ({ tabs }) => {
             id={tab._key}
             tabIndex={tab._key === activeTab ? 0 : -1}
             className={cn(
+              'TabsTab',
               TabContentWrapper,
-              tab._key === activeTab
-                ? ''
-                : /* TODO: For some reason, even though inactive tabs have a tabIndex of
-                   * -1, hiding them with the 'absolute opacity-0 ...' classNames still
-                   * allows the user to tab through them. You can test this in Storybook
-                   * by tabbing to the tab 6 label, hitting enter, then tabbing until you
-                   * focus on the inner content - you will see that you need to tab 5 times
-                   * (to cycle through the other tabPanels). The fix for this is to simply
-                   * mark inactive tabs with the 'hidden' className so they get a display: none.
-                   * The only negative impact I see here is that SEO won't be pick up content
-                   * within these tabs.  -- Joseph */
-                  // : 'absolute opacity-0 height-0 overflow-hidden pointer-events-none',
-                  'hidden',
+              animated ? 'TabsTab--animated' : '',
+              tab._key !== activeTab ? 'TabsTab--inactive' : '',
             )}
           >
             {tab.children}
