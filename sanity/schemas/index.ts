@@ -77,7 +77,7 @@ import { QuoteChildBlock } from './childBlocks/quoteChildBlock';
 import { FAQBlock } from './blocks/faqBlock';
 import { FeaturedStoriesBlock } from './blocks/featuredStoriesBlock';
 import { Icon } from './fields/icon';
-import { ColumnsBlock } from './blocks/columnsBlock';
+import { ColumnsBlock, ColumnsObject } from './blocks/columnsBlock';
 
 export const schemaTypes = [
   /* Document Types */
@@ -134,6 +134,7 @@ export const schemaTypes = [
 
   /* Child blocks (used within Tabs) */
   TwoUpObject,
+  ColumnsObject,
 
   /* Field Types */
   ContentBlockHeader,

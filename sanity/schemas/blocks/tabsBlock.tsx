@@ -18,7 +18,10 @@ export const TabsBlockTab = defineType({
     defineField({
       name: 'content',
       type: 'array',
-      of: [defineArrayMember({ type: 'twoUpObject' })],
+      of: [
+        defineArrayMember({ type: 'twoUpObject' }),
+        defineArrayMember({ type: 'columnsObject' }),
+      ],
       validation: (Rule) => Rule.required().max(1),
     }),
   ],
