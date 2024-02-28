@@ -418,6 +418,7 @@ svg {
 
   &--outlined {
     border-width: 1px;
+    padding: 3px;
     color: var(--cta-text-color-secondary);
     background-color: var(--bg-color);
     border-color: var(--border-color);
@@ -428,11 +429,18 @@ svg {
 
     &:focus {
       border-width: 4px;
+      padding: 0px;
     }
 
     &:hover {
       background-color: var(--bg-color);
       border-color: var(--text-color-primary);
+    }
+
+    &.cta--active {
+      color: var(--bg-color);
+      background-color: var(--text-color-primary);
+      border-color: transparent;
     }
   }
 
