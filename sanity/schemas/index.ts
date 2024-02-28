@@ -20,6 +20,7 @@ import { FrequentlyAskedQuestion } from './documents/faq';
 import { VideoHeader } from './headers/videoHeader';
 import { TextHeader } from './headers/textHeader';
 import { TextWithDualCtaHeader } from './headers/textWithDualCtaHeader';
+import { SimpleTextHeader } from './headers/simpleTextHeader';
 
 /* Child Blocks */
 
@@ -43,6 +44,7 @@ import {
 } from './blocks/sequenceBlock';
 import { ReviewBlock, ReviewItem, ReviewHeading } from './blocks/reviewBlock';
 import { ImageGridBlock } from './blocks/imageGridBlock';
+import { CardListBlock } from './blocks/cardListBlock';
 
 /* Fields */
 import { Metadata } from './fields/metadata';
@@ -72,6 +74,7 @@ import { Theme } from './fields/theme';
 import { RichTextCtaRow } from './fields/richTextCtaRow';
 import { QuoteChildBlock } from './childBlocks/quoteChildBlock';
 import { FAQBlock } from './blocks/faqBlock';
+import { FeaturedStoriesBlock } from './blocks/featuredStoriesBlock';
 
 export const schemaTypes = [
   /* Document Types */
@@ -96,6 +99,7 @@ export const schemaTypes = [
   VideoHeader,
   TextHeader,
   TextWithDualCtaHeader,
+  SimpleTextHeader,
 
   /* Default Blocks (used within ContentArea, each has a heading) */
   ImageBlock,
@@ -113,12 +117,14 @@ export const schemaTypes = [
   ReviewBlock,
   ImageGridBlock,
   FAQBlock,
+  CardListBlock,
 
   /* Child blocks (used within other blocks, i.e. 2-up block) */
   ChildContentBlock,
   RichTextChildBlock,
   QuoteChildBlock,
   ImageChildBlock,
+  FeaturedStoriesBlock,
 
   /* Field Types */
   ContentBlockHeader,

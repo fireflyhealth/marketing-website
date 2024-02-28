@@ -124,6 +124,11 @@ export const linkableDocumentFragment = `
   _type == "blogArticle" => {
     slug,
     title,
+    _updatedAt,
+    publishDate,
+    thumbnail{
+      ${imageFragment}
+    },
     category->{
       _type,
       slug,
@@ -482,6 +487,25 @@ export const subnavItemFragment = `
   ariaLabel
 `;
 
+export const drawerListItem = `
+  _key,
+  _type,
+  title,
+  body[]{
+    ${richTextFragment}
+  },
+  ctaLink{
+    ${linkWithLabelFragment}
+  },
+  featuredImage{
+    ${imageFragment}
+  },
+  backgroundImage{
+    ${responsiveImageSetFragment}
+  },
+  theme
+`;
+
 export const imageGridBlockFragment = `
   header{${contentBlockHeaderFragment}},
   theme,
@@ -490,10 +514,14 @@ export const imageGridBlockFragment = `
   }
 `;
 
+export const cardlistBlockFragment = `
+  header{${contentBlockHeaderFragment}},
+  drawerListItems[]{${drawerListItem}}
+`;
+
 export const contentBlockFragment = `
   _type,
   _key,
-  id,
   subnav {${subnavItemFragment}},
   _type == "imageBlock" => {
     header {
@@ -543,28 +571,9 @@ export const contentBlockFragment = `
   _type == "imageTextOverlapBlock" => {${imageTextOverlapFragment}},
   _type == "quoteBlock" => {${quoteBlockFragment}},
   _type == "drawerListBlock" => {
-    header {
-      ${contentBlockHeaderFragment}
-    },
-    drawerListItems[]{
-      _key,
-      _type,
-      title,
-      body[]{
-        ${simpleRichTextFragment}
-      },
-      ctaLink{
-        ${linkWithLabelFragment}
-      },
-      featuredImage{
-        ${imageFragment}
-      },
-      backgroundImage{
-        ${responsiveImageSetFragment}
-      },
-      theme
-     }
-   },
+    header{${contentBlockHeaderFragment}},
+    drawerListItems[]{${drawerListItem}}
+  },
   _type == "sequenceBlock" => {${sequenceBlockFragment}},
   _type == "twoUpBlock" => {${twoUpBlockFragment}},
   _type == "reviewBlock" => {${reviewBlockFragmnet}},
@@ -590,8 +599,17 @@ export const contentBlockFragment = `
       answer[]{
         ${simpleRichTextFragment}
       }
+    },
+  },
+  _type == "featuredStoriesBlock" => {
+    header {
+      ${contentBlockHeaderFragment}
+    },
+    stories[]->{
+      ${linkableDocumentFragment}
     }
-  }
+  },
+  _type == "cardListBlock" => {${cardlistBlockFragment}}
 `;
 
 export const videoHeaderFragment = `
@@ -648,12 +666,18 @@ export const textWithDualCtaHeaderFragment = `
   }
 `;
 
+export const simpleTextHeaderFragment = `
+  heading,
+  theme
+`;
+
 export const headerBlockFragment = `
   _type,
   _key,
   _type == "videoHeader" => {${videoHeaderFragment}},
   _type == "textHeader" => {${textHeaderFragment}},
   _type == "textWithDualCtaHeader" => {${textWithDualCtaHeaderFragment}},
+  _type == "simpleTextHeader" => {${simpleTextHeaderFragment}},
 `;
 
 export const navGroupFragment = `

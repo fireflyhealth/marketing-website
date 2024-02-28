@@ -8,6 +8,7 @@ export const HeaderArea = defineType({
     { type: 'videoHeader' },
     { type: 'textHeader' },
     { type: 'textWithDualCtaHeader' },
+    { type: 'simpleTextHeader' },
   ],
   validation: (Rule) =>
     Rule.required()

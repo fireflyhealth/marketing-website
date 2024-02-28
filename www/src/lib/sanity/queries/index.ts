@@ -52,13 +52,21 @@ export const contactPageFragment = `${specialPageFragment}`;
 
 export const notFoundPageFragment = `${specialPageFragment}`;
 
-export const faqPageFragment = `${specialPageFragment}`;
+export const faqPageFragment = `
+  _id,
+  title,
+  slug,
+  navigationOverrides {${navigationOverridesFragment}},
+  'header': header[] {${headerBlockFragment}}[0],
+  metadataFragment{${metadataFragment}}
+`;
 
 export const blogFragment = `
   _id,
   title,
   slug,
   navigationOverrides {${navigationOverridesFragment}},
+  'header': header[] {${headerBlockFragment}}[0],
   metadataFragment{${metadataFragment}}
 `;
 

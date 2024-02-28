@@ -144,6 +144,7 @@ export type FAQPage = SanityDocument & {
   title: string;
   navigationOverrides?: NavigationOverrides;
   metadata?: Metadata;
+  header: HeaderArea;
 };
 export type FAQPageLinkData = Pick<FAQPage, '_type'>;
 
@@ -237,25 +238,38 @@ export type Blog = SanityDocument & {
   _type: 'blog';
   title: string;
   slug: Slug;
-  navigationOverrides?: NavigationOverrides;
-  articles?: BlogArticle[];
   metadata?: Metadata;
+  navigationOverrides?: NavigationOverrides;
+  header: HeaderArea;
+  articles?: BlogArticle[];
 };
 export type BlogLinkData = Pick<Blog, '_type' | 'slug' | 'title'>;
 
 export type BlogArticle = SanityDocument & {
   _type: 'blogArticle';
+  /* Usually this is typed as optional because we do not fetch
+   * the field on most documents, even though this value is always
+   * present in sanity documents. It's required here because we use
+   * it in rendering the publish date of documents. */
+  _updatedAt: string;
   title: string;
+  publishDate: Maybe<string>;
+  thumbnail: RichImage;
   slug: Slug;
   navigationOverrides?: NavigationOverrides;
-  /* TODO linking - change this to BlogPageLinkData */
   category: BlogLinkData;
   metadata?: Metadata;
 };
 
 export type BlogArticleLinkData = Pick<
   BlogArticle,
-  '_type' | 'slug' | 'title' | 'category'
+  | '_type'
+  | 'slug'
+  | 'title'
+  | 'category'
+  | 'thumbnail'
+  | 'publishDate'
+  | '_updatedAt'
 >;
 
 /* Navigation */
@@ -459,7 +473,11 @@ export type TwoColumnUnorderedList = {
 /**
  * Header Area Block
  */
-export type HeaderBlock = VideoHeader | TextHeader | TextWithDualCtaHeader;
+export type HeaderBlock =
+  | VideoHeader
+  | TextHeader
+  | SimpleTextHeader
+  | TextWithDualCtaHeader;
 
 export type HeaderArea = HeaderBlock;
 
@@ -499,6 +517,12 @@ export type TextWithDualCtaHeader = {
   ctas: Array<CTA>;
   topCta: TextWithDualCtaHeaderCta;
   bottomCta: TextWithDualCtaHeaderCta;
+};
+
+export type SimpleTextHeader = {
+  _type: 'simpleTextHeader';
+  heading: string;
+  theme: ColorTheme;
 };
 
 /**
@@ -542,7 +566,9 @@ export type ContentBlock =
   | SequenceBlock
   | ReviewBlock
   | ImageGridBlock
-  | FAQBlock;
+  | FAQBlock
+  | CardListBlock
+  | FeaturedStoriesBlock;
 
 export type ContentArea = KeyedArray<ContentBlock>;
 
@@ -553,19 +579,20 @@ export type ContentBlockHeader = {
   cta: Maybe<CTA>;
 };
 
+type ContentBlockCommon = {
+  header: Maybe<ContentBlockHeader>;
+  subnav: Maybe<SubnavItem>;
+};
+
 export type ImageBlock = {
   _type: 'imageBlock';
   subnav: Maybe<SubnavItem>;
-  id: Maybe<string>;
   header: Maybe<ContentBlockHeader>;
   image: RichImage;
 };
 
-export type ImageCarouselBlock = {
+export type ImageCarouselBlock = ContentBlockCommon & {
   _type: 'imageCarouselBlock';
-  subnav: Maybe<SubnavItem>;
-  id: Maybe<string>;
-  header: Maybe<ContentBlockHeader>;
   images: KeyedArray<RichImage>;
 };
 
@@ -585,10 +612,8 @@ export type SequenceBlockItem = {
   isHighlighted: boolean;
 };
 
-export type SequenceBlock = {
+export type SequenceBlock = ContentBlockCommon & {
   _type: 'sequenceBlock';
-  subnav: Maybe<SubnavItem>;
-  header: Maybe<ContentBlockHeader>;
   sequenceHeader: SequenceBlockTextFields;
   sequenceItems: KeyedArray<SequenceBlockItem>;
   sequenceFooter: string;
@@ -601,20 +626,14 @@ export type CTACard = {
   cta: CTA;
 };
 
-export type CTACardsBlock = {
+export type CTACardsBlock = ContentBlockCommon & {
   _type: 'ctaCardsBlock';
-  subnav: Maybe<SubnavItem>;
-  id: Maybe<string>;
-  header: Maybe<ContentBlockHeader>;
   ctaCards: KeyedArray<CTACard>;
 };
 
-export type DoubleCtaBlock = {
+export type DoubleCtaBlock = ContentBlockCommon & {
   _type: 'doubleCtaBlock';
-  subnav: Maybe<SubnavItem>;
-  id: Maybe<string>;
   doubleCta: DoubleCta;
-  header: Maybe<ContentBlockHeader>;
 };
 
 export type LargeCtaCard = {
@@ -631,19 +650,13 @@ export type DoubleCta = {
   ctaTwo: LargeCtaCard;
 };
 
-export type PractitionersBlock = {
+export type PractitionersBlock = ContentBlockCommon & {
   _type: 'practitionersBlock';
-  subnav: Maybe<SubnavItem>;
-  id: Maybe<string>;
-  header: Maybe<ContentBlockHeader>;
   practitioners: PractitionerLinkData[];
 };
 
-export type ImageTextOverlapBlock = {
+export type ImageTextOverlapBlock = ContentBlockCommon & {
   _type: 'imageTextOverlapBlock';
-  subnav: Maybe<SubnavItem>;
-  id: Maybe<string>;
-  header: Maybe<ContentBlockHeader>;
   image: RichImage;
   copy: RichText;
 };
@@ -661,11 +674,8 @@ export type QuoteObject = {
   attribution: QuoteAttribution;
 };
 
-export type QuoteBlock = {
+export type QuoteBlock = ContentBlockCommon & {
   _type: 'quoteBlock';
-  subnav: Maybe<SubnavItem>;
-  id: Maybe<string>;
-  header: Maybe<ContentBlockHeader>;
   quoteObject: QuoteObject;
   cta: CTA;
 };
@@ -680,11 +690,8 @@ export type DrawerListItem = {
   backgroundImage: Maybe<ResponsiveImageSet>;
 };
 
-export type DrawerListBlock = {
+export type DrawerListBlock = ContentBlockCommon & {
   _type: 'drawerListBlock';
-  subnav: Maybe<SubnavItem>;
-  id: Maybe<string>;
-  header: Maybe<ContentBlockHeader>;
   drawerListItems: KeyedArray<DrawerListItem>;
 };
 
@@ -694,10 +701,8 @@ export type TwoUpBlockLayout =
   | 'normal-40-60'
   | 'overlap-50-50';
 
-export type TwoUpBlock = {
+export type TwoUpBlock = ContentBlockCommon & {
   _type: 'twoUpBlock';
-  subnav: Maybe<SubnavItem>;
-  header: Maybe<ContentBlockHeader>;
   layout: TwoUpBlockLayout;
   mobileReverseBlockOrder: Maybe<boolean>;
   /* Only present when the layout is 'overlap-50-50' */
@@ -723,10 +728,8 @@ export type ReviewItem = {
   logo: Maybe<RichImage>;
 };
 
-export type ReviewBlock = {
+export type ReviewBlock = ContentBlockCommon & {
   _type: 'reviewBlock';
-  subnav: Maybe<SubnavItem>;
-  header: Maybe<ContentBlockHeader>;
   reviewHeading: {
     _type: 'reviewHeading';
     title: string;
@@ -735,21 +738,29 @@ export type ReviewBlock = {
   reviews: ReviewItem[];
 };
 
-export type ImageGridBlock = {
+export type ImageGridBlock = ContentBlockCommon & {
   _type: 'imageGridBlock';
-  subnav: Maybe<SubnavItem>;
-  header: Maybe<ContentBlockHeader>;
   theme: string;
   images: KeyedArray<RichImage>;
 };
 
-export type FAQBlock = {
+export type FeaturedStoriesBlock = ContentBlockCommon & {
+  _type: 'featuredStoriesBlock';
+  stories: Array<BlogArticleLinkData>;
+};
+
+export type FAQBlock = ContentBlockCommon & {
   _type: 'faqBlock';
-  subnav: Maybe<SubnavItem>;
-  header: Maybe<ContentBlockHeader>;
   theme: ColorTheme;
   blockTitle: string;
   blockDescription: Maybe<SimpleRichText>;
   blockCta: Maybe<CTA>;
   faqs: Array<FAQ>;
+};
+
+export type CardListBlock = {
+  _type: 'cardListBlock';
+  subnav: Maybe<SubnavItem>;
+  header: Maybe<ContentBlockHeader>;
+  drawerListItems: KeyedArray<DrawerListItem>;
 };
