@@ -472,6 +472,12 @@ svg {
   }
 }
 
+.container-max-width {
+  max-width: 1920px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 #hubspot-form-wrapper fieldset {
   width: 100%;
   max-width: unset;

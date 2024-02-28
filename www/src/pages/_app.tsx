@@ -47,7 +47,7 @@ export default function App({ Component, pageProps: allPageProps }: Props) {
               }
               globalDoubleNav={globalDoubleCta}
             />
-            <main className="mt-mobile-nav-banner-margin md:mt-desktop-nav-banner-margin max-w-[1920px] mx-auto">
+            <main className="mt-mobile-nav-banner-margin md:mt-desktop-nav-banner-margin">
               <Component {...pageProps} />
             </main>
             <Footer footer={siteSettings.footer} />

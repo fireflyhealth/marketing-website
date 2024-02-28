@@ -7,4 +7,4 @@ export const BackgroundColor = [
   'absolute top-0 left-0 z-navigationCTAGradient w-full h-full bg-yellow-linear-gradient',
 ];
 
-export const CTAWrapper = ['relative max-w-[1920px] mx-auto px-4', 'md:px-12'];
+export const CTAWrapper = ['relative container-max-width px-4', 'md:px-12'];
