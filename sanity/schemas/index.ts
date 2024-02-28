@@ -74,6 +74,8 @@ import { RichTextCtaRow } from './fields/richTextCtaRow';
 import { QuoteChildBlock } from './childBlocks/quoteChildBlock';
 import { FAQBlock } from './blocks/faqBlock';
 import { FeaturedStoriesBlock } from './blocks/featuredStoriesBlock';
+import { Icon } from './fields/icon';
+import { ColumnsBlock } from './blocks/columnsBlock';
 
 export const schemaTypes = [
   /* Document Types */
@@ -116,6 +118,7 @@ export const schemaTypes = [
   ImageGridBlock,
   FAQBlock,
   CardListBlock,
+  ColumnsBlock,
 
   /* Child blocks (used within other blocks, i.e. 2-up block) */
   ChildContentBlock,
@@ -155,4 +158,5 @@ export const schemaTypes = [
   SequenceItem,
   ReviewHeading,
   ReviewItem,
+  Icon,
 ];

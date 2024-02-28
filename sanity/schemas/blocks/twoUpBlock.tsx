@@ -72,12 +72,12 @@ export const TwoUpBlock = defineType({
       blockTwo: 'blockTwo',
     },
     prepare: ({ header, blockOne, blockTwo }) => {
+      const blockTypeNames = [blockOne && blockOne[0], blockTwo && blockTwo[0]]
+        .filter(Boolean)
+        .map((block) => block._type)
+        .map(camelCaseToSentence);
       const subtitle =
-        [header?.title, blockOne && blockOne[0], blockTwo && blockTwo[0]]
-          .filter(Boolean)
-          .map((block) => block._type)
-          .map(camelCaseToSentence)
-          .join(', ') || '(empty)';
+        [header?.title, ...blockTypeNames].join(', ') || '(empty)';
       return {
         title: '2-up Block',
         subtitle,

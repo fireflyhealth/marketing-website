@@ -25,6 +25,7 @@ import {
 import { RxComponent2 } from 'react-icons/rx';
 import {
   BiCarousel,
+  BiColumns,
   BiSolidNavigation,
   BiGridHorizontal,
 } from 'react-icons/bi';
@@ -84,4 +85,5 @@ export const icons = {
   Reviews: MdRateReview,
   Grid: BiGridHorizontal,
   Cards: PiCardsFill,
+  Columns: BiColumns,
 };

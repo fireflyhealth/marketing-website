@@ -1,8 +1,16 @@
 import { defineType } from 'sanity';
-import {
-  defaultContentBlockTypes,
-  childContentBlockTypes,
-} from '../../lib/constants';
+import { defaultContentBlockTypes } from '../../lib/constants';
+
+/**
+ * Content blocks that are used as children within
+ * the 2-up block.
+ */
+const childContentBlockTypes = [
+  { type: 'richTextChildBlock' },
+  { type: 'imageChildBlock' },
+  { type: 'bigNumbers' },
+  { type: 'quoteChildBlock' },
+];
 
 export const ChildContentBlock = defineType({
   name: 'childContentBlock',

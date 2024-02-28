@@ -33,6 +33,7 @@ export const BigNumber = defineType({
   name: 'bigNumber',
   title: 'Big Number',
   type: 'object',
+  icon: icons.Percentage,
   fields: [
     defineField({
       name: 'value',
@@ -96,7 +97,11 @@ export const BigNumber = defineType({
     },
     prepare: ({ unit, value, description }) => {
       const title = getBigNumberPreviewTitle({ unit, value });
-      return { title, subtitle: richTextToString(description) };
+      return {
+        title,
+        subtitle: richTextToString(description),
+        icon: icons.Percentage,
+      };
     },
   },
 });
@@ -146,6 +151,7 @@ export const BigNumbers = defineType({
       return {
         title,
         subtitle: citationSubtitle || lengthSubtitle,
+        icon: icons.Percentage,
       };
     },
   },

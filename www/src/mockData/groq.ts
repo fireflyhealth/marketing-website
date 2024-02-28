@@ -34,6 +34,7 @@ export const mockDataQuery = `
       faqBlock{${contentBlockFragment}},
       cardListBlockExample{${contentBlockFragment}},
       featuredStoriesBlock{${contentBlockFragment}},
+      columnsBlocks[]{${contentBlockFragment}},
     },
     navigationExample{
       globalNav->{${navigationFragment}},

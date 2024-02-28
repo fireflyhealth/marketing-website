@@ -17,6 +17,7 @@ import { ImageGridBlock } from '../ImageGridBlock';
 import { FAQBlock } from '../FAQBlock';
 import { CardListBlock } from '../CardListBlock';
 import { FeaturedStoriesBlock } from '../FeaturedStoriesBlock';
+import { ColumnsBlock } from '../ColumnsBlock';
 
 type ContentBlockProps = {
   block: ContentBlockType;
@@ -54,6 +55,8 @@ const ContentBlock: FC<ContentBlockProps> = ({ block }) => {
       return <CardListBlock cardListBlock={block} />;
     case 'featuredStoriesBlock':
       return <FeaturedStoriesBlock featuredStoriesBlock={block} />;
+    case 'columnsBlock':
+      return <ColumnsBlock columnsBlock={block} />;
     default:
       console.warn(
         // @ts-expect-error

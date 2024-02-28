@@ -1,14 +1,4 @@
 import { defineField } from 'sanity';
-import { brandedIcons } from '../../lib/constants';
-import { BrandedIcon } from '../../lib/FireFlyIcon';
-
-/**
- * Removes '-' and capitalizes first letter in string passed to the function.
- */
-function normalizeString(str: string) {
-  str = str.replace(/-/g, ' ');
-  return str.charAt(0).toUpperCase() + str.slice(1);
-}
 
 /**
  * A simple rich text field type that does not allow
@@ -150,32 +140,7 @@ export const ArticleRichText = defineField({
         ],
       },
     },
-    {
-      name: 'icon',
-      type: 'object',
-      title: 'Icon',
-      fields: [
-        {
-          name: 'icon',
-          type: 'string',
-          title: 'Icon',
-          options: {
-            list: brandedIcons,
-          },
-        },
-      ],
-      preview: {
-        select: {
-          title: 'icon',
-        },
-        prepare: ({ title }) => {
-          return {
-            title: normalizeString(title),
-            media: <BrandedIcon type={title} fill="white" />,
-          };
-        },
-      },
-    },
+    { name: 'icon', type: 'icon', title: 'Icon' },
     { name: 'richImage', type: 'richImage', title: 'Image' },
     { name: 'form', type: 'hubspotForm', title: 'Form' },
     {
