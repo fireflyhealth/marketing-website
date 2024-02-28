@@ -8,7 +8,6 @@ export const CtaCard = defineType({
   type: 'object',
   icon: icons.CTA,
   fields: [
-    /* TODO: this needs a header */
     defineField({
       name: 'image',
       type: 'richImage',
