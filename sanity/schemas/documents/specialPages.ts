@@ -96,6 +96,15 @@ export const NotFoundPage = defineType({
       type: 'contentArea',
     }),
     defineField({
+      name: 'decorativeImage',
+      title: 'Decorative Image',
+      type: 'responsiveImageSet',
+      options: {
+        collapsed: true,
+        collapsible: true,
+      },
+    }),
+    defineField({
       name: 'metadata',
       type: 'metadata',
       title: 'Metadata',

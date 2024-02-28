@@ -135,6 +135,7 @@ export type NotFoundPage = SanityDocument & {
   navigationOverrides?: NavigationOverrides;
   header: HeaderArea;
   content: ContentArea;
+  decorativeImage: ResponsiveImageSet;
   metadata?: Metadata;
 };
 
