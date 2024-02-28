@@ -636,7 +636,7 @@ export const textHeaderFragment = `
 
 export const simpleTextHeaderFragment = `
   heading,
-  theme,
+  theme
 `;
 
 export const headerBlockFragment = `
@@ -644,7 +644,7 @@ export const headerBlockFragment = `
   _key,
   _type == "videoHeader" => {${videoHeaderFragment}},
   _type == "textHeader" => {${textHeaderFragment}},
-  _type == "simpleTextHeader" => {${simpleTextHeaderFragment}}
+  _type == "simpleTextHeader" => {${simpleTextHeaderFragment}},
 `;
 
 export const navGroupFragment = `
