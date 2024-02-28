@@ -16,11 +16,11 @@ export const NotFoundPageView: FC<NotFoundPageViewProps> = ({
     <div className="relative">
       <HeaderArea block={notFoundPage.header} />
       <ContentArea blocks={notFoundPage.content} />
-      <div className={cn('w-full block', 'lg:absolute lg:left-0 lg:top-1/4')}>
+      <div className={cn('w-full block', 'lg:absolute lg:left-0 lg:top-2/4')}>
         <div
           className={cn(
             'relative w-[321px] h-[321px] mx-auto',
-            'lg:m-0 lg:h-[613px]',
+            'lg:m-0 lg:h-[27vh]',
           )}
         >
           <ResponsiveSanityImage
