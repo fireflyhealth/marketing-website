@@ -1,11 +1,11 @@
 export const NavWrapper = [
   'top-0 left-0 w-full flex flex-col mt-announcement-banner-height z-navigation',
-  'md:absolute md:block',
+  'lg:absolute lg:block',
 ];
 
 export const NavContainer = [
   'max-w-[1920px] mx-auto w-full p-4 flex flex-row items-center justify-between',
-  'md:px-12',
+  'lg:px-12',
 ];
 
 export const NavLinksWrapper = [
