@@ -25,7 +25,7 @@ export const NotFoundPageView: FC<NotFoundPageViewProps> = ({
         >
           <ResponsiveSanityImage
             imageSet={notFoundPage.decorativeImage}
-            sizes={['100vw']}
+            sizes={['321px']}
           />
         </div>
       </div>
