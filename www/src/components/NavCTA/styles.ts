@@ -1,6 +1,6 @@
 export const Wrapper = [
   'relative w-full pt-8 pb-[96px]',
-  'md:absolute md:top-auto md:py-12 md:pb-[128px]',
+  'lg:absolute lg:top-auto lg:py-12 lg:pb-[128px]',
 ];
 
 export const BackgroundColor = [
