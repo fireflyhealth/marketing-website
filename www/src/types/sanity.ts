@@ -76,6 +76,15 @@ export type LinkableDocumentData =
  * Documents
  */
 
+/* Fields included in both generic pages and
+ * special pages. (I.e. this does not include 'subnav',
+ * that does not exist on the FAQ page) */
+export type PageShared = {
+  navigationOverrides?: Maybe<NavigationOverrides>;
+  header: HeaderArea;
+  metadata?: Maybe<Metadata>;
+};
+
 export type Navigation = SanityDocument & {
   _type: 'navigation';
   navGroup: KeyedArray<NavGroupType>;
@@ -102,54 +111,62 @@ export type SiteSettings = SanityDocument & {
   footer: Footer;
 };
 
-export type Homepage = SanityDocument & {
-  _type: 'homepage';
-  navigationOverrides?: NavigationOverrides;
-  metadata?: Metadata;
-  header: HeaderArea;
-  subnav: Maybe<boolean>;
-  content: ContentArea;
-};
+export type Homepage = SanityDocument &
+  PageShared & {
+    _type: 'homepage';
+    subnav: Maybe<boolean>;
+    content: ContentArea;
+  };
 export type HomepageLinkData = Pick<Homepage, '_type'>;
 
 /* Special pages */
-export type DownloadPage = SanityDocument & {
-  _type: 'downloadPage';
-  title: string;
-  navigationOverrides?: NavigationOverrides;
-  header: HeaderArea;
-  content: ContentArea;
-  metadata?: Metadata;
-};
+export type DownloadPage = SanityDocument &
+  PageShared & {
+    _type: 'downloadPage';
+    title: string;
+    content: ContentArea;
+  };
 export type DownloadPageLinkData = Pick<DownloadPage, '_type'>;
 
-export type ContactPage = SanityDocument & {
-  _type: 'contactPage';
-  title: string;
-  navigationOverrides?: NavigationOverrides;
-  header: HeaderArea;
-  content: ContentArea;
-  metadata?: Metadata;
-};
+export type ContactPage = SanityDocument &
+  PageShared & {
+    _type: 'contactPage';
+    title: string;
+    content: ContentArea;
+  };
+
 export type ContactPageLinkData = Pick<ContactPage, '_type'>;
 
-export type NotFoundPage = SanityDocument & {
-  _type: 'notFoundPage';
+export type NotFoundPage = SanityDocument &
+  PageShared & {
+    _type: 'notFoundPage';
+    title: string;
+    content: ContentArea;
+    decorativeImage: ResponsiveImageSet;
+  };
+
+export type FAQGroup = {
   title: string;
   navigationOverrides?: NavigationOverrides;
   header: HeaderArea;
   content: ContentArea;
   decorativeImage: ResponsiveImageSet;
   metadata?: Metadata;
+  questions: FAQ[];
 };
 
-export type FAQPage = SanityDocument & {
-  _type: 'faqPage';
+export type FAQTab = {
   title: string;
-  navigationOverrides?: NavigationOverrides;
-  metadata?: Metadata;
-  header: HeaderArea;
+  faqGroups: KeyedArray<FAQGroup>;
 };
+
+export type FAQPage = SanityDocument &
+  PageShared & {
+    _type: 'faqPage';
+    title: string;
+    faqTabs: KeyedArray<FAQTab>;
+  };
+
 export type FAQPageLinkData = Pick<FAQPage, '_type'>;
 
 export type FAQ = SanityDocument & {
@@ -159,23 +176,21 @@ export type FAQ = SanityDocument & {
 };
 
 /* Properties common to both GenericPage & SubPage */
-type CommonPage = SanityDocument & {
-  title: string;
-  header: HeaderArea;
-  content: ContentArea;
-  subnav: Maybe<boolean>;
-  metadata?: Metadata;
-  slug: Slug;
-  navigationOverrides?: NavigationOverrides;
-};
+type GenericPageShared = SanityDocument &
+  PageShared & {
+    title: string;
+    content: ContentArea;
+    subnav: Maybe<boolean>;
+    slug: Slug;
+  };
 
-export type GenericPage = CommonPage & {
+export type GenericPage = GenericPageShared & {
   _type: 'genericPage';
   subPages?: KeyedArray<SubPage>;
 };
 export type GenericPageLinkData = Pick<GenericPage, '_type' | 'slug' | 'title'>;
 
-export type SubPage = CommonPage & {
+export type SubPage = GenericPageShared & {
   _type: 'subPage';
   parentPage: GenericPageLinkData;
 };
@@ -186,16 +201,14 @@ export type SubPageLinkData = Pick<
 >;
 
 /* Client Page */
-export type ClientPage = SanityDocument & {
-  _type: 'clientPage';
-  clientName: string;
-  slug: Slug;
-  navigationOverrides?: NavigationOverrides;
-  header: HeaderArea;
-  subnav: Maybe<boolean>;
-  content: ContentArea;
-  metadata?: Metadata;
-};
+export type ClientPage = SanityDocument &
+  PageShared & {
+    _type: 'clientPage';
+    clientName: string;
+    slug: Slug;
+    subnav: Maybe<boolean>;
+    content: ContentArea;
+  };
 export type ClientPageLinkData = Pick<
   ClientPage,
   '_type' | 'slug' | 'clientName'
