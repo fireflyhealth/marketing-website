@@ -14,7 +14,7 @@ export const CTACardsBlock: FC<CTACardsBlockProps> = ({ ctaCardsBlock }) => {
 
   return (
     <ContentBlockWrapper id={subnav?.contentBlockId} header={header}>
-      <div className={cn(CardsWrapper)}>
+      <div className={cn('CTACardsBlock', CardsWrapper)}>
         {ctaCards.map((ctaCard) => (
           <CTACard ctaCard={ctaCard} key={ctaCard._key} />
         ))}

@@ -17,8 +17,10 @@ export const CTACard: FC<CTACardProps> = ({ ctaCard }) => {
         sizes={['100vw', '50vw', '35vw']}
         image={ctaCard.image}
       />
-      <div className={cn(CardTitle)}>{ctaCard.title}</div>
-      <CTA cta={ctaCard.cta} width="auto" align="left" />
+      <div className="flex-grow flex flex-col justify-between">
+        <div className={cn(CardTitle)}>{ctaCard.title}</div>
+        <CTA cta={ctaCard.cta} width="auto" align="left" />
+      </div>
     </div>
   );
 };
