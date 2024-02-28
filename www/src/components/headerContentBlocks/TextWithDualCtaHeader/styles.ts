@@ -42,7 +42,7 @@ export const DualCtaTop = ['TextWithDualCtaHeader__cta--top'];
 export const DualCtaBottom = ['TextWithDualCtaHeader__cta--bottom'];
 
 export const DualCtaImage = [
-  'transition-all duration-300 absolute inset-0 w-full h-[288px] md:h-[638px] object-cover',
+  'absolute inset-0 w-full h-[288px] md:h-[638px] object-cover',
 ];
 
 export const DualCtaImageTop = [
