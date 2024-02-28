@@ -634,11 +634,17 @@ export const textHeaderFragment = `
   gradientBackground
 `;
 
+export const simpleTextHeaderFragment = `
+  heading,
+  theme
+`;
+
 export const headerBlockFragment = `
   _type,
   _key,
   _type == "videoHeader" => {${videoHeaderFragment}},
   _type == "textHeader" => {${textHeaderFragment}},
+  _type == "simpleTextHeader" => {${simpleTextHeaderFragment}},
 `;
 
 export const navGroupFragment = `
