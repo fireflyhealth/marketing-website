@@ -6,7 +6,6 @@ import {
   contentBlockFragment,
   footerFragment,
   doubleCtaFragment,
-  imageFragment,
   responsiveImageSetFragment,
 } from './fragments';
 
