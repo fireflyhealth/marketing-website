@@ -1,6 +1,53 @@
 import { defineType, defineField, defineArrayMember } from 'sanity';
 import idValidationRule from '../util/idValidationRule';
 
+const CtaCardFields = [
+  defineField({
+    name: 'image',
+    title: 'Image',
+    type: 'responsiveImageSet',
+    validation: (Rule) => Rule.required(),
+  }),
+  defineField({
+    name: 'eyebrow',
+    title: 'Eyebrow',
+    type: 'string',
+  }),
+  defineField({
+    name: 'label',
+    title: 'Label',
+    type: 'string',
+    validation: (Rule) => Rule.required(),
+  }),
+  defineField({
+    name: 'ariaLabel',
+    type: 'string',
+    title: 'Aria Label',
+    description:
+      'Optional. Provide an Aria Label when the button\'s text label does not convey its function adequately or if the label is too generic. For example: a button with the label "OK" should be given an Aria Label such as "Accept terms & conditions"',
+  }),
+  defineField({
+    name: 'id',
+    type: 'string',
+    title: 'ID',
+    description: 'Used for tracking in analytics',
+    validation: idValidationRule,
+  }),
+  defineField({
+    name: 'link',
+    type: 'link',
+    title: 'Link',
+    validation: (Rule) => Rule.required(),
+  }),
+  defineField({
+    name: 'theme',
+    title: 'Theme',
+    type: 'theme',
+    initialValue: 'sienna',
+    validation: (Rule) => Rule.required(),
+  }),
+];
+
 export const TextWithDualCtaHeader = defineType({
   name: 'textWithDualCtaHeader',
   title: 'Text with Dual CTA Header',
@@ -42,114 +89,24 @@ export const TextWithDualCtaHeader = defineType({
       ],
     }),
     defineField({
-      title: 'Top CTA',
+      title: 'Top CTA Card',
       name: 'topCta',
       type: 'object',
       options: {
         collapsible: true,
         collapsed: true,
       },
-      fields: [
-        defineField({
-          name: 'image',
-          title: 'Image',
-          type: 'responsiveImageSet',
-          validation: (Rule) => Rule.required(),
-        }),
-        defineField({
-          name: 'eyebrow',
-          title: 'Eyebrow',
-          type: 'string',
-        }),
-        defineField({
-          name: 'label',
-          title: 'Label',
-          type: 'string',
-          validation: (Rule) => Rule.required(),
-        }),
-        defineField({
-          name: 'ariaLabel',
-          type: 'string',
-          title: 'Aria Label',
-          description:
-            'Optional. Provide an Aria Label when the button\'s text label does not convey its function adequately or if the label is too generic. For example: a button with the label "OK" should be given an Aria Label such as "Accept terms & conditions"',
-        }),
-        defineField({
-          name: 'id',
-          type: 'string',
-          title: 'ID',
-          description: 'Used for tracking in analytics',
-          validation: idValidationRule,
-        }),
-        defineField({
-          name: 'link',
-          type: 'link',
-          title: 'Link',
-          validation: (Rule) => Rule.required(),
-        }),
-        defineField({
-          name: 'theme',
-          title: 'Theme',
-          type: 'theme',
-          initialValue: 'sienna',
-          validation: (Rule) => Rule.required(),
-        }),
-      ],
+      fields: CtaCardFields,
     }),
     defineField({
-      title: 'Bottom CTA',
+      title: 'Bottom CTA Card',
       name: 'bottomCta',
       type: 'object',
       options: {
         collapsible: true,
         collapsed: true,
       },
-      fields: [
-        defineField({
-          name: 'image',
-          title: 'Image',
-          type: 'responsiveImageSet',
-          validation: (Rule) => Rule.required(),
-        }),
-        defineField({
-          name: 'eyebrow',
-          title: 'Eyebrow',
-          type: 'string',
-        }),
-        defineField({
-          name: 'label',
-          title: 'Label',
-          type: 'string',
-          validation: (Rule) => Rule.required(),
-        }),
-        defineField({
-          name: 'ariaLabel',
-          type: 'string',
-          title: 'Aria Label',
-          description:
-            'Optional. Provide an Aria Label when the button\'s text label does not convey its function adequately or if the label is too generic. For example: a button with the label "OK" should be given an Aria Label such as "Accept terms & conditions"',
-        }),
-        defineField({
-          name: 'id',
-          type: 'string',
-          title: 'ID',
-          description: 'Used for tracking in analytics',
-          validation: idValidationRule,
-        }),
-        defineField({
-          name: 'link',
-          type: 'link',
-          title: 'Link',
-          validation: (Rule) => Rule.required(),
-        }),
-        defineField({
-          name: 'theme',
-          title: 'Theme',
-          type: 'theme',
-          initialValue: 'midnight',
-          validation: (Rule) => Rule.required(),
-        }),
-      ],
+      fields: CtaCardFields,
     }),
   ],
   preview: {
