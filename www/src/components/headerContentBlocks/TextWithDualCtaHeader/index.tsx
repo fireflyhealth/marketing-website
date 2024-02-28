@@ -71,12 +71,12 @@ const DualCta: FC<{
 };
 
 type Props = {
-  texWithDualCtaHeader: SanityTypes.TextWithDualCtaHeader;
+  textWithDualCtaHeader: SanityTypes.TextWithDualCtaHeader;
 };
 
-export const TexWithDualCtaHeader: FC<Props> = ({ texWithDualCtaHeader }) => {
+export const TextWithDualCtaHeader: FC<Props> = ({ textWithDualCtaHeader }) => {
   const { eyebrow, heading, body, theme, ctas, topCta, bottomCta } =
-    texWithDualCtaHeader;
+    textWithDualCtaHeader;
 
   return (
     <Theme theme={theme} className={cn(ThemeWrapper)}>
