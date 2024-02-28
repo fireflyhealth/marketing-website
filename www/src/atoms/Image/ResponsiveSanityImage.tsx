@@ -1,14 +1,17 @@
 import React, { FC } from 'react';
+import cn from 'classnames';
 import { ResponsiveImageSet } from '@/types/sanity';
 import { SanityImage, SanityImageProps } from './SanityImage';
 
 type ResponsiveSanityImageProps = Pick<SanityImageProps, 'sizes'> & {
   imageSet: ResponsiveImageSet;
+  className?: string;
 };
 
 export const ResponsiveSanityImage: FC<ResponsiveSanityImageProps> = ({
   imageSet,
   sizes,
+  className,
 }) => {
   const { desktop, tablet, mobile } = imageSet;
 
@@ -17,7 +20,8 @@ export const ResponsiveSanityImage: FC<ResponsiveSanityImageProps> = ({
       {mobile ? (
         <SanityImage
           sizes={sizes}
-          className={
+          className={cn(
+            className,
             /* If there is tablet & desktop,
              * OR if there is tablet but no desktop, display only at small */
             (tablet && desktop) || (tablet && !desktop)
@@ -26,8 +30,8 @@ export const ResponsiveSanityImage: FC<ResponsiveSanityImageProps> = ({
                 !tablet && desktop
                 ? 'lg:hidden'
                 : /* (otherwise) if there is no tablet and no desktop, display at all sizes */
-                  'block'
-          }
+                  'block',
+          )}
           fill
           image={mobile}
         />
@@ -35,7 +39,8 @@ export const ResponsiveSanityImage: FC<ResponsiveSanityImageProps> = ({
       {tablet ? (
         <SanityImage
           sizes={sizes}
-          className={
+          className={cn(
+            className,
             /* If there is mobile & desktop, display only at medium */
             mobile && desktop
               ? 'hidden md:block lg:hidden'
@@ -46,8 +51,8 @@ export const ResponsiveSanityImage: FC<ResponsiveSanityImageProps> = ({
                   mobile && !desktop
                   ? 'none md:block'
                   : /* (Otherwise) If there is no mobile and no desktop, display only at medium */
-                    'block'
-          }
+                    'block',
+          )}
           fill
           image={tablet}
         />
@@ -56,7 +61,8 @@ export const ResponsiveSanityImage: FC<ResponsiveSanityImageProps> = ({
         <SanityImage
           sizes={sizes}
           fill
-          className={
+          className={cn(
+            className,
             /* If there are tablet and mobile images,
              * OR if there is no mobile, yes tablet, display at large */
             (tablet && mobile) || (tablet && !mobile)
@@ -65,8 +71,8 @@ export const ResponsiveSanityImage: FC<ResponsiveSanityImageProps> = ({
                 !tablet && mobile
                 ? 'hidden md:block'
                 : /* (otherwise) there is no mobile nor tablet, display at all sizes */
-                  'block'
-          }
+                  'block',
+          )}
           image={desktop}
         />
       ) : null}

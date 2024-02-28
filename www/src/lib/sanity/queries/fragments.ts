@@ -650,6 +650,38 @@ export const textHeaderFragment = `
   gradientBackground
 `;
 
+const dualCtaHeaderCtaFragment = `
+  image {
+    ${responsiveImageSetFragment}
+  },
+  eyebrow,
+  label,
+  id,
+  ariaLabel,
+  link {
+    ${linkFragment}
+  },
+  theme
+`;
+
+export const textWithDualCtaHeaderFragment = `
+  eyebrow,
+  heading,
+  body[]{
+    ${richTextFragment}
+  },
+  theme,
+  ctas[]{
+    ${ctaFragment}
+  },
+  topCta {
+    ${dualCtaHeaderCtaFragment}
+  },
+  bottomCta {
+    ${dualCtaHeaderCtaFragment}
+  }
+`;
+
 export const simpleTextHeaderFragment = `
   heading,
   theme
@@ -660,6 +692,7 @@ export const headerBlockFragment = `
   _key,
   _type == "videoHeader" => {${videoHeaderFragment}},
   _type == "textHeader" => {${textHeaderFragment}},
+  _type == "textWithDualCtaHeader" => {${textWithDualCtaHeaderFragment}},
   _type == "simpleTextHeader" => {${simpleTextHeaderFragment}},
 `;
 

@@ -3,6 +3,7 @@ import { HeaderBlock as HeaderBlockType } from '@/types/sanity';
 
 import { VideoHeader } from '../VideoHeader';
 import { TextHeader } from '../TextHeader';
+import { TextWithDualCtaHeader } from '../TextWithDualCtaHeader';
 import { SimpleTextHeader } from '../SimpleTextHeader';
 
 type HeaderBlockProps = {
@@ -15,6 +16,8 @@ const HeaderBlock: FC<HeaderBlockProps> = ({ block }) => {
       return <VideoHeader videoHeader={block} />;
     case 'textHeader':
       return <TextHeader textHeader={block} />;
+    case 'textWithDualCtaHeader':
+      return <TextWithDualCtaHeader textWithDualCtaHeader={block} />;
     case 'simpleTextHeader':
       return <SimpleTextHeader simpleTextHeader={block} />;
     default:

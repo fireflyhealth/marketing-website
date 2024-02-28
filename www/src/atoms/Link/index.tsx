@@ -11,6 +11,7 @@ type LinkProps = {
   onMouseEnter?: () => void;
   onMouseLeave?: () => void;
   children: React.ReactNode;
+  className?: string;
 };
 
 export const Link: FC<LinkProps> = ({
