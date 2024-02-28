@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import path from 'path';
 import fs from 'fs';
 import prettier from 'prettier';
@@ -7,6 +8,7 @@ import { client } from '@/lib/sanity';
 const jsonFilePath = path.resolve(__dirname, '../src/mockData/mockData.json');
 
 const main = async () => {
+  console.log('Fetching mock data..');
   const mockData = await client
     .withConfig({ useCdn: false })
     .fetch(mockDataQuery);
@@ -14,6 +16,7 @@ const main = async () => {
     parser: 'json',
   });
   fs.writeFileSync(jsonFilePath, fileContents, 'utf8');
+  console.log('Mock data fetched');
 };
 
 main();
