@@ -13,7 +13,10 @@ export const NavCTA: FC<Props> = ({ globalDoubleNav }) => {
   return (
     <div className={cn(Wrapper)}>
       <div className={cn(BackgroundColor)} />
-      <div className={cn(CTAWrapper)} style={{ zIndex: `${zIndex.NavCTA}` }}>
+      <div
+        className={cn(CTAWrapper)}
+        style={{ zIndex: `${zIndex.SecondaryNavigation}` }}
+      >
         <DoubleCTA doubleCta={globalDoubleNav} />
       </div>
     </div>

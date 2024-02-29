@@ -4,7 +4,12 @@ import { NotFoundPage } from '@/types/sanity';
 import { ContentArea } from '@/components/contentBlocks/ContentArea';
 import { HeaderArea } from '@/components/headerContentBlocks/HeaderArea';
 import { ResponsiveSanityImage } from '@/atoms/Image/ResponsiveSanityImage';
-import { Wrapper, DecorativeImageWrapper, Image } from './styles';
+import {
+  Wrapper,
+  ContentWrapper,
+  DecorativeImageWrapper,
+  Image,
+} from './styles';
 
 type NotFoundPageViewProps = {
   notFoundPage: NotFoundPage;

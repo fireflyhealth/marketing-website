@@ -15,7 +15,9 @@ export const Eyebrow = [
   'theme-text-color-primary font-roobert font-size-8 text-center  mb-8 md:mb-12',
 ];
 
-export const Heading = ['theme-text-color-primary trust-h1 text-center'];
+export const Heading = [
+  'relative theme-text-color-primary trust-h1 text-center z-20',
+];
 
 export const Body = [
   'theme-text-color-primary roobert-body text-center mt-8 md:mt-12',
