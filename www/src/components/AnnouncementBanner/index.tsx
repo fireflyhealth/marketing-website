@@ -1,4 +1,4 @@
-import { FC, useEffect, useRef } from 'react';
+import { FC, useEffect, useRef, useState } from 'react';
 import cn from 'classnames';
 import * as SanityTypes from '@/types/sanity';
 import { Wrapper } from './styles';
@@ -9,10 +9,15 @@ export type Props = {
 
 export const AnnouncementBanner: FC<Props> = ({ announcementBanner }) => {
   const bannerRef = useRef<HTMLDivElement | null>(null);
+  const [bannerHeight, setBannerHeight] = useState<number>(0);
 
   // dynamically set height of announcement banner
   useEffect(() => {
     if (!bannerRef.current) return;
+
+    if (bannerHeight === 0) {
+      setBannerHeight(bannerRef.current.offsetHeight);
+    }
 
     if (announcementBanner) {
       bannerRef.current.offsetHeight &&
@@ -25,7 +30,19 @@ export const AnnouncementBanner: FC<Props> = ({ announcementBanner }) => {
         '--announcement-banner-height',
         '0px',
       );
-  }, [bannerRef, announcementBanner]);
+
+    // reset bannerHeight and value of '--announcement-banner-height' as the window resizes
+    window.addEventListener('resize', () => {
+      if (!bannerRef.current) return;
+      if (bannerHeight != bannerRef.current.offsetHeight) {
+        setBannerHeight(bannerRef.current.offsetHeight);
+        document.documentElement.style.setProperty(
+          '--announcement-banner-height',
+          `${bannerRef.current.offsetHeight}px`,
+        );
+      }
+    });
+  }, [bannerRef, announcementBanner, bannerHeight]);
   return (
     <>
       {announcementBanner && (
