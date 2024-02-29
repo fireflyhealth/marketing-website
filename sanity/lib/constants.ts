@@ -93,4 +93,5 @@ export const defaultContentBlockTypes = [
   { type: 'cardListBlock' },
   { type: 'featuredStoriesBlock' },
   { type: 'columnsBlock' },
+  { type: 'richTextBlock' },
 ];

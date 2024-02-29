@@ -70,6 +70,7 @@ import { TwoColumnUnorderedList } from './fields/twoColumnUnorderedList';
 import { Quote } from './fields/quote';
 import { BigNumber, BigNumbers } from './fields/bigNumbers';
 import { DrawerListBlock, DrawerListItem } from './blocks/drawerListBlock';
+import { RichTextBlock } from './blocks/richTextBlock';
 import { Theme } from './fields/theme';
 import { RichTextCtaRow } from './fields/richTextCtaRow';
 import { QuoteChildBlock } from './childBlocks/quoteChildBlock';
@@ -77,6 +78,7 @@ import { FAQBlock } from './blocks/faqBlock';
 import { FeaturedStoriesBlock } from './blocks/featuredStoriesBlock';
 import { Icon } from './fields/icon';
 import { ColumnsBlock } from './blocks/columnsBlock';
+import { TitleDescriptionOrderedList } from './fields/titleDescriptionOrderedList';
 
 export const schemaTypes = [
   /* Document Types */
@@ -121,6 +123,7 @@ export const schemaTypes = [
   FAQBlock,
   CardListBlock,
   ColumnsBlock,
+  RichTextBlock,
 
   /* Child blocks (used within other blocks, i.e. 2-up block) */
   ChildContentBlock,
@@ -161,4 +164,5 @@ export const schemaTypes = [
   ReviewHeading,
   ReviewItem,
   Icon,
+  TitleDescriptionOrderedList,
 ];

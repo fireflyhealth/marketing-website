@@ -36,9 +36,9 @@ export const TwoUpBlock = defineType({
       title: 'Block Themes',
       type: 'object',
       /* Only show these fields when the Overlap 50/50 option is selected */
-      hidden: (context) => {
-        return Boolean(context.parent.layout !== 'overlap-50-50');
-      },
+      // hidden: (context) => {
+      //   return Boolean(context.parent.layout !== 'overlap-50-50');
+      // },
       fields: [
         defineField({
           name: 'blockOneTheme',
