@@ -25,6 +25,8 @@ export const TextHeader: FC<Props> = ({ textHeader }) => {
   const { eyebrow, heading, body, theme, ctas, gradientBackground } =
     textHeader;
 
+  const lines = heading.split('\n');
+
   return (
     <Theme
       theme={theme}
@@ -36,7 +38,11 @@ export const TextHeader: FC<Props> = ({ textHeader }) => {
       <div className={cn(Wrapper)}>
         <div className={cn(WarpperInner)}>
           {eyebrow && <p className={cn(Eyebrow)}>{eyebrow}</p>}
-          <h1 className={cn(Heading)}>{heading}</h1>
+          {lines.map((line, index) => (
+            <h1 className={cn(Heading)} key={index}>
+              <span className="inline-block">{line}</span>
+            </h1>
+          ))}
           {body && <RichText className={cn(Body)} content={body} />}
           {ctas?.length > 0 ? (
             <div className={cn(CTAsWrapper)}>
