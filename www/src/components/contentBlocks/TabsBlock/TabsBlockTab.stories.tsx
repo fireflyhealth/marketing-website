@@ -13,6 +13,13 @@ export const Primary: Story = {
   args: {
     tabsBlock: tabsBlockExample,
   },
+  decorators: [
+    (Story) => (
+      <div className="p-3 theme-bg-color">
+        <Story />
+      </div>
+    ),
+  ],
 };
 
 export default meta;

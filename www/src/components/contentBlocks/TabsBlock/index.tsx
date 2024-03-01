@@ -4,8 +4,10 @@ import {
   TabsBlockTab as TabsBlockTabType,
 } from '@/types/sanity';
 import { Tabs } from '@/components/Tabs';
+import { RichText } from '@/components/RichText';
 import { ContentBlockWrapper } from '../ContentBlockWrapper';
 import { TwoUpObject } from '../TwoUpBlock';
+import { ColumnsObject } from '../ColumnsBlock';
 
 type TabsBlockTabProps = {
   tabsBlockTab: TabsBlockTabType;
@@ -16,6 +18,10 @@ const TabsBlockTab: FC<TabsBlockTabProps> = ({ tabsBlockTab }) => {
   switch (content._type) {
     case 'twoUpObject':
       return <TwoUpObject twoUpObject={content} />;
+    case 'columnsObject':
+      return <ColumnsObject columnsObject={content} />;
+    case 'contentBlockRichText':
+      return <RichText content={content.body} />;
     default:
       throw new Error(
         // @ts-expect-error
