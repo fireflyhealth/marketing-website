@@ -1,6 +1,11 @@
-import { defineType } from 'sanity';
+import { StringInputProps, defineType } from 'sanity';
 import { snakeCaseToSentence } from '../../lib/utils';
-import { iconTypes, BrandedIcon } from '../../../www/src/svgs/BrandedIcon';
+import {
+  iconTypes,
+  BrandedIcon,
+  IconTypeName,
+} from '../../../www/src/svgs/BrandedIcon';
+import { Maybe } from '../../lib/types';
 
 export const brandedIcons = iconTypes
   .map((iconType) => ({
@@ -18,6 +23,23 @@ export const Icon = defineType({
       name: 'icon',
       type: 'string',
       title: 'Icon',
+      components: {
+        input: (props: StringInputProps) => {
+          const iconType = props.value as Maybe<IconTypeName>;
+
+          return (
+            <div className="Icon__input">
+              <div className="Icon__preview">
+                {iconType ? <BrandedIcon type={iconType} /> : null}
+              </div>
+
+              <div className="Icon__inputField">
+                {props.renderDefault(props)}
+              </div>
+            </div>
+          );
+        },
+      },
       options: {
         list: brandedIcons,
       },

@@ -44,10 +44,11 @@ const sharedFields = [
 ];
 
 export const ColumnsObject = defineType({
-  name: 'columsObject',
+  name: 'columnsObject',
   title: 'Columns',
   type: 'object',
   fields: [...sharedFields],
+  icon: icons.Columns,
   preview: {
     select: {
       columnCount: 'columnCount',
@@ -77,7 +78,7 @@ export const ColumnsBlock = defineType({
       content: 'content',
     },
     prepare: ({ header, columnCount }) => {
-      const subtitle = [header?.title, `${columnCount} columns`]
+      const subtitle = [`${columnCount} columns`, header?.title]
         .filter(Boolean)
         .join(' | ');
       return {
