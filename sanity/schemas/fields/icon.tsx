@@ -23,6 +23,7 @@ export const Icon = defineType({
       name: 'icon',
       type: 'string',
       title: 'Icon',
+      validation: (Rule) => Rule.required(),
       components: {
         input: (props: StringInputProps) => {
           const iconType = props.value as Maybe<IconTypeName>;
@@ -51,8 +52,8 @@ export const Icon = defineType({
     },
     prepare: ({ title }) => {
       return {
-        title: snakeCaseToSentence(title),
-        media: <BrandedIcon type={title} />,
+        title: title ? snakeCaseToSentence(title) : '(empty)',
+        media: title ? <BrandedIcon type={title} /> : null,
       };
     },
   },
