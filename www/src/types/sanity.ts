@@ -779,7 +779,7 @@ export type TabsBlock = ContentBlockCommon & {
   tabs: KeyedArray<TabsBlockTab>;
 };
 
-type TabsBlockChild = TwoUpObject;
+type TabsBlockChild = TwoUpObject | ColumnsObject | ContentBlockRichText;
 
 export type TabsBlockTab = {
   _type: 'tabsBlockTab';
@@ -789,9 +789,22 @@ export type TabsBlockTab = {
 
 export type ColumnsBlockContent = RichTextChildBlock | BigNumber;
 
-export type ColumnsBlock = ContentBlockCommon & {
-  _type: 'columnsBlock';
+type ColumnsObjectCommon = {
   columnCount: 4 | 3 | 2;
   theme: ColorTheme;
   content: KeyedArray<ColumnsBlockContent>;
+};
+
+export type ColumnsObject = ColumnsObjectCommon & {
+  _type: 'columnsObject';
+};
+
+export type ColumnsBlock = ContentBlockCommon &
+  ColumnsObjectCommon & {
+    _type: 'columnsBlock';
+  };
+
+export type ContentBlockRichText = {
+  _type: 'contentBlockRichText';
+  body: RichText;
 };

@@ -486,15 +486,31 @@ export const sequenceBlockFragment = `
   sequenceFooter
 `;
 
+export const columnsObjectFragment = `
+  _type,
+  columnCount,
+  theme,
+  content[]{${childContentBlockFragment}}
+`;
+
 const tabsBlockFragment = `
   tabs[]{
     _key,
     _type,
     label,
     content[]{
+      _type,
       _type == "twoUpObject" => {
         ${twoUpObjectFragment}
       },
+      _type == "columnsObject" => {
+        ${columnsObjectFragment}
+      },
+      _type == "contentBlockRichText" => {
+        body[]{
+          ${richTextFragment}
+        }
+      }
     }[0]
   }
 `;
@@ -560,12 +576,6 @@ export const cardlistBlockFragment = `
   drawerListItems[]{${drawerListItem}}
 `;
 
-export const columnsBlockFragment = `
-  columnCount,
-  theme,
-  content[]{${childContentBlockFragment}}
-`;
-
 const imageBlockFragment = `
   image {
     ${imageFragment}
@@ -627,6 +637,7 @@ export const contentBlockFragment = `
   _type == "quoteBlock" => {${quoteBlockFragment}},
   _type == "reviewBlock" => {${reviewBlockFragmnet}},
   _type == "sequenceBlock" => {${sequenceBlockFragment}},
+  _type == "columnsBlock" => {${columnsObjectFragment}},
   _type == "tabsBlock" => {${tabsBlockFragment}},
   _type == "twoUpBlock" => {${twoUpBlockFragment}}
 `;
