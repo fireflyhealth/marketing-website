@@ -21,6 +21,7 @@ export const TabsBlockTab = defineType({
       of: [
         defineArrayMember({ type: 'twoUpObject' }),
         defineArrayMember({ type: 'columnsObject' }),
+        defineArrayMember({ type: 'contentBlockRichText' }),
       ],
       validation: (Rule) => Rule.required().max(1),
     }),

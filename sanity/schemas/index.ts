@@ -56,6 +56,7 @@ import {
   SimpleRichText,
   ArticleRichText,
   LimitedRichText,
+  ContentBlockRichText,
 } from './fields/richText';
 import { LinkWithLabel } from './fields/linkWithLabel';
 import { LabelWithDropdown } from './fields/labelWithDropdown';
@@ -146,6 +147,7 @@ export const schemaTypes = [
   CTA,
   SimpleRichText,
   LimitedRichText,
+  ContentBlockRichText,
   ArticleRichText,
   LinkWithLabel,
   LabelWithDropdown,
