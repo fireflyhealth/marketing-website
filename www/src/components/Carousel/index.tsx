@@ -1,4 +1,5 @@
 import React, { FC, useState, useEffect, useContext, useRef } from 'react';
+import cn from 'classnames';
 import { useSwipeable } from 'react-swipeable';
 import { BrandedIcon } from '@/svgs/BrandedIcon';
 
@@ -13,6 +14,7 @@ type WithChildren<T = {}> = T & {
 type ContextValue = {
   slideCount: number;
   currentSlideIndex: number;
+  setCurrentSlideIndex: (slide: number) => void;
   goPrev: () => void;
   goNext: () => void;
   slideContainerLeft: number;
@@ -34,9 +36,16 @@ export const useCarousel = () => {
  */
 type CarouselProps = WithChildren & {
   vwHeightSetting?: number;
+  imageCarousel?: boolean;
+  slideContainerStyles?: string;
 };
 
-export const Carousel: FC<CarouselProps> = ({ children, vwHeightSetting }) => {
+export const Carousel: FC<CarouselProps> = ({
+  children,
+  vwHeightSetting,
+  imageCarousel,
+  slideContainerStyles,
+}) => {
   const slideCount = React.Children.count(children);
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
   const [slideContainerLeft, setSlideContainerLeft] = useState(0);
@@ -59,6 +68,14 @@ export const Carousel: FC<CarouselProps> = ({ children, vwHeightSetting }) => {
     }
   };
 
+  // reset slide index anytime the window resizes.
+  // this prevents buginess from between pagition and next/prev buttons.
+  useEffect(() => {
+    window.addEventListener('resize', () => {
+      setCurrentSlideIndex(0);
+    });
+  }, []);
+
   return (
     <CarouselContext.Provider
       value={{
@@ -66,22 +83,39 @@ export const Carousel: FC<CarouselProps> = ({ children, vwHeightSetting }) => {
         slideContainerLeft,
         setSlideContainerLeft,
         currentSlideIndex,
+        setCurrentSlideIndex,
         goPrev,
         goNext,
       }}
     >
-      <SlideContainer vwHeightSetting={vwHeightSetting}>
+      <SlideContainer
+        vwHeightSetting={vwHeightSetting}
+        imageCarousel={imageCarousel}
+        slideContainerStyles={slideContainerStyles}
+      >
         {React.Children.map(children, (child, index) => (
-          <Slide slideIndex={index}>{child}</Slide>
+          <Slide slideIndex={index} imageCarousel={imageCarousel}>
+            {child}
+          </Slide>
         ))}
       </SlideContainer>
-      <div className="pt-12">
+      <div
+        className={cn('pt-12', !imageCarousel ? 'hidden md:block' : 'block')}
+      >
         <PrevButton>
           <BrandedIcon type="arrow-left" wrapperStyles="w-12" />
         </PrevButton>
         <NextButton>
           <BrandedIcon type="arrow-right" wrapperStyles="w-12" />
         </NextButton>
+      </div>
+      <div
+        className={cn(
+          'pt-8 pb-4',
+          !imageCarousel ? 'block md:hidden' : 'hidden',
+        )}
+      >
+        <Pagination />
       </div>
     </CarouselContext.Provider>
   );
@@ -93,9 +127,14 @@ export const Carousel: FC<CarouselProps> = ({ children, vwHeightSetting }) => {
 
 type SlideProps = WithChildren & {
   slideIndex: number;
+  imageCarousel?: boolean;
 };
 
-export const Slide: FC<SlideProps> = ({ children, slideIndex }) => {
+export const Slide: FC<SlideProps> = ({
+  children,
+  slideIndex,
+  imageCarousel = false,
+}) => {
   const { setSlideContainerLeft, currentSlideIndex } = useCarousel();
   const slideElement = useRef<HTMLDivElement>(null);
 
@@ -118,7 +157,15 @@ export const Slide: FC<SlideProps> = ({ children, slideIndex }) => {
   }, [currentSlideIndex, slideIndex, setSlideContainerLeft]);
 
   return (
-    <div className="carousel__slide h-full relative" ref={slideElement}>
+    <div
+      ref={slideElement}
+      className={cn(
+        'carousel__slide h-full relative',
+        !imageCarousel && currentSlideIndex != slideIndex
+          ? 'hidden md:block'
+          : '',
+      )}
+    >
       {children}
     </div>
   );
@@ -127,6 +174,8 @@ export const Slide: FC<SlideProps> = ({ children, slideIndex }) => {
 export const SlideContainer: FC<CarouselProps> = ({
   children,
   vwHeightSetting,
+  imageCarousel = false,
+  slideContainerStyles,
 }) => {
   const { slideContainerLeft, goNext, goPrev } = useCarousel();
   const handlers = useSwipeable({
@@ -139,19 +188,45 @@ export const SlideContainer: FC<CarouselProps> = ({
 
   return (
     <div
-      className="relative w-full h-[240px] md:h-[750px]"
+      className={cn(
+        'relative w-full',
+        imageCarousel ? 'h-[240px] md:h-[750px]' : '',
+      )}
       style={{
         height: vwHeightSetting ? `${vwHeightSetting}vw` : undefined,
       }}
     >
       {/* Slide container inner div */}
       <div
-        className="absolute top-0 left-0 transition h-full flex flex-row"
+        className={cn(
+          'transition h-full flex flex-row',
+          imageCarousel ? 'absolute top-0 left-0 flex flex-row' : '',
+          slideContainerStyles,
+        )}
         style={{ transform: `translateX(${slideContainerLeft}px)` }}
         {...handlers}
       >
         {children}
       </div>
+    </div>
+  );
+};
+
+export const Pagination: FC = () => {
+  const { slideCount, currentSlideIndex, setCurrentSlideIndex } = useCarousel();
+
+  return (
+    <div className="flex flex-row space-x-1 justify-center">
+      {Array.from(Array(slideCount)).map((slide, index) => (
+        <button
+          key={slide}
+          className={cn(
+            'w-[11px] h-[11px] rounded-full',
+            currentSlideIndex === index ? 'bg-black' : 'bg-grey-medium',
+          )}
+          onClick={() => setCurrentSlideIndex(index)}
+        />
+      ))}
     </div>
   );
 };

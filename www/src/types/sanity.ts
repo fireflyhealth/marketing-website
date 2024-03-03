@@ -573,7 +573,8 @@ export type ContentBlock =
   | CardListBlock
   | FeaturedStoriesBlock
   | ColumnsBlock
-  | TabsBlock;
+  | TabsBlock
+  | TestimonialBlock;
 
 export type ContentArea = KeyedArray<ContentBlock>;
 
@@ -808,4 +809,18 @@ export type ColumnsBlock = ContentBlockCommon &
 export type ContentBlockRichText = {
   _type: 'contentBlockRichText';
   body: RichText;
+};
+
+export type TestimonialItem = {
+  _type: 'testimonialItem';
+  image: Maybe<RichImage>;
+  testimonial: SimpleRichText;
+  name: string;
+  age: Maybe<number>;
+  description: Maybe<SimpleRichText>;
+};
+
+export type TestimonialBlock = ContentBlockCommon & {
+  _type: 'testimonialBlock';
+  testimonials: KeyedArray<TestimonialItem>;
 };

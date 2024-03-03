@@ -31,7 +31,12 @@ import {
   BiGridHorizontal,
 } from 'react-icons/bi';
 import { FaHubspot, FaQuoteLeft } from 'react-icons/fa';
-import { BsFileBarGraph, BsMenuDown, BsSegmentedNav } from 'react-icons/bs';
+import {
+  BsFileBarGraph,
+  BsMenuDown,
+  BsSegmentedNav,
+  BsChatSquareQuoteFill,
+} from 'react-icons/bs';
 import {
   MdOutlineCallToAction,
   MdPercent,
@@ -88,4 +93,5 @@ export const icons = {
   Cards: PiCardsFill,
   Columns: BiColumns,
   Tabs: PiTabs,
+  Testimonial: BsChatSquareQuoteFill,
 };

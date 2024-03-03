@@ -1,4 +1,6 @@
 import { defineType, defineField, defineArrayMember } from 'sanity';
+import { richTextToString } from '../../lib/richTextToString';
+import { icons } from '../../lib/icons';
 import { requiredBlockFields } from './utils/requiredBlockFields';
 
 export const TestimonalItem = defineType({
@@ -10,7 +12,6 @@ export const TestimonalItem = defineType({
       name: 'image',
       title: 'Image',
       type: 'richImage',
-      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'testimonial',
@@ -19,35 +20,43 @@ export const TestimonalItem = defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
-      name: 'attestant',
-      title: 'Attestant',
-      type: 'object',
-      fields: [
-        defineField({
-          name: 'name',
-          title: 'Name',
-          type: 'string',
-          validation: (Rule) => Rule.required(),
-        }),
-        defineField({
-          name: 'age',
-          title: 'Age',
-          type: 'number',
-        }),
-        defineField({
-          name: 'description',
-          title: 'Description',
-          type: 'simpleRichText',
-        }),
-      ],
+      name: 'name',
+      title: 'Name',
+      type: 'string',
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
+      name: 'age',
+      title: 'Age',
+      type: 'number',
+    }),
+    defineField({
+      name: 'description',
+      title: 'Description',
+      type: 'simpleRichText',
     }),
   ],
+  preview: {
+    select: {
+      media: 'image',
+      title: 'testimonial',
+      subtitle: 'name',
+    },
+    prepare: ({ media, title, subtitle }) => {
+      return {
+        media,
+        title: richTextToString(title),
+        subtitle,
+      };
+    },
+  },
 });
 
 export const TestimonialBlock = defineType({
   name: 'testimonialBlock',
   title: 'Testimonal Block',
   type: 'object',
+  icon: icons.Testimonial,
   fields: [
     ...requiredBlockFields,
     defineField({
