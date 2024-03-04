@@ -9,6 +9,7 @@ import { requiredBlockFields } from './utils/requiredBlockFields';
 const childContentBlockTypes = [
   { type: 'richTextChildBlock' },
   { type: 'bigNumber' },
+  { type: 'ctaCard' },
 ];
 const sharedFields = [
   defineField({

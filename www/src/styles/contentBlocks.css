@@ -75,6 +75,13 @@
   }
 }
 
+.ColumnsBlock,
+.CTACardsBlock {
+  .ChildBlockWrapper {
+    height: 100%;
+  }
+}
+
 .TwoUpBlock--layout-normal-50-50,
 .TwoUpBlock--layout-normal-40-60,
 .TwoUpBlock--layout-normal-60-40 {

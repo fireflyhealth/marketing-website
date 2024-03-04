@@ -5,6 +5,7 @@ import { RichTextChildBlock } from '../RichTextChildBlock';
 import { QuoteChildBlock } from '../QuoteChildBlock';
 import { BigNumbersChildBlock } from '../BigNumbersChildBlock';
 import { BigNumberChildBlock } from '../BigNumberChildBlock';
+import { CTACardChildBlock } from '../CTACardChildBlock';
 
 type ChildContentBlockProps = {
   block: ChildContentBlockType;
@@ -22,6 +23,8 @@ export const ChildContentBlock: FC<ChildContentBlockProps> = ({ block }) => {
       return <BigNumbersChildBlock bigNumbers={block} />;
     case 'bigNumber':
       return <BigNumberChildBlock bigNumber={block} />;
+    case 'ctaCard':
+      return <CTACardChildBlock ctaCard={block} />;
     default:
       console.warn(
         // @ts-expect-error

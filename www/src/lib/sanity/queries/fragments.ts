@@ -325,6 +325,18 @@ export const quoteObjectFragment = `
   }
 `;
 
+const ctaCardFragment = `
+  _type,
+  _key,
+  image {
+    ${imageFragment}
+  },
+  title,
+  cta {
+    ${ctaFragment}
+  }
+`;
+
 /**
  * Child content blocks
  */
@@ -336,6 +348,9 @@ const childContentBlockFragment = `
     body[]{
       ${limitedRichTextFragment}
     }
+  },
+  _type == "ctaCard" => {
+    ${ctaCardFragment}
   },
   _type == "imageChildBlock" => {
     image {
