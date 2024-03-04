@@ -1,4 +1,4 @@
-import { FC, useRef } from 'react';
+import { FC } from 'react';
 import { Carousel } from '@/components/Carousel';
 import { TestimonialBlock as TestimonialBlockType } from '@/types/sanity';
 import { ContentBlockWrapper } from '../ContentBlockWrapper';
