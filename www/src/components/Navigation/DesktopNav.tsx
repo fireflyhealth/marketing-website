@@ -38,7 +38,10 @@ export const DesktopNav: FC<Props> = ({
           {navGroup.map((navItem) => (
             <div
               key={navItem._key}
-              className={cn(getStartedOpen ? 'hidden' : '')}
+              aria-hidden={getStartedOpen}
+              className={cn(
+                getStartedOpen ? 'opacity-0 pointer-events-none' : '',
+              )}
             >
               <NavGroup navItem={navItem} />
             </div>

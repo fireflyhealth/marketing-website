@@ -1,7 +1,4 @@
-export const NavWrapper = [
-  'relative bg-transparent w-full flex flex-col mt-announcement-banner-height',
-  'lg:block',
-];
+export const NavWrapper = ['relative bg-transparent flex flex-col', 'lg:block'];
 
 export const NavContainer = [
   'relative w-full p-4 flex flex-row items-center justify-between z-navigation',
