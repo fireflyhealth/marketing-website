@@ -20,7 +20,12 @@ export const SequenceCard: FC<Props> = ({ card }) => {
         <Theme theme={getColorTheme(theme)}>
           <div className={cn(SequenceCardWrapper)}>
             <div className={cn(VideoWrapper)}>
-              <Video video={video} posterSizes={['90vw, 40vw']} />
+              <Video
+                video={video}
+                posterSizes={['90vw, 40vw']}
+                autoplay
+                isHighlighted
+              />
             </div>
             <div className={cn(CopyWrapper)}>
               <SequenceCopy copy={copy} isHighlighted={isHighlighted} />
@@ -35,7 +40,7 @@ export const SequenceCard: FC<Props> = ({ card }) => {
           )}
         >
           <div className={cn(VideoWrapper, 'lg:max-w-[580px]')}>
-            <Video video={video} posterSizes={['90vw, 40vw']} />
+            <Video video={video} posterSizes={['90vw, 40vw']} autoplay />
           </div>
           <div
             className={cn(

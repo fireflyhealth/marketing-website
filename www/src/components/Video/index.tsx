@@ -1,15 +1,18 @@
 import { FC, useState, useRef, useEffect } from 'react';
+import { useInView } from 'react-hook-inview';
 import Vimeo from '@vimeo/player';
 import cn from 'classnames';
 import * as SanityTypes from '@/types/sanity';
 import { Button } from '@/atoms/Button';
 import { SanityImage } from '@/atoms/Image/SanityImage';
+import { SimpleIcon } from '@/svgs/SimpleIcon';
 import {
   OuterVideoWrapper,
   VideoWrapper,
   PosterImage,
   VideoPlayer,
   PlayButton,
+  FullscreenButton,
 } from './styles';
 import { VideoTitleCard } from './VideoTitleCard';
 
@@ -22,6 +25,8 @@ type Props = {
     'eyebrow' | 'heading' | 'body'
   >;
   width?: string;
+  autoplay?: boolean;
+  isHighlighted?: boolean;
 };
 
 export const Video: FC<Props> = ({
@@ -30,8 +35,14 @@ export const Video: FC<Props> = ({
   showTitleCard,
   titleCardProps,
   width,
+  autoplay = false,
+  isHighlighted = false,
 }) => {
   const videoRef = useRef<HTMLDivElement>(null);
+
+  const [inViewRef, inView] = useInView({
+    threshold: 1,
+  });
 
   const [player, setPlayer] = useState<Vimeo | null>(null);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -67,6 +78,17 @@ export const Video: FC<Props> = ({
     });
   }, [videoRef, video.videoLink]);
 
+  // handle autoplay when video is in view
+  useEffect(() => {
+    if (inView) {
+      setIsPlaying(true);
+      handlePlay();
+    } else {
+      setIsPlaying(false);
+      handlePause();
+    }
+  }, [inView]);
+
   function handlePlay() {
     player?.play();
   }
@@ -75,12 +97,16 @@ export const Video: FC<Props> = ({
     player?.pause();
   }
 
+  function handleFullscreen() {
+    player?.requestFullscreen();
+  }
+
   const togglePlay = () => (isPlaying ? handlePause() : handlePlay());
 
   if (!video.videoLink) return null;
 
   return (
-    <div id="video-component" className={cn(OuterVideoWrapper)}>
+    <div ref={inViewRef} id="video-component" className={cn(OuterVideoWrapper)}>
       <div className={cn(VideoWrapper, width ? `${width}` : 'w-full')}>
         {!isPlaying && (
           <div
@@ -99,7 +125,19 @@ export const Video: FC<Props> = ({
           </div>
         )}
         <div ref={videoRef} className={cn(VideoPlayer, 'opacity-0')} />
-        {!isPlaying && (
+        {autoplay === true && !isPlaying && (
+          <div className={cn(FullscreenButton)}>
+            <button onClick={handleFullscreen}>
+              <SimpleIcon
+                type="external-link"
+                wrapperStyles={cn(
+                  isHighlighted ? 'theme-text-color-decorative' : 'text-yellow',
+                )}
+              />
+            </button>
+          </div>
+        )}
+        {autoplay === false && !isPlaying && (
           <div className={cn(PlayButton)}>
             <Button
               variant="primary"

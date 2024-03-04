@@ -15,6 +15,11 @@ export const PlayButton = [
   'md:bottom-8 md:left-8',
 ];
 
+export const FullscreenButton = [
+  'absolute bottom-4 right-4 z-20',
+  'md:bottom-8 md:right-8',
+];
+
 /* Title Card */
 
 export const TitleCardWrapper = [
