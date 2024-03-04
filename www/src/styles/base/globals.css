@@ -306,41 +306,45 @@ img {
   --icon-overlap: theme('colors.sky-dark');
 }
 
-.theme-bg-color {
-  background-color: var(--bg-color);
-}
-.theme-border-color {
-  border-color: var(--border-color);
-}
-.theme-text-color-primary {
-  color: var(--text-color-primary);
-}
-.theme-text-color-secondary {
-  color: var(--text-color-secondary);
-}
-.theme-text-color-decorative {
-  color: var(--text-color-decorative);
-}
-.theme-border-color {
-  border-color: var(--border-color);
-}
-.theme-bg-color-primary {
-  background-color: var(--cta-bg-color-primary);
-}
-.theme-bg-color-secondary {
-  color: var(--cta-bg-color-secondary);
-}
-.theme-cta-text-color-primary {
-  color: var(--cta-text-color-primary);
-}
-.theme-cta-text-color-secondary {
-  color: var(--cta-text-color-secondary);
-}
-.theme-cta-bg-color-primary {
-  background-color: var(--cta-bg-color-primary);
-}
-.theme-cta-bg-color-secondary {
-  background-color: var(--cta-bg-color-secondary);
+/* "tailwindify" these theme classnames - i.e. make them usable with
+ * modifiers, i.e. "md:theme-bg-color", "hover:theme-text-color-primary" */
+@layer utilities {
+  .theme-bg-color {
+    background-color: var(--bg-color);
+  }
+  .theme-border-color {
+    border-color: var(--border-color);
+  }
+  .theme-text-color-primary {
+    color: var(--text-color-primary);
+  }
+  .theme-text-color-secondary {
+    color: var(--text-color-secondary);
+  }
+  .theme-text-color-decorative {
+    color: var(--text-color-decorative);
+  }
+  .theme-border-color {
+    border-color: var(--border-color);
+  }
+  .theme-bg-color-primary {
+    background-color: var(--cta-bg-color-primary);
+  }
+  .theme-bg-color-secondary {
+    color: var(--cta-bg-color-secondary);
+  }
+  .theme-cta-text-color-primary {
+    color: var(--cta-text-color-primary);
+  }
+  .theme-cta-text-color-secondary {
+    color: var(--cta-text-color-secondary);
+  }
+  .theme-cta-bg-color-primary {
+    background-color: var(--cta-bg-color-primary);
+  }
+  .theme-cta-bg-color-secondary {
+    background-color: var(--cta-bg-color-secondary);
+  }
 }
 
 .theme-icon-overlap {

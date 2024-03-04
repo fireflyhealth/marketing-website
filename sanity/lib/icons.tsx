@@ -20,6 +20,7 @@ import { SlSettings } from 'react-icons/sl';
 import {
   PiHandPointing,
   PiBracketsAngleBold,
+  PiTabs,
   PiCardsFill,
 } from 'react-icons/pi';
 import { RxComponent2 } from 'react-icons/rx';
@@ -86,4 +87,5 @@ export const icons = {
   Grid: BiGridHorizontal,
   Cards: PiCardsFill,
   Columns: BiColumns,
+  Tabs: PiTabs,
 };

@@ -214,12 +214,23 @@ export const MockData = defineType({
         }),
         defineField({
           name: 'columnsBlocks',
+          title: 'Columns Blocks',
           type: 'array',
           of: [
             {
               type: 'columnsBlock',
             },
           ],
+          validation: (Rule) => Rule.required(),
+        }),
+        defineField({
+          name: 'tabsBlock',
+          type: 'tabsBlock',
+          title: 'Tabs Block',
+          options: {
+            collapsible: true,
+            collapsed: true,
+          },
           validation: (Rule) => Rule.required(),
         }),
       ],

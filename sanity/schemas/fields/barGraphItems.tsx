@@ -56,9 +56,27 @@ export const BarGraphItems = defineType({
     }),
   ],
   preview: {
-    prepare: () => {
+    select: {
+      barOne: 'barOne',
+      barTwo: 'barTwo',
+    },
+    prepare: ({ barOne, barTwo }) => {
+      const summaryOne = barOne
+        ? [
+            barOne.description?.concat(':'),
+            barOne.unit?.toString().concat('%'),
+          ].join(' ')
+        : undefined;
+      const summaryTwo = barTwo
+        ? [
+            barTwo.description?.concat(':'),
+            barTwo.unit?.toString().concat('%'),
+          ].join(' ')
+        : undefined;
+      const subtitle = [summaryOne, summaryTwo].filter(Boolean).join(' | ');
       return {
         title: 'Bar Graph',
+        subtitle,
       };
     },
   },

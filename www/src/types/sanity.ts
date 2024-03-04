@@ -554,6 +554,7 @@ export type QuoteChildBlock = {
 /**
  * Content Area Blocks
  */
+
 export type ContentBlock =
   | ImageBlock
   | ImageCarouselBlock
@@ -570,7 +571,8 @@ export type ContentBlock =
   | FAQBlock
   | CardListBlock
   | FeaturedStoriesBlock
-  | ColumnsBlock;
+  | ColumnsBlock
+  | TabsBlock;
 
 export type ContentArea = KeyedArray<ContentBlock>;
 
@@ -707,6 +709,8 @@ export type TwoUpBlock = ContentBlockCommon & {
   _type: 'twoUpBlock';
   layout: TwoUpBlockLayout;
   mobileReverseBlockOrder: Maybe<boolean>;
+  /* Only present when the layout is not 'overlap-50-50' */
+  normalLayoutTheme: Maybe<ColorTheme>;
   /* Only present when the layout is 'overlap-50-50' */
   blockThemes: Maybe<{
     blockOneTheme: ColorTheme;
@@ -765,11 +769,42 @@ export type CardListBlock = ContentBlockCommon & {
   drawerListItems: KeyedArray<DrawerListItem>;
 };
 
+/* Used as a child of the TabsBlock component */
+export type TwoUpObject = Omit<TwoUpBlock, '_type' | 'header' | 'subnav'> & {
+  _type: 'twoUpObject';
+};
+
+export type TabsBlock = ContentBlockCommon & {
+  _type: 'tabsBlock';
+  tabs: KeyedArray<TabsBlockTab>;
+};
+
+type TabsBlockChild = TwoUpObject | ColumnsObject | ContentBlockRichText;
+
+export type TabsBlockTab = {
+  _type: 'tabsBlockTab';
+  label: string;
+  content: TabsBlockChild;
+};
+
 export type ColumnsBlockContent = RichTextChildBlock | BigNumber;
 
-export type ColumnsBlock = ContentBlockCommon & {
-  _type: 'columnsBlock';
+type ColumnsObjectCommon = {
   columnCount: 4 | 3 | 2;
   theme: ColorTheme;
   content: KeyedArray<ColumnsBlockContent>;
+};
+
+export type ColumnsObject = ColumnsObjectCommon & {
+  _type: 'columnsObject';
+};
+
+export type ColumnsBlock = ContentBlockCommon &
+  ColumnsObjectCommon & {
+    _type: 'columnsBlock';
+  };
+
+export type ContentBlockRichText = {
+  _type: 'contentBlockRichText';
+  body: RichText;
 };

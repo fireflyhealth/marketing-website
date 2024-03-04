@@ -399,9 +399,6 @@ const sequenceBlockTextFieldsFragment = `
 `;
 
 export const imageTextOverlapFragment = `
-  header{
-    ${contentBlockHeaderFragment}
-  },
   image{
     ${imageFragment}
   },
@@ -411,7 +408,6 @@ export const imageTextOverlapFragment = `
 `;
 
 export const quoteBlockFragment = `
-  header{${contentBlockHeaderFragment}},
   quoteObject{${quoteObjectFragment}},
   cta{${ctaFragment}}
 `;
@@ -429,12 +425,11 @@ export const videoFragment = `
  * in Sanity, but validated to always have only
  * one item. The [0] is added to coerce these
  * into single objects in the result. */
-const twoUpBlockFragment = `
-  header {
-    ${contentBlockHeaderFragment}
-  },
+const twoUpObjectFragment = `
+  _type,
   layout,
   mobileReverseBlockOrder,
+  normalLayoutTheme,
   blockThemes {
     blockOneTheme,
     blockTwoTheme
@@ -462,7 +457,6 @@ export const reviewFragment = `
 `;
 
 export const reviewBlockFragmnet = `
-  header{${contentBlockHeaderFragment}},
   reviewHeading{
     _type,
     title,
@@ -471,6 +465,10 @@ export const reviewBlockFragmnet = `
     }
   },
   reviews[]{${reviewFragment}}
+`;
+
+const twoUpBlockFragment = `
+  ${twoUpObjectFragment}
 `;
 
 const sequenceItemFragment = `
@@ -483,10 +481,63 @@ const sequenceItemFragment = `
 `;
 
 export const sequenceBlockFragment = `
-  header{${contentBlockHeaderFragment}},
   sequenceHeader{${sequenceBlockTextFieldsFragment}},
   sequenceItems[]{${sequenceItemFragment}},
   sequenceFooter
+`;
+
+export const columnsObjectFragment = `
+  _type,
+  columnCount,
+  theme,
+  content[]{${childContentBlockFragment}}
+`;
+
+const tabsBlockFragment = `
+  tabs[]{
+    _key,
+    _type,
+    label,
+    content[]{
+      _type,
+      _type == "twoUpObject" => {
+        ${twoUpObjectFragment}
+      },
+      _type == "columnsObject" => {
+        ${columnsObjectFragment}
+      },
+      _type == "contentBlockRichText" => {
+        body[]{
+          ${richTextFragment}
+        }
+      }
+    }[0]
+  }
+`;
+
+const faqBlockFragment = `
+  theme,
+  blockTitle,
+  blockDescription[]{
+    ${simpleRichTextFragment}
+  },
+  blockCta{
+    ${ctaFragment}
+  },
+  faqs[]->{
+    _id,
+    _type,
+    question,
+    answer[]{
+      ${simpleRichTextFragment}
+    }
+  }
+`;
+
+const featuredStoriesBlockFragment = `
+  stories[]->{
+    ${linkableDocumentFragment}
+  }
 `;
 
 export const subnavItemFragment = `
@@ -515,7 +566,6 @@ export const drawerListItem = `
 `;
 
 export const imageGridBlockFragment = `
-  header{${contentBlockHeaderFragment}},
   theme,
   images[]{
     ${imageFragment}
@@ -523,109 +573,73 @@ export const imageGridBlockFragment = `
 `;
 
 export const cardlistBlockFragment = `
-  header{${contentBlockHeaderFragment}},
   drawerListItems[]{${drawerListItem}}
 `;
 
-export const columnsBlockFragment = `
-  columnCount,
-  theme,
-  content[]{${childContentBlockFragment}}
+const imageBlockFragment = `
+  image {
+    ${imageFragment}
+  }
 `;
 
+const imageCarouselBlockFragment = `
+  images[]{
+    ${imageFragment}
+  }
+`;
+
+const ctaCardsBlockFragment = `
+  ctaCards[]{
+    _type,
+    _key,
+    image {
+      ${imageFragment}
+    },
+    title,
+    cta {
+      ${ctaFragment}
+    }
+  }
+`;
+
+const doubleCtaBlockFragment = `
+  _type,
+  doubleCta{${doubleCtaFragment}},
+`;
+
+const practitionersBlockFragment = `
+  practitioners[]->{
+    ${linkableDocumentFragment}
+  }
+`;
+
+const drawerListBlockFragment = `
+  drawerListItems[]{${drawerListItem}}
+`;
+
+/* Please keep this alphabetized! */
 export const contentBlockFragment = `
   _type,
   _key,
   subnav {${subnavItemFragment}},
   header{${contentBlockHeaderFragment}},
-  _type == "imageBlock" => {
-    header {
-      ${contentBlockHeaderFragment}
-    },
-    image {
-      ${imageFragment}
-    }
-  },
-  _type == "imageCarouselBlock" => {
-    header {
-      ${contentBlockHeaderFragment}
-    },
-    images[]{
-      ${imageFragment}
-    }
-  },
-  _type == "ctaCardsBlock" => {
-    header {
-      ${contentBlockHeaderFragment}
-    },
-    ctaCards[]{
-      _type,
-      _key,
-      image {
-        ${imageFragment}
-      },
-      title,
-      cta {
-        ${ctaFragment}
-      }
-    }
-  },
-  _type == "doubleCtaBlock" => {
-    _type,
-    doubleCta{${doubleCtaFragment}},
-    header{${contentBlockHeaderFragment}}
-  },
-  _type == "practitionersBlock" => {
-    header {
-      ${contentBlockHeaderFragment}
-    },
-    practitioners[]->{
-      ${linkableDocumentFragment}
-    }
-  },
+  _type == "cardListBlock" => {${cardlistBlockFragment}},
+  _type == "ctaCardsBlock" => {${ctaCardsBlockFragment}},
+  _type == "doubleCtaBlock" => {${doubleCtaBlockFragment}},
+  _type == "drawerListBlock" => {${drawerListBlockFragment}},
+  _type == "faqBlock" => {${faqBlockFragment}},
+  _type == "featuredStoriesBlock" => {${featuredStoriesBlockFragment}},
+  _type == "imageBlock" => {${imageBlockFragment}},
+  _type == "imageCarouselBlock" => {${imageCarouselBlockFragment}},
+  _type == "imageGridBlock" => {${imageGridBlockFragment}},
   _type == "imageTextOverlapBlock" => {${imageTextOverlapFragment}},
+  _type == "practitionersBlock" => {${practitionersBlockFragment}},
   _type == "quoteBlock" => {${quoteBlockFragment}},
-  _type == "drawerListBlock" => {
-    header{${contentBlockHeaderFragment}},
-    drawerListItems[]{${drawerListItem}}
-  },
-  _type == "sequenceBlock" => {${sequenceBlockFragment}},
-  _type == "twoUpBlock" => {${twoUpBlockFragment}},
   _type == "reviewBlock" => {${reviewBlockFragmnet}},
   _type == "sequenceBlock" => {${sequenceBlockFragment}},
-  _type == "imageGridBlock" => {${imageGridBlockFragment}},
-  _type == "sequenceBlock" => {${sequenceBlockFragment}},
-  _type == "faqBlock" => {
-    header {
-      ${contentBlockHeaderFragment}
-    },
-    theme,
-    blockTitle,
-    blockDescription[]{
-      ${simpleRichTextFragment}
-    },
-    blockCta{
-      ${ctaFragment}
-    },
-    faqs[]->{
-      _id,
-      _type,
-      question,
-      answer[]{
-        ${simpleRichTextFragment}
-      }
-    },
-  },
-  _type == "featuredStoriesBlock" => {
-    header {
-      ${contentBlockHeaderFragment}
-    },
-    stories[]->{
-      ${linkableDocumentFragment}
-    }
-  },
-  _type == "cardListBlock" => {${cardlistBlockFragment}},
-  _type == "columnsBlock" => {${columnsBlockFragment}}
+  _type == "columnsBlock" => {${columnsObjectFragment}},
+  _type == "tabsBlock" => {${tabsBlockFragment}},
+  _type == "twoUpBlock" => {${twoUpBlockFragment}}
 `;
 
 export const videoHeaderFragment = `
