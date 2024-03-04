@@ -36,14 +36,16 @@ export const useCarousel = () => {
  */
 type CarouselProps = WithChildren & {
   vwHeightSetting?: number;
-  imageCarousel?: boolean;
+  /** isImageCarousel handles styles for image carousels */
+  isImageCarousel?: boolean;
+  /** slideContainerStyles allow for custom styles to be passed to the container that wraps all slides */
   slideContainerStyles?: string;
 };
 
 export const Carousel: FC<CarouselProps> = ({
   children,
   vwHeightSetting,
-  imageCarousel,
+  isImageCarousel,
   slideContainerStyles,
 }) => {
   const slideCount = React.Children.count(children);
@@ -69,11 +71,9 @@ export const Carousel: FC<CarouselProps> = ({
   };
 
   // reset slide index anytime the window resizes.
-  // this prevents buginess from between pagition and next/prev buttons.
+  // this prevents buginess/inconsistencies between pagition and next/prev components.
   useEffect(() => {
-    window.addEventListener('resize', () => {
-      setCurrentSlideIndex(0);
-    });
+    window.addEventListener('resize', () => setCurrentSlideIndex(0));
   }, []);
 
   return (
@@ -90,17 +90,18 @@ export const Carousel: FC<CarouselProps> = ({
     >
       <SlideContainer
         vwHeightSetting={vwHeightSetting}
-        imageCarousel={imageCarousel}
+        isImageCarousel={isImageCarousel}
         slideContainerStyles={slideContainerStyles}
       >
         {React.Children.map(children, (child, index) => (
-          <Slide slideIndex={index} imageCarousel={imageCarousel}>
+          <Slide slideIndex={index} isImageCarousel={isImageCarousel}>
             {child}
           </Slide>
         ))}
       </SlideContainer>
+      {/* Prev/Next component */}
       <div
-        className={cn('pt-12', !imageCarousel ? 'hidden md:block' : 'block')}
+        className={cn('pt-12', !isImageCarousel ? 'hidden md:block' : 'block')}
       >
         <PrevButton>
           <BrandedIcon type="arrow-left" wrapperStyles="w-12" />
@@ -109,10 +110,11 @@ export const Carousel: FC<CarouselProps> = ({
           <BrandedIcon type="arrow-right" wrapperStyles="w-12" />
         </NextButton>
       </div>
+      {/* Pagination (dots) component */}
       <div
         className={cn(
           'pt-8 pb-4',
-          !imageCarousel ? 'block md:hidden' : 'hidden',
+          !isImageCarousel ? 'block md:hidden' : 'hidden',
         )}
       >
         <Pagination />
@@ -127,13 +129,13 @@ export const Carousel: FC<CarouselProps> = ({
 
 type SlideProps = WithChildren & {
   slideIndex: number;
-  imageCarousel?: boolean;
+  isImageCarousel?: boolean;
 };
 
 export const Slide: FC<SlideProps> = ({
   children,
   slideIndex,
-  imageCarousel = false,
+  isImageCarousel = false,
 }) => {
   const { setSlideContainerLeft, currentSlideIndex } = useCarousel();
   const slideElement = useRef<HTMLDivElement>(null);
@@ -161,7 +163,7 @@ export const Slide: FC<SlideProps> = ({
       ref={slideElement}
       className={cn(
         'carousel__slide h-full relative',
-        !imageCarousel && currentSlideIndex != slideIndex
+        !isImageCarousel && currentSlideIndex != slideIndex
           ? 'hidden md:block'
           : '',
       )}
@@ -174,7 +176,7 @@ export const Slide: FC<SlideProps> = ({
 export const SlideContainer: FC<CarouselProps> = ({
   children,
   vwHeightSetting,
-  imageCarousel = false,
+  isImageCarousel = false,
   slideContainerStyles,
 }) => {
   const { slideContainerLeft, goNext, goPrev } = useCarousel();
@@ -190,7 +192,7 @@ export const SlideContainer: FC<CarouselProps> = ({
     <div
       className={cn(
         'relative w-full',
-        imageCarousel ? 'h-[240px] md:h-[750px]' : '',
+        isImageCarousel ? 'h-[240px] md:h-[750px]' : '',
       )}
       style={{
         height: vwHeightSetting ? `${vwHeightSetting}vw` : undefined,
@@ -200,7 +202,7 @@ export const SlideContainer: FC<CarouselProps> = ({
       <div
         className={cn(
           'transition h-full flex flex-row',
-          imageCarousel ? 'absolute top-0 left-0 flex flex-row' : '',
+          isImageCarousel ? 'absolute top-0 left-0' : '',
           slideContainerStyles,
         )}
         style={{ transform: `translateX(${slideContainerLeft}px)` }}
