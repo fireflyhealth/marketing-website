@@ -35,8 +35,6 @@ export const Video: FC<Props> = ({
 
   const [player, setPlayer] = useState<Vimeo | null>(null);
   const [isPlaying, setIsPlaying] = useState(false);
-  const [totalDuration, setTotalDuration] = useState(0);
-  const [currentDuration, setCurrentDuration] = useState(0);
 
   // set video player
   useEffect(() => {
@@ -55,14 +53,6 @@ export const Video: FC<Props> = ({
     videoPlayer.on('play', () => setIsPlaying(true));
 
     videoPlayer.on('pause', () => setIsPlaying(false));
-
-    videoPlayer.on('timeupdate', ({ duration, percent, seconds }) => {
-      // set total duration of video
-      setTotalDuration(duration);
-
-      // set and update duration of video
-      setCurrentDuration(seconds);
-    });
 
     videoPlayer.on('ended', () => {
       const resetVideo = () =>
