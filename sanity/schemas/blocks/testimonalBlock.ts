@@ -6,6 +6,7 @@ import { requiredBlockFields } from './utils/requiredBlockFields';
 export const TestimonalItem = defineType({
   name: 'testimonialItem',
   title: 'Testimonial Item',
+  icon: icons.Testimonial,
   type: 'object',
   fields: [
     defineField({
@@ -66,4 +67,15 @@ export const TestimonialBlock = defineType({
       of: [defineArrayMember({ type: 'testimonialItem' })],
     }),
   ],
+  preview: {
+    select: {
+      testimonials: 'testimonials',
+    },
+    prepare: ({ testimonials }) => {
+      return {
+        title: 'Testimonial Block',
+        subtitle: `${testimonials.length} testimonial(s)`,
+      };
+    },
+  },
 });
