@@ -1,6 +1,6 @@
 export const Testimonial = [
   'relative bg-grey rounded-[10px] text-center px-8 py-12 w-full mix-blend-multiply',
-  'md:flex md:flex-col md:justify-center md:-mr-8 md:w-[456px] md:shrink-0 md:px-24 md:py-16',
+  'md:flex md:flex-col md:justify-center md:-mr-8 md:w-[456px] md:px-24 md:py-16',
   'lg:w-[648px] lg:mt-0',
 ];
 
