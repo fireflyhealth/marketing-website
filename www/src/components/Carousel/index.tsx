@@ -1,5 +1,6 @@
 import React, { FC, useState, useEffect, useContext, useRef } from 'react';
 import cn from 'classnames';
+import debounce from 'lodash/debounce';
 import { useSwipeable } from 'react-swipeable';
 import { BrandedIcon } from '@/svgs/BrandedIcon';
 
@@ -67,12 +68,6 @@ export const Carousel: FC<CarouselProps> = ({
     }
   };
 
-  // reset slide index anytime the window resizes.
-  // this prevents buginess/inconsistencies between pagition and next/prev components.
-  useEffect(() => {
-    window.addEventListener('resize', () => setCurrentSlideIndex(0));
-  }, []);
-
   return (
     <CarouselContext.Provider
       value={{
@@ -128,31 +123,55 @@ type SlideProps = WithChildren & {
   isImageCarousel?: boolean;
 };
 
+const goToSelfIfActive = (
+  currentSlideIndex: number,
+  slideIndex: number,
+  setSlideContainerLeft: (newLeft: number) => void,
+  slideElement: HTMLDivElement,
+) => {
+  if (currentSlideIndex === slideIndex) {
+    const parent = slideElement.offsetParent;
+
+    if (!parent || !(parent instanceof HTMLElement)) return;
+    // get its left position within its parent (offset)
+    const slideElementLeft = slideElement.offsetLeft + parent.offsetLeft;
+
+    /* TODO: ensure slides always fill the container (do not
+     * scroll too far for the final slides) */
+    setSlideContainerLeft(-slideElementLeft);
+  }
+};
+
 export const Slide: FC<SlideProps> = ({
   children,
   slideIndex,
   isImageCarousel = false,
 }) => {
   const { setSlideContainerLeft, currentSlideIndex } = useCarousel();
+  const [windowSize, setWindowSize] = useState(
+    typeof window !== 'undefined' ? window.innerWidth : 1000,
+  );
   const slideElement = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (!slideElement.current) return;
-    // when this slide is the current one
+    goToSelfIfActive(
+      currentSlideIndex,
+      slideIndex,
+      setSlideContainerLeft,
+      slideElement.current,
+    );
+  }, [currentSlideIndex, slideIndex, setSlideContainerLeft, windowSize]);
 
-    if (currentSlideIndex === slideIndex) {
-      const parent = slideElement.current.offsetParent;
-
-      if (!parent || !(parent instanceof HTMLElement)) return;
-      // get its left position within its parent (offset)
-      const slideElementLeft =
-        slideElement.current.offsetLeft + parent.offsetLeft;
-
-      /* TODO: ensure slides always fill the container (do not
-       * scroll too far for the final slides) */
-      setSlideContainerLeft(-slideElementLeft);
-    }
-  }, [currentSlideIndex, slideIndex, setSlideContainerLeft]);
+  // Update the container left whenever the window resizes.
+  // this prevents bugginess/inconsistencies between pagination and next/prev components.
+  useEffect(() => {
+    const updateWindowSize = debounce(() => setWindowSize(window.innerWidth));
+    window.addEventListener('resize', updateWindowSize);
+    return () => {
+      window.removeEventListener('resize', updateWindowSize);
+    };
+  }, []);
 
   return (
     <div
