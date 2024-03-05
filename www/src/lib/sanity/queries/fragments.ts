@@ -259,6 +259,9 @@ export const limitedRichTextFragment = `
       ${ctaFragment}
     }
   },
+  _type == "richImage" => {
+    ${imageFragment}
+  },
   markDefs[]{
     _key,
     _type,

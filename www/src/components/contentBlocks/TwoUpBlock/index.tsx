@@ -40,7 +40,10 @@ export const TwoUpObject: FC<TwoUpObjectProps> = ({ twoUpObject }) => {
             `TwoUpBlock__child--${blockOne._type}`,
           )}
         >
-          <Theme theme={blockThemes?.blockOneTheme || ColorTheme.White}>
+          <Theme
+            theme={blockThemes?.blockOneTheme || ColorTheme.White}
+            className={cn('theme-bg-color rounded-2xl')}
+          >
             <ChildContentBlock block={blockOne} />
           </Theme>
         </div>
@@ -50,7 +53,10 @@ export const TwoUpObject: FC<TwoUpObjectProps> = ({ twoUpObject }) => {
             `TwoUpBlock__child--${blockTwo._type}`,
           )}
         >
-          <Theme theme={blockThemes?.blockTwoTheme || ColorTheme.White}>
+          <Theme
+            theme={blockThemes?.blockTwoTheme || ColorTheme.White}
+            className={cn('theme-bg-color rounded-2xl')}
+          >
             <ChildContentBlock block={blockTwo} />
           </Theme>
         </div>
