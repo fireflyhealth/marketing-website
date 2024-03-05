@@ -486,6 +486,13 @@ const twoUpBlockFragment = `
   ${twoUpObjectFragment}
 `;
 
+const richTextBlockFragment = `
+  theme,
+  text[] {
+    ${richTextFragment}
+  }
+`;
+
 const sequenceItemFragment = `
   _type,
   _key,
@@ -654,7 +661,8 @@ export const contentBlockFragment = `
   _type == "sequenceBlock" => {${sequenceBlockFragment}},
   _type == "columnsBlock" => {${columnsObjectFragment}},
   _type == "tabsBlock" => {${tabsBlockFragment}},
-  _type == "twoUpBlock" => {${twoUpBlockFragment}}
+  _type == "twoUpBlock" => {${twoUpBlockFragment}},
+  _type == "richTextBlock" => {${richTextBlockFragment}}
 `;
 
 export const videoHeaderFragment = `

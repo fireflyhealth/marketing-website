@@ -17,8 +17,6 @@ export const RichTextBlock = defineType({
     defineField({
       name: 'text',
       title: 'text',
-      description:
-        'All text content, CTAs and bullets within the rich text field.',
       type: 'articleRichText',
       validation: (Rule) => Rule.required(),
     }),
