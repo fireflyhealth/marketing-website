@@ -15,6 +15,19 @@ export const RichTextBlock = defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
+      name: 'width',
+      title: 'Width',
+      type: 'string',
+      initialValue: '1-2',
+      validation: (Rule) => Rule.required(),
+      options: {
+        list: [
+          { title: '1/2', value: '1-2' },
+          { title: '2/3', value: '2-3' },
+        ],
+      },
+    }),
+    defineField({
       name: 'largerPadding',
       title: 'Larger Padding',
       type: 'boolean',

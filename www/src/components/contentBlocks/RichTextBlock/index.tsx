@@ -11,7 +11,7 @@ type Props = {
 };
 
 export const RichTextBlock: FC<Props> = ({ richTextBlock }) => {
-  const { theme, text, header, subnav, largerPadding } = richTextBlock;
+  const { theme, text, header, subnav, largerPadding, width } = richTextBlock;
 
   return (
     <ContentBlockWrapper
@@ -24,6 +24,8 @@ export const RichTextBlock: FC<Props> = ({ richTextBlock }) => {
           className={cn(RichTextWrapper, {
             'md:py-24': !largerPadding,
             'md:py-40': largerPadding,
+            'lg:w-1/2': width === '1-2',
+            'lg:w-2/3': width === '2-3',
           })}
         >
           <RichText content={text} />
