@@ -75,6 +75,7 @@ import { DrawerListBlock, DrawerListItem } from './blocks/drawerListBlock';
 import { Theme } from './fields/theme';
 import { RichTextCtaRow } from './fields/richTextCtaRow';
 import { QuoteChildBlock } from './childBlocks/quoteChildBlock';
+import { VideoChildBlock } from './childBlocks/videoChildBlock';
 import { FAQBlock } from './blocks/faqBlock';
 import { FeaturedStoriesBlock } from './blocks/featuredStoriesBlock';
 import { Icon } from './fields/icon';
@@ -132,6 +133,7 @@ export const schemaTypes = [
   QuoteChildBlock,
   ImageChildBlock,
   FeaturedStoriesBlock,
+  VideoChildBlock,
 
   /* Child blocks (used within Tabs) */
   TwoUpObject,

@@ -15,6 +15,7 @@ import {
   GrCode,
   GrMenu,
   GrImage,
+  GrVideo,
 } from 'react-icons/gr';
 import { SlSettings } from 'react-icons/sl';
 import {
@@ -88,4 +89,5 @@ export const icons = {
   Cards: PiCardsFill,
   Columns: BiColumns,
   Tabs: PiTabs,
+  Video: GrVideo,
 };

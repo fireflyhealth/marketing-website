@@ -6,6 +6,7 @@ import { QuoteChildBlock } from '../QuoteChildBlock';
 import { BigNumbersChildBlock } from '../BigNumbersChildBlock';
 import { BigNumberChildBlock } from '../BigNumberChildBlock';
 import { CTACardChildBlock } from '../CTACardChildBlock';
+import { VideoChildBlock } from '../VideoChildBlock';
 
 type ChildContentBlockProps = {
   block: ChildContentBlockType;
@@ -25,6 +26,8 @@ export const ChildContentBlock: FC<ChildContentBlockProps> = ({ block }) => {
       return <BigNumberChildBlock bigNumber={block} />;
     case 'ctaCard':
       return <CTACardChildBlock ctaCard={block} />;
+    case 'videoChildBlock':
+      return <VideoChildBlock videoChildBlock={block} />;
     default:
       console.warn(
         // @ts-expect-error

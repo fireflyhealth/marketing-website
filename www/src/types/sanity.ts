@@ -534,7 +534,8 @@ export type ChildContentBlock =
   | QuoteChildBlock
   | BigNumbers
   | BigNumber
-  | CTACard;
+  | CTACard
+  | VideoChildBlock;
 
 export type RichTextChildBlock = {
   _type: 'richTextChildBlock';
@@ -546,6 +547,11 @@ export type RichTextChildBlock = {
 export type ImageChildBlock = {
   _type: 'imageChildBlock';
   image: RichImage;
+};
+
+export type VideoChildBlock = {
+  _type: 'videoChildBlock';
+  video: Video;
 };
 
 export type QuoteChildBlock = {
