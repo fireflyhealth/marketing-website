@@ -82,7 +82,7 @@ import { Icon } from './fields/icon';
 import { ColumnsBlock, ColumnsObject } from './blocks/columnsBlock';
 import { BlogArticleTag } from './documents/blogArticleTag';
 import { FAQPage } from './documents/faqPage';
-import { FAQPage, FAQGroup, FAQTab } from './documents/faqPage';
+import { FAQSubject } from './documents/faqSubject';
 
 export const schemaTypes = [
   /* Document Types */
@@ -102,6 +102,7 @@ export const schemaTypes = [
   Navigation,
   Practitioner,
   FrequentlyAskedQuestion,
+  FAQSubject,
 
   /* Header Blocks */
   HeaderArea,
@@ -179,8 +180,4 @@ export const schemaTypes = [
   Icon,
   TestimonalItem,
   BlogArticleTagGroup,
-
-  /* Page-specific field types */
-  FAQTab,
-  FAQGroup,
 ];
