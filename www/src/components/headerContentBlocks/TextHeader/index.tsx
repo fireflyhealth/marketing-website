@@ -38,11 +38,13 @@ export const TextHeader: FC<Props> = ({ textHeader }) => {
       <div className={cn(Wrapper)}>
         <div className={cn(WarpperInner)}>
           {eyebrow && <p className={cn(Eyebrow)}>{eyebrow}</p>}
-          {lines.map((line, index) => (
-            <h1 className={cn(Heading)} key={index}>
-              <span className="inline-block">{line}</span>
-            </h1>
-          ))}
+          <h1 className={cn(Heading)}>
+            {lines.map((line, index) => (
+              <span key={index} className="inline-block w-full">
+                {line}
+              </span>
+            ))}
+          </h1>
           {body && <RichText className={cn(Body)} content={body} />}
           {ctas?.length > 0 ? (
             <div className={cn(CTAsWrapper)}>
