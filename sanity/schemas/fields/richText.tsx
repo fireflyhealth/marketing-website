@@ -98,6 +98,7 @@ export const LimitedRichText = defineField({
         ],
       },
     },
+    { name: 'icon', type: 'icon', title: 'Icon' },
     { name: 'richImage', type: 'richImage', title: 'Image' },
     ...commonRichTextBlocks,
   ],

@@ -354,8 +354,7 @@ export const videoFragment = `
 const childContentBlockFragment = `
   _type,
   _type == "richTextChildBlock" => {
-    icon,
-    heading,
+    alignCenter,
     body[]{
       ${limitedRichTextFragment}
     }

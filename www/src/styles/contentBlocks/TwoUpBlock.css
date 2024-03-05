@@ -131,14 +131,6 @@
           min-height: 600px;
         }
       }
-
-      .RichText {
-        text-align: center;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-      }
     }
   }
 }

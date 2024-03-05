@@ -13,7 +13,6 @@ import { SanityImage } from '@/atoms/Image/SanityImage';
 import { HubspotForm } from '@/components/HubspotForm';
 import { BarGraph } from '@/components/BarGraph';
 import { BigNumbers } from '../BigNumber';
-import { CTA } from '../CTA';
 import { TwoColumnUnorderedList } from '../TwoColumnUnorderedList';
 import { RichTextCtaRow } from './RichTextCtaRow';
 
@@ -28,6 +27,7 @@ type RichTextProps = {
    * Defaults to theme-text-color-primary */
   textColor?: string;
   className?: string;
+  alignCenter?: boolean;
 };
 
 const BlockRenderer: PortableTextComponent<PortableTextBlock> = ({
@@ -120,6 +120,7 @@ export const RichText: FC<RichTextProps> = ({
   className,
   fontSize,
   textColor,
+  alignCenter,
 }) => {
   return (
     <div
@@ -128,6 +129,9 @@ export const RichText: FC<RichTextProps> = ({
         textColor || 'theme-text-color-primary',
         fontSize || 'font-size-8',
         className,
+        {
+          'flex flex-col items-center text-center': alignCenter,
+        },
       )}
     >
       <PortableText value={content} components={components} />

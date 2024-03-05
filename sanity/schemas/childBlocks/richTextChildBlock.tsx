@@ -10,14 +10,9 @@ export const RichTextChildBlock = defineType({
   icon: icons.Text,
   fields: [
     defineField({
-      name: 'icon',
-      type: 'icon',
-      title: 'Icon',
-    }),
-    defineField({
-      name: 'heading',
-      type: 'string',
-      title: 'Heading',
+      name: 'alignCenter',
+      type: 'boolean',
+      title: 'Align Center',
     }),
     defineField({
       name: 'body',

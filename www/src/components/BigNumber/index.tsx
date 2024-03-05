@@ -47,9 +47,7 @@ export const BigNumbers: FC<BigNumbersProps> = ({ bigNumbers }) => {
         ))}
       </div>
       {bigNumbers.citation ? (
-        <div className="pt-14 md:pt-12">
-          <RichText content={bigNumbers.citation} fontSize="font-size-10" />
-        </div>
+        <RichText content={bigNumbers.citation} fontSize="font-size-10" />
       ) : null}
     </div>
   );
