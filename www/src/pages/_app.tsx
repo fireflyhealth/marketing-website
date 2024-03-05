@@ -7,6 +7,7 @@ import * as SanityTypes from '@/types/sanity';
 import { DefaultMetadata } from '@/components/Metadata/DefaultMetadata';
 import { ColorTheme, Theme } from '@/components/Theme';
 import { Footer } from '@/components/Footer';
+import '@/lib/datadog';
 import '../styles/fonts.css';
 import '../styles/main.css';
 
