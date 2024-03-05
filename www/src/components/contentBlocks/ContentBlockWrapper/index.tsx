@@ -53,7 +53,6 @@ type ContentBlockWrapperProps = {
   children: React.ReactNode;
   id: Maybe<string>;
   wrapperPadding?: boolean;
-  enableMaxWidth?: boolean;
 };
 
 export const ContentBlockWrapper: FC<ContentBlockWrapperProps> = ({
@@ -61,7 +60,6 @@ export const ContentBlockWrapper: FC<ContentBlockWrapperProps> = ({
   children,
   id,
   wrapperPadding = true,
-  enableMaxWidth = true,
 }) => {
   const cta = header?.cta && header?.cta?.label ? header.cta : null;
   const headerHasContent = header?.title || header?.description || cta;
@@ -69,10 +67,7 @@ export const ContentBlockWrapper: FC<ContentBlockWrapperProps> = ({
   return (
     <div
       id={id || undefined}
-      className={cn(
-        wrapperPadding ? ContentBlockContainer : '',
-        enableMaxWidth ? 'container-max-width' : '',
-      )}
+      className={cn(wrapperPadding ? ContentBlockContainer : '')}
     >
       {header && headerHasContent ? (
         <ContentBlockHeader header={header} />

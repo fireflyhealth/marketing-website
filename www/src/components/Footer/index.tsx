@@ -3,6 +3,7 @@ import cn from 'classnames';
 import { Footer as FooterType } from '@/types/sanity';
 import { filterMaybes } from '@/utils/arrays';
 import { Link } from '@/atoms/Link';
+import { FullWidthBackground } from '@/components/FullWidthBackground';
 import { CTA } from '@/components/CTA';
 import { LogotypeColor } from '@/svgs/Logotype';
 import { Theme, ColorTheme } from '../Theme';
@@ -28,6 +29,7 @@ export const Footer: FC<FooterProps> = ({ footer }) => {
   return (
     <Theme theme={ColorTheme.Grey}>
       <footer className={cn(FooterOuter)}>
+        <FullWidthBackground backgroundColor={ColorTheme.Grey} />
         <div className={cn(FooterInner)}>
           <div className={cn(FooterCta)}>
             <CTA cta={mobileCta} />

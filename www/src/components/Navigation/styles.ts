@@ -1,10 +1,10 @@
 export const NavWrapper = [
-  'top-0 left-0 w-full flex flex-col mt-announcement-banner-height z-navigation',
-  'lg:absolute lg:block',
+  'relative bg-transparent w-full flex flex-col mt-announcement-banner-height',
+  'lg:block',
 ];
 
 export const NavContainer = [
-  'container-max-width w-full p-4 flex flex-row items-center justify-between',
+  'relative w-full p-4 flex flex-row items-center justify-between z-navigation',
   'lg:px-12',
 ];
 

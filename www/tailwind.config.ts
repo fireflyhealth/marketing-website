@@ -1,6 +1,6 @@
 import type { Config } from 'tailwindcss';
 
-const config: Config = {
+export const config: Config = {
   content: [
     './.storybook/**/*.{js,ts,jsx,tsx,mdx}',
     './src/**/*.{js,ts,jsx,tsx,mdx}',
@@ -70,15 +70,20 @@ const config: Config = {
         'bar-graph-width': 'var(--bar-graph-width)',
         'block-wrapper-lg-padding': '48px',
         'block-wrapper-sm-padding': '24px',
+        navigationGradientHeightMobile:
+          'calc(100% + calc(var(--mobile-globalnav-height) + var(--announcement-banner-height)))',
+        navigationGradientHeightDesktop:
+          'calc(100% + calc(var(--desktop-globalnav-height) + var(--announcement-banner-height))',
       },
       backgroundImage: {
         'yellow-linear-gradient':
           'linear-gradient(180deg, #FFD714 49.81%, rgba(255, 215, 20, 0.82) 67.68%, rgba(255, 215, 20, 0.19) 88.41%, rgba(255, 255, 255, 0.00) 100%)',
       },
       zIndex: {
-        navigation: '1000',
-        navigationCTAGradient: '1010',
-        navigationCTAContent: '1020',
+        announcementBanner: '1030',
+        navigation: '1020',
+        navigationCTAContent: '1010',
+        navigationCTAGradient: '1000',
       },
       scale: {
         '-100': '-1',

@@ -1,10 +1,8 @@
 export const Wrapper = ['relative'];
 
-export const ContentWrapper = ['lg:relative lg:z-20'];
-
 export const DecorativeImageWrapper = [
   'w-full block',
-  'lg:absolute lg:w-[695px] lg:h-[615px] lg:left-0 lg:-bottom-[10%] lg:z-10',
+  'lg:absolute lg:w-[695px] lg:h-[615px] lg:left-0 lg:-bottom-[10%]',
 ];
 
 export const Image = [

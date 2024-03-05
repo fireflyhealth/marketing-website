@@ -1,5 +1,7 @@
 import { FC } from 'react';
 import cn from 'classnames';
+import { FullWidthBackground } from '@/components/FullWidthBackground';
+import { ColorTheme } from '@/components/Theme';
 import { DoubleCTA } from '@/components/DoubleCTA';
 import * as SanityTypes from '@/types/sanity';
 import { ContentBlockWrapper } from '../ContentBlockWrapper';
@@ -14,12 +16,12 @@ export const DoubleCtaBlock: FC<Props> = ({ doubleCtaBlock }) => {
 
   return (
     <div className={cn(Wrapper)}>
+      <FullWidthBackground backgroundColor={ColorTheme.Grey} />
       <div className={cn(WrapperInner)}>
         <ContentBlockWrapper
           id={subnav?.contentBlockId}
           header={header}
           wrapperPadding={false}
-          enableMaxWidth={false}
         >
           <DoubleCTA doubleCta={doubleCta} />
         </ContentBlockWrapper>

@@ -4,7 +4,11 @@ export const Wrapper = [
 ];
 
 export const BackgroundColor = [
-  'absolute top-0 left-0 z-navigationCTAGradient w-full h-full bg-yellow-linear-gradient',
+  '-top-mobile-nav-banner-margin pt-mobile-nav-banner-margin !h-navigationGradientHeightMobile full-width-background !z-navigationCTAGradient bg-yellow-linear-gradient',
+  'lg:-top-desktop-nav-banner-margin lg:pt-desktop-nav-banner-margin lg:!h-navigationGradientHeightDesktop',
 ];
 
-export const CTAWrapper = ['relative container-max-width px-4', 'md:px-12'];
+export const CTAWrapper = [
+  'z-navigationCTAContent relative container-max-width px-4',
+  'md:px-12',
+];

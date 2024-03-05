@@ -1,9 +1,6 @@
-export const FooterOuter = ['bg-grey'];
+export const FooterOuter = ['relative'];
 
-export const FooterInner = [
-  'container-max-width font-roobert py-9 px-4',
-  'md:p-12',
-];
+export const FooterInner = ['font-roobert py-9 px-4', 'md:p-12'];
 
 export const FooterMain = ['md:flex md:mb-24'];
 

@@ -4,7 +4,7 @@ export const Glow = [
   'absolute -z-50 opacity-90 blur-3xl -top-[30%] left-[50%] -translate-x-[50%] h-full w-[120vw] bg-yellow-light rounded-[674.12px]',
 ];
 
-export const Wrapper = ['container-max-width lg:p-block-wrapper-lg-padding'];
+export const Wrapper = ['lg:p-block-wrapper-lg-padding'];
 
 export const WarpperInner = [
   'px-block-wrapper-sm-padding py-16 md:px-24 md:py-40 lg:px-16 lg:pt-40 lg:pb-12',

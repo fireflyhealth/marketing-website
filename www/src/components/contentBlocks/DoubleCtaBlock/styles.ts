@@ -1,3 +1,3 @@
-export const Wrapper = ['bg-grey'];
+export const Wrapper = ['relative'];
 
-export const WrapperInner = ['container-max-width p-4', 'md:p-12'];
+export const WrapperInner = ['p-4', 'md:p-12'];

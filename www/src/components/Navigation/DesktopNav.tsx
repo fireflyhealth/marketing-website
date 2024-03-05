@@ -26,13 +26,7 @@ export const DesktopNav: FC<Props> = ({
     setGetStartedOpen(!getStartedOpen);
   };
   return (
-    <nav
-      className={cn(
-        NavWrapper,
-        getStartedOpen ? 'bg-yellow' : 'bg-transparent',
-        'hidden',
-      )}
-    >
+    <nav className={cn(NavWrapper, 'hidden')}>
       <div className={cn(NavContainer)}>
         <Link href="/">
           <div className="w-[175px]">
