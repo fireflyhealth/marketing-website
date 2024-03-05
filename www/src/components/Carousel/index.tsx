@@ -180,6 +180,7 @@ export const Slide: FC<SlideProps> = ({
         'carousel__slide h-full relative',
         // TODO: refactor how non image carousel slides
         // are positioned.
+        !isImageCarousel && 'odd:mt-0 even:mt-8 md:even:mt-12',
         !isImageCarousel && currentSlideIndex != slideIndex
           ? 'hidden md:block'
           : '',
@@ -217,7 +218,7 @@ export const SlideContainer: FC<CarouselProps> = ({
       {/* Slide container inner div */}
       <div
         className={cn(
-          'transition h-full flex flex-row md:items-center',
+          'transition h-full flex flex-row',
           isImageCarousel ? 'absolute top-0 left-0' : '',
         )}
         style={{ transform: `translateX(${slideContainerLeft}px)` }}

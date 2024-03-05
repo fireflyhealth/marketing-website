@@ -12,7 +12,7 @@ type Props = {
 export const TestimonialItem: FC<Props> = ({ testimonialItem }) => {
   const { image, testimonial, name, age, description } = testimonialItem;
   return (
-    <div className={cn(Testimonial, image && 'mt-[100px] md:mt-[140px]')}>
+    <div className={cn(Testimonial, image && 'mt-[100px] md:mt-0')}>
       {image && (
         <div className={cn(Image)}>
           <SanityImage image={image} sizes={['']} />
