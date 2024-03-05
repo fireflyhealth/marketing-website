@@ -61,7 +61,6 @@ export const config: Config = {
       /* TODO: Add spacing values. Search the codebase for
        * any TODO-SPACING comments */
       spacing: {
-        'announcement-banner-height': 'var(--announcement-banner-height)',
         'bar-graph-height': 'var(--bar-graph-height)',
         'bar-graph-width': 'var(--bar-graph-width)',
         'block-wrapper-lg-padding': '48px',
