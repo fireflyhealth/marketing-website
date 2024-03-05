@@ -9,6 +9,8 @@ export const SequenceItems = [
   'md:mb-[251px] md:space-y-0',
 ];
 
+export const SequenceCardOpacity = ['transition-opacity duration-300 ease-in'];
+
 export const SequenceCardWrapper = [
   'container-padding-bleed',
   'theme-bg-color relative rounded-2xl flex flex-col space-y-8 z-20',

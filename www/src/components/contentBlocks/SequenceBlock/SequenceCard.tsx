@@ -1,11 +1,17 @@
 import { FC } from 'react';
+import { useInView } from 'react-hook-inview';
 import cn from 'classnames';
 import * as SanityTypes from '@/types/sanity';
 import { getColorTheme } from '@/utils/theme';
 import { Video } from '@/components/Video';
 import { Theme } from '@/components/Theme';
 import { SequenceCopy } from './SequenceCopy';
-import { SequenceCardWrapper, VideoWrapper, CopyWrapper } from './styles';
+import {
+  SequenceCardOpacity,
+  SequenceCardWrapper,
+  VideoWrapper,
+  CopyWrapper,
+} from './styles';
 
 type Props = {
   card: SanityTypes.SequenceBlockItem;
@@ -14,8 +20,16 @@ type Props = {
 export const SequenceCard: FC<Props> = ({ card }) => {
   const { video, copy, isHighlighted, theme } = card;
 
+  const [inViewRef, inView] = useInView({
+    threshold: 0.2,
+    unobserveOnEnter: true,
+  });
+
   return (
-    <>
+    <div
+      ref={inViewRef}
+      className={cn(SequenceCardOpacity, inView ? 'opacity-100' : 'opacity-0')}
+    >
       {isHighlighted && theme ? (
         <Theme theme={getColorTheme(theme)}>
           <div className={cn(SequenceCardWrapper)}>
@@ -54,6 +68,6 @@ export const SequenceCard: FC<Props> = ({ card }) => {
           </div>
         </div>
       )}
-    </>
+    </div>
   );
 };

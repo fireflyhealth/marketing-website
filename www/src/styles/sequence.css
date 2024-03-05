@@ -61,12 +61,14 @@
 
   &__point {
     position: absolute;
-    top: var(--segment-top-offset);
+    top: 60px;
     left: calc(50% - 7px);
     width: 14px;
     height: 14px;
     border-radius: 100px;
     background-color: theme('colors.yellow');
+    opacity: 0;
+    z-index: 10;
   }
 
   &__segment--top {
@@ -76,13 +78,36 @@
     height: calc(
       100% - var(--segment-top-offset) - var(--segment-bottom-offset)
     );
-    border-width: 0 0 0 1px;
     left: calc(50% - 0.5px);
-    border-color: theme('colors.yellow');
+    overflow: hidden;
+    z-index: 8;
 
     @screen md {
       height: var(--segment-top-height);
-      border-width: 0 0 1px 1px;
+      border-radius: 0 0 0 16px;
+    }
+  }
+
+  &__segment--top::before {
+    content: '';
+    position: absolute;
+    width: 1%;
+    height: 100%;
+    top: -100%;
+    background: theme('colors.yellow');
+    @screen md {
+      width: 58%;
+      top: -100%;
+      left: -57%;
+    }
+  }
+
+  &__segment--top::after {
+    @screen md {
+      content: '';
+      position: absolute;
+      background: theme('colors.white');
+      inset: 1px;
       border-radius: 0 0 0 16px;
     }
   }
@@ -98,9 +123,31 @@
         100% - var(--segment-top-height) - var(--segment-top-offset) -
           var(--segment-bottom-height) - var(--segment-bottom-offset) + 2px
       );
-      border-width: 1px 1px 1px 0;
+      overflow: hidden;
       border-radius: 0 16px 16px 0;
-      border-color: theme('colors.yellow');
+      z-index: 9;
+    }
+  }
+
+  &__segment--middle::before {
+    @screen md {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: -99.95%;
+      left: -100%;
+      background: theme('colors.yellow');
+    }
+  }
+
+  &__segment--middle::after {
+    @screen md {
+      content: '';
+      position: absolute;
+      background: theme('colors.white');
+      inset: 1px;
+      border-radius: 0 16px 16px 0;
     }
   }
 
@@ -116,6 +163,7 @@
       border-width: 1px 0 0 1px;
       border-color: theme('colors.yellow');
       border-radius: 16px 0 0 0;
+      z-index: 8;
     }
   }
 }
