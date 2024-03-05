@@ -163,6 +163,8 @@ export const Slide: FC<SlideProps> = ({
       ref={slideElement}
       className={cn(
         'carousel__slide h-full relative',
+        // TODO: refactor how non image carousel slides
+        // are positioned.
         !isImageCarousel && currentSlideIndex != slideIndex
           ? 'hidden md:block'
           : '',
