@@ -131,6 +131,7 @@ export const ContentBlockRichText = defineField({
         {
           type: 'block',
           styles: [
+            { title: 'Heading 2', value: 'h2' },
             { title: 'Heading 3', value: 'h3' },
             { title: 'Heading 4', value: 'h4' },
             { title: 'Paragraph', value: 'normal' },
@@ -171,6 +172,11 @@ export const ContentBlockRichText = defineField({
           name: 'twoColumnUnorderedList',
           type: 'twoColumnUnorderedList',
           title: '2 Column Unordered List',
+        },
+        {
+          name: 'titleDescriptionOrderedList',
+          type: 'titleDescriptionOrderedList',
+          title: 'Title Description Ordered List',
         },
         ...commonRichTextBlocks,
       ],
