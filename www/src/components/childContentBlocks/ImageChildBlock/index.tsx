@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
+import cn from 'classnames';
 import { ImageChildBlock as ImageChildBlockType } from '@/types/sanity';
 import { SanityImage } from '@/atoms/Image/SanityImage';
-import cn from 'classnames';
 
 type ImageChildBlockProps = {
   imageChildBlock: ImageChildBlockType;

@@ -1,10 +1,10 @@
 import React, { FC } from 'react';
+import cn from 'classnames';
 import {
   BigNumber as BigNumberType,
   BigNumbers as BigNumbersType,
 } from '@/types/sanity';
 import { RichText } from '../RichText';
-import cn from 'classnames';
 
 type BigNumberProps = {
   bigNumber: BigNumberType;

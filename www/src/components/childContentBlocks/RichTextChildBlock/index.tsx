@@ -1,7 +1,6 @@
 import React, { FC } from 'react';
 import { RichTextChildBlock as RichTextChildBlockType } from '@/types/sanity';
 import { RichText } from '@/components/RichText';
-import cn from 'classnames';
 
 type RichTextChildBlockProps = {
   richTextChildBlock: RichTextChildBlockType;
