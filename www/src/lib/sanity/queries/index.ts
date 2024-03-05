@@ -74,16 +74,8 @@ export const faqPageFragment = `
   ${pageSharedFieldsFragment},
   metadataFragment{${metadataFragment}},
   title,
-  faqTabs[]{
-    _key,
-    title,
-    faqGroups[]{
-      _key,
-      title,
-      questions[]->{
-        ${faqFragment}
-      }
-    }
+  "faqs": *[_type == "faq"]{
+    ${faqFragment}
   }
 `;
 

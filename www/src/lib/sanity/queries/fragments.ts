@@ -512,6 +512,13 @@ export const faqFragment = `
   _id,
   _type,
   question,
+  subject->{
+    _id,
+    _type,
+    title,
+    slug
+  },
+  category,
   answer[]{
     ${simpleRichTextFragment}
   }

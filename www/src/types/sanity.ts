@@ -164,13 +164,22 @@ export type FAQPage = SanityDocument &
   PageShared & {
     _type: 'faqPage';
     title: string;
-    faqTabs: KeyedArray<FAQTab>;
+    /* Note: these are not in the schema but are fetched in the
+     * query */
+    faqs: FAQ[];
   };
 
 export type FAQPageLinkData = Pick<FAQPage, '_type'>;
 
+export type FAQSubject = SanityDocument & {
+  title: string;
+  slug: Slug;
+};
+
 export type FAQ = SanityDocument & {
   _type: 'faq';
+  subject: FAQSubject;
+  category: string;
   question: string;
   answer: SimpleRichText;
 };
