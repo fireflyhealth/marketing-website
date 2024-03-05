@@ -36,7 +36,7 @@ import { DoubleCtaBlock } from './blocks/doubleCtaBlock';
 import { ImageTextOverlapBlock } from './blocks/imageTextOverlapBlock';
 import { QuoteBlock } from './blocks/quoteBlock';
 import { PractitionersBlock } from './blocks/practitionersBlock';
-import { TwoUpBlock } from './blocks/twoUpBlock';
+import { TwoUpBlock, TwoUpObject } from './blocks/twoUpBlock';
 import {
   SequenceBlock,
   SequenceBlockTextFields,
@@ -45,6 +45,7 @@ import {
 import { ReviewBlock, ReviewItem, ReviewHeading } from './blocks/reviewBlock';
 import { ImageGridBlock } from './blocks/imageGridBlock';
 import { CardListBlock } from './blocks/cardListBlock';
+import { TabsBlock, TabsBlockTab } from './blocks/tabsBlock';
 
 /* Fields */
 import { Metadata } from './fields/metadata';
@@ -55,6 +56,7 @@ import {
   SimpleRichText,
   ArticleRichText,
   LimitedRichText,
+  ContentBlockRichText,
 } from './fields/richText';
 import { LinkWithLabel } from './fields/linkWithLabel';
 import { LabelWithDropdown } from './fields/labelWithDropdown';
@@ -77,7 +79,7 @@ import { QuoteChildBlock } from './childBlocks/quoteChildBlock';
 import { FAQBlock } from './blocks/faqBlock';
 import { FeaturedStoriesBlock } from './blocks/featuredStoriesBlock';
 import { Icon } from './fields/icon';
-import { ColumnsBlock } from './blocks/columnsBlock';
+import { ColumnsBlock, ColumnsObject } from './blocks/columnsBlock';
 import { TitleDescriptionOrderedList } from './fields/titleDescriptionOrderedList';
 
 export const schemaTypes = [
@@ -124,6 +126,8 @@ export const schemaTypes = [
   CardListBlock,
   ColumnsBlock,
   RichTextBlock,
+  TabsBlock,
+  TabsBlockTab,
 
   /* Child blocks (used within other blocks, i.e. 2-up block) */
   ChildContentBlock,
@@ -131,6 +135,10 @@ export const schemaTypes = [
   QuoteChildBlock,
   ImageChildBlock,
   FeaturedStoriesBlock,
+
+  /* Child blocks (used within Tabs) */
+  TwoUpObject,
+  ColumnsObject,
 
   /* Field Types */
   ContentBlockHeader,
@@ -142,6 +150,7 @@ export const schemaTypes = [
   CTA,
   SimpleRichText,
   LimitedRichText,
+  ContentBlockRichText,
   ArticleRichText,
   LinkWithLabel,
   LabelWithDropdown,

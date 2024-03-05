@@ -7,7 +7,7 @@ export const Quote = defineType({
   fields: [
     defineField({
       name: 'badgeImage',
-      title: 'Badge Image',
+      title: 'Top Image',
       description: '(Only appears in QuoteCard modules)',
       type: 'richImage',
     }),
