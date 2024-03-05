@@ -21,6 +21,7 @@ import { ColumnsBlock } from '../ColumnsBlock';
 import { TabsBlock } from '../TabsBlock';
 import { RichTextBlock } from '../RichTextBlock';
 import { TestimonialBlock } from '../TestimonialBlock';
+import { RichTextBlock } from '../RichTextBlock';
 
 type ContentBlockProps = {
   block: ContentBlockType;
@@ -66,6 +67,8 @@ const ContentBlock: FC<ContentBlockProps> = ({ block }) => {
       return <RichTextBlock richTextBlock={block} />;
     case 'testimonialBlock':
       return <TestimonialBlock testimonialBlock={block} />;
+    case 'richTextBlock':
+      return <RichTextBlock richTextBlock={block} />;
     default:
       console.warn(
         // @ts-expect-error

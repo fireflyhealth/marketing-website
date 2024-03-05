@@ -551,6 +551,7 @@ export const faqFragment = `
 
 const richTextBlockFragment = `
   theme,
+  largerPadding,
   text[] {
     ${richTextFragment}
   }
