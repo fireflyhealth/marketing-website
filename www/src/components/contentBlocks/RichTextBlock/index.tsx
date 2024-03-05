@@ -2,9 +2,9 @@ import { FC } from 'react';
 import cn from 'classnames';
 import { RichTextBlock as RichTextBlockType } from '@/types/sanity';
 import { RichText } from '@/components/RichText';
-import { SanityImage } from '@/atoms/Image/SanityImage';
-import { Theme, ColorTheme } from '@/components/Theme';
+import { Theme } from '@/components/Theme';
 import { ContentBlockWrapper } from '../ContentBlockWrapper';
+import { ThemeWrapper, RichTextWrapper } from './style';
 
 type Props = {
   richTextBlock: RichTextBlockType;
@@ -19,9 +19,9 @@ export const RichTextBlock: FC<Props> = ({ richTextBlock }) => {
       header={header}
       wrapperPadding={false}
     >
-      <Theme theme={theme} className={cn('theme-bg-color')}>
+      <Theme theme={theme} className={cn(ThemeWrapper)}>
         <div
-          className={cn('py-12 px-4 md:px-12 w-1/2', {
+          className={cn(RichTextWrapper, {
             'md:py-24': !largerPadding,
             'md:py-40': largerPadding,
           })}

@@ -1,0 +1,8 @@
+.TitleDescriptionOrderedList {
+  list-style-type: none !important;
+
+  > li {
+    margin: 0 !important;
+    padding: 24px 0 !important;
+  }
+}

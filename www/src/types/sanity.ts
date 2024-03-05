@@ -413,6 +413,7 @@ export type RichText = Array<
   | BigNumbers
   | RichTextCtaRow
   | TwoColumnUnorderedList
+  | TitleDescriptionOrderedList
 >;
 
 export type SimpleRichText = Array<PortableTextBlock>;
@@ -467,6 +468,15 @@ export type TwoColumnUnorderedList = {
   _type: 'twoColumnUnorderedList';
   _key: string;
   listItems: string[];
+};
+
+export type TitleDescriptionOrderedList = {
+  _type: 'titleDescriptionOrderedList';
+  _key: string;
+  listItems: {
+    title: string;
+    description: Maybe<SimpleRichText>;
+  }[];
 };
 
 /**

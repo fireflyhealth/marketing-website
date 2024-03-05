@@ -300,6 +300,14 @@ export const richTextFragment = `
       ${ctaFragment}
     }
   },
+  _type == "titleDescriptionOrderedList" => {
+    listItems[] {
+      title,
+      description[]{
+        ${simpleRichTextFragment}
+      }
+    }
+  },
   markDefs[]{
     _key,
     _type,

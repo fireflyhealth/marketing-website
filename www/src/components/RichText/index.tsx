@@ -13,9 +13,9 @@ import { SanityImage } from '@/atoms/Image/SanityImage';
 import { HubspotForm } from '@/components/HubspotForm';
 import { BarGraph } from '@/components/BarGraph';
 import { BigNumbers } from '../BigNumber';
-import { CTA } from '../CTA';
 import { TwoColumnUnorderedList } from '../TwoColumnUnorderedList';
 import { RichTextCtaRow } from './RichTextCtaRow';
+import { TitleDescriptionOrderedList } from './TitleDescriptionOrderedList';
 
 type RichTextProps = {
   content: RichTextType;
@@ -98,6 +98,13 @@ const components: Partial<PortableTextReactComponents> = {
     },
     richTextCtaRow: (props) => {
       return <RichTextCtaRow richTextCtaRow={props.value} />;
+    },
+    titleDescriptionOrderedList: (props) => {
+      return (
+        <TitleDescriptionOrderedList
+          titleDescriptionOrderedList={props.value}
+        />
+      );
     },
   },
   marks: {
