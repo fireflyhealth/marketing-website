@@ -488,6 +488,7 @@ const twoUpBlockFragment = `
 
 const richTextBlockFragment = `
   theme,
+  largerPadding,
   text[] {
     ${richTextFragment}
   }

@@ -573,7 +573,8 @@ export type ContentBlock =
   | CardListBlock
   | FeaturedStoriesBlock
   | ColumnsBlock
-  | TabsBlock;
+  | TabsBlock
+  | RichTextBlock;
 
 export type ContentArea = KeyedArray<ContentBlock>;
 
@@ -768,6 +769,13 @@ export type FAQBlock = ContentBlockCommon & {
 export type CardListBlock = ContentBlockCommon & {
   _type: 'cardListBlock';
   drawerListItems: KeyedArray<DrawerListItem>;
+};
+
+export type RichTextBlock = ContentBlockCommon & {
+  _type: 'richTextBlock';
+  text: RichText;
+  theme: ColorTheme;
+  largerPadding: Maybe<boolean>;
 };
 
 /* Used as a child of the TabsBlock component */
