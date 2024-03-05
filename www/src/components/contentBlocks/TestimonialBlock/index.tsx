@@ -13,7 +13,7 @@ export const TestimonialBlock: FC<Props> = ({ testimonialBlock }) => {
 
   return (
     <ContentBlockWrapper header={header} id={subnav?.contentBlockId}>
-      <Carousel slideContainerStyles="md:items-center">
+      <Carousel>
         {testimonials.map((testimonial) => (
           <TestimonialItem
             key={testimonial._key}

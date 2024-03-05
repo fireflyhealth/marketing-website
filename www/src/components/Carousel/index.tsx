@@ -38,15 +38,12 @@ type CarouselProps = WithChildren & {
   vwHeightSetting?: number;
   /** isImageCarousel handles styles for image carousels */
   isImageCarousel?: boolean;
-  /** slideContainerStyles allow for custom styles to be passed to the container that wraps all slides */
-  slideContainerStyles?: string;
 };
 
 export const Carousel: FC<CarouselProps> = ({
   children,
   vwHeightSetting,
   isImageCarousel,
-  slideContainerStyles,
 }) => {
   const slideCount = React.Children.count(children);
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
@@ -91,7 +88,6 @@ export const Carousel: FC<CarouselProps> = ({
       <SlideContainer
         vwHeightSetting={vwHeightSetting}
         isImageCarousel={isImageCarousel}
-        slideContainerStyles={slideContainerStyles}
       >
         {React.Children.map(children, (child, index) => (
           <Slide slideIndex={index} isImageCarousel={isImageCarousel}>
@@ -179,7 +175,6 @@ export const SlideContainer: FC<CarouselProps> = ({
   children,
   vwHeightSetting,
   isImageCarousel = false,
-  slideContainerStyles,
 }) => {
   const { slideContainerLeft, goNext, goPrev } = useCarousel();
   const handlers = useSwipeable({
@@ -203,9 +198,8 @@ export const SlideContainer: FC<CarouselProps> = ({
       {/* Slide container inner div */}
       <div
         className={cn(
-          'transition h-full flex flex-row',
+          'transition h-full flex flex-row md:items-center',
           isImageCarousel ? 'absolute top-0 left-0' : '',
-          slideContainerStyles,
         )}
         style={{ transform: `translateX(${slideContainerLeft}px)` }}
         {...handlers}
