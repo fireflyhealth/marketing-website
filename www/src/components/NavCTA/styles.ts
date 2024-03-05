@@ -4,8 +4,7 @@ export const Wrapper = [
 ];
 
 export const BackgroundColor = [
-  '-top-mobile-nav-banner-margin pt-mobile-nav-banner-margin !h-navigationGradientHeightMobile full-width-background !z-navigationCTAGradient bg-yellow-linear-gradient',
-  'lg:-top-desktop-nav-banner-margin lg:pt-desktop-nav-banner-margin lg:!h-navigationGradientHeightDesktop',
+  'full-width-background !z-navigationCTAGradient bg-yellow-linear-gradient',
 ];
 
 export const CTAWrapper = [

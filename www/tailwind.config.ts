@@ -66,10 +66,6 @@ export const config: Config = {
         'bar-graph-width': 'var(--bar-graph-width)',
         'block-wrapper-lg-padding': '48px',
         'block-wrapper-sm-padding': '24px',
-        navigationGradientHeightMobile:
-          'calc(100% + calc(var(--mobile-globalnav-height) + var(--announcement-banner-height)))',
-        navigationGradientHeightDesktop:
-          'calc(100% + calc(var(--desktop-globalnav-height) + var(--announcement-banner-height))',
       },
       backgroundImage: {
         'yellow-linear-gradient':

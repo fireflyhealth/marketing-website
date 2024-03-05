@@ -1,9 +1,8 @@
 import React, { FC } from 'react';
 import cn from 'classnames';
-import { ColorTheme } from '../Theme';
 
 type Props = {
-  backgroundColor: ColorTheme;
+  backgroundColor: string;
 };
 
 export const FullWidthBackground: FC<Props> = ({ backgroundColor }) => {
