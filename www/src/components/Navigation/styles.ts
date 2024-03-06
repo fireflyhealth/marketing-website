@@ -1,12 +1,15 @@
-export const NavWrapper = ['relative bg-transparent flex flex-col', 'lg:block'];
+export const NavWrapper = [
+  'relative bg-transparent flex flex-col z-navigation',
+  'lg:block',
+];
 
 export const NavContainer = [
-  'relative w-full p-4 flex flex-row items-center justify-between z-navigation',
+  'relative w-full p-4 flex flex-row items-center justify-between',
   'lg:px-12',
 ];
 
 export const NavLinksWrapper = [
-  'relative bg-yellow pt-9 p-4 w-full flex flex-col space-y-8 z-navigation',
+  'relative bg-yellow pt-9 p-4 w-full flex flex-col space-y-8',
   'lg:bg-transparent lg:w-max lg:flex-row lg:space-y-0 lg:p-0 lg:mt-0',
 ];
 
