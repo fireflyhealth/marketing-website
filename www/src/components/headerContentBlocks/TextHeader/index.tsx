@@ -2,7 +2,6 @@ import { FC } from 'react';
 import cn from 'classnames';
 import * as SanityTypes from '@/types/sanity';
 import { Theme } from '@/components/Theme';
-import { FullWidthBackground } from '@/components/FullWidthBackground';
 import { RichText } from '@/components/RichText';
 import { CTA } from '@/components/CTA';
 
@@ -32,7 +31,7 @@ export const TextHeader: FC<Props> = ({ textHeader }) => {
     <Theme theme={theme} className={cn(ThemeWrapper)}>
       {gradientBackground && <div className={cn(Glow)}></div>}
       {theme && !gradientBackground && (
-        <FullWidthBackground backgroundColor={theme} />
+        <div className="full-width-background theme-bg-color" />
       )}
       <div className={cn(Wrapper)}>
         <div className={cn(WarpperInner)}>

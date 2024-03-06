@@ -1,7 +1,6 @@
 import { FC } from 'react';
 import Link from 'next/link';
 import cn from 'classnames';
-import { FullWidthBackground } from '@/components/FullWidthBackground';
 import { LogotypeColor, LogotypeMonochrome } from '@/svgs/Logotype';
 import { Button } from '@/atoms/Button';
 import { KeyedArray, NavGroupType, DoubleCta } from '@/types/sanity';
@@ -28,7 +27,7 @@ export const DesktopNav: FC<Props> = ({
   };
   return (
     <nav className={cn(NavWrapper, 'hidden')}>
-      {getStartedOpen && <FullWidthBackground backgroundColor="yellow" />}
+      {getStartedOpen && <div className="full-width-background bg-yellow" />}
       <div className={cn(NavContainer)}>
         <Link href="/">
           <div className="w-[175px]">
