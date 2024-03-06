@@ -9,7 +9,7 @@ import {
 } from './documents/specialPages';
 import { ClientPage } from './documents/clientPage';
 import { BlogArticle } from './documents/blogArticle';
-import { Blog } from './documents/blog';
+import { Blog, BlogArticleTagGroup } from './documents/blog';
 import { MockData } from './documents/mockData';
 import { SiteSettings } from './documents/siteSettings';
 import { Practitioner } from './documents/practitioner';
@@ -81,6 +81,7 @@ import { FAQBlock } from './blocks/faqBlock';
 import { FeaturedStoriesBlock } from './blocks/featuredStoriesBlock';
 import { Icon } from './fields/icon';
 import { ColumnsBlock, ColumnsObject } from './blocks/columnsBlock';
+import { BlogArticleTag } from './documents/blogArticleTag';
 
 export const schemaTypes = [
   /* Document Types */
@@ -94,6 +95,7 @@ export const schemaTypes = [
   ClientPage,
   Blog,
   BlogArticle,
+  BlogArticleTag,
   SiteSettings,
   MockData,
   Navigation,
@@ -175,4 +177,5 @@ export const schemaTypes = [
   ReviewItem,
   Icon,
   TestimonalItem,
+  BlogArticleTagGroup,
 ];
