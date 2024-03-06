@@ -51,6 +51,11 @@ const commonRichTextBlocks = [
   { name: 'barGraphObject', type: 'barGraphItems', title: 'Bar Graph' },
   { name: 'bigNumbers', type: 'bigNumbers', title: 'Big Numbers' },
   { name: 'richTextCtaRow', type: 'richTextCtaRow', title: 'CTAs' },
+  {
+    name: 'bigOrderedList',
+    type: 'bigOrderedList',
+    title: 'Big Ordered List',
+  },
 ];
 
 /**
@@ -170,11 +175,6 @@ export const ContentBlockRichText = defineField({
           type: 'twoColumnUnorderedList',
           title: '2 Column Unordered List',
         },
-        {
-          name: 'titleDescriptionOrderedList',
-          type: 'titleDescriptionOrderedList',
-          title: 'Title Description Ordered List',
-        },
         ...commonRichTextBlocks,
       ],
     }),
@@ -240,11 +240,6 @@ export const ArticleRichText = defineField({
       name: 'twoColumnUnorderedList',
       type: 'twoColumnUnorderedList',
       title: '2 Column Unordered List',
-    },
-    {
-      name: 'titleDescriptionOrderedList',
-      type: 'titleDescriptionOrderedList',
-      title: 'Title Description Ordered List',
     },
     ...commonRichTextBlocks,
   ],

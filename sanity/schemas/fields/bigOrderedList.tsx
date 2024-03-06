@@ -1,8 +1,8 @@
 import { defineType, defineField, defineArrayMember } from 'sanity';
 import { icons } from '../../lib/icons';
 
-export const TitleDescriptionOrderedList = defineType({
-  name: 'titleDescriptionOrderedList',
+export const BigOrderedList = defineType({
+  name: 'bigOrderedList',
   title: 'Title Desciption Ordered List',
   type: 'object',
   icon: icons.TwoColumn,

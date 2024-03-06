@@ -413,7 +413,7 @@ export type RichText = Array<
   | BigNumbers
   | RichTextCtaRow
   | TwoColumnUnorderedList
-  | TitleDescriptionOrderedList
+  | BigOrderedList
 >;
 
 export type SimpleRichText = Array<PortableTextBlock>;
@@ -470,8 +470,8 @@ export type TwoColumnUnorderedList = {
   listItems: string[];
 };
 
-export type TitleDescriptionOrderedList = {
-  _type: 'titleDescriptionOrderedList';
+export type BigOrderedList = {
+  _type: 'bigOrderedList';
   _key: string;
   listItems: {
     title: string;
@@ -793,7 +793,7 @@ export type CardListBlock = ContentBlockCommon & {
 export type RichTextBlock = ContentBlockCommon & {
   _type: 'richTextBlock';
   theme: ColorTheme;
-  richTextChildBlock: RichTextChildBlock;
+  richTextChildBlock: any; //RichTextChildBlock;
 };
 
 /* Used as a child of the TabsBlock component */

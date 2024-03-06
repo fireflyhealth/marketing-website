@@ -21,7 +21,9 @@ export const RichTextBlock: FC<Props> = ({ richTextBlock }) => {
     >
       <Theme theme={theme} className={cn(ThemeWrapper)}>
         <div className={cn(RichTextWrapper)}>
-          <RichTextChildBlock richTextChildBlock={richTextChildBlock} />
+          {richTextChildBlock && (
+            <RichTextChildBlock richTextChildBlock={richTextChildBlock} />
+          )}
         </div>
       </Theme>
     </ContentBlockWrapper>

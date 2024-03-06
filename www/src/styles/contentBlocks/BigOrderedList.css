@@ -1,0 +1,10 @@
+.RichText {
+  .BigOrderedList {
+    list-style-type: none;
+
+    > li {
+      margin: 0;
+      padding: 24px 0;
+    }
+  }
+}

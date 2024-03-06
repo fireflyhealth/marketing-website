@@ -303,7 +303,7 @@ export const richTextFragment = `
       ${ctaFragment}
     }
   },
-  _type == "titleDescriptionOrderedList" => {
+  _type == "bigOrderedList" => {
     listItems[] {
       title,
       description[]{

@@ -81,7 +81,7 @@ import { FAQBlock } from './blocks/faqBlock';
 import { FeaturedStoriesBlock } from './blocks/featuredStoriesBlock';
 import { Icon } from './fields/icon';
 import { ColumnsBlock, ColumnsObject } from './blocks/columnsBlock';
-import { TitleDescriptionOrderedList } from './fields/titleDescriptionOrderedList';
+import { BigOrderedList } from './fields/bigOrderedList';
 
 export const schemaTypes = [
   /* Document Types */
@@ -175,5 +175,5 @@ export const schemaTypes = [
   ReviewHeading,
   ReviewItem,
   Icon,
-  TitleDescriptionOrderedList,
+  BigOrderedList,
 ];

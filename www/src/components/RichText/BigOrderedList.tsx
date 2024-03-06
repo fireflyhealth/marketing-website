@@ -1,22 +1,20 @@
 import { FC } from 'react';
 import cn from 'classnames';
-import { TitleDescriptionOrderedList as TitleDescriptionOrderedListType } from '@/types/sanity';
+import { BigOrderedList as BigOrderedListType } from '@/types/sanity';
 import { RichText } from '@/components/RichText';
 
 type Props = {
-  titleDescriptionOrderedList: TitleDescriptionOrderedListType;
+  bigOrderedList: BigOrderedListType;
 };
 
-export const TitleDescriptionOrderedList: FC<Props> = ({
-  titleDescriptionOrderedList,
-}) => {
+export const BigOrderedList: FC<Props> = ({ bigOrderedList }) => {
   return (
-    <ol className="TitleDescriptionOrderedList flex flex-col">
-      {titleDescriptionOrderedList.listItems.map((item, index) => {
+    <ol className="BigOrderedList flex flex-col">
+      {bigOrderedList.listItems.map((item, index) => {
         return (
           <li
             key={index}
-            className="font-size-8 border-t theme-border-color py-6 flex flex-row"
+            className="font-size-8 border-t theme-border-color py-6 flex flex-row w-full"
           >
             <p className={cn('font-size-6 font-trust mr-5')}>{index + 1}.</p>
             <div>
