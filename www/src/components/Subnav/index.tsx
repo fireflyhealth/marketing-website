@@ -1,9 +1,9 @@
-import { FC, RefObject, useEffect, useRef } from 'react';
+import { FC, RefObject, useRef } from 'react';
 import cn from 'classnames';
 import { Maybe, SubnavItem } from '@/types/sanity';
 
-import { useHash } from '@/lib/hooks/useHash';
-import { useRect } from '@/lib/hooks/useRect';
+import { useHash } from '@/hooks/useHash';
+import { useRect } from '@/hooks/useRect';
 
 import {
   Wrapper,
