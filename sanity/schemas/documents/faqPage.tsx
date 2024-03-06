@@ -93,6 +93,11 @@ export const FAQPage = defineType({
       validation: (Rule) => Rule.required().min(1),
     }),
     defineField({
+      name: 'headerArea',
+      title: 'Header',
+      type: 'headerArea',
+    }),
+    defineField({
       name: 'metadata',
       type: 'metadata',
       title: 'Metadata',
