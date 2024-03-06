@@ -5,7 +5,7 @@ export const HeaderWrapper = [
   'md:flex md:flex-row md:justify-between md:pb-12',
 ];
 
-export const HeaderBody = ['max-w-[800px] md:pr-4'];
+export const HeaderBody = ['md:w-2/3 md:pr-4'];
 
 export const Title = ['font-trust font-size-4 theme-text-color-primary'];
 

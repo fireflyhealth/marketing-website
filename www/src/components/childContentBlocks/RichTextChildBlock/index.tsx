@@ -1,7 +1,9 @@
 import React, { FC } from 'react';
 import { RichTextChildBlock as RichTextChildBlockType } from '@/types/sanity';
 import { RichText } from '@/components/RichText';
+import { SanityImage } from '@/atoms/Image/SanityImage';
 import { BrandedIcon } from '@/svgs/BrandedIcon';
+import cn from 'classnames';
 
 type RichTextChildBlockProps = {
   richTextChildBlock: RichTextChildBlockType;
@@ -10,16 +12,28 @@ type RichTextChildBlockProps = {
 export const RichTextChildBlock: FC<RichTextChildBlockProps> = ({
   richTextChildBlock,
 }) => {
-  const { heading, body, icon } = richTextChildBlock;
+  const { body, alignCenter, icon, heading, headingFontSize, image } =
+    richTextChildBlock;
   return (
-    <div className="ChildBlockWrapper">
+    <div
+      className={cn('ChildBlockWrapper', {
+        'flex flex-col items-center text-center': alignCenter,
+      })}
+    >
       {icon ? (
         <BrandedIcon type={icon.icon} wrapperStyles="w-12 pb-5 md:pb-6" />
       ) : null}
-      {heading ? (
-        <h3 className="font-size-6 font-trust pb-6">{heading}</h3>
+      {image ? (
+        <div className=" pb-5 md:pb-6">
+          <SanityImage width={120} image={image} sizes={['120px']} />
+        </div>
       ) : null}
-      <RichText content={body} />
+      {heading ? (
+        <h3 className={cn('font-trust pb-6', `${headingFontSize}`)}>
+          {heading}
+        </h3>
+      ) : null}
+      <RichText content={body} alignCenter={!!alignCenter} />
     </div>
   );
 };

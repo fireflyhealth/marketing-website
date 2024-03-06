@@ -10,14 +10,40 @@ export const RichTextChildBlock = defineType({
   icon: icons.Text,
   fields: [
     defineField({
+      name: 'alignCenter',
+      type: 'boolean',
+      title: 'Align Center',
+    }),
+    defineField({
       name: 'icon',
       type: 'icon',
       title: 'Icon',
     }),
     defineField({
+      name: 'image',
+      type: 'richImage',
+      title: 'Image',
+    }),
+    defineField({
       name: 'heading',
       type: 'string',
       title: 'Heading',
+    }),
+    defineField({
+      name: 'headingFontSize',
+      title: 'Heading Font Size',
+      type: 'string',
+      initialValue: 'font-size-6',
+      validation: (Rule) => Rule.required(),
+      description:
+        'Select the font size for the heading - Font Size 6 is the smallest, Font Size 4 is the largest.',
+      options: {
+        list: [
+          { title: 'Font Size 6', value: 'font-size-6' },
+          { title: 'Font Size 5', value: 'font-size-5' },
+          { title: 'Font Size 4', value: 'font-size-4' },
+        ],
+      },
     }),
     defineField({
       name: 'body',

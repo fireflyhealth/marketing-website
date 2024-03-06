@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+import cn from 'classnames';
 import {
   BigNumber as BigNumberType,
   BigNumbers as BigNumbersType,
@@ -39,15 +40,21 @@ type BigNumbersProps = {
 };
 
 export const BigNumbers: FC<BigNumbersProps> = ({ bigNumbers }) => {
+  const bigNumberItems = bigNumbers.bigNumbers;
   return (
     <div>
       <div className="grid grid-cols-1 md:grid-cols-2 md:gap-4">
-        {bigNumbers.bigNumbers.map((bigNumber) => (
+        {bigNumberItems.map((bigNumber) => (
           <BigNumber key={bigNumber._key} bigNumber={bigNumber} />
         ))}
       </div>
       {bigNumbers.citation ? (
-        <div className="pt-14 md:pt-12">
+        <div
+          className={cn({
+            /* If there is more than one big number item, the citation spacing should be bigger. */
+            'pt-14 md:pt-12': bigNumberItems.length > 1,
+          })}
+        >
           <RichText content={bigNumbers.citation} fontSize="font-size-10" />
         </div>
       ) : null}

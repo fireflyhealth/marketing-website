@@ -15,6 +15,7 @@ import {
   GrCode,
   GrMenu,
   GrImage,
+  GrVideo,
 } from 'react-icons/gr';
 import { SlSettings } from 'react-icons/sl';
 import {
@@ -31,7 +32,12 @@ import {
   BiGridHorizontal,
 } from 'react-icons/bi';
 import { FaHubspot, FaQuoteLeft } from 'react-icons/fa';
-import { BsFileBarGraph, BsMenuDown, BsSegmentedNav } from 'react-icons/bs';
+import {
+  BsFileBarGraph,
+  BsMenuDown,
+  BsSegmentedNav,
+  BsFiles,
+} from 'react-icons/bs';
 import {
   MdOutlineCallToAction,
   MdPercent,
@@ -88,4 +94,6 @@ export const icons = {
   Cards: PiCardsFill,
   Columns: BiColumns,
   Tabs: PiTabs,
+  Video: GrVideo,
+  ImageTextOverlap: BsFiles,
 };

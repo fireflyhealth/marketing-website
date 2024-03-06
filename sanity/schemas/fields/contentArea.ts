@@ -10,6 +10,7 @@ const childContentBlockTypes = [
   { type: 'imageChildBlock' },
   { type: 'bigNumbers' },
   { type: 'quoteChildBlock' },
+  { type: 'videoChildBlock' },
 ];
 
 export const ChildContentBlock = defineType({
