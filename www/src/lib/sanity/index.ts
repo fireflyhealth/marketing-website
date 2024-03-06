@@ -14,7 +14,9 @@ import {
   SubPage,
   Image,
   RichImage,
+  BlogArticlePagination,
 } from '@/types/sanity';
+import { PAGINATION_PAGE_SIZE } from '@/constants';
 import { sleep } from '@/utils/misc';
 import { config } from '@/config';
 import {
@@ -27,6 +29,7 @@ import {
   notFoundPageFragment,
   siteSettingsFragment,
 } from './queries';
+import { blogArticleLinkDataFragment } from './queries/fragments';
 
 export const client = createClient(config.sanity);
 
@@ -384,6 +387,27 @@ export const blog = {
           }
         }`,
     ),
+  getBlogArticles: async (
+    blogSlug: string,
+    page: number = 0,
+  ): Promise<BlogArticlePagination> => {
+    const from = page * PAGINATION_PAGE_SIZE;
+    /* Overfetch by 1 to see if there are additional pages */
+    const to = from + PAGINATION_PAGE_SIZE + 1;
+    const articles = await client.fetch<BlogArticle[]>(
+      `*[_type == "blogArticle" && category->slug.current == $blogSlug]{
+        ${blogArticleLinkDataFragment}
+      }[$from..$to]`,
+      { blogSlug, from, to },
+    );
+    /* Slice off the possible over-fetched article */
+    const slicedArticles = articles.slice(0, PAGINATION_PAGE_SIZE);
+    return {
+      page,
+      hasNextPage: articles.length > PAGINATION_PAGE_SIZE,
+      articles: slicedArticles,
+    };
+  },
   findPreview(id: string, previewToken: string) {
     return createPreviewClient(previewToken).fetch<Blog>(
       `*[_type == "blog" && _id == $id][0]{${blogFragment}}`,

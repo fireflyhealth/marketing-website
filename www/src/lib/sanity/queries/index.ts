@@ -128,9 +128,6 @@ export const blogFragment = `
   navigationOverrides {${navigationOverridesFragment}},
   'header': header[] {${headerBlockFragment}}[0],
   metadataFragment{${metadataFragment}},
-  'articles': *[_type == "blogArticle" && category->_id == ^._id]{
-    ${blogArticleLinkDataFragment}
-  },
   featuredArticle->{
     ${blogArticleLinkDataFragment}
   },
