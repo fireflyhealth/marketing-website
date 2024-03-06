@@ -355,6 +355,12 @@ const childContentBlockFragment = `
   _type,
   _type == "richTextChildBlock" => {
     alignCenter,
+    icon,
+    heading,
+    headingFontSize,
+    image {
+      ${imageFragment}
+    },
     body[]{
       ${limitedRichTextFragment}
     }

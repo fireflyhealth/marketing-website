@@ -65,9 +65,6 @@ export const LimitedRichText = defineField({
     {
       type: 'block',
       styles: [
-        { title: 'Heading 2', value: 'h2' },
-        { title: 'Heading 3', value: 'h3' },
-        { title: 'Heading 4', value: 'h4' },
         { title: 'Paragraph', value: 'normal' },
         /* Note: custom editor styling for this is in lib/styles.css */
       ],

@@ -539,6 +539,10 @@ export type ChildContentBlock =
 
 export type RichTextChildBlock = {
   _type: 'richTextChildBlock';
+  icon: Maybe<IconBlock>;
+  image: Maybe<RichImage>;
+  heading: Maybe<string>;
+  headingFontSize: 'font-size-6' | 'font-size-5' | 'font-size-4';
   alignCenter: Maybe<boolean>;
   body: LimitedRichText;
 };
