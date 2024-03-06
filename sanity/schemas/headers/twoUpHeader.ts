@@ -10,8 +10,8 @@ const childContentBlockTypes = [
 ];
 
 export const TwoUpHeaderBlock = defineType({
-  name: 'twoUpHeaderBlock',
-  title: '2-up Header Block',
+  name: 'twoUpHeader',
+  title: '2-up Header',
   type: 'object',
   icon: icons.TwoUp,
   fields: [

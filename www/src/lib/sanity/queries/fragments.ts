@@ -373,6 +373,24 @@ export const richTextFragment = `
   }
 `;
 
+export const qrCodeObjectFragment = `
+  _type,
+  qrCodeImage {
+    ${imageFragment}
+  },
+  text,
+  storeLinks {
+    appStoreimage {
+      ${imageFragment}
+    },
+    appStoreLink,
+    playStoreimage {
+      ${imageFragment}
+    },
+    playStoreLink
+  }
+`;
+
 const ctaCardFragment = `
   _type,
   _key,
@@ -396,6 +414,28 @@ export const richTextChildBlockFragment = `
   },
   body[]{
     ${limitedRichTextFragment}
+  }
+`;
+
+export const headerContentFragment = `
+  eyebrowImage {
+    ${imageFragment}
+  },
+  eyebrow,
+  heading,
+  body[]{
+    ${richTextFragment}
+  },
+  cta{
+    ${ctaFragment}
+  }
+`;
+
+export const headerQrCodeFragment = `
+  heading,
+  body[],
+  qrCode {
+    ${qrCodeObjectFragment}
   }
 `;
 
@@ -430,6 +470,12 @@ const childContentBlockFragment = `
     video{
       ${videoFragment}
     }
+  },
+  _type == "headerContentChildBlock" => {
+    ${headerContentFragment}
+  },
+  _type == "headerQrCodeChildBlock" => {
+    ${headerQrCodeFragment}
   }
 `;
 
@@ -809,6 +855,10 @@ export const simpleTextHeaderFragment = `
   theme
 `;
 
+const twoUpHeaderFragment = `
+  ${twoUpObjectFragment}
+`;
+
 export const headerBlockFragment = `
   _type,
   _key,
@@ -816,6 +866,7 @@ export const headerBlockFragment = `
   _type == "textHeader" => {${textHeaderFragment}},
   _type == "textWithDualCtaHeader" => {${textWithDualCtaHeaderFragment}},
   _type == "simpleTextHeader" => {${simpleTextHeaderFragment}},
+  _type == "twoUpHeader" => {${twoUpHeaderFragment}}
 `;
 
 export const navGroupFragment = `

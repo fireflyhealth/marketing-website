@@ -10,6 +10,7 @@ export const QrCode = defineType({
       name: 'qrCodeImage',
       title: 'OR Code Image',
       type: 'richImage',
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'text',

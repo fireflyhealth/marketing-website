@@ -9,7 +9,7 @@ export const HeaderArea = defineType({
     { type: 'textHeader' },
     { type: 'textWithDualCtaHeader' },
     { type: 'simpleTextHeader' },
-    { type: 'twoUpHeaderBlock' },
+    { type: 'twoUpHeader' },
   ],
   validation: (Rule) =>
     Rule.max(1).error('Ony one header is allowed per page.'),

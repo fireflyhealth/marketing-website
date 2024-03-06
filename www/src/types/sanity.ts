@@ -546,7 +546,8 @@ export type HeaderBlock =
   | VideoHeader
   | TextHeader
   | SimpleTextHeader
-  | TextWithDualCtaHeader;
+  | TextWithDualCtaHeader
+  | TwoUpHeader;
 
 export type HeaderArea = HeaderBlock;
 
@@ -588,6 +589,18 @@ export type TextWithDualCtaHeader = {
   bottomCta: TextWithDualCtaHeaderCta;
 };
 
+export type TwoUpHeader = {
+  _type: 'twoUpHeader';
+  layout: 'normal-50-50' | 'overlap-50-50';
+  mobileReverseBlockOrder: Maybe<boolean>;
+  blockOne: ChildContentBlock;
+  blockTwo: ChildContentBlock;
+  blockThemes: Maybe<{
+    blockOneTheme: ColorTheme;
+    blockTwoTheme: ColorTheme;
+  }>;
+};
+
 export type SimpleTextHeader = {
   _type: 'simpleTextHeader';
   heading: string;
@@ -605,7 +618,34 @@ export type ChildContentBlock =
   | BigNumbers
   | BigNumber
   | CTACard
-  | VideoChildBlock;
+  | VideoChildBlock
+  | HeaderQrCodeChildBlock;
+
+export type QrCodeObject = {
+  _type: 'qrCodeObject';
+  qrCodeImage: RichImage;
+  text: Maybe<string>;
+  storeLinks: {
+    appStoreimage: Maybe<RichImage>;
+    appStoreLink: Maybe<string>;
+    playStoreimage: Maybe<RichImage>;
+    playStoreLink: Maybe<string>;
+  };
+};
+
+export type HeaderQrCodeChildBlock = {
+  _type: 'headerQrCodeChildBlock';
+  heading: string;
+  body: Maybe<SimpleRichText>;
+  qrCode: QrCodeObject;
+};
+
+export type HeaderContentChildBlock = {
+  _type: 'headerContentChildBlock';
+  heading: string;
+  body: SimpleRichText;
+  cta: Maybe<CTA>;
+};
 
 export type RichTextChildBlock = {
   _type: 'richTextChildBlock';
