@@ -6,12 +6,7 @@ import { getColorTheme } from '@/utils/theme';
 import { Video } from '@/components/Video';
 import { Theme } from '@/components/Theme';
 import { SequenceCopy } from './SequenceCopy';
-import {
-  SequenceCardOpacity,
-  SequenceCardWrapper,
-  VideoWrapper,
-  CopyWrapper,
-} from './styles';
+import { SequenceCardWrapper, VideoWrapper, CopyWrapper } from './styles';
 
 type Props = {
   card: SanityTypes.SequenceBlockItem;
@@ -36,8 +31,8 @@ export const SequenceCard: FC<Props> = ({ card }) => {
             <div
               className={cn(
                 SequenceCardWrapper,
-                SequenceCardOpacity,
-                inView ? 'opacity-1' : 'opacity-0',
+                'TabsTab TabsTab--animated',
+                inView ? '' : 'TabsTab--inactive',
                 'md:p-12 md:flex-row-reverse md:space-x-reverse',
                 'lg:space-x-reverse',
               )}
@@ -66,9 +61,8 @@ export const SequenceCard: FC<Props> = ({ card }) => {
           <div
             className={cn(
               VideoWrapper,
-              'lg:max-w-[580px]',
-              SequenceCardOpacity,
-              inView ? 'opacity-1' : 'opacity-0',
+              'TabsTab TabsTab--animated lg:max-w-[580px]',
+              inView ? '' : 'TabsTab--inactive',
             )}
           >
             <Video video={video} posterSizes={['90vw, 40vw']} autoplay />
@@ -83,8 +77,8 @@ export const SequenceCard: FC<Props> = ({ card }) => {
           >
             <div
               className={cn(
-                SequenceCardOpacity,
-                inView ? 'opacity-1' : 'opacity-0',
+                'TabsTab TabsTab--animated',
+                inView ? '' : 'TabsTab--inactive',
               )}
             >
               <SequenceCopy copy={copy} />

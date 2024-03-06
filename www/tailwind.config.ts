@@ -140,7 +140,7 @@ export const config: Config = {
       animation: {
         segmentPoint: 'segmentPoint 0.5s ease-in forwards',
         topSegmentMobile:
-          'topSegmentLeftBorderMobile 0.25s ease-in 0.5s forwards',
+          'topSegmentLeftBorderMobile 0.75s ease-in 0.5s forwards',
         topSegmentTabletDesktop:
           'topSegmentLeftBorderTabletDesktop 0.25s ease-in 0.5s forwards, topSegmentBottomBorder 0.25s linear 0.75s forwards',
         middleSegment:
