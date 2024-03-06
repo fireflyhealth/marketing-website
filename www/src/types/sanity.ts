@@ -619,7 +619,8 @@ export type ChildContentBlock =
   | BigNumber
   | CTACard
   | VideoChildBlock
-  | HeaderQrCodeChildBlock;
+  | HeaderQrCodeChildBlock
+  | HeaderContentChildBlock;
 
 export type QrCodeObject = {
   _type: 'qrCodeObject';
@@ -642,9 +643,12 @@ export type HeaderQrCodeChildBlock = {
 
 export type HeaderContentChildBlock = {
   _type: 'headerContentChildBlock';
+  eyebrow: Maybe<string>;
+  eyebrowImage: Maybe<RichImage>;
   heading: string;
   body: SimpleRichText;
   cta: Maybe<CTA>;
+  size: 'small' | 'large';
 };
 
 export type RichTextChildBlock = {

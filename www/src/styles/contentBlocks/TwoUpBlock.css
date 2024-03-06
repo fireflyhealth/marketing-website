@@ -69,6 +69,17 @@
   }
 }
 
+.TwoUpBlock--layout-normal-50-50 {
+  .TwoUpBlock__child {
+    &--headerContentChildBlock {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}
+
 .TwoUpBlock--layout-overlap-50-50 {
   display: flex;
   flex-direction: column;

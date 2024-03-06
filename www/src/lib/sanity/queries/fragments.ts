@@ -428,7 +428,8 @@ export const headerContentFragment = `
   },
   cta{
     ${ctaFragment}
-  }
+  },
+  size
 `;
 
 export const headerQrCodeFragment = `

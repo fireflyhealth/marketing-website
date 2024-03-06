@@ -8,6 +8,19 @@ export const HeaderContentChildBlock = defineType({
   icon: icons.HeaderContent,
   fields: [
     defineField({
+      name: 'size',
+      title: 'Size',
+      type: 'string',
+      initialValue: 'small',
+      validation: (Rule) => Rule.required(),
+      options: {
+        list: [
+          { title: 'Small', value: 'small' },
+          { title: 'Large', value: 'large' },
+        ],
+      },
+    }),
+    defineField({
       name: 'eyebrowImage',
       title: 'Eyebrow Image',
       type: 'richImage',
@@ -29,20 +42,18 @@ export const HeaderContentChildBlock = defineType({
       type: 'simpleRichText',
     }),
     defineField({
-      name: 'ata',
+      name: 'cta',
       title: 'CTA',
       type: 'cta',
     }),
   ],
   preview: {
     select: {
-      header: 'header',
-      body: 'body',
+      title: 'heading',
     },
-    prepare: ({ header, body }) => {
+    prepare: ({ title }) => {
       return {
-        title: header,
-        subtitle: body,
+        title: title,
       };
     },
   },
