@@ -30,6 +30,7 @@ import {
   BiColumns,
   BiSolidNavigation,
   BiGridHorizontal,
+  BiCard,
 } from 'react-icons/bi';
 import { FaHubspot, FaQuoteLeft } from 'react-icons/fa';
 import {
@@ -105,4 +106,5 @@ export const icons = {
   Tag: BsTag,
   RichQuote: GoQuote,
   OverlapDoubleImages: IoMdImages,
+  HeaderContent: BiCard,
 };
