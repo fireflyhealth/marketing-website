@@ -1,9 +1,9 @@
 import React, { FC } from 'react';
+import cn from 'classnames';
 import { RichTextChildBlock as RichTextChildBlockType } from '@/types/sanity';
 import { RichText } from '@/components/RichText';
 import { SanityImage } from '@/atoms/Image/SanityImage';
 import { BrandedIcon } from '@/svgs/BrandedIcon';
-import cn from 'classnames';
 
 type RichTextChildBlockProps = {
   richTextChildBlock: RichTextChildBlockType;
