@@ -13,3 +13,19 @@ export const FeaturedArticleTextInner = [
   'py-12 px-8',
   'md:py-24 md:px-24',
 ];
+
+/* List View */
+export const BlogArticlesListItemWrapper = [
+  'border-t theme-border-color',
+  'py-8',
+  'md:grid md:grid-cols-[1fr_180px_125px] md:gap-x-2',
+];
+
+export const BlogArticlesListText = ['max-w-[650px]'];
+
+export const BlogArticlesListDate = [
+  'pt-6 font-size-8 theme-text-color-secondary',
+  'md:w-[200px] md:pt-0',
+];
+
+export const BlogArticlesListReadMore = ['pt-4', 'md:pt-0'];
