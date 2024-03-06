@@ -139,11 +139,12 @@ export const config: Config = {
       },
       animation: {
         segmentPoint: 'segmentPoint 0.5s ease-in forwards',
-        topSegmentMobile: 'topSegmentLeftBorderMobile 3s ease-in 0.5s forwards',
+        topSegmentMobile:
+          'topSegmentLeftBorderMobile 0.25s ease-in 0.5s forwards',
         topSegmentTabletDesktop:
-          'topSegmentLeftBorderTabletDesktop 1s ease-in 0.5s forwards, topSegmentBottomBorder 1s linear 1.5s forwards',
+          'topSegmentLeftBorderTabletDesktop 0.25s ease-in 0.5s forwards, topSegmentBottomBorder 0.25s linear 0.75s forwards',
         middleSegment:
-          'middleSegmentTopBorder 1s linear 2.475s forwards, middleSegmentRightBorder 5s linear 3.475s forwards',
+          'middleSegmentTopBorder 0.25s linear 0.9s forwards, middleSegmentRightBorder 0.5s linear 1.15s forwards',
       },
     },
   },

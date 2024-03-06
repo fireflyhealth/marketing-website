@@ -21,31 +21,41 @@ export const SequenceCard: FC<Props> = ({ card }) => {
   const { video, copy, isHighlighted, theme } = card;
 
   const [inViewRef, inView] = useInView({
-    threshold: 0.2,
+    threshold: 0.4,
     unobserveOnEnter: true,
   });
 
   return (
-    <div
-      ref={inViewRef}
-      className={cn(SequenceCardOpacity, inView ? 'opacity-100' : 'opacity-0')}
-    >
+    <div ref={inViewRef} className="relative">
       {isHighlighted && theme ? (
-        <Theme theme={getColorTheme(theme)}>
-          <div className={cn(SequenceCardWrapper)}>
-            <div className={cn(VideoWrapper)}>
-              <Video
-                video={video}
-                posterSizes={['90vw, 40vw']}
-                autoplay
-                isHighlighted
-              />
+        <>
+          <div
+            className={cn('absolute top-0 left-0 w-full h-full bg-white z-20')}
+          />
+          <Theme theme={getColorTheme(theme)}>
+            <div
+              className={cn(
+                SequenceCardWrapper,
+                SequenceCardOpacity,
+                inView ? 'opacity-1' : 'opacity-0',
+                'md:p-12 md:flex-row-reverse md:space-x-reverse',
+                'lg:space-x-reverse',
+              )}
+            >
+              <div className={cn(VideoWrapper)}>
+                <Video
+                  video={video}
+                  posterSizes={['90vw, 40vw']}
+                  autoplay
+                  isHighlighted
+                />
+              </div>
+              <div className={cn(CopyWrapper)}>
+                <SequenceCopy copy={copy} isHighlighted={isHighlighted} />
+              </div>
             </div>
-            <div className={cn(CopyWrapper)}>
-              <SequenceCopy copy={copy} isHighlighted={isHighlighted} />
-            </div>
-          </div>
-        </Theme>
+          </Theme>
+        </>
       ) : (
         <div
           className={cn(
@@ -53,7 +63,14 @@ export const SequenceCard: FC<Props> = ({ card }) => {
             'md:bg-transparent md:py-24 md:flex-row',
           )}
         >
-          <div className={cn(VideoWrapper, 'lg:max-w-[580px]')}>
+          <div
+            className={cn(
+              VideoWrapper,
+              'lg:max-w-[580px]',
+              SequenceCardOpacity,
+              inView ? 'opacity-1' : 'opacity-0',
+            )}
+          >
             <Video video={video} posterSizes={['90vw, 40vw']} autoplay />
           </div>
           <div
@@ -64,7 +81,14 @@ export const SequenceCard: FC<Props> = ({ card }) => {
               'lg:max-w-[580px]',
             )}
           >
-            <SequenceCopy copy={copy} />
+            <div
+              className={cn(
+                SequenceCardOpacity,
+                inView ? 'opacity-1' : 'opacity-0',
+              )}
+            >
+              <SequenceCopy copy={copy} />
+            </div>
           </div>
         </div>
       )}
