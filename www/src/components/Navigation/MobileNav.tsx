@@ -46,7 +46,7 @@ export const MobileNav: FC<Props> = ({
       </div>
 
       {mobileNavOpen && (
-        <div className="absolute w-full top-[65px]">
+        <div className="absolute w-full top-[56px] lg:top-[65px]">
           <div className={cn(NavLinksWrapper)}>
             {navGroup.map((navItem) => (
               <NavGroup key={navItem._key} navItem={navItem} isMobile />
