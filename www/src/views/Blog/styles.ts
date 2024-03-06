@@ -29,3 +29,12 @@ export const BlogArticlesListDate = [
 ];
 
 export const BlogArticlesListReadMore = ['pt-4', 'md:pt-0'];
+
+/* Grid view */
+export const BlogArticlesGridWrapper = [
+  'grid grid-cols-1 gap-y-8',
+  'md:grid-cols-2 md:gap-x-6',
+  'lg:grid-cols-3 lg:gap-x-12 lg:gap-y-12',
+];
+
+export const BlogArticlesGridItemWrapper = [''];
