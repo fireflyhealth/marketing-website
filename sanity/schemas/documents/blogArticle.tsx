@@ -99,6 +99,7 @@ export const BlogArticle = defineType({
       title: 'Parent Blog',
       type: 'reference',
       to: [{ type: 'blog' }],
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'tags',

@@ -62,6 +62,13 @@ export const Blog = defineType({
       type: 'headerArea',
     }),
     defineField({
+      name: 'contentArea',
+      title: 'Content Area',
+      fieldset: 'content',
+      type: 'contentArea',
+      description: 'Appears above the article thumbnails',
+    }),
+    defineField({
       name: 'featuredArticle',
       fieldset: 'content',
       title: 'Featured Article',
@@ -107,11 +114,13 @@ export const Blog = defineType({
     }),
 
     defineField({
-      name: 'contentArea',
-      title: 'Content Area',
-      fieldset: 'content',
-      type: 'contentArea',
-      description: 'Appears above the article thumbnails',
+      name: 'allArticlesLabel',
+      title: 'All Articles label',
+      type: 'string',
+      initialValue: 'All Articles',
+      description:
+        'Populates the tab label for viewing all articles in this blog.',
+      validation: (Rule) => Rule.required(),
     }),
 
     defineField({

@@ -245,9 +245,29 @@ export type Blog = SanityDocument & {
   metadata?: Metadata;
   navigationOverrides?: NavigationOverrides;
   header: HeaderArea;
-  articles?: BlogArticle[];
+  /* Not part of the schema, but fetched in the query */
+  articles: BlogArticle[];
+  featuredArticle: Maybe<BlogArticle>;
+  contentArea: Maybe<ContentArea>;
+  allArticlesLabel: string;
+  blogArticleTagGroups: Maybe<KeyedArray<BlogArticleTagGroup>>;
+  articleLayout: BlogArticleLayout;
 };
+
+export type BlogArticleLayout = 'grid' | 'list';
 export type BlogLinkData = Pick<Blog, '_type' | 'slug' | 'title'>;
+
+export type BlogArticleTagGroup = {
+  _type: 'blogArticleTagGroup';
+  title: string;
+  tag: BlogArticleTag;
+};
+
+export type BlogArticleTag = SanityDocument & {
+  _type: 'blogArticleTag';
+  title: string;
+  slug: string;
+};
 
 export type BlogArticle = SanityDocument & {
   _type: 'blogArticle';
@@ -263,6 +283,8 @@ export type BlogArticle = SanityDocument & {
   navigationOverrides?: NavigationOverrides;
   category: BlogLinkData;
   metadata?: Metadata;
+  tags: Maybe<BlogArticleTag>;
+  blurb: SimpleRichText;
 };
 
 export type BlogArticleLinkData = Pick<
@@ -273,6 +295,7 @@ export type BlogArticleLinkData = Pick<
   | 'category'
   | 'thumbnail'
   | 'publishDate'
+  | 'blurb'
   | '_updatedAt'
 >;
 

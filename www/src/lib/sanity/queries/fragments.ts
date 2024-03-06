@@ -89,6 +89,26 @@ export const simpleRichTextFragmentNoLink = `
   ...,
 `;
 
+export const blogArticleLinkDataFragment = `
+  _updatedAt,
+  _type,
+  _id,
+  slug,
+  title,
+  publishDate,
+  thumbnail{
+    ${imageFragment}
+  },
+  blurb[]{
+    ${simpleRichTextFragmentNoLink}
+  },
+  category->{
+    _type,
+    slug,
+    title
+  }
+`;
+
 /* Fetches the fields needed to create URLs for documents
  * based on the _type. See the LinkableDocument type
  * in @types/sanity
@@ -122,18 +142,7 @@ export const linkableDocumentFragment = `
     title
   },
   _type == "blogArticle" => {
-    slug,
-    title,
-    _updatedAt,
-    publishDate,
-    thumbnail{
-      ${imageFragment}
-    },
-    category->{
-      _type,
-      slug,
-      title
-    }
+    ${blogArticleLinkDataFragment}
   },
   _type == "clientPage" => {
     slug,

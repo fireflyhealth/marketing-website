@@ -7,6 +7,7 @@ import {
   footerFragment,
   doubleCtaFragment,
   responsiveImageSetFragment,
+  blogArticleLinkDataFragment,
 } from './fragments';
 
 export const siteSettingsFragment = `
@@ -65,15 +66,6 @@ export const faqPageFragment = `
   metadataFragment{${metadataFragment}}
 `;
 
-export const blogFragment = `
-  _id,
-  title,
-  slug,
-  navigationOverrides {${navigationOverridesFragment}},
-  'header': header[] {${headerBlockFragment}}[0],
-  metadataFragment{${metadataFragment}}
-`;
-
 export const blogArticleFragment = `
   _id,
   title,
@@ -85,4 +77,33 @@ export const blogArticleFragment = `
   slug,
   navigationOverrides {${navigationOverridesFragment}},
   metadataFragment{${metadataFragment}}
+`;
+
+export const blogFragment = `
+  _id,
+  title,
+  slug,
+  navigationOverrides {${navigationOverridesFragment}},
+  'header': header[] {${headerBlockFragment}}[0],
+  metadataFragment{${metadataFragment}},
+  'articles': *[_type == "blogArticle" && category->_id == ^._id]{
+    ${blogArticleLinkDataFragment}
+  },
+  featuredArticle->{
+    ${blogArticleLinkDataFragment}
+  },
+  contentArea[]{
+    ${contentBlockFragment}
+  },
+  allArticlesLabel,
+  blogArticleTagGroups[]{
+    _type,
+    _key,
+    title,
+    tag->{
+      title,
+      slug
+    }
+  },
+  articleLayout
 `;
