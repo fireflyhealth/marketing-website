@@ -22,7 +22,7 @@ export const BlogPageView: FC<BlogPageViewProps> = ({ blog }) => {
   } = blog;
   return (
     <div>
-      <HeaderArea block={blog.header} />
+      <HeaderArea block={header} />
       {contentArea ? <ContentArea blocks={contentArea} /> : null}
       {featuredArticle ? (
         <div>
