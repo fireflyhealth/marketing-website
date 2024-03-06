@@ -123,6 +123,14 @@ export const Blog = defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
+      name: 'contentArea',
+      title: 'Content Area',
+      fieldset: 'content',
+      type: 'contentArea',
+      description: 'Appears above the article thumbnails',
+    }),
+
+    defineField({
       name: 'blogArticleTagGroups',
       title: 'Article Tag Groups',
       fieldset: 'content',

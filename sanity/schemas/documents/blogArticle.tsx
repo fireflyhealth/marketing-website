@@ -164,6 +164,14 @@ export const BlogArticle = defineType({
     defineField({
       name: 'content',
       fieldset: 'content',
+      title: 'Content Blocks',
+      type: 'contentArea',
+    }),
+
+    /* Metadata */
+    defineField({
+      name: 'content',
+      fieldset: 'content',
       title: 'Content',
       type: 'articleRichText',
       validation: (Rule) => Rule.required(),
