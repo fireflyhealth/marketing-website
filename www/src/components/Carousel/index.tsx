@@ -33,16 +33,11 @@ export const useCarousel = () => {
  * Main component
  */
 type CarouselProps = WithChildren & {
-  vwHeightSetting?: number;
   /** isImageCarousel handles styles for image carousels */
   isImageCarousel?: boolean;
 };
 
-export const Carousel: FC<CarouselProps> = ({
-  children,
-  vwHeightSetting,
-  isImageCarousel,
-}) => {
+export const Carousel: FC<CarouselProps> = ({ children, isImageCarousel }) => {
   const slideCount = React.Children.count(children);
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
   const [slideContainerLeft, setSlideContainerLeft] = useState(0);
@@ -77,10 +72,7 @@ export const Carousel: FC<CarouselProps> = ({
         goNext,
       }}
     >
-      <SlideContainer
-        vwHeightSetting={vwHeightSetting}
-        isImageCarousel={isImageCarousel}
-      >
+      <SlideContainer isImageCarousel={isImageCarousel}>
         {React.Children.map(children, (child, index) => (
           <Slide slideIndex={index} isImageCarousel={isImageCarousel}>
             {child}
@@ -190,7 +182,6 @@ export const Slide: FC<SlideProps> = ({
 
 export const SlideContainer: FC<CarouselProps> = ({
   children,
-  vwHeightSetting,
   isImageCarousel = false,
 }) => {
   const { slideContainerLeft, goNext, goPrev } = useCarousel();
@@ -203,15 +194,7 @@ export const SlideContainer: FC<CarouselProps> = ({
   });
 
   return (
-    <div
-      className={cn(
-        'relative w-full',
-        isImageCarousel ? 'h-[240px] md:h-[750px]' : '',
-      )}
-      style={{
-        height: vwHeightSetting ? `${vwHeightSetting}vw` : undefined,
-      }}
-    >
+    <div className={cn('relative w-full', isImageCarousel ? 'h-[45vw]' : '')}>
       {/* Slide container inner div */}
       <div
         className={cn(
