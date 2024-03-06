@@ -1,8 +1,8 @@
 import { FC } from 'react';
 import cn from 'classnames';
 import { RichTextBlock as RichTextBlockType } from '@/types/sanity';
-import { RichText } from '@/components/RichText';
 import { Theme } from '@/components/Theme';
+import { RichTextChildBlock } from '@/components/childContentBlocks/RichTextChildBlock';
 import { ContentBlockWrapper } from '../ContentBlockWrapper';
 import { ThemeWrapper, RichTextWrapper } from './style';
 
@@ -11,7 +11,7 @@ type Props = {
 };
 
 export const RichTextBlock: FC<Props> = ({ richTextBlock }) => {
-  const { theme, text, header, subnav, largerPadding, width } = richTextBlock;
+  const { theme, header, subnav, richTextChildBlock } = richTextBlock;
 
   return (
     <ContentBlockWrapper
@@ -20,15 +20,8 @@ export const RichTextBlock: FC<Props> = ({ richTextBlock }) => {
       wrapperPadding={false}
     >
       <Theme theme={theme} className={cn(ThemeWrapper)}>
-        <div
-          className={cn(RichTextWrapper, {
-            'md:py-24': !largerPadding,
-            'md:py-40': largerPadding,
-            'lg:w-1/2': width === '1-2',
-            'lg:w-2/3': width === '2-3',
-          })}
-        >
-          <RichText content={text} />
+        <div className={cn(RichTextWrapper)}>
+          <RichTextChildBlock richTextChildBlock={richTextChildBlock} />
         </div>
       </Theme>
     </ContentBlockWrapper>

@@ -356,22 +356,26 @@ export const videoFragment = `
   }
 `;
 
+export const richTextChildBlockFragment = `
+  alignCenter,
+  icon,
+  heading,
+  headingFontSize,
+  image {
+    ${imageFragment}
+  },
+  body[]{
+    ${limitedRichTextFragment}
+  }
+`;
+
 /**
  * Child content blocks
  */
 const childContentBlockFragment = `
   _type,
   _type == "richTextChildBlock" => {
-    alignCenter,
-    icon,
-    heading,
-    headingFontSize,
-    image {
-      ${imageFragment}
-    },
-    body[]{
-      ${limitedRichTextFragment}
-    }
+    ${richTextChildBlockFragment}
   },
   _type == "ctaCard" => {
     ${ctaCardFragment}
@@ -509,10 +513,8 @@ const twoUpBlockFragment = `
 
 const richTextBlockFragment = `
   theme,
-  largerPadding,
-  width,
-  text[] {
-    ${richTextFragment}
+  richTextChildBlock {
+    ${richTextChildBlockFragment}
   }
 `;
 
