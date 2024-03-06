@@ -6,7 +6,7 @@ import { RevalidationTime } from '@/constants';
 
 import { Blog, BlogArticle } from '@/types/sanity';
 import * as Sanity from '@/lib/sanity';
-import { BlogArticleView } from '@/views/Blog/BlogArticleView';
+import { BlogArticleView } from '@/views/BlogArticleView/BlogArticleView';
 import { BlogArticleMetadata } from '@/components/Metadata/BlogArticleMetadata';
 
 export type BlogPageProps = PageProps & {
