@@ -71,6 +71,7 @@ export const faqPageFragment = `
   _type,
   title,
   slug,
+  ${pageSharedFieldsFragment},
   metadataFragment{${metadataFragment}},
   title,
   faqTabs[]{
