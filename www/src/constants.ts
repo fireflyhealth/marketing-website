@@ -17,3 +17,5 @@ const ProdRevalidationTime = {
 export const RevalidationTime = config.isProd
   ? ProdRevalidationTime
   : StagingRevalidationTime;
+
+export const carouselThreshold = 25;
