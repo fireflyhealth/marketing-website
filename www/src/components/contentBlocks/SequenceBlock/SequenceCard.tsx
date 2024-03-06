@@ -31,8 +31,8 @@ export const SequenceCard: FC<Props> = ({ card }) => {
             <div
               className={cn(
                 SequenceCardWrapper,
-                'TabsTab TabsTab--animated',
-                inView ? '' : 'TabsTab--inactive',
+                'fadeUpElement fadeUpElement--animated',
+                inView ? '' : 'fadeUpElement--inactive',
                 'md:p-12 md:flex-row-reverse md:space-x-reverse',
                 'lg:space-x-reverse',
               )}
@@ -61,8 +61,8 @@ export const SequenceCard: FC<Props> = ({ card }) => {
           <div
             className={cn(
               VideoWrapper,
-              'TabsTab TabsTab--animated lg:max-w-[580px]',
-              inView ? '' : 'TabsTab--inactive',
+              'fadeUpElement fadeUpElement--animated lg:max-w-[580px]',
+              inView ? '' : 'fadeUpElement--inactive',
             )}
           >
             <Video video={video} posterSizes={['90vw, 40vw']} autoplay />
@@ -77,8 +77,8 @@ export const SequenceCard: FC<Props> = ({ card }) => {
           >
             <div
               className={cn(
-                'TabsTab TabsTab--animated',
-                inView ? '' : 'TabsTab--inactive',
+                'fadeUpElement fadeUpElement--animated',
+                inView ? '' : 'fadeUpElement--inactive',
               )}
             >
               <SequenceCopy copy={copy} />

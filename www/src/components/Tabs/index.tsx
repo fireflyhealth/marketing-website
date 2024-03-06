@@ -115,10 +115,10 @@ export const Tabs: FC<TabsProps> = ({ tabs, animated, initialTabKey }) => {
             id={tab._key}
             tabIndex={tab._key === activeTab ? 0 : -1}
             className={cn(
-              'TabsTab',
+              'fadeUpElement',
               TabContentWrapper,
-              animated ? 'TabsTab--animated' : '',
-              tab._key !== activeTab ? 'TabsTab--inactive' : '',
+              animated ? 'fadeUpElement--animated' : '',
+              tab._key !== activeTab ? 'fadeUpElement--inactive' : '',
             )}
           >
             {tab.children}
