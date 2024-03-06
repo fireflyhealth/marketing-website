@@ -30,12 +30,7 @@ export const QrCode = defineType({
         defineField({
           name: 'appStoreLink',
           title: 'App Store Link',
-          type: 'url',
-          validation: (Rule) => {
-            return validateOnlyOne(Rule as Rule).uri({
-              scheme: ['http', 'https', 'mailto', 'tel'],
-            });
-          },
+          type: 'link',
         }),
         defineField({
           name: 'playStoreimage',
@@ -45,12 +40,7 @@ export const QrCode = defineType({
         defineField({
           name: 'playStoreLink',
           title: 'Play Store Link',
-          type: 'url',
-          validation: (Rule) => {
-            return validateOnlyOne(Rule as Rule).uri({
-              scheme: ['http', 'https', 'mailto', 'tel'],
-            });
-          },
+          type: 'link',
         }),
       ],
     }),

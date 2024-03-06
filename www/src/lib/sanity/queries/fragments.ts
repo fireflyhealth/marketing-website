@@ -383,11 +383,15 @@ export const qrCodeObjectFragment = `
     appStoreimage {
       ${imageFragment}
     },
-    appStoreLink,
+    appStoreLink {
+      ${ctaFragment}
+    },
     playStoreimage {
       ${imageFragment}
     },
-    playStoreLink
+    playStoreLink {
+      ${ctaFragment}
+    }
   }
 `;
 

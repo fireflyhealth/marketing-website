@@ -628,9 +628,9 @@ export type QrCodeObject = {
   text: Maybe<string>;
   storeLinks: {
     appStoreimage: Maybe<RichImage>;
-    appStoreLink: Maybe<string>;
+    appStoreLink: Maybe<Link>;
     playStoreimage: Maybe<RichImage>;
-    playStoreLink: Maybe<string>;
+    playStoreLink: Maybe<Link>;
   };
 };
 
