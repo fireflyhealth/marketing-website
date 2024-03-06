@@ -14,6 +14,10 @@ import { SiteSettings } from './documents/siteSettings';
 import { Practitioner } from './documents/practitioner';
 import { Navigation } from './documents/navigation';
 import { FrequentlyAskedQuestion } from './documents/faq';
+import { FAQPage } from './documents/faqPage';
+import { FAQSubject } from './documents/faqSubject';
+import { FAQCategory } from './documents/faqCategory';
+import { BlogArticleTag } from './documents/blogArticleTag';
 
 /* Headers */
 import { VideoHeader } from './headers/videoHeader';
@@ -81,11 +85,6 @@ import { FAQBlock } from './blocks/faqBlock';
 import { FeaturedStoriesBlock } from './blocks/featuredStoriesBlock';
 import { Icon } from './fields/icon';
 import { ColumnsBlock, ColumnsObject } from './blocks/columnsBlock';
-import { BigOrderedList } from './fields/bigOrderedList';
-import { BlogArticleTag } from './documents/blogArticleTag';
-import { FAQPage } from './documents/faqPage';
-import { FAQSubject } from './documents/faqSubject';
-import { FAQCategory } from './documents/faqCategory';
 import { BigOrderedList } from './fields/bigOrderedList';
 
 export const schemaTypes = [
