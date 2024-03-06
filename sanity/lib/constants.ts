@@ -94,4 +94,5 @@ export const defaultContentBlockTypes = [
   { type: 'featuredStoriesBlock' },
   { type: 'columnsBlock' },
   { type: 'tabsBlock' },
+  { type: 'testimonialBlock' },
 ];

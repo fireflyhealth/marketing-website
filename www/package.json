@@ -26,6 +26,7 @@
     "@sentry/nextjs": "^7.93.0",
     "@types/vimeo__player": "^2.18.3",
     "@vimeo/player": "^2.21.0",
+    "lodash": "^4.17.21",
     "next": "14.0.4",
     "next-hubspot": "^1.2.0",
     "react": "^18",
