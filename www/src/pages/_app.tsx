@@ -32,7 +32,7 @@ export default function App({ Component, pageProps: allPageProps }: Props) {
   return (
     <>
       <DefaultMetadata metadata={siteSettings.defaultMetadata} />
-      <Theme theme={ColorTheme.White}>
+      <Theme theme={ColorTheme.White} className="overflow-hidden">
         <UIProvider>
           <HubspotProvider>
             <AnnouncementBanner
@@ -40,17 +40,19 @@ export default function App({ Component, pageProps: allPageProps }: Props) {
                 announcementBannerOverride || globalAnnouncementBanner
               }
             />
-            <Navigation
-              navigation={customPageNav || globalNav}
-              showNavCTA={
-                navCTAOverride != undefined ? navCTAOverride : globalNavCTA
-              }
-              globalDoubleNav={globalDoubleCta}
-            />
-            <main className="mt-mobile-nav-banner-margin md:mt-desktop-nav-banner-margin max-w-[1920px] mx-auto">
-              <Component {...pageProps} />
-            </main>
-            <Footer footer={siteSettings.footer} />
+            <div className="container-max-width">
+              <Navigation
+                navigation={customPageNav || globalNav}
+                showNavCTA={
+                  navCTAOverride != undefined ? navCTAOverride : globalNavCTA
+                }
+                globalDoubleNav={globalDoubleCta}
+              />
+              <main>
+                <Component {...pageProps} />
+              </main>
+              <Footer footer={siteSettings.footer} />
+            </div>
           </HubspotProvider>
         </UIProvider>
       </Theme>

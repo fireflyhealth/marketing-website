@@ -19,7 +19,8 @@ export const TextHeader = defineType({
     defineField({
       name: 'heading',
       title: 'Heading',
-      type: 'string',
+      type: 'text',
+      rows: 2,
       validation: (Rule) => Rule.required(),
     }),
     defineField({

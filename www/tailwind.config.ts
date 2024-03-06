@@ -1,6 +1,6 @@
 import type { Config } from 'tailwindcss';
 
-const config: Config = {
+export const config: Config = {
   content: [
     './.storybook/**/*.{js,ts,jsx,tsx,mdx}',
     './src/**/*.{js,ts,jsx,tsx,mdx}',
@@ -61,11 +61,6 @@ const config: Config = {
       /* TODO: Add spacing values. Search the codebase for
        * any TODO-SPACING comments */
       spacing: {
-        'announcement-banner-height': 'var(--announcement-banner-height)',
-        'mobile-nav-banner-margin':
-          'calc(var(--mobile-globalnav-height) + var(--announcement-banner-height))',
-        'desktop-nav-banner-margin':
-          'calc(var(--desktop-globalnav-height) + var(--announcement-banner-height))',
         'bar-graph-height': 'var(--bar-graph-height)',
         'bar-graph-width': 'var(--bar-graph-width)',
         'block-wrapper-lg-padding': '48px',
@@ -76,9 +71,9 @@ const config: Config = {
           'linear-gradient(180deg, #FFD714 49.81%, rgba(255, 215, 20, 0.82) 67.68%, rgba(255, 215, 20, 0.19) 88.41%, rgba(255, 255, 255, 0.00) 100%)',
       },
       zIndex: {
-        navigation: '1000',
-        navigationCTAGradient: '1010',
-        navigationCTAContent: '1020',
+        announcementBanner: '1020',
+        navigation: '1010',
+        navigationCTAContent: '1000',
       },
       scale: {
         '-100': '-1',

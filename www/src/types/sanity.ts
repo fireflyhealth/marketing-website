@@ -6,6 +6,10 @@ import { IconTypeName } from '@/svgs/BrandedIcon';
  * Generic
  */
 
+export type WithChildren<T = {}> = T & {
+  children: React.ReactNode;
+};
+
 export type Maybe<T> = T | null | undefined;
 /* All sanity "type: array" field children have an additional
  * unique _key prop */
@@ -135,6 +139,7 @@ export type NotFoundPage = SanityDocument & {
   navigationOverrides?: NavigationOverrides;
   header: HeaderArea;
   content: ContentArea;
+  decorativeImage: ResponsiveImageSet;
   metadata?: Metadata;
 };
 

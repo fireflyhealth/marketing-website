@@ -3,10 +3,7 @@ import cn from 'classnames';
 import debounce from 'lodash/debounce';
 import { useSwipeable } from 'react-swipeable';
 import { BrandedIcon } from '@/svgs/BrandedIcon';
-
-type WithChildren<T = {}> = T & {
-  children: React.ReactNode;
-};
+import { WithChildren } from '@/types/sanity';
 
 /**
  * Context
