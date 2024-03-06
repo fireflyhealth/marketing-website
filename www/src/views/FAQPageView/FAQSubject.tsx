@@ -1,17 +1,22 @@
 import React, { FC } from 'react';
-import { FAQGroup as FAQGroupType } from '@/types/sanity';
+import { FAQ, FAQSubject as FAQSubjectDocument } from '@/types/sanity';
 import { Accordion } from '@/atoms/Accordion';
 import { RichText } from '@/components/RichText';
 
-type FAQGroupProps = {
-  faqGroup: FAQGroupType;
+export type FAQSubjectType = {
+  subject: FAQSubjectDocument;
+  questions: FAQ[];
 };
 
-export const FAQGroup: FC<FAQGroupProps> = ({ faqGroup }) => {
-  const { title, questions } = faqGroup;
+type FAQSubjectProps = {
+  faqSubject: FAQSubjectType;
+};
+
+export const FAQSubject: FC<FAQSubjectProps> = ({ faqSubject }) => {
+  const { subject, questions } = faqSubject;
   return (
-    <div className="pt-12">
-      <h3 className="font-size-8 pb-6">{title}</h3>
+    <div className="pb-12">
+      <h3 className="font-size-8 pb-6">{subject.title}</h3>
       <div>
         {questions.map((question) => (
           <div key={question._id} className="border-t theme-border-color py-4">
