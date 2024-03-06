@@ -51,6 +51,7 @@ export const BigNumbers: FC<BigNumbersProps> = ({ bigNumbers }) => {
       {bigNumbers.citation ? (
         <div
           className={cn({
+            /* If there is more than one big number item, the citation spacing should be bigger. */
             'pt-14 md:pt-12': bigNumberItems.length > 1,
           })}
         >
