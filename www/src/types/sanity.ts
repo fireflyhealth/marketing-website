@@ -834,7 +834,7 @@ export type CardListBlock = ContentBlockCommon & {
 export type RichTextBlock = ContentBlockCommon & {
   _type: 'richTextBlock';
   theme: ColorTheme;
-  richTextChildBlock: RichTextChildBlock;
+  richTextChildBlock: any; //RichTextChildBlock;
 };
 
 /* Used as a child of the TabsBlock component */

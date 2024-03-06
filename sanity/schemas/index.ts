@@ -86,7 +86,7 @@ import { BlogArticleTag } from './documents/blogArticleTag';
 import { FAQPage } from './documents/faqPage';
 import { FAQSubject } from './documents/faqSubject';
 import { FAQCategory } from './documents/faqCategory';
-import { TitleDescriptionOrderedList } from './fields/titleDescriptionOrderedList';
+import { BigOrderedList } from './fields/bigOrderedList';
 
 export const schemaTypes = [
   /* Document Types */
@@ -188,5 +188,5 @@ export const schemaTypes = [
   BigOrderedList,
   TestimonalItem,
   BlogArticleTagGroup,
-  TitleDescriptionOrderedList,
+  BigOrderedList,
 ];
