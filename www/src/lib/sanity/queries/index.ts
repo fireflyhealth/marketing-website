@@ -6,6 +6,7 @@ import {
   contentBlockFragment,
   footerFragment,
   doubleCtaFragment,
+  responsiveImageSetFragment,
 } from './fragments';
 
 export const siteSettingsFragment = `
@@ -50,7 +51,10 @@ export const downloadPageFragment = `${specialPageFragment}`;
 
 export const contactPageFragment = `${specialPageFragment}`;
 
-export const notFoundPageFragment = `${specialPageFragment}`;
+export const notFoundPageFragment = `
+  ${specialPageFragment},
+  decorativeImage{${responsiveImageSetFragment}}
+`;
 
 export const faqPageFragment = `
   _id,

@@ -6,6 +6,10 @@ import { IconTypeName } from '@/svgs/BrandedIcon';
  * Generic
  */
 
+export type WithChildren<T = {}> = T & {
+  children: React.ReactNode;
+};
+
 export type Maybe<T> = T | null | undefined;
 /* All sanity "type: array" field children have an additional
  * unique _key prop */
@@ -135,6 +139,7 @@ export type NotFoundPage = SanityDocument & {
   navigationOverrides?: NavigationOverrides;
   header: HeaderArea;
   content: ContentArea;
+  decorativeImage: ResponsiveImageSet;
   metadata?: Metadata;
 };
 
@@ -582,7 +587,8 @@ export type ContentBlock =
   | CardListBlock
   | FeaturedStoriesBlock
   | ColumnsBlock
-  | TabsBlock;
+  | TabsBlock
+  | TestimonialBlock;
 
 export type ContentArea = KeyedArray<ContentBlock>;
 
@@ -817,4 +823,18 @@ export type ColumnsBlock = ContentBlockCommon &
 export type ContentBlockRichText = {
   _type: 'contentBlockRichText';
   body: RichText;
+};
+
+export type TestimonialItem = {
+  _type: 'testimonialItem';
+  image: Maybe<RichImage>;
+  testimonial: SimpleRichText;
+  name: string;
+  age: Maybe<number>;
+  description: Maybe<SimpleRichText>;
+};
+
+export type TestimonialBlock = ContentBlockCommon & {
+  _type: 'testimonialBlock';
+  testimonials: KeyedArray<TestimonialItem>;
 };

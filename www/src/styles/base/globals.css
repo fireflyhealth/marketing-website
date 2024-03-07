@@ -1,7 +1,4 @@
 :root {
-  --announcement-banner-height: 0px;
-  --mobile-globalnav-height: 56px;
-  --desktop-globalnav-height: 80px;
   --bar-graph-height: 0px;
   --bar-graph-width: 0px;
 }
@@ -470,6 +467,12 @@ svg {
       background-color: theme('colors.yellow');
     }
   }
+}
+
+.container-max-width {
+  max-width: 1920px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 #hubspot-form-wrapper fieldset {

@@ -26,13 +26,8 @@ export const DesktopNav: FC<Props> = ({
     setGetStartedOpen(!getStartedOpen);
   };
   return (
-    <nav
-      className={cn(
-        NavWrapper,
-        getStartedOpen ? 'bg-yellow' : 'bg-transparent',
-        'hidden lg:absolute lg:block',
-      )}
-    >
+    <nav className={cn(NavWrapper, 'hidden')}>
+      {getStartedOpen && <div className="full-width-background bg-yellow" />}
       <div className={cn(NavContainer)}>
         <Link href="/">
           <div className="w-[175px]">
@@ -44,7 +39,10 @@ export const DesktopNav: FC<Props> = ({
           {navGroup.map((navItem) => (
             <div
               key={navItem._key}
-              className={cn(getStartedOpen ? 'hidden' : '')}
+              aria-hidden={getStartedOpen}
+              className={cn(
+                getStartedOpen ? 'opacity-0 pointer-events-none' : '',
+              )}
             >
               <NavGroup navItem={navItem} />
             </div>
