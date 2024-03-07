@@ -357,6 +357,7 @@ export const videoFragment = `
 `;
 
 export const richTextChildBlockFragment = `
+  _key,
   alignCenter,
   icon,
   heading,

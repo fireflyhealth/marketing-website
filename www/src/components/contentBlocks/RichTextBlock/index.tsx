@@ -10,6 +10,7 @@ type Props = {
   richTextBlock: RichTextBlockType;
 };
 
+// TODO: add FullWidthBackground component after #179 gets merged
 export const RichTextBlock: FC<Props> = ({ richTextBlock }) => {
   const { theme, header, subnav, richTextChildBlock } = richTextBlock;
 

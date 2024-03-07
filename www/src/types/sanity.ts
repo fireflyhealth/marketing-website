@@ -554,6 +554,7 @@ export type ChildContentBlock =
 
 export type RichTextChildBlock = {
   _type: 'richTextChildBlock';
+  _key: string;
   icon: Maybe<IconBlock>;
   image: Maybe<RichImage>;
   heading: Maybe<string>;
@@ -799,7 +800,7 @@ export type CardListBlock = ContentBlockCommon & {
 export type RichTextBlock = ContentBlockCommon & {
   _type: 'richTextBlock';
   theme: ColorTheme;
-  richTextChildBlock: any; //RichTextChildBlock;
+  richTextChildBlock: RichTextChildBlock;
 };
 
 /* Used as a child of the TabsBlock component */

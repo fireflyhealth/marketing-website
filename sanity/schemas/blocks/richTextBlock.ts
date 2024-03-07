@@ -22,11 +22,11 @@ export const RichTextBlock = defineType({
   ],
   preview: {
     select: {
-      header: 'header',
+      richTextChildBlock: 'richTextChildBlock',
     },
-    prepare: ({ header }) => ({
+    prepare: ({ richTextChildBlock }) => ({
       title: 'Rich Text Block',
-      subtitle: header?.title,
+      subtitle: richTextChildBlock?.heading,
     }),
   },
 });

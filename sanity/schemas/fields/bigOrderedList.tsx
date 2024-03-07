@@ -6,8 +6,6 @@ export const BigOrderedList = defineType({
   title: 'Title Desciption Ordered List',
   type: 'object',
   icon: icons.TwoColumn,
-  description:
-    'This component allows you to create a list of text elements that render within two columns on desktop and one on mobile.',
   fields: [
     defineField({
       name: 'listItems',
@@ -37,6 +35,6 @@ export const BigOrderedList = defineType({
     }),
   ],
   preview: {
-    prepare: () => ({ title: 'Title Desciption Ordered List' }),
+    prepare: () => ({ title: 'Big Ordered List' }),
   },
 });
