@@ -259,6 +259,9 @@ export const limitedRichTextFragment = `
       ${ctaFragment}
     }
   },
+  _type == "richImage" => {
+    ${imageFragment}
+  },
   markDefs[]{
     _key,
     _type,
@@ -337,14 +340,27 @@ const ctaCardFragment = `
   }
 `;
 
+export const videoFragment = `
+  _type,
+  videoLink,
+  posterImage {
+    ${imageFragment}
+  }
+`;
+
 /**
  * Child content blocks
  */
 const childContentBlockFragment = `
   _type,
   _type == "richTextChildBlock" => {
+    alignCenter,
     icon,
     heading,
+    headingFontSize,
+    image {
+      ${imageFragment}
+    },
     body[]{
       ${limitedRichTextFragment}
     }
@@ -366,6 +382,11 @@ const childContentBlockFragment = `
   _type == "quoteChildBlock" => {
     quote{
       ${quoteObjectFragment}
+    }
+  },
+  _type == "videoChildBlock" => {
+    video{
+      ${videoFragment}
     }
   }
 `;
@@ -425,14 +446,6 @@ export const imageTextOverlapFragment = `
 export const quoteBlockFragment = `
   quoteObject{${quoteObjectFragment}},
   cta{${ctaFragment}}
-`;
-
-export const videoFragment = `
-  _type,
-  videoLink,
-  posterImage {
-    ${imageFragment}
-  }
 `;
 
 /**

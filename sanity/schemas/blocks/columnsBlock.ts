@@ -11,6 +11,7 @@ const childContentBlockTypes = [
   { type: 'bigNumber' },
   { type: 'ctaCard' },
 ];
+
 const sharedFields = [
   defineField({
     name: 'columnCount',

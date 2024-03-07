@@ -1,4 +1,4 @@
-export const OuterVideoWrapper = ['relative'];
+export const OuterVideoWrapper = ['relative rounded-2xl'];
 
 export const VideoWrapper = [
   'relative h-auto max-h-[756px] bg-black rounded-2xl overflow-hidden',

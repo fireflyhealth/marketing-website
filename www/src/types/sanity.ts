@@ -539,18 +539,27 @@ export type ChildContentBlock =
   | QuoteChildBlock
   | BigNumbers
   | BigNumber
-  | CTACard;
+  | CTACard
+  | VideoChildBlock;
 
 export type RichTextChildBlock = {
   _type: 'richTextChildBlock';
   icon: Maybe<IconBlock>;
+  image: Maybe<RichImage>;
   heading: Maybe<string>;
+  headingFontSize: 'font-size-6' | 'font-size-5' | 'font-size-4';
+  alignCenter: Maybe<boolean>;
   body: LimitedRichText;
 };
 
 export type ImageChildBlock = {
   _type: 'imageChildBlock';
   image: RichImage;
+};
+
+export type VideoChildBlock = {
+  _type: 'videoChildBlock';
+  video: Video;
 };
 
 export type QuoteChildBlock = {

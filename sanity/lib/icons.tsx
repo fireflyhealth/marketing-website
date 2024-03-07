@@ -15,6 +15,7 @@ import {
   GrCode,
   GrMenu,
   GrImage,
+  GrVideo,
 } from 'react-icons/gr';
 import { SlSettings } from 'react-icons/sl';
 import {
@@ -35,6 +36,7 @@ import {
   BsFileBarGraph,
   BsMenuDown,
   BsSegmentedNav,
+  BsFiles,
   BsChatSquareQuoteFill,
 } from 'react-icons/bs';
 import {
@@ -93,5 +95,7 @@ export const icons = {
   Cards: PiCardsFill,
   Columns: BiColumns,
   Tabs: PiTabs,
+  Video: GrVideo,
+  ImageTextOverlap: BsFiles,
   Testimonial: BsChatSquareQuoteFill,
 };
