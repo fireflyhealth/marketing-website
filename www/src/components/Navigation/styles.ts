@@ -1,15 +1,15 @@
 export const NavWrapper = [
-  'top-0 left-0 w-full flex flex-col mt-announcement-banner-height z-navigation',
-  'lg:absolute lg:block',
+  'relative bg-transparent flex flex-col z-navigation',
+  'lg:block',
 ];
 
 export const NavContainer = [
-  'max-w-[1920px] mx-auto w-full p-4 flex flex-row items-center justify-between',
+  'relative w-full p-4 flex flex-row items-center justify-between',
   'lg:px-12',
 ];
 
 export const NavLinksWrapper = [
-  'bg-yellow pt-9 p-4 w-full flex flex-col space-y-8',
+  'relative bg-yellow pt-9 p-4 w-full flex flex-col space-y-8',
   'lg:bg-transparent lg:w-max lg:flex-row lg:space-y-0 lg:p-0 lg:mt-0',
 ];
 

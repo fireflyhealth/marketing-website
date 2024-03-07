@@ -37,6 +37,7 @@ import {
   BsMenuDown,
   BsSegmentedNav,
   BsFiles,
+  BsChatSquareQuoteFill,
 } from 'react-icons/bs';
 import {
   MdOutlineCallToAction,
@@ -96,4 +97,5 @@ export const icons = {
   Tabs: PiTabs,
   Video: GrVideo,
   ImageTextOverlap: BsFiles,
+  Testimonial: BsChatSquareQuoteFill,
 };

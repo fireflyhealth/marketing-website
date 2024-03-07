@@ -664,6 +664,19 @@ const drawerListBlockFragment = `
   drawerListItems[]{${drawerListItem}}
 `;
 
+export const testimonialItemFragment = `
+  _type,
+  image{${imageFragment}},
+  testimonial[]{${simpleRichTextFragment}},
+  name,
+  age,
+  description[]{${simpleRichTextFragment}}
+`;
+
+export const testimonialBlockFragment = `
+  testimonials[]{${testimonialItemFragment}}
+`;
+
 /* Please keep this alphabetized! */
 export const contentBlockFragment = `
   _type,
@@ -671,6 +684,7 @@ export const contentBlockFragment = `
   subnav {${subnavItemFragment}},
   header{${contentBlockHeaderFragment}},
   _type == "cardListBlock" => {${cardlistBlockFragment}},
+  _type == "columnsBlock" => {${columnsObjectFragment}},
   _type == "ctaCardsBlock" => {${ctaCardsBlockFragment}},
   _type == "doubleCtaBlock" => {${doubleCtaBlockFragment}},
   _type == "drawerListBlock" => {${drawerListBlockFragment}},
@@ -684,10 +698,10 @@ export const contentBlockFragment = `
   _type == "quoteBlock" => {${quoteBlockFragment}},
   _type == "reviewBlock" => {${reviewBlockFragmnet}},
   _type == "sequenceBlock" => {${sequenceBlockFragment}},
-  _type == "columnsBlock" => {${columnsObjectFragment}},
   _type == "tabsBlock" => {${tabsBlockFragment}},
   _type == "twoUpBlock" => {${twoUpBlockFragment}},
-  _type == "richTextBlock" => {${richTextBlockFragment}}
+  _type == "richTextBlock" => {${richTextBlockFragment}},
+  _type == "testimonialBlock" => {${testimonialBlockFragment}}
 `;
 
 export const videoHeaderFragment = `

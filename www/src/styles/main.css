@@ -7,6 +7,7 @@
 
 /* Tailwind Utilities */
 @import 'tailwindcss/utilities';
+@import 'utilities/globalUtilityStyles.css';
 @import 'utilities/type-styles.css';
 
 /* Our styles */

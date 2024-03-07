@@ -46,6 +46,7 @@ import { ReviewBlock, ReviewItem, ReviewHeading } from './blocks/reviewBlock';
 import { ImageGridBlock } from './blocks/imageGridBlock';
 import { CardListBlock } from './blocks/cardListBlock';
 import { TabsBlock, TabsBlockTab } from './blocks/tabsBlock';
+import { TestimonialBlock, TestimonalItem } from './blocks/testimonalBlock';
 
 /* Fields */
 import { Metadata } from './fields/metadata';
@@ -129,6 +130,7 @@ export const schemaTypes = [
   RichTextBlock,
   TabsBlock,
   TabsBlockTab,
+  TestimonialBlock,
 
   /* Child blocks (used within other blocks, i.e. 2-up block) */
   ChildContentBlock,
@@ -176,4 +178,5 @@ export const schemaTypes = [
   ReviewItem,
   Icon,
   BigOrderedList,
+  TestimonalItem,
 ];

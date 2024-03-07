@@ -22,7 +22,6 @@ type Props = {
     'eyebrow' | 'heading' | 'body'
   >;
   width?: string;
-  className?: string;
 };
 
 export const Video: FC<Props> = ({
@@ -31,7 +30,6 @@ export const Video: FC<Props> = ({
   showTitleCard,
   titleCardProps,
   width,
-  className,
 }) => {
   const videoRef = useRef<HTMLDivElement>(null);
 
@@ -92,7 +90,7 @@ export const Video: FC<Props> = ({
   if (!video.videoLink) return null;
 
   return (
-    <div id="video-component" className={cn(OuterVideoWrapper, className)}>
+    <div id="video-component" className={cn(OuterVideoWrapper)}>
       <div className={cn(VideoWrapper, width ? `${width}` : 'w-full')}>
         {!isPlaying && (
           <div

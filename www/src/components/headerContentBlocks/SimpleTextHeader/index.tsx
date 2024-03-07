@@ -14,6 +14,7 @@ export const SimpleTextHeader: FC<Props> = ({ simpleTextHeader }) => {
 
   return (
     <Theme theme={theme} className={cn(ThemeWrapper)}>
+      <div className="full-width-background theme-bg-color" />
       <h1 className={cn(Heading)}>{heading}</h1>
     </Theme>
   );

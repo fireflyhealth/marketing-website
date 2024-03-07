@@ -1,10 +1,9 @@
 import React, { FC, useState, useEffect, useContext, useRef } from 'react';
+import cn from 'classnames';
+import debounce from 'lodash/debounce';
 import { useSwipeable } from 'react-swipeable';
 import { BrandedIcon } from '@/svgs/BrandedIcon';
-
-type WithChildren<T = {}> = T & {
-  children: React.ReactNode;
-};
+import { WithChildren } from '@/types/sanity';
 
 /**
  * Context
@@ -13,6 +12,7 @@ type WithChildren<T = {}> = T & {
 type ContextValue = {
   slideCount: number;
   currentSlideIndex: number;
+  setCurrentSlideIndex: (slide: number) => void;
   goPrev: () => void;
   goNext: () => void;
   slideContainerLeft: number;
@@ -34,9 +34,15 @@ export const useCarousel = () => {
  */
 type CarouselProps = WithChildren & {
   vwHeightSetting?: number;
+  /** isImageCarousel handles styles for image carousels */
+  isImageCarousel?: boolean;
 };
 
-export const Carousel: FC<CarouselProps> = ({ children, vwHeightSetting }) => {
+export const Carousel: FC<CarouselProps> = ({
+  children,
+  vwHeightSetting,
+  isImageCarousel,
+}) => {
   const slideCount = React.Children.count(children);
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
   const [slideContainerLeft, setSlideContainerLeft] = useState(0);
@@ -66,22 +72,40 @@ export const Carousel: FC<CarouselProps> = ({ children, vwHeightSetting }) => {
         slideContainerLeft,
         setSlideContainerLeft,
         currentSlideIndex,
+        setCurrentSlideIndex,
         goPrev,
         goNext,
       }}
     >
-      <SlideContainer vwHeightSetting={vwHeightSetting}>
+      <SlideContainer
+        vwHeightSetting={vwHeightSetting}
+        isImageCarousel={isImageCarousel}
+      >
         {React.Children.map(children, (child, index) => (
-          <Slide slideIndex={index}>{child}</Slide>
+          <Slide slideIndex={index} isImageCarousel={isImageCarousel}>
+            {child}
+          </Slide>
         ))}
       </SlideContainer>
-      <div className="pt-12">
+      {/* Prev/Next component */}
+      <div
+        className={cn('pt-12', !isImageCarousel ? 'hidden md:block' : 'block')}
+      >
         <PrevButton>
           <BrandedIcon type="arrow-left" wrapperStyles="w-12" />
         </PrevButton>
         <NextButton>
           <BrandedIcon type="arrow-right" wrapperStyles="w-12" />
         </NextButton>
+      </div>
+      {/* Pagination (dots) component */}
+      <div
+        className={cn(
+          'pt-8 pb-4',
+          !isImageCarousel ? 'block md:hidden' : 'hidden',
+        )}
+      >
+        <Pagination />
       </div>
     </CarouselContext.Provider>
   );
@@ -93,32 +117,72 @@ export const Carousel: FC<CarouselProps> = ({ children, vwHeightSetting }) => {
 
 type SlideProps = WithChildren & {
   slideIndex: number;
+  isImageCarousel?: boolean;
 };
 
-export const Slide: FC<SlideProps> = ({ children, slideIndex }) => {
+const goToSelfIfActive = (
+  currentSlideIndex: number,
+  slideIndex: number,
+  setSlideContainerLeft: (newLeft: number) => void,
+  slideElement: HTMLDivElement,
+) => {
+  if (currentSlideIndex === slideIndex) {
+    const parent = slideElement.offsetParent;
+
+    if (!parent || !(parent instanceof HTMLElement)) return;
+    // get its left position within its parent (offset)
+    const slideElementLeft = slideElement.offsetLeft + parent.offsetLeft;
+
+    /* TODO: ensure slides always fill the container (do not
+     * scroll too far for the final slides) */
+    setSlideContainerLeft(-slideElementLeft);
+  }
+};
+
+export const Slide: FC<SlideProps> = ({
+  children,
+  slideIndex,
+  isImageCarousel = false,
+}) => {
   const { setSlideContainerLeft, currentSlideIndex } = useCarousel();
+  const [windowSize, setWindowSize] = useState(
+    typeof window !== 'undefined' ? window.innerWidth : 1000,
+  );
   const slideElement = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (!slideElement.current) return;
-    // when this slide is the current one
+    goToSelfIfActive(
+      currentSlideIndex,
+      slideIndex,
+      setSlideContainerLeft,
+      slideElement.current,
+    );
+  }, [currentSlideIndex, slideIndex, setSlideContainerLeft, windowSize]);
 
-    if (currentSlideIndex === slideIndex) {
-      const parent = slideElement.current.offsetParent;
-
-      if (!parent || !(parent instanceof HTMLElement)) return;
-      // get its left position within its parent (offset)
-      const slideElementLeft =
-        slideElement.current.offsetLeft + parent.offsetLeft;
-
-      /* TODO: ensure slides always fill the container (do not
-       * scroll too far for the final slides) */
-      setSlideContainerLeft(-slideElementLeft);
-    }
-  }, [currentSlideIndex, slideIndex, setSlideContainerLeft]);
+  // Update the container left whenever the window resizes.
+  // this prevents bugginess/inconsistencies between pagination and next/prev components.
+  useEffect(() => {
+    const updateWindowSize = debounce(() => setWindowSize(window.innerWidth));
+    window.addEventListener('resize', updateWindowSize);
+    return () => {
+      window.removeEventListener('resize', updateWindowSize);
+    };
+  }, []);
 
   return (
-    <div className="carousel__slide h-full relative" ref={slideElement}>
+    <div
+      ref={slideElement}
+      className={cn(
+        'carousel__slide h-full relative',
+        // TODO: refactor how non image carousel slides
+        // are positioned.
+        !isImageCarousel && 'odd:mt-0 even:mt-8 md:even:mt-12',
+        !isImageCarousel && currentSlideIndex != slideIndex
+          ? 'hidden md:block'
+          : '',
+      )}
+    >
       {children}
     </div>
   );
@@ -127,6 +191,7 @@ export const Slide: FC<SlideProps> = ({ children, slideIndex }) => {
 export const SlideContainer: FC<CarouselProps> = ({
   children,
   vwHeightSetting,
+  isImageCarousel = false,
 }) => {
   const { slideContainerLeft, goNext, goPrev } = useCarousel();
   const handlers = useSwipeable({
@@ -139,19 +204,44 @@ export const SlideContainer: FC<CarouselProps> = ({
 
   return (
     <div
-      className="relative w-full h-[240px] md:h-[750px]"
+      className={cn(
+        'relative w-full',
+        isImageCarousel ? 'h-[240px] md:h-[750px]' : '',
+      )}
       style={{
         height: vwHeightSetting ? `${vwHeightSetting}vw` : undefined,
       }}
     >
       {/* Slide container inner div */}
       <div
-        className="absolute top-0 left-0 transition h-full flex flex-row"
+        className={cn(
+          'transition h-full flex flex-row',
+          isImageCarousel ? 'absolute top-0 left-0' : '',
+        )}
         style={{ transform: `translateX(${slideContainerLeft}px)` }}
         {...handlers}
       >
         {children}
       </div>
+    </div>
+  );
+};
+
+export const Pagination: FC = () => {
+  const { slideCount, currentSlideIndex, setCurrentSlideIndex } = useCarousel();
+
+  return (
+    <div className="flex flex-row space-x-1 justify-center">
+      {Array.from(Array(slideCount)).map((slide, index) => (
+        <button
+          key={slide}
+          className={cn(
+            'w-[11px] h-[11px] rounded-full',
+            currentSlideIndex === index ? 'bg-black' : 'bg-grey-medium',
+          )}
+          onClick={() => setCurrentSlideIndex(index)}
+        />
+      ))}
     </div>
   );
 };

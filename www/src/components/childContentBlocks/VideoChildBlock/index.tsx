@@ -15,7 +15,6 @@ export const VideoChildBlock: FC<VideoChildBlockProps> = ({
       video={videoChildBlock.video}
       posterSizes={['100vw', '50vw']}
       showTitleCard={false}
-      className={cn('rounded-2xl')}
     />
   );
 };

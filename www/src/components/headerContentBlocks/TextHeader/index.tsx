@@ -25,18 +25,24 @@ export const TextHeader: FC<Props> = ({ textHeader }) => {
   const { eyebrow, heading, body, theme, ctas, gradientBackground } =
     textHeader;
 
+  const lines = heading.split('\n');
+
   return (
-    <Theme
-      theme={theme}
-      className={cn(ThemeWrapper, {
-        'theme-bg-color': !gradientBackground,
-      })}
-    >
+    <Theme theme={theme} className={cn(ThemeWrapper)}>
       {gradientBackground && <div className={cn(Glow)}></div>}
+      {theme && !gradientBackground && (
+        <div className="full-width-background theme-bg-color" />
+      )}
       <div className={cn(Wrapper)}>
         <div className={cn(WarpperInner)}>
           {eyebrow && <p className={cn(Eyebrow)}>{eyebrow}</p>}
-          <h1 className={cn(Heading)}>{heading}</h1>
+          <h1 className={cn(Heading)}>
+            {lines.map((line, index) => (
+              <span key={index} className="inline-block w-full">
+                {line}
+              </span>
+            ))}
+          </h1>
           {body && <RichText className={cn(Body)} content={body} />}
           {ctas?.length > 0 ? (
             <div className={cn(CTAsWrapper)}>
