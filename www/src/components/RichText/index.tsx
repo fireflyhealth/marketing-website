@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import cx from 'classnames';
+import cn from 'classnames';
 import {
   PortableTextComponent,
   PortableText,
@@ -16,6 +16,9 @@ import { BigNumbers } from '../BigNumber';
 import { TwoColumnUnorderedList } from '../TwoColumnUnorderedList';
 import { RichTextCtaRow } from './RichTextCtaRow';
 import { BigOrderedList } from './BigOrderedList';
+import { OverlapDoubleImages } from '../OverlapDoubleImages';
+import { RichQuote } from '../RichQuote';
+import { Video } from '../Video';
 
 type RichTextProps = {
   content: RichTextType;
@@ -103,6 +106,19 @@ const components: Partial<PortableTextReactComponents> = {
     bigOrderedList: (props) => {
       return <BigOrderedList bigOrderedList={props.value} />;
     },
+    overlapDoubleImages: (props) => {
+      return <OverlapDoubleImages overlapDoubleImages={props.value} />;
+    },
+    richQuote: (props) => {
+      return <RichQuote richQuote={props.value} />;
+    },
+    video: (props) => {
+      return (
+        <div className={cn('my-24')}>
+          <Video video={props.value} posterSizes={['100vw']} />
+        </div>
+      );
+    },
   },
   marks: {
     link: (props) => {
@@ -128,7 +144,7 @@ export const RichText: FC<RichTextProps> = ({
 }) => {
   return (
     <div
-      className={cx(
+      className={cn(
         'RichText',
         textColor || 'theme-text-color-primary',
         fontSize || 'font-size-8',

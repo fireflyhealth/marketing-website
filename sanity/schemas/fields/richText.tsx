@@ -234,6 +234,13 @@ export const ArticleRichText = defineField({
     { name: 'icon', type: 'icon', title: 'Icon' },
     { name: 'richImage', type: 'richImage', title: 'Image' },
     { name: 'form', type: 'hubspotForm', title: 'Form' },
+    { name: 'richQuote', type: 'richQuote', title: 'Rich Quote' },
+    {
+      name: 'overlapDoubleImages',
+      type: 'overlapDoubleImages',
+      title: 'Overlap Double Images',
+    },
+    { name: 'video', type: 'video', title: 'Video' },
     {
       name: 'twoColumnUnorderedList',
       type: 'twoColumnUnorderedList',

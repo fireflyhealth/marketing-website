@@ -458,7 +458,13 @@ export type RichText = Array<
   | BigNumbers
   | RichTextCtaRow
   | TwoColumnUnorderedList
+<<<<<<< HEAD
   | BigOrderedList
+=======
+  | RichQuote
+  | Video
+  | OverlapDoubleImages
+>>>>>>> 49c133c (feat: add rest of article rich text blocks)
 >;
 
 export type SimpleRichText = Array<PortableTextBlock>;
@@ -515,6 +521,7 @@ export type TwoColumnUnorderedList = {
   listItems: string[];
 };
 
+<<<<<<< HEAD
 export type BigOrderedList = {
   _type: 'bigOrderedList';
   _key: string;
@@ -522,6 +529,20 @@ export type BigOrderedList = {
     title: string;
     description: Maybe<SimpleRichText>;
   }[];
+=======
+export type OverlapDoubleImages = {
+  _type: 'overlapDoubleImages';
+  _key: string;
+  images: RichImage[];
+};
+
+export type RichQuote = {
+  _type: 'richQuote';
+  _key: string;
+  icon: Maybe<IconBlock>;
+  quote: string;
+  author: Maybe<string>;
+>>>>>>> 49c133c (feat: add rest of article rich text blocks)
 };
 
 /**

@@ -35,4 +35,10 @@
   .RichTextCtaRow {
     margin-top: theme(spacing.4);
   }
+
+  .RichQuote {
+    blockquote {
+      padding: 0;
+    }
+  }
 }

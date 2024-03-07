@@ -58,6 +58,22 @@ export const twoColumnUnorderedListFragment = `
   listItems[]
 `;
 
+export const overlapDoubleImages = `
+  _type,
+  _key,
+  images[] {
+    ${imageFragment}
+  }
+`;
+
+export const richQuote = `
+  _type,
+  _key,
+  icon,
+  quote,
+  quthor
+`;
+
 /* It's necessary to have this additional fragment because
  * we fetch rich text within the linkableDocumentFragment,
  * which is included in the other richTextFragment -
@@ -252,6 +268,14 @@ export const bigNumbersFragment = `
   }
 `;
 
+export const videoFragment = `
+  _type,
+  videoLink,
+  posterImage {
+    ${imageFragment}
+  }
+`;
+
 export const limitedRichTextFragment = `
   _key,
   _type,
@@ -320,6 +344,15 @@ export const richTextFragment = `
       }
     }
   },
+  _type == "overlapDoubleImages" => {
+    ${overlapDoubleImages}
+  },
+  _type == "richQuote" => {
+    ${richQuote}
+  },
+  _type == "video" => {
+    ${videoFragment}
+  },
   markDefs[]{
     _key,
     _type,
@@ -354,14 +387,6 @@ const ctaCardFragment = `
   title,
   cta {
     ${ctaFragment}
-  }
-`;
-
-export const videoFragment = `
-  _type,
-  videoLink,
-  posterImage {
-    ${imageFragment}
   }
 `;
 

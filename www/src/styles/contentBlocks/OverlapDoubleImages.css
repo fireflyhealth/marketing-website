@@ -1,0 +1,38 @@
+.OverlapDoubleImages {
+  @screen md {
+    margin-left: -18.4vw;
+    margin-right: -18.4vw;
+  }
+
+  @screen lg {
+    margin-left: -18.75vw;
+    margin-right: -18.75vw;
+  }
+
+  > div > figure.GenericImage {
+    margin: 0;
+    padding: 0;
+  }
+
+  > div {
+    @screen md {
+      width: calc(50% + 24px);
+      mix-blend-mode: multiply;
+    }
+  }
+
+  > .OverlapDoubleImages__image-0 {
+    @screen md {
+      margin-right: -24px;
+    }
+  }
+
+  > .OverlapDoubleImages__image-1 {
+    margin-top: theme(spacing.8);
+
+    @screen md {
+      margin-left: -24px;
+      margin-top: theme(spacing.12);
+    }
+  }
+}

@@ -10,7 +10,7 @@ type BlogArticleViewProps = {
 
 export const BlogArticleView: FC<BlogArticleViewProps> = ({ article }) => {
   return (
-    <div className={cn('BlogArticleView px-4 md:px-8 lg:px-12')}>
+    <div className={cn('BlogArticleView px-4 md:px-8 lg:px-12 mb-16 lg:mb-40')}>
       {/* TODO replace this with artible header */}
       <ArticleHeader articleHeader={article} />
       <article className={cn('flex flex-col items-center')}>
