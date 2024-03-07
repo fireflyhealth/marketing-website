@@ -1,0 +1,38 @@
+.ArticleRichText {
+  > * {
+    margin: 0;
+    padding: 0;
+  }
+
+  h2 {
+    padding: theme(spacing.16) 0 theme(spacing.4) 0;
+  }
+
+  h3 {
+    padding-top: theme(spacing.8);
+  }
+
+  h4 {
+    padding-top: theme(spacing.4);
+  }
+
+  p {
+    padding: theme(spacing.6) 0;
+  }
+
+  p + p {
+    padding-top: 0;
+  }
+
+  blockquote {
+    padding: theme(spacing.24) 0;
+  }
+
+  figure.GenericImage {
+    padding: theme(spacing.24) 0;
+  }
+
+  .RichTextCtaRow {
+    margin-top: theme(spacing.4);
+  }
+}
