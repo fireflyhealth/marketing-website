@@ -518,7 +518,12 @@ export const faqFragment = `
     title,
     slug
   },
-  category,
+  category->{
+    _id,
+    _type,
+    title,
+    slug
+  },
   answer[]{
     ${simpleRichTextFragment}
   }

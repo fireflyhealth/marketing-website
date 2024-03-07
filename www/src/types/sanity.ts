@@ -145,21 +145,6 @@ export type NotFoundPage = SanityDocument &
     decorativeImage: ResponsiveImageSet;
   };
 
-export type FAQGroup = {
-  title: string;
-  navigationOverrides?: NavigationOverrides;
-  header: HeaderArea;
-  content: ContentArea;
-  decorativeImage: ResponsiveImageSet;
-  metadata?: Metadata;
-  questions: FAQ[];
-};
-
-export type FAQTab = {
-  title: string;
-  faqGroups: KeyedArray<FAQGroup>;
-};
-
 export type FAQPage = SanityDocument &
   PageShared & {
     _type: 'faqPage';
@@ -175,11 +160,15 @@ export type FAQSubject = SanityDocument & {
   title: string;
   slug: Slug;
 };
+export type FAQCategory = SanityDocument & {
+  title: string;
+  slug: Slug;
+};
 
 export type FAQ = SanityDocument & {
   _type: 'faq';
   subject: FAQSubject;
-  category: string;
+  category: FAQCategory;
   question: string;
   answer: SimpleRichText;
 };
