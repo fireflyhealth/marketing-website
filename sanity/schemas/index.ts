@@ -47,7 +47,6 @@ import { ImageGridBlock } from './blocks/imageGridBlock';
 import { CardListBlock } from './blocks/cardListBlock';
 import { TabsBlock, TabsBlockTab } from './blocks/tabsBlock';
 import { TestimonialBlock, TestimonalItem } from './blocks/testimonalBlock';
-import { VideoBlock } from './blocks/videoBlock';
 
 /* Fields */
 import { Metadata } from './fields/metadata';
@@ -131,7 +130,6 @@ export const schemaTypes = [
   TabsBlock,
   TabsBlockTab,
   TestimonialBlock,
-  VideoBlock,
 
   /* Child blocks (used within other blocks, i.e. 2-up block) */
   ChildContentBlock,

@@ -611,8 +611,7 @@ export type ContentBlock =
   | FeaturedStoriesBlock
   | ColumnsBlock
   | TabsBlock
-  | TestimonialBlock
-  | VideoBlock;
+  | TestimonialBlock;
 
 export type ContentArea = KeyedArray<ContentBlock>;
 
