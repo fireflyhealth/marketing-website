@@ -24,15 +24,9 @@ export const FrequentlyAskedQuestion = defineType({
       name: 'category',
       fieldset: 'grouping',
       title: 'Category',
-      type: 'string',
-      initialValue: 'For Individuals',
+      type: 'reference',
+      to: [{ type: 'faqCategory' }],
       validation: (Rule) => Rule.required(),
-      options: {
-        list: [
-          { title: 'For Individuals', value: 'For Individuals' },
-          { title: 'For Providers', value: 'For Providers' },
-        ],
-      },
     }),
     defineField({
       name: 'question',
@@ -72,7 +66,7 @@ export const FrequentlyAskedQuestion = defineType({
     select: {
       question: 'question',
       answer: 'answer',
-      category: 'category',
+      category: 'category.title',
       subject: 'subject.title',
     },
     // For some reason adding a dot 'subject.subjectName' in the select

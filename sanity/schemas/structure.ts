@@ -132,6 +132,11 @@ export const structure: StructureResolver = async (S, context) => {
           .icon(icons.Question)
           .child(S.documentTypeList('faq')),
         S.listItem()
+          .title('FAQ Categories')
+          .icon(icons.Question)
+          .child(S.documentTypeList('faqCategory')),
+
+        S.listItem()
           .title('FAQ Subjects')
           .icon(icons.Question)
           .child(S.documentTypeList('faqSubject')),

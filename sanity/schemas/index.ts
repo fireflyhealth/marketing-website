@@ -83,6 +83,7 @@ import { ColumnsBlock, ColumnsObject } from './blocks/columnsBlock';
 import { BlogArticleTag } from './documents/blogArticleTag';
 import { FAQPage } from './documents/faqPage';
 import { FAQSubject } from './documents/faqSubject';
+import { FAQCategory } from './documents/faqCategory';
 
 export const schemaTypes = [
   /* Document Types */
@@ -103,6 +104,7 @@ export const schemaTypes = [
   Practitioner,
   FrequentlyAskedQuestion,
   FAQSubject,
+  FAQCategory,
 
   /* Header Blocks */
   HeaderArea,
