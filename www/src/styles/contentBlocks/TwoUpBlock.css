@@ -118,7 +118,7 @@
     }
 
     &--richTextChildBlock {
-      .theme-wrapper {
+      .theme-wrapper > div {
         padding: theme('spacing.16');
 
         @screen md {
