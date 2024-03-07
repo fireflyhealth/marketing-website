@@ -1,5 +1,6 @@
 import React, { FC, useState } from 'react';
 import cn from 'classnames';
+import { FAQCategory as FAQCategoryDocument } from '@/types/sanity';
 import { Button } from '@/atoms/Button';
 import { slugify } from '@/utils/text';
 import {
@@ -9,20 +10,20 @@ import {
 } from './styles';
 import { FAQSubject, FAQSubjectType } from './FAQSubject';
 
-export type FAQCategoryType = {
-  title: string;
+export type SortedFAQCategory = {
+  category: FAQCategoryDocument;
   subjects: FAQSubjectType[];
 };
 
 type FAQCategoryProps = {
-  faqCategory: FAQCategoryType;
+  faqCategory: SortedFAQCategory;
 };
 
 const getButtonId = (tabTitle: string, label: string) =>
   [slugify(tabTitle), slugify(label)].join('-');
 
 export const FAQCategory: FC<FAQCategoryProps> = ({ faqCategory }) => {
-  const { title, subjects } = faqCategory;
+  const { category, subjects } = faqCategory;
 
   /* 'all' or a subject slug */
   const [activeSubject, setActiveSubject] = useState<string>('all');
@@ -43,7 +44,7 @@ export const FAQCategory: FC<FAQCategoryProps> = ({ faqCategory }) => {
             active={activeSubject === 'all'}
             onClick={createSubjectButtonHandler('all')}
             aria-selected={activeSubject === 'all'}
-            id={getButtonId(title, 'All questions')}
+            id={getButtonId(category.title, 'All questions')}
             width="auto"
             label="All questions"
           />
@@ -58,7 +59,7 @@ export const FAQCategory: FC<FAQCategoryProps> = ({ faqCategory }) => {
               onClick={createSubjectButtonHandler(
                 faqSubject.subject.slug.current,
               )}
-              id={getButtonId(title, faqSubject.subject.title)}
+              id={getButtonId(category.title, faqSubject.subject.title)}
               label={faqSubject.subject.title}
             />
           </div>
