@@ -263,8 +263,6 @@ export type Blog = SanityDocument & {
   metadata?: Metadata;
   navigationOverrides?: NavigationOverrides;
   header: HeaderArea;
-  /* Not part of the schema, but fetched in the query */
-  articles: BlogArticle[];
   featuredArticle: Maybe<BlogArticle>;
   contentArea: Maybe<ContentArea>;
   allArticlesLabel: string;
@@ -322,6 +320,13 @@ export type BlogArticleLinkData = Pick<
   | 'blurb'
   | '_updatedAt'
 >;
+
+/* Blog article pagination */
+export type BlogArticlePagination = {
+  page: number;
+  hasNextPage: boolean;
+  articles: BlogArticleLinkData[];
+};
 
 /* Navigation */
 export type LinkWithLabel = {

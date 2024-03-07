@@ -1,5 +1,5 @@
 /* Add new tags here */
-type ErrorCategory = 'nextjs' | 'nearby';
+type ErrorCategory = 'nextjs' | 'nearby' | 'sanity';
 
 /**
  * A simple wrapper for more informative errors.
