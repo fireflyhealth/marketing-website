@@ -300,6 +300,8 @@ export type BlogArticle = SanityDocument & {
   metadata?: Metadata;
   tags: Maybe<BlogArticleTag[]>;
   blurb: SimpleRichText;
+  deck: Maybe<SimpleRichText>;
+  content: RichText;
 };
 
 export type BlogArticleLinkData = Pick<

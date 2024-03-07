@@ -156,10 +156,17 @@ export const BlogArticle = defineType({
       type: 'headerArea',
     }),
     defineField({
+      name: 'deck',
+      fieldset: 'content',
+      title: 'Deck',
+      type: 'simpleRichText',
+    }),
+    defineField({
       name: 'content',
       fieldset: 'content',
-      title: 'Content Blocks',
-      type: 'contentArea',
+      title: 'Content',
+      type: 'articleRichText',
+      validation: (Rule) => Rule.required(),
     }),
 
     /* Metadata */
