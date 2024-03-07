@@ -95,4 +95,5 @@ export const defaultContentBlockTypes = [
   { type: 'columnsBlock' },
   { type: 'tabsBlock' },
   { type: 'testimonialBlock' },
+  { type: 'videoBlock' },
 ];

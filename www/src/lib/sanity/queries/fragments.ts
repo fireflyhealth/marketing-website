@@ -667,6 +667,12 @@ export const testimonialBlockFragment = `
   testimonials[]{${testimonialItemFragment}}
 `;
 
+export const videoBlockFragment = `
+  video{${videoFragment}},
+  title,
+  description
+`;
+
 /* Please keep this alphabetized! */
 export const contentBlockFragment = `
   _type,
@@ -690,7 +696,8 @@ export const contentBlockFragment = `
   _type == "sequenceBlock" => {${sequenceBlockFragment}},
   _type == "tabsBlock" => {${tabsBlockFragment}},
   _type == "testimonialBlock" => {${testimonialBlockFragment}},
-  _type == "twoUpBlock" => {${twoUpBlockFragment}}
+  _type == "twoUpBlock" => {${twoUpBlockFragment}},
+  _type == "videoBlock" => {${videoBlockFragment}}
 `;
 
 export const videoHeaderFragment = `
