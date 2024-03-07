@@ -42,6 +42,7 @@ export const Video: FC<Props> = ({
 
   const [inViewRef, inView] = useInView({
     threshold: 1,
+    rootMargin: '0px 0px -50% 0px',
   });
 
   const [player, setPlayer] = useState<Vimeo | null>(null);
@@ -55,13 +56,17 @@ export const Video: FC<Props> = ({
       url: video.videoLink,
       controls: true,
       responsive: true,
+      muted: true,
+      playsinline: true,
     };
 
     const videoPlayer = new Vimeo(videoRef.current, options);
 
     setPlayer(videoPlayer);
 
-    videoPlayer.on('play', () => setIsPlaying(true));
+    videoPlayer.on('play', () => {
+      setIsPlaying(true);
+    });
 
     videoPlayer.on('pause', () => setIsPlaying(false));
 
@@ -82,10 +87,10 @@ export const Video: FC<Props> = ({
   useEffect(() => {
     if (inView) {
       setIsPlaying(true);
-      handlePlay();
+      togglePlay();
     } else {
       setIsPlaying(false);
-      handlePause();
+      togglePlay();
     }
   }, [inView]);
 
@@ -94,7 +99,9 @@ export const Video: FC<Props> = ({
   }
 
   function handlePause() {
-    player?.pause();
+    setTimeout(() => {
+      player?.pause();
+    }, 1000);
   }
 
   function handleFullscreen() {

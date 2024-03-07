@@ -91,7 +91,7 @@
   &__segment--top::before {
     content: '';
     position: absolute;
-    width: 1%;
+    width: 1px;
     height: 100%;
     top: -100%;
     background: theme('colors.yellow');
