@@ -3,20 +3,9 @@ import { Meta, StoryObj } from '@storybook/react';
 
 import { Carousel } from '.';
 
-type CarouselExampleProps = {
-  /* Temporary for QA */
-  vwHeightSetting?: number;
-  vwHeightEnabled?: boolean;
-};
-
-const CarouselExample: FC<CarouselExampleProps> = ({
-  vwHeightEnabled,
-  vwHeightSetting,
-}) => {
+const CarouselExample: FC = () => {
   return (
-    <Carousel
-      vwHeightSetting={(vwHeightEnabled && vwHeightSetting) || undefined}
-    >
+    <Carousel isImageCarousel={true}>
       <div className="h-full aspect-square bg-sky"></div>
       <div className="h-full aspect-[4/3] bg-midnight" />
       <div className="h-full aspect-[2/3] bg-sienna" />
@@ -34,11 +23,6 @@ const meta = {
 
 type Story = StoryObj<typeof meta>;
 
-export const Primary: Story = {
-  args: {
-    vwHeightSetting: 45,
-    vwHeightEnabled: false,
-  },
-};
+export const Primary: Story = {};
 
 export default meta;
