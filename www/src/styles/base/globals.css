@@ -1,6 +1,9 @@
 :root {
   --bar-graph-height: 0px;
   --bar-graph-width: 0px;
+  --container-lg-padding: 48px;
+  --container-md-padding: 36px;
+  --container-sm-padding: 16px;
 }
 
 html {
@@ -481,6 +484,51 @@ svg {
   max-width: 1920px;
   margin-left: auto;
   margin-right: auto;
+}
+
+.container-padding {
+  padding: 0 var(--container-sm-padding);
+
+  @screen md {
+    padding: 0 var(--container-md-padding);
+  }
+
+  @screen lg {
+    padding: 0 var(--container-lg-padding);
+  }
+}
+
+/* Use this className to expand content outside of the
+ * container-padding padding area. (I.e. if you want the
+ * background of an element to go to the edges of the
+ * container-max-width) */
+.container-padding-bleed {
+  width: calc(100% + var(--container-sm-padding) + var(--container-sm-padding));
+  margin-left: calc(0px - var(--container-sm-padding));
+
+  @screen md {
+    width: calc(
+      100% + var(--container-md-padding) + var(--container-md-padding)
+    );
+    margin-left: calc(0px - var(--container-md-padding));
+  }
+
+  @screen lg {
+    width: calc(
+      100% + var(--container-lg-padding) + var(--container-lg-padding)
+    );
+    margin-left: calc(0px - var(--container-lg-padding));
+  }
+}
+
+.container-padding-bleed-mobile-only {
+  width: calc(100% + var(--container-sm-padding) + var(--container-sm-padding));
+  margin-left: calc(0px - var(--container-sm-padding));
+
+  @screen md {
+    width: 100%;
+    margin-left: initial;
+  }
 }
 
 #hubspot-form-wrapper fieldset {
