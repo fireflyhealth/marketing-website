@@ -16,10 +16,7 @@ export const imageFragment = `
       }
     }
   },
-  caption,
-  altText,
-  crop,
-  hotspot
+  ...
 `;
 
 export const responsiveImageSetFragment = `
@@ -42,14 +39,8 @@ export const hubspotFormFragment = `
 export const barGraphFragment = `
   _type,
   _key,
-  barOne{
-    unit,
-    description,
-  },
-  barTwo{
-    unit,
-    description,
-  }
+  barOne,
+  barTwo
 `;
 
 export const twoColumnUnorderedListFragment = `
@@ -189,14 +180,7 @@ export const linkFragment = `
   _key,
   externalUrl,
   file{
-    asset->{
-      _type,
-      _id,
-      originalFilename,
-      url,
-      extension,
-      size
-    }
+    asset->
   },
   documentLink->{
     ${linkableDocumentFragment}
@@ -428,7 +412,7 @@ export const headerContentFragment = `
   eyebrow,
   heading,
   body[]{
-    ${richTextFragment}
+    ${simpleRichTextFragment}
   },
   cta{
     ${ctaFragment}
