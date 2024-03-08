@@ -1,4 +1,4 @@
-export const ContentBlockContainer = ['p-4', 'md:p-12'];
+export const ContentBlockContainer = ['my-8 md:my-24 relative'];
 
 export const HeaderWrapper = [
   'pb-4',

@@ -18,13 +18,7 @@ export const SequenceCard: FC<Props> = ({ card }) => {
     <>
       {isHighlighted && theme ? (
         <Theme theme={getColorTheme(theme)}>
-          <div
-            className={cn(
-              SequenceCardWrapper,
-              'md:p-12 md:flex-row-reverse md:space-x-reverse',
-              'lg:space-x-reverse',
-            )}
-          >
+          <div className={cn(SequenceCardWrapper)}>
             <div className={cn(VideoWrapper)}>
               <Video video={video} posterSizes={['90vw, 40vw']} />
             </div>

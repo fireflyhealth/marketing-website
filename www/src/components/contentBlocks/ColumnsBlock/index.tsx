@@ -23,7 +23,7 @@ export const ColumnsObject: FC<ColumnsObjectProps> = ({ columnsObject }) => {
           'md:gap-y-24 md:gap-x-12',
           theme == ColorTheme.White
             ? ''
-            : 'py-12 px-5 md:py-12 md:px-12 theme-bg-color rounded-xl',
+            : 'py-12 md:p-12 theme-bg-color rounded-xl container-padding-bleed-mobile-only',
         )}
       >
         {content.map((content) => (

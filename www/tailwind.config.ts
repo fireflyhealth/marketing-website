@@ -92,8 +92,6 @@ export const config: Config = {
         '96': '24rem', // 384px
         'bar-graph-height': 'var(--bar-graph-height)',
         'bar-graph-width': 'var(--bar-graph-width)',
-        'block-wrapper-lg-padding': '48px',
-        'block-wrapper-sm-padding': '24px',
       },
       backgroundImage: {
         'yellow-linear-gradient':

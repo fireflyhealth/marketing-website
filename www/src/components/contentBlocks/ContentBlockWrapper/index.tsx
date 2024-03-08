@@ -52,23 +52,21 @@ type ContentBlockWrapperProps = {
   header: Maybe<ContentBlockHeaderType>;
   children: React.ReactNode;
   id: Maybe<string>;
-  wrapperPadding?: boolean;
+  background?: React.ReactNode;
 };
 
 export const ContentBlockWrapper: FC<ContentBlockWrapperProps> = ({
   header,
   children,
   id,
-  wrapperPadding = true,
+  background,
 }) => {
   const cta = header?.cta && header?.cta?.label ? header.cta : null;
   const headerHasContent = header?.title || header?.description || cta;
 
   return (
-    <div
-      id={id || undefined}
-      className={cn(wrapperPadding ? ContentBlockContainer : '')}
-    >
+    <div id={id || undefined} className={cn(ContentBlockContainer)}>
+      {background ? background : null}
       {header && headerHasContent ? (
         <ContentBlockHeader header={header} />
       ) : null}

@@ -40,7 +40,7 @@ export default function App({ Component, pageProps: allPageProps }: Props) {
                 announcementBannerOverride || globalAnnouncementBanner
               }
             />
-            <div className="container-max-width">
+            <div className="container-max-width container-padding">
               <Navigation
                 navigation={customPageNav || globalNav}
                 showNavCTA={

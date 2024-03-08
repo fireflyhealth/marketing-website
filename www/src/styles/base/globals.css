@@ -505,12 +505,16 @@ svg {
 .container-padding-bleed {
   width: calc(100% + var(--container-sm-padding) + var(--container-sm-padding));
   margin-left: calc(0px - var(--container-sm-padding));
+  /* re-apply standard container padding (inner content will now match
+   * the padding of the main column) */
+  padding: var(--container-sm-padding);
 
   @screen md {
     width: calc(
       100% + var(--container-md-padding) + var(--container-md-padding)
     );
     margin-left: calc(0px - var(--container-md-padding));
+    padding: var(--container-md-padding);
   }
 
   @screen lg {
@@ -518,12 +522,16 @@ svg {
       100% + var(--container-lg-padding) + var(--container-lg-padding)
     );
     margin-left: calc(0px - var(--container-lg-padding));
+    padding: var(--container-lg-padding);
   }
 }
 
 .container-padding-bleed-mobile-only {
   width: calc(100% + var(--container-sm-padding) + var(--container-sm-padding));
   margin-left: calc(0px - var(--container-sm-padding));
+  /* re-apply standard container padding (inner content will now match
+   * the padding of the main column) */
+  padding: var(--container-sm-padding);
 
   @screen md {
     width: 100%;
