@@ -364,6 +364,8 @@ const childContentBlockFragment = `
   _type,
   _type == "richTextChildBlock" => {
     alignCenter,
+    showVideoButton,
+    cta{${ctaFragment}},
     icon,
     heading,
     headingFontSize,

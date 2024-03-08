@@ -572,6 +572,7 @@ export type RichTextChildBlock = {
   heading: Maybe<string>;
   headingFontSize: 'font-size-6' | 'font-size-5' | 'font-size-4';
   alignCenter: Maybe<boolean>;
+  cta: Maybe<CTA>;
   body: LimitedRichText;
 };
 
