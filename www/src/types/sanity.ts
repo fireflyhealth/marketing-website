@@ -861,10 +861,3 @@ export type TestimonialBlock = ContentBlockCommon & {
   _type: 'testimonialBlock';
   testimonials: KeyedArray<TestimonialItem>;
 };
-
-export type VideoBlock = ContentBlockCommon & {
-  _type: 'videoBlock';
-  video: Video;
-  title: string;
-  description: SimpleRichText;
-};
