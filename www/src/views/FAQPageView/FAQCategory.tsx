@@ -8,11 +8,11 @@ import {
   FAQCategorySubjects,
   FAQCategoryWrapper,
 } from './styles';
-import { FAQSubject, FAQSubjectType } from './FAQSubject';
+import { FAQSubject, SortedFaqSubject } from './FAQSubject';
 
 export type SortedFAQCategory = {
   category: FAQCategoryDocument;
-  subjects: FAQSubjectType[];
+  subjects: SortedFaqSubject[];
 };
 
 type FAQCategoryProps = {

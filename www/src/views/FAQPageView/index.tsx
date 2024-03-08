@@ -1,5 +1,4 @@
 import React, { FC, useMemo } from 'react';
-import { useRouter } from 'next/router';
 import {
   FAQ,
   FAQPage,
@@ -74,9 +73,7 @@ export const FAQPageView: FC<FAQPageViewProps> = ({ faqPage }) => {
     () => getCategoryGroups(faqPage.faqs),
     [faqPage],
   );
-  const router = useRouter();
-  // const params = new URLParams(router.asPath);
-  // const initialFaqCategory
+
   return (
     <div className="p-4 md:p-12">
       <HeaderArea block={faqPage.header} />

@@ -3,13 +3,13 @@ import { FAQ, FAQSubject as FAQSubjectDocument } from '@/types/sanity';
 import { Accordion } from '@/atoms/Accordion';
 import { RichText } from '@/components/RichText';
 
-export type FAQSubjectType = {
+export type SortedFaqSubject = {
   subject: FAQSubjectDocument;
   questions: FAQ[];
 };
 
 type FAQSubjectProps = {
-  faqSubject: FAQSubjectType;
+  faqSubject: SortedFaqSubject;
 };
 
 export const FAQSubject: FC<FAQSubjectProps> = ({ faqSubject }) => {
