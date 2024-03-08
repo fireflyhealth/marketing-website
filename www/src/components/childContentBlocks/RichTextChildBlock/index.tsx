@@ -4,7 +4,6 @@ import { RichTextChildBlock as RichTextChildBlockType } from '@/types/sanity';
 import { RichText } from '@/components/RichText';
 import { SanityImage } from '@/atoms/Image/SanityImage';
 import { BrandedIcon } from '@/svgs/BrandedIcon';
-import { CTA } from '@/components/CTA';
 
 type RichTextChildBlockProps = {
   richTextChildBlock: RichTextChildBlockType;
