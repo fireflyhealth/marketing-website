@@ -13,7 +13,7 @@ type RichTextChildBlockProps = {
 export const RichTextChildBlock: FC<RichTextChildBlockProps> = ({
   richTextChildBlock,
 }) => {
-  const { body, alignCenter, cta, icon, heading, headingFontSize, image } =
+  const { body, alignCenter, icon, heading, headingFontSize, image } =
     richTextChildBlock;
   return (
     <div
@@ -35,11 +35,6 @@ export const RichTextChildBlock: FC<RichTextChildBlockProps> = ({
         </h3>
       ) : null}
       <RichText content={body} alignCenter={!!alignCenter} />
-      {cta && (
-        <div className="mt-[30px] lg:mt-6">
-          <CTA cta={cta} align="left" width="auto" />
-        </div>
-      )}
     </div>
   );
 };

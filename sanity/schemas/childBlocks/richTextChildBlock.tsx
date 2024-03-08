@@ -15,15 +15,6 @@ export const RichTextChildBlock = defineType({
       title: 'Align Center',
     }),
     defineField({
-      name: 'cta',
-      title: 'CTA',
-      type: 'cta',
-      options: {
-        collapsible: true,
-        collapsed: true,
-      },
-    }),
-    defineField({
       name: 'icon',
       type: 'icon',
       title: 'Icon',
