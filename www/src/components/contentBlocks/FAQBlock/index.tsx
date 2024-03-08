@@ -33,7 +33,7 @@ export const FAQBlock: FC<FAQBlockProps> = ({ faqBlock }) => {
       <Theme theme={theme || ColorTheme.Sky}>
         <div className={cn(Wrapper)}>
           <div className={cn(TitleWrapper)}>
-            <h3 className="font-size-5">{blockTitle}</h3>
+            <h3 className="font-size-5 font-trust">{blockTitle}</h3>
             {blockCta ? (
               <div className="hidden md:block">
                 <CTA cta={blockCta} />
