@@ -31,7 +31,7 @@ import {
   BiSolidNavigation,
   BiGridHorizontal,
 } from 'react-icons/bi';
-import { FaHubspot, FaQuoteLeft, FaVideo } from 'react-icons/fa';
+import { FaHubspot, FaQuoteLeft } from 'react-icons/fa';
 import {
   BsFileBarGraph,
   BsMenuDown,
