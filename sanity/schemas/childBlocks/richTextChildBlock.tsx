@@ -48,7 +48,6 @@ export const RichTextChildBlock = defineType({
         'Select the font size for the heading - Font Size 6 is the smallest, Font Size 4 is the largest.',
       options: {
         list: [
-          { title: 'Font Size 8', value: 'font-size-8' },
           { title: 'Font Size 6', value: 'font-size-6' },
           { title: 'Font Size 5', value: 'font-size-5' },
           { title: 'Font Size 4', value: 'font-size-4' },
