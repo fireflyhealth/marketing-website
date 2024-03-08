@@ -720,7 +720,7 @@ export type QuoteObject = {
 export type QuoteBlock = ContentBlockCommon & {
   _type: 'quoteBlock';
   quoteObject: QuoteObject;
-  cta: CTA;
+  cta: Maybe<CTA>;
 };
 
 export type DrawerListItem = {

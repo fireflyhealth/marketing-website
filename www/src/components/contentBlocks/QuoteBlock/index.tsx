@@ -18,9 +18,11 @@ export const QuoteBlock: FC<Props> = ({ quoteBlock }) => {
       <Theme theme={ColorTheme.White}>
         <div className={cn(Wrapper)}>
           <QuoteObject quoteObject={quoteObject} />
-          <div className={cn(CTAWrapper)}>
-            <CTA cta={cta} />
-          </div>
+          {cta && (
+            <div className={cn(CTAWrapper)}>
+              <CTA cta={cta} />
+            </div>
+          )}
         </div>
       </Theme>
     </ContentBlockWrapper>
