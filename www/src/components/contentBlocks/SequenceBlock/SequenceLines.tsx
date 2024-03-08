@@ -1,21 +1,25 @@
-import { FC } from 'react';
-import { useInView } from 'react-hook-inview';
+import { FC, useRef } from 'react';
 import cn from 'classnames';
+import { useIntersectionObserver } from '@/lib/hooks/useIntersectionObserver';
 
 export const SequenceLines: FC = () => {
-  const [inViewRef, inView] = useInView({
+  const sequenceLinesRef = useRef<HTMLDivElement>(null);
+
+  const { isIntersectingOnce } = useIntersectionObserver(sequenceLinesRef, {
     threshold: 0.1,
-    unobserveOnEnter: true,
   });
 
   return (
-    <div ref={inViewRef} className="SequenceLines__container">
+    <div ref={sequenceLinesRef} className="SequenceLines__container">
       <div
-        className={cn(inView && 'animate-segmentPoint', 'SequenceLines__point')}
+        className={cn(
+          isIntersectingOnce && 'animate-segmentPoint',
+          'SequenceLines__point',
+        )}
       />
       <div
         className={cn(
-          inView &&
+          isIntersectingOnce &&
             'before:animate-topSegmentMobile before:md:animate-topSegmentTabletDesktop',
           'SequenceLines__segment--top',
         )}
@@ -24,7 +28,7 @@ export const SequenceLines: FC = () => {
       <div className="SequenceLines__col-right">
         <div
           className={cn(
-            inView && 'before:md:animate-middleSegment',
+            isIntersectingOnce && 'before:md:animate-middleSegment',
             'SequenceLines__segment--middle',
           )}
         />

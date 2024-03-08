@@ -1,7 +1,7 @@
 import { FC, useState, useRef, useEffect } from 'react';
-import { useInView } from 'react-hook-inview';
 import Vimeo from '@vimeo/player';
 import cn from 'classnames';
+import { useIntersectionObserver } from '@/lib/hooks/useIntersectionObserver';
 import * as SanityTypes from '@/types/sanity';
 import { Button } from '@/atoms/Button';
 import { SanityImage } from '@/atoms/Image/SanityImage';
@@ -38,11 +38,13 @@ export const Video: FC<Props> = ({
   autoplay = false,
   isHighlighted = false,
 }) => {
+  const videoContainerRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLDivElement>(null);
 
-  const [inViewRef, inView] = useInView({
-    threshold: 1,
-    rootMargin: '0px 0px -50% 0px',
+  const { isIntersecting } = useIntersectionObserver(videoContainerRef, {
+    /* Begin loading the video when it is visible and within 25% of the top and bottom of the viewport */
+    rootMargin: '-25% 0px -25% 0px',
+    threshold: 0.5,
   });
 
   const [player, setPlayer] = useState<Vimeo | null>(null);
@@ -85,14 +87,14 @@ export const Video: FC<Props> = ({
 
   // handle autoplay when video is in view
   useEffect(() => {
-    if (inView) {
+    if (isIntersecting) {
       setIsPlaying(true);
-      togglePlay();
+      handlePlay();
     } else {
       setIsPlaying(false);
-      togglePlay();
+      handlePause();
     }
-  }, [inView]);
+  }, [isIntersecting]);
 
   function handlePlay() {
     player?.play();
@@ -113,7 +115,11 @@ export const Video: FC<Props> = ({
   if (!video.videoLink) return null;
 
   return (
-    <div ref={inViewRef} id="video-component" className={cn(OuterVideoWrapper)}>
+    <div
+      ref={videoContainerRef}
+      id="video-component"
+      className={cn(OuterVideoWrapper)}
+    >
       <div className={cn(VideoWrapper, width ? `${width}` : 'w-full')}>
         {!isPlaying && (
           <div

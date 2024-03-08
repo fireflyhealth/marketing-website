@@ -1,6 +1,6 @@
-import { FC } from 'react';
-import { useInView } from 'react-hook-inview';
+import { FC, useRef } from 'react';
 import cn from 'classnames';
+import { useIntersectionObserver } from '@/lib/hooks/useIntersectionObserver';
 import * as SanityTypes from '@/types/sanity';
 import { getColorTheme } from '@/utils/theme';
 import { Video } from '@/components/Video';
@@ -15,13 +15,14 @@ type Props = {
 export const SequenceCard: FC<Props> = ({ card }) => {
   const { video, copy, isHighlighted, theme } = card;
 
-  const [inViewRef, inView] = useInView({
+  const sequenceCardRef = useRef<HTMLDivElement>(null);
+
+  const { isIntersectingOnce } = useIntersectionObserver(sequenceCardRef, {
     threshold: 0.4,
-    unobserveOnEnter: true,
   });
 
   return (
-    <div ref={inViewRef} className="relative">
+    <div ref={sequenceCardRef} className="relative">
       {isHighlighted && theme ? (
         <>
           <div
@@ -32,7 +33,7 @@ export const SequenceCard: FC<Props> = ({ card }) => {
               className={cn(
                 SequenceCardWrapper,
                 'fadeUpElement fadeUpElement--animated',
-                inView ? '' : 'fadeUpElement--inactive',
+                isIntersectingOnce ? '' : 'fadeUpElement--inactive',
                 'md:p-12 md:flex-row-reverse md:space-x-reverse',
                 'lg:space-x-reverse',
               )}
@@ -62,7 +63,7 @@ export const SequenceCard: FC<Props> = ({ card }) => {
             className={cn(
               VideoWrapper,
               'fadeUpElement fadeUpElement--animated lg:max-w-[580px]',
-              inView ? '' : 'fadeUpElement--inactive',
+              isIntersectingOnce ? '' : 'fadeUpElement--inactive',
             )}
           >
             <Video video={video} posterSizes={['90vw, 40vw']} autoplay />
@@ -78,7 +79,7 @@ export const SequenceCard: FC<Props> = ({ card }) => {
             <div
               className={cn(
                 'fadeUpElement fadeUpElement--animated',
-                inView ? '' : 'fadeUpElement--inactive',
+                isIntersectingOnce ? '' : 'fadeUpElement--inactive',
               )}
             >
               <SequenceCopy copy={copy} />
