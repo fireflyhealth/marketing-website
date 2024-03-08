@@ -28,3 +28,30 @@ export const matchTextContent =
     );
     return elementHasText && childrenDontHaveText;
   };
+
+/**
+ * Generic function for testing to see if an element has an attribute
+ * or is within an element that has the attribute.
+ */
+const hasAttribute = (attributeName: string, testValue: string) => {
+  const testElement = (element: HTMLElement): boolean => {
+    if (element.getAttribute(attributeName) === testValue) return true;
+    const parentElement = element.parentElement;
+    if (parentElement) {
+      return testElement(parentElement);
+    }
+    return false;
+  };
+  return testElement;
+};
+
+/**
+ * Test to see if an element has a specific attribute value, or
+ * is within a parent that has it.
+ *
+ * Usage:
+ *
+ * expect(isAriaHidden(getByText('Hidden Button'))).toBe(false)
+ */
+export const isAriaHidden = hasAttribute('aria-hidden', 'true');
+export const isAriaSelected = hasAttribute('aria-selected', 'true');
