@@ -30,7 +30,7 @@ export const Accordion: FC<AccordionProps> = ({ title, children }) => {
         aria-hidden={!isOpen}
         className={isOpen ? 'block' : 'opacity-0 h-0 pointer-events-none'}
       >
-        <div className="pt-3">{children}</div>
+        <div className="pt-3 pr-7">{children}</div>
       </div>
     </div>
   );
