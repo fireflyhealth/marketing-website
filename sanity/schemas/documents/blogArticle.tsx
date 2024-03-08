@@ -11,6 +11,11 @@ export const BlogArticle = defineType({
   type: 'document',
   title: 'Blog Article',
   icon: icons.Article,
+  fieldsets: [
+    { title: 'Categorization', name: 'categorization' },
+    { title: 'Linking', name: 'linking' },
+    { title: 'Content', name: 'content' },
+  ],
   fields: [
     defineField({
       name: 'title',
@@ -26,12 +31,6 @@ export const BlogArticle = defineType({
       options: {
         dateFormat: 'MMMM DD, YYYY',
       },
-    }),
-    defineField({
-      name: 'category',
-      title: 'Parent Blog',
-      type: 'reference',
-      to: [{ type: 'blog' }],
     }),
     defineField({
       name: 'slug',
@@ -88,26 +87,59 @@ export const BlogArticle = defineType({
       },
     }),
     defineField({
+      name: 'navigationOverrides',
+      title: 'Navigation Overrides',
+      type: 'navigationOverrides',
+    }),
+
+    /* Categorization */
+    defineField({
+      name: 'category',
+      fieldset: 'categorization',
+      title: 'Parent Blog',
+      type: 'reference',
+      to: [{ type: 'blog' }],
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
+      name: 'tags',
+      fieldset: 'categorization',
+      title: 'Tags',
+      type: 'array',
+      of: [{ type: 'reference', to: [{ type: 'blogArticleTag' }] }],
+    }),
+
+    /* Linking */
+    defineField({
       name: 'thumbnail',
+      fieldset: 'linking',
       title: 'Thumbnail',
       description: 'Used in Featured Story card',
       type: 'richImage',
       validation: (Rule) => Rule.required(),
     }),
     defineField({
-      name: 'navigationOverrides',
-      type: 'navigationOverrides',
+      name: 'blurb',
+      fieldset: 'linking',
+      title: 'Blurb',
+      type: 'simpleRichText',
+      validation: (Rule) => Rule.required(),
     }),
+    /* Content */
     defineField({
       name: 'header',
+      fieldset: 'content',
       title: 'Header',
       type: 'headerArea',
     }),
     defineField({
       name: 'content',
-      title: 'Content',
+      fieldset: 'content',
+      title: 'Content Blocks',
       type: 'contentArea',
     }),
+
+    /* Metadata */
     defineField({
       name: 'metadata',
       type: 'metadata',

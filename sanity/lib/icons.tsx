@@ -38,6 +38,8 @@ import {
   BsSegmentedNav,
   BsFiles,
   BsChatSquareQuoteFill,
+  BsTag,
+  BsTags,
 } from 'react-icons/bs';
 import {
   MdOutlineCallToAction,
@@ -98,4 +100,6 @@ export const icons = {
   Video: GrVideo,
   ImageTextOverlap: BsFiles,
   Testimonial: BsChatSquareQuoteFill,
+  Tags: BsTags,
+  Tag: BsTag,
 };
