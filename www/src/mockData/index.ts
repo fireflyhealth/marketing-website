@@ -26,6 +26,7 @@ import {
   ColumnsBlock,
   KeyedArray,
   TabsBlock,
+  FAQ,
 } from '@/types/sanity';
 import mockData from './mockData.json';
 
@@ -105,3 +106,5 @@ export const columnsBlockExamples = mockData.contentBlockExamples
   .columnsBlocks as KeyedArray<ColumnsBlock>;
 export const tabsBlockExample = mockData.contentBlockExamples
   .tabsBlock as TabsBlock;
+
+export const faqs = mockData.faqs as FAQ[];

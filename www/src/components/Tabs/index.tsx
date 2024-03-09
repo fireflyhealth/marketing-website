@@ -1,6 +1,6 @@
 import React, { FC, useState, ReactNode } from 'react';
 import cn from 'classnames';
-import { Keyed } from '@/types/sanity';
+import { Keyed, Maybe } from '@/types/sanity';
 import { TabContentWrapper, TabLabel, TabLabels } from './styles';
 
 type Tab = {
@@ -10,10 +10,25 @@ type Tab = {
 
 type TabsProps = {
   tabs: Keyed<Tab>[];
+  initialTabKey?: Maybe<string>;
   animated?: boolean;
 };
 
 const getTabId = (tab: Keyed<Tab>) => `tab-${tab._key}`;
+
+const initialTabKeyIsValid = (
+  initialTabKey: string,
+  tabs: Keyed<Tab>[],
+): boolean => {
+  const tabKeys = tabs.map((tab) => tab._key);
+  const isValid = tabKeys.includes(initialTabKey);
+  if (!isValid) {
+    console.error(
+      `Tab key "${initialTabKey}" is invalid. Available keys: ${tabKeys.join(', ')}`,
+    );
+  }
+  return isValid;
+};
 
 /**
  * Tab accessibility requirements:
@@ -30,8 +45,12 @@ const getTabId = (tab: Keyed<Tab>) => `tab-${tab._key}`;
  *
  * Read more: https://dev.to/link2twenty/accessibility-first-tabs-ken
  */
-export const Tabs: FC<TabsProps> = ({ tabs, animated }) => {
-  const [activeTab, setActiveTab] = useState<string>(tabs[0]._key);
+export const Tabs: FC<TabsProps> = ({ tabs, animated, initialTabKey }) => {
+  const [activeTab, setActiveTab] = useState<string>(
+    initialTabKey && initialTabKeyIsValid(initialTabKey, tabs)
+      ? initialTabKey
+      : tabs[0]._key,
+  );
   const createTabFocusHandler = (key: string) => () => setActiveTab(key);
   const activateAndFocusTab = (tab: Keyed<Tab>) => {
     /* Update the state */

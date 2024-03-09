@@ -2,6 +2,7 @@ import {
   contentBlockFragment,
   ctaFragment,
   doubleCtaFragment,
+  faqFragment,
   footerFragment,
   headerBlockFragment,
   imageFragment,
@@ -67,6 +68,9 @@ export const mockDataQuery = `
       _type == "siteSettings" && _id == "siteSettings"
     ][0].footer{
       ${footerFragment}
+    },
+    "faqs": *[_type == "faq"]{
+      ${faqFragment}
     }
   }[0]
 `;

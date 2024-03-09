@@ -9,4 +9,16 @@
     transform: translateX(-50%);
     pointer-events: none;
   }
+
+  .hide-scrollbar {
+    /* Webkit browsers (safari, chrome) */
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    /* Microsoft browsers */
+    -ms-overflow-style: none;
+
+    /* Gecko browsers (firefox) */
+    scrollbar-width: none;
+  }
 }

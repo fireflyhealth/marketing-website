@@ -508,6 +508,27 @@ const twoUpBlockFragment = `
   ${twoUpObjectFragment}
 `;
 
+export const faqFragment = `
+  _id,
+  _type,
+  question,
+  subject->{
+    _id,
+    _type,
+    title,
+    slug
+  },
+  category->{
+    _id,
+    _type,
+    title,
+    slug
+  },
+  answer[]{
+    ${simpleRichTextFragment}
+  }
+`;
+
 const sequenceItemFragment = `
   _type,
   _key,
@@ -562,12 +583,7 @@ const faqBlockFragment = `
     ${ctaFragment}
   },
   faqs[]->{
-    _id,
-    _type,
-    question,
-    answer[]{
-      ${simpleRichTextFragment}
-    }
+    ${faqFragment}
   }
 `;
 
@@ -690,7 +706,7 @@ export const contentBlockFragment = `
   _type == "sequenceBlock" => {${sequenceBlockFragment}},
   _type == "tabsBlock" => {${tabsBlockFragment}},
   _type == "testimonialBlock" => {${testimonialBlockFragment}},
-  _type == "twoUpBlock" => {${twoUpBlockFragment}}
+  _type == "twoUpBlock" => {${twoUpBlockFragment}},
 `;
 
 export const videoHeaderFragment = `

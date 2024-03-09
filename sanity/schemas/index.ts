@@ -4,7 +4,6 @@ import { GenericPage, SubPage } from './documents/genericPage';
 import {
   ContactPage,
   DownloadPage,
-  FAQPage,
   NotFoundPage,
 } from './documents/specialPages';
 import { ClientPage } from './documents/clientPage';
@@ -82,6 +81,9 @@ import { FeaturedStoriesBlock } from './blocks/featuredStoriesBlock';
 import { Icon } from './fields/icon';
 import { ColumnsBlock, ColumnsObject } from './blocks/columnsBlock';
 import { BlogArticleTag } from './documents/blogArticleTag';
+import { FAQPage } from './documents/faqPage';
+import { FAQSubject } from './documents/faqSubject';
+import { FAQCategory } from './documents/faqCategory';
 
 export const schemaTypes = [
   /* Document Types */
@@ -101,6 +103,8 @@ export const schemaTypes = [
   Navigation,
   Practitioner,
   FrequentlyAskedQuestion,
+  FAQSubject,
+  FAQCategory,
 
   /* Header Blocks */
   HeaderArea,

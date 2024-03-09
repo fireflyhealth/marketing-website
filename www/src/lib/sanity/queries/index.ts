@@ -8,6 +8,7 @@ import {
   doubleCtaFragment,
   responsiveImageSetFragment,
   blogArticleLinkDataFragment,
+  faqFragment,
 } from './fragments';
 
 export const siteSettingsFragment = `
@@ -27,12 +28,21 @@ export const siteSettingsFragment = `
   defaultMetadata {${metadataFragment}}
 `;
 
+/**
+ * Fields included in both generic pages and
+ * special pages. (I.e. this does not include 'subnav',
+ * that does not exist on the FAQ page)
+ */
+const pageSharedFieldsFragment = `
+  navigationOverrides {${navigationOverridesFragment}},
+  'header': header[] {${headerBlockFragment}}[0]
+`;
+
 export const pageFragment = `
   _id,
   title,
   slug,
-  navigationOverrides {${navigationOverridesFragment}},
-  'header': header[] {${headerBlockFragment}}[0],
+  ${pageSharedFieldsFragment},
   subnav,
   content {${contentBlockFragment}}[],
   metadataFragment{${metadataFragment}}
@@ -42,8 +52,7 @@ export const specialPageFragment = `
   _id,
   title,
   slug,
-  navigationOverrides {${navigationOverridesFragment}},
-  'header': header[] {${headerBlockFragment}}[0],
+  ${pageSharedFieldsFragment},
   content {${contentBlockFragment}}[],
   metadataFragment{${metadataFragment}}
 `;
@@ -59,11 +68,15 @@ export const notFoundPageFragment = `
 
 export const faqPageFragment = `
   _id,
+  _type,
   title,
   slug,
-  navigationOverrides {${navigationOverridesFragment}},
-  'header': header[] {${headerBlockFragment}}[0],
-  metadataFragment{${metadataFragment}}
+  ${pageSharedFieldsFragment},
+  metadataFragment{${metadataFragment}},
+  title,
+  "faqs": *[_type == "faq"]{
+    ${faqFragment}
+  }
 `;
 
 export const blogArticleFragment = `

@@ -9,6 +9,7 @@ export type ButtonProps = {
   /* Used for analytics event tracking */
   id: string;
   label: string;
+  active?: boolean;
   ariaLabel?: Maybe<string>;
   variant?: ButtonVariant;
   onClick: React.MouseEventHandler;
@@ -22,6 +23,7 @@ export const Button: FC<ButtonProps> = ({
   id,
   label,
   variant = 'primary',
+  active,
   onClick,
   align = 'center',
   disabled = false,
@@ -43,6 +45,7 @@ export const Button: FC<ButtonProps> = ({
           bgColorOverride,
           'cta',
           `cta--${variant}`,
+          active && 'cta--active',
           /* TextLink width should always be auto */
           variant === 'textLink' || width === 'auto' ? 'w-auto' : 'w-full',
         )}
@@ -66,6 +69,7 @@ export const LinkButton: FC<LinkButtonProps> = ({
   label,
   link,
   variant = 'primary',
+  active,
   ariaLabel,
   align = 'center',
   disabled,
@@ -84,6 +88,7 @@ export const LinkButton: FC<LinkButtonProps> = ({
           'cta',
           `cta--${variant}`,
           disabled && 'cta--disabled',
+          active && 'cta--active',
 
           /* TextLink width should always be auto */
           variant === 'textLink' || width === 'auto' ? 'w-auto' : 'w-full',
