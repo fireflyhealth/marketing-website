@@ -17,7 +17,23 @@ export type ButtonProps = {
   disabled?: boolean;
   bgColorOverride?: string;
   width?: 'auto' | 'full';
-};
+  ariaSelected?: boolean;
+} & (
+  | {
+      /* aria-selected can only be applied to elements with the
+       * roles "gridcell" | "option" | "row" | "tab"
+       * (we only use "option" here)*/
+
+      /* NOTE: if you use this option, the buttons must be contained
+       * within a role="listbox" element */
+      role: 'option';
+      ariaSelected: boolean;
+    }
+  | {
+      role?: undefined;
+      ariaSelected?: undefined;
+    }
+);
 
 export const Button: FC<ButtonProps> = ({
   id,
@@ -28,6 +44,8 @@ export const Button: FC<ButtonProps> = ({
   align = 'center',
   disabled = false,
   ariaLabel,
+  ariaSelected,
+  role,
   bgColorOverride,
   width = 'full',
 }) => {
@@ -49,6 +67,8 @@ export const Button: FC<ButtonProps> = ({
           /* TextLink width should always be auto */
           variant === 'textLink' || width === 'auto' ? 'w-auto' : 'w-full',
         )}
+        aria-selected={ariaSelected}
+        role={role}
         aria-label={ariaLabel || undefined}
         id={id}
         onClick={onClick}
