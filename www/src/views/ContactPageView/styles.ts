@@ -1,4 +1,4 @@
-export const Wrapper = ['relative min-h-[100vh] p-4', 'md:p-12'];
+export const Wrapper = ['mt-16 relative min-h-[100vh]'];
 
 export const HeaderWrapper = [
   'relative z-[1] w-full flex flex-col text-center space-y-[83px]',
@@ -15,8 +15,8 @@ export const PageTitle = [
 export const ContactForm = ['w-full', 'lg:w-1/2'];
 
 export const BackgroundColor = [
-  '!z-[-2] !-top-[56px] full-width-background',
-  'lg:!-top-[82px]',
+  '!z-[-2] !-top-[120px] full-width-background',
+  'lg:!-top-[146px]',
 ];
 
 // add container-padding-bleed-mobile-only once #204 is merged.
