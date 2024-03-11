@@ -9,6 +9,7 @@ import {
   responsiveImageSetFragment,
   blogArticleLinkDataFragment,
   faqFragment,
+  imageFragment,
 } from './fragments';
 
 export const siteSettingsFragment = `
@@ -87,9 +88,20 @@ export const blogArticleFragment = `
     title,
     slug
   },
+  tags[]->{
+    _type,
+    title,
+    slug
+  },
   slug,
   navigationOverrides {${navigationOverridesFragment}},
-  metadataFragment{${metadataFragment}}
+  metadataFragment{${metadataFragment}},
+  articleImage {${imageFragment}},
+  authorName,
+  publishDate,
+  updatedDate,
+  _createdAt,
+  _updatedAt
 `;
 
 export const blogFragment = `

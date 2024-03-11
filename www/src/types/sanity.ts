@@ -287,8 +287,12 @@ export type BlogArticle = SanityDocument & {
    * present in sanity documents. It's required here because we use
    * it in rendering the publish date of documents. */
   _updatedAt: string;
+  _createdAt: string;
   title: string;
   publishDate: Maybe<string>;
+  updatedDate: Maybe<string>;
+  articleImage: Maybe<RichImage>;
+  authorName: Maybe<string>;
   thumbnail: RichImage;
   slug: Slug;
   navigationOverrides?: NavigationOverrides;

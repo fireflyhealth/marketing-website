@@ -24,13 +24,36 @@ export const BlogArticle = defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
+      name: 'articleImage',
+      title: 'Article Image',
+      description:
+        'Used in article header if image is provided. Otherwise, article header will render without image.',
+      type: 'richImage',
+    }),
+    defineField({
       name: 'publishDate',
       title: 'Publish Date',
       type: 'date',
-      description: 'Defaults to the date of the most recent update when empty',
+      description:
+        'Defaults to the date of the document created date. If this field is set, it will be used as the publish date.',
       options: {
         dateFormat: 'MMMM DD, YYYY',
       },
+    }),
+    defineField({
+      name: 'updatedDate',
+      title: 'Updated Date',
+      type: 'date',
+      description:
+        'Defaults to the document updated date. If this field is set, it will be used as the updated date.',
+      options: {
+        dateFormat: 'MMMM DD, YYYY',
+      },
+    }),
+    defineField({
+      name: 'authorName',
+      title: 'author Name',
+      type: 'string',
     }),
     defineField({
       name: 'slug',
