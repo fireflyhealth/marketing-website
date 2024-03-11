@@ -136,8 +136,8 @@ export const ContentBlockRichText = defineField({
             { title: 'Heading 4', value: 'h4' },
             { title: 'Paragraph', value: 'normal' },
             /* Note: custom editor styling for this is in lib/styles.css */
-            { title: 'Quote (L)', value: 'blockquote-large' },
-            { title: 'Quote', value: 'blockquote' },
+            { title: 'BlockQuote (L)', value: 'blockquote-large' },
+            { title: 'BlockQuote', value: 'blockquote' },
           ],
           lists: [
             { title: 'Bullet', value: 'bullet' },
