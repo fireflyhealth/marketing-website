@@ -363,7 +363,7 @@ export type NavigationOverrides = {
 
 export type AnnouncementBanner = {
   _type: 'announcementBanner';
-  body: string;
+  body: Maybe<SimpleRichText>;
 };
 
 /* An enhanced image field that includes a caption & required alt text */

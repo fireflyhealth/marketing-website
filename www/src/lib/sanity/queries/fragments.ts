@@ -849,6 +849,6 @@ export const navigationOverridesFragment = `
   pageNavigation->{${navigationFragment}},
   announcementBanner{
     _type,
-    body,
-  },
+    body[]{${simpleRichTextFragment}},
+  }
   `;
