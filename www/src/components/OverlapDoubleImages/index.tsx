@@ -16,12 +16,11 @@ export const OverlapDoubleImages: FC<Props> = ({ overlapDoubleImages }) => {
     >
       {overlapDoubleImages.images.map((image, index) => {
         return (
-          <div className={cn(`OverlapDoubleImages__image-${index}`)}>
-            <SanityImage
-              key={image._type}
-              image={image}
-              sizes={['100vw', '50vw']}
-            />
+          <div
+            key={image._type}
+            className={cn(`OverlapDoubleImages__image-${index}`)}
+          >
+            <SanityImage image={image} sizes={['100vw', '50vw']} />
           </div>
         );
       })}

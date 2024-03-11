@@ -14,11 +14,11 @@ import { HubspotForm } from '@/components/HubspotForm';
 import { BarGraph } from '@/components/BarGraph';
 import { BigNumbers } from '../BigNumber';
 import { TwoColumnUnorderedList } from '../TwoColumnUnorderedList';
-import { RichTextCtaRow } from './RichTextCtaRow';
-import { BigOrderedList } from './BigOrderedList';
 import { OverlapDoubleImages } from '../OverlapDoubleImages';
 import { RichQuote } from '../RichQuote';
 import { Video } from '../Video';
+import { RichTextCtaRow } from './RichTextCtaRow';
+import { BigOrderedList } from './BigOrderedList';
 
 type RichTextProps = {
   content: RichTextType;
