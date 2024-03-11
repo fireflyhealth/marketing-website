@@ -15,6 +15,22 @@ body {
   overflow-x: hidden;
 }
 
+.ContentArea {
+  /* Add spacing between components  */
+  > div + div {
+    margin-bottom: theme('spacing.8');
+  }
+  /* Last component should not have spacing  */
+  > div:last-child {
+    margin-bottom: 0;
+  }
+
+  /* Any component with this class name will not have spacing below  */
+  > .remove-between-component-margin {
+    margin-bottom: 0;
+  }
+}
+
 svg {
   .icon-base,
   .icon-overlap {
