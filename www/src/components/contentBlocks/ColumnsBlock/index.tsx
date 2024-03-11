@@ -26,8 +26,8 @@ export const ColumnsObject: FC<ColumnsObjectProps> = ({ columnsObject }) => {
             : 'py-12 md:p-12 theme-bg-color rounded-xl container-padding-bleed-mobile-only',
         )}
       >
-        {content.map((content) => (
-          <div key={content._key}>
+        {content.map((content, index) => (
+          <div key={`${content._key}-${index}`}>
             <ChildContentBlock block={content} />
           </div>
         ))}

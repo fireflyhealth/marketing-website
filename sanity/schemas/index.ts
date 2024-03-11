@@ -86,6 +86,7 @@ import { BlogArticleTag } from './documents/blogArticleTag';
 import { FAQPage } from './documents/faqPage';
 import { FAQSubject } from './documents/faqSubject';
 import { FAQCategory } from './documents/faqCategory';
+import { BigOrderedList } from './fields/bigOrderedList';
 
 export const schemaTypes = [
   /* Document Types */
@@ -137,6 +138,7 @@ export const schemaTypes = [
   TabsBlock,
   TabsBlockTab,
   TestimonialBlock,
+  RichTextBlock,
 
   /* Child blocks (used within other blocks, i.e. 2-up block) */
   ChildContentBlock,
@@ -186,4 +188,5 @@ export const schemaTypes = [
   BigOrderedList,
   TestimonalItem,
   BlogArticleTagGroup,
+  BigOrderedList,
 ];

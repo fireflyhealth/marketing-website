@@ -723,11 +723,11 @@ export const contentBlockFragment = `
   _type == "practitionersBlock" => {${practitionersBlockFragment}},
   _type == "quoteBlock" => {${quoteBlockFragment}},
   _type == "reviewBlock" => {${reviewBlockFragmnet}},
+  _type == "richTextBlock" => {${richTextBlockFragment}},
   _type == "sequenceBlock" => {${sequenceBlockFragment}},
   _type == "tabsBlock" => {${tabsBlockFragment}},
   _type == "testimonialBlock" => {${testimonialBlockFragment}},
   _type == "twoUpBlock" => {${twoUpBlockFragment}},
-  _type == "richTextBlock" => {${richTextBlockFragment}}
 `;
 
 export const videoHeaderFragment = `
