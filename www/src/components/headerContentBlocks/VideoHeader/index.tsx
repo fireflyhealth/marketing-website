@@ -1,9 +1,9 @@
 import { FC } from 'react';
 import cn from 'classnames';
 import * as SanityTypes from '@/types/sanity';
+import { Theme } from '@/components/Theme';
 import { Video } from '../../Video';
 import { Wrapper } from './styles';
-import { Theme } from '@/components/Theme';
 
 type Props = {
   videoHeader: SanityTypes.VideoHeader;

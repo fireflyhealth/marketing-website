@@ -1,8 +1,8 @@
 import { FC } from 'react';
 import cn from 'classnames';
 import * as SanityTypes from '@/types/sanity';
-import { Wrapper } from './styles';
 import { RichText } from '../RichText';
+import { Wrapper } from './styles';
 
 export type Props = {
   announcementBanner: SanityTypes.AnnouncementBanner;

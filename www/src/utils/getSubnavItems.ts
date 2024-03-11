@@ -1,6 +1,8 @@
 import { SubnavItem, ContentBlock } from '@/types/sanity';
 
-const getSubnavItems = (content?: ContentBlock[]): SubnavItem[] | null => {
+export const getSubnavItems = (
+  content?: ContentBlock[],
+): SubnavItem[] | null => {
   if (!content) {
     return null;
   }
@@ -17,5 +19,3 @@ const getSubnavItems = (content?: ContentBlock[]): SubnavItem[] | null => {
     return acc;
   }, []);
 };
-
-export default getSubnavItems;
