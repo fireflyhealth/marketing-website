@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import cx from 'classnames';
+import cn from 'classnames';
 import {
   PortableTextComponent,
   PortableText,
@@ -14,6 +14,9 @@ import { HubspotForm } from '@/components/HubspotForm';
 import { BarGraph } from '@/components/BarGraph';
 import { BigNumbers } from '../BigNumber';
 import { TwoColumnUnorderedList } from '../TwoColumnUnorderedList';
+import { OverlapDoubleImages } from '../OverlapDoubleImages';
+import { Video } from '../Video';
+import { ArticleRichTextQuote } from '../ArticleRichTextQuote';
 import { RichTextCtaRow } from './RichTextCtaRow';
 import { BigOrderedList } from './BigOrderedList';
 
@@ -103,6 +106,19 @@ const components: Partial<PortableTextReactComponents> = {
     bigOrderedList: (props) => {
       return <BigOrderedList bigOrderedList={props.value} />;
     },
+    overlapDoubleImages: (props) => {
+      return <OverlapDoubleImages overlapDoubleImages={props.value} />;
+    },
+    quoteObject: (props) => {
+      return <ArticleRichTextQuote quoteObject={props.value} />;
+    },
+    video: (props) => {
+      return (
+        <div className={cn('my-24')}>
+          <Video video={props.value} posterSizes={['100vw']} />
+        </div>
+      );
+    },
   },
   marks: {
     link: (props) => {
@@ -128,7 +144,7 @@ export const RichText: FC<RichTextProps> = ({
 }) => {
   return (
     <div
-      className={cx(
+      className={cn(
         'RichText',
         textColor || 'theme-text-color-primary',
         fontSize || 'font-size-8',

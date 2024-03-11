@@ -122,7 +122,6 @@ export const Blog = defineType({
         'Populates the tab label for viewing all articles in this blog.',
       validation: (Rule) => Rule.required(),
     }),
-
     defineField({
       name: 'blogArticleTagGroups',
       title: 'Article Tag Groups',

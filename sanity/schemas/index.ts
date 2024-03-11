@@ -14,6 +14,10 @@ import { SiteSettings } from './documents/siteSettings';
 import { Practitioner } from './documents/practitioner';
 import { Navigation } from './documents/navigation';
 import { FrequentlyAskedQuestion } from './documents/faq';
+import { FAQPage } from './documents/faqPage';
+import { FAQSubject } from './documents/faqSubject';
+import { FAQCategory } from './documents/faqCategory';
+import { BlogArticleTag } from './documents/blogArticleTag';
 
 /* Headers */
 import { VideoHeader } from './headers/videoHeader';
@@ -69,6 +73,7 @@ import { HeaderArea } from './fields/headerArea';
 import { BarGraphItems } from './fields/barGraphItems';
 import { DoubleCta, LargeCTACard } from './fields/doubleCta';
 import { TwoColumnUnorderedList } from './fields/twoColumnUnorderedList';
+import { OverlapDoubleImages } from './fields/overlapDoubleImages';
 import { Quote } from './fields/quote';
 import { BigNumber, BigNumbers } from './fields/bigNumbers';
 import { DrawerListBlock, DrawerListItem } from './blocks/drawerListBlock';
@@ -81,11 +86,6 @@ import { FAQBlock } from './blocks/faqBlock';
 import { FeaturedStoriesBlock } from './blocks/featuredStoriesBlock';
 import { Icon } from './fields/icon';
 import { ColumnsBlock, ColumnsObject } from './blocks/columnsBlock';
-import { BigOrderedList } from './fields/bigOrderedList';
-import { BlogArticleTag } from './documents/blogArticleTag';
-import { FAQPage } from './documents/faqPage';
-import { FAQSubject } from './documents/faqSubject';
-import { FAQCategory } from './documents/faqCategory';
 import { BigOrderedList } from './fields/bigOrderedList';
 
 export const schemaTypes = [
@@ -138,7 +138,6 @@ export const schemaTypes = [
   TabsBlock,
   TabsBlockTab,
   TestimonialBlock,
-  RichTextBlock,
 
   /* Child blocks (used within other blocks, i.e. 2-up block) */
   ChildContentBlock,
@@ -177,6 +176,7 @@ export const schemaTypes = [
   BigNumber,
   BigNumbers,
   TwoColumnUnorderedList,
+  OverlapDoubleImages,
   Quote,
   Theme,
   RichTextCtaRow,
@@ -185,7 +185,6 @@ export const schemaTypes = [
   ReviewHeading,
   ReviewItem,
   Icon,
-  BigOrderedList,
   TestimonalItem,
   BlogArticleTagGroup,
   BigOrderedList,

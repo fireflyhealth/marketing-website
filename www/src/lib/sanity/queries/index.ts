@@ -10,6 +10,8 @@ import {
   blogArticleLinkDataFragment,
   faqFragment,
   imageFragment,
+  richTextFragment,
+  simpleRichTextFragment,
 } from './fragments';
 
 export const siteSettingsFragment = `
@@ -96,6 +98,8 @@ export const blogArticleFragment = `
   slug,
   navigationOverrides {${navigationOverridesFragment}},
   metadataFragment{${metadataFragment}},
+  deck[]{${simpleRichTextFragment}},
+  content[]{${richTextFragment}},
   articleImage {${imageFragment}},
   authorName,
   publishDate,

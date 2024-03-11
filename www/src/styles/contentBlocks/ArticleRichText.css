@@ -1,0 +1,76 @@
+.ArticleRichText {
+  > * {
+    margin: 0;
+    padding: 0;
+  }
+
+  h2 {
+    padding: theme(spacing.16) 0 theme(spacing.4) 0;
+  }
+
+  h3 {
+    padding-top: theme(spacing.8);
+  }
+
+  h4 {
+    padding-top: theme(spacing.4);
+  }
+
+  p {
+    padding: theme(spacing.6) 0;
+  }
+
+  p + p {
+    padding-top: 0;
+  }
+
+  blockquote {
+    padding: theme(spacing.24) 0;
+  }
+
+  figure.GenericImage {
+    padding: theme(spacing.24) 0;
+  }
+
+  .RichTextCtaRow {
+    margin-top: theme(spacing.4);
+  }
+
+  .ArticleRichTextQuote {
+    blockquote {
+      padding: 0;
+    }
+  }
+}
+
+.ArticleRichTextQuote {
+  margin: theme(spacing.24) 0;
+  blockquote:before {
+    content: open-quote;
+    margin-left: -0.5rem;
+
+    @screen md {
+      margin-left: -0.7rem;
+    }
+
+    @screen lg {
+      margin-left: -0.9rem;
+    }
+  }
+
+  blockquote:after {
+    content: close-quote;
+  }
+
+  blockquote:before,
+  blockquote:after {
+    display: inline;
+    padding: 0;
+    position: absolute;
+  }
+
+  > .ArticleRichTextQuote__author {
+    margin: theme(spacing.8) 0 0 0;
+    padding: 0;
+  }
+}

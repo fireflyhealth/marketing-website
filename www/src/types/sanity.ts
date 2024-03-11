@@ -300,6 +300,8 @@ export type BlogArticle = SanityDocument & {
   metadata?: Metadata;
   tags: Maybe<BlogArticleTag[]>;
   blurb: SimpleRichText;
+  deck: Maybe<SimpleRichText>;
+  content: RichText;
 };
 
 export type BlogArticleLinkData = Pick<
@@ -457,6 +459,9 @@ export type RichText = Array<
   | RichTextCtaRow
   | TwoColumnUnorderedList
   | BigOrderedList
+  | QuoteObject
+  | Video
+  | OverlapDoubleImages
 >;
 
 export type SimpleRichText = Array<PortableTextBlock>;
@@ -520,6 +525,11 @@ export type BigOrderedList = {
     title: string;
     description: Maybe<SimpleRichText>;
   }[];
+};
+export type OverlapDoubleImages = {
+  _type: 'overlapDoubleImages';
+  _key: string;
+  images: KeyedArray<RichImage>;
 };
 
 /**
@@ -740,6 +750,7 @@ export type QuoteAttribution = {
 export type QuoteObject = {
   _type: 'quoteObject';
   badgeImage: Maybe<Image>;
+  icon: Maybe<IconBlock>;
   quote: string;
   attribution: QuoteAttribution;
 };

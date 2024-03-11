@@ -48,10 +48,11 @@ import {
   MdRateReview,
 } from 'react-icons/md';
 import { FaUserDoctor } from 'react-icons/fa6';
-import { GoColumns } from 'react-icons/go';
+import { GoColumns, GoQuote } from 'react-icons/go';
 import { RiArchiveDrawerLine } from 'react-icons/ri';
 import { CgViewSplit } from 'react-icons/cg';
 import { VscCaseSensitive } from 'react-icons/vsc';
+import { IoMdImages } from 'react-icons/io';
 
 /*
  * Browse Sanity icons:
@@ -102,4 +103,6 @@ export const icons = {
   Testimonial: BsChatSquareQuoteFill,
   Tags: BsTags,
   Tag: BsTag,
+  RichQuote: GoQuote,
+  OverlapDoubleImages: IoMdImages,
 };

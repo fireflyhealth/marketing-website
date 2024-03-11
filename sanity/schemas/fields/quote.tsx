@@ -1,4 +1,5 @@
 import { defineType, defineField } from 'sanity';
+import { icons } from '../../lib/icons';
 
 export const Quote = defineType({
   name: 'quoteObject',
@@ -10,6 +11,12 @@ export const Quote = defineType({
       title: 'Top Image',
       description: '(Only appears in QuoteCard modules)',
       type: 'richImage',
+    }),
+    defineField({
+      name: 'icon',
+      title: 'Icon',
+      type: 'icon',
+      description: '(Only appears in Rich Text quotes)',
     }),
     defineField({
       name: 'quote',
@@ -46,4 +53,20 @@ export const Quote = defineType({
       validation: (Rule) => Rule.required(),
     }),
   ],
+  preview: {
+    select: {
+      quote: 'quote',
+      attribution: 'attribution',
+      badgeImage: 'badgeImage',
+      icon: 'icon',
+    },
+    prepare: ({ quote, attribution }) => {
+      const subtitle = attribution
+        ? [attribution.label, attribution.labelSubtitle]
+            .filter(Boolean)
+            .join(' - ')
+        : undefined;
+      return { title: quote ? quote : '(empty)', subtitle, icon: icons.Quote };
+    },
+  },
 });

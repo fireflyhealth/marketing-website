@@ -136,8 +136,8 @@ export const ContentBlockRichText = defineField({
             { title: 'Heading 4', value: 'h4' },
             { title: 'Paragraph', value: 'normal' },
             /* Note: custom editor styling for this is in lib/styles.css */
-            { title: 'Quote (L)', value: 'blockquote-large' },
-            { title: 'Quote', value: 'blockquote' },
+            { title: 'BlockQuote (L)', value: 'blockquote-large' },
+            { title: 'BlockQuote', value: 'blockquote' },
           ],
           lists: [
             { title: 'Bullet', value: 'bullet' },
@@ -234,6 +234,13 @@ export const ArticleRichText = defineField({
     { name: 'icon', type: 'icon', title: 'Icon' },
     { name: 'richImage', type: 'richImage', title: 'Image' },
     { name: 'form', type: 'hubspotForm', title: 'Form' },
+    { name: 'quoteObject', type: 'quoteObject', title: 'Quote' },
+    {
+      name: 'overlapDoubleImages',
+      type: 'overlapDoubleImages',
+      title: 'Overlap Double Images',
+    },
+    { name: 'video', type: 'video', title: 'Video' },
     {
       name: 'twoColumnUnorderedList',
       type: 'twoColumnUnorderedList',

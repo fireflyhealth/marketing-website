@@ -1,6 +1,8 @@
 @import 'contentBlocks/BigOrderedList.css';
 @import 'contentBlocks/TwoUpBlock.css';
 @import 'contentBlocks/RichTextBlock.css';
+@import 'contentBlocks/ArticleRichText.css';
+@import 'contentBlocks/OverlapDoubleImages.css';
 
 .CTACardsBlock {
   figure {
