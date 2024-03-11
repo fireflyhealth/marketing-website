@@ -8,7 +8,7 @@ import { CTA } from '@/components/CTA';
 import {
   ThemeWrapper,
   Wrapper,
-  WarpperInner,
+  WrapperInner,
   Eyebrow,
   Heading,
   Body,
@@ -34,7 +34,7 @@ export const TextHeader: FC<Props> = ({ textHeader }) => {
         <div className="full-width-background theme-bg-color" />
       )}
       <div className={cn(Wrapper)}>
-        <div className={cn(WarpperInner)}>
+        <div className={cn(WrapperInner)}>
           {eyebrow && <p className={cn(Eyebrow)}>{eyebrow}</p>}
           <h1 className={cn(Heading)}>
             {lines.map((line, index) => (

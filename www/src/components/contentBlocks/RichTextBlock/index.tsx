@@ -15,11 +15,7 @@ export const RichTextBlock: FC<Props> = ({ richTextBlock }) => {
   const { theme, header, subnav, richTextChildBlock } = richTextBlock;
 
   return (
-    <ContentBlockWrapper
-      id={subnav?.contentBlockId}
-      header={header}
-      wrapperPadding={false}
-    >
+    <ContentBlockWrapper id={subnav?.contentBlockId} header={header}>
       <Theme theme={theme} className={cn(ThemeWrapper)}>
         <div className={cn(RichTextWrapper)}>
           {richTextChildBlock && (

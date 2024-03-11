@@ -13,17 +13,13 @@ export const DoubleCtaBlock: FC<Props> = ({ doubleCtaBlock }) => {
   const { subnav, header, doubleCta } = doubleCtaBlock;
 
   return (
-    <div className={cn(Wrapper)}>
-      <div className="full-width-background bg-grey" />
-      <div className={cn(WrapperInner)}>
-        <ContentBlockWrapper
-          id={subnav?.contentBlockId}
-          header={header}
-          wrapperPadding={false}
-        >
+    <ContentBlockWrapper id={subnav?.contentBlockId} header={header}>
+      <div className={cn(Wrapper)}>
+        <div className="full-width-background bg-grey" />
+        <div className={cn(WrapperInner)}>
           <DoubleCTA doubleCta={doubleCta} />
-        </ContentBlockWrapper>
+        </div>
       </div>
-    </div>
+    </ContentBlockWrapper>
   );
 };

@@ -1,6 +1,6 @@
 export const FooterOuter = ['relative'];
 
-export const FooterInner = ['font-roobert py-9 px-4', 'md:p-12'];
+export const FooterInner = ['font-roobert py-9 md:py-12'];
 
 export const FooterMain = ['md:flex md:mb-24'];
 
@@ -24,7 +24,6 @@ export const FooterNavGroup = ['flex flex-col space-y-3'];
 export const FooterBottomNavGroup = ['grid grid-cols-1 gap-y-3', 'md:flex'];
 
 export const FooterBottomLinks = [
-  //
   'text-grey-darker',
   'grid grid-cols-1 gap-y-10',
   'md:flex justify-between',
