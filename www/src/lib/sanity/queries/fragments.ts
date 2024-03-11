@@ -1,8 +1,7 @@
 /* Works for both RichImage and standard images */
 
 export const imageFragment = `
-  _type,
-  _key,
+  ...,
   asset -> {
     _id,
     _type,
@@ -15,8 +14,7 @@ export const imageFragment = `
         height
       }
     }
-  },
-  ...
+  }
 `;
 
 export const responsiveImageSetFragment = `
