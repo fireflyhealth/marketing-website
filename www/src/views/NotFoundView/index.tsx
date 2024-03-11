@@ -4,7 +4,12 @@ import { NotFoundPage } from '@/types/sanity';
 import { ContentArea } from '@/components/contentBlocks/ContentArea';
 import { HeaderArea } from '@/components/headerContentBlocks/HeaderArea';
 import { ResponsiveSanityImage } from '@/atoms/Image/ResponsiveSanityImage';
-import { Wrapper, DecorativeImageWrapper, Image } from './styles';
+import {
+  Wrapper,
+  DecorativeImageWrapper,
+  Image,
+  DecorativeImageWrapperContainer,
+} from './styles';
 
 type NotFoundPageViewProps = {
   notFoundPage: NotFoundPage;
@@ -17,7 +22,7 @@ export const NotFoundPageView: FC<NotFoundPageViewProps> = ({
     <div className={cn(Wrapper)}>
       <HeaderArea block={notFoundPage.header} />
       <ContentArea blocks={notFoundPage.content} />
-      <div className="lg:full-width-background lg:!z-10">
+      <div className={cn(DecorativeImageWrapperContainer)}>
         <div className={cn(DecorativeImageWrapper)}>
           <div className={cn(Image)}>
             <ResponsiveSanityImage

@@ -72,7 +72,7 @@ export const getServerSideProps: GetServerSideProps<
       return genericPage;
     });
 
-  const navigationOverrides = genericPage.navigationOverrides;
+  const navigationOverrides = genericPage?.navigationOverrides;
 
   return {
     props: {
