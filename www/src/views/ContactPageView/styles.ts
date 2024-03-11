@@ -1,7 +1,7 @@
-export const Wrapper = ['relative min-h-[50vh] p-4', 'md:p-12'];
+export const Wrapper = ['relative min-h-[100vh] p-4', 'md:p-12'];
 
 export const HeaderWrapper = [
-  'w-full flex flex-col text-center space-y-[83px]',
+  'relative z-[1] w-full flex flex-col text-center space-y-[83px]',
   'lg:flex-row lg:space-y-0 lg:space-x-12',
 ];
 
@@ -11,6 +11,7 @@ export const PageTitle = [
   'font-size-3 font-trust theme-text-color-primary mb-8',
 ];
 
+// add container-padding-bleed-mobile-only once #204 is merged.
 export const ContactForm = ['w-full', 'lg:w-1/2'];
 
 export const BackgroundColor = [
@@ -18,4 +19,8 @@ export const BackgroundColor = [
   'lg:!-top-[82px]',
 ];
 
-export const BackgroundImage = ['lg:!top-1/3 lg:full-width-background'];
+// add container-padding-bleed-mobile-only once #204 is merged.
+// remove margin classes
+export const BackgroundImage = [
+  '!z-0 mt-[38px] -mx-4 -mb-4 lg:m-0 lg:!top-[auto] lg:bottom-0 lg:!h-auto lg:full-width-background',
+];

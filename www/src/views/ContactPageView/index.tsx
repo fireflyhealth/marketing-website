@@ -28,7 +28,10 @@ export const ContactPageView: FC<ContactPageViewProps> = ({ contactPage }) => {
   } = contactPage;
 
   return (
-    <div className={cn(Wrapper)}>
+    <div
+      className={cn(Wrapper)}
+      style={{ backgroundColor: `${backgroundColor}` }}
+    >
       <div className={cn(HeaderWrapper)}>
         <div className={cn(Header)}>
           <h1 className={cn(PageTitle)}>{pageTitle}</h1>
@@ -52,7 +55,7 @@ export const ContactPageView: FC<ContactPageViewProps> = ({ contactPage }) => {
           <SanityImage
             image={backgroundImage}
             sizes={['100vw']}
-            className="w-full"
+            className="w-full rounded-none"
           />
         </div>
       )}
