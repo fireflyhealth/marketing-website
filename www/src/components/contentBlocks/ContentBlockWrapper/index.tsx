@@ -34,6 +34,7 @@ export const ContentBlockHeader: FC<ContentBlockHeaderProps> = ({ header }) => {
             <RichText
               fontSize={cn('font-size-6--quote')}
               content={description}
+              textColor="theme-text-color-secondary"
             />
           </div>
         ) : null}

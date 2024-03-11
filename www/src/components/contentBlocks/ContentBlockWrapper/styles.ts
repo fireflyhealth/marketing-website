@@ -9,10 +9,7 @@ export const HeaderBody = ['md:w-2/3 md:pr-4'];
 
 export const Title = ['font-trust font-size-4 theme-text-color-primary'];
 
-export const Description = [
-  'font-roobert theme-text-color-decorative mt-5',
-  'md:mt-6',
-];
+export const Description = ['font-roobert mt-5', 'md:mt-6'];
 
 export const CTAWrapper = ['hidden md:block flex items-end'];
 
