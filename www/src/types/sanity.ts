@@ -452,6 +452,7 @@ export type RichText = Array<
   | BigNumbers
   | RichTextCtaRow
   | TwoColumnUnorderedList
+  | BigOrderedList
 >;
 
 export type SimpleRichText = Array<PortableTextBlock>;
@@ -506,6 +507,15 @@ export type TwoColumnUnorderedList = {
   _type: 'twoColumnUnorderedList';
   _key: string;
   listItems: string[];
+};
+
+export type BigOrderedList = {
+  _type: 'bigOrderedList';
+  _key: string;
+  listItems: {
+    title: string;
+    description: Maybe<SimpleRichText>;
+  }[];
 };
 
 /**
@@ -578,6 +588,7 @@ export type ChildContentBlock =
 
 export type RichTextChildBlock = {
   _type: 'richTextChildBlock';
+  _key: string;
   icon: Maybe<IconBlock>;
   image: Maybe<RichImage>;
   heading: Maybe<string>;
@@ -622,6 +633,7 @@ export type ContentBlock =
   | FeaturedStoriesBlock
   | ColumnsBlock
   | TabsBlock
+  | RichTextBlock
   | TestimonialBlock;
 
 export type ContentArea = KeyedArray<ContentBlock>;
@@ -817,6 +829,12 @@ export type FAQBlock = ContentBlockCommon & {
 export type CardListBlock = ContentBlockCommon & {
   _type: 'cardListBlock';
   drawerListItems: KeyedArray<DrawerListItem>;
+};
+
+export type RichTextBlock = ContentBlockCommon & {
+  _type: 'richTextBlock';
+  theme: ColorTheme;
+  richTextChildBlock: RichTextChildBlock;
 };
 
 /* Used as a child of the TabsBlock component */

@@ -19,6 +19,7 @@ import { CardListBlock } from '../CardListBlock';
 import { FeaturedStoriesBlock } from '../FeaturedStoriesBlock';
 import { ColumnsBlock } from '../ColumnsBlock';
 import { TabsBlock } from '../TabsBlock';
+import { RichTextBlock } from '../RichTextBlock';
 import { TestimonialBlock } from '../TestimonialBlock';
 
 type ContentBlockProps = {
@@ -61,6 +62,8 @@ const ContentBlock: FC<ContentBlockProps> = ({ block }) => {
       return <ColumnsBlock columnsBlock={block} />;
     case 'tabsBlock':
       return <TabsBlock tabsBlock={block} />;
+    case 'richTextBlock':
+      return <RichTextBlock richTextBlock={block} />;
     case 'testimonialBlock':
       return <TestimonialBlock testimonialBlock={block} />;
     default:

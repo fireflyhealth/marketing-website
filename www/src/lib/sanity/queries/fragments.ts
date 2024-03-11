@@ -312,6 +312,14 @@ export const richTextFragment = `
       ${ctaFragment}
     }
   },
+  _type == "bigOrderedList" => {
+    listItems[] {
+      title,
+      description[]{
+        ${simpleRichTextFragment}
+      }
+    }
+  },
   markDefs[]{
     _key,
     _type,
@@ -357,22 +365,27 @@ export const videoFragment = `
   }
 `;
 
+export const richTextChildBlockFragment = `
+  _key,
+  alignCenter,
+  icon,
+  heading,
+  headingFontSize,
+  image {
+    ${imageFragment}
+  },
+  body[]{
+    ${limitedRichTextFragment}
+  }
+`;
+
 /**
  * Child content blocks
  */
 const childContentBlockFragment = `
   _type,
   _type == "richTextChildBlock" => {
-    alignCenter,
-    icon,
-    heading,
-    headingFontSize,
-    image {
-      ${imageFragment}
-    },
-    body[]{
-      ${limitedRichTextFragment}
-    }
+    ${richTextChildBlockFragment}
   },
   _type == "ctaCard" => {
     ${ctaCardFragment}
@@ -506,6 +519,13 @@ export const reviewBlockFragmnet = `
 
 const twoUpBlockFragment = `
   ${twoUpObjectFragment}
+`;
+
+const richTextBlockFragment = `
+  theme,
+  richTextChildBlock {
+    ${richTextChildBlockFragment}
+  }
 `;
 
 export const faqFragment = `
@@ -707,6 +727,7 @@ export const contentBlockFragment = `
   _type == "tabsBlock" => {${tabsBlockFragment}},
   _type == "testimonialBlock" => {${testimonialBlockFragment}},
   _type == "twoUpBlock" => {${twoUpBlockFragment}},
+  _type == "richTextBlock" => {${richTextBlockFragment}}
 `;
 
 export const videoHeaderFragment = `

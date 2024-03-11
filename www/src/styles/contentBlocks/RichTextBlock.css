@@ -1,0 +1,32 @@
+.RichTextBlock {
+  > div {
+    width: 100%;
+  }
+
+  .ChildBlockWrapper {
+    > * {
+      @screen lg {
+        width: 50%;
+        padding-right: 3rem;
+      }
+    }
+
+    > .RichText {
+      @screen lg {
+        width: 100%;
+      }
+
+      > * {
+        @screen lg {
+          width: 50%;
+        }
+      }
+
+      > .BigOrderedList {
+        @screen lg {
+          width: 70%;
+        }
+      }
+    }
+  }
+}

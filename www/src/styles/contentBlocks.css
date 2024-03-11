@@ -1,4 +1,6 @@
+@import 'contentBlocks/BigOrderedList.css';
 @import 'contentBlocks/TwoUpBlock.css';
+@import 'contentBlocks/RichTextBlock.css';
 
 .CTACardsBlock {
   figure {

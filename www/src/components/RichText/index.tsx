@@ -15,6 +15,7 @@ import { BarGraph } from '@/components/BarGraph';
 import { BigNumbers } from '../BigNumber';
 import { TwoColumnUnorderedList } from '../TwoColumnUnorderedList';
 import { RichTextCtaRow } from './RichTextCtaRow';
+import { BigOrderedList } from './BigOrderedList';
 
 type RichTextProps = {
   content: RichTextType;
@@ -98,6 +99,9 @@ const components: Partial<PortableTextReactComponents> = {
     },
     richTextCtaRow: (props) => {
       return <RichTextCtaRow richTextCtaRow={props.value} />;
+    },
+    bigOrderedList: (props) => {
+      return <BigOrderedList bigOrderedList={props.value} />;
     },
   },
   marks: {

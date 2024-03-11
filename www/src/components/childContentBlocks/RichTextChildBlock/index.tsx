@@ -24,7 +24,7 @@ export const RichTextChildBlock: FC<RichTextChildBlockProps> = ({
         <BrandedIcon type={icon.icon} wrapperStyles="w-12 pb-5 md:pb-6" />
       ) : null}
       {image ? (
-        <div className=" pb-5 md:pb-6">
+        <div className="pb-5 md:pb-6">
           <SanityImage width={120} image={image} sizes={['120px']} />
         </div>
       ) : null}

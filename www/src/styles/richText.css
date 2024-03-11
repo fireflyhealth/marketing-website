@@ -14,18 +14,27 @@
   ol {
     list-style: number;
     list-style-position: outside;
+    padding: 24px 0px;
 
     li {
       padding-left: 20px;
       margin-left: 20px;
+      margin-top: 24px;
+    }
+
+    li:first-child {
+      margin-top: 0;
     }
   }
 
   ul {
     list-style: none;
+    padding: 24px 0px;
+
     li {
       position: relative;
       padding-left: 40px;
+      margin-top: 24px;
 
       &:before {
         content: '';
@@ -37,6 +46,10 @@
         border-radius: 5px;
         background-color: theme('colors.yellow');
       }
+    }
+
+    li:first-child {
+      margin-top: 0;
     }
   }
 

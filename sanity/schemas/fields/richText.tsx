@@ -51,6 +51,11 @@ const commonRichTextBlocks = [
   { name: 'barGraphObject', type: 'barGraphItems', title: 'Bar Graph' },
   { name: 'bigNumbers', type: 'bigNumbers', title: 'Big Numbers' },
   { name: 'richTextCtaRow', type: 'richTextCtaRow', title: 'CTAs' },
+  {
+    name: 'bigOrderedList',
+    type: 'bigOrderedList',
+    title: 'Big Ordered List',
+  },
 ];
 
 /**
