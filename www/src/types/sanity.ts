@@ -298,7 +298,7 @@ export type BlogArticle = SanityDocument & {
   navigationOverrides?: NavigationOverrides;
   category: BlogLinkData;
   metadata?: Metadata;
-  tags: Maybe<BlogArticleTag>;
+  tags: Maybe<BlogArticleTag[]>;
   blurb: SimpleRichText;
 };
 
