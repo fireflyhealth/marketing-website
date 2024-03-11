@@ -55,6 +55,7 @@ import { RiArchiveDrawerLine } from 'react-icons/ri';
 import { CgViewSplit } from 'react-icons/cg';
 import { VscCaseSensitive } from 'react-icons/vsc';
 import { IoMdImages } from 'react-icons/io';
+import { FiDivideSquare, FiColumns, FiAlignJustify } from 'react-icons/fi';
 
 /*
  * Browse Sanity icons:
@@ -109,4 +110,7 @@ export const icons = {
   OverlapDoubleImages: IoMdImages,
   HeaderContent: BiCard,
   QrCode: BsQrCode,
+  Divider: FiDivideSquare,
+  DoubleCta: FiColumns,
+  RichText: FiAlignJustify,
 };

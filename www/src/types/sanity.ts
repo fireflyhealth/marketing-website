@@ -674,6 +674,13 @@ export type QuoteChildBlock = {
   _type: 'quoteChildBlock';
   quote: QuoteObject;
 };
+
+export type DividerBlock = {
+  _type: 'dividerBlock';
+  borderTop: Maybe<boolean>;
+  borderBottom: Maybe<boolean>;
+};
+
 /**
  * Content Area Blocks
  */
@@ -697,7 +704,8 @@ export type ContentBlock =
   | ColumnsBlock
   | TabsBlock
   | RichTextBlock
-  | TestimonialBlock;
+  | TestimonialBlock
+  | DividerBlock;
 
 export type ContentArea = KeyedArray<ContentBlock>;
 
