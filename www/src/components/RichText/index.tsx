@@ -15,8 +15,8 @@ import { BarGraph } from '@/components/BarGraph';
 import { BigNumbers } from '../BigNumber';
 import { TwoColumnUnorderedList } from '../TwoColumnUnorderedList';
 import { OverlapDoubleImages } from '../OverlapDoubleImages';
-import { RichQuote } from '../RichQuote';
 import { Video } from '../Video';
+import { ArticleRichTextQuote } from '../ArticleRichTextQuote';
 import { RichTextCtaRow } from './RichTextCtaRow';
 import { BigOrderedList } from './BigOrderedList';
 
@@ -109,8 +109,8 @@ const components: Partial<PortableTextReactComponents> = {
     overlapDoubleImages: (props) => {
       return <OverlapDoubleImages overlapDoubleImages={props.value} />;
     },
-    richQuote: (props) => {
-      return <RichQuote richQuote={props.value} />;
+    quoteObject: (props) => {
+      return <ArticleRichTextQuote quoteObject={props.value} />;
     },
     video: (props) => {
       return (
