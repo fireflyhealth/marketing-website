@@ -370,7 +370,7 @@ export type AnnouncementBanner = {
 export type RichImage = Omit<Image, '_type'> & {
   _type: 'richImage';
   altText: string;
-  caption: Maybe<string>;
+  caption?: Maybe<string>;
 };
 
 /* These are all typed as "maybe", but at least one is
