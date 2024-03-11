@@ -52,14 +52,32 @@ export const ContactPage = defineType({
       type: 'navigationOverrides',
     }),
     defineField({
-      name: 'header',
-      title: 'Header',
-      type: 'headerArea',
+      name: 'pageTitle',
+      title: 'Page Title',
+      type: 'string',
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
-      name: 'content',
-      title: 'Content',
-      type: 'contentArea',
+      name: 'pageDescription',
+      title: 'Page Description',
+      type: 'simpleRichText',
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
+      name: 'contactForm',
+      title: 'Contact Form',
+      type: 'hubspotForm',
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
+      name: 'backgroundColor',
+      title: 'Background Color',
+      type: 'string',
+    }),
+    defineField({
+      name: 'backgroundImage',
+      title: 'Background Image',
+      type: 'richImage',
     }),
     defineField({
       name: 'metadata',

@@ -132,9 +132,16 @@ export type ContactPage = SanityDocument &
   PageShared & {
     _type: 'contactPage';
     title: string;
-    content: ContentArea;
+    navigationOverrides?: NavigationOverrides;
+    pageTitle: string;
+    pageDescription: SimpleRichText;
+    contactForm: {
+      formId: string;
+    };
+    backgroundColor: Maybe<string>;
+    backgroundImage: Maybe<RichImage>;
+    metadata?: Metadata;
   };
-
 export type ContactPageLinkData = Pick<ContactPage, '_type'>;
 
 export type NotFoundPage = SanityDocument &

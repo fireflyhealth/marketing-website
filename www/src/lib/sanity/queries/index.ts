@@ -62,7 +62,18 @@ export const specialPageFragment = `
 
 export const downloadPageFragment = `${specialPageFragment}`;
 
-export const contactPageFragment = `${specialPageFragment}`;
+export const contactPageFragment = `
+  _id,
+  title,
+  slug,
+  navigationOverrides {${navigationOverridesFragment}},
+  pageTitle,
+  pageDescription[]{${simpleRichTextFragment}},
+  contactForm,
+  backgroundColor,
+  backgroundImage{${imageFragment}},
+  metadataFragment{${metadataFragment}}
+`;
 
 export const notFoundPageFragment = `
   ${specialPageFragment},

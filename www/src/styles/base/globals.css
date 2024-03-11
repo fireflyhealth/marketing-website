@@ -562,6 +562,10 @@ svg {
   textarea::placeholder {
     color: var(--text-color-primary);
   }
+
+  label {
+    @apply font-size-10 font-roobert;
+  }
 }
 
 #hubspot-form-wrapper {
