@@ -131,6 +131,16 @@ export const structure: StructureResolver = async (S, context) => {
           .title('Frequently Asked Questions')
           .icon(icons.Question)
           .child(S.documentTypeList('faq')),
+        S.listItem()
+          .title('FAQ Categories')
+          .icon(icons.Question)
+          .child(S.documentTypeList('faqCategory')),
+
+        S.listItem()
+          .title('FAQ Subjects')
+          .icon(icons.Question)
+          .child(S.documentTypeList('faqSubject')),
+
         S.divider(),
         S.listItem()
           .title('Clients')
@@ -157,6 +167,11 @@ export const structure: StructureResolver = async (S, context) => {
           .child(
             S.documentTypeList('blogArticle').filter('_type == "blogArticle"'),
           ),
+        S.listItem()
+          .title('Article Tags')
+          .icon(icons.Tags)
+          .child(S.documentTypeList('blogArticleTag')),
+
         S.divider(),
         S.listItem()
           .title('Housekeeping')

@@ -42,9 +42,19 @@ datadogRum.init({
 });
 
 /**
- * Report an error to Datadog without throwing
+ * Report an error to Datadog without throwing.
+ *
+ * Pass in an Error, AppError, or the args to create an appError:
+ *
+ * reportUnthrownError(['nextjs', 'Nextjs erorr message', { context }])
  */
-export const reportUnthrownError = (error: Error | AppError) => {
+export const reportUnthrownError = (
+  errorOrParams: Error | AppError | ConstructorParameters<typeof AppError>,
+) => {
+  const error =
+    errorOrParams instanceof Error || errorOrParams instanceof AppError
+      ? errorOrParams
+      : new AppError(...errorOrParams);
   console.error(error);
   datadogRum.addError(error);
 };

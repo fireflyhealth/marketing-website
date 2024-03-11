@@ -4,12 +4,11 @@ import { GenericPage, SubPage } from './documents/genericPage';
 import {
   ContactPage,
   DownloadPage,
-  FAQPage,
   NotFoundPage,
 } from './documents/specialPages';
 import { ClientPage } from './documents/clientPage';
 import { BlogArticle } from './documents/blogArticle';
-import { Blog } from './documents/blog';
+import { Blog, BlogArticleTagGroup } from './documents/blog';
 import { MockData } from './documents/mockData';
 import { SiteSettings } from './documents/siteSettings';
 import { Practitioner } from './documents/practitioner';
@@ -83,6 +82,10 @@ import { FeaturedStoriesBlock } from './blocks/featuredStoriesBlock';
 import { Icon } from './fields/icon';
 import { ColumnsBlock, ColumnsObject } from './blocks/columnsBlock';
 import { BigOrderedList } from './fields/bigOrderedList';
+import { BlogArticleTag } from './documents/blogArticleTag';
+import { FAQPage } from './documents/faqPage';
+import { FAQSubject } from './documents/faqSubject';
+import { FAQCategory } from './documents/faqCategory';
 
 export const schemaTypes = [
   /* Document Types */
@@ -96,11 +99,14 @@ export const schemaTypes = [
   ClientPage,
   Blog,
   BlogArticle,
+  BlogArticleTag,
   SiteSettings,
   MockData,
   Navigation,
   Practitioner,
   FrequentlyAskedQuestion,
+  FAQSubject,
+  FAQCategory,
 
   /* Header Blocks */
   HeaderArea,
@@ -179,4 +185,5 @@ export const schemaTypes = [
   Icon,
   BigOrderedList,
   TestimonalItem,
+  BlogArticleTagGroup,
 ];

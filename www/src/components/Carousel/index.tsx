@@ -4,6 +4,7 @@ import debounce from 'lodash/debounce';
 import { useSwipeable } from 'react-swipeable';
 import { BrandedIcon } from '@/svgs/BrandedIcon';
 import { WithChildren } from '@/types/sanity';
+import { carouselThreshold } from '@/constants';
 
 /**
  * Context
@@ -16,7 +17,9 @@ type ContextValue = {
   goPrev: () => void;
   goNext: () => void;
   slideContainerLeft: number;
-  setSlideContainerLeft: (newLeft: number) => void;
+  setSlideContainerLeft: React.Dispatch<React.SetStateAction<number>>;
+  slideContainerDragLeft: number;
+  setSlideContainerDragLeft: React.Dispatch<React.SetStateAction<number>>;
 };
 
 const CarouselContext = React.createContext<ContextValue | null>(null);
@@ -33,19 +36,19 @@ export const useCarousel = () => {
  * Main component
  */
 type CarouselProps = WithChildren & {
-  vwHeightSetting?: number;
   /** isImageCarousel handles styles for image carousels */
   isImageCarousel?: boolean;
 };
 
-export const Carousel: FC<CarouselProps> = ({
-  children,
-  vwHeightSetting,
-  isImageCarousel,
-}) => {
+export const Carousel: FC<CarouselProps> = ({ children, isImageCarousel }) => {
   const slideCount = React.Children.count(children);
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
+  /* The left position of the container. This should always be the edge of the active
+   * slide. */
   const [slideContainerLeft, setSlideContainerLeft] = useState(0);
+  /* A temporary value to add or subtract from the left while the user is
+   * dragging */
+  const [slideContainerDragLeft, setSlideContainerDragLeft] = useState(0);
 
   const goPrev = () => {
     if (currentSlideIndex > 0) {
@@ -71,16 +74,15 @@ export const Carousel: FC<CarouselProps> = ({
         slideCount,
         slideContainerLeft,
         setSlideContainerLeft,
+        slideContainerDragLeft,
+        setSlideContainerDragLeft,
         currentSlideIndex,
         setCurrentSlideIndex,
         goPrev,
         goNext,
       }}
     >
-      <SlideContainer
-        vwHeightSetting={vwHeightSetting}
-        isImageCarousel={isImageCarousel}
-      >
+      <SlideContainer isImageCarousel={isImageCarousel}>
         {React.Children.map(children, (child, index) => (
           <Slide slideIndex={index} isImageCarousel={isImageCarousel}>
             {child}
@@ -190,35 +192,45 @@ export const Slide: FC<SlideProps> = ({
 
 export const SlideContainer: FC<CarouselProps> = ({
   children,
-  vwHeightSetting,
   isImageCarousel = false,
 }) => {
-  const { slideContainerLeft, goNext, goPrev } = useCarousel();
+  const {
+    slideContainerLeft,
+    slideContainerDragLeft,
+    setSlideContainerDragLeft,
+    goNext,
+    goPrev,
+  } = useCarousel();
   const handlers = useSwipeable({
-    onSwipedLeft: () => goNext(),
-    onSwipedRight: () => goPrev(),
-    swipeDuration: 500,
+    onSwiping: (eventData) => {
+      const diff = eventData.deltaX;
+      setSlideContainerDragLeft(diff);
+    },
+    onTouchEndOrOnMouseUp: () => {
+      // determine left or right direction based on pos/neg dragLeft
+      if (slideContainerDragLeft * -1 >= carouselThreshold) {
+        goNext();
+      } else if (slideContainerDragLeft * -1 <= -carouselThreshold) {
+        goPrev();
+      }
+      setSlideContainerDragLeft(0);
+    },
     preventScrollOnSwipe: true,
     trackMouse: true,
   });
 
+  const computedLeft = slideContainerLeft + slideContainerDragLeft;
+
   return (
-    <div
-      className={cn(
-        'relative w-full',
-        isImageCarousel ? 'h-[240px] md:h-[750px]' : '',
-      )}
-      style={{
-        height: vwHeightSetting ? `${vwHeightSetting}vw` : undefined,
-      }}
-    >
+    <div className={cn('relative w-full', isImageCarousel ? 'h-[45vw]' : '')}>
       {/* Slide container inner div */}
       <div
         className={cn(
-          'transition h-full flex flex-row',
+          'h-full flex flex-row',
+          slideContainerDragLeft === 0 ? 'transition' : '',
           isImageCarousel ? 'absolute top-0 left-0' : '',
         )}
-        style={{ transform: `translateX(${slideContainerLeft}px)` }}
+        style={{ transform: `translateX(${computedLeft}px)` }}
         {...handlers}
       >
         {children}

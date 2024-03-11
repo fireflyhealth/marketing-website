@@ -7,6 +7,8 @@ import {
   footerFragment,
   doubleCtaFragment,
   responsiveImageSetFragment,
+  blogArticleLinkDataFragment,
+  faqFragment,
 } from './fragments';
 
 export const siteSettingsFragment = `
@@ -26,12 +28,21 @@ export const siteSettingsFragment = `
   defaultMetadata {${metadataFragment}}
 `;
 
+/**
+ * Fields included in both generic pages and
+ * special pages. (I.e. this does not include 'subnav',
+ * that does not exist on the FAQ page)
+ */
+const pageSharedFieldsFragment = `
+  navigationOverrides {${navigationOverridesFragment}},
+  'header': header[] {${headerBlockFragment}}[0]
+`;
+
 export const pageFragment = `
   _id,
   title,
   slug,
-  navigationOverrides {${navigationOverridesFragment}},
-  'header': header[] {${headerBlockFragment}}[0],
+  ${pageSharedFieldsFragment},
   subnav,
   content {${contentBlockFragment}}[],
   metadataFragment{${metadataFragment}}
@@ -41,8 +52,7 @@ export const specialPageFragment = `
   _id,
   title,
   slug,
-  navigationOverrides {${navigationOverridesFragment}},
-  'header': header[] {${headerBlockFragment}}[0],
+  ${pageSharedFieldsFragment},
   content {${contentBlockFragment}}[],
   metadataFragment{${metadataFragment}}
 `;
@@ -58,20 +68,15 @@ export const notFoundPageFragment = `
 
 export const faqPageFragment = `
   _id,
+  _type,
   title,
   slug,
-  navigationOverrides {${navigationOverridesFragment}},
-  'header': header[] {${headerBlockFragment}}[0],
-  metadataFragment{${metadataFragment}}
-`;
-
-export const blogFragment = `
-  _id,
+  ${pageSharedFieldsFragment},
+  metadataFragment{${metadataFragment}},
   title,
-  slug,
-  navigationOverrides {${navigationOverridesFragment}},
-  'header': header[] {${headerBlockFragment}}[0],
-  metadataFragment{${metadataFragment}}
+  "faqs": *[_type == "faq"]{
+    ${faqFragment}
+  }
 `;
 
 export const blogArticleFragment = `
@@ -85,4 +90,33 @@ export const blogArticleFragment = `
   slug,
   navigationOverrides {${navigationOverridesFragment}},
   metadataFragment{${metadataFragment}}
+`;
+
+export const blogFragment = `
+  _id,
+  title,
+  slug,
+  navigationOverrides {${navigationOverridesFragment}},
+  'header': header[] {${headerBlockFragment}}[0],
+  metadataFragment{${metadataFragment}},
+  'articles': *[_type == "blogArticle" && category->_id == ^._id]{
+    ${blogArticleLinkDataFragment}
+  },
+  featuredArticle->{
+    ${blogArticleLinkDataFragment}
+  },
+  contentArea[]{
+    ${contentBlockFragment}
+  },
+  allArticlesLabel,
+  blogArticleTagGroups[]{
+    _type,
+    _key,
+    title,
+    tag->{
+      title,
+      slug
+    }
+  },
+  articleLayout
 `;

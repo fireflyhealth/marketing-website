@@ -89,6 +89,26 @@ export const simpleRichTextFragmentNoLink = `
   ...,
 `;
 
+export const blogArticleLinkDataFragment = `
+  _updatedAt,
+  _type,
+  _id,
+  slug,
+  title,
+  publishDate,
+  thumbnail{
+    ${imageFragment}
+  },
+  blurb[]{
+    ${simpleRichTextFragmentNoLink}
+  },
+  category->{
+    _type,
+    slug,
+    title
+  }
+`;
+
 /* Fetches the fields needed to create URLs for documents
  * based on the _type. See the LinkableDocument type
  * in @types/sanity
@@ -122,18 +142,7 @@ export const linkableDocumentFragment = `
     title
   },
   _type == "blogArticle" => {
-    slug,
-    title,
-    _updatedAt,
-    publishDate,
-    thumbnail{
-      ${imageFragment}
-    },
-    category->{
-      _type,
-      slug,
-      title
-    }
+    ${blogArticleLinkDataFragment}
   },
   _type == "clientPage" => {
     slug,
@@ -519,6 +528,27 @@ const richTextBlockFragment = `
   }
 `;
 
+export const faqFragment = `
+  _id,
+  _type,
+  question,
+  subject->{
+    _id,
+    _type,
+    title,
+    slug
+  },
+  category->{
+    _id,
+    _type,
+    title,
+    slug
+  },
+  answer[]{
+    ${simpleRichTextFragment}
+  }
+`;
+
 const sequenceItemFragment = `
   _type,
   _key,
@@ -573,12 +603,7 @@ const faqBlockFragment = `
     ${ctaFragment}
   },
   faqs[]->{
-    _id,
-    _type,
-    question,
-    answer[]{
-      ${simpleRichTextFragment}
-    }
+    ${faqFragment}
   }
 `;
 
@@ -700,9 +725,9 @@ export const contentBlockFragment = `
   _type == "reviewBlock" => {${reviewBlockFragmnet}},
   _type == "sequenceBlock" => {${sequenceBlockFragment}},
   _type == "tabsBlock" => {${tabsBlockFragment}},
+  _type == "testimonialBlock" => {${testimonialBlockFragment}},
   _type == "twoUpBlock" => {${twoUpBlockFragment}},
-  _type == "richTextBlock" => {${richTextBlockFragment}},
-  _type == "testimonialBlock" => {${testimonialBlockFragment}}
+  _type == "richTextBlock" => {${richTextBlockFragment}}
 `;
 
 export const videoHeaderFragment = `

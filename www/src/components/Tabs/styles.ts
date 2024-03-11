@@ -1,5 +1,5 @@
 export const TabLabels = [
-  'flex flex-row py-6 whitespace-nowrap overflow-x-scroll',
+  'flex flex-row py-6 whitespace-nowrap overflow-x-scroll hide-scrollbar',
   'md:py-12',
 ];
 export const TabLabel = [

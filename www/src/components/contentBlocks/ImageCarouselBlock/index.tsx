@@ -7,23 +7,15 @@ import { ContentBlockWrapper } from '../ContentBlockWrapper';
 
 type ImageCarouselBlockProps = {
   imageCarouselBlock: ImageCarouselBlockType;
-  /* Temporary for QA */
-  vwHeightSetting?: number;
-  vwHeightEnabled?: boolean;
 };
 
 export const ImageCarouselBlock: FC<ImageCarouselBlockProps> = ({
   imageCarouselBlock,
-  vwHeightEnabled,
-  vwHeightSetting,
 }) => {
   const { images, header, subnav } = imageCarouselBlock;
   return (
     <ContentBlockWrapper id={subnav?.contentBlockId} header={header}>
-      <Carousel
-        vwHeightSetting={vwHeightEnabled ? vwHeightSetting : undefined}
-        isImageCarousel
-      >
+      <Carousel isImageCarousel>
         {images.map((image, index) => (
           <div
             key={image._key}

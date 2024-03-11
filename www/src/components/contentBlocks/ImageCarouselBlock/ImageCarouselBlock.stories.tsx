@@ -17,8 +17,6 @@ type Story = StoryObj<typeof meta>;
 export const Primary: Story = {
   args: {
     imageCarouselBlock: imageCarouselBlockExample,
-    vwHeightSetting: 45,
-    vwHeightEnabled: false,
   },
   decorators: [
     (Story) => (
