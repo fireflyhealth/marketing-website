@@ -1,12 +1,9 @@
 /* Works for both RichImage and standard images */
 
 export const imageFragment = `
+  ...,
   _key,
   _type,
-  caption,
-  altText,
-  crop,
-  hotspot,
   asset -> {
     _id,
     _type,
