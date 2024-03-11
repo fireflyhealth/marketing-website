@@ -1,8 +1,8 @@
 import { FC } from 'react';
-import { format, isEqual } from 'date-fns';
 import cn from 'classnames';
 import * as SanityTypes from '@/types/sanity';
 import { SanityImage } from '@/atoms/Image/SanityImage';
+import { formatSanityDate } from '@/utils/text';
 import {
   Wrapper,
   TextContentWrapper,
@@ -30,14 +30,9 @@ export const ArticleHeader: FC<Props> = ({ articleHeader }) => {
     articleImage,
   } = articleHeader;
   const selectedPublishedDate = publishDate || _createdAt;
-  let selectedUpdatedDate: string | null = updatedDate || _updatedAt;
-  selectedUpdatedDate = isEqual(
-    new Date(selectedUpdatedDate),
-    new Date(selectedPublishedDate),
-  )
-    ? null
-    : selectedUpdatedDate;
-
+  const selectedUpdatedDate = updatedDate || _updatedAt;
+  const formattedPublishDate = formatSanityDate(selectedPublishedDate);
+  const formattedUpdatedDate = formatSanityDate(selectedUpdatedDate);
   return (
     <div className={cn(Wrapper)}>
       <div
@@ -54,14 +49,9 @@ export const ArticleHeader: FC<Props> = ({ articleHeader }) => {
         <div className={cn(Title)}>
           {authorName && <p className={cn(Author)}>by {authorName}</p>}
           <div className={cn(DateWrapper)}>
-            <p className={cn(DateStyle)}>
-              Published{' '}
-              {format(new Date(selectedPublishedDate), 'MMMM d, yyyy')}
-            </p>
-            {selectedUpdatedDate && (
-              <p className={cn(DateStyle)}>
-                Updated {format(new Date(selectedUpdatedDate), 'MMMM d, yyyy')}
-              </p>
+            <p className={cn(DateStyle)}>Published {formattedPublishDate}</p>
+            {formattedUpdatedDate !== formattedPublishDate && (
+              <p className={cn(DateStyle)}>Updated {formattedUpdatedDate}</p>
             )}
           </div>
         </div>
