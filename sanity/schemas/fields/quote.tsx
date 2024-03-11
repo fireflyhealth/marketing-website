@@ -12,6 +12,12 @@ export const Quote = defineType({
       type: 'richImage',
     }),
     defineField({
+      name: 'icon',
+      title: 'Icon',
+      type: 'icon',
+      description: '(Only appears in Rich Text quotes)',
+    }),
+    defineField({
       name: 'quote',
       title: 'Quote',
       type: 'text',

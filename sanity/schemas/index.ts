@@ -73,7 +73,6 @@ import { HeaderArea } from './fields/headerArea';
 import { BarGraphItems } from './fields/barGraphItems';
 import { DoubleCta, LargeCTACard } from './fields/doubleCta';
 import { TwoColumnUnorderedList } from './fields/twoColumnUnorderedList';
-import { RichQuote } from './fields/richQuote';
 import { OverlapDoubleImages } from './fields/overlapDoubleImages';
 import { Quote } from './fields/quote';
 import { BigNumber, BigNumbers } from './fields/bigNumbers';
@@ -177,7 +176,6 @@ export const schemaTypes = [
   BigNumber,
   BigNumbers,
   TwoColumnUnorderedList,
-  RichQuote,
   OverlapDoubleImages,
   Quote,
   Theme,
