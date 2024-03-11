@@ -16,6 +16,7 @@ import {
   RichImage,
 } from '@/types/sanity';
 import { sleep } from '@/utils/misc';
+import { config } from '@/config';
 import {
   blogArticleFragment,
   blogFragment,
@@ -27,21 +28,14 @@ import {
   siteSettingsFragment,
 } from './queries';
 
-export const client = createClient({
-  projectId: 'xgbrv2vi',
-  dataset: 'production',
-  apiVersion: '2024-01-01',
-  useCdn: process.env.NODE_ENV === 'development' ? false : true,
-});
+export const client = createClient(config.sanity);
 
 /**
  * Require credentials when fetching preview data
  */
 const createPreviewClient = (previewToken: string) => {
   return createClient({
-    projectId: 'xgbrv2vi',
-    dataset: 'production',
-    apiVersion: '2024-01-01',
+    ...config.sanity,
     useCdn: false,
     withCredentials: true,
     token: previewToken,
