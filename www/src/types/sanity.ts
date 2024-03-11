@@ -553,6 +553,7 @@ export type HeaderArea = HeaderBlock;
 
 export type VideoHeader = {
   _type: 'videoHeader';
+  theme: ColorTheme;
   eyebrow: string;
   heading: string;
   body: SimpleRichText;

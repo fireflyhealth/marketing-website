@@ -9,6 +9,7 @@ import {
   ContentWrapper,
   Eyebrow,
   Heading,
+  Body,
   CTA,
 } from './styles';
 
@@ -30,7 +31,7 @@ export const VideoTitleCard: FC<Props> = ({
       <div className={cn(ContentWrapper)}>
         <p className={cn(Eyebrow)}>{eyebrow}</p>
         <h1 className={cn(Heading)}>{heading}</h1>
-        <RichText content={body} />
+        <RichText className={cn(Body)} content={body} />
       </div>
       <div className={cn(CTA)}>
         <SimpleIcon type="play" wrapperStyles="w-4 theme-text-color-primary" />
