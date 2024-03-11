@@ -459,7 +459,7 @@ export type RichText = Array<
   | RichTextCtaRow
   | TwoColumnUnorderedList
   | BigOrderedList
-  | RichQuote
+  | QuoteObject
   | Video
   | OverlapDoubleImages
 >;
@@ -530,14 +530,6 @@ export type OverlapDoubleImages = {
   _type: 'overlapDoubleImages';
   _key: string;
   images: RichImage[];
-};
-
-export type RichQuote = {
-  _type: 'richQuote';
-  _key: string;
-  icon: Maybe<IconBlock>;
-  quote: string;
-  author: Maybe<string>;
 };
 
 /**
@@ -758,6 +750,7 @@ export type QuoteAttribution = {
 export type QuoteObject = {
   _type: 'quoteObject';
   badgeImage: Maybe<Image>;
+  icon: Maybe<IconBlock>;
   quote: string;
   attribution: QuoteAttribution;
 };
