@@ -62,6 +62,7 @@ export const overlapDoubleImages = `
   _type,
   _key,
   images[] {
+    _key,
     ${imageFragment}
   }
 `;

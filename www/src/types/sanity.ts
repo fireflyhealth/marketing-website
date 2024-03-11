@@ -529,7 +529,7 @@ export type BigOrderedList = {
 export type OverlapDoubleImages = {
   _type: 'overlapDoubleImages';
   _key: string;
-  images: RichImage[];
+  images: KeyedArray<RichImage>;
 };
 
 /**
