@@ -1,15 +1,18 @@
 import { FC, useState, useRef, useEffect } from 'react';
 import Vimeo from '@vimeo/player';
 import cn from 'classnames';
+import { useIntersectionObserver } from '@/lib/hooks/useIntersectionObserver';
 import * as SanityTypes from '@/types/sanity';
 import { Button } from '@/atoms/Button';
 import { SanityImage } from '@/atoms/Image/SanityImage';
+import { SimpleIcon } from '@/svgs/SimpleIcon';
 import {
   OuterVideoWrapper,
   VideoWrapper,
   PosterImage,
   VideoPlayer,
   PlayButton,
+  FullscreenButton,
 } from './styles';
 import { VideoTitleCard } from './VideoTitleCard';
 
@@ -22,6 +25,8 @@ type Props = {
     'eyebrow' | 'heading' | 'body'
   >;
   width?: string;
+  autoplay?: boolean;
+  isHighlighted?: boolean;
 };
 
 export const Video: FC<Props> = ({
@@ -30,13 +35,20 @@ export const Video: FC<Props> = ({
   showTitleCard,
   titleCardProps,
   width,
+  autoplay = false,
+  isHighlighted = false,
 }) => {
+  const videoContainerRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLDivElement>(null);
+
+  const { isIntersecting } = useIntersectionObserver(videoContainerRef, {
+    /* Begin loading the video when it is visible and within 25% of the top and bottom of the viewport */
+    rootMargin: '-25% 0px -25% 0px',
+    threshold: 0.5,
+  });
 
   const [player, setPlayer] = useState<Vimeo | null>(null);
   const [isPlaying, setIsPlaying] = useState(false);
-  const [totalDuration, setTotalDuration] = useState(0);
-  const [currentDuration, setCurrentDuration] = useState(0);
 
   // set video player
   useEffect(() => {
@@ -46,23 +58,19 @@ export const Video: FC<Props> = ({
       url: video.videoLink,
       controls: true,
       responsive: true,
+      muted: true,
+      playsinline: true,
     };
 
     const videoPlayer = new Vimeo(videoRef.current, options);
 
     setPlayer(videoPlayer);
 
-    videoPlayer.on('play', () => setIsPlaying(true));
+    videoPlayer.on('play', () => {
+      setIsPlaying(true);
+    });
 
     videoPlayer.on('pause', () => setIsPlaying(false));
-
-    videoPlayer.on('timeupdate', ({ duration, percent, seconds }) => {
-      // set total duration of video
-      setTotalDuration(duration);
-
-      // set and update duration of video
-      setCurrentDuration(seconds);
-    });
 
     videoPlayer.on('ended', () => {
       const resetVideo = () =>
@@ -77,12 +85,29 @@ export const Video: FC<Props> = ({
     });
   }, [videoRef, video.videoLink]);
 
+  // handle autoplay when video is in view
+  useEffect(() => {
+    if (isIntersecting) {
+      setIsPlaying(true);
+      handlePlay();
+    } else {
+      setIsPlaying(false);
+      handlePause();
+    }
+  }, [isIntersecting]);
+
   function handlePlay() {
     player?.play();
   }
 
   function handlePause() {
-    player?.pause();
+    setTimeout(() => {
+      player?.pause();
+    }, 1000);
+  }
+
+  function handleFullscreen() {
+    player?.requestFullscreen();
   }
 
   const togglePlay = () => (isPlaying ? handlePause() : handlePlay());
@@ -90,7 +115,11 @@ export const Video: FC<Props> = ({
   if (!video.videoLink) return null;
 
   return (
-    <div id="video-component" className={cn(OuterVideoWrapper)}>
+    <div
+      ref={videoContainerRef}
+      id="video-component"
+      className={cn(OuterVideoWrapper)}
+    >
       <div className={cn(VideoWrapper, width ? `${width}` : 'w-full')}>
         {!isPlaying && (
           <div
@@ -109,7 +138,19 @@ export const Video: FC<Props> = ({
           </div>
         )}
         <div ref={videoRef} className={cn(VideoPlayer, 'opacity-0')} />
-        {!isPlaying && (
+        {autoplay === true && !isPlaying && (
+          <div className={cn(FullscreenButton)}>
+            <button onClick={handleFullscreen}>
+              <SimpleIcon
+                type="external-link"
+                wrapperStyles={cn(
+                  isHighlighted ? 'theme-text-color-decorative' : 'text-yellow',
+                )}
+              />
+            </button>
+          </div>
+        )}
+        {autoplay === false && !isPlaying && (
           <div className={cn(PlayButton)}>
             <Button
               variant="primary"

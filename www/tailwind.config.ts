@@ -105,6 +105,47 @@ export const config: Config = {
       scale: {
         '-100': '-1',
       },
+      keyframes: {
+        segmentPoint: {
+          '0%': {
+            top: '60px',
+            opacity: '0',
+          },
+          '100%': {
+            top: 'var(--segment-top-offset)',
+            opacity: '1',
+          },
+        },
+        topSegmentLeftBorderMobile: {
+          '0%': { top: '-100%' },
+          '100%': { top: '0%' },
+        },
+        topSegmentLeftBorderTabletDesktop: {
+          '0%': { top: '-100%' },
+          '100%': { top: '2%' },
+        },
+        topSegmentBottomBorder: {
+          '0%': { left: '-57%' },
+          '100%': { left: '0%' },
+        },
+        middleSegmentTopBorder: {
+          '0': { left: '-100%' },
+          '100%': { left: '2px' },
+        },
+        middleSegmentRightBorder: {
+          '0': { top: '-99.95%' },
+          '100%': { top: '0' },
+        },
+      },
+      animation: {
+        segmentPoint: 'segmentPoint 0.5s ease-in forwards',
+        topSegmentMobile:
+          'topSegmentLeftBorderMobile 0.75s ease-in 0.5s forwards',
+        topSegmentTabletDesktop:
+          'topSegmentLeftBorderTabletDesktop 0.25s ease-in 0.5s forwards, topSegmentBottomBorder 0.25s linear 0.75s forwards',
+        middleSegment:
+          'middleSegmentTopBorder 0.25s linear 0.9s forwards, middleSegmentRightBorder 0.5s linear 1.15s forwards',
+      },
     },
   },
   plugins: [],
