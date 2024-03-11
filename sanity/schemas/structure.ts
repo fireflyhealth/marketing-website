@@ -9,6 +9,7 @@ import { icons } from '../lib/icons';
 import { API_VERSION } from '../lib/constants';
 
 import PagePreview from '../lib/pagePreview';
+import { addProductionDataWarning } from '../lib/warnForProduction';
 
 type CreateSingletonPageConfig = {
   title: string;
@@ -38,6 +39,12 @@ const isDevelopment: boolean =
 
 export const structure: StructureResolver = async (S, context) => {
   const client = context.getClient({ apiVersion: API_VERSION });
+  /**
+   * Adds a warning to developers when they are modifying the production dataset
+   * outside of the production URL
+   */
+
+  addProductionDataWarning(context);
   /* BUG: orphan articles do not disappear from the list after
    * they have been assigned a category (the studio needs a refresh) */
   const [orphanSubpages, orphanArticles] = await Promise.all([
