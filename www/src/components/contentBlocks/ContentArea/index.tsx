@@ -19,7 +19,6 @@ import { CardListBlock } from '../CardListBlock';
 import { FeaturedStoriesBlock } from '../FeaturedStoriesBlock';
 import { ColumnsBlock } from '../ColumnsBlock';
 import { TabsBlock } from '../TabsBlock';
-import { RichTextBlock } from '../RichTextBlock';
 import { TestimonialBlock } from '../TestimonialBlock';
 import { RichTextBlock } from '../RichTextBlock';
 
