@@ -139,7 +139,6 @@ export const schemaTypes = [
   TabsBlock,
   TabsBlockTab,
   TestimonialBlock,
-  RichTextBlock,
 
   /* Child blocks (used within other blocks, i.e. 2-up block) */
   ChildContentBlock,
@@ -188,7 +187,6 @@ export const schemaTypes = [
   ReviewHeading,
   ReviewItem,
   Icon,
-  BigOrderedList,
   TestimonalItem,
   BlogArticleTagGroup,
   BigOrderedList,

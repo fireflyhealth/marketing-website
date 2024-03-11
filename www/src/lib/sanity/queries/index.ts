@@ -136,32 +136,3 @@ export const blogFragment = `
   },
   articleLayout
 `;
-
-export const blogFragment = `
-  _id,
-  title,
-  slug,
-  navigationOverrides {${navigationOverridesFragment}},
-  'header': header[] {${headerBlockFragment}}[0],
-  metadataFragment{${metadataFragment}},
-  'articles': *[_type == "blogArticle" && category->_id == ^._id]{
-    ${blogArticleLinkDataFragment}
-  },
-  featuredArticle->{
-    ${blogArticleLinkDataFragment}
-  },
-  contentArea[]{
-    ${contentBlockFragment}
-  },
-  allArticlesLabel,
-  blogArticleTagGroups[]{
-    _type,
-    _key,
-    title,
-    tag->{
-      title,
-      slug
-    }
-  },
-  articleLayout
-`;
