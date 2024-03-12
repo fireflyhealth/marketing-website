@@ -12,6 +12,14 @@ import { resolveProductionUrl } from './lib/pagePreview';
 
 const isDevEnv = Boolean(process.env.SANITY_STUDIO_IS_DEVELOPMENT);
 
+const SanitySecret = () => {
+  const { secrets } = useSecrets<{
+    [SANITY_PREVIEW_TOKEN_KEY]: string;
+  }>(SECRETS_NAMESPACE);
+
+  return secrets;
+};
+
 const shared = {
   projectId: 'xgbrv2vi',
   plugins: [

@@ -53,22 +53,6 @@ type Props = {
   schemaType: SchemaType;
 };
 
-const getIdSegment = (document: {
-  _type: string;
-  _id: string;
-}): string | null => {
-  switch (document._type) {
-    case 'homepage':
-    case 'downloadPage':
-    case 'contactPage':
-    case 'notFoundPage':
-    case 'faqPage':
-      return null;
-    default:
-      return `/${document._id}`;
-  }
-};
-
 export const getTypeSegment = (documentType: string | undefined) => {
   if (documentType === 'homepage') return '/';
   if (documentType === 'downloadPage') return '/download';
@@ -87,9 +71,9 @@ export const getTypeSegment = (documentType: string | undefined) => {
 // which technically stores the token in a private Sanity document,
 // so it's not exposed to the public in the JavaScript bundle of the deployed Studio.
 // We can also update the token directly in Sanity.
-const SECRETS_NAMESPACE = 'sanityPreview';
-const SANITY_PREVIEW_TOKEN_KEY = 'preview_token';
-const SECRETS_KEYS = [
+export const SECRETS_NAMESPACE = 'sanityPreview';
+export const SANITY_PREVIEW_TOKEN_KEY = 'preview_token';
+export const SECRETS_KEYS = [
   {
     key: SANITY_PREVIEW_TOKEN_KEY,
     title: 'Sanity Preview Token',
