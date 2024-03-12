@@ -55,6 +55,17 @@ const shared = {
     productionUrl: async (_, context) => {
       const { document } = context;
 
+      if (
+        document._type == 'siteSettings' ||
+        document._type == 'navigation' ||
+        document._type == 'faq' ||
+        document._type == 'faqCategory' ||
+        document._type == 'faqSubject' ||
+        document._type == 'blogArticleTag' ||
+        document._type == 'mockData'
+      )
+        return;
+
       let src = `${PREVIEW_BASE_URL}/${getTypeSegment(document._type)}`;
 
       if (
