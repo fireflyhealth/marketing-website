@@ -14,20 +14,24 @@ const shared = {
     // @ts-ignore
     deskTool({ structure, defaultDocumentNode }),
     visionTool(),
-    documentInternationalization({
-      supportedLanguages: [{ id: 'en', title: 'English' }],
-      schemaTypes: [
-        'homepage',
-        'genericPage',
-        'blog',
-        'blogArticle',
-        'clientPage',
-        'downloadPage',
-        'contactPage',
-        'notFoundPage',
-        'faqPage',
-      ],
-    }),
+
+    // Document Internalization is not available yet.
+    // Uncomment the 'documentInternationalization' plugin to allow translations.
+    // Documentation: https://github.com/sanity-io/document-internationalization
+    // documentInternationalization({
+    //   supportedLanguages: [{ id: 'en', title: 'English' }],
+    //   schemaTypes: [
+    //     'homepage',
+    //     'genericPage',
+    //     'blog',
+    //     'blogArticle',
+    //     'clientPage',
+    //     'downloadPage',
+    //     'contactPage',
+    //     'notFoundPage',
+    //     'faqPage',
+    //   ],
+    // }),
   ],
 
   schema: {
