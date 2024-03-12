@@ -1,6 +1,15 @@
+const isProd =
+  process.env.VERCEL_ENV && process.env.VERCEL_ENV === 'production';
+
 export const config = {
   /* Will be true only on production deployments */
-  isProd: process.env.VERCEL_ENV && process.env.VERCEL_ENV === 'production',
+  isProd,
+  sanity: {
+    projectId: 'xgbrv2vi',
+    apiVersion: '2024-01-01',
+    dataset: isProd ? 'production' : 'staging',
+    useCdn: isProd ? true : false,
+  },
   metadata: {
     siteName: 'Firefly ',
     productionUrl: 'https://www.fireflyhealth.com',

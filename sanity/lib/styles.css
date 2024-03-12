@@ -61,3 +61,28 @@ div[data-testid='text-style--blockquote'] span {
   line-height: 130%;
   color: #7d320c;
 }
+
+.warningElement {
+  height: 13px;
+  position: relative;
+  display: none;
+}
+
+.warningElement--visible {
+  display: block;
+}
+
+.warningElement__inner {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 0;
+  height: 100%;
+  line-height: 1em;
+  font-size: 13px;
+  padding: 6px;
+  background-color: #ffa500ad;
+  white-space: nowrap;
+  border: 2px solid orange;
+  border-radius: 2px;
+}
