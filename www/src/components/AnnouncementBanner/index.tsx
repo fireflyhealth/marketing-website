@@ -9,15 +9,15 @@ export type Props = {
 };
 
 export const AnnouncementBanner: FC<Props> = ({ announcementBanner }) => {
-  const { body } = announcementBanner;
+  const { text } = announcementBanner;
 
   return (
     <>
-      {announcementBanner && (
+      {announcementBanner && text && (
         <div className={cn(Wrapper)}>
-          {body && (
+          {text && (
             <RichText
-              content={body}
+              content={text}
               className="text-center font-trust"
               textColor="text-yellow-light"
               fontSize="font-size-9"
