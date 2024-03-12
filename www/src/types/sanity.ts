@@ -515,7 +515,7 @@ export type BigNumber = {
 
 export type BigNumbers = {
   _type: 'bigNumbers';
-  bigNumbers: KeyedArray<BigNumber>;
+  bigNumbers?: KeyedArray<BigNumber>;
   citation: Maybe<SimpleRichText>;
 };
 
@@ -553,7 +553,7 @@ export type HeaderArea = HeaderBlock;
 
 export type VideoHeader = {
   _type: 'videoHeader';
-  theme: ColorTheme;
+  theme?: ColorTheme;
   eyebrow: string;
   heading: string;
   body: SimpleRichText;
