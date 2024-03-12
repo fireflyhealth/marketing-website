@@ -11,7 +11,7 @@ export const DividerBlock: FC<Props> = ({ dividerBlock }) => {
 
   return (
     <div
-      className={cn('h-24 border-grey-medium', {
+      className={cn('h-24 border-grey-medium container-padding-bleed', {
         'border-b': !!borderBottom,
         'border-t': !!borderTop,
       })}
