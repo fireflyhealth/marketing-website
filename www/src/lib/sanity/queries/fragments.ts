@@ -2,8 +2,6 @@
 
 export const imageFragment = `
   ...,
-  _key,
-  _type,
   asset -> {
     _id,
     _type,
@@ -32,26 +30,20 @@ export const responsiveImageSetFragment = `
 `;
 
 export const hubspotFormFragment = `
-  _type,
-  formId
+  ...
 `;
 
 export const barGraphFragment = `
-  _type,
-  _key,
-  barOne,
-  barTwo
+  ...
 `;
 
 export const twoColumnUnorderedListFragment = `
-  _type,
-  _key,
+  ...,
   listItems[]
 `;
 
 export const overlapDoubleImages = `
-  _type,
-  _key,
+  ...,
   images[] {
     _key,
     ${imageFragment}
@@ -64,8 +56,6 @@ export const overlapDoubleImages = `
  * having this extra one prevents the two fragments from
  * being recursively dependent on each other */
 export const richTextFragmentNoLink = `
-  _key,
-  _type,
   ...,
   _type == "richImage" => {
     ${imageFragment}
@@ -84,8 +74,6 @@ export const richTextFragmentNoLink = `
 `;
 
 export const simpleRichTextFragmentNoLink = `
-  _key,
-  _type,
   ...,
 `;
 
@@ -176,9 +164,7 @@ export const linkableDocumentFragment = `
 `;
 
 export const linkFragment = `
-  _type,
-  _key,
-  externalUrl,
+  ...,
   file{
     asset->
   },
@@ -188,8 +174,6 @@ export const linkFragment = `
  `;
 
 export const simpleRichTextFragment = `
-  _key,
-  _type,
   ...,
   markDefs[]{
     _key,
@@ -203,33 +187,21 @@ export const simpleRichTextFragment = `
 `;
 
 export const ctaFragment = `
-  _type,
-  label,
-  ariaLabel,
-  variant,
-  id,
+  ...,
   link{
     ${linkFragment}
   }
 `;
 
 export const linkWithLabelFragment = `
-  _type,
-  _key,
-  label,
+  ...,
   link {
     ${linkFragment}
   }
 `;
 
 const bigNumberFragment = `
-  _key,
-  _type,
-  unit {
-    unitValue,
-    position
-  },
-  value,
+  ...,
   description[]{
     ${simpleRichTextFragment}
   }
@@ -245,17 +217,45 @@ export const bigNumbersFragment = `
   }
 `;
 
+export const contentBlockRichTextFragment = `
+  ...,
+  _type == "richImage" => {
+    ${imageFragment}
+  },
+  _type == "barGraphObject" => {
+    ${barGraphFragment}
+  },
+  _type == "bigNumbers" => {
+    ${bigNumbersFragment}
+  },
+  _type == "twoColumnUnorderedList" => {
+    ${twoColumnUnorderedListFragment}
+  },
+  _type == "richTextCtaRow" => {
+    ctas[]{
+      _key,
+      ${ctaFragment}
+    }
+  },
+  markDefs[]{
+    _key,
+    _type,
+    _type == "link" => {
+      link {
+        ${linkFragment}
+      }
+    },
+  }
+`;
+
 export const videoFragment = `
-  _type,
-  videoLink,
+  ...,
   posterImage {
     ${imageFragment}
   }
 `;
 
 export const limitedRichTextFragment = `
-  _key,
-  _type,
   ...,
   _type == "barGraphObject" => {
     ${barGraphFragment}
@@ -284,9 +284,7 @@ export const limitedRichTextFragment = `
 `;
 
 export const quoteObjectFragment = `
-  _type,
-  quote,
-  icon,
+  ...,
   badgeImage {
     ${imageFragment}
   },
@@ -306,8 +304,6 @@ export const quoteObjectFragment = `
  * }
  */
 export const richTextFragment = `
-  _key,
-  _type,
   ...,
   _type == "richImage" => {
     ${imageFragment}
@@ -359,10 +355,10 @@ export const richTextFragment = `
 
 export const qrCodeObjectFragment = `
   _type,
+  text,
   qrCodeImage {
     ${imageFragment}
   },
-  text,
   storeLinks {
     appStoreimage {
       ${imageFragment}
@@ -380,23 +376,17 @@ export const qrCodeObjectFragment = `
 `;
 
 const ctaCardFragment = `
-  _type,
-  _key,
+  ...,
   image {
     ${imageFragment}
   },
-  title,
   cta {
     ${ctaFragment}
   }
 `;
 
 export const richTextChildBlockFragment = `
-  _key,
-  alignCenter,
-  icon,
-  heading,
-  headingFontSize,
+  ...,
   image {
     ${imageFragment}
   },
@@ -406,18 +396,16 @@ export const richTextChildBlockFragment = `
 `;
 
 export const headerContentFragment = `
+  ...,
   eyebrowImage {
     ${imageFragment}
   },
-  eyebrow,
-  heading,
   body[]{
     ${simpleRichTextFragment}
   },
   cta{
     ${ctaFragment}
-  },
-  size
+  }
 `;
 
 export const headerQrCodeFragment = `
@@ -472,8 +460,7 @@ const childContentBlockFragment = `
  * Main content blocks
  */
 export const contentBlockHeaderFragment = `
-  _type,
-  title,
+  ...,
   description[]{
     ${simpleRichTextFragment}
   },
@@ -485,19 +472,13 @@ export const contentBlockHeaderFragment = `
 export const doubleCtaFragment = `
   _type,
   ctaOne{
-    eyebrow,
-    label,
-    id,
-    ariaLabel,
+    ...,
     link {
       ${linkFragment}
     },
   },
   ctaTwo{
-    eyebrow,
-    label,
-    id,
-    ariaLabel,
+    ...,
     link {
       ${linkFragment}
     },
@@ -505,10 +486,7 @@ export const doubleCtaFragment = `
 `;
 
 const sequenceBlockTextFieldsFragment = `
-  _type,
-  title,
-  bellyButtonText,
-  description
+  ...
 `;
 
 export const imageTextOverlapFragment = `
@@ -516,7 +494,7 @@ export const imageTextOverlapFragment = `
     ${imageFragment}
   },
   copy[]{
-    ${richTextFragment}
+    ${contentBlockRichTextFragment}
   }
 `;
 
@@ -531,14 +509,7 @@ export const quoteBlockFragment = `
  * one item. The [0] is added to coerce these
  * into single objects in the result. */
 const twoUpObjectFragment = `
-  _type,
-  layout,
-  mobileReverseBlockOrder,
-  normalLayoutTheme,
-  blockThemes {
-    blockOneTheme,
-    blockTwoTheme
-  },
+  ...,
   blockOne {
     ${childContentBlockFragment}
   }[0],
@@ -548,16 +519,8 @@ const twoUpObjectFragment = `
 `;
 
 export const reviewFragment = `
-  _type,
-  _key,
-  starRating,
-  title,
+  ...,
   review[]{${simpleRichTextFragment}},
-  reviewer{
-    name,
-    age,
-  },
-  date,
   logo{${imageFragment}}
 `;
 
@@ -584,33 +547,18 @@ const richTextBlockFragment = `
 `;
 
 export const faqFragment = `
-  _id,
-  _type,
-  question,
-  subject->{
-    _id,
-    _type,
-    title,
-    slug
-  },
-  category->{
-    _id,
-    _type,
-    title,
-    slug
-  },
+  ...,
+  subject->,
+  category->,
   answer[]{
     ${simpleRichTextFragment}
   }
 `;
 
 const sequenceItemFragment = `
-  _type,
-  _key,
+  ...,
   video{${videoFragment}},
-  copy{${sequenceBlockTextFieldsFragment}},
-  theme,
-  isHighlighted
+  copy{${sequenceBlockTextFieldsFragment}}
 `;
 
 export const sequenceBlockFragment = `
@@ -620,17 +568,13 @@ export const sequenceBlockFragment = `
 `;
 
 export const columnsObjectFragment = `
-  _type,
-  columnCount,
-  theme,
+  ...,
   content[]{${childContentBlockFragment}}
 `;
 
 const tabsBlockFragment = `
   tabs[]{
-    _key,
-    _type,
-    label,
+    ...,
     content[]{
       _type,
       _type == "twoUpObject" => {
@@ -641,7 +585,7 @@ const tabsBlockFragment = `
       },
       _type == "contentBlockRichText" => {
         body[]{
-          ${richTextFragment}
+          ${contentBlockRichTextFragment}
         }
       }
     }[0]
@@ -649,8 +593,7 @@ const tabsBlockFragment = `
 `;
 
 const faqBlockFragment = `
-  theme,
-  blockTitle,
+  ...,
   blockDescription[]{
     ${simpleRichTextFragment}
   },
@@ -669,17 +612,13 @@ const featuredStoriesBlockFragment = `
 `;
 
 export const subnavItemFragment = `
-  label,
-  contentBlockId,
-  ariaLabel
+  ...
 `;
 
 export const drawerListItem = `
-  _key,
-  _type,
-  title,
+  ...,
   body[]{
-    ${richTextFragment}
+    ${simpleRichTextFragment}
   },
   ctaLink{
     ${linkWithLabelFragment}
@@ -689,8 +628,7 @@ export const drawerListItem = `
   },
   backgroundImage{
     ${responsiveImageSetFragment}
-  },
-  theme
+  }
 `;
 
 export const imageGridBlockFragment = `
@@ -718,12 +656,10 @@ const imageCarouselBlockFragment = `
 
 const ctaCardsBlockFragment = `
   ctaCards[]{
-    _type,
-    _key,
+    ...,
     image {
       ${imageFragment}
     },
-    title,
     cta {
       ${ctaFragment}
     }
@@ -746,11 +682,9 @@ const drawerListBlockFragment = `
 `;
 
 export const testimonialItemFragment = `
-  _type,
+  ...,
   image{${imageFragment}},
   testimonial[]{${simpleRichTextFragment}},
-  name,
-  age,
   description[]{${simpleRichTextFragment}}
 `;
 
@@ -786,8 +720,7 @@ export const contentBlockFragment = `
 `;
 
 export const videoHeaderFragment = `
-  eyebrow,
-  heading,
+  ...,
   video{${videoFragment}},
   body[]{
     ${simpleRichTextFragment}
@@ -795,39 +728,30 @@ export const videoHeaderFragment = `
 `;
 
 export const textHeaderFragment = `
-  eyebrow,
-  heading,
+  ...,
   body[]{
-    ${richTextFragment}
+    ${simpleRichTextFragment}
   },
-  theme,
   ctas[]{
     ${ctaFragment}
-  },
-  gradientBackground
+  }
 `;
 
 const dualCtaHeaderCtaFragment = `
+  ...,
   image {
     ${responsiveImageSetFragment}
   },
-  eyebrow,
-  label,
-  id,
-  ariaLabel,
   link {
     ${linkFragment}
-  },
-  theme
+  }
 `;
 
 export const textWithDualCtaHeaderFragment = `
-  eyebrow,
-  heading,
+  ...,
   body[]{
-    ${richTextFragment}
+    ${simpleRichTextFragment}
   },
-  theme,
   ctas[]{
     ${ctaFragment}
   },
@@ -840,8 +764,7 @@ export const textWithDualCtaHeaderFragment = `
 `;
 
 export const simpleTextHeaderFragment = `
-  heading,
-  theme
+  ...
 `;
 
 const twoUpHeaderFragment = `
