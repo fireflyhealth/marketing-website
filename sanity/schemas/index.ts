@@ -53,7 +53,11 @@ import { TestimonialBlock, TestimonalItem } from './blocks/testimonalBlock';
 
 /* Fields */
 import { Metadata } from './fields/metadata';
-import { ResponsiveImageSet, RichImage } from './fields/images';
+import {
+  ResponsiveImageSet,
+  RichImage,
+  RichImageWithCaption,
+} from './fields/images';
 import { Link, LinkableDocument } from './fields/linking';
 import { CTA } from './fields/cta';
 import {
@@ -155,6 +159,7 @@ export const schemaTypes = [
   ContentBlockHeader,
   Metadata,
   RichImage,
+  RichImageWithCaption,
   ResponsiveImageSet,
   Link,
   LinkableDocument,
