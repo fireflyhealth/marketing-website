@@ -16,9 +16,10 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"],
-      "testing/*": ["./testing/*"],
+      "testing/*": ["./testing/*"]
     },
+    "types": ["jest"]
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "./testing/setup.ts"],
-  "exclude": ["node_modules"],
+  "exclude": ["node_modules"]
 }

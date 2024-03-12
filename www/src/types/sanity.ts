@@ -439,9 +439,9 @@ export type Metadata = {
 
 export type Link = {
   _type: 'link';
-  documentLink: Maybe<LinkableDocumentData>;
-  externalUrl: Maybe<string>;
-  file: Maybe<FileAsset>;
+  documentLink?: Maybe<LinkableDocumentData>;
+  externalUrl?: Maybe<string>;
+  file?: Maybe<FileAsset>;
 };
 
 export type CTA = {
@@ -705,9 +705,9 @@ export type ContentArea = KeyedArray<ContentBlock>;
 
 export type ContentBlockHeader = {
   _type: 'contentBlockHeader';
-  title: string;
-  description: Maybe<SimpleRichText>;
-  cta: Maybe<CTA>;
+  title?: string;
+  description?: Maybe<SimpleRichText>;
+  cta?: Maybe<CTA>;
 };
 
 type ContentBlockCommon = {
@@ -794,14 +794,14 @@ export type ImageTextOverlapBlock = ContentBlockCommon & {
 
 export type QuoteAttribution = {
   label: string;
-  labelSubtitle: Maybe<string>;
-  image: Maybe<Image>;
+  labelSubtitle?: Maybe<string>;
+  image?: Maybe<Image>;
 };
 
 export type QuoteObject = {
   _type: 'quoteObject';
   badgeImage: Maybe<Image>;
-  icon: Maybe<IconBlock>;
+  icon?: Maybe<IconBlock>;
   quote: string;
   attribution: QuoteAttribution;
 };
@@ -836,11 +836,11 @@ export type TwoUpBlockLayout =
 export type TwoUpBlock = ContentBlockCommon & {
   _type: 'twoUpBlock';
   layout: TwoUpBlockLayout;
-  mobileReverseBlockOrder: Maybe<boolean>;
+  mobileReverseBlockOrder?: Maybe<boolean>;
   /* Only present when the layout is not 'overlap-50-50' */
-  normalLayoutTheme: Maybe<ColorTheme>;
+  normalLayoutTheme?: Maybe<ColorTheme>;
   /* Only present when the layout is 'overlap-50-50' */
-  blockThemes: Maybe<{
+  blockThemes?: Maybe<{
     blockOneTheme: ColorTheme;
     blockTwoTheme: ColorTheme;
   }>;
