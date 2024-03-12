@@ -1,7 +1,7 @@
 import { WorkspaceOptions, defineConfig } from 'sanity';
-import { deskTool } from 'sanity/desk';
+import { structureTool } from 'sanity/structure';
 import { visionTool } from '@sanity/vision';
-import { documentInternationalization } from '@sanity/document-internationalization';
+// import { documentInternationalization } from '@sanity/document-internationalization';
 import { schemaTypes } from './schemas';
 import { structure, defaultDocumentNode } from './schemas/structure';
 import './lib/styles.css';
@@ -12,14 +12,14 @@ const shared = {
   projectId: 'xgbrv2vi',
   plugins: [
     // @ts-ignore
-    deskTool({ structure, defaultDocumentNode }),
+    structureTool({ structure, defaultDocumentNode }),
     visionTool(),
 
-    // Document Internalization is not available yet.
+    // Document Internationalization is not available yet.
     // Uncomment the 'documentInternationalization' plugin to allow translations.
     // Documentation: https://github.com/sanity-io/document-internationalization
     // documentInternationalization({
-    //   supportedLanguages: [{ id: 'en', title: 'English' }],
+    //   supportedLanguages: [{ id: 'es', title: 'Spanish' }],
     //   schemaTypes: [
     //     'homepage',
     //     'genericPage',
