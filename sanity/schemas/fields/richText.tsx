@@ -167,7 +167,7 @@ export const ContentBlockRichText = defineField({
           },
         },
         { name: 'icon', type: 'icon', title: 'Icon' },
-        { name: 'richImage', type: 'richImage', title: 'Image' },
+        { name: 'richImage', type: 'richImageWithCaption', title: 'Image' },
         {
           name: 'twoColumnUnorderedList',
           type: 'twoColumnUnorderedList',
@@ -232,7 +232,7 @@ export const ArticleRichText = defineField({
       },
     },
     { name: 'icon', type: 'icon', title: 'Icon' },
-    { name: 'richImage', type: 'richImage', title: 'Image' },
+    { name: 'richImage', type: 'richImageWithCaption', title: 'Image' },
     { name: 'form', type: 'hubspotForm', title: 'Form' },
     { name: 'quoteObject', type: 'quoteObject', title: 'Quote' },
     {
