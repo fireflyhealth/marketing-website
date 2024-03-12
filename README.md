@@ -61,3 +61,16 @@ Overview:
 - BREAKING CHANGE: a commit that has a footer `BREAKING CHANGE`:, or appends a ! after the type/scope, introduces a breaking API change (correlating with MAJOR in Semantic Versioning). A BREAKING CHANGE can be part of commits of any type.
 - types other than `fix:` and `feat:` are allowed, for example @commitlint/config-conventional (based on the Angular convention) recommends `build:`, `chore:`, `ci:`, `docs:`, `style:`, `refactor:`, `perf:`, `test:`, and others.
 - footers other than `BREAKING CHANGE: <description>` may be provided and follow a convention similar to git trailer format.
+
+## Release
+
+The main branch will be connected to staging site, and production branch will be connected to production site.
+When you push the main branch to production branch, it will trigger build for production. Please make sure to check main (staging site) so that we are not pushing any bug to the production site.
+
+```
+  git checkout main
+  git pull origin main
+  git checkout production
+  git merge main
+  git push origin/production
+```
