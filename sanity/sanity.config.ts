@@ -8,8 +8,23 @@ import { visionTool } from '@sanity/vision';
 import { schemaTypes } from './schemas';
 import { structure, defaultDocumentNode } from './schemas/structure';
 import './lib/styles.css';
+import { PREVIEW_BASE_URL } from './lib/config';
+import PagePreview, {
+  SECRETS_NAMESPACE,
+  SANITY_PREVIEW_TOKEN_KEY,
+  SECRETS_KEYS,
+  getTypeSegment,
+} from './lib/pagePreview';
 
 const isDevEnv = Boolean(process.env.SANITY_STUDIO_IS_DEVELOPMENT);
+
+const SanitySecret = () => {
+  const { secrets } = useSecrets<{
+    [SANITY_PREVIEW_TOKEN_KEY]: string;
+  }>(SECRETS_NAMESPACE);
+
+  return secrets;
+};
 
 const shared = {
   projectId: 'xgbrv2vi',
@@ -36,7 +51,24 @@ const shared = {
     //   ],
     // }),
   ],
+  document: {
+    productionUrl: async (_, context) => {
+      const { document } = context;
 
+      let src = `${PREVIEW_BASE_URL}/${getTypeSegment(document._type)}`;
+
+      if (
+        document._type !== 'homepage' &&
+        document._type !== 'downloadPage' &&
+        document._type !== 'contactPage' &&
+        document._type !== 'notFoundPage' &&
+        document._type !== 'faqPage'
+      )
+        src += `/${document._id}`;
+
+      return src;
+    },
+  },
   schema: {
     types: schemaTypes,
   },

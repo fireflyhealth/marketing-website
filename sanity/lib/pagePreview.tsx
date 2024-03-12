@@ -18,7 +18,7 @@ type Props = {
   schemaType: SchemaType;
 };
 
-const getTypeSegment = (documentType: string | undefined) => {
+export const getTypeSegment = (documentType: string | undefined) => {
   if (documentType === 'homepage') return '/';
   if (documentType === 'downloadPage') return '/download';
   if (documentType === 'contactPage') return '/contact';
@@ -36,9 +36,9 @@ const getTypeSegment = (documentType: string | undefined) => {
 // which technically stores the token in a private Sanity document,
 // so it's not exposed to the public in the JavaScript bundle of the deployed Studio.
 // We can also update the token directly in Sanity.
-const SECRETS_NAMESPACE = 'sanityPreview';
-const SANITY_PREVIEW_TOKEN_KEY = 'preview_token';
-const SECRETS_KEYS = [
+export const SECRETS_NAMESPACE = 'sanityPreview';
+export const SANITY_PREVIEW_TOKEN_KEY = 'preview_token';
+export const SECRETS_KEYS = [
   {
     key: SANITY_PREVIEW_TOKEN_KEY,
     title: 'Sanity Preview Token',
@@ -62,7 +62,9 @@ const PagePreview: FC<Props> = ({ document }) => {
   }, [sanityPreviewToken, loading]);
 
   const fullSrcUrl = useMemo(() => {
-    let src = `${Config.PREVIEW_BASE_URL}${getTypeSegment(document.displayed._type)}`;
+    let src = `${Config.PREVIEW_BASE_URL}${getTypeSegment(
+      document.displayed._type,
+    )}`;
     if (
       document.displayed._type !== 'homepage' &&
       document.displayed._type !== 'downloadPage' &&
