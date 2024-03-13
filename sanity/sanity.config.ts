@@ -1,6 +1,9 @@
 import { WorkspaceOptions, defineConfig } from 'sanity';
 import { structureTool } from 'sanity/structure';
 import { visionTool } from '@sanity/vision';
+// Document Internationalization is not available yet.
+// Uncomment the 'documentInternationalization' import to allow translations.
+// Documentation: https://github.com/sanity-io/document-internationalization
 // import { documentInternationalization } from '@sanity/document-internationalization';
 import { schemaTypes } from './schemas';
 import { structure, defaultDocumentNode } from './schemas/structure';
