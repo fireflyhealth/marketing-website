@@ -14,7 +14,7 @@ export const OverlapDoubleImages = defineType({
       validation: (Rule) => Rule.required().min(2).max(2),
       of: [
         defineArrayMember({
-          type: 'richImage',
+          type: 'richImageWithCaption',
         }),
       ],
     }),
