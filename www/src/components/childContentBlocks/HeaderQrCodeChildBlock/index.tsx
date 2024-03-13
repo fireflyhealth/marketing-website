@@ -29,7 +29,7 @@ type HeaderQrCodeChildBlockProps = {
 const StoreImage: FC<{
   store: 'googlePlayStore' | 'appStore';
   className?: string;
-}> = ({ store, className }) => {
+}> = ({ store }) => {
   const isAppStore = store === 'appStore';
   const image = isAppStore ? appStoreBadge : googlePlayStoreBadge;
   return (
@@ -37,8 +37,7 @@ const StoreImage: FC<{
       aspectRatio={image.height / image.width}
       src={image}
       alt={isAppStore ? 'App store image' : 'Google play store image'}
-      sizes={['20vw']}
-      className={cn(className)}
+      sizes={['135px']}
     />
   );
 };
@@ -49,17 +48,19 @@ const StoreImageLink: FC<{
 }> = ({ store, storeLink }) => {
   if (storeLink) {
     return (
-      <Link
-        key={storeLink._type}
-        link={storeLink}
-        className={cn(QrCodeSmallImageLink)}
-      >
-        <StoreImage store={store} />
-      </Link>
+      <div className={cn(QrCodeSmallImageLink)}>
+        <Link key={storeLink._type} link={storeLink}>
+          <StoreImage store={store} />
+        </Link>
+      </div>
     );
   }
 
-  return <StoreImage className={cn(QrCodeSmallImageLink)} store={store} />;
+  return (
+    <div className={cn(QrCodeSmallImageLink)}>
+      <StoreImage store={store} />;
+    </div>
+  );
 };
 
 export const HeaderQrCodeChildBlock: FC<HeaderQrCodeChildBlockProps> = ({
