@@ -1,5 +1,5 @@
 export const Wrapper = [
-  'relative w-full pt-8 pb-[96px]',
+  'relative w-full pt-8 pb-[96px] transition-all',
   'lg:absolute lg:top-auto lg:py-12 lg:pb-[128px]',
 ];
 

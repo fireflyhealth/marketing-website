@@ -72,14 +72,19 @@ export const NavGroup: FC<Props> = ({ navItem, isMobile }) => {
             <SimpleIcon
               type="arrow-down"
               wrapperStyles={cn(
-                isCurrentNavItem ? 'rotate-180' : '',
-                'transition ease-in-out w-3',
+                'transition-all ease-in-out w-3',
                 navItemHighlightState,
+                {
+                  'rotate-180': isCurrentNavItem,
+                },
               )}
             />
           </button>
           <div
-            className={cn(DropdownOuter, isCurrentNavItem ? 'block' : 'hidden')}
+            className={cn(DropdownOuter, {
+              'h-[0px] opacity-0': !isCurrentNavItem,
+              'h-auto opacity-1': isCurrentNavItem,
+            })}
             onMouseLeave={handleDropdownMouseLeave}
           >
             <div className={cn(DropdownInner, 'transition-all ease-in-out')}>

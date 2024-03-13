@@ -526,6 +526,25 @@ svg {
   }
 }
 
+.container-padding-bleed--margin-only {
+  width: calc(100% + var(--container-sm-padding) + var(--container-sm-padding));
+  margin-left: calc(0px - var(--container-sm-padding));
+
+  @screen md {
+    width: calc(
+      100% + var(--container-md-padding) + var(--container-md-padding)
+    );
+    margin-left: calc(0px - var(--container-md-padding));
+  }
+
+  @screen lg {
+    width: calc(
+      100% + var(--container-lg-padding) + var(--container-lg-padding)
+    );
+    margin-left: calc(0px - var(--container-lg-padding));
+  }
+}
+
 .container-padding-bleed-mobile-only {
   width: calc(100% + var(--container-sm-padding) + var(--container-sm-padding));
   margin-left: calc(0px - var(--container-sm-padding));
