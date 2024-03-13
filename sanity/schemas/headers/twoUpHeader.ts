@@ -2,6 +2,7 @@ import { defineType, defineField } from 'sanity';
 
 import { icons } from '../../lib/icons';
 import { camelCaseToSentence } from '../../lib/utils';
+import { getSharedFields } from '../blocks/twoUpBlock';
 
 const childContentBlockTypes = [
   { type: 'imageChildBlock' },
@@ -14,59 +15,7 @@ export const TwoUpHeaderBlock = defineType({
   title: '2-up Header',
   type: 'object',
   icon: icons.TwoUp,
-  fields: [
-    /* This field must match fields within twoUpBlock. 
-       This will use TwoUpBlock component. */
-    defineField({
-      name: 'layout',
-      title: 'Layout',
-      type: 'string',
-      initialValue: 'overlap-50-50',
-      validation: (Rule) => Rule.required(),
-      options: {
-        list: [
-          { title: 'Normal 50/50', value: 'normal-50-50' },
-          { title: 'Overlap 50/50', value: 'overlap-50-50' },
-        ],
-      },
-    }),
-    defineField({
-      name: 'mobileReverseBlockOrder',
-      title: '(Mobile) Reverse block order',
-      type: 'boolean',
-    }),
-    defineField({
-      name: 'blockThemes',
-      title: 'Block Themes',
-      type: 'object',
-      fields: [
-        defineField({
-          name: 'blockOneTheme',
-          type: 'theme',
-          title: 'Block One Theme',
-          initialValue: 'white',
-        }),
-        defineField({
-          name: 'blockTwoTheme',
-          type: 'theme',
-          title: 'Block Two Theme',
-          initialValue: 'white',
-        }),
-      ],
-    }),
-    defineField({
-      name: 'blockOne',
-      title: 'Block One',
-      type: 'array',
-      of: childContentBlockTypes,
-    }),
-    defineField({
-      name: 'blockTwo',
-      title: 'Block Two',
-      type: 'array',
-      of: childContentBlockTypes,
-    }),
-  ],
+  fields: [...getSharedFields(true, childContentBlockTypes)],
   preview: {
     select: {
       header: 'header',
