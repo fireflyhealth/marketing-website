@@ -5,7 +5,7 @@ export const HeaderQrCodeChildBlock = defineType({
   name: 'headerQrCodeChildBlock',
   title: 'Header QR Code Block',
   type: 'object',
-  icon: icons.Quote,
+  icon: icons.QrCode,
   fields: [
     defineField({
       name: 'heading',

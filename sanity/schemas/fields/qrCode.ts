@@ -1,5 +1,4 @@
-import { Rule, defineType, defineField } from 'sanity';
-import { validateOnlyOne } from './linking';
+import { defineType, defineField } from 'sanity';
 
 export const QrCode = defineType({
   name: 'qrCodeObject',
@@ -23,19 +22,9 @@ export const QrCode = defineType({
       type: 'object',
       fields: [
         defineField({
-          name: 'appStoreimage',
-          title: 'App Store Image',
-          type: 'richImage',
-        }),
-        defineField({
           name: 'appStoreLink',
           title: 'App Store Link',
           type: 'link',
-        }),
-        defineField({
-          name: 'playStoreimage',
-          title: 'Play store Image',
-          type: 'richImage',
         }),
         defineField({
           name: 'playStoreLink',

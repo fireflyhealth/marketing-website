@@ -2,13 +2,15 @@ import React, { FC } from 'react';
 import cn from 'classnames';
 import {
   HeaderQrCodeChildBlock as HeaderQrCodeChildBlockType,
-  RichImage,
   Link as LinkType,
   Maybe,
 } from '@/types/sanity';
 import { SanityImage } from '@/atoms/Image/SanityImage';
+import { GenericImage } from '@/atoms/Image/GenericImage';
 import { Link } from '@/atoms/Link';
 import { RichText } from '@/components/RichText';
+import googlePlayStoreBadge from '@/assets/images/google-play-store-badge.png';
+import appStoreBadge from '@/assets/images/app-store-badge.png';
 import {
   Wrapper,
   Heading,
@@ -24,41 +26,40 @@ type HeaderQrCodeChildBlockProps = {
   headerQrCodeChildBlock: HeaderQrCodeChildBlockType;
 };
 
-const StoreImage: FC<{ storeImage: Maybe<RichImage> }> = ({ storeImage }) => {
-  if (!storeImage) return null;
-
+const StoreImage: FC<{
+  store: 'googlePlayStore' | 'appStore';
+  className?: string;
+}> = ({ store, className }) => {
+  const isAppStore = store === 'appStore';
+  const image = isAppStore ? appStoreBadge : googlePlayStoreBadge;
   return (
-    <SanityImage
-      width={storeImage.asset.metadata.dimensions.width}
-      height={storeImage.asset.metadata.dimensions.height}
-      rounded={false}
-      image={storeImage}
+    <GenericImage
+      aspectRatio={image.height / image.width}
+      src={image}
+      alt={isAppStore ? 'App store image' : 'Google play store image'}
       sizes={['20vw']}
+      className={cn(className)}
     />
   );
 };
 
 const StoreImageLink: FC<{
-  storeImage: Maybe<RichImage>;
+  store: 'googlePlayStore' | 'appStore';
   storeLink: Maybe<LinkType>;
-}> = ({ storeImage, storeLink }) => {
-  if (!storeImage && !storeLink) {
-    return null;
-  }
-
-  if (storeImage && storeLink) {
+}> = ({ store, storeLink }) => {
+  if (storeLink) {
     return (
       <Link
         key={storeLink._type}
         link={storeLink}
         className={cn(QrCodeSmallImageLink)}
       >
-        <StoreImage storeImage={storeImage} />
+        <StoreImage store={store} />
       </Link>
     );
   }
 
-  return <StoreImage storeImage={storeImage} />;
+  return <StoreImage className={cn(QrCodeSmallImageLink)} store={store} />;
 };
 
 export const HeaderQrCodeChildBlock: FC<HeaderQrCodeChildBlockProps> = ({
@@ -82,18 +83,14 @@ export const HeaderQrCodeChildBlock: FC<HeaderQrCodeChildBlockProps> = ({
           {qrCode.text && <p className={cn(QrCodeText)}>{qrCode.text}</p>}
           {qrCode.storeLinks && (
             <div className={cn(QrCodeSmallImagesWrapper)}>
-              {qrCode.storeLinks.appStoreimage && (
-                <StoreImageLink
-                  storeImage={qrCode.storeLinks.appStoreimage}
-                  storeLink={qrCode.storeLinks.appStoreLink}
-                />
-              )}
-              {qrCode.storeLinks.playStoreimage && (
-                <StoreImageLink
-                  storeImage={qrCode.storeLinks.playStoreimage}
-                  storeLink={qrCode.storeLinks.playStoreLink}
-                />
-              )}
+              <StoreImageLink
+                store="googlePlayStore"
+                storeLink={qrCode.storeLinks.playStoreLink}
+              />
+              <StoreImageLink
+                store="appStore"
+                storeLink={qrCode.storeLinks.appStoreLink}
+              />
             </div>
           )}
         </div>

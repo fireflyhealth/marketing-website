@@ -41,6 +41,7 @@ import {
   BsChatSquareQuoteFill,
   BsTag,
   BsTags,
+  BsQrCode,
 } from 'react-icons/bs';
 import {
   MdOutlineCallToAction,
@@ -107,4 +108,5 @@ export const icons = {
   RichQuote: GoQuote,
   OverlapDoubleImages: IoMdImages,
   HeaderContent: BiCard,
+  QrCode: BsQrCode,
 };

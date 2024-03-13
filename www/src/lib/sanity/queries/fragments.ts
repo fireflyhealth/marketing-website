@@ -360,14 +360,8 @@ export const qrCodeObjectFragment = `
     ${imageFragment}
   },
   storeLinks {
-    appStoreimage {
-      ${imageFragment}
-    },
     appStoreLink {
       ${ctaFragment}
-    },
-    playStoreimage {
-      ${imageFragment}
     },
     playStoreLink {
       ${ctaFragment}

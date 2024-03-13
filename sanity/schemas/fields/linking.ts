@@ -5,7 +5,7 @@ import { Maybe } from '../../lib/types';
 /*
  * Validation
  */
-export const validateOnlyOne = (Rule: Rule) =>
+const validateOnlyOne = (Rule: Rule) =>
   Rule.custom((value, { parent }) => {
     const fieldsWithValues = [
       (parent as any)?.documentLink,
