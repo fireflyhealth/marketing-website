@@ -15,7 +15,7 @@ export const PageView: FC<PageViewProps> = ({ page }) => {
   return (
     <div>
       <HeaderArea block={page.header} />
-      {subnavItems && <Subnav subnav={subnavItems} />}
+      <Subnav subnav={subnavItems} />
       <ContentArea blocks={page.content} />
     </div>
   );

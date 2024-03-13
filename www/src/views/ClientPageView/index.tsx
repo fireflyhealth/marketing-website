@@ -15,7 +15,7 @@ export const ClientPageView: FC<ClientPageViewProps> = ({ clientPage }) => {
   return (
     <div>
       <HeaderArea block={clientPage.header} />
-      {subnavItems && <Subnav subnav={subnavItems} />}
+      <Subnav subnav={subnavItems} />
       <ContentArea blocks={clientPage.content} />
     </div>
   );
