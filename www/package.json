@@ -31,7 +31,8 @@
     "next-hubspot": "^1.2.0",
     "react": "^18",
     "react-dom": "^18",
-    "react-swipeable": "^7.0.1"
+    "react-swipeable": "^7.0.1",
+    "what-input": "^5.2.12"
   },
   "devDependencies": {
     "@next/bundle-analyzer": "^14.1.0",

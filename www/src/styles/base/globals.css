@@ -397,7 +397,7 @@ svg {
     background-color: theme('colors.yellow-light');
   }
 
-  &:focus {
+  [data-whatintent='keyboard'] &:focus {
     border-color: var(--text-color-primary);
     outline: none;
   }
