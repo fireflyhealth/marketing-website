@@ -815,7 +815,7 @@ export type DrawerListItem = {
   title: string;
   body: SimpleRichText;
   ctaLink: Maybe<LinkWithLabel>;
-  featuredImage: RichImage;
+  featuredImage: Maybe<RichImage>;
   theme: ColorTheme;
   backgroundImage: Maybe<ResponsiveImageSet>;
 };
