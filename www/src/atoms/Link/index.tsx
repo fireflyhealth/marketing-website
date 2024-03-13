@@ -19,6 +19,7 @@ export const Link: FC<LinkProps> = ({
   children,
   ariaLabel,
   id,
+  className,
   ...props
 }) => {
   if ('externalUrl' in link && link.externalUrl) {
@@ -32,6 +33,7 @@ export const Link: FC<LinkProps> = ({
         id={id || undefined}
         aria-label={ariaLabel || undefined}
         target={target}
+        className={className}
       >
         {children}
       </a>
@@ -43,6 +45,7 @@ export const Link: FC<LinkProps> = ({
         href={link.file.asset.url}
         id={id || undefined}
         aria-label={ariaLabel || undefined}
+        className={className}
       >
         {children}
       </a>

@@ -73,25 +73,35 @@ export const TwoUpObject: FC<TwoUpObjectProps> = ({ twoUpObject }) => {
           mobileReverseBlockOrder
             ? 'TwoUpBlock--mobileReverse'
             : 'TwoUpBlock--mobileNormal',
-          theme === ColorTheme.White ? '' : 'rounded-xl p-6 md:p-12',
+          theme === ColorTheme.White ? '' : 'rounded-2xl p-6 md:p-12',
         )}
       >
-        <div
+        <Theme
+          theme={
+            normalLayoutTheme
+              ? normalLayoutTheme
+              : blockThemes?.blockOneTheme || ColorTheme.White
+          }
           className={cn(
-            'TwoUpBlock__child',
+            'TwoUpBlock__child theme-bg-color rounded-2xl',
             `TwoUpBlock__child--${blockOne._type}`,
           )}
         >
           <ChildContentBlock block={blockOne} />
-        </div>
-        <div
+        </Theme>
+        <Theme
+          theme={
+            normalLayoutTheme
+              ? normalLayoutTheme
+              : blockThemes?.blockOneTheme || ColorTheme.White
+          }
           className={cn(
-            'TwoUpBlock__child',
+            'TwoUpBlock__child theme-bg-color rounded-2xl',
             `TwoUpBlock__child--${blockTwo._type}`,
           )}
         >
           <ChildContentBlock block={blockTwo} />
-        </div>
+        </Theme>
       </div>
     </Theme>
   );

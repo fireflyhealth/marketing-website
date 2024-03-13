@@ -24,6 +24,7 @@ import { VideoHeader } from './headers/videoHeader';
 import { TextHeader } from './headers/textHeader';
 import { TextWithDualCtaHeader } from './headers/textWithDualCtaHeader';
 import { SimpleTextHeader } from './headers/simpleTextHeader';
+import { TwoUpHeaderBlock } from './headers/twoUpHeader';
 
 /* Child Blocks */
 
@@ -75,6 +76,7 @@ import { DoubleCta, LargeCTACard } from './fields/doubleCta';
 import { TwoColumnUnorderedList } from './fields/twoColumnUnorderedList';
 import { OverlapDoubleImages } from './fields/overlapDoubleImages';
 import { Quote } from './fields/quote';
+import { QrCode } from './fields/qrCode';
 import { BigNumber, BigNumbers } from './fields/bigNumbers';
 import { DrawerListBlock, DrawerListItem } from './blocks/drawerListBlock';
 import { RichTextBlock } from './blocks/richTextBlock';
@@ -82,6 +84,8 @@ import { Theme } from './fields/theme';
 import { RichTextCtaRow } from './fields/richTextCtaRow';
 import { QuoteChildBlock } from './childBlocks/quoteChildBlock';
 import { VideoChildBlock } from './childBlocks/videoChildBlock';
+import { HeaderContentChildBlock } from './childBlocks/headerContentChildBlock';
+import { HeaderQrCodeChildBlock } from './childBlocks/headerQrCodeChildBlock';
 import { FAQBlock } from './blocks/faqBlock';
 import { FeaturedStoriesBlock } from './blocks/featuredStoriesBlock';
 import { Icon } from './fields/icon';
@@ -115,6 +119,7 @@ export const schemaTypes = [
   TextHeader,
   TextWithDualCtaHeader,
   SimpleTextHeader,
+  TwoUpHeaderBlock,
 
   /* Default Blocks (used within ContentArea, each has a heading) */
   ImageBlock,
@@ -146,6 +151,8 @@ export const schemaTypes = [
   ImageChildBlock,
   FeaturedStoriesBlock,
   VideoChildBlock,
+  HeaderContentChildBlock,
+  HeaderQrCodeChildBlock,
 
   /* Child blocks (used within Tabs) */
   TwoUpObject,
@@ -178,6 +185,7 @@ export const schemaTypes = [
   TwoColumnUnorderedList,
   OverlapDoubleImages,
   Quote,
+  QrCode,
   Theme,
   RichTextCtaRow,
   SequenceBlockTextFields,

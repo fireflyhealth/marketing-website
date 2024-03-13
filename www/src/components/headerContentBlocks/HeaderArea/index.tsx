@@ -5,6 +5,7 @@ import { VideoHeader } from '../VideoHeader';
 import { TextHeader } from '../TextHeader';
 import { TextWithDualCtaHeader } from '../TextWithDualCtaHeader';
 import { SimpleTextHeader } from '../SimpleTextHeader';
+import { TwoUpHeader } from '../TwoUpHeader';
 
 type HeaderBlockProps = {
   block: HeaderBlockType;
@@ -20,6 +21,8 @@ const HeaderBlock: FC<HeaderBlockProps> = ({ block }) => {
       return <TextWithDualCtaHeader textWithDualCtaHeader={block} />;
     case 'simpleTextHeader':
       return <SimpleTextHeader simpleTextHeader={block} />;
+    case 'twoUpHeader':
+      return <TwoUpHeader twoUpHeader={block} />;
     default:
       console.warn(
         // @ts-expect-error

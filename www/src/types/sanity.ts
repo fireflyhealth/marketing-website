@@ -370,7 +370,7 @@ export type AnnouncementBanner = {
 export type RichImage = Omit<Image, '_type'> & {
   _type: 'richImage';
   altText: string;
-  caption: Maybe<string>;
+  caption?: Maybe<string>;
 };
 
 /* These are all typed as "maybe", but at least one is
@@ -439,9 +439,9 @@ export type Metadata = {
 
 export type Link = {
   _type: 'link';
-  documentLink: Maybe<LinkableDocumentData>;
-  externalUrl: Maybe<string>;
-  file: Maybe<FileAsset>;
+  documentLink?: Maybe<LinkableDocumentData>;
+  externalUrl?: Maybe<string>;
+  file?: Maybe<FileAsset>;
 };
 
 export type CTA = {
@@ -546,7 +546,8 @@ export type HeaderBlock =
   | VideoHeader
   | TextHeader
   | SimpleTextHeader
-  | TextWithDualCtaHeader;
+  | TextWithDualCtaHeader
+  | TwoUpHeader;
 
 export type HeaderArea = HeaderBlock;
 
@@ -588,6 +589,18 @@ export type TextWithDualCtaHeader = {
   bottomCta: TextWithDualCtaHeaderCta;
 };
 
+export type TwoUpHeader = {
+  _type: 'twoUpHeader';
+  layout: 'normal-50-50' | 'overlap-50-50';
+  mobileReverseBlockOrder: Maybe<boolean>;
+  blockOne: ChildContentBlock;
+  blockTwo: ChildContentBlock;
+  blockThemes: Maybe<{
+    blockOneTheme: ColorTheme;
+    blockTwoTheme: ColorTheme;
+  }>;
+};
+
 export type SimpleTextHeader = {
   _type: 'simpleTextHeader';
   heading: string;
@@ -605,7 +618,36 @@ export type ChildContentBlock =
   | BigNumbers
   | BigNumber
   | CTACard
-  | VideoChildBlock;
+  | VideoChildBlock
+  | HeaderQrCodeChildBlock
+  | HeaderContentChildBlock;
+
+export type QrCodeObject = {
+  _type: 'qrCodeObject';
+  qrCodeImage: RichImage;
+  text: Maybe<string>;
+  storeLinks: {
+    appStoreLink: Maybe<Link>;
+    playStoreLink: Maybe<Link>;
+  };
+};
+
+export type HeaderQrCodeChildBlock = {
+  _type: 'headerQrCodeChildBlock';
+  heading: string;
+  body: Maybe<SimpleRichText>;
+  qrCode: QrCodeObject;
+};
+
+export type HeaderContentChildBlock = {
+  _type: 'headerContentChildBlock';
+  eyebrow: Maybe<string>;
+  eyebrowImage: Maybe<RichImage>;
+  heading: string;
+  body: SimpleRichText;
+  cta: Maybe<CTA>;
+  size: 'small' | 'large';
+};
 
 export type RichTextChildBlock = {
   _type: 'richTextChildBlock';
@@ -661,9 +703,9 @@ export type ContentArea = KeyedArray<ContentBlock>;
 
 export type ContentBlockHeader = {
   _type: 'contentBlockHeader';
-  title: string;
-  description: Maybe<SimpleRichText>;
-  cta: Maybe<CTA>;
+  title?: string;
+  description?: Maybe<SimpleRichText>;
+  cta?: Maybe<CTA>;
 };
 
 type ContentBlockCommon = {
@@ -750,14 +792,14 @@ export type ImageTextOverlapBlock = ContentBlockCommon & {
 
 export type QuoteAttribution = {
   label: string;
-  labelSubtitle: Maybe<string>;
-  image: Maybe<Image>;
+  labelSubtitle?: Maybe<string>;
+  image?: Maybe<Image>;
 };
 
 export type QuoteObject = {
   _type: 'quoteObject';
   badgeImage: Maybe<Image>;
-  icon: Maybe<IconBlock>;
+  icon?: Maybe<IconBlock>;
   quote: string;
   attribution: QuoteAttribution;
 };
@@ -773,7 +815,7 @@ export type DrawerListItem = {
   title: string;
   body: SimpleRichText;
   ctaLink: Maybe<LinkWithLabel>;
-  featuredImage: RichImage;
+  featuredImage: Maybe<RichImage>;
   theme: ColorTheme;
   backgroundImage: Maybe<ResponsiveImageSet>;
 };
@@ -792,11 +834,11 @@ export type TwoUpBlockLayout =
 export type TwoUpBlock = ContentBlockCommon & {
   _type: 'twoUpBlock';
   layout: TwoUpBlockLayout;
-  mobileReverseBlockOrder: Maybe<boolean>;
+  mobileReverseBlockOrder?: Maybe<boolean>;
   /* Only present when the layout is not 'overlap-50-50' */
-  normalLayoutTheme: Maybe<ColorTheme>;
+  normalLayoutTheme?: Maybe<ColorTheme>;
   /* Only present when the layout is 'overlap-50-50' */
-  blockThemes: Maybe<{
+  blockThemes?: Maybe<{
     blockOneTheme: ColorTheme;
     blockTwoTheme: ColorTheme;
   }>;

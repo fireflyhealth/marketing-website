@@ -59,6 +59,10 @@
 
   .TwoColumnUnorderedList {
     margin-top: 52px;
+
+    > li {
+      margin-top: 0;
+    }
   }
 
   /* style bullet of list style */

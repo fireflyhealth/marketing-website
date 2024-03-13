@@ -20,7 +20,7 @@ export const ImageTextOverlapBlock = defineType({
       title: 'Copy',
       description:
         'All text content, CTAs and bullets within the rich text field.',
-      type: 'articleRichText',
+      type: 'contentBlockRichText',
       validation: (Rule) => Rule.required(),
     }),
   ],
