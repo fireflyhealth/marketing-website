@@ -1,0 +1,32 @@
+.TextWithDualCtaHeader {
+  &__cta--bottom:hover,
+  &__cta--top:hover {
+    height: 288px;
+
+    @screen md {
+      height: 638px;
+    }
+  }
+
+  .TextWithDualCtaHeader__cta-wrapper {
+    min-height: 432px;
+
+    @screen md {
+      height: 782px;
+    }
+
+    img {
+      transition-property: opacity;
+      transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+      transition-duration: 300ms;
+    }
+  }
+
+  .TextWithDualCtaHeader__cta-wrapper:hover > a:not(:hover) {
+    height: 132px;
+
+    img {
+      opacity: 0;
+    }
+  }
+}

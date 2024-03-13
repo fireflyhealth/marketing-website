@@ -63,6 +63,7 @@ export const Link: FC<LinkProps> = ({
       id={id || undefined}
       aria-label={ariaLabel || undefined}
       href={href}
+      className={className}
       {...props}
     >
       {children}
