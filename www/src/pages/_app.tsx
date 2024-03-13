@@ -32,7 +32,10 @@ export default function App({ Component, pageProps: allPageProps }: Props) {
   return (
     <>
       <DefaultMetadata metadata={siteSettings.defaultMetadata} />
-      <Theme theme={ColorTheme.White}>
+      <Theme
+        theme={ColorTheme.White}
+        className="overflow-hidden lg:overflow-visible"
+      >
         <UIProvider>
           <HubspotProvider>
             <AnnouncementBanner

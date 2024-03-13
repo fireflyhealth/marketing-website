@@ -1,7 +1,8 @@
 export const Wrapper = ['relative'];
 
 export const DecorativeImageWrapperContainer = [
-  'lg:full-width-background lg:!z-10 overflow-hidden',
+  'overflow-hidden',
+  'lg:overflow-visible lg:full-width-background lg:!z-10',
 ];
 
 export const DecorativeImageWrapper = [
