@@ -5,7 +5,6 @@ import {
   FAQSubject,
   FAQCategory as FAQCategoryType,
 } from '@/types/sanity';
-import 'jest';
 import { FAQCategory, SortedFAQCategory } from '../FAQCategory';
 
 const createMockQuestion = (question: string, answer: string): FAQ => ({
