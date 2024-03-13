@@ -11,21 +11,16 @@ export const DividerBlock = defineType({
       name: 'borderBottom',
       title: 'Border Bottom',
       type: 'boolean',
-    }),
-    defineField({
-      name: 'borderTop',
-      title: 'Border Top',
-      type: 'boolean',
+      initialValue: true,
     }),
   ],
   preview: {
     select: {
       borderBottom: 'borderBottom',
-      borderTop: 'borderTop',
     },
-    prepare: ({ borderBottom, borderTop }) => ({
+    prepare: ({ borderBottom }) => ({
       title: 'Divider Block',
-      subtitle: `Border bottom: ${borderBottom} | Border top: ${borderTop}`,
+      subtitle: `Border bottom: ${borderBottom}`,
     }),
   },
 });

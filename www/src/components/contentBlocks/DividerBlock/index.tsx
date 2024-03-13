@@ -11,10 +11,12 @@ export const DividerBlock: FC<Props> = ({ dividerBlock }) => {
 
   return (
     <div
-      className={cn('h-24 border-grey-medium container-padding-bleed', {
-        'border-b': !!borderBottom,
-        'border-t': !!borderTop,
-      })}
+      className={cn(
+        'h-24 border-grey-medium container-padding-bleed border-1',
+        {
+          'border-b': !!borderBottom,
+        },
+      )}
     />
   );
 };
