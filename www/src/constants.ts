@@ -19,8 +19,8 @@ export const RevalidationTime = config.isProd
   : StagingRevalidationTime;
 
 export const carouselThreshold = 25;
-/* TODO: Reset to 12 after PR Review */
-export const PAGINATION_PAGE_SIZE = 2;
+
+export const PAGINATION_PAGE_SIZE = 12;
 
 export enum Status {
   Idle = 'IDLE',

@@ -19,6 +19,7 @@ export const BlogPageArticles: FC<BlogPageArticlesProps> = ({
   goNext,
   goPrev,
   articleLayout,
+  paginationStatus,
 }) => {
   const blogArticlesRef = useRef<HTMLDivElement>(null);
   const scrollToArticlesTop = () => {
@@ -31,7 +32,6 @@ export const BlogPageArticles: FC<BlogPageArticlesProps> = ({
   };
   const handleGoNext = async () => {
     await goNext();
-    await goPrev();
     scrollToArticlesTop();
   };
   const handleGoPrev = async () => {
@@ -53,7 +53,7 @@ export const BlogPageArticles: FC<BlogPageArticlesProps> = ({
       <div
         ref={blogArticlesRef}
         className={cn(
-          state.status === Status.Pending
+          paginationStatus === Status.Pending
             ? 'opacity-70 pointer-events-none'
             : '',
         )}
@@ -73,7 +73,7 @@ export const BlogPageArticles: FC<BlogPageArticlesProps> = ({
               id="blog-goPrev"
               onClick={handleGoPrev}
               disabled={
-                currentPage.page === 0 || state.status === Status.Pending
+                currentPage.page === 0 || paginationStatus === Status.Pending
               }
               label="Previous"
             />
@@ -85,7 +85,7 @@ export const BlogPageArticles: FC<BlogPageArticlesProps> = ({
               onClick={handleGoNext}
               disabled={
                 currentPage.hasNextPage === false ||
-                state.status === Status.Pending
+                paginationStatus === Status.Pending
               }
               label="Next"
             />
