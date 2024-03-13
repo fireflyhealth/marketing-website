@@ -79,7 +79,7 @@ export const Subnav: FC<{ subnav?: Maybe<SubnavItem[]> }> = ({ subnav }) => {
   const hash = useHash();
   const { bottom, top } = subnavRect || {};
 
-  if (!subnav) {
+  if (!subnav || subnav.length === 0) {
     return null;
   }
 

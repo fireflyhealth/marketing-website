@@ -1,4 +1,7 @@
-export const Wrapper = ['flex flex-col', 'md:flex-row md:space-x-12'];
+export const Wrapper = [
+  'flex flex-col',
+  'md:flex-row md:space-x-12 pb-12 md:py-12',
+];
 
 export const Header = ['px-4 py-12', 'md:p-0'];
 
