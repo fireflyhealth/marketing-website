@@ -17,6 +17,10 @@ type Props = {
 export const BarGraph: FC<Props> = ({ barGraph }) => {
   const { barOne, barTwo } = barGraph;
 
+  // store calculated height and width of smaller bar
+  const [barHeight, setBarHeight] = useState<number>(0);
+  const [barWidth, setBarWidth] = useState<number>(0);
+
   // bar graph sizing is based on the taller bar.
   // we use barOneIsTaller to determine if we calculate
   // size based on barOne or barTwo.
@@ -28,21 +32,13 @@ export const BarGraph: FC<Props> = ({ barGraph }) => {
   const barOneSize = Math.round(350 * (barOne.unit / barTwo.unit));
   const barTwoSize = Math.round(350 * (barTwo.unit / barOne.unit));
 
-  // Tailwind compiles styles at compile time
-  // so we handle dynamic sizing with root variables.
   useEffect(() => {
     if (barOneIsTaller) {
-      document.documentElement.style.setProperty(
-        '--bar-graph-height',
-        `${barTwoSize}px`,
-      );
+      setBarHeight(barTwoSize);
     } else {
-      document.documentElement.style.setProperty(
-        '--bar-graph-height',
-        `${barOneSize}px`,
-      );
+      setBarHeight(barOneSize);
     }
-  }, [barTwoSize]);
+  }, [barOneIsTaller, barOneSize, barTwoSize]);
 
   useEffect(() => {
     if (!barOneRef.current || !barTwoRef.current) return;
@@ -58,30 +54,44 @@ export const BarGraph: FC<Props> = ({ barGraph }) => {
     );
 
     if (barOneIsTaller) {
-      document.documentElement.style.setProperty(
-        '--bar-graph-width',
-        `${newBarTwoWidth}px`,
-      );
+      setBarWidth(newBarTwoWidth);
     } else {
-      document.documentElement.style.setProperty(
-        '--bar-graph-width',
-        `${newBarOneWidth}px`,
-      );
+      setBarWidth(newBarOneWidth);
     }
-  }, [barOneRef, barOne, barTwo]);
+  }, [barOneRef, barOneIsTaller, barOne, barTwo]);
+
   return (
     <div className={cn(Wrapper)}>
       <div className={cn(BarItem)}>
         <div className={cn(BarOneUnit, 'hidden lg:block lg:mb-3')}>
           {barOne.unit}%
         </div>
+        {/* Tailwind compiles styles at compile time so we use TW classes to show and hide each bar item for mobile and desktop breakpoints. */}
+        {/* We set dynamic height and width values inside the style attribute. */}
+        {/* Height is set for bar items shown on desktop. */}
+        {/* Width is set for bar items shown on mobile. */}
+
+        {/* Desktop - controls Height of bar */}
         <div
           ref={barOneRef}
-          className={cn(Bar, 'bg-yellow', {
-            'w-full h-full lg:h-[350px]': barOneIsTaller,
-            'min-w-[30%] w-bar-graph-width lg:w-full lg:h-bar-graph-height lg:min-h-[56px]':
-              !barOneIsTaller,
-          })}
+          className={cn(Bar, 'bg-yellow w-full hidden lg:block')}
+          style={{
+            height: `${!barOneIsTaller ? `${barHeight}px` : '350px'}`,
+            minHeight: `${!barOneIsTaller ? '56px' : 'unset'}`,
+          }}
+        >
+          <p className={cn(Description)}>{barOne.description}</p>
+          <div className={cn(BarOneUnit, 'lg:hidden')}>{barOne.unit}%</div>
+        </div>
+
+        {/* Mobile - controls width of bar */}
+        <div
+          ref={barOneRef}
+          className={cn(Bar, 'bg-yellow h-full block lg:hidden')}
+          style={{
+            width: `${!barOneIsTaller ? `${barWidth}px` : '100%'}`,
+            minWidth: `${!barOneIsTaller ? '40%' : 'unset'}`,
+          }}
         >
           <p className={cn(Description)}>{barOne.description}</p>
           <div className={cn(BarOneUnit, 'lg:hidden')}>{barOne.unit}%</div>
@@ -91,13 +101,32 @@ export const BarGraph: FC<Props> = ({ barGraph }) => {
         <div className={cn(BarTwoUnit, 'hidden lg:block lg:mb-3')}>
           {barTwo.unit}%
         </div>
+        {/* Tailwind compiles styles at compile time so we use TW classes to show and hide each bar item for mobile and desktop breakpoints. */}
+        {/* We set dynamic height and width values inside the style attribute. */}
+        {/* Height is set for bar items shown on desktop. */}
+        {/* Width is set for bar items shown on mobile. */}
+
+        {/* Desktop - controls height of bar */}
         <div
           ref={barTwoRef}
-          className={cn(Bar, 'bg-grey-medium', {
-            'w-full h-full lg:h-[350px]': !barOneIsTaller,
-            'min-w-[30%] w-bar-graph-width lg:w-full lg:h-bar-graph-height lg:min-h-[56px]':
-              barOneIsTaller,
-          })}
+          className={cn(Bar, 'bg-grey-medium w-full hidden lg:block')}
+          style={{
+            height: `${barOneIsTaller ? `${barHeight}px` : '350px'}`,
+            minHeight: `${barOneIsTaller ? '56px' : 'unset'}`,
+          }}
+        >
+          <p className={cn(Description, 'opacity-70')}>{barTwo.description}</p>
+          <div className={cn(BarTwoUnit, 'lg:hidden')}>{barTwo.unit}%</div>
+        </div>
+
+        {/* Mobile - controls width of bar */}
+        <div
+          ref={barTwoRef}
+          className={cn(Bar, 'bg-grey-medium h-full block lg:hidden')}
+          style={{
+            width: `${barOneIsTaller ? `${barWidth}px` : '100%'}`,
+            minWidth: `${barOneIsTaller ? '40%' : 'unset'}`,
+          }}
         >
           <p className={cn(Description, 'opacity-70')}>{barTwo.description}</p>
           <div className={cn(BarTwoUnit, 'lg:hidden')}>{barTwo.unit}%</div>
