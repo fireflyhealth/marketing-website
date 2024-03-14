@@ -135,7 +135,7 @@ export const homepage = {
   streamPreview(previewToken: string, callback: (homepage: Homepage) => void) {
     return createPreviewClient(previewToken)
       .listen(
-        `*[_type == "homepage" && _id == "${HOMEPAGE_DRAFT_DOCUMENT_ID}"][0]{${pageFragment}}`,
+        `*[_type == "homepage" && _id == "${HOMEPAGE_DRAFT_DOCUMENT_ID}"][0]`,
         {},
         { visibility: 'query' },
       )
