@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react';
+import React, { FC, useEffect, useRef, useState } from 'react';
 import cn from 'classnames';
 import {
   DrawerListItem as DrawerListItemType,
@@ -37,6 +37,15 @@ export const DrawerListItem: FC<DrawerListItemProps> = ({
   index,
   drawerListItem,
 }) => {
+  const innerContentRef = useRef<HTMLDivElement>(null);
+  const [expandedContentHeight, setExpandedContentHeight] = useState<
+    string | number
+  >(
+    /* Set the initial state to 'auto' if isExpanded is true upon first render.
+     * The effect below will set this to a number (which will match the natural height)
+     * when it first runs. */
+    isExpanded ? 'auto' : 0,
+  );
   const { title, body, ctaLink, featuredImage, theme, backgroundImage } =
     drawerListItem;
   const linkButtonId = filterMaybes([
@@ -47,6 +56,16 @@ export const DrawerListItem: FC<DrawerListItemProps> = ({
   ])
     .map(slugify)
     .join('-');
+
+  useEffect(() => {
+    if (isExpanded) {
+      if (!innerContentRef.current) return;
+      const innerContentHeight = innerContentRef.current.offsetHeight;
+      setExpandedContentHeight(innerContentHeight);
+    } else {
+      setExpandedContentHeight(0);
+    }
+  }, [isExpanded]);
   return (
     <Theme theme={theme}>
       <div
@@ -78,10 +97,7 @@ export const DrawerListItem: FC<DrawerListItemProps> = ({
             />
           </div>
         ) : null}
-        <div
-          className={cn('relative z-[20]', isExpanded ? 'hidden' : '')}
-          aria-hidden={isExpanded}
-        >
+        <div className="relative z-[20]" aria-hidden={isExpanded}>
           <button
             onClick={expand}
             disabled={isExpanded}
@@ -94,18 +110,31 @@ export const DrawerListItem: FC<DrawerListItemProps> = ({
 
         <div
           aria-hidden={!isExpanded}
-          className={cn(
-            isExpanded
-              ? 'grid grid-cols-1 gap-12 lg:grid-cols-2 md:pb-6 relative z-[20]'
-              : 'opacity-0 h-0',
-            Boolean(backgroundImage && isExpanded)
-              ? 'min-h-[450px] md:min-h-[600px]'
-              : '',
-          )}
+          className={cn(isExpanded ? '' : 'pointer-events-none')}
+          style={{
+            transition: 'height 0.3s ease',
+            /* We cannot transition between height: 0 and height: auto,
+             * so we need to set an explicit number height for the animation.
+             * The effect above will calculate the height of the inner content
+             * when the item is expanded, and then apply that number to this
+             * wrapping div, animating from 0px to <some-number>px. */
+            height: expandedContentHeight,
+          }}
         >
-          <div>
-            <h3 className="font-size-5 font-trust pb-5">{title}</h3>
-            <div className={isExpanded ? 'block' : 'hidden'}>
+          <div
+            ref={innerContentRef}
+            style={{
+              transition: 'opacity 0.3s ease',
+            }}
+            className={cn(
+              'grid grid-cols-1 gap-12 lg:grid-cols-2 md:pb-6 pt-5 relative z-[20]',
+              isExpanded ? '' : 'opacity-0',
+              Boolean(backgroundImage && isExpanded)
+                ? 'min-h-[450px] md:min-h-[600px]'
+                : '',
+            )}
+          >
+            <div>
               <RichText fontSize="font-size-8" content={body} />
               {ctaLink ? (
                 <div className="pt-5">
@@ -120,10 +149,10 @@ export const DrawerListItem: FC<DrawerListItemProps> = ({
                 </div>
               ) : null}
             </div>
+            {featuredImage ? (
+              <SanityImage image={featuredImage} sizes={['100vw', '50vw']} />
+            ) : null}
           </div>
-          {featuredImage ? (
-            <SanityImage image={featuredImage} sizes={['100vw', '50vw']} />
-          ) : null}
         </div>
       </div>
     </Theme>
