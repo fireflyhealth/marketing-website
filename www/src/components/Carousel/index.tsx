@@ -206,7 +206,18 @@ export const SlideContainer: FC<CarouselProps> = ({
       const diff = eventData.deltaX;
       setSlideContainerDragLeft(diff);
     },
-    onTouchEndOrOnMouseUp: () => {
+    onTouchStartOrOnMouseDown: ({ event }) => {
+      event.preventDefault();
+      // determine left or right direction based on pos/neg dragLeft
+      if (slideContainerDragLeft * -1 >= carouselThreshold) {
+        goNext();
+      } else if (slideContainerDragLeft * -1 <= -carouselThreshold) {
+        goPrev();
+      }
+      setSlideContainerDragLeft(0);
+    },
+    onTouchEndOrOnMouseUp: ({ event }) => {
+      event.preventDefault();
       // determine left or right direction based on pos/neg dragLeft
       if (slideContainerDragLeft * -1 >= carouselThreshold) {
         goNext();
