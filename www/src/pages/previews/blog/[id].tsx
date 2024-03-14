@@ -9,7 +9,7 @@ import BlogPage, { BlogPageProps } from '@/pages/blog/[blogSlug]';
 
 const BlogPreview: NextTypes.PageRoute<
   InferGetServerSidePropsType<typeof getServerSideProps>
-> = ({ blog, siteSettings, previewToken, id }) => {
+> = ({ initialArticlesPage, blog, siteSettings, previewToken, id }) => {
   const [livePage, setLivePage] = useState(blog);
   const [liveSettings, setLiveSettings] = useState(siteSettings);
 
@@ -37,7 +37,13 @@ const BlogPreview: NextTypes.PageRoute<
     };
   }, [id, previewToken]);
 
-  return <BlogPage blog={livePage} siteSettings={liveSettings} />;
+  return (
+    <BlogPage
+      blog={livePage}
+      siteSettings={liveSettings}
+      initialArticlesPage={initialArticlesPage}
+    />
+  );
 };
 
 export const getServerSideProps: GetServerSideProps<
@@ -69,6 +75,9 @@ export const getServerSideProps: GetServerSideProps<
 
     return blog;
   });
+  const initialArticlesPage = await Sanity.blog.getBlogArticles(
+    blog.slug.current,
+  );
 
   const navigationOverrides = blog.navigationOverrides;
 
@@ -77,6 +86,7 @@ export const getServerSideProps: GetServerSideProps<
       siteSettings,
       blog,
       navigationOverrides: navigationOverrides || null,
+      initialArticlesPage,
       previewToken,
       id,
     },

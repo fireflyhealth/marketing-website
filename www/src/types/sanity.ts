@@ -270,6 +270,13 @@ export type Blog = SanityDocument & {
   articleLayout: BlogArticleLayout;
 };
 
+/* Used when generating slug params. For
+ * actual page data, blog article pages
+ * are fetched separately. */
+export type BlogWithArticles = Blog & {
+  articles: BlogArticleLinkData[];
+};
+
 export type BlogArticleLayout = 'grid' | 'list';
 export type BlogLinkData = Pick<Blog, '_type' | 'slug' | 'title'>;
 

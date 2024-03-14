@@ -15,6 +15,7 @@ import {
   Image,
   RichImage,
   BlogArticlePagination,
+  BlogWithArticles,
 } from '@/types/sanity';
 import { PAGINATION_PAGE_SIZE } from '@/constants';
 import { sleep } from '@/utils/misc';
@@ -367,6 +368,7 @@ export const clientPage = {
 };
 
 /* Blogs */
+
 export const blog = {
   get: (blogSlug: string): Promise<Blog | null> =>
     client.fetch(
@@ -375,7 +377,7 @@ export const blog = {
         blogSlug,
       },
     ),
-  getSlugInfo: (): Promise<Blog[]> =>
+  getSlugInfo: (): Promise<BlogWithArticles[]> =>
     client.fetch(
       `*[_type == "blog"]{
           slug,
@@ -387,6 +389,7 @@ export const blog = {
           }
         }`,
     ),
+
   getBlogArticles: async (
     blogSlug: string,
     page: number = 0,
