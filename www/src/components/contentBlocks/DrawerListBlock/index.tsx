@@ -12,6 +12,7 @@ import { filterMaybes } from '@/utils/arrays';
 import { Theme } from '@/components/Theme';
 import { SanityImage } from '@/atoms/Image/SanityImage';
 import { ResponsiveSanityImage } from '@/atoms/Image/ResponsiveSanityImage';
+import { useWindowDimensions } from '@/hooks/useWindowDimensions';
 import { ContentBlockWrapper } from '../ContentBlockWrapper';
 
 /**
@@ -38,6 +39,7 @@ export const DrawerListItem: FC<DrawerListItemProps> = ({
   drawerListItem,
 }) => {
   const innerContentRef = useRef<HTMLDivElement>(null);
+  const windowDimensions = useWindowDimensions();
   const [expandedContentHeight, setExpandedContentHeight] = useState<
     string | number
   >(
@@ -58,6 +60,8 @@ export const DrawerListItem: FC<DrawerListItemProps> = ({
     .join('-');
 
   useEffect(() => {
+    /* Calculate and set the inner content height whenever the element
+     * is expanded or when the window is resized. */
     if (isExpanded) {
       if (!innerContentRef.current) return;
       const innerContentHeight = innerContentRef.current.offsetHeight;
@@ -65,7 +69,7 @@ export const DrawerListItem: FC<DrawerListItemProps> = ({
     } else {
       setExpandedContentHeight(0);
     }
-  }, [isExpanded]);
+  }, [isExpanded, windowDimensions]);
   return (
     <Theme theme={theme}>
       <div
