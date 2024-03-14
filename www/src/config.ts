@@ -5,7 +5,10 @@ export const config = {
   /* Will be true only on production deployments */
   isProd,
   sanity: {
-    projectId: 'xgbrv2vi',
+    /* TODO: remove this one and uncomment with the (actual) project
+     * when billing is set up on Firefly's side. */
+    projectId: '1k6agrlr',
+    // projectId: 'xgbrv2vi',
     apiVersion: '2024-01-01',
     dataset: isProd ? 'production' : 'staging',
     useCdn: isProd ? true : false,

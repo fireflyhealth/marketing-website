@@ -26,12 +26,12 @@ jobs:
       vercel-org-id: ${{ vars.VERCEL_ORG_ID }}
       directory: 'www'
 
-  deploy-cms:
-    name: Deploy CMS
-    if: github.ref == 'refs/heads/production'
-    needs: [benchmark-web]
-    uses: ./.github/workflows/deploy-sanity.yml
-    secrets:
-      sanity-auth-token: ${{ secrets.SANITY_DEPLOY_TOKEN }}
-    with:
-      directory: 'sanity'
+  # deploy-cms:
+  #   name: Deploy CMS
+  #   if: github.ref == 'refs/heads/production'
+  #   needs: [benchmark-web]
+  #   uses: ./.github/workflows/deploy-sanity.yml
+  #   secrets:
+  #     sanity-auth-token: ${{ secrets.SANITY_DEPLOY_TOKEN }}
+  #   with:
+  #     directory: 'sanity'
