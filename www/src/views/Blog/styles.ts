@@ -2,7 +2,7 @@
 export const FeaturedArticleContainer = [
   'container-padding-bleed',
   'flex flex-col',
-  'md:flex-row',
+  'lg:flex-row',
 ];
 export const FeaturedArticleImageContainer = [
   'lg:w-[calc(50%_+_3rem)] lg:mt-12',
@@ -15,7 +15,8 @@ export const FeaturedArticleTextContainer = [
 export const FeaturedArticleTextInner = [
   'theme-bg-color rounded-2xl mix-blend-multiply',
   'py-12 px-8',
-  'md:py-24 md:px-24',
+  'md:py-16 md:px-16',
+  'lg:py-24 lg:px-24',
 ];
 
 /* List View */
