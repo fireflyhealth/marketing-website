@@ -74,10 +74,11 @@ export const DrawerListItem: FC<DrawerListItemProps> = ({
     <Theme theme={theme}>
       <div
         className={cn(
-          'p-6 md:p-12 relative rounded-lg z-[10] overflow-hidden theme-bg-color',
+          'relative rounded-lg z-[10] overflow-hidden theme-bg-color',
           /* All list items except the last have extra padding at the
            * bottom to account for sibling overlap */
-          isLast ? 'pb-6 md:pb-12' : 'pb-16 md:pb-24',
+          isLast ? '' : 'pb-[2.5rem] md:pb-[3.5rem]',
+          // isLast ? 'pb-6 md:pb-12' : 'pb-16 md:pb-24',
           /* All list items except the first are nudged up to overlap
            * extra bottom padding on the previous card */
           isFirst ? '' : 'mt-[-2.5rem] md:mt-[-3.5rem]',
@@ -92,7 +93,7 @@ export const DrawerListItem: FC<DrawerListItemProps> = ({
                * this height accounts for that plus padding. It must be set
                * explicitly to avoid the position of the background image
                * shifting when the drawer is open. */
-              'h-[550px] md:h-[744px]',
+              'h-[600px] md:h-[744px]',
             )}
           >
             <ResponsiveSanityImage
@@ -105,10 +106,12 @@ export const DrawerListItem: FC<DrawerListItemProps> = ({
           <button
             onClick={expand}
             disabled={isExpanded}
-            className="text-left"
+            className="text-left w-full"
             aria-label={`Expand drawer ${index}: ${title}`}
           >
-            <h3 className="font-size-5 font-trust">{title}</h3>
+            <div className="p-6 md:p-9 lg:p-12">
+              <h3 className="font-size-5 font-trust leading-[1em]">{title}</h3>
+            </div>
           </button>
         </div>
 
@@ -131,7 +134,10 @@ export const DrawerListItem: FC<DrawerListItemProps> = ({
               transition: 'opacity 0.3s ease',
             }}
             className={cn(
-              'grid grid-cols-1 gap-12 lg:grid-cols-2 md:pb-6 pt-5 relative z-[20]',
+              'grid grid-cols-1 gap-12 lg:grid-cols-2',
+              'p-6 pt-0 relative z-[20]',
+              'md:p-9 md:pt-0',
+              'lg:p-12 lg:pt-0',
               isExpanded ? '' : 'opacity-0',
               Boolean(backgroundImage && isExpanded)
                 ? 'min-h-[450px] md:min-h-[600px]'
