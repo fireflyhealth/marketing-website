@@ -1,8 +1,8 @@
 import React, { FC } from 'react';
+import cn from 'classnames';
 import { ImageBlock as ImageBlockType } from '@/types/sanity';
 import { SanityImage } from '@/atoms/Image/SanityImage';
 import { ContentBlockWrapper } from '../ContentBlockWrapper';
-import cn from 'classnames';
 
 type ImageBlockProps = {
   imageBlock: ImageBlockType;
