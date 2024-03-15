@@ -517,8 +517,9 @@ const twoUpObjectFragment = `
 
 export const reviewFragment = `
   ...,
-  review[]{${simpleRichTextFragment}},
-  logo{${imageFragment}}
+  reviewQuote{
+    ${quoteObjectFragment}
+  }
 `;
 
 export const reviewBlockFragmnet = `
@@ -685,15 +686,8 @@ const drawerListBlockFragment = `
   drawerListItems[]{${drawerListItem}}
 `;
 
-export const testimonialItemFragment = `
-  ...,
-  image{${imageFragment}},
-  testimonial[]{${simpleRichTextFragment}},
-  description[]{${simpleRichTextFragment}}
-`;
-
 export const testimonialBlockFragment = `
-  testimonials[]{${testimonialItemFragment}}
+  testimonials[]{${quoteObjectFragment}}
 `;
 
 export const dividerBlockFragment = `

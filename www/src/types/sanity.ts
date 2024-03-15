@@ -874,13 +874,8 @@ export type ReviewItem = {
   _key: string;
   starRating: number;
   title: string;
-  review: SimpleRichText;
-  reviewer: {
-    name: string;
-    age: Maybe<number>;
-  };
+  reviewQuote: QuoteObject;
   date: string;
-  logo: Maybe<RichImage>;
 };
 
 export type ReviewBlock = ContentBlockCommon & {
@@ -966,16 +961,7 @@ export type ContentBlockRichText = {
   body: RichText;
 };
 
-export type TestimonialItem = {
-  _type: 'testimonialItem';
-  image: Maybe<RichImage>;
-  testimonial: SimpleRichText;
-  name: string;
-  age: Maybe<number>;
-  description: Maybe<SimpleRichText>;
-};
-
 export type TestimonialBlock = ContentBlockCommon & {
   _type: 'testimonialBlock';
-  testimonials: KeyedArray<TestimonialItem>;
+  testimonials: KeyedArray<QuoteObject>;
 };

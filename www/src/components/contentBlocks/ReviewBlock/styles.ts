@@ -1,9 +1,10 @@
 export const Wrapper = [
-  'flex flex-col',
-  'md:flex-row md:space-x-12 pb-12 md:py-12',
+  'block',
+  'md:grid md:grid-cols-2 md:gap-x-2 pb-12 md:py-12',
+  'lg:grid-cols-[500px_1fr]',
 ];
 
-export const Header = ['px-4 py-12', 'md:p-0'];
+export const Header = ['px-4 py-12 flex-1', 'md:p-0'];
 
 export const Title = ['font-trust font-size-4 theme-text-color-primary'];
 
