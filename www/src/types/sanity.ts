@@ -811,9 +811,9 @@ export type PractitionersBlock = ContentBlockCommon & {
 export type ImageTextOverlapBlock = ContentBlockCommon & {
   _type: 'imageTextOverlapBlock';
   image: RichImage;
-  copy: {
+  copy?: Maybe<{
     body: RichText;
-  };
+  }>;
 };
 
 export type QuoteAttribution = {
