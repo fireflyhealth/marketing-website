@@ -1,9 +1,44 @@
 import { FC, useState, useMemo, useEffect } from 'react';
-import { SanityDocument, SchemaType } from 'sanity';
+import { DocumentPluginOptions, SanityDocument, SchemaType } from 'sanity';
 import { useSecrets, SettingsView } from '@sanity/studio-secrets';
 
 import * as Config from './config';
+import { API_VERSION, linkableDocumentTypes } from './constants';
+import { PREVIEW_BASE_URL } from './config';
+import { filterMaybes } from './utils';
 
+/**
+ * Used on sanity.config.ts to populate the "Open Preview" button
+ * in the document's three-dot menu
+ */
+
+// type Context
+export const resolveProductionUrl: DocumentPluginOptions['productionUrl'] =
+  async (_, context) => {
+    const { document, getClient } = context;
+    const client = getClient({ apiVersion: API_VERSION });
+    const secrets = await client.fetch(
+      `*[_id == "secrets.${SECRETS_NAMESPACE}"][0]`,
+    );
+    const previewToken = secrets.secrets[SANITY_PREVIEW_TOKEN_KEY];
+    if (!previewToken) {
+      console.warn('Could not fetch preview token from secrets');
+      return;
+    }
+    /* If this document type is not previewable, return nothing */
+    if (!linkableDocumentTypes.includes(document._type)) {
+      return;
+    }
+
+    return filterMaybes([
+      PREVIEW_BASE_URL,
+      getTypeSegment(document._type),
+      getIdSegment(document),
+    ])
+      .join('')
+      .concat(`?sanityPreviewToken=${previewToken}`);
+    //
+  };
 /*
 Copied from type { UserViewComponent } from 'sanity/desk';
 */
@@ -16,6 +51,22 @@ type Props = {
   };
   documentId: string;
   schemaType: SchemaType;
+};
+
+const getIdSegment = (document: {
+  _type: string;
+  _id: string;
+}): string | null => {
+  switch (document._type) {
+    case 'homepage':
+    case 'downloadPage':
+    case 'contactPage':
+    case 'notFoundPage':
+    case 'faqPage':
+      return null;
+    default:
+      return `/${document._id}`;
+  }
 };
 
 export const getTypeSegment = (documentType: string | undefined) => {
@@ -36,9 +87,9 @@ export const getTypeSegment = (documentType: string | undefined) => {
 // which technically stores the token in a private Sanity document,
 // so it's not exposed to the public in the JavaScript bundle of the deployed Studio.
 // We can also update the token directly in Sanity.
-export const SECRETS_NAMESPACE = 'sanityPreview';
-export const SANITY_PREVIEW_TOKEN_KEY = 'preview_token';
-export const SECRETS_KEYS = [
+const SECRETS_NAMESPACE = 'sanityPreview';
+const SANITY_PREVIEW_TOKEN_KEY = 'preview_token';
+const SECRETS_KEYS = [
   {
     key: SANITY_PREVIEW_TOKEN_KEY,
     title: 'Sanity Preview Token',
