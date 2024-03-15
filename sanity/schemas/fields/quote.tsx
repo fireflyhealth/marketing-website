@@ -29,6 +29,12 @@ export const Quote = defineType({
       description: 'Appears in Rich Text and 2-up blocks',
     }),
     defineField({
+      name: 'eyebrow',
+      title: 'Eyebrow',
+      type: 'string',
+      description: 'Appears in Rich Text and 2-up blocks',
+    }),
+    defineField({
       name: 'quote',
       title: 'Quote',
       type: 'text',
