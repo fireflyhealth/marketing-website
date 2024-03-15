@@ -62,7 +62,6 @@ export const ReviewItem = defineType({
       name: 'review',
       title: 'Review',
       type: 'simpleRichText',
-      validation: (Rule) => Rule.required(),
     }),
     defineField({
       /* Deprecated: OK to remove after #237 is merged */
@@ -75,7 +74,6 @@ export const ReviewItem = defineType({
           name: 'name',
           title: 'Name',
           type: 'string',
-          validation: (Rule) => Rule.required(),
         }),
         defineField({
           name: 'age',
@@ -103,12 +101,20 @@ export const ReviewItem = defineType({
   preview: {
     select: {
       title: 'title',
-      subtitle: 'reviewer.name',
+      reviewQuote: 'reviewQuote',
+      badgeImage: 'badgeImage',
     },
-    prepare: ({ title, subtitle }) => ({
-      title,
-      subtitle,
-    }),
+    prepare: ({ title, reviewQuote, badgeImage }) => {
+      const attribution = reviewQuote.attribution;
+      const subtitle = [attribution.label, attribution.labelSubtitle]
+        .filter(Boolean)
+        .join(' - ');
+      return {
+        title,
+        subtitle,
+        media: badgeImage,
+      };
+    },
   },
 });
 

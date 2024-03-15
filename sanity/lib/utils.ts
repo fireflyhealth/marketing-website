@@ -1,3 +1,6 @@
+import { ValidationContext } from 'sanity';
+import { Maybe } from './types';
+
 /**
  * Converts camelCase text into Sentence Case
  * (actually all uppercase words sentence case)
@@ -55,3 +58,69 @@ export const formatSanityDate = (date: string) => {
     day: 'numeric',
   });
 };
+
+type ReducerValue = {
+  target: any | null;
+  currentItem: Record<string, any>;
+};
+
+type Field = any;
+
+/**
+ * Used within validators.
+ *
+ * NOTE: if this feature request is ever fulfilled, we can use
+ * this to conditionally hide fields -> https://github.com/sanity-io/sanity/issues/6018
+ *
+ * Gets the nearest ancestor of the provided type.
+ */
+const getAncestorOfType = (
+  context: ValidationContext,
+  ancestorType: string,
+): Field | null => {
+  const { path, document } = context;
+  if (!path || !document) return null;
+  const parentBlock = path.reduce<ReducerValue>(
+    ({ target, currentItem }, path) => {
+      const value =
+        typeof path === 'string'
+          ? currentItem[path]
+          : // @ts-ignore
+            currentItem.find((items: any) => items._key === path._key);
+
+      if (
+        typeof value !== 'string' &&
+        typeof value !== 'number' &&
+        typeof value !== 'boolean' &&
+        value &&
+        '_type' in value &&
+        value._type === ancestorType
+      ) {
+        return {
+          target: value,
+          currentItem: value,
+        };
+      }
+      return {
+        target,
+        currentItem: value,
+      };
+    },
+    { target: null, currentItem: document },
+  );
+  return parentBlock.target;
+};
+
+/**
+ * Used within validators.
+ *
+ * NOTE: if this feature request is ever fulfilled, we can use
+ * this to conditionally hide fields -> https://github.com/sanity-io/sanity/issues/6018
+ *
+ * Determine if the current field has an ancestor of the provided type.
+ */
+
+export const hasAncestorOfType = (
+  context: ValidationContext,
+  ancestorType: string,
+) => Boolean(getAncestorOfType(context, ancestorType));

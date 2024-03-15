@@ -1,5 +1,6 @@
 import { defineType, defineField } from 'sanity';
 import { icons } from '../../lib/icons';
+import { hasAncestorOfType } from '../../lib/utils';
 
 export const Quote = defineType({
   name: 'quoteObject',
@@ -12,6 +13,14 @@ export const Quote = defineType({
       title: 'Badge/Logo Image',
       description: 'Appears in Review Blocks and Rich Text blocks',
       type: 'richImage',
+      validation: (Rule) =>
+        Rule.custom((value, context) => {
+          const isWithinReviewBlock = hasAncestorOfType(context, 'reviewBlock');
+          if (!value && isWithinReviewBlock) {
+            return 'Required in Review Blocks';
+          }
+          return true;
+        }),
     }),
     defineField({
       name: 'icon',
