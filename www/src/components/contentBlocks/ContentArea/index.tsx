@@ -4,7 +4,6 @@ import { filterMaybes } from '@/utils/arrays';
 
 import { ImageBlock } from '../ImageBlock';
 import { ImageCarouselBlock } from '../ImageCarouselBlock';
-import { CTACardsBlock } from '../CTACardsBlock';
 import { PractitionersBlock } from '../PractitionersBlock';
 import { ImageTextOverlapBlock } from '../ImageTextOverlapBlock';
 import { QuoteBlock } from '../QuoteBlock';
@@ -33,8 +32,6 @@ const ContentBlock: FC<ContentBlockProps> = ({ block }) => {
       return <ImageBlock imageBlock={block} />;
     case 'imageCarouselBlock':
       return <ImageCarouselBlock imageCarouselBlock={block} />;
-    case 'ctaCardsBlock':
-      return <CTACardsBlock ctaCardsBlock={block} />;
     case 'practitionersBlock':
       return <PractitionersBlock practitionersBlock={block} />;
     case 'imageTextOverlapBlock':

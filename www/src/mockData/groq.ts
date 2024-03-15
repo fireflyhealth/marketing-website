@@ -20,7 +20,6 @@ export const mockDataQuery = `
         _key,
         ${contentBlockFragment}
       },
-      ctaCardsBlock{${contentBlockFragment}},
       cardListBlockExample{${contentBlockFragment}},
       doubleCtaBlockExample{${contentBlockFragment}},
       drawerListBlock{${contentBlockFragment}},

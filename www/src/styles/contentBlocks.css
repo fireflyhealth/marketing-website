@@ -5,7 +5,7 @@
 @import 'contentBlocks/OverlapDoubleImages.css';
 @import 'contentBlocks/TextWithDualCtaHeader.css';
 
-.CTACardsBlock {
+.CTACard {
   figure {
     position: relative;
   }
@@ -82,8 +82,7 @@
   }
 }
 
-.ColumnsBlock,
-.CTACardsBlock {
+.ColumnsBlock {
   .ChildBlockWrapper {
     height: 100%;
   }

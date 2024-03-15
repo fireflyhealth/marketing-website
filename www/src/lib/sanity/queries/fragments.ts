@@ -656,21 +656,6 @@ const imageCarouselBlockFragment = `
   }
 `;
 
-const ctaCardsBlockFragment = `
-  ctaCards[]{
-    ...,
-    image {
-      ${imageFragment}
-    },
-    cta {
-      ${ctaFragment}
-    },
-    body[]{
-      ${simpleRichTextFragment}
-    }
-  }
-`;
-
 const doubleCtaBlockFragment = `
   _type,
   doubleCta{${doubleCtaFragment}},
@@ -702,7 +687,6 @@ export const contentBlockFragment = `
   header{${contentBlockHeaderFragment}},
   _type == "cardListBlock" => {${cardlistBlockFragment}},
   _type == "columnsBlock" => {${columnsObjectFragment}},
-  _type == "ctaCardsBlock" => {${ctaCardsBlockFragment}},
   _type == "dividerBlock" => {${dividerBlockFragment}},
   _type == "doubleCtaBlock" => {${doubleCtaBlockFragment}},
   _type == "drawerListBlock" => {${drawerListBlockFragment}},

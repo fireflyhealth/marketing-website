@@ -701,7 +701,6 @@ export type DividerBlock = {
 export type ContentBlock =
   | ImageBlock
   | ImageCarouselBlock
-  | CTACardsBlock
   | PractitionersBlock
   | ImageTextOverlapBlock
   | QuoteBlock
@@ -776,11 +775,6 @@ export type CTACard = {
   title: string;
   cta: CTA;
   body?: Maybe<SimpleRichText>;
-};
-
-export type CTACardsBlock = ContentBlockCommon & {
-  _type: 'ctaCardsBlock';
-  ctaCards: KeyedArray<CTACard>;
 };
 
 export type DoubleCtaBlock = ContentBlockCommon & {

@@ -9,7 +9,6 @@ import {
   ImageCarouselBlock,
   Video,
   VideoHeader,
-  CTACardsBlock,
   DoubleCtaBlock,
   PractitionersBlock,
   ImageTextOverlapBlock,
@@ -47,8 +46,6 @@ export const imageBlockExample = mockData.contentBlockExamples
   .imageBlock as ImageBlock;
 export const imageCarouselBlockExample = mockData.contentBlockExamples
   .imageCarouselBlock as ImageCarouselBlock;
-export const ctaCardsBlockExample = mockData.contentBlockExamples
-  .ctaCardsBlock as CTACardsBlock;
 export const doubleCtaBlock = mockData.contentBlockExamples
   .doubleCtaBlockExample as DoubleCtaBlock;
 
