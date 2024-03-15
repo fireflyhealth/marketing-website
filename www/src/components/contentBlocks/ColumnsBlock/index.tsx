@@ -18,7 +18,7 @@ export const ColumnsObject: FC<ColumnsObjectProps> = ({ columnsObject }) => {
     <Theme theme={theme}>
       <div
         className={cn(
-          'grid gap-y-12',
+          'grid gap-y-12 my-12',
           getColumnCountClassName(columnCount),
           'md:gap-y-24 md:gap-x-12',
           theme == ColorTheme.White

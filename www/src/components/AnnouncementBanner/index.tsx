@@ -1,6 +1,7 @@
-import { FC, useEffect, useRef, useState } from 'react';
+import { FC } from 'react';
 import cn from 'classnames';
 import * as SanityTypes from '@/types/sanity';
+import { RichText } from '../RichText';
 import { Wrapper } from './styles';
 
 export type Props = {
@@ -8,11 +9,21 @@ export type Props = {
 };
 
 export const AnnouncementBanner: FC<Props> = ({ announcementBanner }) => {
+  const { text } = announcementBanner;
+
   return (
     <>
-      {announcementBanner && (
+      {announcementBanner && text && (
         <div className={cn(Wrapper)}>
-          <p>{announcementBanner.body}</p>
+          {text && (
+            <RichText
+              content={text}
+              className="text-center font-trust"
+              textColor="text-yellow-light"
+              fontSize="font-size-9"
+              alignCenter
+            />
+          )}
         </div>
       )}
     </>

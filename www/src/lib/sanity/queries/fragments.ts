@@ -686,6 +686,10 @@ export const testimonialBlockFragment = `
   testimonials[]{${testimonialItemFragment}}
 `;
 
+export const dividerBlockFragment = `
+  ...
+`;
+
 /* Please keep this alphabetized! */
 export const contentBlockFragment = `
   _type,
@@ -695,6 +699,7 @@ export const contentBlockFragment = `
   _type == "cardListBlock" => {${cardlistBlockFragment}},
   _type == "columnsBlock" => {${columnsObjectFragment}},
   _type == "ctaCardsBlock" => {${ctaCardsBlockFragment}},
+  _type == "dividerBlock" => {${dividerBlockFragment}},
   _type == "doubleCtaBlock" => {${doubleCtaBlockFragment}},
   _type == "drawerListBlock" => {${drawerListBlockFragment}},
   _type == "faqBlock" => {${faqBlockFragment}},
@@ -710,7 +715,7 @@ export const contentBlockFragment = `
   _type == "sequenceBlock" => {${sequenceBlockFragment}},
   _type == "tabsBlock" => {${tabsBlockFragment}},
   _type == "testimonialBlock" => {${testimonialBlockFragment}},
-  _type == "twoUpBlock" => {${twoUpBlockFragment}},
+  _type == "twoUpBlock" => {${twoUpBlockFragment}}
 `;
 
 export const videoHeaderFragment = `
@@ -844,6 +849,8 @@ export const navigationOverridesFragment = `
   pageNavigation->{${navigationFragment}},
   announcementBanner{
     _type,
-    body,
+    text[]{
+      ${simpleRichTextFragment}
+    }
   },
-  `;
+`;

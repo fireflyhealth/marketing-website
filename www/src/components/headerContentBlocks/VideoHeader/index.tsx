@@ -1,6 +1,7 @@
 import { FC } from 'react';
 import cn from 'classnames';
 import * as SanityTypes from '@/types/sanity';
+import { ColorTheme, Theme } from '@/components/Theme';
 import { Video } from '../../Video';
 import { Wrapper } from './styles';
 
@@ -9,16 +10,18 @@ type Props = {
 };
 
 export const VideoHeader: FC<Props> = ({ videoHeader }) => {
-  const { video, eyebrow, heading, body } = videoHeader;
+  const { video, eyebrow, heading, body, theme } = videoHeader;
 
   return (
-    <div className={cn(Wrapper)}>
-      <Video
-        video={video}
-        posterSizes={['93vw']}
-        showTitleCard
-        titleCardProps={{ eyebrow, heading, body }}
-      />
-    </div>
+    <Theme theme={theme || ColorTheme.Sienna}>
+      <div className={cn(Wrapper)}>
+        <Video
+          video={video}
+          posterSizes={['93vw']}
+          showTitleCard
+          titleCardProps={{ eyebrow, heading, body }}
+        />
+      </div>
+    </Theme>
   );
 };

@@ -51,6 +51,7 @@ import { ImageGridBlock } from './blocks/imageGridBlock';
 import { CardListBlock } from './blocks/cardListBlock';
 import { TabsBlock, TabsBlockTab } from './blocks/tabsBlock';
 import { TestimonialBlock, TestimonalItem } from './blocks/testimonalBlock';
+import { DividerBlock } from './blocks/dividerBlock';
 
 /* Fields */
 import { Metadata } from './fields/metadata';
@@ -147,6 +148,8 @@ export const schemaTypes = [
   TabsBlock,
   TabsBlockTab,
   TestimonialBlock,
+  /* Divider block does not have heading */
+  DividerBlock,
 
   /* Child blocks (used within other blocks, i.e. 2-up block) */
   ChildContentBlock,

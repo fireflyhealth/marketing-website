@@ -22,7 +22,9 @@ export const siteSettingsFragment = `
   },
   globalAnnouncementBanner{
     _type,
-    body,
+    text[]{
+      ${simpleRichTextFragment}
+    }
   },
   globalDoubleCta{${doubleCtaFragment}},
   footer {

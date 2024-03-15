@@ -6,10 +6,9 @@ export const AnnouncementBanner = defineType({
   type: 'object',
   fields: [
     defineField({
-      name: 'body',
+      name: 'text',
       title: 'Announcement Text',
-      type: 'text',
-      rows: 3,
+      type: 'simpleRichText',
     }),
   ],
 });

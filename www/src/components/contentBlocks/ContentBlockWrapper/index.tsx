@@ -34,6 +34,7 @@ export const ContentBlockHeader: FC<ContentBlockHeaderProps> = ({ header }) => {
             <RichText
               fontSize={cn('font-size-6--quote')}
               content={description}
+              textColor="theme-text-color-secondary"
             />
           </div>
         ) : null}
@@ -53,6 +54,8 @@ type ContentBlockWrapperProps = {
   children: React.ReactNode;
   id: Maybe<string>;
   background?: React.ReactNode;
+  wrapperPadding?: boolean;
+  removeBetweenComponentMargin?: boolean;
 };
 
 export const ContentBlockWrapper: FC<ContentBlockWrapperProps> = ({
@@ -60,12 +63,19 @@ export const ContentBlockWrapper: FC<ContentBlockWrapperProps> = ({
   children,
   id,
   background,
+  wrapperPadding = true,
+  removeBetweenComponentMargin = false,
 }) => {
   const cta = header?.cta && header?.cta?.label ? header.cta : null;
   const headerHasContent = header?.title || header?.description || cta;
 
   return (
-    <div id={id || undefined} className={cn(ContentBlockContainer)}>
+    <div
+      id={id || undefined}
+      className={cn(wrapperPadding ? ContentBlockContainer : '', {
+        'remove-between-component-margin': removeBetweenComponentMargin,
+      })}
+    >
       {background ? background : null}
       {header && headerHasContent ? (
         <ContentBlockHeader header={header} />

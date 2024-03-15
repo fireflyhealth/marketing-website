@@ -74,10 +74,14 @@ export const SubnavContainer: FC<{
   );
 };
 
-export const Subnav: FC<{ subnav: SubnavItem[] }> = ({ subnav }) => {
+export const Subnav: FC<{ subnav?: Maybe<SubnavItem[]> }> = ({ subnav }) => {
   const [subnavRect, subnavRef] = useRect();
   const hash = useHash();
   const { bottom, top } = subnavRect || {};
+
+  if (!subnav || subnav.length === 0) {
+    return null;
+  }
 
   return (
     <>

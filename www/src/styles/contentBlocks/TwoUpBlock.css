@@ -1,3 +1,9 @@
+.TwoUpBlock {
+  @screen lg {
+    margin: theme(spacing.12) 0;
+  }
+}
+
 .TwoUpBlock--layout-normal-50-50,
 .TwoUpBlock--layout-normal-40-60,
 .TwoUpBlock--layout-normal-60-40 {

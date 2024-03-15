@@ -6,6 +6,13 @@ export const VideoHeader = defineType({
   type: 'object',
   fields: [
     defineField({
+      name: 'theme',
+      title: 'Theme',
+      type: 'theme',
+      initialValue: 'sienna',
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
       name: 'eyebrow',
       title: 'Eyebrow',
       type: 'string',

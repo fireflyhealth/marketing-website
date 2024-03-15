@@ -363,7 +363,7 @@ export type NavigationOverrides = {
 
 export type AnnouncementBanner = {
   _type: 'announcementBanner';
-  body: string;
+  text: Maybe<SimpleRichText>;
 };
 
 /* An enhanced image field that includes a caption & required alt text */
@@ -553,6 +553,7 @@ export type HeaderArea = HeaderBlock;
 
 export type VideoHeader = {
   _type: 'videoHeader';
+  theme?: Maybe<ColorTheme>;
   eyebrow: string;
   heading: string;
   body: SimpleRichText;
@@ -674,6 +675,13 @@ export type QuoteChildBlock = {
   _type: 'quoteChildBlock';
   quote: QuoteObject;
 };
+
+export type DividerBlock = {
+  _type: 'dividerBlock';
+  borderTop: Maybe<boolean>;
+  borderBottom: Maybe<boolean>;
+};
+
 /**
  * Content Area Blocks
  */
@@ -697,7 +705,8 @@ export type ContentBlock =
   | ColumnsBlock
   | TabsBlock
   | RichTextBlock
-  | TestimonialBlock;
+  | TestimonialBlock
+  | DividerBlock;
 
 export type ContentArea = KeyedArray<ContentBlock>;
 
