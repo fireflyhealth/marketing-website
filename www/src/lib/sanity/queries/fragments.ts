@@ -819,6 +819,9 @@ export const footerFragment = `
     rightLinks[]{
       ${linkWithLabelFragment}
     }
+  },
+  qrCode {
+    ${qrCodeObjectFragment}
   }
 `;
 

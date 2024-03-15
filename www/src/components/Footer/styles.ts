@@ -8,7 +8,7 @@ export const FooterLogotype = ['hidden', 'md:block w-[175px] mb-16'];
 
 export const FooterQRCode = [
   'hidden',
-  'md:flex w-[180px] h-[200px] border-2 border-dashed',
+  'md:flex w-[180px]',
   'justify-center items-center',
 ];
 

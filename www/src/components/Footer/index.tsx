@@ -6,6 +6,7 @@ import { Link } from '@/atoms/Link';
 import { CTA } from '@/components/CTA';
 import { LogotypeColor } from '@/svgs/Logotype';
 import { Theme, ColorTheme } from '../Theme';
+import { QRCode } from '../QRCode';
 import {
   FooterBottomLinks,
   FooterBottomNavGroup,
@@ -24,7 +25,7 @@ type FooterProps = {
 };
 
 export const Footer: FC<FooterProps> = ({ footer }) => {
-  const { mobileCta, footerNavGroups, bottomLinks } = footer;
+  const { mobileCta, footerNavGroups, bottomLinks, qrCode } = footer;
   return (
     <Theme theme={ColorTheme.Grey}>
       <footer className={cn(FooterOuter)}>
@@ -51,7 +52,7 @@ export const Footer: FC<FooterProps> = ({ footer }) => {
               </div>
             </div>
             <div className={cn(FooterQRCode)}>
-              <span>QR Code placeholder</span>
+              <QRCode qrCode={qrCode} smallLabelSize={true} />
             </div>
           </div>
           <div className={cn(FooterBottomLinks)}>
