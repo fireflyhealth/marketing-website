@@ -6,7 +6,7 @@ import { HeaderArea } from '@/components/headerContentBlocks/HeaderArea';
 import { Subnav } from '@/components/Subnav';
 import { getSubnavItems } from '@/utils/getSubnavItems';
 
-type HomeViewProps = {
+export type HomeViewProps = {
   homepage: Homepage;
 };
 

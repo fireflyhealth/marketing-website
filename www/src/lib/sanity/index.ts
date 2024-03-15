@@ -26,6 +26,7 @@ import {
   BlogArticleLinkData,
   ClientPageLinkData,
   PractitionerLinkData,
+  LinkableDocumentType,
 } from '@/types/sanity';
 import { PAGINATION_PAGE_SIZE } from '@/constants';
 import { sleep } from '@/utils/misc';
@@ -80,6 +81,31 @@ const NOT_FOUND_DRAFT_DOCUMENT_ID = 'drafts.notFoundPage';
 const FAQ_DOCUMENT_ID = 'faqPage';
 const FAQ_DRAFT_DOCUMENT_ID = 'drafts.faqPage';
 
+/**
+ * Previews
+ */
+type PreviewQueryConfig = {
+  /* A simple query we use to listen for document changes */
+  listenQuery: string;
+  /* A query we use to fetch the whole page */
+  pageQuery: string;
+  /* Included if this query requires an $id parameter */
+  idParam?: string;
+};
+export const getPreviewQueries = (
+  type: LinkableDocumentType,
+): PreviewQueryConfig => {
+  switch (type) {
+    case 'homepage':
+      return {
+        listenQuery: `*[_type == "homepage" && _id == "${HOMEPAGE_DOCUMENT_ID}"][0] {${pageFragment}}`,
+        pageQuery: `*[_type == "homepage" && (_id == "${HOMEPAGE_DRAFT_DOCUMENT_ID}" || _id == "${HOMEPAGE_DOCUMENT_ID}")][0]{${pageFragment}}`,
+      };
+    default:
+      throw new Error('todo');
+  }
+};
+
 /* Site Settings & Navigation */
 
 export const siteSettings = {
@@ -127,6 +153,7 @@ export const homepage = {
     }
     return homepage;
   },
+
   fetchPreview(previewToken: string) {
     return createPreviewClient(previewToken).fetch<Homepage>(
       `*[_type == "homepage" && (_id == "${HOMEPAGE_DRAFT_DOCUMENT_ID}" || _id == "${HOMEPAGE_DOCUMENT_ID}")][0]{${pageFragment}}`,

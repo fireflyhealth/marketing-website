@@ -48,18 +48,6 @@ type FileAsset = {
 /* Are you updating this union? There are a number of other things
  * you will need to update. See corresponding instructions in
  * cms/schemas/constants/linkableDocuments.ts */
-export type LinkableDocument =
-  | Homepage
-  | DownloadPage
-  | ContactPage
-  | FAQPage
-  | GenericPage
-  | SubPage
-  | Blog
-  | BlogArticle
-  | ClientPage
-  | Practitioner;
-
 export type LinkableDocumentData =
   | HomepageLinkData
   | DownloadPageLinkData
@@ -71,6 +59,8 @@ export type LinkableDocumentData =
   | BlogArticleLinkData
   | ClientPageLinkData
   | PractitionerLinkData;
+
+export type LinkableDocumentType = LinkableDocumentData['_type'];
 
 /**
  * Documents
@@ -346,7 +336,7 @@ export type BlogArticlePagination = {
 export type LinkWithLabel = {
   _type: 'linkWithLabel';
   label: string;
-  link: Link | LinkableDocument;
+  link: Link | LinkableDocumentData;
 };
 
 export type LabelWithDropdown = {
