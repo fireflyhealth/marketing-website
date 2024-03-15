@@ -10,6 +10,11 @@ export const ImageBlock = defineType({
   fields: [
     ...requiredBlockFields,
     defineField({
+      name: 'alignCenter',
+      type: 'boolean',
+      title: 'Align Center',
+    }),
+    defineField({
       name: 'image',
       type: 'richImage',
       title: 'Image',

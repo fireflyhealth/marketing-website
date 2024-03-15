@@ -640,6 +640,7 @@ export const cardlistBlockFragment = `
 `;
 
 const imageBlockFragment = `
+  alignCenter,
   image {
     ${imageFragment}
   }

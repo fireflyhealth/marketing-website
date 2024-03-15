@@ -32,7 +32,7 @@ export const ContentBlockHeader: FC<ContentBlockHeaderProps> = ({ header }) => {
         {description ? (
           <div className={cn(Description)}>
             <RichText
-              fontSize={cn('font-size-6--quote')}
+              fontSize={cn('font-size-8')}
               content={description}
               textColor="theme-text-color-secondary"
             />

@@ -739,6 +739,7 @@ export type ImageBlock = {
   _type: 'imageBlock';
   subnav: Maybe<SubnavItem>;
   header: Maybe<ContentBlockHeader>;
+  alignCenter?: Maybe<boolean>;
   image: RichImage;
 };
 
