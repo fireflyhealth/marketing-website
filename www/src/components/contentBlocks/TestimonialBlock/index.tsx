@@ -20,11 +20,8 @@ export const TestimonialBlock: FC<Props> = ({ testimonialBlock }) => {
         })}
       >
         <Carousel>
-          {testimonials.map((testimonial) => (
-            <TestimonialItem
-              key={testimonial._key}
-              testimonialItem={testimonial}
-            />
+          {testimonials.map((quoteObject) => (
+            <TestimonialItem key={quoteObject._key} quoteObject={quoteObject} />
           ))}
         </Carousel>
       </div>
