@@ -12,4 +12,4 @@ export const CTAWrapper = ['hidden md:block flex items-end my-6 md:my-12'];
 
 export const ContentBlockInner = [''];
 
-export const MobileCTAWrapper = ['block pt-4 md:hidden'];
+export const MobileCTAWrapper = ['block pt-4 mb-16 md:hidden'];
