@@ -1,5 +1,6 @@
 const isProd =
   process.env.VERCEL_ENV && process.env.VERCEL_ENV === 'production';
+const forceDataset = process.env.NEXT_PUBLIC_SANITY_DATASET;
 
 export const config = {
   /* Will be true only on production deployments */
@@ -7,7 +8,7 @@ export const config = {
   sanity: {
     projectId: 'xgbrv2vi',
     apiVersion: '2024-01-01',
-    dataset: isProd ? 'production' : 'staging',
+    dataset: forceDataset || isProd ? 'production' : 'staging',
     useCdn: isProd ? true : false,
   },
   metadata: {
