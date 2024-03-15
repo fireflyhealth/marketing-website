@@ -70,3 +70,16 @@ export const Link: FC<LinkProps> = ({
     </NextLink>
   );
 };
+
+type MaybeLinkProps = Omit<LinkProps, 'link'> & {
+  link: Maybe<LinkType | LinkableDocumentData>;
+};
+
+export const MaybeLink: FC<MaybeLinkProps> = ({ link, children, ...rest }) =>
+  link ? (
+    <Link link={link} {...rest}>
+      {children}
+    </Link>
+  ) : (
+    <>{children}</>
+  );
