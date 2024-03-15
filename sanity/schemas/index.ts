@@ -35,7 +35,6 @@ import { ImageChildBlock } from './childBlocks/imageChildBlock';
 import { ContentBlockHeader } from './blocks/contentBlockHeader';
 import { ImageBlock } from './blocks/imageBlock';
 import { ImageCarouselBlock } from './blocks/imageCarouselBlock';
-import { CtaCard, CtaCardsBlock } from './blocks/ctaCardsBlock';
 import { DoubleCtaBlock } from './blocks/doubleCtaBlock';
 import { ImageTextOverlapBlock } from './blocks/imageTextOverlapBlock';
 import { QuoteBlock } from './blocks/quoteBlock';
@@ -50,7 +49,7 @@ import { ReviewBlock, ReviewItem, ReviewHeading } from './blocks/reviewBlock';
 import { ImageGridBlock } from './blocks/imageGridBlock';
 import { CardListBlock } from './blocks/cardListBlock';
 import { TabsBlock, TabsBlockTab } from './blocks/tabsBlock';
-import { TestimonialBlock, TestimonalItem } from './blocks/testimonalBlock';
+import { TestimonialBlock } from './blocks/testimonalBlock';
 import { DividerBlock } from './blocks/dividerBlock';
 
 /* Fields */
@@ -97,6 +96,7 @@ import { Icon } from './fields/icon';
 import { ColumnsBlock, ColumnsObject } from './blocks/columnsBlock';
 import { BigOrderedList } from './fields/bigOrderedList';
 import { BlogArticleTag } from './documents/blogArticleTag';
+import { CtaCard } from './fields/ctaCard';
 
 export const schemaTypes = [
   /* Document Types */
@@ -130,8 +130,6 @@ export const schemaTypes = [
   /* Default Blocks (used within ContentArea, each has a heading) */
   ImageBlock,
   ImageCarouselBlock,
-  CtaCardsBlock,
-  CtaCard,
   DoubleCtaBlock,
   PractitionersBlock,
   ImageTextOverlapBlock,
@@ -153,6 +151,7 @@ export const schemaTypes = [
   DividerBlock,
 
   /* Child blocks (used within other blocks, i.e. 2-up block) */
+  CtaCard,
   ChildContentBlock,
   RichTextChildBlock,
   QuoteChildBlock,
@@ -202,7 +201,6 @@ export const schemaTypes = [
   ReviewHeading,
   ReviewItem,
   Icon,
-  TestimonalItem,
   BlogArticleTagGroup,
   BigOrderedList,
 ];

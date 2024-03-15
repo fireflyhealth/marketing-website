@@ -79,7 +79,6 @@ export const themeOptions = [
 export const defaultContentBlockTypes = [
   { type: 'imageBlock' },
   { type: 'imageCarouselBlock' },
-  { type: 'ctaCardsBlock' },
   { type: 'doubleCtaBlock' },
   { type: 'practitionersBlock' },
   { type: 'twoUpBlock' },

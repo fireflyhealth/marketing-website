@@ -16,17 +16,23 @@ export const ImageGridBlock: FC<Props> = ({ imageGridBlock }) => {
 
   return (
     <ContentBlockWrapper id={subnav?.contentBlockId} header={header}>
-      <Theme theme={getColorTheme(theme)}>
-        <div className={cn(Wrapper)}>
-          <div className={cn(ImagesContainer)}>
-            {images.map((image) => (
-              <div key={image._key} className={cn(ImageWrapper)}>
-                <SanityImage image={image} sizes={['126px']} width={126} />
-              </div>
-            ))}
+      <div
+        className={cn('pb-4 md:pb-8 lg:pb-12', {
+          'pt-4 md:pt-8 lg:pt-12': !header,
+        })}
+      >
+        <Theme theme={getColorTheme(theme)}>
+          <div className={cn(Wrapper)}>
+            <div className={cn(ImagesContainer)}>
+              {images.map((image) => (
+                <div key={image._key} className={cn(ImageWrapper)}>
+                  <SanityImage image={image} sizes={['126px']} width={126} />
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
-      </Theme>
+        </Theme>
+      </div>
     </ContentBlockWrapper>
   );
 };

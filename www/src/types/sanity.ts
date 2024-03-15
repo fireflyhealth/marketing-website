@@ -345,6 +345,7 @@ export type LinkWithLabel = {
 export type LabelWithDropdown = {
   _type: 'labelWithDropdown';
   label: string;
+  link?: Maybe<Link | LinkableDocument>;
   subpages: KeyedArray<LinkWithLabel>;
 };
 
@@ -664,13 +665,12 @@ export type HeaderContentChildBlock = {
 
 export type RichTextChildBlock = {
   _type: 'richTextChildBlock';
-  _key: string;
-  icon: Maybe<IconBlock>;
-  image: Maybe<RichImage>;
-  heading: Maybe<string>;
+  icon?: Maybe<IconBlock>;
+  image?: Maybe<RichImage>;
+  heading?: Maybe<string>;
   headingFontSize: 'font-size-6' | 'font-size-5' | 'font-size-4';
-  alignCenter: Maybe<boolean>;
-  body: LimitedRichText;
+  alignCenter?: Maybe<boolean>;
+  body?: Maybe<LimitedRichText>;
 };
 
 export type ImageChildBlock = {
@@ -701,7 +701,6 @@ export type DividerBlock = {
 export type ContentBlock =
   | ImageBlock
   | ImageCarouselBlock
-  | CTACardsBlock
   | PractitionersBlock
   | ImageTextOverlapBlock
   | QuoteBlock
@@ -738,6 +737,7 @@ export type ImageBlock = {
   _type: 'imageBlock';
   subnav: Maybe<SubnavItem>;
   header: Maybe<ContentBlockHeader>;
+  alignCenter?: Maybe<boolean>;
   image: RichImage;
 };
 
@@ -774,11 +774,7 @@ export type CTACard = {
   image: RichImage;
   title: string;
   cta: CTA;
-};
-
-export type CTACardsBlock = ContentBlockCommon & {
-  _type: 'ctaCardsBlock';
-  ctaCards: KeyedArray<CTACard>;
+  body?: Maybe<SimpleRichText>;
 };
 
 export type DoubleCtaBlock = ContentBlockCommon & {
@@ -808,7 +804,7 @@ export type PractitionersBlock = ContentBlockCommon & {
 export type ImageTextOverlapBlock = ContentBlockCommon & {
   _type: 'imageTextOverlapBlock';
   image: RichImage;
-  copy: RichText;
+  copy?: Maybe<ContentBlockRichText>;
 };
 
 export type QuoteAttribution = {
@@ -872,13 +868,8 @@ export type ReviewItem = {
   _key: string;
   starRating: number;
   title: string;
-  review: SimpleRichText;
-  reviewer: {
-    name: string;
-    age: Maybe<number>;
-  };
+  reviewQuote: QuoteObject;
   date: string;
-  logo: Maybe<RichImage>;
 };
 
 export type ReviewBlock = ContentBlockCommon & {
@@ -919,7 +910,9 @@ export type CardListBlock = ContentBlockCommon & {
 export type RichTextBlock = ContentBlockCommon & {
   _type: 'richTextBlock';
   theme: ColorTheme;
-  richTextChildBlock: any; //RichTextChildBlock;
+  containerLayout: '50-center' | '50-left' | '80-left';
+  removeContainerSpacing?: Maybe<boolean>;
+  richTextChildBlock?: Maybe<RichTextChildBlock>;
 };
 
 /* Used as a child of the TabsBlock component */
@@ -962,16 +955,7 @@ export type ContentBlockRichText = {
   body: RichText;
 };
 
-export type TestimonialItem = {
-  _type: 'testimonialItem';
-  image: Maybe<RichImage>;
-  testimonial: SimpleRichText;
-  name: string;
-  age: Maybe<number>;
-  description: Maybe<SimpleRichText>;
-};
-
 export type TestimonialBlock = ContentBlockCommon & {
   _type: 'testimonialBlock';
-  testimonials: KeyedArray<TestimonialItem>;
+  testimonials: KeyedArray<QuoteObject>;
 };

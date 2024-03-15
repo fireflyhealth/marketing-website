@@ -487,8 +487,11 @@ export const imageTextOverlapFragment = `
   image{
     ${imageFragment}
   },
-  copy[]{
-    ${contentBlockRichTextFragment}
+  copy {
+    _type,
+    body[]{
+      ${contentBlockRichTextFragment}
+    }
   }
 `;
 
@@ -514,8 +517,9 @@ const twoUpObjectFragment = `
 
 export const reviewFragment = `
   ...,
-  review[]{${simpleRichTextFragment}},
-  logo{${imageFragment}}
+  reviewQuote{
+    ${quoteObjectFragment}
+  }
 `;
 
 export const reviewBlockFragmnet = `
@@ -534,7 +538,7 @@ const twoUpBlockFragment = `
 `;
 
 const richTextBlockFragment = `
-  theme,
+  ...,
   richTextChildBlock {
     ${richTextChildBlockFragment}
   }
@@ -640,6 +644,7 @@ export const cardlistBlockFragment = `
 `;
 
 const imageBlockFragment = `
+  alignCenter,
   image {
     ${imageFragment}
   }
@@ -648,18 +653,6 @@ const imageBlockFragment = `
 const imageCarouselBlockFragment = `
   images[]{
     ${imageFragment}
-  }
-`;
-
-const ctaCardsBlockFragment = `
-  ctaCards[]{
-    ...,
-    image {
-      ${imageFragment}
-    },
-    cta {
-      ${ctaFragment}
-    }
   }
 `;
 
@@ -678,15 +671,8 @@ const drawerListBlockFragment = `
   drawerListItems[]{${drawerListItem}}
 `;
 
-export const testimonialItemFragment = `
-  ...,
-  image{${imageFragment}},
-  testimonial[]{${simpleRichTextFragment}},
-  description[]{${simpleRichTextFragment}}
-`;
-
 export const testimonialBlockFragment = `
-  testimonials[]{${testimonialItemFragment}}
+  testimonials[]{${quoteObjectFragment}}
 `;
 
 export const dividerBlockFragment = `
@@ -701,7 +687,6 @@ export const contentBlockFragment = `
   header{${contentBlockHeaderFragment}},
   _type == "cardListBlock" => {${cardlistBlockFragment}},
   _type == "columnsBlock" => {${columnsObjectFragment}},
-  _type == "ctaCardsBlock" => {${ctaCardsBlockFragment}},
   _type == "dividerBlock" => {${dividerBlockFragment}},
   _type == "doubleCtaBlock" => {${doubleCtaBlockFragment}},
   _type == "drawerListBlock" => {${drawerListBlockFragment}},
@@ -794,6 +779,9 @@ export const navGroupFragment = `
   },
   _type == "labelWithDropdown" => {
     label,
+    link {
+      ${linkFragment}
+    },
     subpages {
       _type,
       _key,

@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+import cn from 'classnames';
 import { ImageBlock as ImageBlockType } from '@/types/sanity';
 import { SanityImage } from '@/atoms/Image/SanityImage';
 import { ContentBlockWrapper } from '../ContentBlockWrapper';
@@ -8,10 +9,16 @@ type ImageBlockProps = {
 };
 
 export const ImageBlock: FC<ImageBlockProps> = ({ imageBlock }) => {
-  const { header, image, subnav } = imageBlock;
+  const { header, image, subnav, alignCenter } = imageBlock;
   return (
     <ContentBlockWrapper id={subnav?.contentBlockId} header={header}>
-      <SanityImage image={image} sizes="100vw" />
+      <div
+        className={cn({
+          'flex flex-col items-center': alignCenter,
+        })}
+      >
+        <SanityImage image={image} sizes="100vw" />
+      </div>
     </ContentBlockWrapper>
   );
 };

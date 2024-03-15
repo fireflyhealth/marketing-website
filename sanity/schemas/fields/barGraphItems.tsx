@@ -12,6 +12,7 @@ export const BarGraphItems = defineType({
       title: 'Bar 1',
       type: 'object',
       description: 'This bar represents Firefly.',
+      validation: (Rule) => Rule.required(),
       fields: [
         defineField({
           name: 'unit',
@@ -35,6 +36,7 @@ export const BarGraphItems = defineType({
       title: 'Bar 2',
       type: 'object',
       description: 'This bar represents the Industry Standard.',
+      validation: (Rule) => Rule.required(),
       fields: [
         defineField({
           name: 'unit',

@@ -86,16 +86,6 @@ export const MockData = defineType({
           },
         }),
         defineField({
-          name: 'ctaCardsBlock',
-          type: 'ctaCardsBlock',
-          title: 'CTA Cards Block',
-          options: {
-            collapsible: true,
-            collapsed: true,
-          },
-          validation: (Rule) => Rule.required(),
-        }),
-        defineField({
           name: 'doubleCtaBlockExample',
           title: 'Double Cta Block Example',
           type: 'doubleCtaBlock',
@@ -227,6 +217,23 @@ export const MockData = defineType({
           name: 'tabsBlock',
           type: 'tabsBlock',
           title: 'Tabs Block',
+          options: {
+            collapsible: true,
+            collapsed: true,
+          },
+          validation: (Rule) => Rule.required(),
+        }),
+        defineField({
+          title: 'Rich Text Blocks',
+          name: 'richTextBlocks',
+          type: 'array',
+          of: [{ type: 'richTextBlock' }],
+          validation: (Rule) => Rule.required(),
+        }),
+        defineField({
+          title: 'Testimonial Block',
+          name: 'testimonialBlock',
+          type: 'testimonialBlock',
           options: {
             collapsible: true,
             collapsed: true,

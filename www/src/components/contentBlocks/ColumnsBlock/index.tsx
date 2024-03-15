@@ -59,6 +59,7 @@ const getColumnCountClassName = (
 
 export const ColumnsBlock: FC<ColumnsBlockProps> = ({ columnsBlock }) => {
   const { subnav, header } = columnsBlock;
+
   return (
     <ContentBlockWrapper header={header} id={subnav?.contentBlockId}>
       <ColumnsObject columnsObject={columnsBlock} />

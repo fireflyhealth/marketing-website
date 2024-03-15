@@ -71,6 +71,7 @@ export const LimitedRichText = defineField({
       type: 'block',
       styles: [
         { title: 'Paragraph', value: 'normal' },
+        { title: 'BlockQuote', value: 'blockquote' },
         /* Note: custom editor styling for this is in lib/styles.css */
       ],
       lists: [
@@ -201,8 +202,8 @@ export const ArticleRichText = defineField({
         { title: 'Heading 4', value: 'h4' },
         { title: 'Paragraph', value: 'normal' },
         /* Note: custom editor styling for this is in lib/styles.css */
-        { title: 'Quote (L)', value: 'blockquote-large' },
-        { title: 'Quote', value: 'blockquote' },
+        { title: 'BlockQuote (L)', value: 'blockquote-large' },
+        { title: 'BlockQuote', value: 'blockquote' },
       ],
       lists: [
         { title: 'Bullet', value: 'bullet' },

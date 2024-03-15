@@ -8,6 +8,7 @@ type CTAProps = Pick<ButtonProps, 'width' | 'align'> & {
 
 export const CTA: FC<CTAProps> = ({ cta, width, align }) => {
   const { label, variant, ariaLabel, id, link } = cta;
+
   return (
     <LinkButton
       id={id}

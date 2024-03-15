@@ -3,7 +3,7 @@ import cn from 'classnames';
 import { useUIProvider } from '@/context/UIProvider';
 import { SimpleIcon } from '@/svgs/SimpleIcon';
 import { Keyed, NavGroupType } from '@/types/sanity';
-import { Link } from '@/atoms/Link';
+import { Link, MaybeLink } from '@/atoms/Link';
 import {
   NavLinkDropdownWrapper,
   NavDropdownButton,
@@ -64,22 +64,33 @@ export const NavGroup: FC<Props> = ({ navItem, isMobile }) => {
           onMouseLeave={handleHeadingMouseLeave}
           className={cn(NavLinkDropdownWrapper)}
         >
-          <button
-            className={cn(NavDropdownButton)}
-            onClick={handleDropdownButtonClick}
-          >
-            <p>{navItem.label}</p>
-            <SimpleIcon
-              type="arrow-down"
-              wrapperStyles={cn(
-                'transition-all ease-in-out w-3',
-                navItemHighlightState,
-                {
-                  'rotate-180': isCurrentNavItem,
-                },
+          <div className={cn(NavDropdownButton)}>
+            <MaybeLink
+              link={navItem.link}
+              onClick={() => setCurrentNavItem(null)}
+            >
+              {navItem.link ? (
+                <p>{navItem.label}</p>
+              ) : (
+                <button onClick={handleDropdownButtonClick}>
+                  {navItem.label}
+                </button>
               )}
-            />
-          </button>
+            </MaybeLink>
+            <button onClick={handleDropdownButtonClick}>
+              <SimpleIcon
+                type="arrow-down"
+                wrapperStyles={cn(
+                  'transition-all ease-in-out w-3',
+                  navItemHighlightState,
+                  {
+                    'rotate-180': isCurrentNavItem,
+                  },
+                )}
+              />
+            </button>
+          </div>
+
           <div
             className={cn(DropdownOuter, {
               'h-[0px] opacity-0': !isCurrentNavItem,

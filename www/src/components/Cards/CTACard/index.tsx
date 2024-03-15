@@ -3,7 +3,8 @@ import cn from 'classnames';
 import { CTACard as CTACardType } from '@/types/sanity';
 import { SanityImage } from '@/atoms/Image/SanityImage';
 import { CTA } from '@/components/CTA';
-import { CardTitle, CardWrapper } from './styles';
+import { RichText } from '@/components/RichText';
+import { CardTitle, CardWrapper, CardBody, CardCta } from './styles';
 
 type CTACardProps = {
   ctaCard: CTACardType;
@@ -18,8 +19,19 @@ export const CTACard: FC<CTACardProps> = ({ ctaCard }) => {
         image={ctaCard.image}
       />
       <div className="flex-grow flex flex-col justify-between">
-        <div className={cn(CardTitle)}>{ctaCard.title}</div>
-        <CTA cta={ctaCard.cta} width="auto" align="left" />
+        <div>
+          <div className={cn(CardTitle)}>{ctaCard.title}</div>
+          {ctaCard.body && (
+            <RichText
+              className={cn(CardBody)}
+              content={ctaCard.body}
+              fontSize="font-size-8"
+            />
+          )}
+        </div>
+        <div className={cn(CardCta)}>
+          <CTA cta={ctaCard.cta} width="auto" align="left" />
+        </div>
       </div>
     </div>
   );
