@@ -22,7 +22,7 @@ export const ImageTextOverlapBlock: FC<Props> = ({ imageTextOverlapBlock }) => {
         </div>
         <Theme theme={ColorTheme.Grey}>
           <div className={cn(TextContainer)}>
-            <RichText content={copy} />
+            {copy?.body && <RichText content={copy.body} />}
           </div>
         </Theme>
       </div>

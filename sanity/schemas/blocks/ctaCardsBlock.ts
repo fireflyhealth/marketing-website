@@ -21,6 +21,11 @@ export const CtaCard = defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
+      name: 'body',
+      type: 'simpleRichText',
+      title: 'Body',
+    }),
+    defineField({
       name: 'cta',
       type: 'cta',
       title: 'CTA',

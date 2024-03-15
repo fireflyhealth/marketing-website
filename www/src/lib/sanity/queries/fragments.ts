@@ -487,8 +487,10 @@ export const imageTextOverlapFragment = `
   image{
     ${imageFragment}
   },
-  copy[]{
-    ${contentBlockRichTextFragment}
+  copy {
+    body[]{
+      ${contentBlockRichTextFragment}
+    }
   }
 `;
 
@@ -660,6 +662,9 @@ const ctaCardsBlockFragment = `
     },
     cta {
       ${ctaFragment}
+    },
+    body[]{
+      ${simpleRichTextFragment}
     }
   }
 `;

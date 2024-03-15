@@ -666,12 +666,12 @@ export type HeaderContentChildBlock = {
 export type RichTextChildBlock = {
   _type: 'richTextChildBlock';
   _key: string;
-  icon: Maybe<IconBlock>;
-  image: Maybe<RichImage>;
-  heading: Maybe<string>;
+  icon?: Maybe<IconBlock>;
+  image?: Maybe<RichImage>;
+  heading?: Maybe<string>;
   headingFontSize: 'font-size-6' | 'font-size-5' | 'font-size-4';
-  alignCenter: Maybe<boolean>;
-  body: LimitedRichText;
+  alignCenter?: Maybe<boolean>;
+  body?: Maybe<LimitedRichText>;
 };
 
 export type ImageChildBlock = {
@@ -776,6 +776,7 @@ export type CTACard = {
   image: RichImage;
   title: string;
   cta: CTA;
+  body?: Maybe<SimpleRichText>;
 };
 
 export type CTACardsBlock = ContentBlockCommon & {
@@ -810,7 +811,9 @@ export type PractitionersBlock = ContentBlockCommon & {
 export type ImageTextOverlapBlock = ContentBlockCommon & {
   _type: 'imageTextOverlapBlock';
   image: RichImage;
-  copy: RichText;
+  copy: {
+    body: RichText;
+  };
 };
 
 export type QuoteAttribution = {

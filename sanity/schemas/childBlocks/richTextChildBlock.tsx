@@ -49,7 +49,6 @@ export const RichTextChildBlock = defineType({
       name: 'body',
       title: 'Rich Text',
       type: 'limitedRichText',
-      validation: (Rule) => Rule.required(),
     }),
   ],
   preview: {
