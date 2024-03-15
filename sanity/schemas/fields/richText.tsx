@@ -71,6 +71,7 @@ export const LimitedRichText = defineField({
       type: 'block',
       styles: [
         { title: 'Paragraph', value: 'normal' },
+        { title: 'BlockQuote', value: 'blockquote' },
         /* Note: custom editor styling for this is in lib/styles.css */
       ],
       lists: [

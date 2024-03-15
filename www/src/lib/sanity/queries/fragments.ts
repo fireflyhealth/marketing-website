@@ -534,7 +534,7 @@ const twoUpBlockFragment = `
 `;
 
 const richTextBlockFragment = `
-  theme,
+  ...,
   richTextChildBlock {
     ${richTextChildBlockFragment}
   }

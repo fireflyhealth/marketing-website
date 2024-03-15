@@ -17,6 +17,25 @@ export const RichTextBlock = defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
+      name: 'containerLayout',
+      title: 'Container Layout',
+      type: 'string',
+      initialValue: '50-left',
+      validation: (Rule) => Rule.required(),
+      options: {
+        list: [
+          { title: '50% width (desktop) / Center align', value: '50-center' },
+          { title: '50% width (desktop) / Left align', value: '50-left' },
+          { title: '80% width (desktop) / Left align', value: '80-left' },
+        ],
+      },
+    }),
+    defineField({
+      name: 'removeContainerSpacing',
+      type: 'boolean',
+      title: 'Remove Container Spacing',
+    }),
+    defineField({
       name: 'richTextChildBlock',
       title: 'Rich Text',
       type: 'richTextChildBlock',

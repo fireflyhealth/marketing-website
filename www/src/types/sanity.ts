@@ -920,7 +920,9 @@ export type CardListBlock = ContentBlockCommon & {
 export type RichTextBlock = ContentBlockCommon & {
   _type: 'richTextBlock';
   theme: ColorTheme;
-  richTextChildBlock: any; //RichTextChildBlock;
+  containerLayout: '50-center' | '50-left' | '80-left';
+  removeContainerSpacing?: Maybe<boolean>;
+  richTextChildBlock?: Maybe<RichTextChildBlock>;
 };
 
 /* Used as a child of the TabsBlock component */
