@@ -1,6 +1,5 @@
 import { defineType, defineField } from 'sanity';
 import { icons } from '../../lib/icons';
-import { requiredBlockFields } from './utils/requiredBlockFields';
 
 export const CtaCard = defineType({
   name: 'ctaCard',
@@ -42,32 +41,6 @@ export const CtaCard = defineType({
       media: image,
       title: title,
       subtitle: cta ? `CTA (${cta.variant}): ${cta.label}` : undefined,
-    }),
-  },
-});
-
-export const CtaCardsBlock = defineType({
-  name: 'ctaCardsBlock',
-  title: 'CTA Cards Block',
-  type: 'object',
-  icon: icons.CTA,
-  fields: [
-    ...requiredBlockFields,
-    defineField({
-      name: 'ctaCards',
-      type: 'array',
-      of: [{ type: 'ctaCard' }],
-      validation: (Rule) => Rule.required().min(1),
-    }),
-  ],
-  preview: {
-    select: {
-      header: 'header',
-      ctaCardTitle: 'ctaCards.0.title',
-    },
-    prepare: ({ header, ctaCardTitle }) => ({
-      title: 'CTA Cards Block',
-      subtitle: header?.title || ctaCardTitle,
     }),
   },
 });

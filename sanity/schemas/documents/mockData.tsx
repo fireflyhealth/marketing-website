@@ -86,16 +86,6 @@ export const MockData = defineType({
           },
         }),
         defineField({
-          name: 'ctaCardsBlock',
-          type: 'ctaCardsBlock',
-          title: 'CTA Cards Block',
-          options: {
-            collapsible: true,
-            collapsed: true,
-          },
-          validation: (Rule) => Rule.required(),
-        }),
-        defineField({
           name: 'doubleCtaBlockExample',
           title: 'Double Cta Block Example',
           type: 'doubleCtaBlock',
