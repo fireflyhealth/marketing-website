@@ -14,7 +14,11 @@ export const TestimonialBlock: FC<Props> = ({ testimonialBlock }) => {
 
   return (
     <ContentBlockWrapper header={header} id={subnav?.contentBlockId}>
-      <div className={cn('mt-8 md:mt-0')}>
+      <div
+        className={cn('mt-8 md:mt-0 pb-16', {
+          'pt-12': !header,
+        })}
+      >
         <Carousel>
           {testimonials.map((testimonial) => (
             <TestimonialItem

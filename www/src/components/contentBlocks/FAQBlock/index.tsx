@@ -30,37 +30,43 @@ export const FAQBlock: FC<FAQBlockProps> = ({ faqBlock }) => {
   } = faqBlock;
   return (
     <ContentBlockWrapper id={subnav?.contentBlockId} header={header}>
-      <Theme theme={theme || ColorTheme.Sky}>
-        <div className={cn(Wrapper)}>
-          <div className={cn(TitleWrapper)}>
-            <h3 className="font-size-5 font-trust">{blockTitle}</h3>
+      <div
+        className={cn('pb-4 md:pb-8 lg:pb-12', {
+          'pt-4 md:pt-8 lg:pt-12': !header,
+        })}
+      >
+        <Theme theme={theme || ColorTheme.Sky}>
+          <div className={cn(Wrapper)}>
+            <div className={cn(TitleWrapper)}>
+              <h3 className="font-size-5 font-trust">{blockTitle}</h3>
+              {blockCta ? (
+                <div className="hidden md:block">
+                  <CTA cta={blockCta} />
+                </div>
+              ) : null}
+            </div>
+            {blockDescription ? (
+              <div className={cn(Description)}>
+                <RichText content={blockDescription} />
+              </div>
+            ) : null}
+            <div className={cn(FAQListWrapper)}>
+              {faqs.map((faq) => (
+                <div key={faq._id} className={cn(FAQListItem)}>
+                  <Accordion title={faq.question}>
+                    <RichText content={faq.answer} className="font-size-8" />
+                  </Accordion>
+                </div>
+              ))}
+            </div>
             {blockCta ? (
-              <div className="hidden md:block">
+              <div className="block md:hidden">
                 <CTA cta={blockCta} />
               </div>
             ) : null}
           </div>
-          {blockDescription ? (
-            <div className={cn(Description)}>
-              <RichText content={blockDescription} />
-            </div>
-          ) : null}
-          <div className={cn(FAQListWrapper)}>
-            {faqs.map((faq) => (
-              <div key={faq._id} className={cn(FAQListItem)}>
-                <Accordion title={faq.question}>
-                  <RichText content={faq.answer} className="font-size-8" />
-                </Accordion>
-              </div>
-            ))}
-          </div>
-          {blockCta ? (
-            <div className="block md:hidden">
-              <CTA cta={blockCta} />
-            </div>
-          ) : null}
-        </div>
-      </Theme>
+        </Theme>
+      </div>
     </ContentBlockWrapper>
   );
 };
