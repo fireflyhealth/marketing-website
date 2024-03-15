@@ -240,6 +240,16 @@ export const MockData = defineType({
           of: [{ type: 'richTextBlock' }],
           validation: (Rule) => Rule.required(),
         }),
+        defineField({
+          title: 'Testimonial Block',
+          name: 'testimonialBlock',
+          type: 'testimonialBlock',
+          options: {
+            collapsible: true,
+            collapsed: true,
+          },
+          validation: (Rule) => Rule.required(),
+        }),
       ],
     }),
     defineField({
