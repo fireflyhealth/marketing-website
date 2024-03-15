@@ -22,6 +22,14 @@ type ContextValue = {
   setSlideContainerDragLeft: React.Dispatch<React.SetStateAction<number>>;
 };
 
+/**
+ * This type matches events passed to useSwipeable handlers
+ */
+type HandledEvents =
+  | React.MouseEvent<Element, MouseEvent>
+  | TouchEvent
+  | MouseEvent;
+
 const CarouselContext = React.createContext<ContextValue | null>(null);
 
 export const useCarousel = () => {
@@ -201,19 +209,29 @@ export const SlideContainer: FC<CarouselProps> = ({
     goNext,
     goPrev,
   } = useCarousel();
+
+  const handleTouchOrMouseEvents = (event: HandledEvents) => {
+    event.preventDefault();
+
+    // determine left or right direction based on pos/neg dragLeft
+    if (slideContainerDragLeft * -1 >= carouselThreshold) {
+      goNext();
+    } else if (slideContainerDragLeft * -1 <= -carouselThreshold) {
+      goPrev();
+    }
+    setSlideContainerDragLeft(0);
+  };
+
   const handlers = useSwipeable({
     onSwiping: (eventData) => {
       const diff = eventData.deltaX;
       setSlideContainerDragLeft(diff);
     },
-    onTouchEndOrOnMouseUp: () => {
-      // determine left or right direction based on pos/neg dragLeft
-      if (slideContainerDragLeft * -1 >= carouselThreshold) {
-        goNext();
-      } else if (slideContainerDragLeft * -1 <= -carouselThreshold) {
-        goPrev();
-      }
-      setSlideContainerDragLeft(0);
+    onTouchStartOrOnMouseDown: ({ event }) => {
+      handleTouchOrMouseEvents(event);
+    },
+    onTouchEndOrOnMouseUp: ({ event }) => {
+      handleTouchOrMouseEvents(event);
     },
     preventScrollOnSwipe: true,
     trackMouse: true,
