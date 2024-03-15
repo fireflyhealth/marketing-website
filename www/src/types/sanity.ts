@@ -665,7 +665,6 @@ export type HeaderContentChildBlock = {
 
 export type RichTextChildBlock = {
   _type: 'richTextChildBlock';
-  _key: string;
   icon?: Maybe<IconBlock>;
   image?: Maybe<RichImage>;
   heading?: Maybe<string>;

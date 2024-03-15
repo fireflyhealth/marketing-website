@@ -28,6 +28,7 @@ import {
   TabsBlock,
   FAQ,
   SimpleRichText,
+  RichTextBlock,
 } from '@/types/sanity';
 import mockData from './mockData.json';
 
@@ -87,7 +88,7 @@ export const quoteBlock = mockData.contentBlockExamples
   .quoteBlockExample as QuoteBlock;
 
 export const twoUpBlockExamples = mockData.contentBlockExamples
-  .twoUpBlocks as TwoUpBlock[];
+  .twoUpBlocks as KeyedArray<TwoUpBlock>;
 
 export const sequenceBlockExample = mockData.contentBlockExamples
   .sequenceBlock as SequenceBlock;
@@ -99,13 +100,13 @@ export const imageGridBlockExample = mockData.contentBlockExamples
   .imageGridBlockExample as ImageGridBlock;
 export const faqBlockExample = mockData.contentBlockExamples
   .faqBlock as FAQBlock;
-
 export const cardListBlockExample = mockData.contentBlockExamples
   .cardListBlockExample as CardListBlock;
-
 export const columnsBlockExamples = mockData.contentBlockExamples
   .columnsBlocks as KeyedArray<ColumnsBlock>;
 export const tabsBlockExample = mockData.contentBlockExamples
   .tabsBlock as TabsBlock;
+export const richTextBlockExamples = mockData.contentBlockExamples
+  .richTextBlocks as KeyedArray<RichTextBlock>;
 
 export const faqs = mockData.faqs as FAQ[];

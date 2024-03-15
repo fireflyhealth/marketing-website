@@ -488,6 +488,7 @@ export const imageTextOverlapFragment = `
     ${imageFragment}
   },
   copy {
+    _type,
     body[]{
       ${contentBlockRichTextFragment}
     }

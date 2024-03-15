@@ -16,27 +16,34 @@ import {
 export const mockDataQuery = `
   *[_type == "mockData" && _id == "mockData"]{
     contentBlockExamples{
+      columnsBlocks[]{
+        _key,
+        ${contentBlockFragment}
+      },
+      ctaCardsBlock{${contentBlockFragment}},
+      cardListBlockExample{${contentBlockFragment}},
+      doubleCtaBlockExample{${contentBlockFragment}},
+      drawerListBlock{${contentBlockFragment}},
+      faqBlock{${contentBlockFragment}},
+      featuredStoriesBlock{${contentBlockFragment}},
+      practitionersBlock{${contentBlockFragment}},
       imageBlock{${contentBlockFragment}},
       imageCarouselBlock{${contentBlockFragment}},
-      videoHeaderExample{${headerBlockFragment}},
-      ctaCardsBlock{${contentBlockFragment}},
-      doubleCtaBlockExample{${contentBlockFragment}},
-      practitionersBlock{${contentBlockFragment}},
-      imageTextOverlapBlock{${contentBlockFragment}},
-      quoteBlock{${contentBlockFragment}},
-      drawerListBlock{${contentBlockFragment}},
-      quoteBlockExample{${contentBlockFragment}},
-      twoUpBlocks[]{${contentBlockFragment}},
-      sequenceBlock{${contentBlockFragment}},
-      reviewBlock{${contentBlockFragment}},
       imageGridBlockExample{${contentBlockFragment}},
+      imageTextOverlapBlock{${contentBlockFragment}},
       quoteBlockExample{${contentBlockFragment}},
-      twoUpBlocks[]{${contentBlockFragment}},
-      faqBlock{${contentBlockFragment}},
-      cardListBlockExample{${contentBlockFragment}},
-      featuredStoriesBlock{${contentBlockFragment}},
-      columnsBlocks[]{${contentBlockFragment}},
+      reviewBlock{${contentBlockFragment}},
+      richTextBlocks[]{
+        _key,
+        ${contentBlockFragment}
+      },
+      sequenceBlock{${contentBlockFragment}},
       tabsBlock{${contentBlockFragment}},
+      twoUpBlocks[]{
+        _key,
+        ${contentBlockFragment}
+      },
+      videoHeaderExample{${headerBlockFragment}},
     },
     navigationExample{
       globalNav->{${navigationFragment}},
