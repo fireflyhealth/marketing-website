@@ -74,7 +74,9 @@ export const SiteSettings = defineType({
 
                 prepare: ({ navItems }) => {
                   return {
-                    title: navItems.map((item) => item.label).join(', '),
+                    title: navItems
+                      .map((item: { label: string }) => item.label)
+                      .join(', '),
                   };
                 },
               },
@@ -99,6 +101,12 @@ export const SiteSettings = defineType({
               of: [{ type: 'linkWithLabel' }],
             }),
           ],
+        }),
+        defineField({
+          name: 'qrCode',
+          title: 'QR Code',
+          type: 'qrCodeObject',
+          validation: (Rule) => Rule.required(),
         }),
       ],
     }),
