@@ -105,8 +105,24 @@
     align-items: center;
   }
 
-  &.TwoupBlock--mobileReverse {
+  &.TwoUpBlock--mobileReverse {
     flex-direction: column-reverse;
+
+    @screen lg {
+      flex-direction: row;
+    }
+
+    .TwoUpBlock__child:nth-child(1) {
+      margin-top: -32px;
+
+      @screen md {
+        margin-top: -52px;
+      }
+
+      @screen lg {
+        margin-top: initial;
+      }
+    }
   }
 
   .TwoUpBlock__child {
