@@ -1,0 +1,19 @@
+name: 'Test Sanity'
+on:
+  workflow_call:
+    inputs:
+      directory:
+        required: true
+        type: string
+jobs:
+  test-sanity:
+    name: Test Sanity
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ${{ inputs.directory }}
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ./.github/workflows/yarn-setup
+      - name: Validate Schema
+        run: yarn sanity schema validate --workspace staging

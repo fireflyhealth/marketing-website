@@ -13,9 +13,15 @@ jobs:
     with:
       directory: 'www'
 
+  test-sanity:
+    name: Test Sanity
+    uses: ./.github/workflows/test-sanity.yml
+    with:
+      directory: 'sanity'
+
   deploy-web:
     name: Deploy Vercel
-    needs: [benchmark-web]
+    needs: [benchmark-web, test-sanity]
     uses: ./.github/workflows/deploy-vercel.yml
     secrets:
       vercel-token: ${{ secrets.VERCEL_TOKEN }}
@@ -29,7 +35,7 @@ jobs:
   # deploy-cms:
   #   name: Deploy CMS
   #   if: github.ref == 'refs/heads/production'
-  #   needs: [benchmark-web]
+  #   needs: [benchmark-web, test-sanity]
   #   uses: ./.github/workflows/deploy-sanity.yml
   #   secrets:
   #     sanity-auth-token: ${{ secrets.SANITY_DEPLOY_TOKEN }}
