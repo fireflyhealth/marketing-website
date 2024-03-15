@@ -39,6 +39,7 @@ export const mockDataQuery = `
       },
       sequenceBlock{${contentBlockFragment}},
       tabsBlock{${contentBlockFragment}},
+      testimonialBlock{${contentBlockFragment}},
       twoUpBlocks[]{
         _key,
         ${contentBlockFragment}

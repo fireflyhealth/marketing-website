@@ -29,6 +29,7 @@ import {
   FAQ,
   SimpleRichText,
   RichTextBlock,
+  TestimonialBlock,
 } from '@/types/sanity';
 import mockData from './mockData.json';
 
@@ -108,5 +109,7 @@ export const tabsBlockExample = mockData.contentBlockExamples
   .tabsBlock as TabsBlock;
 export const richTextBlockExamples = mockData.contentBlockExamples
   .richTextBlocks as KeyedArray<RichTextBlock>;
+export const testimonialBlockExample = mockData.contentBlockExamples
+  .testimonialBlock as TestimonialBlock;
 
 export const faqs = mockData.faqs as FAQ[];
