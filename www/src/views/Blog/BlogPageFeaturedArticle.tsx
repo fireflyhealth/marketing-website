@@ -24,7 +24,11 @@ export const BlogPageFeaturedArticle: FC<BlogPageFeaturedArticleProps> = ({
     <Theme theme={ColorTheme.Grey}>
       <div className={cn(FeaturedArticleContainer)}>
         <div className={cn(FeaturedArticleImageContainer)}>
-          <SanityImage sizes={['100vw', '50vw']} image={article.thumbnail} />
+          <SanityImage
+            sizes={['100vw', '50vw']}
+            image={article.thumbnail}
+            aspectRatio={3 / 4}
+          />
         </div>
         <div className={cn(FeaturedArticleTextContainer)}>
           <div className={cn(FeaturedArticleTextInner)}>

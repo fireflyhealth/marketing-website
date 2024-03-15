@@ -263,13 +263,18 @@ export type Blog = SanityDocument & {
   metadata?: Metadata;
   navigationOverrides?: NavigationOverrides;
   header: HeaderArea;
-  /* Not part of the schema, but fetched in the query */
-  articles: BlogArticle[];
   featuredArticle: Maybe<BlogArticle>;
   contentArea: Maybe<ContentArea>;
   allArticlesLabel: string;
   blogArticleTagGroups: Maybe<KeyedArray<BlogArticleTagGroup>>;
   articleLayout: BlogArticleLayout;
+};
+
+/* Used when generating slug params. For
+ * actual page data, blog article pages
+ * are fetched separately. */
+export type BlogWithArticles = Blog & {
+  articles: BlogArticleLinkData[];
 };
 
 export type BlogArticleLayout = 'grid' | 'list';
@@ -322,6 +327,13 @@ export type BlogArticleLinkData = Pick<
   | 'blurb'
   | '_updatedAt'
 >;
+
+/* Blog article pagination */
+export type BlogArticlePagination = {
+  page: number;
+  hasNextPage: boolean;
+  articles: BlogArticleLinkData[];
+};
 
 /* Navigation */
 export type LinkWithLabel = {

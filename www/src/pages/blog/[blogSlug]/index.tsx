@@ -5,25 +5,26 @@ import { PageProps } from '@/types/next';
 import { RevalidationTime } from '@/constants';
 
 import { BlogPageView } from '@/views/Blog/BlogPageView';
-import { Blog } from '@/types/sanity';
+import { Blog, BlogArticlePagination } from '@/types/sanity';
 import * as Sanity from '@/lib/sanity';
 import { BlogMetadata } from '@/components/Metadata/BlogMetadata';
 
 export type BlogPageProps = PageProps & {
   blog: Blog;
+  initialArticlesPage: BlogArticlePagination;
+};
+
+const BlogPage: FC<BlogPageProps> = ({ blog, initialArticlesPage }) => {
+  return (
+    <>
+      <BlogMetadata blog={blog} />
+      <BlogPageView blog={blog} initialArticlesPage={initialArticlesPage} />
+    </>
+  );
 };
 
 type BlogPageParams = {
   blogSlug: string;
-};
-
-const BlogPage: FC<BlogPageProps> = ({ blog }) => {
-  return (
-    <>
-      <BlogMetadata blog={blog} />
-      <BlogPageView blog={blog} />
-    </>
-  );
 };
 
 export const getStaticProps: GetStaticProps<
@@ -36,9 +37,10 @@ export const getStaticProps: GetStaticProps<
     throw new Error('blogSlug param is not a string');
   }
 
-  const [siteSettings, blog] = await Promise.all([
+  const [siteSettings, blog, initialArticlesPage] = await Promise.all([
     Sanity.siteSettings.get(),
     Sanity.blog.get(blogSlug),
+    Sanity.blog.getBlogArticles(blogSlug),
   ]);
 
   const navigationOverrides = blog?.navigationOverrides;
@@ -53,6 +55,7 @@ export const getStaticProps: GetStaticProps<
     props: {
       siteSettings,
       blog,
+      initialArticlesPage,
       navigationOverrides: navigationOverrides || null,
     },
     revalidate: RevalidationTime.Medium,

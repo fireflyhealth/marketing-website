@@ -563,7 +563,10 @@ export const sequenceBlockFragment = `
 
 export const columnsObjectFragment = `
   ...,
-  content[]{${childContentBlockFragment}}
+  content[]{
+    _key,
+    ${childContentBlockFragment}
+  }
 `;
 
 const tabsBlockFragment = `

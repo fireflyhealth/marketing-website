@@ -1,6 +1,6 @@
 import { FC, useRef } from 'react';
 import cn from 'classnames';
-import { useIntersectionObserver } from '@/lib/hooks/useIntersectionObserver';
+import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
 import * as SanityTypes from '@/types/sanity';
 import { getColorTheme } from '@/utils/theme';
 import { Video } from '@/components/Video';

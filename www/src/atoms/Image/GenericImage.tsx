@@ -56,8 +56,10 @@ export type GenericImageProps = Omit<NextImageProps, 'alt' | 'sizes'> & {
   aspectRatio?: number;
 
   /* Almost every image in the Firefly designs have a rounded border.
-   * Defaults to true. */
-  rounded?: boolean;
+   * pass in a custom rounded classname to override, or false
+   * to disable.
+   * Defaults to 'rounded-lg'. */
+  rounded?: string | false;
 };
 
 const GenericImageInner: FC<GenericImageProps> = ({
@@ -67,12 +69,16 @@ const GenericImageInner: FC<GenericImageProps> = ({
   className: classNameProp,
   width,
   height,
-  rounded = true,
+  rounded = 'rounded-lg',
   ...nextImageProps
 }) => {
   const sizesString = Array.isArray(sizes) ? parseSizes(sizes) : sizes;
   /* common class name */
-  const className = cx('GenericImage', rounded && 'rounded-lg', classNameProp);
+  const className = cx(
+    'GenericImage',
+    rounded ? `${rounded} overflow-hidden` : '',
+    classNameProp,
+  );
 
   /**
    * If we have an aspect ratio, apply that style to the wrapping component.

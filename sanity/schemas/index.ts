@@ -96,6 +96,7 @@ import { FeaturedStoriesBlock } from './blocks/featuredStoriesBlock';
 import { Icon } from './fields/icon';
 import { ColumnsBlock, ColumnsObject } from './blocks/columnsBlock';
 import { BigOrderedList } from './fields/bigOrderedList';
+import { BlogArticleTag } from './documents/blogArticleTag';
 
 export const schemaTypes = [
   /* Document Types */

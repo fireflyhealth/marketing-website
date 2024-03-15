@@ -1,17 +1,22 @@
 /* Featured Article */
-export const FeaturedArticleContainer = ['flex', 'md:flex-row'];
+export const FeaturedArticleContainer = [
+  'container-padding-bleed',
+  'flex flex-col',
+  'lg:flex-row',
+];
 export const FeaturedArticleImageContainer = [
   'lg:w-[calc(50%_+_3rem)] lg:mt-12',
 ];
 export const FeaturedArticleTextContainer = [
-  'mt-[-20px]',
+  'mt-[-20px] px-4',
   'lg:w-[calc(50%_+_3rem)] lg:flex-grow-1 lg:mt-0 lg:ml-[-48px]',
 ];
 
 export const FeaturedArticleTextInner = [
   'theme-bg-color rounded-2xl mix-blend-multiply',
   'py-12 px-8',
-  'md:py-24 md:px-24',
+  'md:py-16 md:px-16',
+  'lg:py-24 lg:px-24',
 ];
 
 /* List View */

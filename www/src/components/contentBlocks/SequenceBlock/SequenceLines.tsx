@@ -1,6 +1,6 @@
 import { FC, useRef } from 'react';
 import cn from 'classnames';
-import { useIntersectionObserver } from '@/lib/hooks/useIntersectionObserver';
+import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
 
 export const SequenceLines: FC = () => {
   const sequenceLinesRef = useRef<HTMLDivElement>(null);

@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import cn from 'classnames';
-import { BlogArticle } from '@/types/sanity';
+import { BlogArticleLinkData } from '@/types/sanity';
 import { SanityImage } from '@/atoms/Image/SanityImage';
 import { formatSanityDate } from '@/utils/text';
 import { Link } from '@/atoms/Link';
@@ -8,7 +8,7 @@ import { BlogArticlesSharedProps } from './shared';
 import { BlogArticlesGridItemWrapper, BlogArticlesGridWrapper } from './styles';
 
 type BlogArticlesGridItemProps = {
-  article: BlogArticle;
+  article: BlogArticleLinkData;
 };
 
 const BlogArticlesGridItem: FC<BlogArticlesGridItemProps> = ({ article }) => {
@@ -31,11 +31,13 @@ const BlogArticlesGridItem: FC<BlogArticlesGridItemProps> = ({ article }) => {
   );
 };
 
-export const BlogArticlesGrid: FC<BlogArticlesSharedProps> = ({ articles }) => {
+export const BlogArticlesGrid: FC<BlogArticlesSharedProps> = ({
+  currentPage,
+}) => {
   return (
     <div className={cn(BlogArticlesGridWrapper)}>
-      {articles.map((article) => (
-        <BlogArticlesGridItem key={article._id} article={article} />
+      {currentPage.articles.map((article) => (
+        <BlogArticlesGridItem key={article.slug.current} article={article} />
       ))}
     </div>
   );

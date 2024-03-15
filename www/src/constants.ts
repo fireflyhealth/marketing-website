@@ -19,3 +19,12 @@ export const RevalidationTime = config.isProd
   : StagingRevalidationTime;
 
 export const carouselThreshold = 25;
+
+export const PAGINATION_PAGE_SIZE = 12;
+
+export enum Status {
+  Idle = 'IDLE',
+  Pending = 'PENDING',
+  Fulfilled = 'FULFILLED',
+  Rejected = 'REJECTED',
+}

@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import cn from 'classnames';
-import { BlogArticle } from '@/types/sanity';
+import { BlogArticle, BlogArticleLinkData } from '@/types/sanity';
 import { formatSanityDate } from '@/utils/text';
 import { RichText } from '@/components/RichText';
 import { Link } from '@/atoms/Link';
@@ -14,7 +14,7 @@ import {
 } from './styles';
 
 type BlogArticlesListItemProps = {
-  article: BlogArticle;
+  article: BlogArticleLinkData;
 };
 
 const BlogArticlesListItem: FC<BlogArticlesListItemProps> = ({ article }) => {
@@ -46,11 +46,13 @@ const BlogArticlesListItem: FC<BlogArticlesListItemProps> = ({ article }) => {
   );
 };
 
-export const BlogArticlesList: FC<BlogArticlesSharedProps> = ({ articles }) => {
+export const BlogArticlesList: FC<BlogArticlesSharedProps> = ({
+  currentPage,
+}) => {
   return (
     <ul>
-      {articles.map((article) => (
-        <BlogArticlesListItem key={article._id} article={article} />
+      {currentPage.articles.map((article) => (
+        <BlogArticlesListItem key={article.slug.current} article={article} />
       ))}
     </ul>
   );

@@ -4,7 +4,7 @@ import { GetStaticProps, GetStaticPaths } from 'next';
 import { PageProps } from '@/types/next';
 import { RevalidationTime } from '@/constants';
 
-import { Blog, BlogArticle } from '@/types/sanity';
+import { Blog, BlogArticle, BlogWithArticles } from '@/types/sanity';
 import * as Sanity from '@/lib/sanity';
 import { BlogArticleView } from '@/views/BlogArticleView/BlogArticleView';
 import { BlogArticleMetadata } from '@/components/Metadata/BlogArticleMetadata';
@@ -62,7 +62,7 @@ export const getStaticProps: GetStaticProps<
   };
 };
 
-const getSlugParams = (blogs: Blog[]): PageParams[] =>
+const getSlugParams = (blogs: BlogWithArticles[]): PageParams[] =>
   blogs.reduce<PageParams[]>((slugInfoArray, blog) => {
     const blogSlug = blog.slug.current;
 

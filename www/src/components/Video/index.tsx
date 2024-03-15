@@ -1,7 +1,7 @@
 import { FC, useState, useRef, useEffect } from 'react';
 import Vimeo from '@vimeo/player';
 import cn from 'classnames';
-import { useIntersectionObserver } from '@/lib/hooks/useIntersectionObserver';
+import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
 import * as SanityTypes from '@/types/sanity';
 import { Button } from '@/atoms/Button';
 import { SanityImage } from '@/atoms/Image/SanityImage';
