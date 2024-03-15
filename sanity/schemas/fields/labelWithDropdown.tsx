@@ -14,6 +14,11 @@ export const LabelWithDropdown = defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
+      name: 'link',
+      title: 'Link',
+      type: 'link',
+    }),
+    defineField({
       name: 'subpages',
       title: 'Subpages',
       type: 'array',

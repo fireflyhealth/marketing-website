@@ -54,21 +54,14 @@ export const NavGroup: FC<Props> = ({ navItem, isMobile }) => {
     }
   };
 
-  return (
-    <div
-      className={cn(NavLinkStyles, navItemHighlightState, `${navItem.label}`)}
-    >
-      {navItem._type === 'labelWithDropdown' ? (
-        <div
-          onMouseEnter={handleHeadingMouseEnter}
-          onMouseLeave={handleHeadingMouseLeave}
-          className={cn(NavLinkDropdownWrapper)}
-        >
-          <button
-            className={cn(NavDropdownButton)}
-            onClick={handleDropdownButtonClick}
-          >
+  const renderDropdownNavItem = (navItem: Keyed<NavGroupType>) => {
+    if (navItem.link) {
+      return (
+        <div className={cn(NavDropdownButton)}>
+          <Link link={navItem.link} onClick={() => setCurrentNavItem(null)}>
             <p>{navItem.label}</p>
+          </Link>
+          <button onClick={handleDropdownButtonClick}>
             <SimpleIcon
               type="arrow-down"
               wrapperStyles={cn(
@@ -80,6 +73,41 @@ export const NavGroup: FC<Props> = ({ navItem, isMobile }) => {
               )}
             />
           </button>
+        </div>
+      );
+    }
+
+    return (
+      <button
+        className={cn(NavDropdownButton)}
+        onClick={handleDropdownButtonClick}
+      >
+        <p>{navItem.label}</p>
+        <SimpleIcon
+          type="arrow-down"
+          wrapperStyles={cn(
+            'transition-all ease-in-out w-3',
+            navItemHighlightState,
+            {
+              'rotate-180': isCurrentNavItem,
+            },
+          )}
+        />
+      </button>
+    );
+  };
+
+  return (
+    <div
+      className={cn(NavLinkStyles, navItemHighlightState, `${navItem.label}`)}
+    >
+      {navItem._type === 'labelWithDropdown' ? (
+        <div
+          onMouseEnter={handleHeadingMouseEnter}
+          onMouseLeave={handleHeadingMouseLeave}
+          className={cn(NavLinkDropdownWrapper)}
+        >
+          {renderDropdownNavItem(navItem)}
           <div
             className={cn(DropdownOuter, {
               'h-[0px] opacity-0': !isCurrentNavItem,

@@ -794,6 +794,9 @@ export const navGroupFragment = `
   },
   _type == "labelWithDropdown" => {
     label,
+    link {
+      ${linkFragment}
+    },
     subpages {
       _type,
       _key,
