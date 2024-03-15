@@ -52,7 +52,9 @@ export const MobileNav: FC<Props> = ({
               <NavGroup key={navItem._key} navItem={navItem} isMobile />
             ))}
           </div>
-          {showNavCTA && <NavCTA globalDoubleNav={globalDoubleNav} />}
+          {showNavCTA && (
+            <NavCTA globalDoubleNav={globalDoubleNav} isOpen={true} />
+          )}
         </div>
       )}
     </nav>

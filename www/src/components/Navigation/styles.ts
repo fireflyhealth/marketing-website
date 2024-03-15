@@ -1,10 +1,10 @@
 export const NavWrapper = [
-  'relative bg-transparent flex flex-col z-navigation',
+  'relative container-padding-bleed--margin-only bg-transparent flex flex-col z-navigation',
   'lg:block',
 ];
 
 export const NavContainer = [
-  'relative w-full py-4 flex flex-row items-center justify-between',
+  'relative px-4 md:px-9 lg:px-12 transition-all w-full py-4 flex flex-row items-center justify-between',
 ];
 
 export const NavLinksWrapper = [
@@ -13,7 +13,7 @@ export const NavLinksWrapper = [
 ];
 
 export const NavLinkStyles = [
-  'trust-h3 text-left',
+  'trust-h3 text-left transition-all',
   'lg:roobert-body lg:py-3 lg:px-6',
 ];
 
@@ -25,7 +25,7 @@ export const NavDropdownButton = [
 ];
 
 export const DropdownOuter = [
-  'lg:w-[242px] lg:absolute lg:top-[100%] lg:left-[-24px]',
+  'overflow-hidden lg:w-[242px] lg:absolute lg:top-[100%] lg:left-[-24px] transition-all',
 ];
 
 export const DropdownInner = [

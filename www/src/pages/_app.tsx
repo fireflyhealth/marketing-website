@@ -10,6 +10,7 @@ import { Footer } from '@/components/Footer';
 import '@/lib/datadog';
 import '../styles/fonts.css';
 import '../styles/main.css';
+import 'what-input';
 
 type Props = AppProps<{
   siteSettings: SanityTypes.SiteSettings;

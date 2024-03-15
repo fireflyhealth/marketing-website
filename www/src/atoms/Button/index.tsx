@@ -61,7 +61,7 @@ export const Button: FC<ButtonProps> = ({
         /* CTA styles are defined in global.css */
         className={cn(
           bgColorOverride,
-          'cta',
+          'cta transition-all',
           `cta--${variant}`,
           active && 'cta--active',
           /* TextLink width should always be auto */
@@ -105,7 +105,7 @@ export const LinkButton: FC<LinkButtonProps> = ({
     >
       <div
         className={cn(
-          'cta',
+          'cta transition-all',
           `cta--${variant}`,
           disabled && 'cta--disabled',
           active && 'cta--active',

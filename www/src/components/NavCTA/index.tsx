@@ -6,11 +6,17 @@ import { Wrapper, BackgroundColor, CTAWrapper } from './styles';
 
 type Props = {
   globalDoubleNav: DoubleCta;
+  isOpen: boolean;
 };
 
-export const NavCTA: FC<Props> = ({ globalDoubleNav }) => {
+export const NavCTA: FC<Props> = ({ globalDoubleNav, isOpen }) => {
   return (
-    <div className={cn(Wrapper)}>
+    <div
+      aria-hidden={!isOpen}
+      className={cn(Wrapper, {
+        'opacity-0 pointer-events-none': !isOpen,
+      })}
+    >
       <div className={cn(BackgroundColor)} />
       <div className={cn(CTAWrapper)}>
         <DoubleCTA doubleCta={globalDoubleNav} />

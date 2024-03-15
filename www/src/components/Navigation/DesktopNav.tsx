@@ -27,8 +27,11 @@ export const DesktopNav: FC<Props> = ({
   };
   return (
     <nav className={cn(NavWrapper, 'hidden')}>
-      {getStartedOpen && <div className="full-width-background bg-yellow" />}
-      <div className={cn(NavContainer)}>
+      <div
+        className={cn(NavContainer, {
+          'bg-yellow': getStartedOpen,
+        })}
+      >
         <Link href="/">
           <div className="w-[175px]">
             {getStartedOpen ? <LogotypeMonochrome /> : <LogotypeColor />}
@@ -40,9 +43,9 @@ export const DesktopNav: FC<Props> = ({
             <div
               key={navItem._key}
               aria-hidden={getStartedOpen}
-              className={cn(
-                getStartedOpen ? 'opacity-0 pointer-events-none' : '',
-              )}
+              className={cn('transition-all', {
+                'opacity-0 pointer-events-none': getStartedOpen,
+              })}
             >
               <NavGroup navItem={navItem} />
             </div>
@@ -63,7 +66,7 @@ export const DesktopNav: FC<Props> = ({
           )}
         </div>
       </div>
-      {getStartedOpen && <NavCTA globalDoubleNav={globalDoubleNav} />}
+      <NavCTA globalDoubleNav={globalDoubleNav} isOpen={getStartedOpen} />
     </nav>
   );
 };
