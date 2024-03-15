@@ -50,7 +50,7 @@ import { ReviewBlock, ReviewItem, ReviewHeading } from './blocks/reviewBlock';
 import { ImageGridBlock } from './blocks/imageGridBlock';
 import { CardListBlock } from './blocks/cardListBlock';
 import { TabsBlock, TabsBlockTab } from './blocks/tabsBlock';
-import { TestimonialBlock, TestimonalItem } from './blocks/testimonalBlock';
+import { TestimonialBlock } from './blocks/testimonalBlock';
 import { DividerBlock } from './blocks/dividerBlock';
 
 /* Fields */
@@ -202,7 +202,6 @@ export const schemaTypes = [
   ReviewHeading,
   ReviewItem,
   Icon,
-  TestimonalItem,
   BlogArticleTagGroup,
   BigOrderedList,
 ];

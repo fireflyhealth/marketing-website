@@ -5,18 +5,19 @@ export const Quote = defineType({
   name: 'quoteObject',
   title: 'Quote',
   type: 'object',
+  icon: icons.Quote,
   fields: [
     defineField({
       name: 'badgeImage',
-      title: 'Top Image',
-      description: '(Only appears in QuoteCard modules)',
+      title: 'Badge/Logo Image',
+      description: 'Appears in Review Blocks and Rich Text blocks',
       type: 'richImage',
     }),
     defineField({
       name: 'icon',
       title: 'Icon',
       type: 'icon',
-      description: '(Only appears in Rich Text quotes)',
+      description: 'Appears in Rich Text and 2-up blocks',
     }),
     defineField({
       name: 'quote',
@@ -48,6 +49,8 @@ export const Quote = defineType({
           name: 'image',
           title: 'Image',
           type: 'richImage',
+          description:
+            'Appears only in Testimonial Carousel blocks and Review Blocks',
         }),
       ],
       validation: (Rule) => Rule.required(),
@@ -60,13 +63,19 @@ export const Quote = defineType({
       badgeImage: 'badgeImage',
       icon: 'icon',
     },
-    prepare: ({ quote, attribution }) => {
+    prepare: ({ quote, attribution, badgeImage }) => {
+      const image = badgeImage || attribution.image;
       const subtitle = attribution
         ? [attribution.label, attribution.labelSubtitle]
             .filter(Boolean)
             .join(' - ')
         : undefined;
-      return { title: quote ? quote : '(empty)', subtitle, icon: icons.Quote };
+      return {
+        title: quote ? quote : '(empty)',
+        subtitle,
+        icon: icons.Quote,
+        media: image,
+      };
     },
   },
 });

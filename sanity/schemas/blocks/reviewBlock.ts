@@ -51,12 +51,22 @@ export const ReviewItem = defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
+      name: 'reviewQuote',
+      title: 'Review',
+      type: 'quoteObject',
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
+      /* Deprecated: OK to remove after #237 is merged */
+      hidden: true,
       name: 'review',
       title: 'Review',
       type: 'simpleRichText',
       validation: (Rule) => Rule.required(),
     }),
     defineField({
+      /* Deprecated: OK to remove after #237 is merged */
+      hidden: true,
       name: 'reviewer',
       title: 'Reviewer',
       type: 'object',
@@ -83,6 +93,8 @@ export const ReviewItem = defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
+      /* Deprecated: OK to remove after #237 is merged */
+      hidden: true,
       name: 'logo',
       title: 'logo',
       type: 'richImage',
