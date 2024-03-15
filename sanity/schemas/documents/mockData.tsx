@@ -233,6 +233,13 @@ export const MockData = defineType({
           },
           validation: (Rule) => Rule.required(),
         }),
+        defineField({
+          title: 'Rich Text Blocks',
+          name: 'richTextBlocks',
+          type: 'array',
+          of: [{ type: 'richTextBlock' }],
+          validation: (Rule) => Rule.required(),
+        }),
       ],
     }),
     defineField({
