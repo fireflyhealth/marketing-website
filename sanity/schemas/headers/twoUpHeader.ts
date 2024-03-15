@@ -28,7 +28,8 @@ export const TwoUpHeaderBlock = defineType({
         .map((block) => block._type)
         .map(camelCaseToSentence);
       const subtitle =
-        [header?.title, ...blockTypeNames].join(', ') || '(empty)';
+        [header?.title, ...blockTypeNames].filter(Boolean).join(', ') ||
+        '(empty)';
       return {
         title: '2-up Header',
         subtitle,
