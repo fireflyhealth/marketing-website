@@ -819,6 +819,7 @@ export type QuoteObject = {
   badgeImage: Maybe<Image>;
   icon?: Maybe<IconBlock>;
   quote: string;
+  eyebrow?: Maybe<string>;
   attribution: QuoteAttribution;
 };
 
