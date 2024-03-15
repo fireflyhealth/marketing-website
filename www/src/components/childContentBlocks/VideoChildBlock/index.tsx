@@ -1,5 +1,4 @@
 import React, { FC } from 'react';
-import cn from 'classnames';
 import { VideoChildBlock as VideoChildBlockType } from '@/types/sanity';
 import { Video } from '@/components/Video';
 
