@@ -250,7 +250,6 @@ export type PractitionerLinkData = Pick<
   | 'slug'
   | 'qualifications'
   | 'headshot'
-  | 'blurb'
   | 'pronouns'
   | 'title'
 >;

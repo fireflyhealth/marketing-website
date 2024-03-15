@@ -157,9 +157,6 @@ export const linkableDocumentFragment = `
     headshot {
       ${imageFragment}
     },
-    blurb[]{
-      ${simpleRichTextFragmentNoLink}
-    }
   }
 `;
 
