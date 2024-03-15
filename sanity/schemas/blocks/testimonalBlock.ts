@@ -14,6 +14,7 @@ export const TestimonialBlock = defineType({
       title: 'Testimonials',
       type: 'array',
       of: [defineArrayMember({ type: 'quoteObject' })],
+      validation: (Rule) => Rule.required().min(1),
     }),
   ],
   preview: {
@@ -23,7 +24,9 @@ export const TestimonialBlock = defineType({
     prepare: ({ testimonials }) => {
       return {
         title: 'Testimonial Block',
-        subtitle: `${testimonials.length} testimonial(s)`,
+        subtitle: testimonials
+          ? `${testimonials.length} testimonial(s)`
+          : undefined,
       };
     },
   },
