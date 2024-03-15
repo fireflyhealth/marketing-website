@@ -42,7 +42,9 @@ export const mockDataQuery = `
       globalNav->{${navigationFragment}},
       doubleCta{${doubleCtaFragment}}
     },
-    simpleRichText,
+    simpleRichText[]{
+      ${richTextFragment}
+    },
     articleRichText[]{
       ${richTextFragment}
     },
