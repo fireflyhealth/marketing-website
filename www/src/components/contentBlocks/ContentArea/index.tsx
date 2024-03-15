@@ -63,8 +63,6 @@ const ContentBlock: FC<ContentBlockProps> = ({ block }) => {
       return <ColumnsBlock columnsBlock={block} />;
     case 'tabsBlock':
       return <TabsBlock tabsBlock={block} />;
-    case 'richTextBlock':
-      return <RichTextBlock richTextBlock={block} />;
     case 'testimonialBlock':
       return <TestimonialBlock testimonialBlock={block} />;
     case 'richTextBlock':
