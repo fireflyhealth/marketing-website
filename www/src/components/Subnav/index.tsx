@@ -1,6 +1,6 @@
 import { FC, RefObject, useRef } from 'react';
 import cn from 'classnames';
-import { Maybe, SubnavItem } from '@/types/sanity';
+import { Maybe, SubnavItem as SubnavItemType } from '@/types/sanity';
 
 import { useHash } from '@/hooks/useHash';
 import { useRect } from '@/hooks/useRect';
@@ -15,7 +15,7 @@ import {
 } from './styles';
 
 const SubnavItem: FC<{
-  item: SubnavItem;
+  item: SubnavItemType;
   hash: Maybe<string>;
   isOnTop?: boolean;
 }> = ({ item, hash, isOnTop }) => {
@@ -29,6 +29,7 @@ const SubnavItem: FC<{
       href={`#${contentBlockId}`}
       className={cn(SubnavItemWrapper)}
       aria-label={ariaLabel || undefined}
+      style={{ whiteSpace: 'nowrap' }}
     >
       <div
         className={cn(SubnavItemCircle, {
@@ -43,7 +44,7 @@ const SubnavItem: FC<{
 
 export const SubnavContainer: FC<{
   id: string;
-  subnav: SubnavItem[];
+  subnav: SubnavItemType[];
   subnavRef?: RefObject<HTMLDivElement>;
   wrapperClassName: string;
   innerWrapperClassName: string;
@@ -74,7 +75,9 @@ export const SubnavContainer: FC<{
   );
 };
 
-export const Subnav: FC<{ subnav?: Maybe<SubnavItem[]> }> = ({ subnav }) => {
+export const Subnav: FC<{ subnav?: Maybe<SubnavItemType[]> }> = ({
+  subnav,
+}) => {
   const [subnavRect, subnavRef] = useRect();
   const hash = useHash();
   const { bottom, top } = subnavRect || {};

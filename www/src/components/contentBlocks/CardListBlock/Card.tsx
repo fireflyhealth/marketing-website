@@ -15,6 +15,7 @@ import {
   Header,
   Title,
   ImageWrapper,
+  CardItemWrapper,
 } from './styles';
 
 type Props = {
@@ -28,43 +29,45 @@ export const Card: FC<Props> = ({ card }) => {
     .join('-');
 
   return (
-    <Theme theme={getColorTheme(theme)}>
-      <div className={cn(CardItem)}>
-        {backgroundImage ? (
-          <div className={cn(BackgroundImage)}>
-            <ResponsiveSanityImage
-              imageSet={backgroundImage}
-              sizes={['100vw']}
+    <div className={cn(CardItemWrapper)}>
+      <Theme theme={getColorTheme(theme)} className={cn('w-full h-full')}>
+        <div className={cn(CardItem)}>
+          {backgroundImage ? (
+            <div className={cn(BackgroundImage)}>
+              <ResponsiveSanityImage
+                imageSet={backgroundImage}
+                sizes={['100vw']}
+              />
+            </div>
+          ) : null}
+          <div className={cn(Header)}>
+            <h4 className={cn(Title)}>{title}</h4>
+            {/* Update description to be richText */}
+            <RichText
+              content={body}
+              fontSize="font-size-10 font-roobert"
+              textColor="theme-text-color-primary"
             />
           </div>
-        ) : null}
-        <div className={cn(Header)}>
-          <h4 className={cn(Title)}>{title}</h4>
-          {/* Update description to be richText */}
-          <RichText
-            content={body}
-            fontSize="font-size-10 font-roobert"
-            textColor="theme-text-color-primary"
-          />
+          {featuredImage ? (
+            <div className={cn(ImageWrapper)}>
+              <SanityImage image={featuredImage} sizes={['100vw', '50vw']} />
+            </div>
+          ) : null}
+          {ctaLink ? (
+            <div className="pt-5 absolute left-6 bottom-6 z-20 theme-cta-text-color-primary">
+              <LinkButton
+                id={linkButtonId}
+                link={ctaLink.link}
+                variant="textLink"
+                width="auto"
+                align="left"
+                label={ctaLink.label}
+              />
+            </div>
+          ) : null}
         </div>
-        {featuredImage ? (
-          <div className={cn(ImageWrapper)}>
-            <SanityImage image={featuredImage} sizes={['100vw', '50vw']} />
-          </div>
-        ) : null}
-        {ctaLink ? (
-          <div className="pt-5 absolute left-6 bottom-6 z-20 theme-cta-text-color-primary">
-            <LinkButton
-              id={linkButtonId}
-              link={ctaLink.link}
-              variant="textLink"
-              width="auto"
-              align="left"
-              label={ctaLink.label}
-            />
-          </div>
-        ) : null}
-      </div>
-    </Theme>
+      </Theme>
+    </div>
   );
 };

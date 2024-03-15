@@ -6,8 +6,10 @@ export const Wrapper = [''];
 
 export const CardListWrapper = ['w-full flex flex-row space-x-4'];
 
+export const CardItemWrapper = ['max-w-1/4 w-full h-[500px]'];
+
 export const CardItem = [
-  'relative theme-bg-color w-full max-w-1/4 h-[500px] rounded-2xl overflow-hidden p-6',
+  'relative theme-bg-color w-full h-full rounded-2xl overflow-hidden p-6',
 ];
 
 export const BackgroundImage = [
