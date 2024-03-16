@@ -250,7 +250,6 @@ export type PractitionerLinkData = Pick<
   | 'slug'
   | 'qualifications'
   | 'headshot'
-  | 'blurb'
   | 'pronouns'
   | 'title'
 >;
@@ -358,6 +357,7 @@ export type Footer = {
     leftLinks: Maybe<KeyedArray<LinkWithLabel>>;
     rightLinks: Maybe<KeyedArray<LinkWithLabel>>;
   }>;
+  qrCode: QrCodeObject;
 };
 
 /*
@@ -640,10 +640,10 @@ export type QrCodeObject = {
   _type: 'qrCodeObject';
   qrCodeImage: RichImage;
   text: Maybe<string>;
-  storeLinks: {
+  storeLinks: Maybe<{
     appStoreLink: Maybe<Link>;
     playStoreLink: Maybe<Link>;
-  };
+  }>;
 };
 
 export type HeaderQrCodeChildBlock = {
@@ -818,6 +818,7 @@ export type QuoteObject = {
   badgeImage: Maybe<Image>;
   icon?: Maybe<IconBlock>;
   quote: string;
+  eyebrow?: Maybe<string>;
   attribution: QuoteAttribution;
 };
 

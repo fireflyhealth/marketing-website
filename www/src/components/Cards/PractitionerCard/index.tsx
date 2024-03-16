@@ -1,8 +1,6 @@
 import React, { FC } from 'react';
 import { PractitionerLinkData } from '@/types/sanity';
 import { SanityImage } from '@/atoms/Image/SanityImage';
-import { RichText } from '@/components/RichText';
-import { ColorTheme, Theme } from '@/components/Theme';
 import { Link } from '@/atoms/Link';
 import { GenericImage } from '@/atoms/Image/GenericImage';
 import fallbackProfile from '@/assets/images/fallbackProfile.png';
@@ -15,8 +13,8 @@ export const PractitionerCard: FC<PractitionerCardProps> = ({
   practitioner,
 }) => {
   return (
-    <div>
-      <div className="PractitionerCard__headshot rounded-[1rem] overflow-hidden relative">
+    <div className="PractitionerCard">
+      <div className="rounded-[1rem] overflow-hidden relative">
         <Link
           link={practitioner}
           ariaLabel={`View ${practitioner.name}'s profile page`}
@@ -35,14 +33,6 @@ export const PractitionerCard: FC<PractitionerCardProps> = ({
               sizes={['50vw', '50vw', '25vw']}
             />
           )}
-          <div className="PractitionerCard__blurb">
-            <Theme
-              className="p-4 h-full md:p-6 theme-bg-color overflow-scroll"
-              theme={ColorTheme.Midnight}
-            >
-              <RichText content={practitioner.blurb} />
-            </Theme>
-          </div>
         </Link>
       </div>
       <div className="font-trust font-size-6 pt-4">

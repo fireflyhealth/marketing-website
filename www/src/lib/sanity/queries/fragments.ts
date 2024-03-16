@@ -157,9 +157,6 @@ export const linkableDocumentFragment = `
     headshot {
       ${imageFragment}
     },
-    blurb[]{
-      ${simpleRichTextFragmentNoLink}
-    }
   }
 `;
 
@@ -819,6 +816,9 @@ export const footerFragment = `
     rightLinks[]{
       ${linkWithLabelFragment}
     }
+  },
+  qrCode {
+    ${qrCodeObjectFragment}
   }
 `;
 

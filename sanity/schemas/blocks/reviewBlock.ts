@@ -57,45 +57,12 @@ export const ReviewItem = defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
-      /* Deprecated: OK to remove after #237 is merged */
-      hidden: true,
-      name: 'review',
-      title: 'Review',
-      type: 'simpleRichText',
-    }),
-    defineField({
-      /* Deprecated: OK to remove after #237 is merged */
-      hidden: true,
-      name: 'reviewer',
-      title: 'Reviewer',
-      type: 'object',
-      fields: [
-        defineField({
-          name: 'name',
-          title: 'Name',
-          type: 'string',
-        }),
-        defineField({
-          name: 'age',
-          title: 'Age',
-          type: 'number',
-        }),
-      ],
-    }),
-    defineField({
       name: 'date',
       type: 'date',
       options: {
         dateFormat: 'MMMM DD, YYYY',
       },
       validation: (Rule) => Rule.required(),
-    }),
-    defineField({
-      /* Deprecated: OK to remove after #237 is merged */
-      hidden: true,
-      name: 'logo',
-      title: 'logo',
-      type: 'richImage',
     }),
   ],
   preview: {
@@ -105,8 +72,8 @@ export const ReviewItem = defineType({
       badgeImage: 'badgeImage',
     },
     prepare: ({ title, reviewQuote, badgeImage }) => {
-      const attribution = reviewQuote.attribution;
-      const subtitle = [attribution.label, attribution.labelSubtitle]
+      const attribution = reviewQuote?.attribution;
+      const subtitle = [attribution?.label, attribution?.labelSubtitle]
         .filter(Boolean)
         .join(' - ');
       return {

@@ -1,4 +1,4 @@
-import { FC, useState, useRef, useEffect } from 'react';
+import { FC, useState, useRef, useEffect, useCallback } from 'react';
 import Vimeo from '@vimeo/player';
 import cn from 'classnames';
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
@@ -49,6 +49,7 @@ export const Video: FC<Props> = ({
 
   const [player, setPlayer] = useState<Vimeo | null>(null);
   const [isPlaying, setIsPlaying] = useState(false);
+  const [isReady, setIsReady] = useState(false);
 
   // set video player
   useEffect(() => {
@@ -85,26 +86,31 @@ export const Video: FC<Props> = ({
     });
   }, [videoRef, video.videoLink]);
 
+  const handlePlay = useCallback(async () => {
+    if (!player) return;
+    const isPaused = await player.getPaused();
+    if (isPaused) {
+      await player?.play();
+    }
+  }, [player]);
+
+  const handlePause = useCallback(async () => {
+    if (!player) return;
+    const isPaused = await player.getPaused();
+    if (!isPaused) {
+      await player.pause();
+    }
+  }, [player]);
+
   // handle autoplay when video is in view
   useEffect(() => {
+    if (!autoplay) return;
     if (isIntersecting) {
-      setIsPlaying(true);
       handlePlay();
     } else {
-      setIsPlaying(false);
       handlePause();
     }
-  }, [isIntersecting]);
-
-  function handlePlay() {
-    player?.play();
-  }
-
-  function handlePause() {
-    setTimeout(() => {
-      player?.pause();
-    }, 1000);
-  }
+  }, [autoplay, isIntersecting, handlePlay, handlePause]);
 
   function handleFullscreen() {
     player?.requestFullscreen();
@@ -121,23 +127,27 @@ export const Video: FC<Props> = ({
       className={cn(OuterVideoWrapper)}
     >
       <div className={cn(VideoWrapper, width ? `${width}` : 'w-full')}>
-        {!isPlaying && (
-          <div
-            id="video-poster-image"
-            className={cn(PosterImage)}
-            onLoad={() => {
-              if (!videoRef.current) return;
-              videoRef.current.style.opacity = '1';
-            }}
-          >
-            <SanityImage
-              image={video.posterImage}
-              aspectRatio={9 / 16}
-              sizes={posterSizes}
-            />
-          </div>
-        )}
-        <div ref={videoRef} className={cn(VideoPlayer, 'opacity-0')} />
+        <div
+          id="video-poster-image"
+          className={cn(
+            PosterImage,
+            isPlaying ? 'opacity-0 pointer-events-none' : '',
+          )}
+          onLoad={() => {
+            setIsReady(true);
+          }}
+        >
+          <SanityImage
+            image={video.posterImage}
+            aspectRatio={9 / 16}
+            sizes={posterSizes}
+          />
+        </div>
+
+        <div
+          ref={videoRef}
+          className={cn(VideoPlayer, isReady ? '' : 'opacity-1')}
+        />
         {autoplay === true && !isPlaying && (
           <div className={cn(FullscreenButton)}>
             <button onClick={handleFullscreen}>

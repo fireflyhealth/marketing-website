@@ -1,6 +1,6 @@
-import { defineField } from 'sanity';
+import { FieldDefinition, defineField } from 'sanity';
 
-const sharedImageFields = [
+const sharedImageFields: FieldDefinition<'string'>[] = [
   {
     name: 'altText',
     title: 'Alternative Text',
@@ -10,8 +10,11 @@ const sharedImageFields = [
     validation: (Rule) =>
       Rule.custom((value, context) => {
         // @ts-ignore
-        if (!context.parent.asset && value) {
+        if (!context?.parent?.asset && value) {
           return 'Must be removed when there is no image';
+        }
+        if (!context?.parent) {
+          return true;
         }
         if (!value) {
           return 'Required';
