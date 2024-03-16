@@ -8,9 +8,8 @@ import { client } from '@/lib/sanity';
 const jsonFilePath = path.resolve(__dirname, '../src/mockData/mockData.json');
 
 const main = async () => {
-  console.log('Fetching mock data..');
   const mockData = await client
-    .withConfig({ useCdn: false })
+    .withConfig({ useCdn: false, dataset: 'staging' })
     .fetch(mockDataQuery);
   const fileContents = await prettier.format(JSON.stringify(mockData, null), {
     parser: 'json',
