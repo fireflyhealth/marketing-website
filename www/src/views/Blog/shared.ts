@@ -1,5 +1,5 @@
-import { BlogArticlePagination } from '@/types/sanity';
+import { BlogArticlePagination, Maybe } from '@/types/sanity';
 
 export type BlogArticlesSharedProps = {
-  currentPage: BlogArticlePagination;
+  currentPage: Maybe<BlogArticlePagination>;
 };

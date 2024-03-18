@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import { Blog, BlogArticlePagination } from '@/types/sanity';
 import { HeaderArea } from '@/components/headerContentBlocks/HeaderArea';
 import { ContentArea } from '@/components/contentBlocks/ContentArea';
-import { useBlogArticlePagination } from '@/hooks/useBlogArticlePagination';
+import { Tabs } from '@/components/Tabs';
 import { BlogPageFeaturedArticle } from './BlogPageFeaturedArticle';
 import { BlogPageArticles } from './BlogPageArticles';
 
@@ -15,19 +15,8 @@ export const BlogPageView: FC<BlogPageViewProps> = ({
   blog,
   initialArticlesPage,
 }) => {
-  const {
-    header,
-    featuredArticle,
-    contentArea,
-    blogArticleTagGroups,
-    allArticlesLabel,
-    articleLayout,
-  } = blog;
-  const { state, goNext, goPrev } = useBlogArticlePagination(
-    blog.slug.current,
-    initialArticlesPage,
-  );
-  const { currentPage } = state;
+  const { header, featuredArticle, contentArea } = blog;
+  const blogArticleTagGroups = blog.blogArticleTagGroups || [];
   return (
     <div>
       <HeaderArea block={header} />
@@ -35,13 +24,37 @@ export const BlogPageView: FC<BlogPageViewProps> = ({
       {featuredArticle ? (
         <BlogPageFeaturedArticle article={featuredArticle} />
       ) : null}
-      <BlogPageArticles
-        paginationStatus={state.status}
-        articleLayout={articleLayout}
-        currentPage={currentPage}
-        goNext={goNext}
-        goPrev={goPrev}
-      />
+      <div className={cn(BlogPageArticlesWrapper)}>
+        <Tabs
+          tabs={[
+            /* The first tab is "all articles" */
+            {
+              _key: 'all',
+              label: blog.allArticlesLabel,
+              children: (
+                <BlogPageArticles
+                  blog={blog}
+                  articleTag={null}
+                  /* Provide it with the initial page provided by
+                   * getStaticProps */
+                  initialArticlesPage={initialArticlesPage}
+                />
+              ),
+            },
+            ...blogArticleTagGroups.map((tagGroup) => ({
+              _key: tagGroup._key,
+              label: tagGroup.tag.title,
+              children: (
+                <BlogPageArticles
+                  blog={blog}
+                  articleTag={tagGroup}
+                  initialArticlesPage={null}
+                />
+              ),
+            })),
+          ]}
+        />
+      </div>
     </div>
   );
 };

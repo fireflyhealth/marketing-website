@@ -4,7 +4,7 @@ import { userEvent } from '@testing-library/user-event';
 import { BlogArticlePagination } from '@/types/sanity';
 import { imageExamples, simpleRichText } from '@/mockData';
 import { Status } from '@/constants';
-import { BlogPageArticles } from '../BlogPageArticles';
+import { BlogPageArticlesInner } from '../BlogPageArticles';
 
 const generatePage = (
   pageNumber: number,
@@ -51,7 +51,7 @@ describe('BlogPageArticles', () => {
     const goNext = async () => {};
     const goPrev = async () => {};
     const { queryByText } = render(
-      <BlogPageArticles
+      <BlogPageArticlesInner
         articleLayout="list"
         paginationStatus={Status.Idle}
         goNext={goNext}
@@ -68,7 +68,7 @@ describe('BlogPageArticles', () => {
     const goNext = jest.fn(async () => {});
     const goPrev = jest.fn(async () => {});
     const { rerender, getByText } = render(
-      <BlogPageArticles
+      <BlogPageArticlesInner
         articleLayout="list"
         paginationStatus={Status.Idle}
         goNext={goNext}
@@ -91,7 +91,7 @@ describe('BlogPageArticles', () => {
 
     /* Simulate the loading status */
     rerender(
-      <BlogPageArticles
+      <BlogPageArticlesInner
         articleLayout="list"
         paginationStatus={Status.Pending}
         goNext={goNext}
@@ -108,7 +108,7 @@ describe('BlogPageArticles', () => {
 
     /* Simulate the next page (no next page) */
     rerender(
-      <BlogPageArticles
+      <BlogPageArticlesInner
         articleLayout="list"
         paginationStatus={Status.Fulfilled}
         goNext={goNext}

@@ -288,7 +288,7 @@ export type BlogArticleTagGroup = {
 export type BlogArticleTag = SanityDocument & {
   _type: 'blogArticleTag';
   title: string;
-  slug: string;
+  slug: Slug;
 };
 
 export type BlogArticle = SanityDocument & {
