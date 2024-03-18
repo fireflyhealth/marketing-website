@@ -1,3 +1,4 @@
+import React from 'react';
 import { AppProps } from 'next/app';
 import { HubspotProvider } from 'next-hubspot';
 import { AnnouncementBanner } from '@/components/AnnouncementBanner';
@@ -11,6 +12,12 @@ import '@/lib/datadog';
 import '../styles/fonts.css';
 import '../styles/main.css';
 import 'what-input';
+
+if (typeof window !== 'undefined' && process.env.NODE_ENV !== 'production') {
+  const ReactDOM = require('react-dom');
+  const axe = require('@axe-core/react');
+  axe(React, ReactDOM, 1000);
+}
 
 type Props = AppProps<{
   siteSettings: SanityTypes.SiteSettings;

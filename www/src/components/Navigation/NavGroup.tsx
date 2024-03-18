@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, useRef, useEffect } from 'react';
 import cn from 'classnames';
 import { useUIProvider } from '@/context/UIProvider';
 import { SimpleIcon } from '@/svgs/SimpleIcon';
@@ -20,6 +20,8 @@ type Props = {
 
 export const NavGroup: FC<Props> = ({ navItem, isMobile }) => {
   const { currentNavItem, setCurrentNavItem } = useUIProvider();
+
+  const labelWithDropdownRef = useRef<HTMLButtonElement>(null);
 
   const isCurrentNavItem = currentNavItem === navItem._key;
 
@@ -53,6 +55,36 @@ export const NavGroup: FC<Props> = ({ navItem, isMobile }) => {
       }
     }
   };
+
+  useEffect(() => {
+    if (!labelWithDropdownRef.current) return;
+
+    // Handle keyboard events (open/close dropdown, select option)
+    const handleKeyDown = (event: KeyboardEvent) => {
+      const { key } = event;
+      if (key === 'Escape') {
+        setCurrentNavItem(null);
+      }
+
+      if (key === 'Enter') {
+        const focusedElement = document.activeElement as HTMLElement;
+        if (focusedElement && focusedElement === labelWithDropdownRef.current) {
+          setCurrentNavItem(navItem._key);
+        }
+      }
+    };
+
+    labelWithDropdownRef.current.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      if (!labelWithDropdownRef.current) return;
+
+      labelWithDropdownRef.current.removeEventListener(
+        'keydown',
+        handleKeyDown,
+      );
+    };
+  }, [navItem._key, setCurrentNavItem]);
 
   return (
     <div
