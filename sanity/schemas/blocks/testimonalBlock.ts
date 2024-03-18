@@ -4,7 +4,7 @@ import { requiredBlockFields } from './utils/requiredBlockFields';
 
 export const TestimonialBlock = defineType({
   name: 'testimonialBlock',
-  title: 'Testimonal Block',
+  title: 'Testimonal Carousel Block',
   type: 'object',
   icon: icons.Testimonial,
   fields: [

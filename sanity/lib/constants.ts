@@ -95,5 +95,6 @@ export const defaultContentBlockTypes = [
   { type: 'richTextBlock' },
   { type: 'tabsBlock' },
   { type: 'testimonialBlock' },
+  { type: 'smallImageCarouselBlock' },
   { type: 'dividerBlock' },
 ];
