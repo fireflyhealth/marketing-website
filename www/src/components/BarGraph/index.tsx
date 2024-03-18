@@ -14,6 +14,11 @@ type Props = {
   barGraph: SanityTypes.BarGraph;
 };
 
+// constants for bar height and width
+const barHeightDesktop = 350; // px
+const minBarHeightDesktop = 56; // px
+const minBarWidthMobile = 40; // %
+
 export const BarGraph: FC<Props> = ({ barGraph }) => {
   const { barOne, barTwo } = barGraph;
 
@@ -29,8 +34,8 @@ export const BarGraph: FC<Props> = ({ barGraph }) => {
   const barOneRef = useRef<HTMLDivElement>(null);
   const barTwoRef = useRef<HTMLDivElement>(null);
 
-  const barOneSize = Math.round(350 * (barOne.unit / barTwo.unit));
-  const barTwoSize = Math.round(350 * (barTwo.unit / barOne.unit));
+  const barOneSize = Math.round(barHeightDesktop * (barOne.unit / barTwo.unit));
+  const barTwoSize = Math.round(barHeightDesktop * (barTwo.unit / barOne.unit));
 
   useEffect(() => {
     if (barOneIsTaller) {
@@ -76,8 +81,12 @@ export const BarGraph: FC<Props> = ({ barGraph }) => {
           ref={barOneRef}
           className={cn(Bar, 'bg-yellow w-full hidden lg:block')}
           style={{
-            height: `${!barOneIsTaller ? `${barHeight}px` : '350px'}`,
-            minHeight: `${!barOneIsTaller ? '56px' : 'unset'}`,
+            height: `${
+              !barOneIsTaller ? `${barHeight}px` : `${barHeightDesktop}px`
+            }`,
+            minHeight: `${
+              !barOneIsTaller ? `${minBarHeightDesktop}px` : 'unset'
+            }`,
           }}
         >
           <p className={cn(Description)}>{barOne.description}</p>
@@ -90,7 +99,7 @@ export const BarGraph: FC<Props> = ({ barGraph }) => {
           className={cn(Bar, 'bg-yellow h-full block lg:hidden')}
           style={{
             width: `${!barOneIsTaller ? `${barWidth}px` : '100%'}`,
-            minWidth: `${!barOneIsTaller ? '40%' : 'unset'}`,
+            minWidth: `${!barOneIsTaller ? `${minBarWidthMobile}%` : 'unset'}`,
           }}
         >
           <p className={cn(Description)}>{barOne.description}</p>
@@ -111,8 +120,12 @@ export const BarGraph: FC<Props> = ({ barGraph }) => {
           ref={barTwoRef}
           className={cn(Bar, 'bg-grey-medium w-full hidden lg:block')}
           style={{
-            height: `${barOneIsTaller ? `${barHeight}px` : '350px'}`,
-            minHeight: `${barOneIsTaller ? '56px' : 'unset'}`,
+            height: `${
+              barOneIsTaller ? `${barHeight}px` : `${barHeightDesktop}px`
+            }`,
+            minHeight: `${
+              barOneIsTaller ? `${minBarHeightDesktop}px` : 'unset'
+            }`,
           }}
         >
           <p className={cn(Description, 'opacity-70')}>{barTwo.description}</p>
@@ -125,7 +138,7 @@ export const BarGraph: FC<Props> = ({ barGraph }) => {
           className={cn(Bar, 'bg-grey-medium h-full block lg:hidden')}
           style={{
             width: `${barOneIsTaller ? `${barWidth}px` : '100%'}`,
-            minWidth: `${barOneIsTaller ? '40%' : 'unset'}`,
+            minWidth: `${barOneIsTaller ? `${minBarWidthMobile}%` : 'unset'}`,
           }}
         >
           <p className={cn(Description, 'opacity-70')}>{barTwo.description}</p>
