@@ -63,7 +63,7 @@ export const BlogPageArticlesInner: FC<BlogPageArticlesInnerProps> = ({
         true;
 
   return (
-    <>
+    <div className="pt-2">
       <div
         ref={blogArticlesRef}
         className={cn(
@@ -80,7 +80,7 @@ export const BlogPageArticlesInner: FC<BlogPageArticlesInnerProps> = ({
       </div>
       {hasMultiplePages ? (
         /* Only show the buttons if there is more than one page */
-        <div className="flex flex-row justify-center py-12 md:py-18 lg:py-24">
+        <div className="flex flex-row justify-center pt-12 md:pt-18 lg:pt-24">
           <div>
             <Button
               variant="secondary"
@@ -106,7 +106,7 @@ export const BlogPageArticlesInner: FC<BlogPageArticlesInnerProps> = ({
           </div>
         </div>
       ) : null}
-    </>
+    </div>
   );
 };
 

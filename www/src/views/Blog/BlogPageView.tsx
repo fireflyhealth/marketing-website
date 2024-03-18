@@ -1,10 +1,12 @@
 import React, { FC } from 'react';
+import cn from 'classnames';
 import { Blog, BlogArticlePagination } from '@/types/sanity';
 import { HeaderArea } from '@/components/headerContentBlocks/HeaderArea';
 import { ContentArea } from '@/components/contentBlocks/ContentArea';
 import { Tabs } from '@/components/Tabs';
 import { BlogPageFeaturedArticle } from './BlogPageFeaturedArticle';
 import { BlogPageArticles } from './BlogPageArticles';
+import { BlogPageArticlesWrapper } from './styles';
 
 type BlogPageViewProps = {
   blog: Blog;
