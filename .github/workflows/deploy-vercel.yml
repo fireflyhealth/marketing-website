@@ -126,7 +126,6 @@ jobs:
           vercel-token: ${{ secrets.vercel-token }}
           github-token: ${{ secrets.github-token }}
 
-
   audit_with_lighthouse:
     name: Audit with Lighthouse
     runs-on: ubuntu-latest
