@@ -86,6 +86,18 @@ export const Video: FC<Props> = ({
     });
   }, [videoRef, video.videoLink]);
 
+  useEffect(() => {
+    if (!videoRef.current) return;
+
+    videoRef.current.querySelectorAll('iframe').forEach((iframe) => {
+      if (!isPlaying) {
+        iframe.setAttribute('tabindex', '-1');
+      } else {
+        iframe.setAttribute('tabindex', '0');
+      }
+    });
+  }, [isPlaying]);
+
   const handlePlay = useCallback(async () => {
     if (!player) return;
     const isPaused = await player.getPaused();
