@@ -29,7 +29,6 @@ const generateSitemapSection = (
 `;
 
 const generateSiteMap = ({
-  homepage,
   faqPage,
   contactPage,
   downloadPage,
@@ -45,7 +44,6 @@ const generateSiteMap = ({
      <url>
        <loc>${config.metadata.productionUrl}</loc>
      </url>
-    ${homepage && generateSitemapSection(homepage)}
     ${faqPage && generateSitemapSection(faqPage)}
     ${contactPage && generateSitemapSection(contactPage)}
     ${downloadPage && generateSitemapSection(downloadPage)}
