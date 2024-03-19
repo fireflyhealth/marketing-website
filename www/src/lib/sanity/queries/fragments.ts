@@ -653,6 +653,12 @@ const imageCarouselBlockFragment = `
   }
 `;
 
+const smallImageCarouselBlockFragment = `
+  images[]{
+    ${imageFragment}
+  }
+`;
+
 const doubleCtaBlockFragment = `
   _type,
   doubleCta{${doubleCtaFragment}},
@@ -691,6 +697,7 @@ export const contentBlockFragment = `
   _type == "featuredStoriesBlock" => {${featuredStoriesBlockFragment}},
   _type == "imageBlock" => {${imageBlockFragment}},
   _type == "imageCarouselBlock" => {${imageCarouselBlockFragment}},
+  _type == "smallImageCarouselBlock" => {${smallImageCarouselBlockFragment}},
   _type == "imageGridBlock" => {${imageGridBlockFragment}},
   _type == "imageTextOverlapBlock" => {${imageTextOverlapFragment}},
   _type == "practitionersBlock" => {${practitionersBlockFragment}},

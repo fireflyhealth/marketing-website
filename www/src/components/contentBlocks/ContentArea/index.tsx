@@ -21,6 +21,7 @@ import { TabsBlock } from '../TabsBlock';
 import { TestimonialBlock } from '../TestimonialBlock';
 import { RichTextBlock } from '../RichTextBlock';
 import { DividerBlock } from '../DividerBlock';
+import { SmallImageCarouselBlock } from '../SmallImageCarouselBlock';
 
 type ContentBlockProps = {
   block: ContentBlockType;
@@ -66,6 +67,8 @@ const ContentBlock: FC<ContentBlockProps> = ({ block }) => {
       return <RichTextBlock richTextBlock={block} />;
     case 'dividerBlock':
       return <DividerBlock dividerBlock={block} />;
+    case 'smallImageCarouselBlock':
+      return <SmallImageCarouselBlock smallImageCarouselBlock={block} />;
     default:
       console.warn(
         // @ts-expect-error

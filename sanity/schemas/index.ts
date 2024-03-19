@@ -35,6 +35,7 @@ import { ImageChildBlock } from './childBlocks/imageChildBlock';
 import { ContentBlockHeader } from './blocks/contentBlockHeader';
 import { ImageBlock } from './blocks/imageBlock';
 import { ImageCarouselBlock } from './blocks/imageCarouselBlock';
+import { SmallImageCarouselBlock } from './blocks/smallImageCarouselBlock';
 import { DoubleCtaBlock } from './blocks/doubleCtaBlock';
 import { ImageTextOverlapBlock } from './blocks/imageTextOverlapBlock';
 import { QuoteBlock } from './blocks/quoteBlock';
@@ -130,6 +131,7 @@ export const schemaTypes = [
   /* Default Blocks (used within ContentArea, each has a heading) */
   ImageBlock,
   ImageCarouselBlock,
+  SmallImageCarouselBlock,
   DoubleCtaBlock,
   PractitionersBlock,
   ImageTextOverlapBlock,

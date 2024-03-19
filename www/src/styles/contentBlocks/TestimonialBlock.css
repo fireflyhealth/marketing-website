@@ -1,0 +1,5 @@
+.TestimonialBlock {
+  &__carousel-item {
+    width: calc(100vw - var(--container-sm-padding) * 2);
+  }
+}

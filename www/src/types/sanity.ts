@@ -701,6 +701,7 @@ export type DividerBlock = {
 export type ContentBlock =
   | ImageBlock
   | ImageCarouselBlock
+  | SmallImageCarouselBlock
   | PractitionersBlock
   | ImageTextOverlapBlock
   | QuoteBlock
@@ -743,6 +744,11 @@ export type ImageBlock = {
 
 export type ImageCarouselBlock = ContentBlockCommon & {
   _type: 'imageCarouselBlock';
+  images: KeyedArray<RichImage>;
+};
+
+export type SmallImageCarouselBlock = ContentBlockCommon & {
+  _type: 'smallImageCarouselBlock';
   images: KeyedArray<RichImage>;
 };
 
