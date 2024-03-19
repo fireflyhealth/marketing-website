@@ -13,6 +13,7 @@ type LinkProps = {
   children: React.ReactNode;
   className?: string;
   tabindex?: number;
+  linkRef?: React.Ref<HTMLAnchorElement>;
 };
 
 export const Link: FC<LinkProps> = ({
@@ -22,6 +23,7 @@ export const Link: FC<LinkProps> = ({
   id,
   className,
   tabindex,
+  linkRef,
   ...props
 }) => {
   if ('externalUrl' in link && link.externalUrl) {
@@ -31,6 +33,7 @@ export const Link: FC<LinkProps> = ({
 
     return (
       <a
+        ref={linkRef}
         href={url}
         id={id || undefined}
         aria-label={ariaLabel || undefined}
@@ -45,6 +48,7 @@ export const Link: FC<LinkProps> = ({
   if ('file' in link && link.file) {
     return (
       <a
+        ref={linkRef}
         href={link.file.asset.url}
         id={id || undefined}
         aria-label={ariaLabel || undefined}
@@ -64,6 +68,7 @@ export const Link: FC<LinkProps> = ({
   const href = getLinkableDocumentPath(documentLink);
   return (
     <NextLink
+      ref={linkRef}
       id={id || undefined}
       aria-label={ariaLabel || undefined}
       href={href}

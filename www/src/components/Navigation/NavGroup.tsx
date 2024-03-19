@@ -22,6 +22,8 @@ export const NavGroup: FC<Props> = ({ navItem, isMobile }) => {
   const { currentNavItem, setCurrentNavItem } = useUIProvider();
 
   const labelWithDropdownRef = useRef<HTMLButtonElement>(null);
+  const iconWithDropdownRef = useRef<HTMLButtonElement>(null);
+  const dropdownLinkRef = useRef<HTMLAnchorElement>(null);
 
   const isCurrentNavItem = currentNavItem === navItem._key;
 
@@ -48,43 +50,75 @@ export const NavGroup: FC<Props> = ({ navItem, isMobile }) => {
     }
   };
   const handleDropdownButtonClick = () => {
-    if (isMobile) {
+    if (!isMobile) return;
+
+    if (currentNavItem === navItem._key) {
+      setCurrentNavItem(null);
+    } else {
       setCurrentNavItem(navItem._key);
-      if (currentNavItem === navItem._key) {
-        setCurrentNavItem(null);
+    }
+  };
+
+  const handleEscape = (event: KeyboardEvent) => {
+    if (event.key === 'Escape') {
+      setCurrentNavItem(null);
+    }
+  };
+
+  // Handle keyboard events (open/close dropdown, select option)
+  const handleKeyDown = (event: KeyboardEvent) => {
+    const { key } = event;
+
+    handleEscape(event);
+
+    if (key === 'Enter') {
+      const focusedElement = document.activeElement as HTMLElement;
+      if (
+        (focusedElement && focusedElement === labelWithDropdownRef.current) ||
+        (focusedElement && focusedElement === iconWithDropdownRef.current)
+      ) {
+        setCurrentNavItem(navItem._key);
       }
     }
   };
 
   useEffect(() => {
-    if (!labelWithDropdownRef.current) return;
+    if (labelWithDropdownRef.current) {
+      labelWithDropdownRef.current.addEventListener('keydown', handleKeyDown);
+    }
 
-    // Handle keyboard events (open/close dropdown, select option)
-    const handleKeyDown = (event: KeyboardEvent) => {
-      const { key } = event;
-      if (key === 'Escape') {
-        setCurrentNavItem(null);
-      }
+    if (iconWithDropdownRef.current) {
+      iconWithDropdownRef.current.addEventListener('keydown', handleKeyDown);
+    }
 
-      if (key === 'Enter') {
-        const focusedElement = document.activeElement as HTMLElement;
-        if (focusedElement && focusedElement === labelWithDropdownRef.current) {
-          setCurrentNavItem(navItem._key);
-        }
-      }
-    };
-
-    labelWithDropdownRef.current.addEventListener('keydown', handleKeyDown);
+    if (dropdownLinkRef.current) {
+      dropdownLinkRef.current.addEventListener('keydown', handleEscape);
+    }
 
     return () => {
-      if (!labelWithDropdownRef.current) return;
+      if (labelWithDropdownRef.current) {
+        labelWithDropdownRef.current.removeEventListener(
+          'keydown',
+          handleKeyDown,
+        );
+      }
 
-      labelWithDropdownRef.current.removeEventListener(
-        'keydown',
-        handleKeyDown,
-      );
+      if (iconWithDropdownRef.current) {
+        iconWithDropdownRef.current.removeEventListener(
+          'keydown',
+          handleKeyDown,
+        );
+      }
+
+      if (dropdownLinkRef.current) {
+        dropdownLinkRef.current.removeEventListener('keydown', handleEscape);
+      }
     };
   }, [navItem._key, setCurrentNavItem]);
+
+  const dropwdownButtonAriaLabel = isCurrentNavItem
+    ? 'Close dropdown menu'
+    : 'Open dropdown menu';
 
   return (
     <div
@@ -104,12 +138,20 @@ export const NavGroup: FC<Props> = ({ navItem, isMobile }) => {
               {navItem.link ? (
                 <p>{navItem.label}</p>
               ) : (
-                <button onClick={handleDropdownButtonClick}>
+                <button
+                  ref={labelWithDropdownRef}
+                  onClick={handleDropdownButtonClick}
+                  aria-label={dropwdownButtonAriaLabel}
+                >
                   {navItem.label}
                 </button>
               )}
             </MaybeLink>
-            <button onClick={handleDropdownButtonClick}>
+            <button
+              ref={iconWithDropdownRef}
+              onClick={handleDropdownButtonClick}
+              aria-label={dropwdownButtonAriaLabel}
+            >
               <SimpleIcon
                 type="arrow-down"
                 wrapperStyles={cn(
@@ -136,6 +178,8 @@ export const NavGroup: FC<Props> = ({ navItem, isMobile }) => {
                   <Link
                     link={subPage.link}
                     onClick={() => setCurrentNavItem(null)}
+                    tabindex={isCurrentNavItem ? 0 : -1}
+                    linkRef={dropdownLinkRef}
                   >
                     {subPage.label}
                   </Link>
