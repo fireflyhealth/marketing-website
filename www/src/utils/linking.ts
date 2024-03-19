@@ -1,4 +1,5 @@
 import { LinkableDocumentData } from '@/types/sanity';
+import { config } from '../config';
 
 /* Returns the path for a linkable document */
 export const getLinkableDocumentPath = (doc: LinkableDocumentData): string => {
@@ -25,6 +26,11 @@ export const getLinkableDocumentPath = (doc: LinkableDocumentData): string => {
       return `/care-team/${doc.slug.current}`;
   }
 };
+
+/* Returns the full production URL for a linkable document */
+export const getLinkableDocumentProductionUrl = (
+  doc: LinkableDocumentData,
+): string => config.metadata.productionUrl.concat(getLinkableDocumentPath(doc));
 
 export const getLinkableDocumentLabel = (doc: LinkableDocumentData): string => {
   switch (doc._type) {

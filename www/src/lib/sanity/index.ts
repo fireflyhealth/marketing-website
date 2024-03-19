@@ -16,6 +16,16 @@ import {
   RichImage,
   BlogArticlePagination,
   BlogWithArticles,
+  HomepageLinkData,
+  FAQPageLinkData,
+  ContactPageLinkData,
+  DownloadPageLinkData,
+  GenericPageLinkData,
+  SubPageLinkData,
+  BlogLinkData,
+  BlogArticleLinkData,
+  ClientPageLinkData,
+  PractitionerLinkData,
 } from '@/types/sanity';
 import { PAGINATION_PAGE_SIZE } from '@/constants';
 import { sleep } from '@/utils/misc';
@@ -30,7 +40,10 @@ import {
   notFoundPageFragment,
   siteSettingsFragment,
 } from './queries';
-import { blogArticleLinkDataFragment } from './queries/fragments';
+import {
+  blogArticleLinkDataFragment,
+  linkableDocumentFragment,
+} from './queries/fragments';
 
 export const client = createClient(config.sanity);
 
@@ -480,5 +493,42 @@ export const blog = {
         await sleep(1000);
         return blog.findBlogArticlePreview(id, previewToken).then(callback);
       });
+  },
+};
+
+/**
+ * Sitemap
+ */
+export type SitemapData = {
+  homepage: HomepageLinkData;
+  faqPage: FAQPageLinkData;
+  contactPage: ContactPageLinkData;
+  downloadPage: DownloadPageLinkData;
+  genericPage: GenericPageLinkData[];
+  subPage: SubPageLinkData[];
+  blog: BlogLinkData[];
+  blogArticle: BlogArticleLinkData[];
+  clientPage: ClientPageLinkData[];
+  practitioner: PractitionerLinkData[];
+};
+
+const SITEMAP_DATA_QUERY = `
+{
+  "homepage": *[_type == "homepage"][0]{${linkableDocumentFragment}},
+  "faqPage": *[_type == "faqPage"][0]{${linkableDocumentFragment}},
+  "contactPage": *[_type == "contactPage"][0]{${linkableDocumentFragment}},
+  "downloadPage": *[_type == "downloadPage"][0]{${linkableDocumentFragment}},
+  "genericPage": *[_type == "genericPage"]{${linkableDocumentFragment}},
+  "subPage": *[_type == "subPage"]{${linkableDocumentFragment}},
+  "blog": *[_type == "blog"]{${linkableDocumentFragment}},
+  "blogArticle": *[_type == "blogArticle"]{${linkableDocumentFragment}},
+  "clientPage": *[_type == "clientPage"]{${linkableDocumentFragment}},
+  "practitioner": *[_type == "practitioner"]{${linkableDocumentFragment}}
+}
+`;
+
+export const Sitemap = {
+  get(): Promise<SitemapData | null> {
+    return client.fetch(SITEMAP_DATA_QUERY);
   },
 };

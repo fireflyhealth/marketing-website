@@ -1,39 +1,39 @@
 {
-	"plugins": ["import", "no-only-tests"],
-	"extends": ["plugin:import/recommended"],
-	"rules": {
-		"import/order": [
-			"error",
-			{
-				"groups": [
-					"builtin",
-					"external",
-					"internal",
-					"parent",
-					"sibling",
-					"index",
-					"object",
-					"type"
-				]
-			}
-		],
-		"import/no-unresolved": "error",
-		"import/default": "off",
-		"import/no-named-as-default-member": "off",
-		"no-only-tests/no-only-tests": "error",
-		"no-console": ["error", { "allow": ["warn", "error"] }]
-	},
-	"settings": {
-		"import/parsers": {
-			"@typescript-eslint/parser": [".ts", ".tsx"]
-		},
-		"import/resolver": {
-			"typescript": {
-				"alwaysTryTypes": true,
-				"project": "**/*/tsconfig.json"
-			},
-			"node": true
-		},
-		"import/internal-regex": "^@/"
-	}
+  "plugins": ["import", "no-only-tests"],
+  "extends": ["plugin:import/recommended"],
+  "rules": {
+    "import/order": [
+      "error",
+      {
+        "groups": [
+          "builtin",
+          "external",
+          "internal",
+          "parent",
+          "sibling",
+          "index",
+          "object",
+          "type"
+        ]
+      }
+    ],
+    "import/no-unresolved": "error",
+    "import/default": "off",
+    "import/no-named-as-default-member": "off",
+    "no-only-tests/no-only-tests": "error",
+    "no-console": ["error", { "allow": ["warn", "error"] }]
+  },
+  "settings": {
+    "import/parsers": {
+      "@typescript-eslint/parser": [".ts", ".tsx"]
+    },
+    "import/resolver": {
+      "typescript": {
+        "alwaysTryTypes": true,
+        "project": "**/*/tsconfig.json"
+      },
+      "node": true
+    },
+    "import/internal-regex": "^@/"
+  }
 }
