@@ -125,7 +125,7 @@ const PagePreview: FC<Props> = ({ document }) => {
       width="100%"
       height="100%"
       title="Sanity Page Preview"
-      src={fullSrcUrl}
+      src={fullSrcUrl ? fullSrcUrl : undefined}
       style={{ border: 'none' }}
     />
   );
