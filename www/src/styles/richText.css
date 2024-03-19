@@ -4,7 +4,18 @@
   }
 
   a {
+    transition: all 500ms ease;
     border-bottom: 1px solid;
+
+    &:hover {
+      border-color: var(--cta-bg-color-primary);
+    }
+
+    &:focus {
+      outline: none;
+      background-color: var(--cta-bg-color-primary);
+      color: var(--cta-text-color-primary);
+    }
   }
 
   strong {

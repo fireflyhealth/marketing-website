@@ -25,6 +25,7 @@ export const DesktopNav: FC<Props> = ({
   const handleCTAClick = () => {
     setGetStartedOpen(!getStartedOpen);
   };
+
   return (
     <nav className={cn(NavWrapper, 'hidden')}>
       <div

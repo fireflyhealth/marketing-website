@@ -12,6 +12,7 @@ type LinkProps = {
   onMouseLeave?: () => void;
   children: React.ReactNode;
   className?: string;
+  tabindex?: number;
 };
 
 export const Link: FC<LinkProps> = ({
@@ -20,6 +21,7 @@ export const Link: FC<LinkProps> = ({
   ariaLabel,
   id,
   className,
+  tabindex,
   ...props
 }) => {
   if ('externalUrl' in link && link.externalUrl) {
@@ -34,6 +36,7 @@ export const Link: FC<LinkProps> = ({
         aria-label={ariaLabel || undefined}
         target={target}
         className={className}
+        tabIndex={tabindex}
       >
         {children}
       </a>
@@ -46,6 +49,7 @@ export const Link: FC<LinkProps> = ({
         id={id || undefined}
         aria-label={ariaLabel || undefined}
         className={className}
+        tabIndex={tabindex}
       >
         {children}
       </a>
@@ -64,6 +68,7 @@ export const Link: FC<LinkProps> = ({
       aria-label={ariaLabel || undefined}
       href={href}
       className={className}
+      tabIndex={tabindex}
       {...props}
     >
       {children}
