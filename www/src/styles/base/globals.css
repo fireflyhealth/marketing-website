@@ -384,20 +384,15 @@ svg {
   color: var(--cta-text-color-primary);
   background-color: var(--cta-bg-color-primary);
   border: 3px solid transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 0 2.5rem;
+
   @screen md {
     height: 48px;
-  }
-
-  &__inner {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-    padding: 0 2.5rem;
-
-    @screen md {
-      padding: 0 3rem;
-    }
+    padding: 0 3rem;
   }
 
   &:hover {
@@ -437,7 +432,7 @@ svg {
       background-color: var(--bg-color);
     }
 
-    &:focus {
+    [data-whatintent='keyboard'] &:focus {
       border-width: 4px;
       padding: 0px;
     }
@@ -455,6 +450,7 @@ svg {
   }
 
   &--textLink {
+    transition: all 500ms ease;
     background-color: transparent;
     color: var(--text-color-primary);
     border-color: var(--text-color-primary);
@@ -462,27 +458,25 @@ svg {
     border-bottom: 1px solid;
     height: 26px;
     border-radius: 0;
+    padding: 0;
 
     @screen md {
       height: 24px;
     }
 
-    .cta__inner {
-      padding: 0;
-    }
-
     &:hover {
-      background-color: var(--bg-color);
-      border-color: theme('colors.yellow');
+      background-color: transparent;
+      border-color: var(--cta-bg-color-primary);
     }
 
     &:disabled {
-      background-color: var(--bg-color);
+      opacity: 0.3;
     }
 
-    &:focus {
+    [data-whatintent='keyboard'] &:focus {
       border-color: transparent;
-      background-color: theme('colors.yellow');
+      background-color: var(--cta-bg-color-primary);
+      color: var(--cta-text-color-primary);
     }
   }
 }
