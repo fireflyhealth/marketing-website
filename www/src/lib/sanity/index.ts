@@ -406,15 +406,23 @@ export const blog = {
   getBlogArticles: async (
     blogSlug: string,
     page: number = 0,
+    tagSlug?: string,
   ): Promise<BlogArticlePagination> => {
     const from = page * PAGINATION_PAGE_SIZE;
     /* Overfetch by 1 to see if there are additional pages */
     const to = from + PAGINATION_PAGE_SIZE + 1;
     const articles = await client.fetch<BlogArticle[]>(
-      `*[_type == "blogArticle" && category->slug.current == $blogSlug]{
-        ${blogArticleLinkDataFragment}
-      }[$from..$to]`,
-      { blogSlug, from, to },
+      `*[
+          _type == "blogArticle"
+          && category->slug.current == $blogSlug
+          && (
+            $tagSlug == null ||
+            $tagSlug in tags[]->slug.current
+          )
+        ]{
+          ${blogArticleLinkDataFragment}
+        }[$from..$to]`,
+      { blogSlug, from, to, tagSlug: tagSlug || null },
     );
     /* Slice off the possible over-fetched article */
     const slicedArticles = articles.slice(0, PAGINATION_PAGE_SIZE);

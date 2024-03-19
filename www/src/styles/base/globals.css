@@ -565,6 +565,16 @@ svg {
   }
 }
 
+.container-padding-bleed--margin-only-mobile-only {
+  width: calc(100% + var(--container-sm-padding) + var(--container-sm-padding));
+  margin-left: calc(0px - var(--container-sm-padding));
+
+  @screen md {
+    width: 100%;
+    margin-left: initial;
+  }
+}
+
 #hubspot-form-wrapper fieldset {
   width: 100%;
   max-width: unset;
