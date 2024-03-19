@@ -5,6 +5,14 @@ import { LinkableDocumentData } from '@/types/sanity';
 import { getLinkableDocumentProductionUrl } from '@/utils/linking';
 import { config } from '../config';
 
+/**
+ * Simple function to format date
+ * @param date string
+ * @returns date in YYYY-MM-DD
+ */
+const formatDate = (date: string) =>
+  new Date(date).toISOString().substring(0, 10);
+
 /* Yanked and adapted from:
  * https://nextjs.org/learn-pages-router/seo/crawling-and-indexing/xml-sitemaps
  */
@@ -13,11 +21,11 @@ const generateSitemapSection = (
 ): string =>
   Array.isArray(items)
     ? items
-        .map(getLinkableDocumentProductionUrl)
         .map(
-          (url) => `
+          (item) => `
 <url>
-  <loc>${url}</loc>
+  <loc>${getLinkableDocumentProductionUrl(item)}</loc>
+  ${item._updatedAt && `<lastmod>${formatDate(item._updatedAt)}</lastmod>`}
 </url>
 `,
         )
@@ -25,10 +33,12 @@ const generateSitemapSection = (
     : `
 <url>
   <loc>${getLinkableDocumentProductionUrl(items)}</loc>
+  ${items._updatedAt && `<lastmod>${formatDate(items._updatedAt)}</lastmod>`}
 </url>
 `;
 
 const generateSiteMap = ({
+  homepage,
   faqPage,
   contactPage,
   downloadPage,
@@ -41,9 +51,10 @@ const generateSiteMap = ({
 }: Sanity.SitemapData) => {
   return `<?xml version="1.0" encoding="UTF-8"?>
    <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-     <url>
-       <loc>${config.metadata.productionUrl}</loc>
-     </url>
+    <url>
+      <loc>${config.metadata.productionUrl}</loc>
+      ${homepage._updatedAt && `<lastmod>${formatDate(homepage._updatedAt)}</lastmod>`}
+    </url>
     ${faqPage && generateSitemapSection(faqPage)}
     ${contactPage && generateSitemapSection(contactPage)}
     ${downloadPage && generateSitemapSection(downloadPage)}
