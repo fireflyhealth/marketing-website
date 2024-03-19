@@ -1,0 +1,6 @@
+.SmallImageCarouselBlock {
+  &__carousel-item {
+    width: calc(100vw - var(--container-sm-padding) * 2);
+    height: 55vw;
+  }
+}

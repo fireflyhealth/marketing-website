@@ -117,7 +117,7 @@ export type Homepage = SanityDocument &
     subnav: Maybe<boolean>;
     content: ContentArea;
   };
-export type HomepageLinkData = Pick<Homepage, '_type'>;
+export type HomepageLinkData = Pick<Homepage, '_type' | '_updatedAt'>;
 
 /* Special pages */
 export type DownloadPage = SanityDocument &
@@ -126,7 +126,7 @@ export type DownloadPage = SanityDocument &
     title: string;
     content: ContentArea;
   };
-export type DownloadPageLinkData = Pick<DownloadPage, '_type'>;
+export type DownloadPageLinkData = Pick<DownloadPage, '_type' | '_updatedAt'>;
 
 export type ContactPage = SanityDocument &
   PageShared & {
@@ -142,7 +142,7 @@ export type ContactPage = SanityDocument &
     backgroundImage: Maybe<RichImage>;
     metadata?: Metadata;
   };
-export type ContactPageLinkData = Pick<ContactPage, '_type'>;
+export type ContactPageLinkData = Pick<ContactPage, '_type' | '_updatedAt'>;
 
 export type NotFoundPage = SanityDocument &
   PageShared & {
@@ -161,7 +161,7 @@ export type FAQPage = SanityDocument &
     faqs: FAQ[];
   };
 
-export type FAQPageLinkData = Pick<FAQPage, '_type'>;
+export type FAQPageLinkData = Pick<FAQPage, '_type' | '_updatedAt'>;
 
 export type FAQSubject = SanityDocument & {
   title: string;
@@ -193,7 +193,10 @@ export type GenericPage = GenericPageShared & {
   _type: 'genericPage';
   subPages?: KeyedArray<SubPage>;
 };
-export type GenericPageLinkData = Pick<GenericPage, '_type' | 'slug' | 'title'>;
+export type GenericPageLinkData = Pick<
+  GenericPage,
+  '_type' | 'slug' | 'title' | '_updatedAt'
+>;
 
 export type SubPage = GenericPageShared & {
   _type: 'subPage';
@@ -202,7 +205,7 @@ export type SubPage = GenericPageShared & {
 
 export type SubPageLinkData = Pick<
   SubPage,
-  '_type' | 'slug' | 'title' | 'parentPage'
+  '_type' | 'slug' | 'title' | 'parentPage' | '_updatedAt'
 >;
 
 /* Client Page */
@@ -216,7 +219,7 @@ export type ClientPage = SanityDocument &
   };
 export type ClientPageLinkData = Pick<
   ClientPage,
-  '_type' | 'slug' | 'clientName'
+  '_type' | 'slug' | 'clientName' | '_updatedAt'
 >;
 
 /* Practitioners */
@@ -252,6 +255,7 @@ export type PractitionerLinkData = Pick<
   | 'headshot'
   | 'pronouns'
   | 'title'
+  | '_updatedAt'
 >;
 
 /* Blogs */
@@ -277,7 +281,10 @@ export type BlogWithArticles = Blog & {
 };
 
 export type BlogArticleLayout = 'grid' | 'list';
-export type BlogLinkData = Pick<Blog, '_type' | 'slug' | 'title'>;
+export type BlogLinkData = Pick<
+  Blog,
+  '_type' | 'slug' | 'title' | '_updatedAt'
+>;
 
 export type BlogArticleTagGroup = {
   _type: 'blogArticleTagGroup';
@@ -324,6 +331,7 @@ export type BlogArticleLinkData = Pick<
   | 'thumbnail'
   | 'publishDate'
   | 'blurb'
+  | '_updatedAt'
   | '_updatedAt'
 >;
 
@@ -701,6 +709,7 @@ export type DividerBlock = {
 export type ContentBlock =
   | ImageBlock
   | ImageCarouselBlock
+  | SmallImageCarouselBlock
   | PractitionersBlock
   | ImageTextOverlapBlock
   | QuoteBlock
@@ -743,6 +752,11 @@ export type ImageBlock = {
 
 export type ImageCarouselBlock = ContentBlockCommon & {
   _type: 'imageCarouselBlock';
+  images: KeyedArray<RichImage>;
+};
+
+export type SmallImageCarouselBlock = ContentBlockCommon & {
+  _type: 'smallImageCarouselBlock';
   images: KeyedArray<RichImage>;
 };
 

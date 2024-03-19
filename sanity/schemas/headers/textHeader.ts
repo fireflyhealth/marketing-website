@@ -9,6 +9,7 @@ export const TextHeader = defineType({
       name: 'theme',
       type: 'theme',
       title: 'Theme',
+      initialValue: 'white',
       validation: (Rule) => Rule.required(),
     }),
     defineField({
