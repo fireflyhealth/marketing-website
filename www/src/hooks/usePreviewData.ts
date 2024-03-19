@@ -17,21 +17,69 @@ export const getPreviewQueryCallbacks = (
   type: LinkableDocumentType,
   previewClient: ReturnType<typeof createPreviewClient>,
 ): PreviewQueryCallbacks => {
-  switch (type) {
+  /* Coerce this so we can leverage exhaustive checking
+   * below. */
+
+  const coercedType = type as LinkableDocumentType;
+  switch (coercedType) {
     case 'homepage':
       return {
         listen: previewClient.homepage.listen,
         getPreviewData: previewClient.homepage.getPreviewData,
       };
-    /* TODO */
-    // case 'blog':
-    //   return {
-    //     listen: previewClient.blog.listen,
-    //     getPreviewData: previewClient.blog.getPreviewData,
-    //   };
-
+    case 'blog':
+      return {
+        listen: previewClient.blog.listen,
+        getPreviewData: previewClient.blog.getPreviewData,
+      };
+    case 'downloadPage':
+      return {
+        listen: previewClient.downloadPage.listen,
+        getPreviewData: previewClient.downloadPage.getPreviewData,
+      };
+    case 'contactPage':
+      return {
+        listen: previewClient.contactPage.listen,
+        getPreviewData: previewClient.contactPage.getPreviewData,
+      };
+    case 'faqPage':
+      return {
+        listen: previewClient.faqPage.listen,
+        getPreviewData: previewClient.faqPage.getPreviewData,
+      };
+    case 'genericPage':
+      return {
+        listen: previewClient.genericPage.listen,
+        getPreviewData: previewClient.genericPage.getPreviewData,
+      };
+    case 'subPage':
+      return {
+        listen: previewClient.subPage.listen,
+        getPreviewData: previewClient.subPage.getPreviewData,
+      };
+    case 'blogArticle':
+      return {
+        listen: previewClient.blogArticle.listen,
+        getPreviewData: previewClient.blogArticle.getPreviewData,
+      };
+    case 'clientPage':
+      return {
+        listen: previewClient.clientPage.listen,
+        getPreviewData: previewClient.clientPage.getPreviewData,
+      };
+    case 'practitioner':
+      return {
+        listen: previewClient.homepage.listen,
+        getPreviewData: previewClient.homepage.getPreviewData,
+      };
     default:
-      throw new Error('todo');
+      /* Make sure we can get the config for all linkable document types
+       * (this will bug us to add preview config any time a new type is
+       * added to LinkableDocument) */
+      throw new Error(
+        // @ts-expect-error
+        `"${coercedType.toString()}" is not a linkable document type`,
+      );
   }
 };
 

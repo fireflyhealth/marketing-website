@@ -3,7 +3,7 @@ import { DownloadPage } from '@/types/sanity';
 import { ContentArea } from '@/components/contentBlocks/ContentArea';
 import { HeaderArea } from '@/components/headerContentBlocks/HeaderArea';
 
-type DownloadPageViewProps = {
+export type DownloadPageViewProps = {
   downloadPage: DownloadPage;
 };
 

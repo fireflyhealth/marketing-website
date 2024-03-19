@@ -7,25 +7,48 @@ import { RevalidationTime, Status } from '@/constants';
 import { usePreviewData } from '@/hooks/usePreviewData';
 import { PreviewProps } from '@/lib/sanity/previews';
 import { HomeView } from '@/views/HomeView';
+import { LinkableDocumentType } from '@/types/sanity';
+import { BlogPageView } from '@/views/Blog/BlogPageView';
+import { FAQPageView } from '@/views/FAQPageView';
+import { DownloadPageView } from '@/views/DownloadPageView';
+import { ContactPageView } from '@/views/ContactPageView';
+import { BlogArticleView } from '@/views/BlogArticleView/BlogArticleView';
+import { ClientPageView } from '@/views/ClientPageView';
+import { PageView } from '@/views/PageView';
 
 type PreviewMainProps = {
   previewProps: PreviewProps;
 };
 
-const PreviewMain: FC<PreviewMainProps> = ({ previewProps }) => {
-  switch (previewProps.view) {
+const PreviewMain: FC<PreviewMainProps> = ({
+  previewProps,
+}): React.ReactNode => {
+  switch (previewProps.type) {
     case 'homepage':
       return <HomeView {...previewProps.viewProps} />;
+    case 'blog':
+      return <BlogPageView {...previewProps.viewProps} />;
+    case 'faqPage':
+      return <FAQPageView {...previewProps.viewProps} />;
+    case 'downloadPage':
+      return <DownloadPageView {...previewProps.viewProps} />;
+    case 'contactPage':
+      return <ContactPageView {...previewProps.viewProps} />;
+    case 'blogArticle':
+      return <BlogArticleView {...previewProps.viewProps} />;
+    case 'clientPage':
+      return <ClientPageView {...previewProps.viewProps} />;
+    case 'genericPage':
+      return <PageView {...previewProps.viewProps} />;
+    case 'subPage':
+      return <PageView {...previewProps.viewProps} />;
 
-    /* TODO */
-    // case 'blog':
-    //   return <BlogView {...previewProps.viewProps} />;
     default:
-      console.warn(
-        // @ts-expect-error
-        `"${previewProps.view.toString()}" is not a valid preview type`,
-      );
-      return null;
+      /* Make sure we can get the config for all linkable document types
+       * (this will bug us to add preview config any time a new type is
+       * added to LinkableDocument) */
+      // @ts-expect-error
+      throw new Error(`"${previewProps.type}" has not been configured`);
   }
 };
 

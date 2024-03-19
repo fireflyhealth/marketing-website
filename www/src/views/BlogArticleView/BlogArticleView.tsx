@@ -4,7 +4,7 @@ import { BlogArticle } from '@/types/sanity';
 import { ArticleHeader } from '@/components/ArticleHeader';
 import { RichText } from '@/components/RichText';
 
-type BlogArticleViewProps = {
+export type BlogArticleViewProps = {
   article: BlogArticle;
 };
 

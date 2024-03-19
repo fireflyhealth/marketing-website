@@ -9,7 +9,7 @@ import { HeaderArea } from '@/components/headerContentBlocks/HeaderArea';
 import { Tabs } from '@/components/Tabs';
 import { FAQCategory, SortedFAQCategory } from './FAQCategory';
 
-type FAQPageViewProps = {
+export type FAQPageViewProps = {
   faqPage: FAQPage;
 };
 
