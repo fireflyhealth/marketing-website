@@ -19,6 +19,7 @@ import { BlogArticleViewProps } from '@/views/BlogArticleView/BlogArticleView';
 import { ContactPageViewProps } from '@/views/ContactPageView';
 import { PageViewProps } from '@/views/PageView';
 import { ClientPageViewProps } from '@/views/ClientPageView';
+import { PAGINATION_PAGE_SIZE } from '@/constants';
 import {
   blogArticleFragment,
   blogFragment,
@@ -28,7 +29,6 @@ import {
   pageFragment,
 } from './queries';
 import { blogArticleLinkDataFragment } from './queries/fragments';
-import { PAGINATION_PAGE_SIZE } from '@/constants';
 
 /**
  * Constants
