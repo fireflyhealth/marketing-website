@@ -342,7 +342,7 @@ export type LinkWithLabel = {
 export type LabelWithDropdown = {
   _type: 'labelWithDropdown';
   label: string;
-  link?: Maybe<Link | LinkableDocument>;
+  link?: Maybe<Link | LinkableDocumentData>;
   subpages: KeyedArray<LinkWithLabel>;
 };
 
