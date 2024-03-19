@@ -62,19 +62,33 @@ export const DrawerListItem: FC<DrawerListItemProps> = ({
   useEffect(() => {
     /* Calculate and set the inner content height whenever the element
      * is expanded or when the window is resized. */
+    const innderContentRefCurrent = innerContentRef.current;
+
     if (isExpanded) {
-      if (!innerContentRef.current) return;
-      const innerContentHeight = innerContentRef.current.offsetHeight;
+      if (!innderContentRefCurrent) return;
+      const innerContentHeight = innderContentRefCurrent.offsetHeight;
       setExpandedContentHeight(innerContentHeight);
+
+      /* Set tabindex to 0 for all links in the expanded content to be focusable */
+      innderContentRefCurrent.querySelectorAll('a').forEach((link) => {
+        link.setAttribute('tabindex', '0');
+      });
     } else {
       setExpandedContentHeight(0);
+
+      if (!innderContentRefCurrent) return;
+      /* Set tabindex to -1 for all links in the expanded content to not be focusable */
+      innderContentRefCurrent.querySelectorAll('a').forEach((link) => {
+        link.setAttribute('tabindex', '-1');
+      });
     }
   }, [isExpanded, windowDimensions]);
+
   return (
     <Theme theme={theme}>
       <div
         className={cn(
-          'relative rounded-lg z-[10] overflow-hidden theme-bg-color',
+          'DrawerListItem relative rounded-lg z-[10] overflow-hidden theme-bg-color',
           /* All list items except the last have extra padding at the
            * bottom to account for sibling overlap */
           isLast ? '' : 'pb-[2.5rem] md:pb-[3.5rem]',
@@ -105,8 +119,9 @@ export const DrawerListItem: FC<DrawerListItemProps> = ({
         <div className="relative z-[20]" aria-hidden={isExpanded}>
           <button
             onClick={expand}
+            onFocus={expand}
             disabled={isExpanded}
-            className="text-left w-full"
+            className="DrawerListItem__button text-left w-full"
             aria-label={`Expand drawer ${index}: ${title}`}
           >
             <div className="p-6 md:p-9 lg:p-12">
@@ -144,7 +159,7 @@ export const DrawerListItem: FC<DrawerListItemProps> = ({
                 : '',
             )}
           >
-            <div>
+            <div className={cn('DrawerListItem__content')}>
               <RichText fontSize="font-size-8" content={body} />
               {ctaLink ? (
                 <div className="pt-5">
