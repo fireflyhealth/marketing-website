@@ -88,19 +88,13 @@ export const ContentBlockWrapper: FC<ContentBlockWrapperProps> = ({
 
   return (
     <div
+      // only add ref if content block has a corresponding subnav item
       ref={id && contentBlockWrapperRef}
       id={id || undefined}
-      className={cn(
-        'border-sienna border-2',
-        wrapperPadding ? ContentBlockContainer : '',
-        {
-          'remove-between-component-margin': removeBetweenComponentMargin,
-        },
-      )}
+      className={cn(wrapperPadding ? ContentBlockContainer : '', {
+        'remove-between-component-margin': removeBetweenComponentMargin,
+      })}
     >
-      {currentContentBlock === id && (
-        <div>This is the active content block</div>
-      )}
       {background ? background : null}
       {header && headerHasContent ? (
         <ContentBlockHeader header={header} />
