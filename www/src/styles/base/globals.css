@@ -372,6 +372,10 @@ svg {
  * CTA
  */
 
+/* suppress focus ring on focuaable elements. We are adding focus style individually. */
+*:focus {
+  outline: none;
+}
 /* Primary CTA styles are shared across themes
  * (excluding some focus states) */
 .cta {
@@ -478,6 +482,33 @@ svg {
       background-color: var(--cta-bg-color-primary);
       color: var(--cta-text-color-primary);
     }
+  }
+}
+
+.simple-text-link {
+  transition: all 500ms ease;
+  background-color: transparent;
+  color: var(--text-color-primary);
+  border-bottom: 1px solid;
+  border-color: transparent;
+
+  &:hover {
+    border-color: var(--text-color-primary);
+  }
+
+  &:focus {
+    background-color: var(--cta-bg-color-primary);
+  }
+}
+
+.icon-link {
+  transition: all 500ms ease;
+  background-color: transparent;
+  border-bottom: 1px solid;
+  border-color: transparent;
+
+  &:focus {
+    background-color: var(--cta-bg-color-primary);
   }
 }
 

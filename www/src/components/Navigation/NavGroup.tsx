@@ -134,6 +134,7 @@ export const NavGroup: FC<Props> = ({ navItem, isMobile }) => {
             <MaybeLink
               link={navItem.link}
               onClick={() => setCurrentNavItem(null)}
+              className="simple-text-link"
             >
               {navItem.link ? (
                 <p>{navItem.label}</p>
@@ -142,6 +143,7 @@ export const NavGroup: FC<Props> = ({ navItem, isMobile }) => {
                   ref={labelWithDropdownRef}
                   onClick={handleDropdownButtonClick}
                   aria-label={dropwdownButtonAriaLabel}
+                  className="simple-text-link"
                 >
                   {navItem.label}
                 </button>
@@ -151,6 +153,7 @@ export const NavGroup: FC<Props> = ({ navItem, isMobile }) => {
               ref={iconWithDropdownRef}
               onClick={handleDropdownButtonClick}
               aria-label={dropwdownButtonAriaLabel}
+              className="icon-link"
             >
               <SimpleIcon
                 type="arrow-down"
@@ -180,6 +183,7 @@ export const NavGroup: FC<Props> = ({ navItem, isMobile }) => {
                     onClick={() => setCurrentNavItem(null)}
                     tabindex={isCurrentNavItem ? 0 : -1}
                     linkRef={dropdownLinkRef}
+                    className="simple-text-link"
                   >
                     {subPage.label}
                   </Link>
@@ -194,6 +198,7 @@ export const NavGroup: FC<Props> = ({ navItem, isMobile }) => {
           onClick={() => setCurrentNavItem(null)}
           onMouseEnter={handleHeadingMouseEnter}
           onMouseLeave={handleHeadingMouseLeave}
+          className="simple-text-link"
         >
           {navItem.label}
         </Link>

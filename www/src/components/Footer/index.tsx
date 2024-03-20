@@ -44,7 +44,9 @@ export const Footer: FC<FooterProps> = ({ footer }) => {
                   <div className={cn(FooterNavGroup)} key={footerGroup._key}>
                     {filterMaybes(footerGroup.navItems).map((navItem) => (
                       <div key={navItem._key} className="font-size-8">
-                        <Link link={navItem.link}>{navItem.label}</Link>
+                        <Link className="simple-text-link" link={navItem.link}>
+                          {navItem.label}
+                        </Link>
                       </div>
                     ))}
                   </div>
@@ -59,14 +61,18 @@ export const Footer: FC<FooterProps> = ({ footer }) => {
             <div className={cn(FooterBottomNavGroup)}>
               {filterMaybes(bottomLinks?.leftLinks).map((navItem) => (
                 <div key={navItem._key} className="font-size-10 md:mr-8">
-                  <Link link={navItem.link}>{navItem.label}</Link>
+                  <Link className="simple-text-link" link={navItem.link}>
+                    {navItem.label}
+                  </Link>
                 </div>
               ))}
             </div>
             <div className={cn(FooterBottomNavGroup)}>
               {filterMaybes(bottomLinks?.rightLinks).map((navItem) => (
                 <div key={navItem._key} className="font-size-10 md:ml-8">
-                  <Link link={navItem.link}>{navItem.label}</Link>
+                  <Link className="simple-text-link" link={navItem.link}>
+                    {navItem.label}
+                  </Link>
                 </div>
               ))}
             </div>
