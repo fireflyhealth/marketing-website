@@ -2,9 +2,9 @@
   &__item {
     border: 3px solid transparent;
 
-    &:focus {
+    [data-whatintent='keyboard'] &:focus {
       outline: none;
-      border-color: var(--text-color-primary);
+      border-color: var(--cta-border-color);
     }
 
     .Subnav__item-circle {

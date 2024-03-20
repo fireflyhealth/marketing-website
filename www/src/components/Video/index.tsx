@@ -158,7 +158,10 @@ export const Video: FC<Props> = ({
 
         <div
           ref={videoRef}
-          className={cn(VideoPlayer, isReady ? '' : 'opacity-1')}
+          className={cn(
+            VideoPlayer,
+            isReady ? 'pointer-events-none' : 'opacity-1',
+          )}
         />
         {autoplay === true && !isPlaying && (
           <div className={cn(FullscreenButton)}>

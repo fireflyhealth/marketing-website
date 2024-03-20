@@ -3,7 +3,7 @@
     margin-top: 1em;
   }
 
-  a {
+  a:not(.cta) {
     transition: all 500ms ease;
     border-bottom: 1px solid;
 
@@ -11,7 +11,7 @@
       border-color: var(--cta-bg-color-primary);
     }
 
-    &:focus {
+    [data-whatintent='keyboard'] &:focus {
       outline: none;
       background-color: var(--cta-bg-color-primary);
       color: var(--cta-text-color-primary);

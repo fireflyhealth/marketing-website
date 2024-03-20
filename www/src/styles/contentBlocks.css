@@ -31,8 +31,8 @@
       background-color: rgba(255, 255, 255, 1);
     }
 
-    &:focus {
-      border-color: var(--text-color-primary);
+    [data-whatintent='keyboard'] &:focus {
+      border-color: var(--cta-border-color);
     }
   }
 }

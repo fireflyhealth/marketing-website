@@ -15,7 +15,7 @@
 
   &__cta--bottom:focus,
   &__cta--top:focus {
-    border-color: var(--text-color-primary);
+    border-color: var(--cta-border-color);
     outline: none;
   }
 
