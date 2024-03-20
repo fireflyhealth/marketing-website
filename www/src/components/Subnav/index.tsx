@@ -41,7 +41,8 @@ const SubnavItem: FC<{
       <div
         className={cn(
           SubnavItemCircle,
-          // subnav items should only be active if the currentContentBlock or hash matches the contentBlockId
+          // first check if hash AND currentContentBlock matche contentBlockId
+          // then just check if the currentContentBlock matches contentBlockId
           isCurrentContentBlockWithHash
             ? 'Subnav__item-circle--active'
             : isCurrentContentBlock
