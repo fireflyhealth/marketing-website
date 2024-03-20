@@ -1,4 +1,4 @@
-const SharedWrapperStyle = 'Subnav z-50 top-0 pb-5 flex';
+const SharedWrapperStyle = 'Subnav z-50 top-0 pb-5 !mt-0 flex';
 
 export const Wrapper = [
   SharedWrapperStyle,

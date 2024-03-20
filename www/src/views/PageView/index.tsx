@@ -2,7 +2,6 @@ import React, { FC } from 'react';
 import { GenericPage, SubPage } from '@/types/sanity';
 import { ContentArea } from '@/components/contentBlocks/ContentArea';
 import { HeaderArea } from '@/components/headerContentBlocks/HeaderArea';
-import { Subnav } from '@/components/Subnav';
 import { getSubnavItems } from '@/utils/getSubnavItems';
 
 export type PageViewProps = {
@@ -15,8 +14,7 @@ export const PageView: FC<PageViewProps> = ({ page }) => {
   return (
     <div>
       <HeaderArea block={page.header} />
-      <Subnav subnav={subnavItems} />
-      <ContentArea blocks={page.content} />
+      <ContentArea blocks={page.content} subNav={subnavItems} />
     </div>
   );
 };

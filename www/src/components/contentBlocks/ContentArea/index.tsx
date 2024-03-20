@@ -1,6 +1,12 @@
 import React, { FC } from 'react';
-import { ContentBlock as ContentBlockType, KeyedArray } from '@/types/sanity';
+import {
+  ContentBlock as ContentBlockType,
+  KeyedArray,
+  Maybe,
+  SubnavItem,
+} from '@/types/sanity';
 import { filterMaybes } from '@/utils/arrays';
+import { Subnav } from '@/components/Subnav';
 
 import { ImageBlock } from '../ImageBlock';
 import { ImageCarouselBlock } from '../ImageCarouselBlock';
@@ -80,12 +86,16 @@ const ContentBlock: FC<ContentBlockProps> = ({ block }) => {
 
 type ContentAreaProps = {
   blocks: KeyedArray<ContentBlockType>;
+  subNav?: Maybe<SubnavItem[]>;
 };
 
-export const ContentArea: FC<ContentAreaProps> = ({ blocks }) => (
-  <div className="ContentArea">
-    {filterMaybes(blocks).map((block) => (
-      <ContentBlock block={block} key={block._key} />
-    ))}
-  </div>
-);
+export const ContentArea: FC<ContentAreaProps> = ({ blocks, subNav }) => {
+  return (
+    <div className="ContentArea">
+      <Subnav subnav={subNav} />
+      {filterMaybes(blocks).map((block) => (
+        <ContentBlock block={block} key={block._key} />
+      ))}
+    </div>
+  );
+};

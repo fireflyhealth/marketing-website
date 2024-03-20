@@ -2,6 +2,7 @@ import { FC, RefObject, useRef } from 'react';
 import cn from 'classnames';
 import { Maybe, SubnavItem as SubnavItemType } from '@/types/sanity';
 
+import { useUIProvider } from '@/context/UIProvider';
 import { useHash } from '@/hooks/useHash';
 import { useRect } from '@/hooks/useRect';
 
@@ -20,9 +21,15 @@ const SubnavItem: FC<{
   isOnTop?: boolean;
 }> = ({ item, hash, isOnTop }) => {
   const { label, contentBlockId, ariaLabel } = item;
-  const isActive = hash === contentBlockId;
+  const { currentContentBlock } = useUIProvider();
+
   const navItemRef = useRef<HTMLAnchorElement>(null);
 
+  // check if currentContentBlock (global state) matches the contentBlockId passed into the component
+  const isCurrentContentBlock = currentContentBlock === contentBlockId;
+  // check if hash matches the contentBlockId passed into the component
+  const isCurrentHash = hash === contentBlockId;
+  const isCurrentContentBlockWithHash = isCurrentHash && isCurrentContentBlock;
   return (
     <a
       ref={navItemRef}
@@ -32,10 +39,18 @@ const SubnavItem: FC<{
       style={{ whiteSpace: 'nowrap' }}
     >
       <div
-        className={cn(SubnavItemCircle, {
-          'Subnav__item-circle--active': isActive,
-          'Subnav__item-circle--active-top': !isOnTop,
-        })}
+        className={cn(
+          SubnavItemCircle,
+          // subnav items should only be active if the currentContentBlock or hash matches the contentBlockId
+          isCurrentContentBlockWithHash
+            ? 'Subnav__item-circle--active'
+            : isCurrentContentBlock
+              ? 'Subnav__item-circle--active'
+              : '',
+          {
+            'Subnav__item-circle--active-top': !isOnTop,
+          },
+        )}
       />
       {label}
     </a>
