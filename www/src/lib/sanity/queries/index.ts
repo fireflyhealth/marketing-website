@@ -146,3 +146,24 @@ export const blogFragment = `
   },
   articleLayout
 `;
+
+export const providerPageFragment = `
+  name,
+  slug,
+  qualifications,
+  title,
+  pronouns,
+  headshot {
+    ${imageFragment}
+  },
+  education[]{
+    _type,
+    name,
+  },
+  languagesSpoken,
+  blurb,
+  renderProviderPage,
+  contentArea[]{
+    ${contentBlockFragment}
+  },
+`;

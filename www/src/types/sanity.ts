@@ -232,6 +232,8 @@ export type Practitioner = SanityDocument & {
   education: KeyedArray<Institution>;
   languagesSpoken: string[];
   blurb: RichText;
+  renderProviderPage: boolean;
+  contentArea?: Maybe<ContentArea>;
 };
 
 /* Data needed to render practitioner profile cards */
