@@ -85,6 +85,30 @@
   }
 }
 
+.BlogArticleList {
+  &__link {
+    > span > span {
+      transition: all 500ms ease;
+      background-color: transparent;
+      color: var(--text-color-primary);
+      border-bottom: 1px solid;
+      border-color: transparent;
+    }
+
+    &:hover {
+      > span > span {
+        border-color: var(--cta-border-color);
+      }
+    }
+
+    [data-whatintent='keyboard'] &:focus {
+      > span > span {
+        background-color: var(--cta-bg-color-primary);
+      }
+    }
+  }
+}
+
 .fadeUpElement {
   opacity: 1;
 }

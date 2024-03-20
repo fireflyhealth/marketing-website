@@ -13,7 +13,7 @@ type BlogArticlesGridItemProps = {
 
 const BlogArticlesGridItem: FC<BlogArticlesGridItemProps> = ({ article }) => {
   return (
-    <Link link={article}>
+    <Link link={article} className="element-focus hover:opacity-70">
       <div className={cn(BlogArticlesGridItemWrapper)}>
         <div>
           <SanityImage
