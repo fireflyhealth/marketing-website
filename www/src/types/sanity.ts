@@ -248,6 +248,7 @@ export type PractitionerLinkData = Pick<
   | 'pronouns'
   | 'title'
   | '_updatedAt'
+  | 'renderProviderPage'
 >;
 
 /* Blogs */

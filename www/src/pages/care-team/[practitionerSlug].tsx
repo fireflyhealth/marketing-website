@@ -36,8 +36,7 @@ export const getStaticProps: GetStaticProps<
   }
   const [siteSettings, practitioner] = await Promise.all([
     Sanity.siteSettings.get(),
-    /* TODO: actually fetch from sanity */
-    { name: 'Practitioner Name' } as Practitioner,
+    Sanity.practitionerPage.get(practitionerSlug),
   ]);
 
   if (!practitioner) {
@@ -53,9 +52,15 @@ export const getStaticProps: GetStaticProps<
 };
 
 export const getStaticPaths: GetStaticPaths<PageParams> = async () => {
+  const practitionerPages = await Sanity.practitionerPage.getSlugInfo();
+  /* TODO: fix practitioner filtering */
+  const paths = practitionerPages
+    .filter((practitioner) => practitioner.renderProviderPage === true)
+    .map((practitioner) => ({
+      params: { practitionerSlug: practitioner.slug.current },
+    }));
   return {
-    /* TODO actually get the slugs */
-    paths: [{ params: { practitionerSlug: 'some-name' } }],
+    paths,
     fallback: 'blocking',
   };
 };

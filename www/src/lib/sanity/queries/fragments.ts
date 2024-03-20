@@ -157,6 +157,7 @@ export const linkableDocumentFragment = `
     headshot {
       ${imageFragment}
     },
+    renderProviderPage
   }
 `;
 

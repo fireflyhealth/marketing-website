@@ -26,10 +26,9 @@ import {
   BlogArticleLinkData,
   ClientPageLinkData,
   PractitionerLinkData,
-  LinkableDocumentType,
+  Practitioner,
 } from '@/types/sanity';
 import { PAGINATION_PAGE_SIZE } from '@/constants';
-import { sleep } from '@/utils/misc';
 import { config } from '@/config';
 import {
   blogArticleFragment,
@@ -40,6 +39,7 @@ import {
   pageFragment,
   notFoundPageFragment,
   siteSettingsFragment,
+  practitionerPageFragment,
 } from './queries';
 import {
   blogArticleLinkDataFragment,
@@ -240,6 +240,22 @@ export const blog = {
     );
     return article || null;
   },
+};
+
+/* Practitioner Page */
+export const practitionerPage = {
+  get: (practitionerSlug: string): Promise<Practitioner | null> =>
+    client.fetch(
+      `*[_type == "practitioner" && slug.current == $practitionerSlug][0]{${practitionerPageFragment}}`,
+      {
+        practitionerSlug,
+      },
+    ),
+  getSlugInfo: (): Promise<Practitioner[]> =>
+    client.fetch(`*[_type == "practitioner"]{
+        slug,
+        renderProviderPage,
+      }`),
 };
 
 /**
