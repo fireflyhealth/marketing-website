@@ -33,7 +33,7 @@ export const DesktopNav: FC<Props> = ({
           'bg-yellow': getStartedOpen,
         })}
       >
-        <Link href="/">
+        <Link className="element-focus p-2 -ml-2" href="/">
           <div className="w-[175px]">
             {getStartedOpen ? <LogotypeMonochrome /> : <LogotypeColor />}
           </div>
