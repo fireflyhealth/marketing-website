@@ -515,11 +515,11 @@ svg {
 
 .element-focus {
   transition: all 500ms ease;
-  border: 3px solid;
   border-color: transparent;
   border-radius: 8px;
 
   [data-whatintent='keyboard'] &:focus {
+    border: 3px solid;
     border-color: var(--cta-border-color);
   }
 }
