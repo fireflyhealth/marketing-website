@@ -280,7 +280,11 @@ export const PrevButton: FC<WithChildren> = ({ children }) => {
   const { currentSlideIndex, goPrev } = useCarousel();
 
   return (
-    <button disabled={currentSlideIndex === 0} onClick={goPrev}>
+    <button
+      className="element-focus"
+      disabled={currentSlideIndex === 0}
+      onClick={goPrev}
+    >
       {children}
     </button>
   );
@@ -291,7 +295,7 @@ export const NextButton: FC<WithChildren> = ({ children }) => {
 
   return (
     <button
-      className="ml-5"
+      className="ml-5 element-focus"
       disabled={currentSlideIndex === slideCount - 1}
       onClick={goNext}
     >
