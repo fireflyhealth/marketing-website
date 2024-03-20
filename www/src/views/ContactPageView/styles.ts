@@ -15,7 +15,7 @@ export const ContactForm = ['w-full', 'lg:w-1/2'];
 
 export const BackgroundColor = [
   '!z-[-2] !-top-[120px] full-width-background',
-  'lg:!-top-[146px]',
+  'lg:!-top-[152px]',
 ];
 
 export const BackgroundImage = [
