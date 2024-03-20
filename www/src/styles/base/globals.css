@@ -636,6 +636,14 @@ svg {
     color: var(--text-color-primary);
   }
 
+  input:focus,
+  select:focus,
+  textarea:focus {
+    outline: auto !important;
+    border-color: var(--cta-border-color);
+    border: 3px solid;
+  }
+
   label {
     @apply font-size-10 font-roobert;
   }
