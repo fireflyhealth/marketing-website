@@ -87,16 +87,19 @@ export const Video: FC<Props> = ({
   }, [videoRef, video.videoLink]);
 
   useEffect(() => {
-    if (!videoRef.current) return;
-
-    videoRef.current.querySelectorAll('iframe').forEach((iframe) => {
-      if (!isPlaying) {
-        iframe.setAttribute('tabindex', '-1');
-      } else {
-        iframe.setAttribute('tabindex', '0');
-      }
-    });
-  }, [isPlaying]);
+    if (player) {
+      player.ready().then(() => {
+        if (videoRef.current) {
+          const vimeoIframe = videoRef.current.querySelector('iframe');
+          if (!isPlaying) {
+            vimeoIframe?.setAttribute('tabindex', '-1');
+          } else {
+            vimeoIframe?.setAttribute('tabindex', '0');
+          }
+        }
+      });
+    }
+  }, [player, videoRef.current, isPlaying]);
 
   const handlePlay = useCallback(async () => {
     if (!player) return;
@@ -158,10 +161,7 @@ export const Video: FC<Props> = ({
 
         <div
           ref={videoRef}
-          className={cn(
-            VideoPlayer,
-            isReady ? 'pointer-events-none' : 'opacity-1',
-          )}
+          className={cn(VideoPlayer, isReady ? '' : 'opacity-1')}
         />
         {autoplay === true && !isPlaying && (
           <div className={cn(FullscreenButton)}>
