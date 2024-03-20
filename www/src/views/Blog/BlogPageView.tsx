@@ -8,7 +8,7 @@ import { BlogPageFeaturedArticle } from './BlogPageFeaturedArticle';
 import { BlogPageArticles } from './BlogPageArticles';
 import { BlogPageArticlesWrapper } from './styles';
 
-type BlogPageViewProps = {
+export type BlogPageViewProps = {
   blog: Blog;
   initialArticlesPage: BlogArticlePagination;
 };

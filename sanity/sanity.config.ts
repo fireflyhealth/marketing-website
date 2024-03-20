@@ -8,6 +8,7 @@ import { visionTool } from '@sanity/vision';
 import { schemaTypes } from './schemas';
 import { structure, defaultDocumentNode } from './schemas/structure';
 import './lib/styles.css';
+import { resolveProductionUrl } from './lib/pagePreview';
 
 const isDevEnv = Boolean(process.env.SANITY_STUDIO_IS_DEVELOPMENT);
 
@@ -36,7 +37,9 @@ const shared = {
     //   ],
     // }),
   ],
-
+  document: {
+    productionUrl: resolveProductionUrl,
+  },
   schema: {
     types: schemaTypes,
   },

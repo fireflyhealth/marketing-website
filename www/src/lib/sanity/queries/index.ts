@@ -50,7 +50,7 @@ export const pageFragment = `
   ${pageSharedFieldsFragment},
   subnav,
   content {${contentBlockFragment}}[],
-  metadataFragment{${metadataFragment}}
+  metadata{${metadataFragment}}
 `;
 
 export const specialPageFragment = `
@@ -59,7 +59,7 @@ export const specialPageFragment = `
   slug,
   ${pageSharedFieldsFragment},
   content {${contentBlockFragment}}[],
-  metadataFragment{${metadataFragment}}
+  metadata{${metadataFragment}}
 `;
 
 export const downloadPageFragment = `${specialPageFragment}`;
@@ -74,7 +74,7 @@ export const contactPageFragment = `
   contactForm,
   backgroundColor,
   backgroundImage{${imageFragment}},
-  metadataFragment{${metadataFragment}}
+  metadata{${metadataFragment}}
 `;
 
 export const notFoundPageFragment = `
@@ -88,7 +88,7 @@ export const faqPageFragment = `
   title,
   slug,
   ${pageSharedFieldsFragment},
-  metadataFragment{${metadataFragment}},
+  metadata{${metadataFragment}},
   title,
   "faqs": *[_type == "faq"]{
     ${faqFragment}
@@ -110,7 +110,7 @@ export const blogArticleFragment = `
   },
   slug,
   navigationOverrides {${navigationOverridesFragment}},
-  metadataFragment{${metadataFragment}},
+  metadata{${metadataFragment}},
   deck[]{${simpleRichTextFragment}},
   content[]{${richTextFragment}},
   articleImage {${imageFragment}},
@@ -127,7 +127,7 @@ export const blogFragment = `
   slug,
   navigationOverrides {${navigationOverridesFragment}},
   'header': header[] {${headerBlockFragment}}[0],
-  metadataFragment{${metadataFragment}},
+  metadata{${metadataFragment}},
   featuredArticle->{
     ${blogArticleLinkDataFragment}
   },

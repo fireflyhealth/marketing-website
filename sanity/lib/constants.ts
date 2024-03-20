@@ -7,6 +7,23 @@ export const SingletonPageSlugs = {
 };
 
 /**
+ * Previews
+ */
+
+/* The document types that get a "Preview" pane */
+export const previewDocumentTypes = [
+  'homepage',
+  'blog',
+  'blogArticle',
+  'clientPage',
+  'faqPage',
+  'genericPage',
+  'practitioner',
+  'downloadPage',
+  'contactPage',
+];
+
+/**
  * --- Linkable Documents ---
  *
  * The schema type names of documents that can be linked

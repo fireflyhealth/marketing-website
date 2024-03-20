@@ -1,5 +1,33 @@
-import { LinkableDocumentData } from '@/types/sanity';
+import { LinkableDocumentData, LinkableDocumentType } from '@/types/sanity';
 import { config } from '../config';
+
+export const isLinkableDocumentType = (
+  type: string,
+): type is LinkableDocumentType => {
+  /* Even though this might not be a document type,
+   * coerce it so we can leverage exhaustive checking
+   * below. */
+  const coercedType = type as LinkableDocumentType;
+  switch (coercedType) {
+    case 'homepage':
+    case 'faqPage':
+    case 'contactPage':
+    case 'downloadPage':
+    case 'genericPage':
+    case 'subPage':
+    case 'blog':
+    case 'blogArticle':
+    case 'clientPage':
+    case 'practitioner':
+      return true;
+    default:
+      /* This will throw a typescript error if we ever add
+       * new linkable document types */
+      // @ts-expect-error
+      console.warn(coercedType.toString);
+      return false;
+  }
+};
 
 /* Returns the path for a linkable document */
 export const getLinkableDocumentPath = (doc: LinkableDocumentData): string => {

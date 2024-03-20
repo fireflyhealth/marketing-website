@@ -124,3 +124,13 @@ export const hasAncestorOfType = (
   context: ValidationContext,
   ancestorType: string,
 ) => Boolean(getAncestorOfType(context, ancestorType));
+/**
+ * Returns a typed array filtered of null or undefined values
+ */
+export const filterMaybes = <T>(arr: Maybe<(Maybe<T> | undefined)[]>): T[] =>
+  arr
+    ? arr.reduce<T[]>(
+        (prev, i) => (i !== null && i !== undefined ? [...prev, i] : prev),
+        [],
+      )
+    : [];

@@ -26,6 +26,7 @@ import {
   BlogArticleLinkData,
   ClientPageLinkData,
   PractitionerLinkData,
+  LinkableDocumentType,
 } from '@/types/sanity';
 import { PAGINATION_PAGE_SIZE } from '@/constants';
 import { sleep } from '@/utils/misc';
@@ -47,18 +48,6 @@ import {
 
 export const client = createClient(config.sanity);
 
-/**
- * Require credentials when fetching preview data
- */
-const createPreviewClient = (previewToken: string) => {
-  return createClient({
-    ...config.sanity,
-    useCdn: false,
-    withCredentials: true,
-    token: previewToken,
-  });
-};
-
 const builder = ImageUrlBuilder(client);
 
 export const imageBuilder = {
@@ -68,17 +57,8 @@ export const imageBuilder = {
 };
 
 const SITE_SETTINGS_DOCUMENT_ID = 'siteSettings';
-const SITE_SETTINGS_DRAFT_DOCUMENT_ID = 'drafts.siteSettings';
 const HOMEPAGE_DOCUMENT_ID = 'homepage';
-const HOMEPAGE_DRAFT_DOCUMENT_ID = 'drafts.homepage';
 const DOWNLOAD_DOCUMENT_ID = 'downloadPage';
-const DOWNLOAD_DRAFT_DOCUMENT_ID = 'drafts.downloadPage';
-const CONTACT_DOCUMENT_ID = 'contactPage';
-const CONTACT_DRAFT_DOCUMENT_ID = 'drafts.contactPage';
-const NOT_FOUND_DOCUMENT_ID = 'notFoundPage';
-const NOT_FOUND_DRAFT_DOCUMENT_ID = 'drafts.notFoundPage';
-const FAQ_DOCUMENT_ID = 'faqPage';
-const FAQ_DRAFT_DOCUMENT_ID = 'drafts.faqPage';
 
 /* Site Settings & Navigation */
 
@@ -94,26 +74,6 @@ export const siteSettings = {
     }
     return siteSettings;
   },
-  fetchPreview(previewToken: string) {
-    return createPreviewClient(previewToken).fetch<SiteSettings>(
-      `*[_type == "siteSettings" && _id == "${SITE_SETTINGS_DRAFT_DOCUMENT_ID}"][0]{${siteSettingsFragment}}`,
-    );
-  },
-  streamPreview(
-    previewToken: string,
-    callback: (siteSettings: SiteSettings) => void,
-  ) {
-    return createPreviewClient(previewToken)
-      .listen(
-        `*[_type == "siteSettings" && _id == "${SITE_SETTINGS_DRAFT_DOCUMENT_ID}"][0]`,
-        {},
-        { visibility: 'query' },
-      )
-      .subscribe(async () => {
-        await sleep(1000);
-        return siteSettings.fetchPreview(previewToken).then(callback);
-      });
-  },
 };
 
 /* Homepage */
@@ -126,23 +86,6 @@ export const homepage = {
       throw new Error('Could not fetch homepage');
     }
     return homepage;
-  },
-  fetchPreview(previewToken: string) {
-    return createPreviewClient(previewToken).fetch<Homepage>(
-      `*[_type == "homepage" && (_id == "${HOMEPAGE_DRAFT_DOCUMENT_ID}" || _id == "${HOMEPAGE_DOCUMENT_ID}")][0]{${pageFragment}}`,
-    );
-  },
-  streamPreview(previewToken: string, callback: (homepage: Homepage) => void) {
-    return createPreviewClient(previewToken)
-      .listen(
-        `*[_type == "homepage" && _id == "${HOMEPAGE_DRAFT_DOCUMENT_ID}"][0]{${pageFragment}}`,
-        {},
-        { visibility: 'query' },
-      )
-      .subscribe(async () => {
-        await sleep(1000);
-        return homepage.fetchPreview(previewToken).then(callback);
-      });
   },
 };
 
@@ -160,30 +103,6 @@ export const page = {
         slug,
         subPages[]->{ slug },
       }`),
-  findPreview(id: string, previewToken: string) {
-    return createPreviewClient(previewToken).fetch<GenericPage>(
-      `*[_type == "genericPage" && _id == $id][0]{${pageFragment}}`,
-      {
-        id,
-      },
-    );
-  },
-  streamPreview(
-    id: string,
-    previewToken: string,
-    callback: (genericPage: GenericPage) => void,
-  ) {
-    return createPreviewClient(previewToken)
-      .listen(
-        `*[_type == "genericPage" && _id == $id][0]`,
-        { id },
-        { visibility: 'query' },
-      )
-      .subscribe(async () => {
-        await sleep(1000);
-        return page.findPreview(id, previewToken).then(callback);
-      });
-  },
 };
 
 export const subPage = {
@@ -209,30 +128,6 @@ export const subPage = {
     );
     return subpage || null;
   },
-  findPreview(id: string, previewToken: string) {
-    return createPreviewClient(previewToken).fetch<SubPage>(
-      `*[_type == "subPage" && _id == $id][0]{${pageFragment}}`,
-      {
-        id,
-      },
-    );
-  },
-  streamPreview(
-    id: string,
-    previewToken: string,
-    callback: (subPage: SubPage) => void,
-  ) {
-    return createPreviewClient(previewToken)
-      .listen(
-        `*[_type == "subPage" && _id == $id]`,
-        { id },
-        { visibility: 'query' },
-      )
-      .subscribe(async () => {
-        await sleep(1000);
-        return subPage.findPreview(id, previewToken).then(callback);
-      });
-  },
 };
 
 /* Special pages */
@@ -241,26 +136,6 @@ export const downloadPage = {
     client.fetch(
       `*[_type == "downloadPage" && _id == "${DOWNLOAD_DOCUMENT_ID}"][0]{${downloadPageFragment}}`,
     ),
-  fetchPreview(previewToken: string) {
-    return createPreviewClient(previewToken).fetch<DownloadPage>(
-      `*[_type == "downloadPage" && (_id == "${DOWNLOAD_DRAFT_DOCUMENT_ID}" || _id == "${DOWNLOAD_DOCUMENT_ID}")]| score(_id in path("drafts.**"))[0]{${downloadPageFragment}}`,
-    );
-  },
-  streamPreview(
-    previewToken: string,
-    callback: (downloadPage: DownloadPage) => void,
-  ) {
-    return createPreviewClient(previewToken)
-      .listen(
-        `*[_type == "downloadPage" && _id == "${DOWNLOAD_DRAFT_DOCUMENT_ID}"][0]`,
-        {},
-        { visibility: 'query' },
-      )
-      .subscribe(async () => {
-        await sleep(1000);
-        return downloadPage.fetchPreview(previewToken).then(callback);
-      });
-  },
 };
 
 export const contactPage = {
@@ -268,26 +143,6 @@ export const contactPage = {
     client.fetch(
       `*[_type == "contactPage" && _id == "contactPage"][0]{${contactPageFragment}}`,
     ),
-  fetchPreview(previewToken: string) {
-    return createPreviewClient(previewToken).fetch<ContactPage>(
-      `*[_type == "contactPage" && (_id == "${CONTACT_DRAFT_DOCUMENT_ID}" || _id == "${CONTACT_DOCUMENT_ID}")]| score(_id in path("drafts.**"))[0]{${contactPageFragment}}`,
-    );
-  },
-  streamPreview(
-    previewToken: string,
-    callback: (contactPage: ContactPage) => void,
-  ) {
-    return createPreviewClient(previewToken)
-      .listen(
-        `*[_type == "contactPage" && _id == "${CONTACT_DRAFT_DOCUMENT_ID}"]`,
-        {},
-        { visibility: 'query' },
-      )
-      .subscribe(async () => {
-        await sleep(1000);
-        return contactPage.fetchPreview(previewToken).then(callback);
-      });
-  },
 };
 
 export const notFoundPage = {
@@ -295,26 +150,6 @@ export const notFoundPage = {
     client.fetch(
       `*[_type == "notFoundPage" && _id == "notFoundPage"][0]{${notFoundPageFragment}}`,
     ),
-  fetchPreview(previewToken: string) {
-    return createPreviewClient(previewToken).fetch<NotFoundPage>(
-      `*[_type == "notFoundPage" && (_id == "${NOT_FOUND_DRAFT_DOCUMENT_ID}" || _id == "${NOT_FOUND_DOCUMENT_ID}")][0]{${notFoundPageFragment}}`,
-    );
-  },
-  streamPreview(
-    previewToken: string,
-    callback: (notFoundPage: NotFoundPage) => void,
-  ) {
-    return createPreviewClient(previewToken)
-      .listen(
-        `*[_type == "notFoundPage" && _id == "${NOT_FOUND_DRAFT_DOCUMENT_ID}"]`,
-        {},
-        { visibility: 'query' },
-      )
-      .subscribe(async () => {
-        await sleep(1000);
-        return notFoundPage.fetchPreview(previewToken).then(callback);
-      });
-  },
 };
 
 export const faqPage = {
@@ -322,23 +157,6 @@ export const faqPage = {
     client.fetch(
       `*[_type == "faqPage" && _id == "faqPage"][0]{${faqPageFragment}}`,
     ),
-  fetchPreview(previewToken: string) {
-    return createPreviewClient(previewToken).fetch<FAQPage>(
-      `*[_type == "faqPage" && (_id == "${FAQ_DRAFT_DOCUMENT_ID}" || _id == "${FAQ_DOCUMENT_ID}")][0]{${faqPageFragment}}`,
-    );
-  },
-  streamPreview(previewToken: string, callback: (faqPage: FAQPage) => void) {
-    return createPreviewClient(previewToken)
-      .listen(
-        `*[_type == "faqPage" && _id == "${FAQ_DRAFT_DOCUMENT_ID}"]`,
-        {},
-        { visibility: 'query' },
-      )
-      .subscribe(async () => {
-        await sleep(1000);
-        return faqPage.fetchPreview(previewToken).then(callback);
-      });
-  },
 };
 
 /* Client Page */
@@ -354,30 +172,6 @@ export const clientPage = {
     client.fetch(`*[_type == "clientPage"]{
         slug,
       }`),
-  findPreview(id: string, previewToken: string) {
-    return createPreviewClient(previewToken).fetch<ClientPage>(
-      `*[_type == "clientPage" && _id == $id][0]{${pageFragment}}`,
-      {
-        id,
-      },
-    );
-  },
-  streamPreview(
-    id: string,
-    previewToken: string,
-    callback: (clientPage: ClientPage) => void,
-  ) {
-    return createPreviewClient(previewToken)
-      .listen(
-        `*[_type == "clientPage" && _id == $id]`,
-        { id },
-        { visibility: 'query' },
-      )
-      .subscribe(async () => {
-        await sleep(1000);
-        return clientPage.findPreview(id, previewToken).then(callback);
-      });
-  },
 };
 
 /* Blogs */
@@ -432,30 +226,6 @@ export const blog = {
       articles: slicedArticles,
     };
   },
-  findPreview(id: string, previewToken: string) {
-    return createPreviewClient(previewToken).fetch<Blog>(
-      `*[_type == "blog" && _id == $id][0]{${blogFragment}}`,
-      {
-        id,
-      },
-    );
-  },
-  streamPreview(
-    id: string,
-    previewToken: string,
-    callback: (blog: Blog) => void,
-  ) {
-    return createPreviewClient(previewToken)
-      .listen(
-        `*[_type == "blog" && _id == $id]`,
-        { id },
-        { visibility: 'query' },
-      )
-      .subscribe(async () => {
-        await sleep(1000);
-        return blog.findPreview(id, previewToken).then(callback);
-      });
-  },
   getArticle: async (
     blogSlug: string,
     articleSlug: string,
@@ -469,30 +239,6 @@ export const blog = {
       { blogSlug, articleSlug },
     );
     return article || null;
-  },
-  findBlogArticlePreview(id: string, previewToken: string) {
-    return createPreviewClient(previewToken).fetch<BlogArticle>(
-      `*[_type == "blogArticle" && _id == $id][0]{${blogArticleFragment}}`,
-      {
-        id,
-      },
-    );
-  },
-  streamBlogArticlePreview(
-    id: string,
-    previewToken: string,
-    callback: (blogArticle: BlogArticle) => void,
-  ) {
-    return createPreviewClient(previewToken)
-      .listen(
-        `*[_type == "blogArticle" && _id == $id]`,
-        { id },
-        { visibility: 'query' },
-      )
-      .subscribe(async () => {
-        await sleep(1000);
-        return blog.findBlogArticlePreview(id, previewToken).then(callback);
-      });
   },
 };
 

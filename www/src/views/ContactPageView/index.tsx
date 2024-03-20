@@ -14,7 +14,7 @@ import {
   BackgroundImage,
 } from './styles';
 
-type ContactPageViewProps = {
+export type ContactPageViewProps = {
   contactPage: ContactPage;
 };
 
