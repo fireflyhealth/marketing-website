@@ -92,6 +92,19 @@ export const Practitioner = defineType({
       type: 'simpleRichText',
       validation: (Rule) => Rule.required(),
     }),
+    defineField({
+      name: 'renderProviderPage',
+      title: 'Render Provider Page',
+      type: 'boolean',
+      initialValue: false,
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
+      name: 'contentArea',
+      title: 'Content Area',
+      type: 'contentArea',
+      hidden: ({ parent }) => !parent.renderProviderPage,
+    }),
   ],
   preview: {
     select: {
