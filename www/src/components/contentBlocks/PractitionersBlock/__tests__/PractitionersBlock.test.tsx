@@ -1,5 +1,6 @@
 import { userEvent } from '@testing-library/user-event';
 import { render } from '@testing-library/react';
+import { UIProvider } from '@/context';
 import { practitionersBlockExample } from '@/mockData';
 import { PractitionersBlock } from '../index';
 
@@ -7,7 +8,9 @@ describe('PractitionersBlock', () => {
   it('should display a "show more" button when there are more than 12 practitioners', async () => {
     const user = userEvent.setup();
     const { container, getAllByText, getByTestId } = render(
-      <PractitionersBlock practitionersBlock={practitionersBlockExample} />,
+      <UIProvider>
+        <PractitionersBlock practitionersBlock={practitionersBlockExample} />
+      </UIProvider>,
     );
 
     /* Test using the desktop button, which should be visible & clickable to
@@ -50,7 +53,9 @@ describe('PractitionersBlock', () => {
       practitioners: practitionersBlockExample.practitioners.slice(0, 11),
     };
     const { getByTestId } = render(
-      <PractitionersBlock practitionersBlock={withTwelvePractitioners} />,
+      <UIProvider>
+        <PractitionersBlock practitionersBlock={withTwelvePractitioners} />
+      </UIProvider>,
     );
 
     const desktopButtonWrapper = getByTestId('showMoreButton--desktop');
@@ -66,7 +71,9 @@ describe('PractitionersBlock', () => {
       practitioners: practitionersBlockExample.practitioners.slice(0, 7),
     };
     const { getByTestId } = render(
-      <PractitionersBlock practitionersBlock={withEightPractitioners} />,
+      <UIProvider>
+        <PractitionersBlock practitionersBlock={withEightPractitioners} />
+      </UIProvider>,
     );
 
     const desktopButtonWrapper = getByTestId('showMoreButton--desktop');

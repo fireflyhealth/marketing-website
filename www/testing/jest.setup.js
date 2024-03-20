@@ -7,3 +7,26 @@ import nextHubspotMock from './mocks/nextHubspotMock';
 
 jest.mock('next/router', () => nextRouterMock);
 jest.mock('next-hubspot', () => nextHubspotMock);
+export class IntersectionObserver {
+  root = null;
+  rootMargin = '';
+  thresholds = [];
+
+  disconnect() {
+    return null;
+  }
+
+  observe() {
+    return null;
+  }
+
+  takeRecords() {
+    return [];
+  }
+
+  unobserve() {
+    return null;
+  }
+}
+window.IntersectionObserver = IntersectionObserver;
+global.IntersectionObserver = IntersectionObserver;
