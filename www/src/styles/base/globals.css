@@ -517,7 +517,7 @@ svg {
   transition: all 500ms ease;
   border: 3px solid;
   border-color: transparent;
-  border-radius: 16px;
+  border-radius: 8px;
 
   [data-whatintent='keyboard'] &:focus {
     border-color: var(--cta-border-color);
