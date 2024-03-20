@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import cn from 'classnames';
-import { BlogArticle, BlogArticleLinkData } from '@/types/sanity';
+import { BlogArticleLinkData } from '@/types/sanity';
 import { formatSanityDate } from '@/utils/text';
 import { RichText } from '@/components/RichText';
 import { Link } from '@/atoms/Link';
@@ -49,6 +49,9 @@ const BlogArticlesListItem: FC<BlogArticlesListItemProps> = ({ article }) => {
 export const BlogArticlesList: FC<BlogArticlesSharedProps> = ({
   currentPage,
 }) => {
+  /** TODO: Maybe add skeletons here. However, users will only see an empty state
+   * if they switch to an article tab *very quickly* after initial load. */
+  if (!currentPage) return null;
   return (
     <ul>
       {currentPage.articles.map((article) => (

@@ -1,7 +1,11 @@
-import { useReducer } from 'react';
+import { useCallback, useEffect, useReducer } from 'react';
 import { Status } from '@/constants';
 import * as sanity from '@/lib/sanity';
-import { BlogArticlePagination } from '@/types/sanity';
+import {
+  BlogArticlePagination,
+  BlogArticleTagGroup,
+  Maybe,
+} from '@/types/sanity';
 import { reportUnthrownError } from '@/lib/datadog';
 import { AppError } from '@/lib/datadog/appError';
 
@@ -14,12 +18,12 @@ type ReturnValue = {
 type State =
   | {
       status: Status;
-      currentPage: BlogArticlePagination;
+      currentPage: Maybe<BlogArticlePagination>;
       allPages: Map<number, BlogArticlePagination>;
     }
   | {
       status: Status.Rejected;
-      currentPage: BlogArticlePagination;
+      currentPage: Maybe<BlogArticlePagination>;
       allPages: Map<number, BlogArticlePagination>;
       errorMessage: string;
     };
@@ -88,17 +92,39 @@ const reducer = (prevState: State, action: Action): State => {
 
 export const useBlogArticlePagination = (
   blogSlug: string,
-  initialPage: BlogArticlePagination,
+  initialPage: Maybe<BlogArticlePagination>,
+  articleTag: Maybe<BlogArticleTagGroup>,
 ): ReturnValue => {
   const initialState: State = {
     status: Status.Idle,
     currentPage: initialPage,
-    allPages: new Map([[0, initialPage]]),
+    allPages: new Map(initialPage ? [[0, initialPage]] : []),
   };
   const [state, dispatch] = useReducer(reducer, initialState);
+  const tagSlug = articleTag?.tag.slug.current;
+
+  const fetchPage = useCallback(
+    async (pageNumber: number) => {
+      dispatch({ type: 'setPending' });
+      const fetchedNextPage = await sanity.blog.getBlogArticles(
+        blogSlug,
+        pageNumber,
+        tagSlug,
+      );
+
+      dispatch({ type: 'goNext', nextPage: fetchedNextPage });
+    },
+    [blogSlug, tagSlug],
+  );
 
   const goNext = async () => {
+    if (!state.currentPage) {
+      /* This should never happen, because the Next & Previous buttons
+       * will not appear until an initial page has been loaded. */
+      throw new Error('Cannot go next: there is no current page');
+    }
     const nextPageNumber = state.currentPage.page + 1;
+
     try {
       /* If there is no next page, do nothing */
       if (state.currentPage.hasNextPage === false) {
@@ -111,12 +137,7 @@ export const useBlogArticlePagination = (
         dispatch({ type: 'goNext', nextPage: storedNextPage });
       } else {
         /* Otherwise, set the status to pending and fetch it */
-        dispatch({ type: 'setPending' });
-        const fetchedNextPage = await sanity.blog.getBlogArticles(
-          blogSlug,
-          nextPageNumber,
-        );
-        dispatch({ type: 'goNext', nextPage: fetchedNextPage });
+        fetchPage(nextPageNumber);
       }
     } catch (e) {
       const originalMessage = e instanceof Error ? e.message : 'unknown';
@@ -134,17 +155,23 @@ export const useBlogArticlePagination = (
     }
   };
   const goPrev = async () => {
+    if (!state.currentPage) {
+      /* This should never happen, because the Next & Previous buttons
+       * will not appear until an initial page has been loaded. */
+      throw new Error('Cannot go previous: there is no current page');
+    }
+
     /* If there are no previous pages, do nothing */
     if (state.currentPage.page === 0) {
       return;
     }
     const prevPageNumber = state.currentPage.page - 1;
-    const storedPrevPage = state.allPages.get(prevPageNumber);
-    if (!storedPrevPage) {
-      throw new Error('Could not fetch previous page');
-    }
-    dispatch({ type: 'goPrev', prevPage: storedPrevPage });
     try {
+      const storedPrevPage = state.allPages.get(prevPageNumber);
+      if (!storedPrevPage) {
+        throw new Error('Could not fetch previous page');
+      }
+      dispatch({ type: 'goPrev', prevPage: storedPrevPage });
     } catch (e) {
       const originalMessage = e instanceof Error ? e.message : 'unknown';
       reportUnthrownError(
@@ -160,6 +187,12 @@ export const useBlogArticlePagination = (
       });
     }
   };
+
+  useEffect(() => {
+    /* If the initial page was already provided, do nothing */
+    if (initialPage) return;
+    fetchPage(0);
+  }, [fetchPage, initialPage]);
   return {
     state,
     goNext,

@@ -1,6 +1,6 @@
 /* Featured Article */
 export const FeaturedArticleContainer = [
-  'container-padding-bleed',
+  'container-padding-bleed--margin-only-mobile-only',
   'flex flex-col',
   'lg:flex-row',
 ];
@@ -8,16 +8,19 @@ export const FeaturedArticleImageContainer = [
   'lg:w-[calc(50%_+_3rem)] lg:mt-12',
 ];
 export const FeaturedArticleTextContainer = [
-  'mt-[-20px] px-4',
+  'mt-[-20px]',
   'lg:w-[calc(50%_+_3rem)] lg:flex-grow-1 lg:mt-0 lg:ml-[-48px]',
 ];
 
 export const FeaturedArticleTextInner = [
   'theme-bg-color rounded-2xl mix-blend-multiply',
-  'py-12 px-8',
+  'py-12 px-4',
   'md:py-16 md:px-16',
   'lg:py-24 lg:px-24',
 ];
+
+/* Grid & List View wrapper */
+export const BlogPageArticlesWrapper = ['pt-20 pb-12', 'md:pb-18', 'lg:pb-24'];
 
 /* List View */
 export const BlogArticlesListItemWrapper = [
