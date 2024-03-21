@@ -86,3 +86,16 @@ div[data-testid='text-style--blockquote'] span {
   border: 2px solid orange;
   border-radius: 2px;
 }
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animation-spinning {
+  animation: spin 2s linear infinite;
+}

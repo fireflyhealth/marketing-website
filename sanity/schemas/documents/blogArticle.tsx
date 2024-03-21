@@ -5,6 +5,7 @@ import { readOnlyIfNotBaseLang } from '../../lib/readOnlyIfNotBaseLang';
 import localizationSlugField from '../../lib/localizationSlugField';
 import { isUniqueAcrossDocuments } from '../../lib/isUniqueAcrossDocuments';
 import { formatSanityDate } from '../../lib/utils';
+import { createDocumentVariantField } from '../../plugins/documentVariants/fields/documentVariant';
 
 export const BlogArticle = defineType({
   name: 'blogArticle',
@@ -17,6 +18,7 @@ export const BlogArticle = defineType({
     { title: 'Content', name: 'content' },
   ],
   fields: [
+    createDocumentVariantField(),
     defineField({
       name: 'title',
       title: 'Title',
@@ -178,18 +180,31 @@ export const BlogArticle = defineType({
   ],
   preview: {
     select: {
+      documentVariantInfo: 'documentVariantInfo',
       parentBlogTitle: 'category.title',
       title: 'title',
       _updatedAt: '_updatedAt',
+      thumbnail: 'thumbnail',
       publishDate: 'publishDate',
     },
-    prepare: ({ parentBlogTitle, title, _updatedAt, publishDate }) => {
+    prepare: ({
+      documentVariantInfo,
+      thumbnail,
+      parentBlogTitle,
+      title,
+      _updatedAt,
+      publishDate,
+    }) => {
       const formattedDate = formatSanityDate(publishDate || _updatedAt);
       const parentBlog = parentBlogTitle || '⚠ No parent blog';
-      const subtitle = [formattedDate, parentBlog].join(' | ');
+      const subtitle = [formattedDate, parentBlog].filter(Boolean).join(' | ');
+      const fullTitle = [documentVariantInfo?.variantOf ? '🅱️' : null, title]
+        .filter(Boolean)
+        .join(' ');
       return {
-        title,
+        title: fullTitle,
         subtitle,
+        media: thumbnail,
       };
     },
   },
