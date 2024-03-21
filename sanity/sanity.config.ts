@@ -10,6 +10,7 @@ import { structure, defaultDocumentNode } from './schemas/structure';
 import './lib/styles.css';
 import { resolveProductionUrl } from './lib/pagePreview';
 import { documentVariants } from './plugins/documentVariants';
+import { abEligibleDocumentTypes } from './lib/constants';
 
 const isDevEnv = Boolean(process.env.SANITY_STUDIO_IS_DEVELOPMENT);
 
@@ -20,7 +21,7 @@ const shared = {
     structureTool({ structure, defaultDocumentNode }),
     visionTool(),
     documentVariants({
-      schemaTypes: ['blogArticle'],
+      schemaTypes: abEligibleDocumentTypes,
     }),
 
     // Document Internationalization is not available yet.

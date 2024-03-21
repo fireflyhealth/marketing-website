@@ -1,5 +1,6 @@
 import { defineArrayMember, defineField, defineType } from 'sanity';
 import { icons } from '../../lib/icons';
+import { createDocumentVariantField } from '../../plugins/documentVariants/fields/documentVariant';
 
 export const Practitioner = defineType({
   name: 'practitioner',
@@ -7,6 +8,7 @@ export const Practitioner = defineType({
   title: 'Practitioner',
   icon: icons.Practitioner,
   fields: [
+    createDocumentVariantField(),
     defineField({
       name: 'name',
       title: 'Full Name',

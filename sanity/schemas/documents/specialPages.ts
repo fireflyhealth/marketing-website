@@ -1,5 +1,6 @@
 import { defineField, defineType } from 'sanity';
 import { icons } from '../../lib/icons';
+import { createDocumentVariantField } from '../../plugins/documentVariants/fields/documentVariant';
 
 export const DownloadPage = defineType({
   name: 'downloadPage',
@@ -7,6 +8,7 @@ export const DownloadPage = defineType({
   title: 'Download Page',
   icon: icons.Download,
   fields: [
+    createDocumentVariantField(),
     defineField({
       name: 'title',
       type: 'string',
@@ -41,6 +43,7 @@ export const ContactPage = defineType({
   title: 'Contact Page',
   icon: icons.Contact,
   fields: [
+    createDocumentVariantField(),
     defineField({
       name: 'title',
       type: 'string',

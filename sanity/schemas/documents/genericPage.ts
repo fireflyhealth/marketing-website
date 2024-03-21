@@ -4,8 +4,10 @@ import { API_VERSION, SingletonPageSlugs } from '../../lib/constants';
 import { readOnlyIfNotBaseLang } from '../../lib/readOnlyIfNotBaseLang';
 import localizationSlugField from '../../lib/localizationSlugField';
 import { isUniqueAcrossDocuments } from '../../lib/isUniqueAcrossDocuments';
+import { createDocumentVariantField } from '../../plugins/documentVariants/fields/documentVariant';
 
 const sharedPageFields = [
+  createDocumentVariantField(),
   defineField({
     name: 'title',
     type: 'string',

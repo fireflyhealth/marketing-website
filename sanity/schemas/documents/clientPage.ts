@@ -3,6 +3,7 @@ import { icons } from '../../lib/icons';
 import { readOnlyIfNotBaseLang } from '../../lib/readOnlyIfNotBaseLang';
 import localizationSlugField from '../../lib/localizationSlugField';
 import { isUniqueAcrossDocuments } from '../../lib/isUniqueAcrossDocuments';
+import { createDocumentVariantField } from '../../plugins/documentVariants/fields/documentVariant';
 
 export const ClientPage = defineType({
   name: 'clientPage',
@@ -10,6 +11,7 @@ export const ClientPage = defineType({
   title: 'Client Page',
   icon: icons.Client,
   fields: [
+    createDocumentVariantField(),
     defineField({
       title: 'Client Name',
       name: 'clientName',

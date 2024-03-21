@@ -3,6 +3,7 @@ import { icons } from '../../lib/icons';
 import { readOnlyIfNotBaseLang } from '../../lib/readOnlyIfNotBaseLang';
 import localizationSlugField from '../../lib/localizationSlugField';
 import { isUniqueAcrossDocuments } from '../../lib/isUniqueAcrossDocuments';
+import { createDocumentVariantField } from '../../plugins/documentVariants/fields/documentVariant';
 
 export const BlogArticleTagGroup = defineType({
   name: 'blogArticleTagGroup',
@@ -31,6 +32,7 @@ export const Blog = defineType({
   fieldsets: [{ name: 'content', title: 'Content' }],
   icon: icons.Blog,
   fields: [
+    createDocumentVariantField(),
     defineField({
       name: 'title',
       title: 'Title',
