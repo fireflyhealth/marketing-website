@@ -1,4 +1,7 @@
-import React, { FC } from 'react';
+'use client';
+
+import React, { FC, useEffect, useState } from 'react';
+import { useSearchParams } from 'next/navigation';
 import { FAQ, FAQSubject as FAQSubjectDocument } from '@/types/sanity';
 import { Accordion } from '@/atoms/Accordion';
 import { RichText } from '@/components/RichText';
@@ -13,14 +16,29 @@ type FAQSubjectProps = {
 };
 
 export const FAQSubject: FC<FAQSubjectProps> = ({ faqSubject }) => {
+  const searchParams = useSearchParams();
+  const faqParam = searchParams.get('faq');
+
   const { subject, questions } = faqSubject;
+
+  const [activeQuestion, setActiveQuestion] = useState<string>('');
+
+  useEffect(() => {
+    if (faqParam) {
+      setActiveQuestion(faqParam);
+    }
+  }, [faqParam]);
+
   return (
     <div className="pb-12">
       <h3 className="font-size-8 pb-6">{subject.title}</h3>
       <div>
         {questions.map((question) => (
           <div key={question._id} className="border-t theme-border-color py-4">
-            <Accordion title={question.question}>
+            <Accordion
+              title={question.question}
+              active={activeQuestion === question.slug.current}
+            >
               <RichText content={question.answer} className="font-size-8" />
             </Accordion>
           </div>

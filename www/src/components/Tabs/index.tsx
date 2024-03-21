@@ -1,10 +1,14 @@
-import React, { FC, useState, ReactNode } from 'react';
+'use client';
+
+import React, { FC, useState, ReactNode, useEffect } from 'react';
+import { useSearchParams } from 'next/navigation';
 import cn from 'classnames';
 import { Keyed, Maybe } from '@/types/sanity';
 import { TabContentWrapper, TabLabel, TabLabels } from './styles';
 
 type Tab = {
   label: string;
+  slug: string;
   children: ReactNode;
 };
 
@@ -46,11 +50,25 @@ const initialTabKeyIsValid = (
  * Read more: https://dev.to/link2twenty/accessibility-first-tabs-ken
  */
 export const Tabs: FC<TabsProps> = ({ tabs, animated, initialTabKey }) => {
+  const searchParams = useSearchParams();
+  const categoryParam = searchParams.get('category');
+
   const [activeTab, setActiveTab] = useState<string>(
     initialTabKey && initialTabKeyIsValid(initialTabKey, tabs)
       ? initialTabKey
       : tabs[0]._key,
   );
+
+  useEffect(() => {
+    if (categoryParam) {
+      tabs.forEach((tab) => {
+        if (tab.slug === categoryParam) {
+          setActiveTab(tab._key);
+        }
+      });
+    }
+  }, [categoryParam]);
+
   const createTabFocusHandler = (key: string) => () => setActiveTab(key);
   const activateAndFocusTab = (tab: Keyed<Tab>) => {
     /* Update the state */

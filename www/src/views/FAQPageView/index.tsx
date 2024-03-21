@@ -83,6 +83,7 @@ export const FAQPageView: FC<FAQPageViewProps> = ({ faqPage }) => {
           tabs={faqCategories.map((faqCategory) => ({
             _key: faqCategory.category.slug.current,
             label: faqCategory.category.title,
+            slug: faqCategory.category.slug.current,
             children: <FAQCategory faqCategory={faqCategory} />,
           }))}
         />

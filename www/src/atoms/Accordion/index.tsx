@@ -1,4 +1,4 @@
-import React, { FC, ReactNode, useState } from 'react';
+import React, { FC, ReactNode, useState, useEffect, useRef } from 'react';
 import cn from 'classnames';
 import { SimpleIcon } from '@/svgs/SimpleIcon';
 import { TitleWrapper } from './styles';
@@ -6,13 +6,29 @@ import { TitleWrapper } from './styles';
 type AccordionProps = {
   title: string;
   children: ReactNode;
+  active?: boolean;
 };
 
-export const Accordion: FC<AccordionProps> = ({ title, children }) => {
+export const Accordion: FC<AccordionProps> = ({ title, children, active }) => {
+  const accordionRef = useRef<HTMLDivElement>(null);
+
   const [isOpen, setIsOpen] = useState(false);
   const toggleOpen = () => setIsOpen((value) => !value);
+
+  useEffect(() => {
+    if (active) {
+      setIsOpen(true);
+      if (accordionRef.current) {
+        accordionRef.current.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start',
+        });
+      }
+    }
+  }, [active, accordionRef.current]);
+
   return (
-    <div>
+    <div ref={accordionRef}>
       <button
         aria-expanded={isOpen}
         onClick={toggleOpen}
