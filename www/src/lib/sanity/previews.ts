@@ -333,7 +333,7 @@ export const createPreviewClient = (previewToken: string) => {
           `*[
              _type == "practitioner"
              && (_id == $draftId || _id == $nonDraftId)
-           ][0]{${practitionerPageFragment}}`,
+           ]| score(_id in path("drafts.**"))[0]{${practitionerPageFragment}}`,
           { draftId, nonDraftId },
         );
         return { type: 'practitioner', viewProps: { provider } };
