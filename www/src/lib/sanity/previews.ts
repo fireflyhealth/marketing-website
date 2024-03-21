@@ -318,6 +318,7 @@ export const createPreviewClient = (previewToken: string) => {
       },
     },
     providerPage: {
+      /* Fetch all practitioner documents no matter if they should or should not render a provider page */
       listen: (draftId: string) => {
         return previewClient.listen(
           `*[_type == "practitioner" && _id == $draftId][0]`,

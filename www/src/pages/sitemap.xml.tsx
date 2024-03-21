@@ -5,8 +5,6 @@ import { LinkableDocumentData } from '@/types/sanity';
 import { getLinkableDocumentProductionUrl } from '@/utils/linking';
 import { config } from '../config';
 
-/* TODO: fix practitioner filtering */
-
 /**
  * Simple function to format date
  * @param date string
@@ -65,7 +63,7 @@ const generateSiteMap = ({
     ${blog.length && generateSitemapSection(blog)}
     ${blogArticle.length && generateSitemapSection(blogArticle)}
     ${clientPage.length && generateSitemapSection(clientPage)}
-    ${practitioner.length && generateSitemapSection(practitioner.filter((practitioner) => practitioner.renderProviderPage === true))}
+    ${practitioner.length && generateSitemapSection(practitioner)}
   </urlset>
  `;
 };

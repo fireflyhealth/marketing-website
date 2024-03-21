@@ -54,12 +54,10 @@ export const getStaticProps: GetStaticProps<
 
 export const getStaticPaths: GetStaticPaths<PageParams> = async () => {
   const practitionerPages = await Sanity.practitionerPage.getSlugInfo();
-  /* TODO: fix practitioner filtering */
-  const paths = practitionerPages
-    .filter((practitioner) => practitioner.renderProviderPage === true)
-    .map((practitioner) => ({
-      params: { practitionerSlug: practitioner.slug.current },
-    }));
+
+  const paths = practitionerPages.map((practitioner) => ({
+    params: { practitionerSlug: practitioner.slug.current },
+  }));
   return {
     paths,
     fallback: 'blocking',

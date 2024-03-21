@@ -244,9 +244,11 @@ export const blog = {
 
 /* Practitioner Page */
 export const practitionerPage = {
+  /* (production) do not fetch slugs for practitioners that should not render a provider page */
+  /* (preview) fetch all practitioners wether or not they should render a provider page - see preview queries 'src/lib/sanity/previews' */
   get: (practitionerSlug: string): Promise<Practitioner | null> =>
     client.fetch(
-      `*[_type == "practitioner" && slug.current == $practitionerSlug][0]{${practitionerPageFragment}}`,
+      `*[_type == "practitioner" && slug.current == $practitionerSlug && renderProviderPage != false][0]{${practitionerPageFragment}}`,
       {
         practitionerSlug,
       },
@@ -285,7 +287,7 @@ const SITEMAP_DATA_QUERY = `
   "blog": *[_type == "blog"]{${linkableDocumentFragment}},
   "blogArticle": *[_type == "blogArticle"]{${linkableDocumentFragment}},
   "clientPage": *[_type == "clientPage"]{${linkableDocumentFragment}},
-  "practitioner": *[_type == "practitioner"]{${linkableDocumentFragment}}
+  "practitioner": *[_type == "practitioner" && renderProviderPage != false]{${linkableDocumentFragment}}
 }
 `;
 
