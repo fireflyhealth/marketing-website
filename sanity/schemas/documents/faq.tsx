@@ -1,6 +1,29 @@
 import { defineField, defineType } from 'sanity';
 import { icons } from '../../lib/icons';
 import { richTextToString } from '../../lib/richTextToString';
+import { API_VERSION } from '../../lib/constants';
+
+async function faqSlugifyer(input, _schemaType, context) {
+  const { getClient } = context;
+  const client = getClient({ apiVersion: API_VERSION });
+  const query = `*[_type=="faq" && _id == $id][0]{ slug, category -> { slug }, subject -> { slug }}`;
+  const params = { id: input };
+  const url = client.fetch(query, params).then((fields) => {
+    const { slug, category, subject } = fields;
+
+    const categorySlug = category?.slug?.current;
+    const subjectSlug = subject?.slug?.current;
+    const faqSlug = slug?.current;
+
+    if (!categorySlug || !subjectSlug || !faqSlug) {
+      return undefined;
+    }
+
+    return `/faq?category=${categorySlug}&subject=${subjectSlug}&faq=${faqSlug}`;
+  });
+
+  return url;
+}
 
 export const FrequentlyAskedQuestion = defineType({
   name: 'faq',
@@ -60,6 +83,18 @@ export const FrequentlyAskedQuestion = defineType({
       initialValue: false,
       description:
         'Enable this option if you would like to link to this question in an FAQ block, but do not want it to appear on the main FAQ page.',
+    }),
+    defineField({
+      title: 'Linkable URL',
+      name: 'linkableUrl',
+      fieldset: 'settings',
+      type: 'slug',
+      description:
+        'You must generate linked category and subject slugs and faq slug first. \n Only use generated url, url will not work if you modify.',
+      options: {
+        source: '_id',
+        slugify: faqSlugifyer,
+      },
     }),
   ],
   preview: {
