@@ -62,23 +62,23 @@ export const DrawerListItem: FC<DrawerListItemProps> = ({
   useEffect(() => {
     /* Calculate and set the inner content height whenever the element
      * is expanded or when the window is resized. */
-    const innderContentRefCurrent = innerContentRef.current;
+    const innerContentRefCurrent = innerContentRef.current;
 
     if (isExpanded) {
-      if (!innderContentRefCurrent) return;
-      const innerContentHeight = innderContentRefCurrent.offsetHeight;
+      if (!innerContentRefCurrent) return;
+      const innerContentHeight = innerContentRefCurrent.offsetHeight;
       setExpandedContentHeight(innerContentHeight);
 
       /* Set tabindex to 0 for all links in the expanded content to be focusable */
-      innderContentRefCurrent.querySelectorAll('a').forEach((link) => {
+      innerContentRefCurrent.querySelectorAll('a').forEach((link) => {
         link.setAttribute('tabindex', '0');
       });
     } else {
       setExpandedContentHeight(0);
 
-      if (!innderContentRefCurrent) return;
+      if (!innerContentRefCurrent) return;
       /* Set tabindex to -1 for all links in the expanded content to not be focusable */
-      innderContentRefCurrent.querySelectorAll('a').forEach((link) => {
+      innerContentRefCurrent.querySelectorAll('a').forEach((link) => {
         link.setAttribute('tabindex', '-1');
       });
     }
