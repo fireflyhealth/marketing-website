@@ -38,19 +38,6 @@ export const createDocumentVariantFieldDefinition = ({
         },
       }),
       defineField({
-        name: 'isActive',
-        type: 'boolean',
-        title: 'Active',
-        description:
-          'Enable this setting to serve this content to B segment viewers',
-        hidden: (props) => {
-          if (props.parent?.variantOf?._ref) {
-            return false;
-          }
-          return true;
-        },
-      }),
-      defineField({
         /* Will only be populated if isVariant == true */
         name: 'variantOf',
         title: 'A Content',
@@ -77,6 +64,31 @@ export const createDocumentVariantFieldDefinition = ({
             return false;
           }
           return true;
+        },
+      }),
+      defineField({
+        name: 'isActive',
+        type: 'boolean',
+        title: 'Active',
+        description:
+          'Enable this setting to serve this content to B segment viewers',
+        hidden: (props) => {
+          if (props.parent?.variantOf?._ref) {
+            return false;
+          }
+          return true;
+        },
+        components: {
+          input: (props) => (
+            <div
+              style={{
+                /* fudge over some default spacing */
+                marginTop: '-3rem',
+              }}
+            >
+              {props.renderDefault(props)}
+            </div>
+          ),
         },
       }),
     ],

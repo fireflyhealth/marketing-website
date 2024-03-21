@@ -1,8 +1,8 @@
 import React, { FC, useCallback } from 'react';
-import { useFormValue } from 'sanity';
+import { SanityClient, SanityDocument, useFormValue } from 'sanity';
 import { ErrorOutlineIcon, HelpCircleIcon } from '@sanity/icons';
 import { API_VERSION, Status } from '../constants';
-import { DocumentWithSlug, VariantFieldInputProps } from '../types';
+import { VariantFieldInputProps } from '../types';
 import { useMemoizedClient } from '../hooks/useMemoizedClient';
 import { useRequest } from '../hooks/useRequest';
 import { toPublishedId } from '../utils';
@@ -10,20 +10,21 @@ import { InfoBox } from './InfoBox';
 import { LoadingSpinner } from './LoadingSpinner';
 
 /**
- * Input for a Variant document
- * - render a back link
+ * Requests
  */
-export const VariantDocumentInput: FC<VariantFieldInputProps> = (props) => {
-  const client = useMemoizedClient({ apiVersion: API_VERSION });
-  const parentDocument = useFormValue([]) as DocumentWithSlug;
-  const primaryDocumentId = props.value?.variantOf?._ref;
-  const getPrimaryDocument = useCallback(async () => {
+
+const requests = {
+  getPrimaryDocument: async (
+    client: SanityClient,
+    parentDocumentId: string,
+    primaryDocumentId?: string,
+  ): Promise<SanityDocument> => {
     if (!primaryDocumentId) {
       throw new Error(
-        `Document ${parentDocument._id} is not a variant of a primary document`,
+        `Document ${parentDocumentId} is not a variant of a primary document`,
       );
     }
-    const primaryDocument = await client.fetch(
+    const primaryDocument = await client.fetch<SanityDocument>(
       `*[_id == $primaryDocumentId][0]`,
       {
         primaryDocumentId: toPublishedId(primaryDocumentId),
@@ -33,7 +34,26 @@ export const VariantDocumentInput: FC<VariantFieldInputProps> = (props) => {
       throw new Error('Could not get primary document');
     }
     return primaryDocument;
-  }, [client, primaryDocumentId, parentDocument._id]);
+  },
+};
+
+/**
+ * Input for a Variant document
+ * - render a back link
+ */
+export const VariantDocumentInput: FC<VariantFieldInputProps> = (props) => {
+  const client = useMemoizedClient({ apiVersion: API_VERSION });
+  const parentDocument = useFormValue([]) as SanityDocument;
+  const primaryDocumentId = props.value?.variantOf?._ref;
+  const getPrimaryDocument = useCallback(
+    () =>
+      requests.getPrimaryDocument(
+        client,
+        parentDocument._id,
+        primaryDocumentId,
+      ),
+    [client, parentDocument._id, primaryDocumentId],
+  );
 
   const [primaryDocumentRequest] = useRequest(getPrimaryDocument, {
     triggerImmediately: true,
@@ -56,10 +76,16 @@ export const VariantDocumentInput: FC<VariantFieldInputProps> = (props) => {
 
   return (
     <div>
-      <InfoBox icon={HelpCircleIcon}>
-        This document is the B version of{' '}
-        <strong>{primaryDocumentRequest.result.title}</strong>.
-      </InfoBox>
+      <div
+        style={{
+          /* fudge over some default spacing */
+          marginBottom: '-3rem',
+        }}
+      >
+        <InfoBox icon={HelpCircleIcon}>
+          This document is the B version of:
+        </InfoBox>
+      </div>
       {props.renderDefault(props)}
     </div>
   );
