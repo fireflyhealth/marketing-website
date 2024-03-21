@@ -1,6 +1,7 @@
 import { defineArrayMember, defineField, defineType } from 'sanity';
 import { icons } from '../../lib/icons';
 import { createDocumentVariantField } from '../../plugins/documentVariants/fields/documentVariant';
+import { cloneWithUniqueSlug } from '../../plugins/documentVariants/utils';
 
 export const Practitioner = defineType({
   name: 'practitioner',
@@ -8,7 +9,11 @@ export const Practitioner = defineType({
   title: 'Practitioner',
   icon: icons.Practitioner,
   fields: [
-    createDocumentVariantField(),
+    createDocumentVariantField({
+      cloneOptions: {
+        getCloneData: cloneWithUniqueSlug,
+      },
+    }),
     defineField({
       name: 'name',
       title: 'Full Name',
@@ -94,10 +99,21 @@ export const Practitioner = defineType({
       title: 'title',
       qualifications: 'qualifications',
       headshot: 'headshot',
+      documentVariantInfo: 'documentVariantInfo',
     },
-    prepare: ({ name, title, qualifications, headshot }) => {
+    prepare: ({
+      documentVariantInfo,
+      name,
+      title,
+      qualifications,
+      headshot,
+    }) => {
+      const fullTitle = [documentVariantInfo?.variantOf ? '🅱️' : null, name]
+        .filter(Boolean)
+        .join(' ');
+
       return {
-        title: name,
+        title: fullTitle,
         subtitle: [title, qualifications].filter(Boolean).join(' | '),
         media: headshot,
       };

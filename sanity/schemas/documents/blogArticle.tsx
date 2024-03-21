@@ -6,6 +6,7 @@ import localizationSlugField from '../../lib/localizationSlugField';
 import { isUniqueAcrossDocuments } from '../../lib/isUniqueAcrossDocuments';
 import { formatSanityDate } from '../../lib/utils';
 import { createDocumentVariantField } from '../../plugins/documentVariants/fields/documentVariant';
+import { cloneWithUniqueSlug } from '../../plugins/documentVariants/utils';
 
 export const BlogArticle = defineType({
   name: 'blogArticle',
@@ -18,7 +19,11 @@ export const BlogArticle = defineType({
     { title: 'Content', name: 'content' },
   ],
   fields: [
-    createDocumentVariantField(),
+    createDocumentVariantField({
+      cloneOptions: {
+        getCloneData: cloneWithUniqueSlug,
+      },
+    }),
     defineField({
       name: 'title',
       title: 'Title',
@@ -100,7 +105,9 @@ export const BlogArticle = defineType({
               { parentBlogId, blogArticleId },
             ),
           ]);
-          const siblingSlugs = siblings.map((article) => article.slug.current);
+          const siblingSlugs = siblings
+            .filter((article) => article.slug?.current)
+            .map((article) => article.slug.current);
           if (siblingSlugs.includes(currentSlug.current)) {
             return `There is already an article within the ${parentBlog.title} blog with the slug ${currentSlug.current}`;
           }

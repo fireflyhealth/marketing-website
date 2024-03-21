@@ -35,6 +35,19 @@ export const DownloadPage = defineType({
       title: 'Metadata',
     }),
   ],
+  preview: {
+    select: {
+      title: 'title',
+      documentVariantInfo: 'documentVariantInfo',
+    },
+    prepare: ({ title, documentVariantInfo }) => {
+      const fullTitle = [documentVariantInfo?.variantOf ? '🅱️' : null, title]
+        .filter(Boolean)
+        .join(' ');
+
+      return { title: fullTitle };
+    },
+  },
 });
 
 export const ContactPage = defineType({
@@ -88,6 +101,19 @@ export const ContactPage = defineType({
       title: 'Metadata',
     }),
   ],
+  preview: {
+    select: {
+      title: 'title',
+      documentVariantInfo: 'documentVariantInfo',
+    },
+    prepare: ({ title, documentVariantInfo }) => {
+      const fullTitle = [documentVariantInfo?.variantOf ? '🅱️' : null, title]
+        .filter(Boolean)
+        .join(' ');
+
+      return { title: fullTitle };
+    },
+  },
 });
 
 export const NotFoundPage = defineType({

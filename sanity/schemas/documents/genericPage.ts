@@ -5,9 +5,14 @@ import { readOnlyIfNotBaseLang } from '../../lib/readOnlyIfNotBaseLang';
 import localizationSlugField from '../../lib/localizationSlugField';
 import { isUniqueAcrossDocuments } from '../../lib/isUniqueAcrossDocuments';
 import { createDocumentVariantField } from '../../plugins/documentVariants/fields/documentVariant';
+import { cloneWithUniqueSlug } from '../../plugins/documentVariants/utils';
 
 const sharedPageFields = [
-  createDocumentVariantField(),
+  createDocumentVariantField({
+    cloneOptions: {
+      getCloneData: cloneWithUniqueSlug,
+    },
+  }),
   defineField({
     name: 'title',
     type: 'string',
@@ -127,8 +132,14 @@ export const SubPage = defineType({
   ],
   fields: [...sharedPageFields],
   preview: {
-    select: { title: 'title' },
-    prepare: ({ title }) => ({ title }),
+    select: { title: 'title', documentVariantInfo: 'documentVariantInfo' },
+    prepare: ({ documentVariantInfo, title }) => {
+      const fullTitle = [documentVariantInfo?.variantOf ? '🅱️' : null, title]
+        .filter(Boolean)
+        .join(' ');
+
+      return { title: fullTitle };
+    },
   },
 });
 
@@ -188,7 +199,13 @@ export const GenericPage = defineType({
     }),
   ],
   preview: {
-    select: { title: 'title' },
-    prepare: ({ title }) => ({ title }),
+    select: { title: 'title', documentVariantInfo: 'documentVariantInfo' },
+    prepare: ({ documentVariantInfo, title }) => {
+      const fullTitle = [documentVariantInfo?.variantOf ? '🅱️' : null, title]
+        .filter(Boolean)
+        .join(' ');
+
+      return { title: fullTitle };
+    },
   },
 });

@@ -4,6 +4,7 @@ import { readOnlyIfNotBaseLang } from '../../lib/readOnlyIfNotBaseLang';
 import localizationSlugField from '../../lib/localizationSlugField';
 import { isUniqueAcrossDocuments } from '../../lib/isUniqueAcrossDocuments';
 import { createDocumentVariantField } from '../../plugins/documentVariants/fields/documentVariant';
+import { cloneWithUniqueSlug } from '../../plugins/documentVariants/utils';
 
 export const ClientPage = defineType({
   name: 'clientPage',
@@ -11,7 +12,11 @@ export const ClientPage = defineType({
   title: 'Client Page',
   icon: icons.Client,
   fields: [
-    createDocumentVariantField(),
+    createDocumentVariantField({
+      cloneOptions: {
+        getCloneData: cloneWithUniqueSlug,
+      },
+    }),
     defineField({
       title: 'Client Name',
       name: 'clientName',
@@ -58,7 +63,16 @@ export const ClientPage = defineType({
     }),
   ],
   preview: {
-    select: { clientName: 'clientName' },
-    prepare: ({ clientName }) => ({ title: clientName }),
+    select: {
+      clientName: 'clientName',
+      documentVariantInfo: 'documentVariantInfo',
+    },
+    prepare: ({ clientName, documentVariantInfo }) => {
+      const title = [documentVariantInfo?.variantOf ? '🅱️' : null, clientName]
+        .filter(Boolean)
+        .join(' ');
+
+      return { title };
+    },
   },
 });

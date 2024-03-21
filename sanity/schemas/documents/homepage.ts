@@ -35,7 +35,15 @@ export const Homepage = defineType({
     }),
   ],
   preview: {
-    select: {},
-    prepare: () => ({ title: 'Homepage' }),
+    select: {
+      documentVariantInfo: 'documentVariantInfo',
+    },
+    prepare: ({ documentVariantInfo }) => {
+      const title = [documentVariantInfo?.variantOf ? '🅱️' : null, 'Homepage']
+        .filter(Boolean)
+        .join(' ');
+
+      return { title };
+    },
   },
 });
