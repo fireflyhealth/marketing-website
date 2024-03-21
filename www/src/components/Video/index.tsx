@@ -86,6 +86,21 @@ export const Video: FC<Props> = ({
     });
   }, [videoRef, video.videoLink]);
 
+  useEffect(() => {
+    if (player) {
+      player.ready().then(() => {
+        if (videoRef.current) {
+          const vimeoIframe = videoRef.current.querySelector('iframe');
+          if (!isPlaying) {
+            vimeoIframe?.setAttribute('tabindex', '-1');
+          } else {
+            vimeoIframe?.setAttribute('tabindex', '0');
+          }
+        }
+      });
+    }
+  }, [player, videoRef.current, isPlaying]);
+
   const handlePlay = useCallback(async () => {
     if (!player) return;
     const isPaused = await player.getPaused();

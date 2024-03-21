@@ -29,14 +29,17 @@ export const MobileNav: FC<Props> = ({
           mobileNavOpen ? 'bg-yellow' : 'bg-transparent',
         )}
       >
-        <Link href="/">
+        <Link href="/" className="element-focus p-2 -ml-2 -mt-2">
           <div className="w-[120px] md:w-[175px]">
             {mobileNavOpen ? <LogotypeMonochrome /> : <LogotypeColor />}
           </div>
         </Link>
 
         {/* menu button only visible on tablet and mobile */}
-        <button className="lg:hidden" onClick={toggleGlobalNav}>
+        <button
+          className="lg:hidden element-focus p-2 -mr-2 -mt-2"
+          onClick={toggleGlobalNav}
+        >
           {mobileNavOpen ? (
             <SimpleIcon type="close" wrapperStyles="w-6 text-yellow-light" />
           ) : (

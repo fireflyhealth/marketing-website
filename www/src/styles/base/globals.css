@@ -244,6 +244,7 @@ img {
   --cta-bg-color-primary: theme('colors.yellow');
   --cta-text-color-secondary: theme('colors.midnight');
   --cta-bg-color-secondary: theme('colors.grey');
+  --cta-border-color: theme('colors.midnight');
 
   --icon-base: theme('colors.yellow');
   --icon-overlap: theme('colors.yellow-dark');
@@ -260,6 +261,7 @@ img {
   --cta-bg-color-primary: theme('colors.yellow');
   --cta-text-color-secondary: theme('colors.midnight');
   --cta-bg-color-secondary: theme('colors.grey-medium');
+  --cta-border-color: theme('colors.midnight');
 
   --icon-base: theme('colors.yellow');
   --icon-overlap: theme('colors.orange');
@@ -276,6 +278,7 @@ img {
   --cta-bg-color-primary: theme('colors.yellow');
   --cta-text-color-secondary: theme('colors.yellow-light');
   --cta-bg-color-secondary: theme('colors.sienna-dark');
+  --cta-border-color: theme('colors.yellow-light');
 
   --icon-base: theme('colors.yellow');
   --icon-overlap: theme('colors.orange');
@@ -292,6 +295,7 @@ img {
   --cta-bg-color-primary: theme('colors.yellow');
   --cta-text-color-secondary: theme('colors.yellow-light');
   --cta-bg-color-secondary: theme('colors.midnight-light');
+  --cta-border-color: theme('colors.yellow-light');
 
   --icon-base: theme('colors.sky-medium');
   --icon-overlap: theme('colors.sky');
@@ -308,6 +312,7 @@ img {
   --cta-bg-color-primary: theme('colors.yellow');
   --cta-text-color-secondary: theme('colors.midnight');
   --cta-bg-color-secondary: theme('colors.sky-light');
+  --cta-border-color: theme('colors.midnight');
 
   --icon-base: theme('colors.sky-medium');
   --icon-overlap: theme('colors.sky-dark');
@@ -372,6 +377,10 @@ svg {
  * CTA
  */
 
+/* suppress focus ring on focuaable elements. We are adding focus style individually. */
+*:focus {
+  outline: none;
+}
 /* Primary CTA styles are shared across themes
  * (excluding some focus states) */
 .cta {
@@ -384,20 +393,15 @@ svg {
   color: var(--cta-text-color-primary);
   background-color: var(--cta-bg-color-primary);
   border: 3px solid transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 0 2.5rem;
+
   @screen md {
     height: 48px;
-  }
-
-  &__inner {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-    padding: 0 2.5rem;
-
-    @screen md {
-      padding: 0 3rem;
-    }
+    padding: 0 3rem;
   }
 
   &:hover {
@@ -405,7 +409,7 @@ svg {
   }
 
   [data-whatintent='keyboard'] &:focus {
-    border-color: var(--text-color-primary);
+    border-color: var(--cta-border-color);
     outline: none;
   }
 
@@ -428,7 +432,6 @@ svg {
 
   &--outlined {
     border-width: 1px;
-    padding: 3px;
     color: var(--cta-text-color-secondary);
     background-color: var(--bg-color);
     border-color: var(--border-color);
@@ -437,14 +440,13 @@ svg {
       background-color: var(--bg-color);
     }
 
-    &:focus {
+    [data-whatintent='keyboard'] &:focus {
       border-width: 4px;
-      padding: 0px;
     }
 
     &:hover {
       background-color: var(--bg-color);
-      border-color: var(--text-color-primary);
+      border-color: var(--cta-border-color);
     }
 
     &.cta--active {
@@ -455,35 +457,70 @@ svg {
   }
 
   &--textLink {
+    transition: all 500ms ease;
     background-color: transparent;
     color: var(--text-color-primary);
-    border-color: var(--text-color-primary);
+    border-color: var(--cta-border-color);
     border-width: 0;
     border-bottom: 1px solid;
     height: 26px;
     border-radius: 0;
+    padding: 0;
 
     @screen md {
       height: 24px;
     }
 
-    .cta__inner {
-      padding: 0;
-    }
-
     &:hover {
-      background-color: var(--bg-color);
-      border-color: theme('colors.yellow');
+      background-color: transparent;
+      border-color: var(--cta-bg-color-primary);
     }
 
     &:disabled {
-      background-color: var(--bg-color);
+      opacity: 0.3;
     }
 
-    &:focus {
+    [data-whatintent='keyboard'] &:focus {
       border-color: transparent;
-      background-color: theme('colors.yellow');
+      background-color: var(--cta-bg-color-primary);
+      color: var(--cta-text-color-primary);
     }
+  }
+}
+
+.simple-text-link {
+  transition: all 500ms ease;
+  background-color: transparent;
+  color: var(--text-color-primary);
+  border-bottom: 1px solid;
+  border-color: transparent;
+
+  &:hover {
+    border-color: var(--cta-border-color);
+  }
+
+  [data-whatintent='keyboard'] &:focus {
+    background-color: var(--cta-bg-color-primary);
+  }
+}
+
+.icon-link {
+  transition: all 500ms ease;
+  background-color: transparent;
+
+  [data-whatintent='keyboard'] &:focus {
+    background-color: var(--cta-bg-color-primary);
+  }
+}
+
+.element-focus {
+  transition: all 500ms ease;
+  border-color: transparent;
+  border-radius: 8px;
+
+  [data-whatintent='keyboard'] &:focus {
+    border: 3px solid;
+    border-color: var(--cta-border-color);
   }
 }
 
@@ -597,6 +634,14 @@ svg {
   select::placeholder,
   textarea::placeholder {
     color: var(--text-color-primary);
+  }
+
+  input:focus,
+  select:focus,
+  textarea:focus {
+    outline: auto !important;
+    border-color: var(--cta-border-color);
+    border: 3px solid;
   }
 
   label {

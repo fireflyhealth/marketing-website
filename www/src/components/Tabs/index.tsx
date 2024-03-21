@@ -100,6 +100,7 @@ export const Tabs: FC<TabsProps> = ({ tabs, animated, initialTabKey }) => {
               aria-controls={tab._key}
               aria-selected={tab._key === activeTab}
               tabIndex={0}
+              className="icon-link"
             >
               {tab.label}
             </button>
@@ -115,7 +116,7 @@ export const Tabs: FC<TabsProps> = ({ tabs, animated, initialTabKey }) => {
             id={tab._key}
             tabIndex={tab._key === activeTab ? 0 : -1}
             className={cn(
-              'fadeUpElement',
+              'fadeUpElement element-focus',
               TabContentWrapper,
               animated ? 'fadeUpElement--animated' : '',
               tab._key !== activeTab ? 'fadeUpElement--inactive' : '',

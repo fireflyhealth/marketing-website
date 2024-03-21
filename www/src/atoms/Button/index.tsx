@@ -105,21 +105,23 @@ export const LinkButton: FC<LinkButtonProps> = ({
     >
       <div
         className={cn(
-          'cta transition-all',
-          `cta--${variant}`,
-          disabled && 'cta--disabled',
-          active && 'cta--active',
-
           /* TextLink width should always be auto */
           variant === 'textLink' || width === 'auto' ? 'w-auto' : 'w-full',
         )}
         id={id}
       >
-        <div className="cta__inner">
-          <Link link={link} ariaLabel={ariaLabel || undefined}>
-            {label}
-          </Link>
-        </div>
+        <Link
+          className={cn(
+            'cta transition-all',
+            `cta--${variant}`,
+            disabled && 'cta--disabled',
+            active && 'cta--active',
+          )}
+          link={link}
+          ariaLabel={ariaLabel || undefined}
+        >
+          {label}
+        </Link>
       </div>
     </div>
   );

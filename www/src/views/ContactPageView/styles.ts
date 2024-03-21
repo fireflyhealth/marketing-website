@@ -1,7 +1,7 @@
 export const Wrapper = ['mt-16 relative min-h-[100vh]'];
 
 export const HeaderWrapper = [
-  'relative z-[1] w-full flex flex-col text-center space-y-[83px]',
+  'relative z-[1] w-full flex flex-col text-center space-y-[83px] pb-16',
   'lg:flex-row lg:space-y-0 lg:space-x-12',
 ];
 
@@ -15,7 +15,7 @@ export const ContactForm = ['w-full', 'lg:w-1/2'];
 
 export const BackgroundColor = [
   '!z-[-2] !-top-[120px] full-width-background',
-  'lg:!-top-[146px]',
+  'lg:!-top-[152px]',
 ];
 
 export const BackgroundImage = [

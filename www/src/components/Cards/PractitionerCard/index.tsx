@@ -16,6 +16,7 @@ export const PractitionerCard: FC<PractitionerCardProps> = ({
     <div className="PractitionerCard">
       <div className="rounded-[1rem] overflow-hidden relative">
         <Link
+          className="PractitionerCard__link"
           link={practitioner}
           ariaLabel={`View ${practitioner.name}'s profile page`}
         >
@@ -24,6 +25,7 @@ export const PractitionerCard: FC<PractitionerCardProps> = ({
               aspectRatio={408 / 300}
               image={practitioner.headshot}
               sizes={['50vw', '50vw', '25vw']}
+              className="rounded-xl"
             />
           ) : (
             <GenericImage
@@ -31,6 +33,7 @@ export const PractitionerCard: FC<PractitionerCardProps> = ({
               src={fallbackProfile}
               alt="Generic profile photo"
               sizes={['50vw', '50vw', '25vw']}
+              className="rounded-xl"
             />
           )}
         </Link>

@@ -1,4 +1,9 @@
 .TextWithDualCtaHeader {
+  &__cta--bottom,
+  &__cta--top {
+    border: 3px solid transparent;
+  }
+
   &__cta--bottom:hover,
   &__cta--top:hover {
     height: 288px;
@@ -6,6 +11,12 @@
     @screen md {
       height: 638px;
     }
+  }
+
+  &__cta--bottom:focus,
+  &__cta--top:focus {
+    border-color: var(--cta-border-color);
+    outline: none;
   }
 
   .TextWithDualCtaHeader__cta-wrapper {

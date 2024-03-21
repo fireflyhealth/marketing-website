@@ -23,7 +23,7 @@ export const FeaturedStoryCard: FC<FeaturedStoryCardProps> = ({ story }) => {
           </Link>
         </div>
         <div className="hidden md:block flex-grow relative md:h-[430px]">
-          <Link link={story}>
+          <Link className="element-focus" link={story} tabindex={-1}>
             <SanityImage
               rounded={false}
               image={thumbnail}

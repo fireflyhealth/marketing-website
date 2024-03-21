@@ -4,6 +4,7 @@
 @import 'contentBlocks/ArticleRichText.css';
 @import 'contentBlocks/OverlapDoubleImages.css';
 @import 'contentBlocks/TextWithDualCtaHeader.css';
+@import 'contentBlocks/Subnav.css';
 @import 'contentBlocks/SmallImageCarouselBlock.css';
 @import 'contentBlocks/TestimonialBlock.css';
 
@@ -20,42 +21,38 @@
   }
 }
 
-.Subnav {
-  &__item {
-    .Subnav__item-circle {
-      transition: all 200ms;
-      width: 0px;
-      height: 0px;
-      max-width: 13px;
-      max-height: 13px;
+.DoubleCTA {
+  &__cta-card {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-color: transparent;
+    border-width: 3px;
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 1);
+    }
+
+    [data-whatintent='keyboard'] &:focus {
+      border-color: var(--cta-border-color);
+    }
+  }
+}
+
+.Accordion {
+  &__button {
+    > div > .icon-wrapper {
+      transition: all 300ms ease;
+    }
+
+    [data-whatintent='keyboard'] &:focus {
+      > div > .icon-wrapper {
+        transform: rotate(180deg);
+      }
     }
 
     &:hover {
-      .Subnav__item-circle {
-        width: 13px;
-        height: 13px;
+      > div > .icon-wrapper {
+        transform: rotate(180deg);
       }
-    }
-  }
-
-  &__mobile-inner-wrapper {
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-  }
-
-  &__mobile--avtice {
-    transform: translateY(0);
-  }
-
-  .Subnav__item-circle--active {
-    width: 13px;
-    height: 13px;
-  }
-
-  .Subnav__item-circle--active-top {
-    @screen lg {
-      width: 13px;
-      height: 13px;
     }
   }
 }
@@ -63,6 +60,52 @@
 .ColumnsBlock {
   .ChildBlockWrapper {
     height: 100%;
+  }
+}
+
+.PractitionerCard {
+  &__link {
+    transition: all 500ms ease;
+
+    &:hover {
+      opacity: 0.7;
+    }
+
+    & > .GenericImage {
+      transition: all 500ms ease;
+      border: 3px solid;
+      border-color: transparent;
+    }
+
+    [data-whatintent='keyboard'] &:focus {
+      & > .GenericImage {
+        border-color: var(--cta-border-color);
+      }
+    }
+  }
+}
+
+.BlogArticleList {
+  &__link {
+    > span > span {
+      transition: all 500ms ease;
+      background-color: transparent;
+      color: var(--text-color-primary);
+      border-bottom: 1px solid;
+      border-color: transparent;
+    }
+
+    &:hover {
+      > span > span {
+        border-color: var(--cta-border-color);
+      }
+    }
+
+    [data-whatintent='keyboard'] &:focus {
+      > span > span {
+        background-color: var(--cta-bg-color-primary);
+      }
+    }
   }
 }
 

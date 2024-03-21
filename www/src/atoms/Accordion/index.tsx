@@ -16,7 +16,7 @@ export const Accordion: FC<AccordionProps> = ({ title, children }) => {
       <button
         aria-expanded={isOpen}
         onClick={toggleOpen}
-        className={cn(TitleWrapper)}
+        className={cn(TitleWrapper, 'element-focus py-4 -mt-4 -mb-4')}
       >
         <span className="pr-4">{title}</span>
         <div>
