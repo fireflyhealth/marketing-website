@@ -233,6 +233,7 @@ export type Practitioner = SanityDocument & {
   languagesSpoken: string[];
   blurb: RichText;
   renderProviderPage: boolean;
+  headerBgThemeColor?: Maybe<ColorTheme>;
   contentArea?: Maybe<ContentArea>;
 };
 

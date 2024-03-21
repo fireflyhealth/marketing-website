@@ -163,6 +163,7 @@ export const practitionerPageFragment = `
   languagesSpoken,
   blurb,
   renderProviderPage,
+  headerBgThemeColor,
   contentArea[]{
     ${contentBlockFragment}
   }

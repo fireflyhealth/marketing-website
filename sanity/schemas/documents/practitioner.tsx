@@ -100,6 +100,14 @@ export const Practitioner = defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
+      name: 'headerBgThemeColor',
+      title: 'Header Background Theme Color',
+      description: 'Define the background color for the header component.',
+      type: 'theme',
+      initialValue: 'midnight',
+      hidden: ({ parent }) => !parent.renderProviderPage,
+    }),
+    defineField({
       name: 'contentArea',
       title: 'Content Area',
       type: 'contentArea',
