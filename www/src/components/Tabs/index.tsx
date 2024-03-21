@@ -8,7 +8,7 @@ import { TabContentWrapper, TabLabel, TabLabels } from './styles';
 
 type Tab = {
   label: string;
-  slug: string;
+  slug?: string;
   children: ReactNode;
 };
 
