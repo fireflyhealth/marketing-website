@@ -147,7 +147,7 @@ export const blogFragment = `
   articleLayout
 `;
 
-export const practitionerPageFragment = `
+export const providerPageFragment = `
   name,
   slug,
   qualifications,

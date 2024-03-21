@@ -12,7 +12,7 @@ type ProviderPageProps = PageProps & {
   practitioner: Practitioner;
 };
 
-const PractitionerPage: FC<ProviderPageProps> = ({ practitioner }) => {
+const ProviderPage: FC<ProviderPageProps> = ({ practitioner }) => {
   return (
     <>
       {/* TODO: PractitionerMetadata */}
@@ -37,7 +37,7 @@ export const getStaticProps: GetStaticProps<
   }
   const [siteSettings, practitioner] = await Promise.all([
     Sanity.siteSettings.get(),
-    Sanity.practitionerPage.get(practitionerSlug),
+    Sanity.providerPage.get(practitionerSlug),
   ]);
 
   if (!practitioner) {
@@ -53,9 +53,9 @@ export const getStaticProps: GetStaticProps<
 };
 
 export const getStaticPaths: GetStaticPaths<PageParams> = async () => {
-  const practitionerPages = await Sanity.practitionerPage.getSlugInfo();
+  const providerPages = await Sanity.providerPage.getSlugInfo();
 
-  const paths = practitionerPages.map((practitioner) => ({
+  const paths = providerPages.map((practitioner) => ({
     params: { practitionerSlug: practitioner.slug.current },
   }));
   return {
@@ -64,4 +64,4 @@ export const getStaticPaths: GetStaticPaths<PageParams> = async () => {
   };
 };
 
-export default PractitionerPage;
+export default ProviderPage;

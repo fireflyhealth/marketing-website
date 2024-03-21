@@ -39,7 +39,7 @@ import {
   pageFragment,
   notFoundPageFragment,
   siteSettingsFragment,
-  practitionerPageFragment,
+  providerPageFragment,
 } from './queries';
 import {
   blogArticleLinkDataFragment,
@@ -242,13 +242,13 @@ export const blog = {
   },
 };
 
-/* Practitioner Page */
-export const practitionerPage = {
+/* Provider Page */
+export const providerPage = {
   /* (production) do not fetch slugs for practitioners that should not render a provider page */
   /* (preview) fetch all practitioners wether or not they should render a provider page - see preview queries 'src/lib/sanity/previews' */
   get: (practitionerSlug: string): Promise<Practitioner | null> =>
     client.fetch(
-      `*[_type == "practitioner" && slug.current == $practitionerSlug && renderProviderPage != false][0]{${practitionerPageFragment}}`,
+      `*[_type == "practitioner" && slug.current == $practitionerSlug && renderProviderPage != false][0]{${providerPageFragment}}`,
       {
         practitionerSlug,
       },

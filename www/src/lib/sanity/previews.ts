@@ -29,7 +29,7 @@ import {
   downloadPageFragment,
   faqPageFragment,
   pageFragment,
-  practitionerPageFragment,
+  providerPageFragment,
 } from './queries';
 import { blogArticleLinkDataFragment } from './queries/fragments';
 
@@ -334,7 +334,7 @@ export const createPreviewClient = (previewToken: string) => {
           `*[
              _type == "practitioner"
              && (_id == $draftId || _id == $nonDraftId)
-           ]| score(_id in path("drafts.**"))[0]{${practitionerPageFragment}}`,
+           ]| score(_id in path("drafts.**"))[0]{${providerPageFragment}}`,
           { draftId, nonDraftId },
         );
         return { type: 'practitioner', viewProps: { provider } };
