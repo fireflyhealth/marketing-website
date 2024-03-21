@@ -165,5 +165,5 @@ export const practitionerPageFragment = `
   renderProviderPage,
   contentArea[]{
     ${contentBlockFragment}
-  },
+  }
 `;

@@ -69,8 +69,8 @@ export const getPreviewQueryCallbacks = (
       };
     case 'practitioner':
       return {
-        listen: previewClient.homepage.listen,
-        getPreviewData: previewClient.homepage.getPreviewData,
+        listen: previewClient.providerPage.listen,
+        getPreviewData: previewClient.providerPage.getPreviewData,
       };
     default:
       /* Make sure we can get the config for all linkable document types

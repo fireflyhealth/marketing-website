@@ -6,17 +6,18 @@ import { RevalidationTime } from '@/constants';
 
 import * as Sanity from '@/lib/sanity';
 import { Practitioner } from '@/types/sanity';
+import { ProviderPageView } from '@/views/ProviderView';
 
-type PractitionerPageProps = PageProps & {
+type ProviderPageProps = PageProps & {
   practitioner: Practitioner;
 };
 
-const PractitionerPage: FC<PractitionerPageProps> = ({ practitioner }) => {
+const PractitionerPage: FC<ProviderPageProps> = ({ practitioner }) => {
   return (
     <>
       {/* TODO: PractitionerMetadata */}
       {/* TODO: PractitionerView */}
-      <h1>{practitioner.name}</h1>
+      <ProviderPageView provider={practitioner} />
     </>
   );
 };
@@ -26,7 +27,7 @@ type PageParams = {
 };
 
 export const getStaticProps: GetStaticProps<
-  PractitionerPageProps,
+  ProviderPageProps,
   PageParams
 > = async ({ params }) => {
   const practitionerSlug = params?.practitionerSlug;

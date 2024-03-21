@@ -11,6 +11,7 @@ import {
   GenericPage,
   Homepage,
   SubPage,
+  Practitioner,
 } from '@/types/sanity';
 import { BlogPageViewProps } from '@/views/Blog/BlogPageView';
 import { FAQPageViewProps } from '@/views/FAQPageView';
@@ -20,6 +21,7 @@ import { ContactPageViewProps } from '@/views/ContactPageView';
 import { PageViewProps } from '@/views/PageView';
 import { ClientPageViewProps } from '@/views/ClientPageView';
 import { PAGINATION_PAGE_SIZE } from '@/constants';
+import { ProviderPageViewProps } from '@/views/ProviderView';
 import {
   blogArticleFragment,
   blogFragment,
@@ -27,6 +29,7 @@ import {
   downloadPageFragment,
   faqPageFragment,
   pageFragment,
+  practitionerPageFragment,
 } from './queries';
 import { blogArticleLinkDataFragment } from './queries/fragments';
 
@@ -71,6 +74,10 @@ type ClientPagePreviewProps = {
   type: 'clientPage';
   viewProps: ClientPageViewProps;
 };
+type ProviderPagePreviewProps = {
+  type: 'practitioner';
+  viewProps: ProviderPageViewProps;
+};
 
 export type PreviewProps =
   | HomePreviewProps
@@ -82,7 +89,8 @@ export type PreviewProps =
   | BlogPreviewProps
   | ClientPagePreviewProps
   | GenericPagePreviewProps
-  | SubpagePreviewProps;
+  | SubpagePreviewProps
+  | ProviderPagePreviewProps;
 
 export const createPreviewClient = (previewToken: string) => {
   const previewClient = createClient({
@@ -181,7 +189,6 @@ export const createPreviewClient = (previewToken: string) => {
         return { type: 'clientPage', viewProps: { clientPage } };
       },
     },
-
     faqPage: {
       listen: (draftId: string) => {
         return previewClient.listen(
@@ -308,6 +315,28 @@ export const createPreviewClient = (previewToken: string) => {
           { draftId, nonDraftId },
         );
         return { type: 'subPage', viewProps: { page } };
+      },
+    },
+    providerPage: {
+      listen: (draftId: string) => {
+        return previewClient.listen(
+          `*[_type == "practitioner" && _id == $draftId][0]`,
+          { draftId },
+          { visibility: 'query' },
+        );
+      },
+      getPreviewData: async (
+        draftId: string,
+      ): Promise<ProviderPagePreviewProps> => {
+        const nonDraftId = draftId.replace(/^drafts./, '');
+        const provider = await previewClient.fetch<Practitioner>(
+          `*[
+             _type == "practitioner"
+             && (_id == $draftId || _id == $nonDraftId)
+           ][0]{${practitionerPageFragment}}`,
+          { draftId, nonDraftId },
+        );
+        return { type: 'practitioner', viewProps: { provider } };
       },
     },
   };

@@ -15,6 +15,7 @@ import { ContactPageView } from '@/views/ContactPageView';
 import { BlogArticleView } from '@/views/BlogArticleView/BlogArticleView';
 import { ClientPageView } from '@/views/ClientPageView';
 import { PageView } from '@/views/PageView';
+import { ProviderPageView } from '@/views/ProviderView';
 
 type PreviewMainProps = {
   previewProps: PreviewProps;
@@ -42,6 +43,8 @@ const PreviewMain: FC<PreviewMainProps> = ({
       return <PageView {...previewProps.viewProps} />;
     case 'subPage':
       return <PageView {...previewProps.viewProps} />;
+    case 'practitioner':
+      return <ProviderPageView {...previewProps.viewProps} />;
 
     default:
       /* Make sure we can get the config for all linkable document types
