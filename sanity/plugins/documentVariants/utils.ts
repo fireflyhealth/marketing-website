@@ -1,4 +1,6 @@
 import speakingurl from 'speakingurl';
+import { DocumentWithSlug, GetCloneData } from './types';
+import { VARIANTS_FIELD_LABEL } from './constants';
 /**
  * Use the same default slugify utility used by Sanity's slug field. See:
  * https://github.com/sanity-io/sanity/blob/6c894c32638af71df94f7d135650e18caa65e3d0/packages/sanity/src/core/form/inputs/Slug/utils/slugify.ts#L14
@@ -24,3 +26,24 @@ export const filterMaybes = <T>(arr: Maybe<(Maybe<T> | undefined)[]>): T[] =>
         [],
       )
     : [];
+
+/**
+ * Clone a document with unique slug data
+ */
+export const cloneWithUniqueSlug: GetCloneData = (
+  parentDocument: DocumentWithSlug,
+) => {
+  const parentDocumentSlug: Maybe<string> = parentDocument?.slug?.current;
+  if (!parentDocumentSlug) {
+    throw new Error(
+      'The primary document must have a valid slug before it can be cloned',
+    );
+  }
+  return {
+    ...parentDocument,
+    slug: {
+      _type: 'slug',
+      current: [parentDocumentSlug, slugify(VARIANTS_FIELD_LABEL)].join('-'),
+    },
+  };
+};

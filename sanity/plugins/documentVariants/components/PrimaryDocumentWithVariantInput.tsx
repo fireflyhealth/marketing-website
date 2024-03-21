@@ -184,10 +184,17 @@ export const PrimaryDocumentWithVariantInput: FC<VariantFieldInputProps> = (
           <Box padding={4}>
             <Box marginBottom={4}>
               <Text muted={removeRequestIsPending} size={2}>
-                Are you sure you want to remove the B content variant? This
-                change will be applied to the published document and cannot be
-                undone.
+                Are you sure you want to remove the B content variant? This will
+                delete the B content document and apply changes to the published
+                version of this document. It cannot be undone.
               </Text>
+              <Box marginTop={4}>
+                <Text muted size={2}>
+                  Note: If you want to preserve the B content document but not
+                  serve it to viewers, you can toggle the "Active" setting to
+                  false on that document.
+                </Text>
+              </Box>
             </Box>
             <Grid gap={2} columns={2}>
               <Button

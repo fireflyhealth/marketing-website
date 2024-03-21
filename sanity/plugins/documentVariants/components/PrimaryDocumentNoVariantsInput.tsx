@@ -1,16 +1,22 @@
-import React, { FC, useCallback } from 'react';
+import React, { FC, useCallback, useEffect } from 'react';
 import { Card, Button } from '@sanity/ui';
 import { CopyIcon } from '@sanity/icons';
-import { PatchEvent, SanityClient, set, useFormValue } from 'sanity';
+import {
+  PatchEvent,
+  SanityClient,
+  SanityDocument,
+  set,
+  useFormValue,
+} from 'sanity';
 import omit from 'lodash/omit';
-import { DocumentWithSlug, VariantFieldInputProps } from '../types';
+import { FieldOptions, VariantFieldInputProps } from '../types';
 import {
   API_VERSION,
   Status,
   VARIANTS_FIELD_LABEL,
   VARIANTS_FIELD_TYPE_NAME,
 } from '../constants';
-import { sleep, slugify, toPublishedId } from '../utils';
+import { filterMaybes, sleep, slugify, toPublishedId } from '../utils';
 import { useRequest } from '../hooks/useRequest';
 import { useMemoizedClient } from '../hooks/useMemoizedClient';
 import { ValidationMessage } from './ValidationMessage';
@@ -27,24 +33,32 @@ const requests = {
   cloneDocument: async (
     client: SanityClient,
     onChange: VariantFieldInputProps['onChange'],
-    parentDocument: DocumentWithSlug,
+    parentDocument: SanityDocument,
+    fieldOptions: FieldOptions,
   ) => {
-    const parentSlug = parentDocument?.slug?.current;
-    if (!parentSlug) {
-      throw new Error('No parent slug was provided');
-    }
+    const optionsOmitFields = fieldOptions?.cloneOptions?.omitFields || [];
+    const optionsGetCloneData = fieldOptions?.cloneOptions?.getCloneData;
+    /* Get a cloned version of the document */
+    const clonedDocument = optionsGetCloneData
+      ? /* Use the field options to get this data if provided */
+        await optionsGetCloneData(parentDocument, { client, fieldOptions })
+      : /* Otherwise use the parent document as-is */
+        parentDocument;
+
     /* Strip out fields we do not want to clone */
-    const clonedDocumentFields = omit({ ...parentDocument }, [
+    const clonedDocumentData = omit({ ...clonedDocument }, [
       '_id',
       '_rev',
+      '_type',
       '_createdAt',
       '_updatedAt',
-      'slug',
       'documentVariantInfo',
+      ...optionsOmitFields,
     ]);
     /* Create a draft version of the primary document if it does not already exist */
     /* Create the variant document */
     const newVariantDocument = await client.createOrReplace({
+      ...clonedDocumentData,
       _id: [
         toPublishedId(parentDocument._id),
         slugify(VARIANTS_FIELD_LABEL),
@@ -53,21 +67,17 @@ const requests = {
       documentVariantInfo: {
         _type: VARIANTS_FIELD_TYPE_NAME,
         label: VARIANTS_FIELD_LABEL,
+        isActive: false,
         variantOf: {
           _type: 'reference',
           _ref: toPublishedId(parentDocument._id),
         },
       },
-      slug: {
-        current: [parentSlug, slugify(VARIANTS_FIELD_LABEL)].join('-'),
-      },
-      ...clonedDocumentFields,
     });
-    /* Update the current document's 'variant' field */
+    /* Update the current field's 'variantDocument' field */
     /* NOTE: We use the field's onChange prop passed to the input component
      * instead of client.patch - this will update the field value
      * on a draft document */
-
     onChange(
       PatchEvent.from(
         set({
@@ -112,14 +122,20 @@ export const PrimaryDocumentNoVariantsInput: FC<VariantFieldInputProps> = (
   props,
 ) => {
   const client = useMemoizedClient({ apiVersion: API_VERSION });
-  const parentDocument = useFormValue([]) as DocumentWithSlug;
-  const parentHasSlug = Boolean(parentDocument?.slug?.current);
+  const parentDocument = useFormValue([]) as SanityDocument;
+
   /**
    * Memoize our two requests
    */
   const cloneDocument = useCallback(
-    () => requests.cloneDocument(client, props.onChange, parentDocument),
-    [client, parentDocument, props.onChange],
+    () =>
+      requests.cloneDocument(
+        client,
+        props.onChange,
+        parentDocument,
+        props.schemaType.options,
+      ),
+    [client, parentDocument, props.onChange, props.schemaType.options],
   );
   const getPublishedDocument = useCallback(
     () => requests.getPublishedDocument(client, parentDocument._id),
@@ -132,31 +148,36 @@ export const PrimaryDocumentNoVariantsInput: FC<VariantFieldInputProps> = (
   const [createVariantState, triggerCreateVariantDocument] =
     useRequest(cloneDocument);
 
-  const [publishedDocumentState] = useRequest(getPublishedDocument, {
-    triggerImmediately: true,
-  });
+  const [publishedDocumentState, triggerGetPublishedDocumentState] =
+    useRequest(getPublishedDocument);
 
-  const validationMessages: string[] = [
-    /* Ensure that the primary document has been published */
+  useEffect(() => {
+    triggerGetPublishedDocumentState();
+  }, [parentDocument._id, triggerGetPublishedDocumentState]);
+
+  const documentIsPublished =
     publishedDocumentState.status === Status.Fulfilled &&
-    publishedDocumentState.result === null
+    publishedDocumentState.result !== null;
+
+  const validationMessages: string[] = filterMaybes([
+    /* Ensure that the primary document has been published */
+    !documentIsPublished && publishedDocumentState.status === Status.Fulfilled
       ? 'This document must be published before it can be cloned'
-      : '',
-    /* Ensure that the primary document has a valid slug */
-    !parentHasSlug
-      ? 'This document must have a valid slug before a variant can be cloned'
-      : '',
-  ].filter(Boolean);
+      : null,
+    createVariantState.status === Status.Rejected
+      ? createVariantState.errorMessage
+      : null,
+  ]);
 
   /**
    * Disable the clone button if there are validation issues
    * or either request is pending
    */
   const isDisabled = Boolean(
-    validationMessages.length ||
-      createVariantState.status === Status.Pending ||
-      publishedDocumentState.status === Status.Idle ||
-      publishedDocumentState.status === Status.Pending,
+    publishedDocumentState.status === Status.Idle ||
+      publishedDocumentState.status === Status.Pending ||
+      !documentIsPublished ||
+      createVariantState.status === Status.Pending,
   );
 
   return (

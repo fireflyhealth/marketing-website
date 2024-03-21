@@ -2,6 +2,7 @@ import {
   ObjectInputProps,
   ObjectSchemaType,
   Reference,
+  SanityClient,
   SanityDocument,
 } from 'sanity';
 
@@ -18,13 +19,30 @@ export type VariantFieldValue = {
   variantDocument?: Reference;
 };
 
-/* NOTE: This is typed as Record<string, never> for now, which is odd
- * and doesn't seem helpful, but leave it as-is for now.
- *
- * In the future, we can use this type to define options passed
- * into createDocumentVariantField and have them typed as props
- * passed to the input component. */
-export type FieldOptions = Record<string, never>;
+export type GetCloneDataContext = {
+  client: SanityClient;
+  fieldOptions: FieldOptions;
+};
+
+export type GetCloneData = (
+  parentDocument: SanityDocument,
+  context: GetCloneDataContext,
+) => Record<string, any> | Promise<Record<string, any>>;
+
+export type FieldOptions = {
+  cloneOptions?: {
+    /* A function that allows you to return custom data for the cloned
+     * document. Use this to ensure slugs are unique, modify titles,
+     * and so on.
+     *
+     * **Note**:
+     * the following fields will always be overriden and cannot be customized:
+     * _id, _type, _rev, _createdAt, _updatedAt, documentVariantInfo */
+    getCloneData?: GetCloneData;
+    /* Choose fields to be omitted from the cloned data */
+    omitFields?: string[];
+  };
+};
 
 export interface VariantFieldSchema extends ObjectSchemaType {
   options: FieldOptions;
