@@ -27,7 +27,7 @@ const getButtonId = (tabTitle: string, label: string) =>
 
 export const FAQCategory: FC<FAQCategoryProps> = ({ faqCategory }) => {
   const searchParams = useSearchParams();
-  const subjectParam = searchParams.get('subject');
+  const subjectParam = searchParams?.get('subject');
 
   const { category, subjects } = faqCategory;
 

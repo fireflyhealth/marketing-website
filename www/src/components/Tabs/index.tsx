@@ -51,7 +51,7 @@ const initialTabKeyIsValid = (
  */
 export const Tabs: FC<TabsProps> = ({ tabs, animated, initialTabKey }) => {
   const searchParams = useSearchParams();
-  const categoryParam = searchParams.get('category');
+  const categoryParam = searchParams?.get('category');
 
   const [activeTab, setActiveTab] = useState<string>(
     initialTabKey && initialTabKeyIsValid(initialTabKey, tabs)

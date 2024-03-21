@@ -17,7 +17,7 @@ type FAQSubjectProps = {
 
 export const FAQSubject: FC<FAQSubjectProps> = ({ faqSubject }) => {
   const searchParams = useSearchParams();
-  const faqParam = searchParams.get('faq');
+  const faqParam = searchParams?.get('faq');
 
   const { subject, questions } = faqSubject;
 
