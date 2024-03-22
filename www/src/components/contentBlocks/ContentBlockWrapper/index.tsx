@@ -72,7 +72,7 @@ export const ContentBlockWrapper: FC<ContentBlockWrapperProps> = ({
   const headerHasContent = header?.title || header?.description || cta;
 
   const contentBlockWrapperRef = useRef<HTMLDivElement | null>(null);
-  const { currentContentBlock, setCurrentContentBlock } = useUIProvider();
+  const { setCurrentContentBlock } = useUIProvider();
   const { isIntersecting } = useIntersectionObserver(contentBlockWrapperRef, {
     threshold: 0.2,
     rootMargin: '0px 0px -50% 0px',
@@ -93,6 +93,7 @@ export const ContentBlockWrapper: FC<ContentBlockWrapperProps> = ({
       id={id || undefined}
       className={cn(wrapperPadding ? ContentBlockContainer : '', {
         'remove-between-component-margin': removeBetweenComponentMargin,
+        'scroll-mt-16 lg:scroll-mt-7': id,
       })}
     >
       {background ? background : null}
