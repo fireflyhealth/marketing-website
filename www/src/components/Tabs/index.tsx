@@ -85,7 +85,7 @@ export const Tabs: FC<TabsProps> = ({ tabs, animated, initialTabKey }) => {
         return;
     }
   };
-  console.log(tabs, initialTabKey, activeTab);
+
   return (
     <div>
       <ul role="tablist" className={cn(TabLabels)} onKeyUp={handleKeyUp}>

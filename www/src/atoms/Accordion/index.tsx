@@ -7,11 +7,14 @@ import { TitleWrapper } from './styles';
 type AccordionProps = {
   title: string;
   children: ReactNode;
-  active?: boolean;
+  isOpen?: boolean;
 };
 
-export const Accordion: FC<AccordionProps> = ({ title, children, active }) => {
-  const accordionRef = useRef<HTMLDivElement>(null);
+export const Accordion: FC<AccordionProps> = ({
+  title,
+  children,
+  isOpen: parentIsOpen,
+}) => {
   const innerContentRef = useRef<HTMLDivElement>(null);
   const windowDimensions = useWindowDimensions();
   const [isOpen, setIsOpen] = useState(false);
@@ -27,16 +30,10 @@ export const Accordion: FC<AccordionProps> = ({ title, children, active }) => {
   const toggleOpen = () => setIsOpen((value) => !value);
 
   useEffect(() => {
-    if (active) {
-      setIsOpen(true);
-      if (accordionRef.current) {
-        accordionRef.current.scrollIntoView({
-          behavior: 'smooth',
-          block: 'start',
-        });
-      }
+    if (parentIsOpen) {
+      setIsOpen(parentIsOpen);
     }
-  }, [active, accordionRef.current]);
+  }, [parentIsOpen]);
 
   useEffect(() => {
     /* Calculate and set the inner content height whenever the element
@@ -64,7 +61,7 @@ export const Accordion: FC<AccordionProps> = ({ title, children, active }) => {
   }, [isOpen, windowDimensions]);
 
   return (
-    <div ref={accordionRef}>
+    <div>
       <button
         aria-expanded={isOpen}
         onClick={toggleOpen}
