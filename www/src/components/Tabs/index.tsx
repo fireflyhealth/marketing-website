@@ -1,14 +1,11 @@
-'use client';
-
 import React, { FC, useState, ReactNode, useEffect } from 'react';
-import { useSearchParams } from 'next/navigation';
 import cn from 'classnames';
 import { Keyed, Maybe } from '@/types/sanity';
 import { TabContentWrapper, TabLabel, TabLabels } from './styles';
 
 type Tab = {
   label: string;
-  slug?: string;
+  _key: string;
   children: ReactNode;
 };
 
@@ -26,11 +23,13 @@ const initialTabKeyIsValid = (
 ): boolean => {
   const tabKeys = tabs.map((tab) => tab._key);
   const isValid = tabKeys.includes(initialTabKey);
+
   if (!isValid) {
     console.error(
       `Tab key "${initialTabKey}" is invalid. Available keys: ${tabKeys.join(', ')}`,
     );
   }
+
   return isValid;
 };
 
@@ -50,24 +49,13 @@ const initialTabKeyIsValid = (
  * Read more: https://dev.to/link2twenty/accessibility-first-tabs-ken
  */
 export const Tabs: FC<TabsProps> = ({ tabs, animated, initialTabKey }) => {
-  const searchParams = useSearchParams();
-  const categoryParam = searchParams?.get('category');
-
-  const [activeTab, setActiveTab] = useState<string>(
-    initialTabKey && initialTabKeyIsValid(initialTabKey, tabs)
-      ? initialTabKey
-      : tabs[0]._key,
-  );
+  const [activeTab, setActiveTab] = useState<string>(tabs[0]._key);
 
   useEffect(() => {
-    if (categoryParam) {
-      tabs.forEach((tab) => {
-        if (tab.slug === categoryParam) {
-          setActiveTab(tab._key);
-        }
-      });
+    if (initialTabKey && initialTabKeyIsValid(initialTabKey, tabs)) {
+      setActiveTab(initialTabKey);
     }
-  }, [categoryParam]);
+  }, [initialTabKey]);
 
   const createTabFocusHandler = (key: string) => () => setActiveTab(key);
   const activateAndFocusTab = (tab: Keyed<Tab>) => {
@@ -97,6 +85,7 @@ export const Tabs: FC<TabsProps> = ({ tabs, animated, initialTabKey }) => {
         return;
     }
   };
+  console.log(tabs, initialTabKey, activeTab);
   return (
     <div>
       <ul role="tablist" className={cn(TabLabels)} onKeyUp={handleKeyUp}>
