@@ -71,6 +71,7 @@ const GenericImageInner: FC<GenericImageProps> = ({
   width,
   height,
   rounded = 'rounded-lg',
+  priority,
   ...nextImageProps
 }) => {
   const sizesString = Array.isArray(sizes) ? parseSizes(sizes) : sizes;
@@ -104,6 +105,8 @@ const GenericImageInner: FC<GenericImageProps> = ({
           style={imageStyles}
           fill
           sizes={sizesString}
+          priority={priority}
+          loading={!priority ? 'lazy' : undefined}
         />
       </div>
     );
@@ -115,6 +118,8 @@ const GenericImageInner: FC<GenericImageProps> = ({
         className={cx(className, 'object-cover object-center')}
         alt={nextImageProps.alt || ''}
         sizes={sizesString}
+        priority={priority}
+        loading={!priority ? 'lazy' : undefined}
         {...nextImageProps}
       />
     );
@@ -142,6 +147,8 @@ const GenericImageInner: FC<GenericImageProps> = ({
       width={width}
       height={height}
       sizes={sizesString}
+      priority={priority}
+      loading={!priority ? 'lazy' : undefined}
       {...nextImageProps}
     />
   );
