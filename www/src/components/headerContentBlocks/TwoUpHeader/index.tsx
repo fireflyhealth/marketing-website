@@ -11,6 +11,7 @@ export const TwoUpHeader: FC<TwoUpHeaderProps> = ({ twoUpHeader }) => {
   return (
     <div className={cn('lg:p-block-wrapper-lg-padding')}>
       <TwoUpObject
+        imagePriority
         twoUpObject={{
           ...twoUpHeader,
           normalLayoutTheme: null,

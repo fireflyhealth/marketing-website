@@ -5,10 +5,14 @@ import { CTACard } from '@/components/Cards/CTACard';
 
 type CTACardChildBlockProps = {
   ctaCard: CTACardType;
+  imagePriority?: boolean;
 };
 
-export const CTACardChildBlock: FC<CTACardChildBlockProps> = ({ ctaCard }) => (
+export const CTACardChildBlock: FC<CTACardChildBlockProps> = ({
+  ctaCard,
+  imagePriority,
+}) => (
   <div className={cn('ChildBlockWrapper')}>
-    <CTACard ctaCard={ctaCard} />
+    <CTACard ctaCard={ctaCard} imagePriority={imagePriority} />
   </div>
 );

@@ -60,6 +60,7 @@ export type GenericImageProps = Omit<NextImageProps, 'alt' | 'sizes'> & {
    * to disable.
    * Defaults to 'rounded-lg'. */
   rounded?: string | false;
+  priority?: boolean;
 };
 
 const GenericImageInner: FC<GenericImageProps> = ({

@@ -6,12 +6,14 @@ import { SanityImage, SanityImageProps } from './SanityImage';
 type ResponsiveSanityImageProps = Pick<SanityImageProps, 'sizes'> & {
   imageSet: ResponsiveImageSet;
   className?: string;
+  priority?: boolean;
 };
 
 export const ResponsiveSanityImage: FC<ResponsiveSanityImageProps> = ({
   imageSet,
   sizes,
   className,
+  priority,
 }) => {
   const { desktop, tablet, mobile } = imageSet;
 
@@ -19,6 +21,7 @@ export const ResponsiveSanityImage: FC<ResponsiveSanityImageProps> = ({
     <>
       {mobile ? (
         <SanityImage
+          priority={priority}
           sizes={sizes}
           className={cn(
             className,
@@ -38,6 +41,7 @@ export const ResponsiveSanityImage: FC<ResponsiveSanityImageProps> = ({
       ) : null}
       {tablet ? (
         <SanityImage
+          priority={priority}
           sizes={sizes}
           className={cn(
             className,
@@ -59,6 +63,7 @@ export const ResponsiveSanityImage: FC<ResponsiveSanityImageProps> = ({
       ) : null}
       {desktop ? (
         <SanityImage
+          priority={priority}
           sizes={sizes}
           fill
           className={cn(

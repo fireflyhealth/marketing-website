@@ -27,6 +27,7 @@ type Props = {
   width?: string;
   autoplay?: boolean;
   isHighlighted?: boolean;
+  posterImagePriority?: boolean;
 };
 
 export const Video: FC<Props> = ({
@@ -37,6 +38,7 @@ export const Video: FC<Props> = ({
   width,
   autoplay = false,
   isHighlighted = false,
+  posterImagePriority,
 }) => {
   const videoContainerRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLDivElement>(null);
@@ -157,6 +159,7 @@ export const Video: FC<Props> = ({
             image={video.posterImage}
             aspectRatio={aspectRatio}
             sizes={posterSizes}
+            priority={posterImagePriority}
           />
         </div>
 

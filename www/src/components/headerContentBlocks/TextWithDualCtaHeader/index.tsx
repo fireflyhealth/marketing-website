@@ -64,6 +64,7 @@ const DualCta: FC<{
             DualCtaImage,
             isTop ? DualCtaImageTop : DualCtaImageBottom,
           )}
+          priority
         />
       </Theme>
     </Link>

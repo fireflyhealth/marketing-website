@@ -10,9 +10,13 @@ import { ContentBlockWrapper } from '../ContentBlockWrapper';
 
 type TwoUpObjectProps = {
   twoUpObject: TwoUpObjectType;
+  imagePriority?: boolean;
 };
 
-export const TwoUpObject: FC<TwoUpObjectProps> = ({ twoUpObject }) => {
+export const TwoUpObject: FC<TwoUpObjectProps> = ({
+  twoUpObject,
+  imagePriority,
+}) => {
   const {
     layout,
     mobileReverseBlockOrder,
@@ -42,7 +46,10 @@ export const TwoUpObject: FC<TwoUpObjectProps> = ({ twoUpObject }) => {
         >
           <Theme theme={blockThemes?.blockOneTheme || ColorTheme.White}>
             <div className={cn('theme-bg-color rounded-2xl')}>
-              <ChildContentBlock block={blockOne} />
+              <ChildContentBlock
+                imagePriority={imagePriority}
+                block={blockOne}
+              />
             </div>
           </Theme>
         </div>
@@ -54,7 +61,10 @@ export const TwoUpObject: FC<TwoUpObjectProps> = ({ twoUpObject }) => {
         >
           <Theme theme={blockThemes?.blockTwoTheme || ColorTheme.White}>
             <div className={cn('theme-bg-color rounded-2xl')}>
-              <ChildContentBlock block={blockTwo} />
+              <ChildContentBlock
+                imagePriority={imagePriority}
+                block={blockTwo}
+              />
             </div>
           </Theme>
         </div>
@@ -87,7 +97,7 @@ export const TwoUpObject: FC<TwoUpObjectProps> = ({ twoUpObject }) => {
             `TwoUpBlock__child--${blockOne._type}`,
           )}
         >
-          <ChildContentBlock block={blockOne} />
+          <ChildContentBlock imagePriority={imagePriority} block={blockOne} />
         </Theme>
         <Theme
           theme={
@@ -100,7 +110,7 @@ export const TwoUpObject: FC<TwoUpObjectProps> = ({ twoUpObject }) => {
             `TwoUpBlock__child--${blockTwo._type}`,
           )}
         >
-          <ChildContentBlock block={blockTwo} />
+          <ChildContentBlock imagePriority={imagePriority} block={blockTwo} />
         </Theme>
       </div>
     </Theme>
