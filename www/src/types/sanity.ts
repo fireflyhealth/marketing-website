@@ -235,6 +235,7 @@ export type Practitioner = SanityDocument & {
   blurb: RichText;
   renderProviderPage: boolean;
   headerBgThemeColor?: Maybe<ColorTheme>;
+  cta?: Maybe<CTA>;
   contentArea?: Maybe<ContentArea>;
 };
 

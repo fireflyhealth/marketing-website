@@ -13,6 +13,7 @@ import {
   richTextFragment,
   simpleRichTextFragment,
   linkableDocumentFragment,
+  ctaFragment,
 } from './fragments';
 
 export const siteSettingsFragment = `
@@ -166,6 +167,7 @@ export const providerPageFragment = `
   blurb,
   renderProviderPage,
   headerBgThemeColor,
+  cta{${ctaFragment}},
   contentArea[]{
     ${contentBlockFragment}
   }

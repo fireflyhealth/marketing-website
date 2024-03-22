@@ -9,13 +9,13 @@ import { CTA } from '@/components/CTA';
 import { SanityImage } from '@/atoms/Image/SanityImage';
 import { BrandedIcon } from '@/svgs/BrandedIcon';
 import {
+  Header,
   HeaderTextWrapper,
   HeaderSubtitle,
   HeaderTitle,
   Qualifications,
   QualificationSection,
-  Institution,
-  Language,
+  QualificationItem,
 } from './styles';
 
 export type ProviderPageViewProps = {
@@ -35,17 +35,18 @@ export const ProviderPageView: FC<ProviderPageViewProps> = ({
     education,
     languagesSpoken,
     headshot,
+    cta,
   } = provider;
   return (
     <div>
       <div className="Provider__Header">
-        <div>
-          <Link
-            link={allProvidersBackLink}
-            className="simple-text-link border-black"
-          >{`< All Providers`}</Link>
-        </div>
-        <div>
+        <Link
+          link={allProvidersBackLink}
+          className="simple-text-link border-black"
+        >
+          {`< All Providers`}
+        </Link>
+        <div className={cn(Header)}>
           <div
             className={cn(
               'TwoUpBlock TwoUpBlock--layout-overlap-50-50 TwoUpBlock--mobileReverse',
@@ -76,7 +77,7 @@ export const ProviderPageView: FC<ProviderPageViewProps> = ({
                         {education.map((institution, index) => (
                           <span
                             key={institution._key}
-                            className={cn(Institution)}
+                            className={cn(QualificationItem)}
                           >
                             {institution.name}
                             {education.length > 0 &&
@@ -94,7 +95,7 @@ export const ProviderPageView: FC<ProviderPageViewProps> = ({
                           iconStyles="text-color-primary"
                         />
                         {languagesSpoken.map((language, index) => (
-                          <span key={index} className={cn(Language)}>
+                          <span key={index} className={cn(QualificationItem)}>
                             {language}
                             {languagesSpoken.length > 0 &&
                               index < languagesSpoken.length - 1 &&
@@ -105,7 +106,7 @@ export const ProviderPageView: FC<ProviderPageViewProps> = ({
                     )}
                   </div>
                   {/* Add 'Accepting Patients` status */}
-                  {/* Add CTA */}
+                  {cta && <CTA cta={cta} />}
                 </div>
               </Theme>
             </div>
