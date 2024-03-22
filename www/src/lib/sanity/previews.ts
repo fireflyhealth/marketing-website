@@ -12,6 +12,7 @@ import {
   Homepage,
   SubPage,
   Practitioner,
+  SiteSettings,
 } from '@/types/sanity';
 import { BlogPageViewProps } from '@/views/Blog/BlogPageView';
 import { FAQPageViewProps } from '@/views/FAQPageView';
@@ -30,6 +31,7 @@ import {
   faqPageFragment,
   pageFragment,
   providerPageFragment,
+  siteSettingsFragment,
 } from './queries';
 import { blogArticleLinkDataFragment } from './queries/fragments';
 
@@ -330,6 +332,9 @@ export const createPreviewClient = (previewToken: string) => {
         draftId: string,
       ): Promise<ProviderPagePreviewProps> => {
         const nonDraftId = draftId.replace(/^drafts./, '');
+        const siteSettings = await previewClient.fetch<SiteSettings>(
+          `*[_type == "siteSettings"][0]{${siteSettingsFragment}}`,
+        );
         const provider = await previewClient.fetch<Practitioner>(
           `*[
              _type == "practitioner"
@@ -337,7 +342,13 @@ export const createPreviewClient = (previewToken: string) => {
            ]| score(_id in path("drafts.**"))[0]{${providerPageFragment}}`,
           { draftId, nonDraftId },
         );
-        return { type: 'practitioner', viewProps: { provider } };
+        return {
+          type: 'practitioner',
+          viewProps: {
+            provider,
+            allProvidersBackLink: siteSettings.allProvidersBackLink,
+          },
+        };
       },
     },
   };
