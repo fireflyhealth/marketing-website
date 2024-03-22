@@ -44,7 +44,15 @@ export default function App({ Component, pageProps: allPageProps }: Props) {
   return (
     <>
       <DefaultMetadata metadata={siteSettings.defaultMetadata} />
-      <Theme theme={ColorTheme.White} className="lg:overflow-visible">
+      {/* We control overflow from the highest parent container outside of all sitewide padding and margin.
+          For mobile devices, overflow is set to 'clip' as opposed to 'hidden' to keep all content within width, padding and margin boundaries
+          while allowing content that should bleed off the page to do so without causing any layout shifts.
+          Documentation: https://developer.mozilla.org/en-US/docs/Web/CSS/overflow#clip
+      */}
+      <Theme
+        theme={ColorTheme.White}
+        className="overflow-clip lg:overflow-visible"
+      >
         <UIProvider>
           <HubspotProvider>
             <AnnouncementBanner
