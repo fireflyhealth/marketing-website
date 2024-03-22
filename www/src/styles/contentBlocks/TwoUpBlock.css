@@ -1,6 +1,6 @@
 .TwoUpBlock {
-  padding-bottom: theme(spacing.4);
-  margin-top: theme(spacing.4);
+  padding-bottom: theme(spacing.6);
+  margin-top: theme(spacing.6);
 
   @screen md {
     padding-bottom: theme(spacing.8);
