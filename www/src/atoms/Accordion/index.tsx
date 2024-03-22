@@ -40,23 +40,23 @@ export const Accordion: FC<AccordionProps> = ({
      * is expanded or when the window is resized. */
     const innerContentRefCurrent = innerContentRef.current;
 
-    if (isOpen) {
-      if (!innerContentRefCurrent) return;
-      const innerContentHeight = innerContentRefCurrent.offsetHeight;
-      setExpandedContentHeight(innerContentHeight);
+    if (innerContentRefCurrent) {
+      if (isOpen) {
+        const innerContentHeight = innerContentRefCurrent.offsetHeight;
+        setExpandedContentHeight(innerContentHeight);
 
-      /* Set tabindex to 0 for all links in the expanded content to be focusable */
-      innerContentRefCurrent.querySelectorAll('a').forEach((link) => {
-        link.setAttribute('tabindex', '0');
-      });
-    } else {
-      setExpandedContentHeight(0);
+        /* Set tabindex to 0 for all links in the expanded content to be focusable */
+        innerContentRefCurrent.querySelectorAll('a').forEach((link) => {
+          link.setAttribute('tabindex', '0');
+        });
+      } else {
+        setExpandedContentHeight(0);
 
-      if (!innerContentRefCurrent) return;
-      /* Set tabindex to -1 for all links in the expanded content to not be focusable */
-      innerContentRefCurrent.querySelectorAll('a').forEach((link) => {
-        link.setAttribute('tabindex', '-1');
-      });
+        /* Set tabindex to -1 for all links in the expanded content to not be focusable */
+        innerContentRefCurrent.querySelectorAll('a').forEach((link) => {
+          link.setAttribute('tabindex', '-1');
+        });
+      }
     }
   }, [isOpen, windowDimensions]);
 
