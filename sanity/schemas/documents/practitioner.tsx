@@ -14,6 +14,12 @@ export const Practitioner = defineType({
       title: 'Provider Page Fields',
     },
   ],
+  groups: [
+    {
+      name: 'providerPage',
+      title: 'Provider Page',
+    },
+  ],
   fields: [
     createDocumentVariantField({
       cloneOptions: {
@@ -64,12 +70,14 @@ export const Practitioner = defineType({
       title: 'Render Provider Page',
       type: 'boolean',
       initialValue: false,
+      group: 'providerPage',
       fieldset: 'providerPageFields',
       validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'education',
       title: 'Education',
+      group: 'providerPage',
       fieldset: 'providerPageFields',
       type: 'array',
       of: [
@@ -99,6 +107,7 @@ export const Practitioner = defineType({
       title: 'Languages Spoken',
       type: 'array',
       of: [{ type: 'string' }],
+      group: 'providerPage',
       fieldset: 'providerPageFields',
       validation: (Rule) => Rule.required().min(1),
     }),
@@ -106,6 +115,7 @@ export const Practitioner = defineType({
       name: 'blurb',
       title: 'Blurb',
       type: 'simpleRichText',
+      group: 'providerPage',
       fieldset: 'providerPageFields',
       validation: (Rule) => Rule.required(),
     }),
@@ -115,6 +125,7 @@ export const Practitioner = defineType({
       description: 'Define the background color for the header component.',
       type: 'theme',
       initialValue: 'midnight',
+      group: 'providerPage',
       fieldset: 'providerPageFields',
       hidden: ({ parent }) => !parent.renderProviderPage,
     }),
@@ -122,6 +133,7 @@ export const Practitioner = defineType({
       name: 'contentArea',
       title: 'Content Area',
       type: 'contentArea',
+      group: 'providerPage',
       fieldset: 'providerPageFields',
       hidden: ({ parent }) => !parent.renderProviderPage,
     }),
