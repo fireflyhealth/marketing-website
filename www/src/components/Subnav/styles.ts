@@ -1,6 +1,6 @@
 export const Wrapper = [
   'Subnav z-50 sticky top-0 pb-5 !mt-0 flex',
-  'transition-all fixed transition w-[100vw] -mx-4',
+  'transition-all fixed transition w-[100vw] -mx-container-sm-padding lg:-mx-container-lg-padding',
   'lg:my-8 lg:justify-center lg:items-center',
 ];
 
