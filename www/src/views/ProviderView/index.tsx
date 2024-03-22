@@ -1,17 +1,22 @@
 import React, { FC } from 'react';
-import Link from 'next/link';
-import { Practitioner } from '@/types/sanity';
+
+import { LinkableDocumentData, Practitioner } from '@/types/sanity';
 import { ContentArea } from '@/components/contentBlocks/ContentArea';
+import { Link } from '@/atoms/Link';
 
 export type ProviderPageViewProps = {
   provider: Practitioner;
+  allProvidersBackLink: LinkableDocumentData;
 };
 
-export const ProviderPageView: FC<ProviderPageViewProps> = ({ provider }) => {
+export const ProviderPageView: FC<ProviderPageViewProps> = ({
+  provider,
+  allProvidersBackLink,
+}) => {
   return (
     <div>
       <div>
-        <Link href="/about/care-team">{`< All Providers`}</Link>
+        <Link link={allProvidersBackLink}>{`<All Providers`}</Link>
       </div>
       <div>{provider.name}</div>
       {provider.contentArea && <ContentArea blocks={provider.contentArea} />}

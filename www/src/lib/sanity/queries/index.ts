@@ -12,6 +12,7 @@ import {
   imageFragment,
   richTextFragment,
   simpleRichTextFragment,
+  linkableDocumentFragment,
 } from './fragments';
 
 export const siteSettingsFragment = `
@@ -27,6 +28,7 @@ export const siteSettingsFragment = `
     }
   },
   globalDoubleCta{${doubleCtaFragment}},
+  allProvidersBackLink->{${linkableDocumentFragment}},
   footer {
     ${footerFragment}
   },

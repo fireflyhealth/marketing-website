@@ -97,6 +97,7 @@ export type SiteSettings = SanityDocument & {
   globalNav: Navigation;
   globalAnnouncementBanner: AnnouncementBanner;
   globalDoubleCta: DoubleCta;
+  allProvidersBackLink: LinkableDocumentData;
   defaultMetadata: Metadata;
   footer: Footer;
 };

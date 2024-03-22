@@ -5,19 +5,26 @@ import { PageProps } from '@/types/next';
 import { RevalidationTime } from '@/constants';
 
 import * as Sanity from '@/lib/sanity';
-import { Practitioner } from '@/types/sanity';
+import { LinkableDocumentData, Practitioner } from '@/types/sanity';
 import { ProviderPageView } from '@/views/ProviderView';
 
 type ProviderPageProps = PageProps & {
   practitioner: Practitioner;
+  allProvidersBackLink: LinkableDocumentData;
 };
 
-const ProviderPage: FC<ProviderPageProps> = ({ practitioner }) => {
+const ProviderPage: FC<ProviderPageProps> = ({
+  practitioner,
+  allProvidersBackLink,
+}) => {
   return (
     <>
       {/* TODO: PractitionerMetadata */}
       {/* TODO: PractitionerView */}
-      <ProviderPageView provider={practitioner} />
+      <ProviderPageView
+        provider={practitioner}
+        allProvidersBackLink={allProvidersBackLink}
+      />
     </>
   );
 };
@@ -40,12 +47,15 @@ export const getStaticProps: GetStaticProps<
     Sanity.providerPage.get(practitionerSlug),
   ]);
 
+  const allProvidersBackLink = siteSettings.allProvidersBackLink;
+
   if (!practitioner) {
     return { notFound: true };
   }
   return {
     props: {
       practitioner,
+      allProvidersBackLink,
       siteSettings,
     },
     revalidate: RevalidationTime.Medium,
