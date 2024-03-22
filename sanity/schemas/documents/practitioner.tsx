@@ -8,6 +8,12 @@ export const Practitioner = defineType({
   type: 'document',
   title: 'Practitioner',
   icon: icons.Practitioner,
+  fieldsets: [
+    {
+      name: 'providerPageFields',
+      title: 'Provider Page Fields',
+    },
+  ],
   fields: [
     createDocumentVariantField({
       cloneOptions: {
@@ -54,8 +60,17 @@ export const Practitioner = defineType({
       type: 'richImage',
     }),
     defineField({
+      name: 'renderProviderPage',
+      title: 'Render Provider Page',
+      type: 'boolean',
+      initialValue: false,
+      fieldset: 'providerPageFields',
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
       name: 'education',
       title: 'Education',
+      fieldset: 'providerPageFields',
       type: 'array',
       of: [
         defineArrayMember({
@@ -84,19 +99,14 @@ export const Practitioner = defineType({
       title: 'Languages Spoken',
       type: 'array',
       of: [{ type: 'string' }],
+      fieldset: 'providerPageFields',
       validation: (Rule) => Rule.required().min(1),
     }),
     defineField({
       name: 'blurb',
       title: 'Blurb',
       type: 'simpleRichText',
-      validation: (Rule) => Rule.required(),
-    }),
-    defineField({
-      name: 'renderProviderPage',
-      title: 'Render Provider Page',
-      type: 'boolean',
-      initialValue: false,
+      fieldset: 'providerPageFields',
       validation: (Rule) => Rule.required(),
     }),
     defineField({
@@ -105,12 +115,14 @@ export const Practitioner = defineType({
       description: 'Define the background color for the header component.',
       type: 'theme',
       initialValue: 'midnight',
+      fieldset: 'providerPageFields',
       hidden: ({ parent }) => !parent.renderProviderPage,
     }),
     defineField({
       name: 'contentArea',
       title: 'Content Area',
       type: 'contentArea',
+      fieldset: 'providerPageFields',
       hidden: ({ parent }) => !parent.renderProviderPage,
     }),
   ],
