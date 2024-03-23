@@ -4,7 +4,7 @@ import { GetStaticProps, GetStaticPaths } from 'next';
 import { PageProps } from '@/types/next';
 import { RevalidationTime } from '@/constants';
 
-import { Blog, BlogArticle, BlogWithArticles } from '@/types/sanity';
+import { BlogArticle, BlogWithArticles } from '@/types/sanity';
 import * as Sanity from '@/lib/sanity';
 import { BlogArticleView } from '@/views/BlogArticleView/BlogArticleView';
 import { BlogArticleMetadata } from '@/components/Metadata/BlogArticleMetadata';
