@@ -77,7 +77,7 @@ export const linkableDocumentTypes = [
 ];
 
 /**
- * Define which document types are eligible for the A/B testing
+ * Define which document types are not eligible for the A/B testing
  * field & configuration.
  **/
 export const abEligibleDocumentTypes = linkableDocumentTypes.filter(
