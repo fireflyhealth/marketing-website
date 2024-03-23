@@ -52,8 +52,19 @@ export const pageFragment = `
   slug,
   ${pageSharedFieldsFragment},
   subnav,
-  content {${contentBlockFragment}}[],
-  metadata{${metadataFragment}}
+  content {${contentBlockFragment}}[]
+`;
+
+export const subPageFragment = `
+  ${pageFragment},
+  metadata{${metadataFragment}},
+  "parentPage": *[
+    _type == "genericPage"
+    && slug.current == $parentSlug
+    && ^._id in subPages[]._ref
+  ] {
+    slug,
+  }[0]
 `;
 
 export const specialPageFragment = `

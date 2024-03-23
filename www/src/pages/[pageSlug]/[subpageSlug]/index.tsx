@@ -8,6 +8,7 @@ import { GenericPage, SubPage } from '@/types/sanity';
 import * as Sanity from '@/lib/sanity';
 import { PageView } from '@/views/PageView';
 import { PageMetadata } from '@/components/Metadata/PageMetadata';
+import { QueryConfig } from '@/lib/sanity';
 
 export type PageProps = CommonPageProps & {
   subPage: SubPage;
@@ -27,39 +28,41 @@ const Page: FC<PageProps> = ({ subPage }) => {
   );
 };
 
-export const getStaticProps: GetStaticProps<PageProps, PageParams> = async ({
-  params,
-}) => {
-  const pageSlug = params?.pageSlug;
-  const subpageSlug = params?.subpageSlug;
-  if (!pageSlug || typeof pageSlug !== 'string') {
-    /* This will never happen, but keeps typescript happy */
-    throw new Error('pageSlug param is not a string');
-  }
+export const createGetStaticProps =
+  (config?: QueryConfig): GetStaticProps<PageProps, PageParams> =>
+  async ({ params }) => {
+    const pageSlug = params?.pageSlug;
+    const subpageSlug = params?.subpageSlug;
+    if (!pageSlug || typeof pageSlug !== 'string') {
+      /* This will never happen, but keeps typescript happy */
+      throw new Error('pageSlug param is not a string');
+    }
 
-  if (!subpageSlug || typeof subpageSlug !== 'string') {
-    /* This will never happen, but keeps typescript happy */
-    throw new Error('subpageSlug param is not a string');
-  }
-  const [siteSettings, subPage] = await Promise.all([
-    Sanity.siteSettings.get(),
-    Sanity.subPage.get(pageSlug, subpageSlug),
-  ]);
+    if (!subpageSlug || typeof subpageSlug !== 'string') {
+      /* This will never happen, but keeps typescript happy */
+      throw new Error('subpageSlug param is not a string');
+    }
+    const [siteSettings, subPage] = await Promise.all([
+      Sanity.siteSettings.get(),
+      Sanity.subPage.get(pageSlug, subpageSlug, config),
+    ]);
 
-  const navigationOverrides = subPage?.navigationOverrides;
+    const navigationOverrides = subPage?.navigationOverrides;
 
-  if (!subPage) {
-    return { notFound: true };
-  }
-  return {
-    props: {
-      subPage,
-      siteSettings,
-      navigationOverrides: navigationOverrides || null,
-    },
-    revalidate: RevalidationTime.Medium,
+    if (!subPage) {
+      return { notFound: true };
+    }
+    return {
+      props: {
+        subPage,
+        siteSettings,
+        navigationOverrides: navigationOverrides || null,
+      },
+      revalidate: RevalidationTime.Medium,
+    };
   };
-};
+
+export const getStaticProps = createGetStaticProps();
 
 const getSlugParams = (parentPages: GenericPage[]): PageParams[] =>
   parentPages.reduce<PageParams[]>((slugInfoArray, parentPage) => {
