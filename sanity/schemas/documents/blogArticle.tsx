@@ -130,6 +130,9 @@ export const BlogArticle = defineType({
       fieldset: 'categorization',
       title: 'Parent Blog',
       type: 'reference',
+      options: {
+        filter: 'defined(documentVariantInfo.variantDocument)',
+      },
       to: [{ type: 'blog' }],
       validation: (Rule) => Rule.required(),
     }),

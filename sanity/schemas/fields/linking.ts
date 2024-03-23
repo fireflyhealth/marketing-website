@@ -63,6 +63,9 @@ export const LinkableDocument = defineField({
   title: 'Linkable Document',
   type: 'reference',
   to: linkableDocumentTypes.map((schemaType) => ({ type: schemaType })),
+  options: {
+    filter: '!defined(documentVariantInfo.variantOf)',
+  },
   // @ts-ignore
   validation: (Rule) => [validateNotOrphanedSubpage],
 });

@@ -165,6 +165,9 @@ export const GenericPage = defineType({
       of: [
         defineArrayMember({
           type: 'reference',
+          options: {
+            filter: '!defined(documentVariantInfo.variantOf)',
+          },
           to: [{ type: SubPage.name }],
           validation: (Rule) =>
             Rule.custom(async (value, context) => {

@@ -19,6 +19,9 @@ export const FeaturedStoriesBlock = defineType({
       of: [
         defineArrayMember({
           type: 'reference',
+          options: {
+            filter: '!defined(documentVariantInfo.variantOf)',
+          },
           to: [{ type: 'blogArticle' }],
           // @ts-ignore
           validation: validateNotOrphanedSubpage,
