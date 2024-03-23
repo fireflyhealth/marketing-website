@@ -1,6 +1,6 @@
 import React, { FC, useCallback } from 'react';
 import { SanityClient, SanityDocument, useFormValue } from 'sanity';
-import { ErrorOutlineIcon, HelpCircleIcon } from '@sanity/icons';
+import { ErrorOutlineIcon, InfoOutlineIcon } from '@sanity/icons';
 import { API_VERSION, Status } from '../constants';
 import { VariantFieldInputProps } from '../types';
 import { useMemoizedClient } from '../hooks/useMemoizedClient';
@@ -82,7 +82,7 @@ export const VariantDocumentInput: FC<VariantFieldInputProps> = (props) => {
           marginBottom: '-3rem',
         }}
       >
-        <InfoBox icon={HelpCircleIcon}>
+        <InfoBox icon={InfoOutlineIcon}>
           This document is the B version of:
         </InfoBox>
       </div>

@@ -1,7 +1,11 @@
 import React, { FC, useCallback, useEffect, useState } from 'react';
 import { Mutation, SanityClient, useFormValue } from 'sanity';
 import { Dialog, Box, Grid, Code, Text, Button } from '@sanity/ui';
-import { ErrorOutlineIcon, RemoveCircleIcon } from '@sanity/icons';
+import {
+  AsteriskIcon,
+  ErrorOutlineIcon,
+  RemoveCircleIcon,
+} from '@sanity/icons';
 import { API_VERSION, Status } from '../constants';
 import { DocumentWithSlug, VariantFieldInputProps } from '../types';
 import { useMemoizedClient } from '../hooks/useMemoizedClient';
@@ -154,7 +158,8 @@ export const PrimaryDocumentWithVariantInput: FC<VariantFieldInputProps> = (
     );
   }
 
-  const bVariantIsEnabled = variantDocumentRequest.result.variant?.isEnabled;
+  const bVariantIsEnabled =
+    variantDocumentRequest.result?.documentVariantInfo.isActive;
   const removeRequestIsPending = removeVariantRequest.status === Status.Pending;
   return (
     <div>
@@ -222,7 +227,11 @@ export const PrimaryDocumentWithVariantInput: FC<VariantFieldInputProps> = (
           marginBottom: '-3rem',
         }}
       >
-        {bVariantIsEnabled ? null : (
+        {bVariantIsEnabled ? (
+          <InfoBox icon={AsteriskIcon}>
+            The associated B Content document is active
+          </InfoBox>
+        ) : (
           <InfoBox icon={ErrorOutlineIcon} tone="caution">
             The associated B Content document has been configured but is not
             enabled. B segment viewers will not see this content.
