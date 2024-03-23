@@ -1,5 +1,6 @@
 import { defineField, defineType } from 'sanity';
 import { icons } from '../../lib/icons';
+import { richTextToString } from '../../lib/richTextToString';
 
 export const HeaderQrCodeChildBlock = defineType({
   name: 'headerQrCodeChildBlock',
@@ -27,13 +28,13 @@ export const HeaderQrCodeChildBlock = defineType({
   ],
   preview: {
     select: {
-      header: 'header',
+      heading: 'heading',
       body: 'body',
     },
-    prepare: ({ header, body }) => {
+    prepare: ({ heading, body }) => {
       return {
-        title: header,
-        subtitle: body,
+        title: heading,
+        subtitle: body ? richTextToString(body) : undefined,
       };
     },
   },
