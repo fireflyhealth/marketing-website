@@ -1,5 +1,6 @@
 import { defineField, defineType } from 'sanity';
 import { icons } from '../../lib/icons';
+import { createDocumentVariantField } from '../../plugins/documentVariants/fields/documentVariant';
 
 export const Homepage = defineType({
   name: 'homepage',
@@ -7,6 +8,7 @@ export const Homepage = defineType({
   type: 'document',
   icon: icons.Home,
   fields: [
+    createDocumentVariantField(),
     defineField({
       name: 'navigationOverrides',
       type: 'navigationOverrides',
@@ -33,7 +35,15 @@ export const Homepage = defineType({
     }),
   ],
   preview: {
-    select: {},
-    prepare: () => ({ title: 'Homepage' }),
+    select: {
+      documentVariantInfo: 'documentVariantInfo',
+    },
+    prepare: ({ documentVariantInfo }) => {
+      const title = [documentVariantInfo?.variantOf ? '🅱️' : null, 'Homepage']
+        .filter(Boolean)
+        .join(' ');
+
+      return { title };
+    },
   },
 });

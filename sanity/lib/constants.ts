@@ -76,6 +76,14 @@ export const linkableDocumentTypes = [
   'practitioner',
 ];
 
+/**
+ * Define which document types are not eligible for the A/B testing
+ * field & configuration.
+ **/
+export const abEligibleDocumentTypes = linkableDocumentTypes.filter(
+  (type) => type !== 'faqPage',
+);
+
 export const themeOptions = [
   { title: 'White', value: 'white' },
   { title: 'Grey', value: 'grey' },

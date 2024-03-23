@@ -3,6 +3,8 @@ import { icons } from '../../lib/icons';
 import { readOnlyIfNotBaseLang } from '../../lib/readOnlyIfNotBaseLang';
 import localizationSlugField from '../../lib/localizationSlugField';
 import { isUniqueAcrossDocuments } from '../../lib/isUniqueAcrossDocuments';
+import { createDocumentVariantField } from '../../plugins/documentVariants/fields/documentVariant';
+import { cloneWithUniqueSlug } from '../../plugins/documentVariants/utils';
 
 export const BlogArticleTagGroup = defineType({
   name: 'blogArticleTagGroup',
@@ -31,6 +33,11 @@ export const Blog = defineType({
   fieldsets: [{ name: 'content', title: 'Content' }],
   icon: icons.Blog,
   fields: [
+    createDocumentVariantField({
+      cloneOptions: {
+        getCloneData: cloneWithUniqueSlug,
+      },
+    }),
     defineField({
       name: 'title',
       title: 'Title',
@@ -150,4 +157,17 @@ export const Blog = defineType({
       title: 'Metadata',
     }),
   ],
+  preview: {
+    select: {
+      title: 'title',
+      documentVariantInfo: 'documentVariantInfo',
+    },
+    prepare: ({ title, documentVariantInfo }) => {
+      const fullTitle = [documentVariantInfo?.variantOf ? '🅱️' : null, title]
+        .filter(Boolean)
+        .join(' ');
+
+      return { title: fullTitle };
+    },
+  },
 });

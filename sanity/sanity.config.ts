@@ -9,6 +9,8 @@ import { schemaTypes } from './schemas';
 import { structure, defaultDocumentNode } from './schemas/structure';
 import './lib/styles.css';
 import { resolveProductionUrl } from './lib/pagePreview';
+import { documentVariants } from './plugins/documentVariants';
+import { abEligibleDocumentTypes } from './lib/constants';
 
 const isDevEnv = Boolean(process.env.SANITY_STUDIO_IS_DEVELOPMENT);
 
@@ -18,6 +20,9 @@ const shared = {
     // @ts-ignore
     structureTool({ structure, defaultDocumentNode }),
     visionTool(),
+    documentVariants({
+      schemaTypes: abEligibleDocumentTypes,
+    }),
 
     // Document Internationalization is not available yet.
     // Uncomment the 'documentInternationalization' plugin to allow translations.
