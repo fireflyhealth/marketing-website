@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { PractitionerLinkData } from '@/types/sanity';
 import { SanityImage } from '@/atoms/Image/SanityImage';
-import { Link } from '@/atoms/Link';
+import { Link, MaybeLink } from '@/atoms/Link';
 import { GenericImage } from '@/atoms/Image/GenericImage';
 import fallbackProfile from '@/assets/images/fallbackProfile.png';
 
@@ -15,47 +15,28 @@ export const PractitionerCard: FC<PractitionerCardProps> = ({
   return (
     <div className="PractitionerCard">
       <div className="rounded-[1rem] overflow-hidden relative">
-        {practitioner.renderProviderPage ? (
-          <Link
-            className="PractitionerCard__link"
-            link={practitioner}
-            ariaLabel={`View ${practitioner.name}'s profile page`}
-          >
-            {practitioner.headshot ? (
-              <SanityImage
-                aspectRatio={408 / 300}
-                image={practitioner.headshot}
-                sizes={['50vw', '50vw', '25vw']}
-                className="rounded-xl"
-              />
-            ) : (
-              <GenericImage
-                aspectRatio={408 / 300}
-                src={fallbackProfile}
-                alt="Generic profile photo"
-                sizes={['50vw', '50vw', '25vw']}
-                className="rounded-xl"
-              />
-            )}
-          </Link>
-        ) : (
-          <>
-            {practitioner.headshot ? (
-              <SanityImage
-                aspectRatio={408 / 300}
-                image={practitioner.headshot}
-                sizes={['50vw', '50vw', '25vw']}
-              />
-            ) : (
-              <GenericImage
-                aspectRatio={408 / 300}
-                src={fallbackProfile}
-                alt="Generic profile photo"
-                sizes={['50vw', '50vw', '25vw']}
-              />
-            )}
-          </>
-        )}
+        <MaybeLink
+          className="PractitionerCard__link"
+          link={practitioner.renderProviderPage ? practitioner : null}
+          ariaLabel={`View ${practitioner.name}'s profile page`}
+        >
+          {practitioner.headshot ? (
+            <SanityImage
+              aspectRatio={408 / 300}
+              image={practitioner.headshot}
+              sizes={['50vw', '50vw', '25vw']}
+              className="rounded-xl"
+            />
+          ) : (
+            <GenericImage
+              aspectRatio={408 / 300}
+              src={fallbackProfile}
+              alt="Generic profile photo"
+              sizes={['50vw', '50vw', '25vw']}
+              className="rounded-xl"
+            />
+          )}
+        </MaybeLink>
       </div>
       <div className="font-trust font-size-6 pt-4">
         {practitioner.name}{' '}
