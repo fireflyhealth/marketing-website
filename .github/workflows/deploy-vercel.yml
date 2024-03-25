@@ -46,6 +46,7 @@ jobs:
           vercel-token: ${{ secrets.vercel-token }}
           github-token: ${{ secrets.github-token }}
 
+
   deploy-storybook-preview:
     name: Storybook Preview
     if: github.ref != 'refs/heads/main' && github.ref != 'refs/heads/production'
@@ -118,13 +119,12 @@ jobs:
       - uses: actions/checkout@v2
       - uses: amondnet/vercel-action@v20
         with:
-          vercel-args: '--prod'
-          alias-domains: 'firefly-health.vercel.app'
           vercel-project-id: ${{ inputs.vercel-project-id }}
           vercel-org-id: ${{ inputs.vercel-org-id }}
           scope: ${{ inputs.vercel-org-id }}
           vercel-token: ${{ secrets.vercel-token }}
           github-token: ${{ secrets.github-token }}
+          alias-domains: 'firefly-health.vercel.app'
 
   audit_with_lighthouse:
     name: Audit with Lighthouse
