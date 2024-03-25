@@ -1,6 +1,7 @@
 {
   "extends": [
     "plugin:storybook/recommended",
+    "plugin:security/recommended-legacy",
     "next/core-web-vitals",
     "../.eslintrc.shared.json"
   ],
