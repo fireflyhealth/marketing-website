@@ -59,7 +59,7 @@ const DualCta: FC<{
         </div>
         <ResponsiveSanityImage
           imageSet={image}
-          sizes={['50vw, 100vw']}
+          sizes={['42vw, 50vw, 100vw']}
           className={cn(
             DualCtaImage,
             isTop ? DualCtaImageTop : DualCtaImageBottom,
