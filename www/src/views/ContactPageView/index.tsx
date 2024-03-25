@@ -53,6 +53,7 @@ export const ContactPageView: FC<ContactPageViewProps> = ({ contactPage }) => {
       {backgroundImage && (
         <div className={cn(BackgroundImage)}>
           <SanityImage
+            priority
             image={backgroundImage}
             sizes={['100vw']}
             className="w-full rounded-none"
