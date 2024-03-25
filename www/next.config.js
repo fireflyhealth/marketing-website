@@ -4,7 +4,20 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ['cdn.sanity.io'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'cdn.sanity.io',
+        port: '',
+      },
+    ],
+    deviceSizes: [375, 414, 520, 640, 750, 828, 1080, 1200, 1920],
+    imageSizes: [
+      16, 32, 48, 64, 96, 128, 256, 320, 384, 416, 512, 576, 620, 700, 760, 800,
+      832, 1024, 1152, 995, 1920,
+    ],
+    formats: ['image/webp'],
+    minimumCacheTTL: 60,
   },
 };
 
