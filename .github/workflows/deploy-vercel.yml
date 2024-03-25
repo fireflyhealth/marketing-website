@@ -36,7 +36,7 @@ jobs:
       run:
         working-directory: ${{ inputs.directory }}
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: amondnet/vercel-action@v25
         id: vercel
         with:
@@ -57,7 +57,7 @@ jobs:
       run:
         working-directory: ${{ inputs.directory }}
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: amondnet/vercel-action@v25
         id: vercel-storybook
         with:
@@ -76,7 +76,7 @@ jobs:
       run:
         working-directory: ${{ inputs.directory }}
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: amondnet/vercel-action@v25
         with:
           vercel-project-id: ${{ inputs.vercel-project-id }}
@@ -96,7 +96,7 @@ jobs:
       run:
         working-directory: ${{ inputs.directory }}
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: amondnet/vercel-action@v25
         id: vercel-storybook
         with:
@@ -116,7 +116,7 @@ jobs:
       run:
         working-directory: ${{ inputs.directory }}
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: amondnet/vercel-action@v25
         with:
           vercel-project-id: ${{ inputs.vercel-project-id }}
