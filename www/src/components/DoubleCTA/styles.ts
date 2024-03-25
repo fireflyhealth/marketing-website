@@ -6,7 +6,7 @@ export const CTAContainer = [
 export const CTACardWrapper = ['w-full'];
 
 export const CTACardLink = [
-  'DoubleCTA__cta-card w-full z-navigationCTAContent p-5 flex flex-col space-y-3 rounded-[14px]',
+  'DoubleCTA__cta-card transition-all w-full z-navigationCTAContent p-5 flex flex-col space-y-3 rounded-[14px]',
   'md:pt-24 md:space-y-8',
 ];
 
