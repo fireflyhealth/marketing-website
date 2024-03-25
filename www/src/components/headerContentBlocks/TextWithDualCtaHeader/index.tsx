@@ -45,7 +45,7 @@ const DualCta: FC<{
       link={link}
       ariaLabel={ariaLabel}
     >
-      <Theme className={cn(DualCtaTheme)} theme={theme}>
+      <Theme className={cn(DualCtaTheme, 'relative')} theme={theme}>
         <div className={cn(ButtonContentWrapper)}>
           {eyebrow && <p className={cn(ButtonEyebrow)}>{eyebrow}</p>}
           <div className={cn(ButtonTextContentWrapper)}>
