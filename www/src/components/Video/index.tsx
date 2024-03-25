@@ -40,6 +40,7 @@ export const Video: FC<Props> = ({
 }) => {
   const videoContainerRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLDivElement>(null);
+  const aspectRatio = video.videoRatio || 9 / 16;
 
   const { isIntersecting } = useIntersectionObserver(videoContainerRef, {
     /* Begin loading the video when it is visible and within 25% of the top and bottom of the viewport */
@@ -141,20 +142,20 @@ export const Video: FC<Props> = ({
       id="video-component"
       className={cn(OuterVideoWrapper)}
     >
+      <div className="w-full" style={{ paddingTop: `${aspectRatio * 100}%` }} />
       <div className={cn(VideoWrapper, width ? `${width}` : 'w-full')}>
         <div
           id="video-poster-image"
-          className={cn(
-            PosterImage,
-            isPlaying ? 'opacity-0 pointer-events-none' : '',
-          )}
+          className={cn(PosterImage, 'transition-all', {
+            'opacity-0 pointer-events-none': isPlaying,
+          })}
           onLoad={() => {
             setIsReady(true);
           }}
         >
           <SanityImage
             image={video.posterImage}
-            aspectRatio={9 / 16}
+            aspectRatio={aspectRatio}
             sizes={posterSizes}
           />
         </div>
@@ -163,8 +164,12 @@ export const Video: FC<Props> = ({
           ref={videoRef}
           className={cn(VideoPlayer, isReady ? '' : 'opacity-1')}
         />
-        {autoplay === true && !isPlaying && (
-          <div className={cn(FullscreenButton)}>
+        {autoplay === true && (
+          <div
+            className={cn(FullscreenButton, 'transition-all', {
+              'opacity-0 pointer-events-none': isPlaying,
+            })}
+          >
             <button onClick={handleFullscreen}>
               <SimpleIcon
                 type="external-link"
@@ -175,8 +180,12 @@ export const Video: FC<Props> = ({
             </button>
           </div>
         )}
-        {autoplay === false && !isPlaying && (
-          <div className={cn(PlayButton)}>
+        {autoplay === false && (
+          <div
+            className={cn(PlayButton, 'transition-all', {
+              'opacity-0 pointer-events-none': isPlaying,
+            })}
+          >
             <Button
               variant="primary"
               label="Play video"
@@ -186,12 +195,15 @@ export const Video: FC<Props> = ({
           </div>
         )}
       </div>
-      {showTitleCard && titleCardProps && !isPlaying && (
+      {showTitleCard && titleCardProps && (
         <VideoTitleCard
           eyebrow={titleCardProps.eyebrow}
           heading={titleCardProps.heading}
           body={titleCardProps.body}
           onClick={togglePlay}
+          wrapperClassName={cn('transition-all', {
+            'opacity-0 pointer-events-none': isPlaying,
+          })}
         />
       )}
     </div>
