@@ -259,9 +259,14 @@ export const defaultDocumentNode: DefaultDocumentNodeResolver = (
   { schemaType },
 ) => {
   if (
-    ['genericPage', 'clientPage', 'blog', 'blogArticle', 'subPage'].includes(
-      schemaType,
-    )
+    [
+      'genericPage',
+      'clientPage',
+      'blog',
+      'blogArticle',
+      'subPage',
+      'practitioner',
+    ].includes(schemaType)
   ) {
     return S.document().views([
       S.view.form(),

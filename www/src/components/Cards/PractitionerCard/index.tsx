@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { PractitionerLinkData } from '@/types/sanity';
 import { SanityImage } from '@/atoms/Image/SanityImage';
-import { Link } from '@/atoms/Link';
+import { Link, MaybeLink } from '@/atoms/Link';
 import { GenericImage } from '@/atoms/Image/GenericImage';
 import fallbackProfile from '@/assets/images/fallbackProfile.png';
 
@@ -15,9 +15,9 @@ export const PractitionerCard: FC<PractitionerCardProps> = ({
   return (
     <div className="PractitionerCard">
       <div className="rounded-[1rem] overflow-hidden relative">
-        <Link
+        <MaybeLink
           className="PractitionerCard__link"
-          link={practitioner}
+          link={practitioner.renderProviderPage ? practitioner : null}
           ariaLabel={`View ${practitioner.name}'s profile page`}
         >
           {practitioner.headshot ? (
@@ -36,7 +36,7 @@ export const PractitionerCard: FC<PractitionerCardProps> = ({
               className="rounded-xl"
             />
           )}
-        </Link>
+        </MaybeLink>
       </div>
       <div className="font-trust font-size-6 pt-4">
         {practitioner.name}{' '}

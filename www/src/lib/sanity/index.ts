@@ -26,10 +26,9 @@ import {
   BlogArticleLinkData,
   ClientPageLinkData,
   PractitionerLinkData,
-  LinkableDocumentType,
+  Practitioner,
 } from '@/types/sanity';
 import { PAGINATION_PAGE_SIZE } from '@/constants';
-import { sleep } from '@/utils/misc';
 import { config } from '@/config';
 import {
   blogArticleFragment,
@@ -40,6 +39,7 @@ import {
   pageFragment,
   notFoundPageFragment,
   siteSettingsFragment,
+  providerPageFragment,
 } from './queries';
 import {
   blogArticleLinkDataFragment,
@@ -242,6 +242,24 @@ export const blog = {
   },
 };
 
+/* Provider Page */
+export const providerPage = {
+  /* (production) do not fetch slugs for practitioners that should not render a provider page */
+  /* (preview) fetch all practitioners wether or not they should render a provider page - see preview queries 'src/lib/sanity/previews' */
+  get: (practitionerSlug: string): Promise<Practitioner | null> =>
+    client.fetch(
+      `*[_type == "practitioner" && slug.current == $practitionerSlug && renderProviderPage != false][0]{${providerPageFragment}}`,
+      {
+        practitionerSlug,
+      },
+    ),
+  getSlugInfo: (): Promise<Practitioner[]> =>
+    client.fetch(`*[_type == "practitioner"]{
+        slug,
+        renderProviderPage,
+      }`),
+};
+
 /**
  * Sitemap
  */
@@ -269,7 +287,7 @@ const SITEMAP_DATA_QUERY = `
   "blog": *[_type == "blog"]{${linkableDocumentFragment}},
   "blogArticle": *[_type == "blogArticle"]{${linkableDocumentFragment}},
   "clientPage": *[_type == "clientPage"]{${linkableDocumentFragment}},
-  "practitioner": *[_type == "practitioner"]{${linkableDocumentFragment}}
+  "practitioner": *[_type == "practitioner" && renderProviderPage != false]{${linkableDocumentFragment}}
 }
 `;
 

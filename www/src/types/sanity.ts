@@ -97,6 +97,7 @@ export type SiteSettings = SanityDocument & {
   globalNav: Navigation;
   globalAnnouncementBanner: AnnouncementBanner;
   globalDoubleCta: DoubleCta;
+  allProvidersBackLink: LinkableDocumentData;
   defaultMetadata: Metadata;
   footer: Footer;
 };
@@ -232,6 +233,11 @@ export type Practitioner = SanityDocument & {
   education: KeyedArray<Institution>;
   languagesSpoken: string[];
   blurb: RichText;
+  renderProviderPage: boolean;
+  headerBgThemeColor?: Maybe<ColorTheme>;
+  cta?: Maybe<CTA>;
+  contentArea?: Maybe<ContentArea>;
+  metadata?: Metadata;
 };
 
 /* Data needed to render practitioner profile cards */
@@ -246,6 +252,7 @@ export type PractitionerLinkData = Pick<
   | 'pronouns'
   | 'title'
   | '_updatedAt'
+  | 'renderProviderPage'
 >;
 
 /* Blogs */

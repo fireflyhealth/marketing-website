@@ -5,18 +5,26 @@ import { PageProps } from '@/types/next';
 import { RevalidationTime } from '@/constants';
 
 import * as Sanity from '@/lib/sanity';
-import { Practitioner } from '@/types/sanity';
+import { LinkableDocumentData, Practitioner } from '@/types/sanity';
+import { PageMetadata } from '@/components/Metadata/ProviderMetadata';
+import { ProviderPageView } from '@/views/ProviderView';
 
-type PractitionerPageProps = PageProps & {
+type ProviderPageProps = PageProps & {
   practitioner: Practitioner;
+  allProvidersBackLink: LinkableDocumentData;
 };
 
-const PractitionerPage: FC<PractitionerPageProps> = ({ practitioner }) => {
+const ProviderPage: FC<ProviderPageProps> = ({
+  practitioner,
+  allProvidersBackLink,
+}) => {
   return (
     <>
-      {/* TODO: PractitionerMetadata */}
-      {/* TODO: PractitionerView */}
-      <h1>{practitioner.name}</h1>
+      <PageMetadata provider={practitioner} />
+      <ProviderPageView
+        provider={practitioner}
+        allProvidersBackLink={allProvidersBackLink}
+      />
     </>
   );
 };
@@ -26,7 +34,7 @@ type PageParams = {
 };
 
 export const getStaticProps: GetStaticProps<
-  PractitionerPageProps,
+  ProviderPageProps,
   PageParams
 > = async ({ params }) => {
   const practitionerSlug = params?.practitionerSlug;
@@ -36,9 +44,10 @@ export const getStaticProps: GetStaticProps<
   }
   const [siteSettings, practitioner] = await Promise.all([
     Sanity.siteSettings.get(),
-    /* TODO: actually fetch from sanity */
-    { name: 'Practitioner Name' } as Practitioner,
+    Sanity.providerPage.get(practitionerSlug),
   ]);
+
+  const allProvidersBackLink = siteSettings.allProvidersBackLink;
 
   if (!practitioner) {
     return { notFound: true };
@@ -46,6 +55,7 @@ export const getStaticProps: GetStaticProps<
   return {
     props: {
       practitioner,
+      allProvidersBackLink,
       siteSettings,
     },
     revalidate: RevalidationTime.Medium,
@@ -53,11 +63,15 @@ export const getStaticProps: GetStaticProps<
 };
 
 export const getStaticPaths: GetStaticPaths<PageParams> = async () => {
+  const providerPages = await Sanity.providerPage.getSlugInfo();
+
+  const paths = providerPages.map((practitioner) => ({
+    params: { practitionerSlug: practitioner.slug.current },
+  }));
   return {
-    /* TODO actually get the slugs */
-    paths: [{ params: { practitionerSlug: 'some-name' } }],
+    paths,
     fallback: 'blocking',
   };
 };
 
-export default PractitionerPage;
+export default ProviderPage;

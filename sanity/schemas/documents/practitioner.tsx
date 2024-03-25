@@ -8,6 +8,18 @@ export const Practitioner = defineType({
   type: 'document',
   title: 'Practitioner',
   icon: icons.Practitioner,
+  fieldsets: [
+    {
+      name: 'providerPageFields',
+      title: 'Provider Page Fields',
+    },
+  ],
+  groups: [
+    {
+      name: 'providerPage',
+      title: 'Provider Page',
+    },
+  ],
   fields: [
     createDocumentVariantField({
       cloneOptions: {
@@ -54,8 +66,19 @@ export const Practitioner = defineType({
       type: 'richImage',
     }),
     defineField({
+      name: 'renderProviderPage',
+      title: 'Render Provider Page',
+      type: 'boolean',
+      initialValue: false,
+      group: 'providerPage',
+      fieldset: 'providerPageFields',
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
       name: 'education',
       title: 'Education',
+      group: 'providerPage',
+      fieldset: 'providerPageFields',
       type: 'array',
       of: [
         defineArrayMember({
@@ -84,13 +107,51 @@ export const Practitioner = defineType({
       title: 'Languages Spoken',
       type: 'array',
       of: [{ type: 'string' }],
+      group: 'providerPage',
+      fieldset: 'providerPageFields',
       validation: (Rule) => Rule.required().min(1),
     }),
     defineField({
       name: 'blurb',
       title: 'Blurb',
       type: 'simpleRichText',
+      group: 'providerPage',
+      fieldset: 'providerPageFields',
       validation: (Rule) => Rule.required(),
+    }),
+    defineField({
+      name: 'headerBgThemeColor',
+      title: 'Header Background Theme Color',
+      description: 'Define the background color for the header component.',
+      type: 'theme',
+      initialValue: 'midnight',
+      group: 'providerPage',
+      fieldset: 'providerPageFields',
+      hidden: ({ parent }) => !parent.renderProviderPage,
+    }),
+    defineField({
+      name: 'cta',
+      title: 'CTA',
+      type: 'cta',
+      group: 'providerPage',
+      fieldset: 'providerPageFields',
+      hidden: ({ parent }) => !parent.renderProviderPage,
+    }),
+    defineField({
+      name: 'contentArea',
+      title: 'Content Area',
+      type: 'contentArea',
+      group: 'providerPage',
+      fieldset: 'providerPageFields',
+      hidden: ({ parent }) => !parent.renderProviderPage,
+    }),
+    defineField({
+      name: 'metadata',
+      title: 'Metadata',
+      type: 'metadata',
+      group: 'providerPage',
+      fieldset: 'providerPageFields',
+      hidden: ({ parent }) => !parent.renderProviderPage,
     }),
   ],
   preview: {

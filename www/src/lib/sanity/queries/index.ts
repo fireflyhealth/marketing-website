@@ -12,6 +12,8 @@ import {
   imageFragment,
   richTextFragment,
   simpleRichTextFragment,
+  linkableDocumentFragment,
+  ctaFragment,
 } from './fragments';
 
 export const siteSettingsFragment = `
@@ -27,6 +29,7 @@ export const siteSettingsFragment = `
     }
   },
   globalDoubleCta{${doubleCtaFragment}},
+  allProvidersBackLink->{${linkableDocumentFragment}},
   footer {
     ${footerFragment}
   },
@@ -145,4 +148,28 @@ export const blogFragment = `
     }
   },
   articleLayout
+`;
+
+export const providerPageFragment = `
+  name,
+  slug,
+  qualifications,
+  title,
+  pronouns,
+  headshot {
+    ${imageFragment}
+  },
+  education[]{
+    _type,
+    name,
+  },
+  languagesSpoken,
+  blurb,
+  renderProviderPage,
+  headerBgThemeColor,
+  cta{${ctaFragment}},
+  contentArea[]{
+    ${contentBlockFragment}
+  },
+  metadata{${metadataFragment}}
 `;
