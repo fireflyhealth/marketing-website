@@ -125,6 +125,7 @@ jobs:
           vercel-token: ${{ secrets.vercel-token }}
           github-token: ${{ secrets.github-token }}
           alias-domains: firefly-health.vercel.app
+          vercel-args: --prod
 
   audit_with_lighthouse:
     name: Audit with Lighthouse
