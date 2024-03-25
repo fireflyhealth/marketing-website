@@ -26,10 +26,10 @@ export const config = {
       site: 'us5.datadoghq.com',
     },
   },
-  googleAnalytics: {
-    /* TODO: Update this with Firefly's GA Property ID.
+  googleTagManager: {
+    /* TODO: Update this with Firefly's GTM Property ID.
      * This should be undefined (or an alternate property ID)
      * for staging so we do not clutter their analytics */
-    id: 'G-Y73M8H9SS6',
+    id: 'GTM-NDDH54JG',
   },
 };

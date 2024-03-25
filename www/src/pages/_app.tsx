@@ -1,7 +1,7 @@
 import React from 'react';
 import { AppProps } from 'next/app';
 import { HubspotProvider } from 'next-hubspot';
-import { GoogleAnalytics } from '@next/third-parties/google';
+import { GoogleTagManager } from '@next/third-parties/google';
 import { AnnouncementBanner } from '@/components/AnnouncementBanner';
 import { Navigation } from '@/components/Navigation';
 import { UIProvider } from '@/context';
@@ -66,8 +66,8 @@ export default function App({ Component, pageProps: allPageProps }: Props) {
               </main>
               <Footer footer={siteSettings.footer} />
             </div>
-            {config.googleAnalytics.id ? (
-              <GoogleAnalytics gaId={config.googleAnalytics.id} />
+            {config.googleTagManager.id ? (
+              <GoogleTagManager gtmId={config.googleTagManager.id} />
             ) : null}
           </HubspotProvider>
         </UIProvider>
