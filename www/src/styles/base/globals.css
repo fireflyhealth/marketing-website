@@ -13,6 +13,11 @@ body {
   overflow-x: hidden;
 }
 
+main {
+  position: relative;
+  z-index: 0;
+}
+
 .ContentArea {
   /* Add spacing between components  */
   > div + div {
