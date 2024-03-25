@@ -1407,25 +1407,25 @@
   dependencies:
     chalk "^4.1.0"
 
-"@datadog/browser-core@5.9.0":
-  version "5.9.0"
-  resolved "https://registry.yarnpkg.com/@datadog/browser-core/-/browser-core-5.9.0.tgz#15bdbdc938fc1938c9550afe0cbf4be1c5642150"
-  integrity sha512-8YSk/5Qi6XhyBEL9C/uReoYu/9Dpyh9iplCK1efmKUehWDBKOV353TbMYDDJlcY8Ha7iwA5ZoEEUKcWszRlQkA==
+"@datadog/browser-core@5.12.0":
+  version "5.12.0"
+  resolved "https://registry.yarnpkg.com/@datadog/browser-core/-/browser-core-5.12.0.tgz#ec523732080c30e6991c9e32df56a2251de188a1"
+  integrity sha512-DVV64OqKMxfJXvHJrHjcCji0guytLGBun9jf7tugXN1ylMNurloV5sF1KW1W1Pb0BuEMiJsuyz1DEIqZHO3z0w==
 
-"@datadog/browser-rum-core@5.9.0":
-  version "5.9.0"
-  resolved "https://registry.yarnpkg.com/@datadog/browser-rum-core/-/browser-rum-core-5.9.0.tgz#3059de4e2a01e384074fe490a576a4a8fc45828b"
-  integrity sha512-jPXNqHBdU6UfgLKvXE9Qq5XBtPGAI/qhYrWWAFbYTABL7AipF8xP7N1QlkbuIhjiln5xC3IaPiDgdMCVQlmB6w==
+"@datadog/browser-rum-core@5.12.0":
+  version "5.12.0"
+  resolved "https://registry.yarnpkg.com/@datadog/browser-rum-core/-/browser-rum-core-5.12.0.tgz#6c93f33e3f43e944cd29f25afe916aa7f5848a4f"
+  integrity sha512-JHOH3ZBjtnFYA7TMFOE3hUQurubC9ISidhrFvZf+gxbqtYGt8HTqe7pwJpOW2xqfQn1Us3lZyui8/LHayUZLdg==
   dependencies:
-    "@datadog/browser-core" "5.9.0"
+    "@datadog/browser-core" "5.12.0"
 
-"@datadog/browser-rum@^5.9.0":
-  version "5.9.0"
-  resolved "https://registry.yarnpkg.com/@datadog/browser-rum/-/browser-rum-5.9.0.tgz#27d5580e8f0c2f140e44ecbe23a66f3606ca9936"
-  integrity sha512-2Izc3vLS7xBMETr5q82ahKiZK+DIsX80PnRUajiwbOTVpWsQjyvPB3uVshaYdwAXPc654AfRlFoALVDiUs4QEg==
+"@datadog/browser-rum@^5.12.0":
+  version "5.12.0"
+  resolved "https://registry.yarnpkg.com/@datadog/browser-rum/-/browser-rum-5.12.0.tgz#0b7dde9e29a0869561f4cf88c5471509d1908645"
+  integrity sha512-k6U4LoUTDozkACHwp9Wk99fTSsKdr9fGxAKAdsco9kAnlCX0QOjbkF/taIincAeMvePRf0BVK+HIUaHZQ9YVLQ==
   dependencies:
-    "@datadog/browser-core" "5.9.0"
-    "@datadog/browser-rum-core" "5.9.0"
+    "@datadog/browser-core" "5.12.0"
+    "@datadog/browser-rum-core" "5.12.0"
 
 "@discoveryjs/json-ext@0.5.7", "@discoveryjs/json-ext@^0.5.3":
   version "0.5.7"
