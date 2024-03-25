@@ -445,7 +445,7 @@ export type Image = {
 export type Video = {
   _type: 'video';
   videoLink: 'string';
-  videoRatio: number;
+  videoRatio?: Maybe<number>;
   posterImage: RichImage;
 };
 
