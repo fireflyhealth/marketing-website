@@ -84,7 +84,7 @@ jobs:
           scope: ${{ inputs.vercel-org-id }}
           vercel-token: ${{ secrets.vercel-token }}
           github-token: ${{ secrets.github-token }}
-          alias-domains: 'firefly-staging.vercel.app'
+          alias-domains: firefly-staging.vercel.app
 
   deploy-storybook:
     name: Storybook
@@ -105,7 +105,7 @@ jobs:
           scope: ${{ inputs.vercel-org-id }}
           vercel-token: ${{ secrets.vercel-token }}
           github-token: ${{ secrets.github-token }}
-          alias-domains: 'firefly-storybook.vercel.app'
+          alias-domains: firefly-storybook.vercel.app
 
   # Create a prod deployment on pushes to production
   deploy-production:
@@ -124,7 +124,7 @@ jobs:
           scope: ${{ inputs.vercel-org-id }}
           vercel-token: ${{ secrets.vercel-token }}
           github-token: ${{ secrets.github-token }}
-          alias-domains: 'firefly-health.vercel.app'
+          alias-domains: firefly-health.vercel.app
 
   audit_with_lighthouse:
     name: Audit with Lighthouse
