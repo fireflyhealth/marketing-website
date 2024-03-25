@@ -6,6 +6,7 @@ import { RevalidationTime } from '@/constants';
 
 import * as Sanity from '@/lib/sanity';
 import { LinkableDocumentData, Practitioner } from '@/types/sanity';
+import { PageMetadata } from '@/components/Metadata/ProviderMetadata';
 import { ProviderPageView } from '@/views/ProviderView';
 
 type ProviderPageProps = PageProps & {
@@ -19,8 +20,7 @@ const ProviderPage: FC<ProviderPageProps> = ({
 }) => {
   return (
     <>
-      {/* TODO: PractitionerMetadata */}
-      {/* TODO: PractitionerView */}
+      <PageMetadata provider={practitioner} />
       <ProviderPageView
         provider={practitioner}
         allProvidersBackLink={allProvidersBackLink}

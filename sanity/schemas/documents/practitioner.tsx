@@ -145,6 +145,14 @@ export const Practitioner = defineType({
       fieldset: 'providerPageFields',
       hidden: ({ parent }) => !parent.renderProviderPage,
     }),
+    defineField({
+      name: 'metadata',
+      title: 'Metadata',
+      type: 'metadata',
+      group: 'providerPage',
+      fieldset: 'providerPageFields',
+      hidden: ({ parent }) => !parent.renderProviderPage,
+    }),
   ],
   preview: {
     select: {

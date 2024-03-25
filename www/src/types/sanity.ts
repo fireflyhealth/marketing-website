@@ -237,6 +237,7 @@ export type Practitioner = SanityDocument & {
   headerBgThemeColor?: Maybe<ColorTheme>;
   cta?: Maybe<CTA>;
   contentArea?: Maybe<ContentArea>;
+  metadata?: Metadata;
 };
 
 /* Data needed to render practitioner profile cards */

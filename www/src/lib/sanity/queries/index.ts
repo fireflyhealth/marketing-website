@@ -170,5 +170,6 @@ export const providerPageFragment = `
   cta{${ctaFragment}},
   contentArea[]{
     ${contentBlockFragment}
-  }
+  },
+  metadata{${metadataFragment}}
 `;
