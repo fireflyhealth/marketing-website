@@ -14,7 +14,7 @@ export const AnnouncementBanner: FC<Props> = ({ announcementBanner }) => {
   return (
     <>
       {announcementBanner && text && (
-        <div className={cn(Wrapper)}>
+        <div className={cn(Wrapper)} role="complementary">
           {text && (
             <RichText
               content={text}

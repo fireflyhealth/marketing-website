@@ -16,6 +16,7 @@ export const NavCTA: FC<Props> = ({ globalDoubleNav, isOpen }) => {
       className={cn(Wrapper, {
         'opacity-0 pointer-events-none': !isOpen,
       })}
+      tabIndex={isOpen ? 0 : -1}
     >
       <div className={cn(BackgroundColor)} />
       <div className={cn(CTAWrapper)}>

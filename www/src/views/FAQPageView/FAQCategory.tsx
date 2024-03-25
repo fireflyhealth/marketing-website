@@ -6,6 +6,7 @@ import cn from 'classnames';
 import { FAQCategory as FAQCategoryDocument } from '@/types/sanity';
 import { Button } from '@/atoms/Button';
 import { slugify } from '@/utils/text';
+import { useTab } from '@/components/Tabs';
 import {
   FAQCategoryButtons,
   FAQCategorySubjects,
@@ -31,6 +32,8 @@ export const FAQCategory: FC<FAQCategoryProps> = ({ faqCategory }) => {
 
   const { category, subjects } = faqCategory;
 
+  const { activeTab } = useTab();
+
   /* 'all' or a subject slug */
   const [activeSubject, setActiveSubject] = useState<string>('all');
 
@@ -51,17 +54,23 @@ export const FAQCategory: FC<FAQCategoryProps> = ({ faqCategory }) => {
 
   return (
     <div className={cn(FAQCategoryWrapper)}>
-      <div className={cn(FAQCategoryButtons)}>
-        <div className="mr-4 pb-4" role="listbox">
+      <div
+        className={cn(FAQCategoryButtons)}
+        aria-label="List of FAQ filters"
+        role="listbox"
+      >
+        <div className="mr-4 pb-4">
           <Button
             variant="outlined"
             active={activeSubject === 'all'}
             onClick={createSubjectButtonHandler('all')}
+            ariaLabel="View all FAQs"
             ariaSelected={activeSubject === 'all'}
             role="option"
             id={getButtonId(category.title, 'All questions')}
             width="auto"
             label="All questions"
+            tabIndex={category.slug.current === activeTab ? 0 : -1}
           />
         </div>
         {subjects.map((faqSubject) => (
@@ -77,6 +86,7 @@ export const FAQCategory: FC<FAQCategoryProps> = ({ faqCategory }) => {
               )}
               id={getButtonId(category.title, faqSubject.subject.title)}
               label={faqSubject.subject.title}
+              tabIndex={category.slug.current === activeTab ? 0 : -1}
             />
           </div>
         ))}
@@ -86,6 +96,7 @@ export const FAQCategory: FC<FAQCategoryProps> = ({ faqCategory }) => {
           <FAQSubject
             key={faqSubject.subject.slug.current}
             faqSubject={faqSubject}
+            category={category.slug.current}
           />
         ))}
       </div>

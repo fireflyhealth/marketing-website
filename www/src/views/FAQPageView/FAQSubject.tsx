@@ -5,6 +5,7 @@ import { useSearchParams } from 'next/navigation';
 import { FAQ, FAQSubject as FAQSubjectDocument } from '@/types/sanity';
 import { Accordion } from '@/atoms/Accordion';
 import { RichText } from '@/components/RichText';
+import { useTab } from '@/components/Tabs';
 
 export type SortedFaqSubject = {
   subject: FAQSubjectDocument;
@@ -13,15 +14,18 @@ export type SortedFaqSubject = {
 
 type FAQSubjectProps = {
   faqSubject: SortedFaqSubject;
+  category: string;
 };
 
-export const FAQSubject: FC<FAQSubjectProps> = ({ faqSubject }) => {
+export const FAQSubject: FC<FAQSubjectProps> = ({ faqSubject, category }) => {
   const searchParams = useSearchParams();
   const faqParam = searchParams?.get('faq');
 
   const initialOpenAccordionRef = useRef<HTMLDivElement>(null);
 
   const { subject, questions } = faqSubject;
+
+  const { activeTab } = useTab();
 
   useEffect(() => {
     if (faqParam && initialOpenAccordionRef.current) {
@@ -49,6 +53,7 @@ export const FAQSubject: FC<FAQSubjectProps> = ({ faqSubject }) => {
             <Accordion
               title={question.question}
               isOpen={faqParam === question.slug.current}
+              isFocusable={category === activeTab}
             >
               <RichText content={question.answer} className="font-size-8" />
             </Accordion>

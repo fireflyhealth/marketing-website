@@ -319,6 +319,7 @@ export const Pagination: FC = () => {
             currentSlideIndex === index ? 'bg-black' : 'bg-grey-medium',
           )}
           onClick={() => setCurrentSlideIndex(index)}
+          aria-label={`Go to slide ${index + 1}`}
         />
       ))}
     </div>

@@ -27,7 +27,9 @@ export const SequenceCopy: FC<Props> = ({
         <span
           className={cn(
             BellyButtonText,
-            isHighlighted ? 'theme-text-color-decorative' : 'text-yellow',
+            isHighlighted
+              ? 'theme-text-color-decorative'
+              : 'text-orange-medium',
           )}
         >
           {bellyButtonText}

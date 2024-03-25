@@ -2,6 +2,7 @@ import React, { FC } from 'react';
 import cn from 'classnames';
 import { Link as LinkType, LinkableDocumentData, Maybe } from '@/types/sanity';
 import { Link } from '@/atoms/Link';
+import { tab } from '@testing-library/user-event/dist/cjs/setup/directApi.js';
 
 type ButtonVariant = 'primary' | 'secondary' | 'outlined' | 'textLink';
 
@@ -18,6 +19,7 @@ export type ButtonProps = {
   bgColorOverride?: string;
   width?: 'auto' | 'full';
   ariaSelected?: boolean;
+  tabIndex?: number | undefined;
 } & (
   | {
       /* aria-selected can only be applied to elements with the
@@ -48,6 +50,7 @@ export const Button: FC<ButtonProps> = ({
   role,
   bgColorOverride,
   width = 'full',
+  tabIndex,
 }) => {
   return (
     <div
@@ -73,6 +76,7 @@ export const Button: FC<ButtonProps> = ({
         id={id}
         onClick={onClick}
         disabled={disabled}
+        tabIndex={tabIndex || undefined}
       >
         <div className="cta__inner">{label}</div>
       </button>
