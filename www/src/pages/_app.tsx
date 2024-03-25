@@ -1,6 +1,7 @@
 import React from 'react';
 import { AppProps } from 'next/app';
 import { HubspotProvider } from 'next-hubspot';
+import { GoogleAnalytics } from '@next/third-parties/google';
 import { AnnouncementBanner } from '@/components/AnnouncementBanner';
 import { Navigation } from '@/components/Navigation';
 import { UIProvider } from '@/context';
@@ -9,6 +10,7 @@ import { DefaultMetadata } from '@/components/Metadata/DefaultMetadata';
 import { ColorTheme, Theme } from '@/components/Theme';
 import { Footer } from '@/components/Footer';
 import '@/lib/datadog';
+import { config } from '@/config';
 import '../styles/fonts.css';
 import '../styles/main.css';
 import 'what-input';
@@ -64,6 +66,9 @@ export default function App({ Component, pageProps: allPageProps }: Props) {
               </main>
               <Footer footer={siteSettings.footer} />
             </div>
+            {config.googleAnalytics.id ? (
+              <GoogleAnalytics gaId={config.googleAnalytics.id} />
+            ) : null}
           </HubspotProvider>
         </UIProvider>
       </Theme>
