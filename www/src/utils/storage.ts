@@ -1,8 +1,6 @@
 import Cookie from 'js-cookie';
 import { config } from '@/config';
 
-type ABVersion = 'A' | 'B';
-
 /**
  * Cookies
  *
@@ -12,18 +10,23 @@ type ABVersion = 'A' | 'B';
 
 class CookieManager<T> {
   key: string;
-  constructor(key: string) {
+  isString: boolean;
+
+  constructor(key: string, isString: boolean = true) {
     this.key = key;
+    this.isString = isString;
   }
 
   set(value: T, options?: Cookies.CookieAttributes): void {
-    Cookie.set(this.key, JSON.stringify(value), options);
+    const valueToSet =
+      typeof value === 'string' ? value : JSON.stringify(value);
+    Cookie.set(this.key, valueToSet, options);
   }
 
   get(): T | undefined {
     const value = Cookie.get(this.key);
     if (value) {
-      return JSON.parse(value) as T;
+      return this.isString ? JSON.parse(value) : value;
     }
     return undefined;
   }
@@ -37,4 +40,4 @@ class CookieManager<T> {
  * Cookie Names & Managers
  */
 const AB_COOKIE_NAME = config.googleTagManager.ab.cookieName;
-export const ABCookieManager = new CookieManager<ABVersion>(AB_COOKIE_NAME);
+export const ABCookieManager = new CookieManager<string>(AB_COOKIE_NAME);

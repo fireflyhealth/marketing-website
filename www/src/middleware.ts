@@ -34,11 +34,12 @@ export const config = {
 
 export function middleware(req: NextRequest) {
   const pathname = req.nextUrl.pathname;
-  const abCookie = req.cookies.get(appConfig.googleTagManager.ab.cookieName);
-  const cookieValue = abCookie ? JSON.parse(abCookie.value) : null;
+  const abCookieValue = req.cookies.get(
+    appConfig.googleTagManager.ab.cookieName,
+  )?.value;
   if (
-    cookieValue &&
-    cookieValue === appConfig.googleTagManager.ab.cookieTestGroupValue
+    abCookieValue &&
+    abCookieValue === appConfig.googleTagManager.ab.cookieTestGroupValue
   ) {
     return NextResponse.rewrite(
       new URL(
