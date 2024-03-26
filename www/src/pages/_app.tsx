@@ -28,6 +28,7 @@ type Props = AppProps<{
 
 export default function App({ Component, pageProps: allPageProps }: Props) {
   const { siteSettings, navigationOverrides, ...pageProps } = allPageProps;
+  console.log('test');
 
   const globalNav = siteSettings.globalNav;
   const customPageNav = navigationOverrides?.pageNavigation;
