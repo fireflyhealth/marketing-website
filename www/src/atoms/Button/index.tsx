@@ -2,7 +2,6 @@ import React, { FC } from 'react';
 import cn from 'classnames';
 import { Link as LinkType, LinkableDocumentData, Maybe } from '@/types/sanity';
 import { Link } from '@/atoms/Link';
-import { tab } from '@testing-library/user-event/dist/cjs/setup/directApi.js';
 
 type ButtonVariant = 'primary' | 'secondary' | 'outlined' | 'textLink';
 
