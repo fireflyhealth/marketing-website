@@ -233,7 +233,7 @@ export const SlideContainer: FC<CarouselProps> = ({
     onTouchEndOrOnMouseUp: ({ event }) => {
       handleTouchOrMouseEvents(event);
     },
-    preventScrollOnSwipe: true,
+    preventScrollOnSwipe: false,
     trackMouse: true,
   });
 
