@@ -13,11 +13,12 @@ jobs:
     with:
       directory: 'www'
 
-  test-sanity:
-    name: Test Sanity
-    uses: ./.github/workflows/test-sanity.yml
-    with:
-      directory: 'sanity'
+  # TODO: This is not actually helpful until we can omit draft documents from validation.
+  # test-sanity:
+  #   name: Test Sanity
+  #   uses: ./.github/workflows/test-sanity.yml
+  #   with:
+  #     directory: 'sanity'
 
   deploy-web:
     name: Deploy Vercel
