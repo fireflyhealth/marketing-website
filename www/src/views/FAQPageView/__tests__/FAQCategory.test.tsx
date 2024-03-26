@@ -5,6 +5,7 @@ import {
   FAQSubject,
   FAQCategory as FAQCategoryType,
 } from '@/types/sanity';
+import { MockTabProvider } from 'testing/mocks/tabProviderMock';
 import { FAQCategory, SortedFAQCategory } from '../FAQCategory';
 
 const createMockQuestion = (question: string, answer: string): FAQ => ({
@@ -71,7 +72,11 @@ const mockFaqCategory: SortedFAQCategory = {
 
 describe('FAQTab', () => {
   it('should show all groups by default', async () => {
-    const { getByText } = render(<FAQCategory faqCategory={mockFaqCategory} />);
+    const { getByText } = render(
+      <MockTabProvider>
+        <FAQCategory faqCategory={mockFaqCategory} />
+      </MockTabProvider>,
+    );
     const appHeadingLabel = getByText('The app', {
       selector: 'h3',
     });
@@ -85,7 +90,9 @@ describe('FAQTab', () => {
   it('should show only show a specific group after clicking a group button', async () => {
     const user = userEvent.setup();
     const { getByText, queryByText } = render(
-      <FAQCategory faqCategory={mockFaqCategory} />,
+      <MockTabProvider>
+        <FAQCategory faqCategory={mockFaqCategory} />
+      </MockTabProvider>,
     );
     const appHeadingButton = getByText('The app', { selector: '.cta__inner' });
     const allQuestionsButton = getByText('All questions', {

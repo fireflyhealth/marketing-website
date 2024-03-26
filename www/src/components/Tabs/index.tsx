@@ -11,12 +11,12 @@ type ContextValue = {
   activeTab: string;
 };
 
-const TabContext = React.createContext<ContextValue | null>(null);
+export const TabContext = React.createContext<ContextValue | null>(null);
 
 export const useTab = () => {
   const ctx = useContext(TabContext);
   if (ctx === null) {
-    throw new Error('useTab must be within a CarouselProvider');
+    throw new Error('useTab must be within a TabProvider');
   }
   return ctx;
 };
