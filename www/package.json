@@ -37,7 +37,7 @@
     "what-input": "^5.2.12"
   },
   "devDependencies": {
-    "@next/bundle-analyzer": "^14.1.0",
+    "@next/bundle-analyzer": "^14.1.4",
     "@portabletext/types": "^2.0.8",
     "@storybook/addon-essentials": "^7.6.7",
     "@storybook/addon-interactions": "^7.6.7",
