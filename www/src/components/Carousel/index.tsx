@@ -1,4 +1,11 @@
-import React, { FC, useState, useEffect, useContext, useRef } from 'react';
+import React, {
+  FC,
+  useState,
+  useEffect,
+  useContext,
+  useRef,
+  RefObject,
+} from 'react';
 import cn from 'classnames';
 import debounce from 'lodash/debounce';
 import { useSwipeable } from 'react-swipeable';
@@ -41,6 +48,19 @@ export const useCarousel = () => {
 };
 
 /**
+ * Utils
+ */
+
+/* Calculates the maximum left amount the carousel should be allowed to
+ * be set to.
+ * This is used to prevent blank space and disable the next button */
+const getMinLeft = (innerElement: HTMLDivElement | null): number => {
+  /* If the ref is not initialized, return a dummy value. */
+  if (!innerElement || !innerElement.parentElement) return -2000;
+  return -(innerElement.offsetWidth - innerElement.parentElement.offsetWidth);
+};
+
+/**
  * Main component
  */
 type CarouselProps = WithChildren & {
@@ -50,10 +70,11 @@ type CarouselProps = WithChildren & {
 
 export const Carousel: FC<CarouselProps> = ({ children, isImageCarousel }) => {
   const slideCount = React.Children.count(children);
+  const slideInnerRef = useRef<HTMLDivElement>(null);
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
   /* The left position of the container. This should always be the edge of the active
    * slide. */
-  const [slideContainerLeft, setSlideContainerLeft] = useState(0);
+  const [desiredSlideContainerLeft, setSlideContainerLeft] = useState(0);
   /* A temporary value to add or subtract from the left while the user is
    * dragging */
   const [slideContainerDragLeft, setSlideContainerDragLeft] = useState(0);
@@ -76,11 +97,22 @@ export const Carousel: FC<CarouselProps> = ({ children, isImageCarousel }) => {
     }
   };
 
+  const minLeft = getMinLeft(slideInnerRef.current);
+  const leftIsBelowMin = desiredSlideContainerLeft < minLeft;
+  const actualSlideContainerLeft =
+    /* Constrain the desired slide container left by the minimum value
+     * to prevent over-scrolling */
+    Math.max(desiredSlideContainerLeft, minLeft) +
+    /* Add the drag value afterwards so the user can still "scoot" the
+     * container beyond the boundaries - it will snap back to the right
+     * place when they stop scrolling. */
+    slideContainerDragLeft;
+
   return (
     <CarouselContext.Provider
       value={{
         slideCount,
-        slideContainerLeft,
+        slideContainerLeft: actualSlideContainerLeft,
         setSlideContainerLeft,
         slideContainerDragLeft,
         setSlideContainerDragLeft,
@@ -90,7 +122,11 @@ export const Carousel: FC<CarouselProps> = ({ children, isImageCarousel }) => {
         goNext,
       }}
     >
-      <SlideContainer isImageCarousel={isImageCarousel}>
+      <SlideContainer
+        slideInnerRef={slideInnerRef}
+        minLeft={minLeft}
+        isImageCarousel={isImageCarousel}
+      >
         {React.Children.map(children, (child, index) => (
           <Slide slideIndex={index} isImageCarousel={isImageCarousel}>
             {child}
@@ -101,10 +137,13 @@ export const Carousel: FC<CarouselProps> = ({ children, isImageCarousel }) => {
       <div
         className={cn('pt-12', !isImageCarousel ? 'hidden md:block' : 'block')}
       >
-        <PrevButton>
+        <PrevButton disabled={currentSlideIndex === 0} goPrev={goPrev}>
           <BrandedIcon type="arrow-left" wrapperStyles="w-12" />
         </PrevButton>
-        <NextButton>
+        <NextButton
+          disabled={leftIsBelowMin || currentSlideIndex === slideCount - 1}
+          goNext={goNext}
+        >
           <BrandedIcon type="arrow-right" wrapperStyles="w-12" />
         </NextButton>
       </div>
@@ -198,8 +237,15 @@ export const Slide: FC<SlideProps> = ({
   );
 };
 
-export const SlideContainer: FC<CarouselProps> = ({
+type SlideContainerProps = CarouselProps & {
+  slideInnerRef: RefObject<HTMLDivElement>;
+  minLeft: number;
+};
+
+export const SlideContainer: FC<SlideContainerProps> = ({
   children,
+  slideInnerRef,
+  minLeft,
   isImageCarousel = false,
 }) => {
   const {
@@ -237,21 +283,24 @@ export const SlideContainer: FC<CarouselProps> = ({
     trackMouse: true,
   });
 
-  const computedLeft = slideContainerLeft + slideContainerDragLeft;
-
   return (
     <div className={cn('relative w-full', isImageCarousel ? 'h-[45vw]' : '')}>
-      {/* Slide container inner div */}
+      {/* Swipe container */}
       <div
         className={cn(
           'h-full flex flex-row',
           slideContainerDragLeft === 0 ? 'transition' : '',
           isImageCarousel ? 'absolute top-0 left-0' : '',
         )}
-        style={{ transform: `translateX(${computedLeft}px)` }}
+        style={{
+          transform: `translateX(${slideContainerLeft}px)`,
+        }}
         {...handlers}
       >
-        {children}
+        {/* Slide container inner div */}
+        <div ref={slideInnerRef} className="h-full flex flex-row">
+          {children}
+        </div>
       </div>
     </div>
   );
@@ -276,29 +325,36 @@ export const Pagination: FC = () => {
   );
 };
 
-export const PrevButton: FC<WithChildren> = ({ children }) => {
-  const { currentSlideIndex, goPrev } = useCarousel();
+type ButtonProps = WithChildren & {
+  disabled?: boolean;
+};
+type PrevButtonProps = ButtonProps & {
+  goPrev: () => void;
+};
 
+export const PrevButton: FC<PrevButtonProps> = ({
+  disabled,
+  goPrev,
+  children,
+}) => {
   return (
-    <button
-      className="element-focus"
-      disabled={currentSlideIndex === 0}
-      onClick={goPrev}
-    >
+    <button className="element-focus" disabled={disabled} onClick={goPrev}>
       {children}
     </button>
   );
 };
 
-export const NextButton: FC<WithChildren> = ({ children }) => {
-  const { currentSlideIndex, slideCount, goNext } = useCarousel();
+type NextButtonProps = ButtonProps & {
+  goNext: () => void;
+};
 
+export const NextButton: FC<NextButtonProps> = ({
+  children,
+  disabled,
+  goNext,
+}) => {
   return (
-    <button
-      className="ml-5 element-focus"
-      disabled={currentSlideIndex === slideCount - 1}
-      onClick={goNext}
-    >
+    <button className="ml-5 element-focus" disabled={disabled} onClick={goNext}>
       {children}
     </button>
   );

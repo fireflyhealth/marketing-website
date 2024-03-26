@@ -1,7 +1,7 @@
 export const Testimonial = [
   'TestimonialBlock__carousel-item relative bg-grey rounded-[10px] text-center px-8 py-12 w-full mix-blend-multiply',
-  'md:flex md:flex-col md:justify-center md:-mr-10 md:w-[648px] md:h-[468px] md:px-24 md:py-16',
-  'lg:h-[422px] lg:-mr-[38px]',
+  'md:flex md:flex-col md:justify-center md:w-[648px] md:h-[468px] md:px-24 md:py-16',
+  'lg:h-[422px]',
 ];
 
 export const Image = [
