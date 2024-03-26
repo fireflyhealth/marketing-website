@@ -169,6 +169,7 @@ export type FAQ = SanityDocument & {
   category: FAQCategory;
   question: string;
   answer: SimpleRichText;
+  slug: Slug;
 };
 
 /* Properties common to both GenericPage & SubPage */

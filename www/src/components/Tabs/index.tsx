@@ -1,10 +1,11 @@
-import React, { FC, useState, ReactNode } from 'react';
+import React, { FC, useState, ReactNode, useEffect } from 'react';
 import cn from 'classnames';
 import { Keyed, Maybe } from '@/types/sanity';
 import { TabContentWrapper, TabLabel, TabLabels } from './styles';
 
 type Tab = {
   label: string;
+  _key: string;
   children: ReactNode;
 };
 
@@ -22,11 +23,13 @@ const initialTabKeyIsValid = (
 ): boolean => {
   const tabKeys = tabs.map((tab) => tab._key);
   const isValid = tabKeys.includes(initialTabKey);
+
   if (!isValid) {
     console.error(
       `Tab key "${initialTabKey}" is invalid. Available keys: ${tabKeys.join(', ')}`,
     );
   }
+
   return isValid;
 };
 
@@ -46,11 +49,14 @@ const initialTabKeyIsValid = (
  * Read more: https://dev.to/link2twenty/accessibility-first-tabs-ken
  */
 export const Tabs: FC<TabsProps> = ({ tabs, animated, initialTabKey }) => {
-  const [activeTab, setActiveTab] = useState<string>(
-    initialTabKey && initialTabKeyIsValid(initialTabKey, tabs)
-      ? initialTabKey
-      : tabs[0]._key,
-  );
+  const [activeTab, setActiveTab] = useState<string>(tabs[0]._key);
+
+  useEffect(() => {
+    if (initialTabKey && initialTabKeyIsValid(initialTabKey, tabs)) {
+      setActiveTab(initialTabKey);
+    }
+  }, [initialTabKey]);
+
   const createTabFocusHandler = (key: string) => () => setActiveTab(key);
   const activateAndFocusTab = (tab: Keyed<Tab>) => {
     /* Update the state */
@@ -79,6 +85,7 @@ export const Tabs: FC<TabsProps> = ({ tabs, animated, initialTabKey }) => {
         return;
     }
   };
+
   return (
     <div>
       <ul role="tablist" className={cn(TabLabels)} onKeyUp={handleKeyUp}>

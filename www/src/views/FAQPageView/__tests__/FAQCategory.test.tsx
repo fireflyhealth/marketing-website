@@ -11,6 +11,7 @@ const createMockQuestion = (question: string, answer: string): FAQ => ({
   _id: question,
   _type: 'faq',
   question,
+  slug: { current: 'faq-slug' },
   subject: {} as unknown as FAQSubject,
   category: {} as unknown as FAQCategoryType,
   answer: [

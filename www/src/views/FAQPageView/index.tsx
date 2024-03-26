@@ -1,4 +1,7 @@
+'use client';
+
 import React, { FC, useMemo } from 'react';
+import { useSearchParams } from 'next/navigation';
 import {
   FAQ,
   FAQPage,
@@ -69,10 +72,22 @@ const getCategoryGroups = (faqs: FAQ[]): SortedFAQCategory[] => {
 };
 
 export const FAQPageView: FC<FAQPageViewProps> = ({ faqPage }) => {
+  const searchParams = useSearchParams();
+  const categoryParam = searchParams?.get('category');
+  const faqParam = searchParams?.get('faq');
+
   const faqCategories = useMemo(
     () => getCategoryGroups(faqPage.faqs),
     [faqPage],
   );
+
+  const initialTabKey = faqPage.faqs.find((faq) => {
+    if (categoryParam) {
+      return faq.category.slug.current === categoryParam;
+    }
+
+    return false;
+  })?.category.slug.current;
 
   return (
     <div className="p-4 md:p-12">
@@ -80,6 +95,7 @@ export const FAQPageView: FC<FAQPageViewProps> = ({ faqPage }) => {
       <h1 className="font-trust font-size-3">{faqPage.title}</h1>
       <div>
         <Tabs
+          initialTabKey={initialTabKey}
           tabs={faqCategories.map((faqCategory) => ({
             _key: faqCategory.category.slug.current,
             label: faqCategory.category.title,

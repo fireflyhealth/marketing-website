@@ -1,6 +1,87 @@
-import { defineField, defineType } from 'sanity';
+import {
+  defineField,
+  defineType,
+  useClient,
+  useFormValue,
+  SanityDocument,
+} from 'sanity';
+import { useState, useEffect } from 'react';
+
 import { icons } from '../../lib/icons';
 import { richTextToString } from '../../lib/richTextToString';
+import { API_VERSION } from '../../lib/constants';
+import { Status } from '../../lib/types';
+
+type State =
+  | {
+      status: Status.Idle;
+    }
+  | {
+      status: Status.Pending;
+    }
+  | {
+      status: Status.Fulfilled;
+      url: string;
+    }
+  | {
+      status: Status.Rejected;
+      errorMessage: string;
+    };
+
+const FaqUrlComponent = () => {
+  const [state, setState] = useState<State>({ status: Status.Idle });
+
+  const client = useClient({ apiVersion: API_VERSION });
+  const parentDocument = useFormValue([]) as SanityDocument;
+  const parentCategoryId = parentDocument.category?._ref;
+  const faqSlug = parentDocument.slug?.current;
+
+  const getUrl = async () => {
+    if (state.status === Status.Fulfilled) return;
+
+    if (!faqSlug || !parentCategoryId) {
+      setState({
+        status: Status.Rejected,
+        errorMessage: 'must have category and slug',
+      });
+    }
+
+    const category = await client.fetch(
+      '*[_type=="faqCategory" && _id == $id][0]{ slug }',
+      { id: parentCategoryId },
+    );
+    const categorySlug = category?.slug?.current;
+    const url = `https://www.fireflyhealth.com/faq?category=${categorySlug}&faq=${faqSlug}`;
+    setState({ status: Status.Fulfilled, url });
+  };
+
+  useEffect(() => {
+    getUrl();
+  }, [parentCategoryId, faqSlug]);
+
+  if (Status.Idle === state.status || Status.Pending === state.status) {
+    return <p>Loading...</p>;
+  }
+
+  if (state.status === Status.Rejected) {
+    return <p>{state.errorMessage}</p>;
+  }
+
+  const url = state?.url;
+  return (
+    <div>
+      Your URL:
+      <pre>{url}</pre>
+      <button
+        onClick={() => {
+          navigator.clipboard.writeText(url);
+        }}
+      >
+        Copy url
+      </button>
+    </div>
+  );
+};
 
 export const FrequentlyAskedQuestion = defineType({
   name: 'faq',
@@ -60,6 +141,15 @@ export const FrequentlyAskedQuestion = defineType({
       initialValue: false,
       description:
         'Enable this option if you would like to link to this question in an FAQ block, but do not want it to appear on the main FAQ page.',
+    }),
+    defineField({
+      title: 'Faq URL',
+      name: 'faqUrl',
+      fieldset: 'settings',
+      type: 'string',
+      components: {
+        input: FaqUrlComponent,
+      },
     }),
   ],
   preview: {
