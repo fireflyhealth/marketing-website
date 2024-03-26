@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, useRef, useEffect } from 'react';
 import cn from 'classnames';
 import {
   ContentBlockHeader as ContentBlockHeaderType,
@@ -6,6 +6,8 @@ import {
 } from '@/types/sanity';
 import { CTA } from '@/components/CTA';
 import { RichText } from '@/components/RichText';
+import { useUIProvider } from '@/context/UIProvider';
+import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
 import {
   HeaderWrapper,
   Title,
@@ -69,11 +71,29 @@ export const ContentBlockWrapper: FC<ContentBlockWrapperProps> = ({
   const cta = header?.cta && header?.cta?.label ? header.cta : null;
   const headerHasContent = header?.title || header?.description || cta;
 
+  const contentBlockWrapperRef = useRef<HTMLDivElement | null>(null);
+  const { setCurrentContentBlock } = useUIProvider();
+  const { isIntersecting } = useIntersectionObserver(contentBlockWrapperRef, {
+    threshold: 0.2,
+    rootMargin: '0px 0px -50% 0px',
+  });
+
+  useEffect(() => {
+    if (!contentBlockWrapperRef.current || !id) return;
+
+    if (isIntersecting && id) {
+      setCurrentContentBlock(id);
+    } else setCurrentContentBlock(null);
+  }, [isIntersecting, id, setCurrentContentBlock]);
+
   return (
     <div
+      // only add ref if content block has a corresponding subnav item
+      ref={id && contentBlockWrapperRef}
       id={id || undefined}
       className={cn(wrapperPadding ? ContentBlockContainer : '', {
         'remove-between-component-margin': removeBetweenComponentMargin,
+        'scroll-mt-16 lg:scroll-mt-7': id,
       })}
     >
       {background ? background : null}

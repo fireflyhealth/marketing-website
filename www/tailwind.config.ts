@@ -90,6 +90,9 @@ export const config: Config = {
         '72': '18rem', // 288px
         '80': '20rem', // 320px
         '96': '24rem', // 384px
+        'container-lg-padding': 'var(--container-lg-padding)',
+        'container-md-padding': 'var(--container-md-padding)',
+        'container-sm-padding': 'var(--container-sm-padding)',
       },
       backgroundImage: {
         'yellow-linear-gradient':

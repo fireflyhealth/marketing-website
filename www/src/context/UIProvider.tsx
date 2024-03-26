@@ -14,6 +14,8 @@ type UIProviderProps = {
   toggleGlobalNav: () => void;
   currentNavItem: string | null;
   setCurrentNavItem: (newNavItem: string | null) => void;
+  currentContentBlock: string | null;
+  setCurrentContentBlock: (activeContentBlock: string | null) => void;
 };
 
 export const UIContext = createContext<UIProviderProps | undefined>(undefined);
@@ -41,6 +43,11 @@ export const UIProvider: FC<PropsWithChildren> = ({ children }) => {
   /* Uses the nav item's '_key' prop as an identifier */
   const [currentNavItem, setCurrentNavItem] = useState<string | null>(null);
 
+  // set active subNav item
+  const [currentContentBlock, setCurrentContentBlock] = useState<string | null>(
+    null,
+  );
+
   return (
     <UIContext.Provider
       value={{
@@ -51,6 +58,8 @@ export const UIProvider: FC<PropsWithChildren> = ({ children }) => {
         toggleGlobalNav,
         currentNavItem,
         setCurrentNavItem,
+        currentContentBlock,
+        setCurrentContentBlock,
       }}
     >
       {children}

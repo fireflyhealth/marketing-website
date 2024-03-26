@@ -3,7 +3,6 @@ import React, { FC } from 'react';
 import { Homepage } from '@/types/sanity';
 import { ContentArea } from '@/components/contentBlocks/ContentArea';
 import { HeaderArea } from '@/components/headerContentBlocks/HeaderArea';
-import { Subnav } from '@/components/Subnav';
 import { getSubnavItems } from '@/utils/getSubnavItems';
 
 export type HomeViewProps = {
@@ -16,8 +15,7 @@ export const HomeView: FC<HomeViewProps> = ({ homepage }) => {
   return (
     <div>
       <HeaderArea block={homepage.header} />
-      <Subnav subnav={subnavItems} />
-      <ContentArea blocks={homepage.content} />
+      <ContentArea blocks={homepage.content} subNav={subnavItems} />
     </div>
   );
 };
