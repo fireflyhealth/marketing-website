@@ -1,11 +1,12 @@
 export const Wrapper = [
   'Subnav z-50 sticky top-0 pb-5 !mt-0 flex',
-  'transition-all fixed transition w-[100vw] -mx-container-sm-padding lg:-mx-container-lg-padding',
+  'transition-all fixed transition container-padding-bleed--margin-only',
   'lg:my-8 lg:justify-center lg:items-center',
 ];
 
 export const InnerWrapper = [
-  'hide-scrollbar mx-auto space-x-3 flex overflow-x-scroll px-4 md:px-12',
+  'hide-scrollbar mx-auto space-x-3 flex overflow-x-scroll',
+  'container-padding',
   'lg:space-x-[30px] lg:flex-wrap lg:items-center lg:justify-center',
 ];
 
