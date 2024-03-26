@@ -28,6 +28,7 @@ type Props = AppProps<{
 
 export default function App({ Component, pageProps: allPageProps }: Props) {
   const { siteSettings, navigationOverrides, ...pageProps } = allPageProps;
+  // eslint-disable-next-line no-console
   console.log('test');
 
   const globalNav = siteSettings.globalNav;
