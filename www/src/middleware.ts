@@ -1,6 +1,6 @@
 /* eslint-disable import/no-default-export */
 import { NextRequest, NextResponse } from 'next/server';
-import { AB_COOKIE_NAME } from './utils/storage';
+import { config as appConfig } from './config';
 
 /* TODO:
  * this is more readable but for some reason doesn't work. When
@@ -34,9 +34,12 @@ export const config = {
 
 export function middleware(req: NextRequest) {
   const pathname = req.nextUrl.pathname;
-  const abCookie = req.cookies.get(AB_COOKIE_NAME);
+  const abCookie = req.cookies.get(appConfig.googleTagManager.ab.cookieName);
   const cookieValue = abCookie ? JSON.parse(abCookie.value) : null;
-  if (cookieValue && cookieValue === 'B') {
+  if (
+    cookieValue &&
+    cookieValue === appConfig.googleTagManager.ab.cookieTestGroupValue
+  ) {
     return NextResponse.rewrite(
       new URL(
         /* Remove any trailing slashes so we don't double up */

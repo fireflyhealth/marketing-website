@@ -1,4 +1,5 @@
 import Cookie from 'js-cookie';
+import { config } from '@/config';
 
 type ABVersion = 'A' | 'B';
 
@@ -35,5 +36,5 @@ class CookieManager<T> {
 /**
  * Cookie Names & Managers
  */
-export const AB_COOKIE_NAME = 'AB_VERSION';
+const AB_COOKIE_NAME = config.googleTagManager.ab.cookieName;
 export const ABCookieManager = new CookieManager<ABVersion>(AB_COOKIE_NAME);
