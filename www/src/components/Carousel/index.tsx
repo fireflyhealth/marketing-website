@@ -262,9 +262,9 @@ export const Pagination: FC = () => {
 
   return (
     <div className="flex flex-row space-x-1 justify-center">
-      {Array.from(Array(slideCount)).map((slide, index) => (
+      {Array.from(Array(slideCount)).map((_slide, index) => (
         <button
-          key={slide}
+          key={index}
           className={cn(
             'w-[11px] h-[11px] rounded-full',
             currentSlideIndex === index ? 'bg-black' : 'bg-grey-medium',

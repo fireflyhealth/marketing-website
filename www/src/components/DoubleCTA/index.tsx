@@ -2,7 +2,7 @@ import { FC } from 'react';
 import cn from 'classnames';
 import * as SanityTypes from '@/types/sanity';
 import { CTAContainer } from './styles';
-import { LargeCtaCard } from './LargeCtaCrd';
+import { LargeCtaCard } from './LargeCtaCard';
 
 type Props = {
   doubleCta: SanityTypes.DoubleCta;
