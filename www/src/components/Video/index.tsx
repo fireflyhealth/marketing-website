@@ -59,7 +59,7 @@ export const Video: FC<Props> = ({
     const options = {
       url: video.videoLink,
       controls: true,
-      responsive: true,
+      responsive: false,
       muted: true,
       playsinline: true,
     };
