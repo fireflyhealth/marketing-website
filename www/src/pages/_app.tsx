@@ -14,6 +14,7 @@ import { config } from '@/config';
 import '../styles/fonts.css';
 import '../styles/main.css';
 import 'what-input';
+import { ABCookieManager } from '@/utils/storage';
 
 if (typeof window !== 'undefined' && process.env.NODE_ENV !== 'production') {
   const ReactDOM = require('react-dom');
@@ -28,8 +29,6 @@ type Props = AppProps<{
 
 export default function App({ Component, pageProps: allPageProps }: Props) {
   const { siteSettings, navigationOverrides, ...pageProps } = allPageProps;
-  // eslint-disable-next-line no-console
-  console.log('test');
 
   const globalNav = siteSettings.globalNav;
   const customPageNav = navigationOverrides?.pageNavigation;
@@ -81,4 +80,30 @@ export default function App({ Component, pageProps: allPageProps }: Props) {
       </Theme>
     </>
   );
+}
+
+/**
+ * Provide a utility for A/B test creators to switch their current group
+ */
+
+if (typeof window !== 'undefined') {
+  window.setABCookie = (value?: string) => {
+    if (!value) {
+      console.error('You must provide a value of "test" or "control"');
+    }
+    if (value !== 'test' && value !== 'control') {
+      console.error(`"${value}" is invalid - must be "test" or "control"`);
+    }
+    const cookieValue =
+      value === 'test'
+        ? config.googleTagManager.ab.cookieTestGroupValue
+        : config.googleTagManager.ab.cookieControlGroupValue;
+
+    ABCookieManager.set(cookieValue);
+    // eslint-disable-next-line no-console
+    console.log(`Set AB cookie to ${value}: ${cookieValue}`);
+  };
+  window.getABCookie = () =>
+    // eslint-disable-next-line no-console
+    console.log(`Current AB cookie value: ${ABCookieManager.get()}`);
 }

@@ -79,11 +79,23 @@ export const Blog = defineType({
       fieldset: 'content',
       title: 'Featured Article',
       type: 'reference',
+      readOnly: ({ document }) => {
+        if (document && document.documentVariantInfo) {
+          // @ts-ignore
+          if (Boolean(document.documentVariantInfo.variantOf)) {
+            return true;
+          }
+        }
+        return false;
+      },
       options: {
         filter: ({ document }) => {
           const documentId = document._id.replace(/^drafts\./, '');
           return {
-            filter: 'category->_id == $id',
+            filter: [
+              'category->_id == $id',
+              '&& !defined(documentVariantInfo.variantOf)',
+            ].join(''),
             params: { id: documentId },
           };
         },
@@ -94,6 +106,7 @@ export const Blog = defineType({
           /* Not required */
           const document = context.document;
           if (!value || !document) return true;
+
           /* If there is a reference, validate that it is assigned
            * to the current blog.
            *
@@ -104,6 +117,7 @@ export const Blog = defineType({
           const client = context.getClient({ apiVersion: '2024-01-01' });
           const article = await client.fetch(
             `*[_type == "blogArticle" && _id == $id]{
+              documentVariantInfo,
               category->{
                 _id,
                 title
@@ -111,11 +125,17 @@ export const Blog = defineType({
             }[0]`,
             { id: value._ref },
           );
+          const variantOf: string | undefined =
+            // @ts-ignore
+            document?.documentVariantInfo?.variantOf?._ref;
 
-          if (article.category._id !== document._id.replace(/^drafts\./, '')) {
-            return `Featured articles must be assigned to this blog. The linked article is assigned to the "${article.category.title}" blog.`;
+          if (
+            article.category._id === document._id.replace(/^drafts\./, '') ||
+            (variantOf && article.category._id === variantOf)
+          ) {
+            return true;
           }
-          return true;
+          return `Featured articles must be assigned to this blog. The linked article is assigned to the "${article.category.title}" blog.`;
         }),
     }),
 
@@ -163,11 +183,14 @@ export const Blog = defineType({
       documentVariantInfo: 'documentVariantInfo',
     },
     prepare: ({ title, documentVariantInfo }) => {
-      const fullTitle = [documentVariantInfo?.variantOf ? '🅱️' : null, title]
+      const fullTitle = [documentVariantInfo?.variantOf ? '🅱️' : '🅰️', title]
         .filter(Boolean)
         .join(' ');
 
-      return { title: fullTitle };
+      return {
+        title: documentVariantInfo ? fullTitle : title,
+        subtitle: documentVariantInfo ? '🅰️/🅱️' : undefined,
+      };
     },
   },
 });

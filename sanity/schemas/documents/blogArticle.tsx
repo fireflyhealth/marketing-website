@@ -130,6 +130,9 @@ export const BlogArticle = defineType({
       fieldset: 'categorization',
       title: 'Parent Blog',
       type: 'reference',
+      options: {
+        filter: 'defined(documentVariantInfo.variantDocument)',
+      },
       to: [{ type: 'blog' }],
       validation: (Rule) => Rule.required(),
     }),
@@ -205,12 +208,12 @@ export const BlogArticle = defineType({
       const formattedDate = formatSanityDate(publishDate || _updatedAt);
       const parentBlog = parentBlogTitle || '⚠ No parent blog';
       const subtitle = [formattedDate, parentBlog].filter(Boolean).join(' | ');
-      const fullTitle = [documentVariantInfo?.variantOf ? '🅱️' : null, title]
+      const fullTitle = [documentVariantInfo?.variantOf ? '🅱️' : '🅰️', title]
         .filter(Boolean)
         .join(' ');
       return {
-        title: fullTitle,
-        subtitle,
+        title: documentVariantInfo ? fullTitle : title,
+        subtitle: documentVariantInfo ? `🅰️/🅱️ ${subtitle}` : subtitle,
         media: thumbnail,
       };
     },

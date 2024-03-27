@@ -26,10 +26,15 @@ export const config = {
       site: 'us5.datadoghq.com',
     },
   },
+  /* TODO: Update this with Firefly's GTM Property ID and AB cookie values. */
   googleTagManager: {
-    /* TODO: Update this with Firefly's GTM Property ID.
-     * This should be undefined (or an alternate property ID)
+    /* the ID should be undefined (or an alternate property ID)
      * for staging so we do not clutter their analytics */
     id: 'GTM-NDDH54JG',
+    ab: {
+      cookieName: '_gtm_ab_experiment',
+      cookieControlGroupValue: '_gtm_ab_control',
+      cookieTestGroupValue: '_gtm_ab_test',
+    },
   },
 };

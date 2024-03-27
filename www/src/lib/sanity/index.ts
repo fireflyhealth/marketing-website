@@ -1,5 +1,5 @@
 import ImageUrlBuilder from '@sanity/image-url';
-import { createClient } from '@sanity/client';
+import { SanityReference, createClient } from '@sanity/client';
 import {
   BlogArticle,
   Blog,
@@ -27,6 +27,7 @@ import {
   ClientPageLinkData,
   PractitionerLinkData,
   Practitioner,
+  Maybe,
 } from '@/types/sanity';
 import { PAGINATION_PAGE_SIZE } from '@/constants';
 import { config } from '@/config';
@@ -40,6 +41,7 @@ import {
   notFoundPageFragment,
   siteSettingsFragment,
   providerPageFragment,
+  subPageFragment,
 } from './queries';
 import {
   blogArticleLinkDataFragment,
@@ -60,6 +62,52 @@ const SITE_SETTINGS_DOCUMENT_ID = 'siteSettings';
 const HOMEPAGE_DOCUMENT_ID = 'homepage';
 const DOWNLOAD_DOCUMENT_ID = 'downloadPage';
 
+type WithDocumentVariantInfo<T extends any = any> = T & {
+  documentVariantInfo?: Maybe<{
+    variantOf?: Maybe<SanityReference>;
+    isEnabled?: Maybe<boolean>;
+    variantDocument?: Maybe<SanityReference>;
+  }>;
+};
+
+export const getDocumentVariantId = (
+  doc: WithDocumentVariantInfo<any>,
+): string | void => doc.documentVariantInfo?.variantDocument?._ref;
+
+export type QueryConfig = {
+  preferBContent?: boolean;
+};
+
+/**
+ * Fetches the B content for a document if:
+ * - A primary document was fetched
+ * - The primary document has a documentVariant reference
+ * - config.preferBContent is true
+ *
+ * Falls back to the primary document if B content is not found.
+ */
+const withMaybeBContent = async <T extends WithDocumentVariantInfo | null>(
+  primaryDocument: T,
+  config: QueryConfig,
+  pageContentFragment: string,
+  params: Record<string, any> = {},
+): Promise<T | null> => {
+  if (!primaryDocument) return null;
+  const variantId = getDocumentVariantId(primaryDocument);
+  if (!config.preferBContent || !variantId) return primaryDocument;
+  const bDocument = await client.fetch<T>(
+    `*[
+      _id == $variantId
+      && defined(documentVariantInfo.variantOf)
+      && documentVariantInfo.isActive
+    ]{
+      ${pageContentFragment}
+    }[0]`,
+    { variantId, ...params },
+  );
+  return bDocument || primaryDocument;
+};
+
 /* Site Settings & Navigation */
 
 export const siteSettings = {
@@ -78,10 +126,20 @@ export const siteSettings = {
 
 /* Homepage */
 export const homepage = {
-  get: async (): Promise<Homepage> => {
-    const homepage = await client.fetch(
-      `*[_type == "homepage" && _id == "${HOMEPAGE_DOCUMENT_ID}"][0] {${pageFragment}}`,
+  get: async (config: QueryConfig = {}): Promise<Homepage> => {
+    const primaryHomepage =
+      await client.fetch<WithDocumentVariantInfo<Homepage> | null>(
+        `*[_type == "homepage" && _id == "${HOMEPAGE_DOCUMENT_ID}"][0] {
+        documentVariantInfo,
+        ${pageFragment}
+      }`,
+      );
+    const homepage = await withMaybeBContent(
+      primaryHomepage,
+      config,
+      pageFragment,
     );
+
     if (!homepage) {
       throw new Error('Could not fetch homepage');
     }
@@ -91,13 +149,22 @@ export const homepage = {
 
 /* Generic Pages */
 export const page = {
-  get: (slug: string): Promise<GenericPage | null> =>
-    client.fetch(
-      `*[_type == "genericPage" && slug.current == $slug][0]{${pageFragment}}`,
-      {
-        slug,
-      },
-    ),
+  get: async (
+    slug: string,
+    config: QueryConfig = {},
+  ): Promise<GenericPage | null> => {
+    const genericPage =
+      await client.fetch<WithDocumentVariantInfo<GenericPage> | null>(
+        `*[_type == "genericPage" && slug.current == $slug][0]{
+          documentVariantInfo,
+          ${pageFragment}
+        }`,
+        {
+          slug,
+        },
+      );
+    return withMaybeBContent(genericPage, config, pageFragment);
+  },
   getSlugInfo: (): Promise<GenericPage[]> =>
     client.fetch(`*[_type == "genericPage"]{
         slug,
@@ -109,40 +176,48 @@ export const subPage = {
   get: async (
     parentSlug: string,
     subpageSlug: string,
+    config: QueryConfig = {},
   ): Promise<SubPage | null> => {
-    const subpage = await client.fetch(
+    const params = { parentSlug, subpageSlug };
+    const subPage = await client.fetch<WithDocumentVariantInfo<SubPage> | null>(
       `*[_type == "subPage"
-            && slug.current == $subpageSlug
-          ]{
-            ${pageFragment},
-            "parentPage": *[
-              _type == "genericPage"
-              && slug.current == $parentSlug
-              && ^._id in subPages[]._ref
-            ] {
-              slug,
-            }[0],
-          }[parentPage != null][0]`,
-
-      { parentSlug, subpageSlug },
+          && slug.current == $subpageSlug
+        ]{
+          documentVariantInfo,
+          ${subPageFragment},
+       }[parentPage != null][0]`,
+      params,
     );
-    return subpage || null;
+    return withMaybeBContent(subPage, config, subPageFragment, params);
   },
 };
 
 /* Special pages */
 export const downloadPage = {
-  get: (): Promise<DownloadPage | null> =>
-    client.fetch(
-      `*[_type == "downloadPage" && _id == "${DOWNLOAD_DOCUMENT_ID}"][0]{${downloadPageFragment}}`,
-    ),
+  get: async (config: QueryConfig = {}): Promise<DownloadPage | null> => {
+    const downloadPage =
+      await client.fetch<WithDocumentVariantInfo<DownloadPage> | null>(
+        `*[_type == "downloadPage" && _id == "${DOWNLOAD_DOCUMENT_ID}"][0]{
+        documentVariantInfo,
+        ${downloadPageFragment}
+      }`,
+      );
+
+    return withMaybeBContent(downloadPage, config, downloadPageFragment);
+  },
 };
 
 export const contactPage = {
-  get: (): Promise<ContactPage | null> =>
-    client.fetch(
-      `*[_type == "contactPage" && _id == "contactPage"][0]{${contactPageFragment}}`,
-    ),
+  get: async (config: QueryConfig = {}): Promise<ContactPage | null> => {
+    const contactPage =
+      await client.fetch<WithDocumentVariantInfo<ContactPage> | null>(
+        `*[_type == "contactPage" && _id == "contactPage"][0]{
+          documentVariantInfo,
+          ${contactPageFragment}
+        }`,
+      );
+    return withMaybeBContent(contactPage, config, contactPageFragment);
+  },
 };
 
 export const notFoundPage = {
@@ -161,13 +236,22 @@ export const faqPage = {
 
 /* Client Page */
 export const clientPage = {
-  get: (clientSlug: string): Promise<ClientPage | null> =>
-    client.fetch(
-      `*[_type == "clientPage" && slug.current == $clientSlug][0]{${pageFragment}}`,
-      {
-        clientSlug,
-      },
-    ),
+  get: async (
+    clientSlug: string,
+    config: QueryConfig = {},
+  ): Promise<ClientPage | null> => {
+    const clientPage =
+      await client.fetch<WithDocumentVariantInfo<ClientPage> | null>(
+        `*[_type == "clientPage" && slug.current == $clientSlug][0]{
+        documentVariantInfo,
+        ${pageFragment}
+      }`,
+        {
+          clientSlug,
+        },
+      );
+    return withMaybeBContent(clientPage, config, pageFragment);
+  },
   getSlugInfo: (): Promise<GenericPage[]> =>
     client.fetch(`*[_type == "clientPage"]{
         slug,
@@ -177,13 +261,22 @@ export const clientPage = {
 /* Blogs */
 
 export const blog = {
-  get: (blogSlug: string): Promise<Blog | null> =>
-    client.fetch(
-      `*[_type == "blog" && slug.current == $blogSlug][0]{${blogFragment}}`,
+  get: async (
+    blogSlug: string,
+    config: QueryConfig = {},
+  ): Promise<Blog | null> => {
+    const blog = await client.fetch<WithDocumentVariantInfo<Blog> | null>(
+      `*[_type == "blog" && slug.current == $blogSlug][0]{
+        documentVariantInfo,
+        ${blogFragment}
+      }`,
       {
         blogSlug,
       },
-    ),
+    );
+    return withMaybeBContent(blog, config, blogFragment);
+  },
+
   getSlugInfo: (): Promise<BlogWithArticles[]> =>
     client.fetch(
       `*[_type == "blog"]{
@@ -229,16 +322,22 @@ export const blog = {
   getArticle: async (
     blogSlug: string,
     articleSlug: string,
+    config: QueryConfig = {},
   ): Promise<BlogArticle | null> => {
-    const article = await client.fetch(
-      `*[
+    const params = { blogSlug, articleSlug };
+    const article =
+      await client.fetch<WithDocumentVariantInfo<BlogArticle> | null>(
+        `*[
           _type == "blogArticle"
           && slug.current == $articleSlug
           && defined(category._ref)
-        ]{${blogArticleFragment}}[category.slug.current == $blogSlug][0]`,
-      { blogSlug, articleSlug },
-    );
-    return article || null;
+        ]{
+          documentVariantInfo,
+          ${blogArticleFragment}
+        }[category.slug.current == $blogSlug][0]`,
+        params,
+      );
+    return withMaybeBContent(article, config, blogArticleFragment);
   },
 };
 
@@ -246,13 +345,27 @@ export const blog = {
 export const providerPage = {
   /* (production) do not fetch slugs for practitioners that should not render a provider page */
   /* (preview) fetch all practitioners wether or not they should render a provider page - see preview queries 'src/lib/sanity/previews' */
-  get: (practitionerSlug: string): Promise<Practitioner | null> =>
-    client.fetch(
-      `*[_type == "practitioner" && slug.current == $practitionerSlug && renderProviderPage != false][0]{${providerPageFragment}}`,
-      {
-        practitionerSlug,
-      },
-    ),
+  get: async (
+    practitionerSlug: string,
+    config: QueryConfig = {},
+  ): Promise<Practitioner | null> => {
+    const provider =
+      await client.fetch<WithDocumentVariantInfo<Practitioner> | null>(
+        `*[
+          _type == "practitioner"
+          && slug.current == $practitionerSlug
+          && renderProviderPage != false
+        ][0]{
+          documentVariantInfo,
+          ${providerPageFragment}
+        }`,
+        {
+          practitionerSlug,
+        },
+      );
+
+    return withMaybeBContent(provider, config, blogArticleFragment);
+  },
   getSlugInfo: (): Promise<Practitioner[]> =>
     client.fetch(`*[_type == "practitioner"]{
         slug,

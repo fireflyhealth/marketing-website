@@ -169,13 +169,16 @@ export const Practitioner = defineType({
       qualifications,
       headshot,
     }) => {
-      const fullTitle = [documentVariantInfo?.variantOf ? '🅱️' : null, name]
+      const fullTitle = [documentVariantInfo?.variantOf ? '🅱️' : '🅰️', name]
         .filter(Boolean)
         .join(' ');
 
       return {
-        title: fullTitle,
-        subtitle: [title, qualifications].filter(Boolean).join(' | '),
+        title: documentVariantInfo ? fullTitle : name,
+        subtitle: [
+          documentVariantInfo ? '🅰️/🅱️' : undefined,
+          [title, qualifications].filter(Boolean).join(' | '),
+        ].join(' '),
         media: headshot,
       };
     },

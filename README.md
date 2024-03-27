@@ -29,13 +29,32 @@ To learn more about Next.js, take a look at the following resources:
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
+## Hosting & Deployment
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Deploying to Production
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+The main branch will be connected to staging site, and production branch will be connected to production site.
+When you push the main branch to production branch, it will trigger build for production. Please make sure to check main (staging site) so that we are not pushing any bug to the production site.
 
-## Branch Naming Convention
+```
+  git checkout main
+  git pull origin main
+  git checkout production
+  git merge main
+  git push origin/production
+```
+
+Alternatively, make & merge a pull request from `main` to `production`.
+
+## Features
+
+### A/B Testing
+
+Sanity and the Next.js app are configured for A/B testing. Read how this works in the [A/B Testing Readme](./docs/ABTesting.md)
+
+## Development
+
+### Branch Naming Convention
 
 Branch names should follow the category, reference, description convention (`<cagtegory/reference/description-in-kebab-case>`)
 
@@ -50,7 +69,7 @@ Reference: reference of the issue/ticket. If there is no reference, just add `no
 
 Description: description the sums up the issue/ticket in kebab case. The title of the ticket should suffice in most cases.
 
-## Commit Naming Convention
+### Commit Naming Convention
 
 We follow the Conventional Commits convention when writing commit messages ([https://www.conventionalcommits.org/en/v1.0.0/#summary]). Adhering to these commit conventions gives clarity for peer reviews as well as automated github releases that we create to capture changes to the codebase once a week.
 
@@ -61,16 +80,3 @@ Overview:
 - BREAKING CHANGE: a commit that has a footer `BREAKING CHANGE`:, or appends a ! after the type/scope, introduces a breaking API change (correlating with MAJOR in Semantic Versioning). A BREAKING CHANGE can be part of commits of any type.
 - types other than `fix:` and `feat:` are allowed, for example @commitlint/config-conventional (based on the Angular convention) recommends `build:`, `chore:`, `ci:`, `docs:`, `style:`, `refactor:`, `perf:`, `test:`, and others.
 - footers other than `BREAKING CHANGE: <description>` may be provided and follow a convention similar to git trailer format.
-
-## Release
-
-The main branch will be connected to staging site, and production branch will be connected to production site.
-When you push the main branch to production branch, it will trigger build for production. Please make sure to check main (staging site) so that we are not pushing any bug to the production site.
-
-```
-  git checkout main
-  git pull origin main
-  git checkout production
-  git merge main
-  git push origin/production
-```

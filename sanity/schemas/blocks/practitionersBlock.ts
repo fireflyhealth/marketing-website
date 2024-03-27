@@ -12,7 +12,15 @@ export const PractitionersBlock = defineType({
     defineField({
       name: 'practitioners',
       type: 'array',
-      of: [{ type: 'reference', to: [{ type: 'practitioner' }] }],
+      of: [
+        {
+          type: 'reference',
+          to: [{ type: 'practitioner' }],
+          options: {
+            filter: '!defined(documentVariantInfo.variantOf)',
+          },
+        },
+      ],
       validation: (Rule) => Rule.required().min(1),
     }),
   ],

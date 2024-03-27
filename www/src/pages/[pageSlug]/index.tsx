@@ -8,12 +8,13 @@ import { GenericPage } from '@/types/sanity';
 import * as Sanity from '@/lib/sanity';
 import { PageView } from '@/views/PageView';
 import { PageMetadata } from '@/components/Metadata/PageMetadata';
+import { QueryConfig } from '@/lib/sanity';
 
 export type PageProps = CommonPageProps & {
   page: GenericPage;
 };
 
-type PageParams = {
+export type PageParams = {
   pageSlug: string;
 };
 
@@ -26,37 +27,39 @@ const Page: FC<PageProps> = ({ page }) => {
   );
 };
 
-export const getStaticProps: GetStaticProps<PageProps, PageParams> = async ({
-  params,
-}) => {
-  const pageSlug = params?.pageSlug;
-  if (!pageSlug || typeof pageSlug !== 'string') {
-    /* This will never happen, but keeps typescript happy */
-    throw new Error('pageSlug param is not a string');
-  }
+export const createGetStaticProps =
+  (config?: QueryConfig): GetStaticProps<PageProps, PageParams> =>
+  async ({ params }) => {
+    const pageSlug = params?.pageSlug;
+    if (!pageSlug || typeof pageSlug !== 'string') {
+      /* This will never happen, but keeps typescript happy */
+      throw new Error('pageSlug param is not a string');
+    }
 
-  const [siteSettings, page] = await Promise.all([
-    Sanity.siteSettings.get(),
-    Sanity.page.get(pageSlug),
-  ]);
+    const [siteSettings, page] = await Promise.all([
+      Sanity.siteSettings.get(),
+      Sanity.page.get(pageSlug, config),
+    ]);
 
-  const navigationOverrides = page?.navigationOverrides;
+    const navigationOverrides = page?.navigationOverrides;
 
-  if (!page) {
+    if (!page) {
+      return {
+        notFound: true,
+      };
+    }
+
     return {
-      notFound: true,
+      props: {
+        page,
+        siteSettings,
+        navigationOverrides: navigationOverrides || null,
+      },
+      revalidate: RevalidationTime.Medium,
     };
-  }
-
-  return {
-    props: {
-      page,
-      siteSettings,
-      navigationOverrides: navigationOverrides || null,
-    },
-    revalidate: RevalidationTime.Medium,
   };
-};
+
+export const getStaticProps = createGetStaticProps();
 
 export const getStaticPaths: GetStaticPaths<PageParams> = async () => {
   const pages = await Sanity.page.getSlugInfo();

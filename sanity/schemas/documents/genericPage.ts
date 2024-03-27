@@ -165,6 +165,9 @@ export const GenericPage = defineType({
       of: [
         defineArrayMember({
           type: 'reference',
+          options: {
+            filter: '!defined(documentVariantInfo.variantOf)',
+          },
           to: [{ type: SubPage.name }],
           validation: (Rule) =>
             Rule.custom(async (value, context) => {
@@ -201,11 +204,14 @@ export const GenericPage = defineType({
   preview: {
     select: { title: 'title', documentVariantInfo: 'documentVariantInfo' },
     prepare: ({ documentVariantInfo, title }) => {
-      const fullTitle = [documentVariantInfo?.variantOf ? '🅱️' : null, title]
+      const fullTitle = [documentVariantInfo?.variantOf ? '🅱️' : '🅰️', title]
         .filter(Boolean)
         .join(' ');
 
-      return { title: fullTitle };
+      return {
+        title: documentVariantInfo ? fullTitle : title,
+        subtitle: documentVariantInfo ? '🅰️/🅱️' : undefined,
+      };
     },
   },
 });

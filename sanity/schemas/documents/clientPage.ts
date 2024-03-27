@@ -68,11 +68,17 @@ export const ClientPage = defineType({
       documentVariantInfo: 'documentVariantInfo',
     },
     prepare: ({ clientName, documentVariantInfo }) => {
-      const title = [documentVariantInfo?.variantOf ? '🅱️' : null, clientName]
+      const fullTitle = [
+        documentVariantInfo?.variantOf ? '🅱️' : '🅰️',
+        clientName,
+      ]
         .filter(Boolean)
         .join(' ');
 
-      return { title };
+      return {
+        title: documentVariantInfo ? fullTitle : clientName,
+        subtitle: documentVariantInfo ? '🅰️/🅱️' : undefined,
+      };
     },
   },
 });

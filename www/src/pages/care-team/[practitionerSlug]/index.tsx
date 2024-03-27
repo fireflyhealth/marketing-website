@@ -8,6 +8,7 @@ import * as Sanity from '@/lib/sanity';
 import { LinkableDocumentData, Practitioner } from '@/types/sanity';
 import { PageMetadata } from '@/components/Metadata/ProviderMetadata';
 import { ProviderPageView } from '@/views/ProviderView';
+import { QueryConfig } from '@/lib/sanity';
 
 type ProviderPageProps = PageProps & {
   practitioner: Practitioner;
@@ -33,34 +34,35 @@ type PageParams = {
   practitionerSlug: string;
 };
 
-export const getStaticProps: GetStaticProps<
-  ProviderPageProps,
-  PageParams
-> = async ({ params }) => {
-  const practitionerSlug = params?.practitionerSlug;
-  if (!practitionerSlug || typeof practitionerSlug !== 'string') {
-    /* This will never happen, but keeps typescript happy */
-    throw new Error('practitionerSlug param is not a string');
-  }
-  const [siteSettings, practitioner] = await Promise.all([
-    Sanity.siteSettings.get(),
-    Sanity.providerPage.get(practitionerSlug),
-  ]);
+export const createGetStaticProps =
+  (config?: QueryConfig): GetStaticProps<ProviderPageProps, PageParams> =>
+  async ({ params }) => {
+    const practitionerSlug = params?.practitionerSlug;
+    if (!practitionerSlug || typeof practitionerSlug !== 'string') {
+      /* This will never happen, but keeps typescript happy */
+      throw new Error('practitionerSlug param is not a string');
+    }
+    const [siteSettings, practitioner] = await Promise.all([
+      Sanity.siteSettings.get(),
+      Sanity.providerPage.get(practitionerSlug, config),
+    ]);
 
-  const allProvidersBackLink = siteSettings.allProvidersBackLink;
+    const allProvidersBackLink = siteSettings.allProvidersBackLink;
 
-  if (!practitioner) {
-    return { notFound: true };
-  }
-  return {
-    props: {
-      practitioner,
-      allProvidersBackLink,
-      siteSettings,
-    },
-    revalidate: RevalidationTime.Medium,
+    if (!practitioner) {
+      return { notFound: true };
+    }
+    return {
+      props: {
+        practitioner,
+        allProvidersBackLink,
+        siteSettings,
+      },
+      revalidate: RevalidationTime.Medium,
+    };
   };
-};
+
+export const getStaticProps = createGetStaticProps();
 
 export const getStaticPaths: GetStaticPaths<PageParams> = async () => {
   const providerPages = await Sanity.providerPage.getSlugInfo();

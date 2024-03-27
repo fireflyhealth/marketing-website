@@ -4,10 +4,11 @@ import { GetStaticProps, GetStaticPaths } from 'next';
 import { PageProps } from '@/types/next';
 import { RevalidationTime } from '@/constants';
 
-import { Blog, BlogArticle, BlogWithArticles } from '@/types/sanity';
+import { BlogArticle, BlogWithArticles } from '@/types/sanity';
 import * as Sanity from '@/lib/sanity';
 import { BlogArticleView } from '@/views/BlogArticleView/BlogArticleView';
 import { BlogArticleMetadata } from '@/components/Metadata/BlogArticleMetadata';
+import { QueryConfig } from '@/lib/sanity';
 
 export type BlogPageProps = PageProps & {
   article: BlogArticle;
@@ -27,40 +28,41 @@ const Page: FC<BlogPageProps> = ({ article }) => {
   );
 };
 
-export const getStaticProps: GetStaticProps<
-  BlogPageProps,
-  PageParams
-> = async ({ params }) => {
-  const blogSlug = params?.blogSlug;
-  const articleSlug = params?.articleSlug;
-  if (!blogSlug || typeof blogSlug !== 'string') {
-    /* This will never happen, but keeps typescript happy */
-    throw new Error('blogSlug param is not a string');
-  }
+export const createGetStaticProps =
+  (config?: QueryConfig): GetStaticProps<BlogPageProps, PageParams> =>
+  async ({ params }) => {
+    const blogSlug = params?.blogSlug;
+    const articleSlug = params?.articleSlug;
+    if (!blogSlug || typeof blogSlug !== 'string') {
+      /* This will never happen, but keeps typescript happy */
+      throw new Error('blogSlug param is not a string');
+    }
 
-  if (!articleSlug || typeof articleSlug !== 'string') {
-    /* This will never happen, but keeps typescript happy */
-    throw new Error('articleSlug param is not a string');
-  }
-  const [siteSettings, article] = await Promise.all([
-    Sanity.siteSettings.get(),
-    Sanity.blog.getArticle(blogSlug, articleSlug),
-  ]);
+    if (!articleSlug || typeof articleSlug !== 'string') {
+      /* This will never happen, but keeps typescript happy */
+      throw new Error('articleSlug param is not a string');
+    }
+    const [siteSettings, article] = await Promise.all([
+      Sanity.siteSettings.get(),
+      Sanity.blog.getArticle(blogSlug, articleSlug, config),
+    ]);
 
-  const navigationOverrides = article?.navigationOverrides;
+    const navigationOverrides = article?.navigationOverrides;
 
-  if (!article) {
-    return { notFound: true };
-  }
-  return {
-    props: {
-      article,
-      siteSettings,
-      navigationOverrides: navigationOverrides || null,
-    },
-    revalidate: RevalidationTime.Medium,
+    if (!article) {
+      return { notFound: true };
+    }
+    return {
+      props: {
+        article,
+        siteSettings,
+        navigationOverrides: navigationOverrides || null,
+      },
+      revalidate: RevalidationTime.Medium,
+    };
   };
-};
+
+export const getStaticProps = createGetStaticProps();
 
 const getSlugParams = (blogs: BlogWithArticles[]): PageParams[] =>
   blogs.reduce<PageParams[]>((slugInfoArray, blog) => {
