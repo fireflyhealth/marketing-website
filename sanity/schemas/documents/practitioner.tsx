@@ -88,8 +88,8 @@ export const Practitioner = defineType({
       hidden: ({ parent }) => !parent.renderProviderPage,
       validation: (Rule) =>
         Rule.custom((value, context) => {
-          // @ts-ignore
           if (
+            // @ts-ignore
             context?.parent?.renderProviderPage === true &&
             value === undefined
           ) {
@@ -138,9 +138,10 @@ export const Practitioner = defineType({
       hidden: ({ parent }) => !parent.renderProviderPage,
       validation: (Rule) =>
         Rule.custom((value, context) => {
-          // @ts-ignore
           if (
+            // @ts-ignore
             context?.parent?.renderProviderPage === true &&
+            // @ts-ignore
             value.length < 1
           ) {
             return 'Language(s) is required (minimum 1).';
