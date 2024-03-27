@@ -339,7 +339,12 @@ export const PrevButton: FC<PrevButtonProps> = ({
   children,
 }) => {
   return (
-    <button className="element-focus" disabled={disabled} onClick={goPrev}>
+    <button
+      className="element-focus"
+      disabled={disabled}
+      onClick={goPrev}
+      aria-label="Go to previous slide"
+    >
       {children}
     </button>
   );
@@ -355,7 +360,12 @@ export const NextButton: FC<NextButtonProps> = ({
   goNext,
 }) => {
   return (
-    <button className="ml-5 element-focus" disabled={disabled} onClick={goNext}>
+    <button
+      className="ml-5 element-focus"
+      disabled={disabled}
+      onClick={goNext}
+      aria-label="Go to next slide"
+    >
       {children}
     </button>
   );

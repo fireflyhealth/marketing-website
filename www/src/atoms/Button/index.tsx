@@ -18,7 +18,6 @@ export type ButtonProps = {
   bgColorOverride?: string;
   width?: 'auto' | 'full';
   ariaSelected?: boolean;
-  tabIndex?: number | undefined;
 } & (
   | {
       /* aria-selected can only be applied to elements with the
@@ -49,7 +48,6 @@ export const Button: FC<ButtonProps> = ({
   role,
   bgColorOverride,
   width = 'full',
-  tabIndex,
 }) => {
   return (
     <div
@@ -75,7 +73,6 @@ export const Button: FC<ButtonProps> = ({
         id={id}
         onClick={onClick}
         disabled={disabled}
-        tabIndex={tabIndex || undefined}
       >
         <div className="cta__inner">{label}</div>
       </button>

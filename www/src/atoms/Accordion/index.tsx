@@ -15,7 +15,6 @@ export const Accordion: FC<AccordionProps> = ({
   title,
   children,
   isOpen: parentIsOpen,
-  isFocusable,
 }) => {
   const innerContentRef = useRef<HTMLDivElement>(null);
   const windowDimensions = useWindowDimensions();
@@ -68,7 +67,6 @@ export const Accordion: FC<AccordionProps> = ({
         aria-expanded={isOpen}
         onClick={toggleOpen}
         className={cn(TitleWrapper, 'element-focus py-4 -mt-4 -mb-4')}
-        tabIndex={isFocusable ? 0 : -1}
       >
         <span className="pr-4">{title}</span>
         <div>
@@ -88,6 +86,7 @@ export const Accordion: FC<AccordionProps> = ({
            * wrapping div, animating from 0px to <some-number>px. */
           height: expandedContentHeight,
         }}
+        {...{ inert: isOpen ? undefined : '' }}
       >
         <div
           ref={innerContentRef}

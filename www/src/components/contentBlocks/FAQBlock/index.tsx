@@ -53,7 +53,7 @@ export const FAQBlock: FC<FAQBlockProps> = ({ faqBlock }) => {
             <div className={cn(FAQListWrapper)}>
               {faqs.map((faq) => (
                 <div key={faq._id} className={cn(FAQListItem)}>
-                  <Accordion title={faq.question} isFocusable>
+                  <Accordion title={faq.question}>
                     <RichText content={faq.answer} className="font-size-8" />
                   </Accordion>
                 </div>

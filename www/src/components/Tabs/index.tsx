@@ -1,25 +1,7 @@
-import React, { FC, useState, ReactNode, useContext, useEffect } from 'react';
+import React, { FC, useState, ReactNode, useEffect } from 'react';
 import cn from 'classnames';
 import { Keyed, Maybe } from '@/types/sanity';
 import { TabContentWrapper, TabLabel, TabLabels } from './styles';
-
-/**
- * Context
- */
-
-type ContextValue = {
-  activeTab: string;
-};
-
-export const TabContext = React.createContext<ContextValue | null>(null);
-
-export const useTab = () => {
-  const ctx = useContext(TabContext);
-  if (ctx === null) {
-    throw new Error('useTab must be within a TabProvider');
-  }
-  return ctx;
-};
 
 type Tab = {
   label: string;
@@ -105,54 +87,53 @@ export const Tabs: FC<TabsProps> = ({ tabs, animated, initialTabKey }) => {
   };
 
   return (
-    <TabContext.Provider value={{ activeTab: activeTab }}>
-      <div>
-        <ul role="tablist" className={cn(TabLabels)} onKeyUp={handleKeyUp}>
-          {tabs.map((tab) => (
-            <li
-              key={tab._key}
-              role="presentation"
-              className={cn(
-                TabLabel,
-                tab._key === activeTab
-                  ? 'theme-text-color-primary border-b'
-                  : 'theme-text-color-secondary',
-              )}
+    <div>
+      <ul role="tablist" className={cn(TabLabels)} onKeyUp={handleKeyUp}>
+        {tabs.map((tab) => (
+          <li
+            key={tab._key}
+            role="presentation"
+            className={cn(
+              TabLabel,
+              tab._key === activeTab
+                ? 'theme-text-color-primary border-b'
+                : 'theme-text-color-secondary',
+            )}
+          >
+            <button
+              onClick={createTabFocusHandler(tab._key)}
+              role="tab"
+              id={getTabId(tab)}
+              aria-controls={tab._key}
+              aria-selected={tab._key === activeTab}
+              tabIndex={0}
+              className="icon-link"
             >
-              <button
-                onClick={createTabFocusHandler(tab._key)}
-                role="tab"
-                id={getTabId(tab)}
-                aria-controls={tab._key}
-                aria-selected={tab._key === activeTab}
-                tabIndex={0}
-                className="icon-link"
-              >
-                {tab.label}
-              </button>
-            </li>
-          ))}
-        </ul>
-        <div className="relative">
-          {tabs.map((tab) => (
-            <div
-              key={tab._key}
-              aria-hidden={tab._key !== activeTab}
-              role="tabpanel"
-              id={tab._key}
-              tabIndex={tab._key === activeTab ? 0 : -1}
-              className={cn(
-                'fadeUpElement element-focus',
-                TabContentWrapper,
-                animated ? 'fadeUpElement--animated' : '',
-                tab._key !== activeTab ? 'fadeUpElement--inactive' : '',
-              )}
-            >
-              {tab.children}
-            </div>
-          ))}
-        </div>
+              {tab.label}
+            </button>
+          </li>
+        ))}
+      </ul>
+      <div className="relative">
+        {tabs.map((tab) => (
+          <div
+            key={tab._key}
+            aria-hidden={tab._key !== activeTab}
+            role="tabpanel"
+            id={tab._key}
+            {...{ inert: tab._key !== activeTab ? '' : undefined }}
+            tabIndex={tab._key === activeTab ? 0 : -1}
+            className={cn(
+              'fadeUpElement element-focus',
+              TabContentWrapper,
+              animated ? 'fadeUpElement--animated' : '',
+              tab._key !== activeTab ? 'fadeUpElement--inactive' : '',
+            )}
+          >
+            {tab.children}
+          </div>
+        ))}
       </div>
-    </TabContext.Provider>
+    </div>
   );
 };

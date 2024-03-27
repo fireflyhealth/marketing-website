@@ -6,7 +6,6 @@ import cn from 'classnames';
 import { FAQCategory as FAQCategoryDocument } from '@/types/sanity';
 import { Button } from '@/atoms/Button';
 import { slugify } from '@/utils/text';
-import { useTab } from '@/components/Tabs';
 import {
   FAQCategoryButtons,
   FAQCategorySubjects,
@@ -31,8 +30,6 @@ export const FAQCategory: FC<FAQCategoryProps> = ({ faqCategory }) => {
   const subjectParam = searchParams?.get('subject');
 
   const { category, subjects } = faqCategory;
-
-  const { activeTab } = useTab();
 
   /* 'all' or a subject slug */
   const [activeSubject, setActiveSubject] = useState<string>('all');
@@ -70,7 +67,6 @@ export const FAQCategory: FC<FAQCategoryProps> = ({ faqCategory }) => {
             id={getButtonId(category.title, 'All questions')}
             width="auto"
             label="All questions"
-            tabIndex={category.slug.current === activeTab ? 0 : -1}
           />
         </div>
         {subjects.map((faqSubject) => (
@@ -86,7 +82,6 @@ export const FAQCategory: FC<FAQCategoryProps> = ({ faqCategory }) => {
               )}
               id={getButtonId(category.title, faqSubject.subject.title)}
               label={faqSubject.subject.title}
-              tabIndex={category.slug.current === activeTab ? 0 : -1}
             />
           </div>
         ))}
