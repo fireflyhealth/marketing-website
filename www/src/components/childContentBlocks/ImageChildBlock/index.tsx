@@ -5,10 +5,12 @@ import { SanityImage } from '@/atoms/Image/SanityImage';
 
 type ImageChildBlockProps = {
   imageChildBlock: ImageChildBlockType;
+  imagePriority?: boolean;
 };
 
 export const ImageChildBlock: FC<ImageChildBlockProps> = ({
   imageChildBlock,
+  imagePriority,
 }) => {
   const { image } = imageChildBlock;
   return (
@@ -17,6 +19,7 @@ export const ImageChildBlock: FC<ImageChildBlockProps> = ({
       image={image}
       rounded={false}
       className={cn('rounded-2xl')}
+      priority={imagePriority}
     />
   );
 };

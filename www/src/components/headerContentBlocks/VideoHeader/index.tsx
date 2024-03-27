@@ -20,6 +20,7 @@ export const VideoHeader: FC<Props> = ({ videoHeader }) => {
           posterSizes={['93vw']}
           showTitleCard
           titleCardProps={{ eyebrow, heading, body }}
+          posterImagePriority={true}
         />
       </div>
     </Theme>

@@ -7,10 +7,12 @@ import { BrandedIcon } from '@/svgs/BrandedIcon';
 
 type RichTextChildBlockProps = {
   richTextChildBlock: RichTextChildBlockType;
+  imagePriority?: boolean;
 };
 
 export const RichTextChildBlock: FC<RichTextChildBlockProps> = ({
   richTextChildBlock,
+  imagePriority,
 }) => {
   const { body, alignCenter, icon, heading, headingFontSize, image } =
     richTextChildBlock;
@@ -25,7 +27,12 @@ export const RichTextChildBlock: FC<RichTextChildBlockProps> = ({
       ) : null}
       {image ? (
         <div className="pb-5 md:pb-6">
-          <SanityImage width={120} image={image} sizes={['120px']} />
+          <SanityImage
+            width={120}
+            image={image}
+            sizes={['120px']}
+            priority={imagePriority}
+          />
         </div>
       ) : null}
       {heading ? (

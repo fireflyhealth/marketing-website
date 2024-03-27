@@ -54,9 +54,14 @@ const StoreImageLink: FC<{
 type QRCodeProps = {
   qrCode: QrCodeObject;
   smallLabelSize?: boolean;
+  imagePriority?: boolean;
 };
 
-export const QRCode: FC<QRCodeProps> = ({ qrCode, smallLabelSize }) => {
+export const QRCode: FC<QRCodeProps> = ({
+  qrCode,
+  smallLabelSize,
+  imagePriority,
+}) => {
   return (
     <div className={cn(QrCodeWrapper)}>
       {qrCode.qrCodeImage && (
@@ -64,6 +69,7 @@ export const QRCode: FC<QRCodeProps> = ({ qrCode, smallLabelSize }) => {
           className={cn(QrCodeImage)}
           image={qrCode.qrCodeImage}
           sizes="30vw"
+          priority={imagePriority}
         />
       )}
       {qrCode.text && (

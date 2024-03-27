@@ -7,10 +7,12 @@ import { Wrapper, Heading, Body } from './styles';
 
 type HeaderQrCodeChildBlockProps = {
   headerQrCodeChildBlock: HeaderQrCodeChildBlockType;
+  imagePriority?: boolean;
 };
 
 export const HeaderQrCodeChildBlock: FC<HeaderQrCodeChildBlockProps> = ({
   headerQrCodeChildBlock,
+  imagePriority,
 }) => {
   const { heading, body, qrCode } = headerQrCodeChildBlock;
 
@@ -18,7 +20,7 @@ export const HeaderQrCodeChildBlock: FC<HeaderQrCodeChildBlockProps> = ({
     <div className={cn(Wrapper)}>
       <h1 className={cn(Heading)}>{heading}</h1>
       {body && <RichText className={cn(Body)} content={body} />}
-      <QRCode qrCode={qrCode} />
+      <QRCode qrCode={qrCode} imagePriority={imagePriority} />
     </div>
   );
 };

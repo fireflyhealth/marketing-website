@@ -8,15 +8,17 @@ import { CardTitle, CardWrapper, CardBody, CardCta } from './styles';
 
 type CTACardProps = {
   ctaCard: CTACardType;
+  imagePriority?: boolean;
 };
 
-export const CTACard: FC<CTACardProps> = ({ ctaCard }) => {
+export const CTACard: FC<CTACardProps> = ({ ctaCard, imagePriority }) => {
   return (
     <div className={cn(CardWrapper)}>
       <SanityImage
         aspectRatio={1}
         sizes={['100vw', '50vw', '35vw']}
         image={ctaCard.image}
+        priority={imagePriority}
       />
       <div className="flex-grow flex flex-col justify-between">
         <div>

@@ -15,10 +15,12 @@ import {
 
 type HeaderContentChildBlockProps = {
   headerContentChildBlock: HeaderContentChildBlockType;
+  imagePriority?: boolean;
 };
 
 export const HeaderContentChildBlock: FC<HeaderContentChildBlockProps> = ({
   headerContentChildBlock,
+  imagePriority,
 }) => {
   const { eyebrow, eyebrowImage, heading, body, cta, size } =
     headerContentChildBlock;
@@ -35,6 +37,7 @@ export const HeaderContentChildBlock: FC<HeaderContentChildBlockProps> = ({
           className={cn(EyebrowImage)}
           image={eyebrowImage}
           sizes={['30vw', '70vw']}
+          priority={imagePriority}
         />
       )}
       {eyebrow && <p className={cn(Eyebrow)}>{eyebrow}</p>}

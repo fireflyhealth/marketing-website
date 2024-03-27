@@ -61,6 +61,7 @@ export const ArticleHeader: FC<Props> = ({ articleHeader }) => {
           className={cn(Image)}
           image={articleImage}
           sizes={['100vw', '50vw']}
+          priority
         />
       )}
     </div>

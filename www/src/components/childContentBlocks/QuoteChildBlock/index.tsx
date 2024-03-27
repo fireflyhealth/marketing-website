@@ -7,17 +7,24 @@ import { Wrapper, Quote, Attribution } from './styles';
 
 type QuoteChildBlockProps = {
   quoteChildBlock: QuoteChildBlockType;
+  imagePriority?: boolean;
 };
 
 export const QuoteChildBlock: FC<QuoteChildBlockProps> = ({
   quoteChildBlock,
+  imagePriority,
 }) => {
   const { quote, eyebrow, attribution, badgeImage } = quoteChildBlock.quote;
   return (
     <div className={cn('ChildBlockWrapper', Wrapper)}>
       {badgeImage ? (
         <div className="pb-9">
-          <SanityImage width={120} image={badgeImage} sizes={['120px']} />
+          <SanityImage
+            width={120}
+            image={badgeImage}
+            sizes={['120px']}
+            priority={imagePriority}
+          />
         </div>
       ) : null}
       {eyebrow ? (

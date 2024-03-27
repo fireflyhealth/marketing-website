@@ -12,28 +12,64 @@ import { HeaderQrCodeChildBlock } from '../HeaderQrCodeChildBlock';
 
 type ChildContentBlockProps = {
   block: ChildContentBlockType;
+  imagePriority?: boolean;
 };
 
-export const ChildContentBlock: FC<ChildContentBlockProps> = ({ block }) => {
+export const ChildContentBlock: FC<ChildContentBlockProps> = ({
+  block,
+  imagePriority,
+}) => {
   switch (block._type) {
     case 'imageChildBlock':
-      return <ImageChildBlock imageChildBlock={block} />;
+      return (
+        <ImageChildBlock
+          imageChildBlock={block}
+          imagePriority={imagePriority}
+        />
+      );
     case 'richTextChildBlock':
-      return <RichTextChildBlock richTextChildBlock={block} />;
+      return (
+        <RichTextChildBlock
+          richTextChildBlock={block}
+          imagePriority={imagePriority}
+        />
+      );
     case 'quoteChildBlock':
-      return <QuoteChildBlock quoteChildBlock={block} />;
+      return (
+        <QuoteChildBlock
+          quoteChildBlock={block}
+          imagePriority={imagePriority}
+        />
+      );
     case 'bigNumbers':
       return <BigNumbersChildBlock bigNumbers={block} />;
     case 'bigNumber':
       return <BigNumberChildBlock bigNumber={block} />;
     case 'ctaCard':
-      return <CTACardChildBlock ctaCard={block} />;
+      return (
+        <CTACardChildBlock ctaCard={block} imagePriority={imagePriority} />
+      );
     case 'videoChildBlock':
-      return <VideoChildBlock videoChildBlock={block} />;
+      return (
+        <VideoChildBlock
+          videoChildBlock={block}
+          imagePriority={imagePriority}
+        />
+      );
     case 'headerContentChildBlock':
-      return <HeaderContentChildBlock headerContentChildBlock={block} />;
+      return (
+        <HeaderContentChildBlock
+          headerContentChildBlock={block}
+          imagePriority={imagePriority}
+        />
+      );
     case 'headerQrCodeChildBlock':
-      return <HeaderQrCodeChildBlock headerQrCodeChildBlock={block} />;
+      return (
+        <HeaderQrCodeChildBlock
+          headerQrCodeChildBlock={block}
+          imagePriority={imagePriority}
+        />
+      );
     default:
       console.warn(
         // @ts-expect-error
