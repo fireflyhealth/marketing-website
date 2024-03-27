@@ -80,8 +80,11 @@ export const Blog = defineType({
       title: 'Featured Article',
       type: 'reference',
       readOnly: ({ document }) => {
-        if (Boolean(document.documentVariantInfo.variantOf)) {
-          return true;
+        if (document && document.documentVariantInfo) {
+          // @ts-ignore
+          if (Boolean(document.documentVariantInfo.variantOf)) {
+            return true;
+          }
         }
         return false;
       },
