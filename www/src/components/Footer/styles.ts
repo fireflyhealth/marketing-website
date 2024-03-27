@@ -1,4 +1,4 @@
-export const FooterOuter = ['relative'];
+export const FooterOuter = ['relative z-[1]'];
 
 export const FooterInner = ['font-roobert py-9 md:py-12'];
 
