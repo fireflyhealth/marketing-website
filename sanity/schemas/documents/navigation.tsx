@@ -29,6 +29,7 @@ export const Navigation = defineType({
           type: 'labelWithDropdown',
         },
       ],
+      validation: (Rule) => Rule.required().min(1),
     }),
     defineField({
       name: 'showNavCTA',

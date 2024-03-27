@@ -102,13 +102,36 @@ export const Video: FC<Props> = ({
         }
       });
     }
-  }, [player, videoRef.current, isPlaying]);
+  }, [player, isPlaying]);
 
   const handlePlay = useCallback(async () => {
     if (!player) return;
     const isPaused = await player.getPaused();
     if (isPaused) {
-      await player?.play();
+      /* NOTE:
+       * This is not a true "fix" for the "The play() request was interrupted
+       * by a call to pause()" error. This happens when the user quickly scrolls
+       * past an autoplay video, because:
+       * - element enters view:
+       *   - handlePlay() is called
+       *   - player.play() is called
+       * - element goes out of view:
+       *   - handlePause() is called
+       *   - player.getPaused() returns false (even though player.play() has not finished)
+       *   - player.pause() is called
+       *     - player.play() has not finished, so it throws the error.
+       *
+       * This try/catch (and that in handlePause) prevents this error from crashing
+       * the page, however, it still occurs. But, the behavior will still be what we
+       * want it to: since player.play() fails, the video will not be playing when we
+       * do not want it to be.
+       */
+      try {
+        await player.play();
+      } catch (e) {
+        const message = e instanceof Error ? e.message : 'failed to play';
+        console.error(message);
+      }
     }
   }, [player]);
 
@@ -116,7 +139,13 @@ export const Video: FC<Props> = ({
     if (!player) return;
     const isPaused = await player.getPaused();
     if (!isPaused) {
-      await player.pause();
+      /* See note above */
+      try {
+        await player.pause();
+      } catch (e) {
+        const message = e instanceof Error ? e.message : 'failed to play';
+        console.error(message);
+      }
     }
   }, [player]);
 
