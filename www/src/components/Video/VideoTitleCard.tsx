@@ -18,6 +18,7 @@ type Props = {
   heading: string;
   body: SanityTypes.RichText;
   onClick: () => void;
+  wrapperClassName?: string;
 };
 
 export const VideoTitleCard: FC<Props> = ({
@@ -25,9 +26,10 @@ export const VideoTitleCard: FC<Props> = ({
   heading,
   body,
   onClick,
+  wrapperClassName,
 }) => {
   return (
-    <div className={cn(TitleCardWrapper)}>
+    <div className={cn(TitleCardWrapper, wrapperClassName)}>
       <div className={cn(ContentWrapper)}>
         <p className={cn(Eyebrow)}>{eyebrow}</p>
         <h1 className={cn(Heading)}>{heading}</h1>
