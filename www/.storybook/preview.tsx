@@ -5,6 +5,7 @@ import { HubspotProvider } from 'next-hubspot';
 import '../src/styles/fonts.css';
 import '../src/styles/main.css';
 import './storybook.css';
+import 'what-input';
 
 import { Theme, ColorTheme } from '../src/components/Theme';
 
