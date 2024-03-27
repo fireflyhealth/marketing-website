@@ -170,13 +170,14 @@ export const providerPageFragment = `
   headshot {
     ${imageFragment}
   },
+  renderProviderPage,
+  isAvailable,
   education[]{
     _type,
     name,
   },
   languagesSpoken,
   blurb,
-  renderProviderPage,
   headerBgThemeColor,
   cta{${ctaFragment}},
   contentArea[]{

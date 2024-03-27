@@ -11,6 +11,8 @@ import { BrandedIcon } from '@/svgs/BrandedIcon';
 import {
   Header,
   HeaderTextWrapper,
+  AvailabilityIndicator,
+  AvailabilityIndicatorDot,
   HeaderSubtitle,
   HeaderTitle,
   Qualifications,
@@ -28,6 +30,7 @@ export const ProviderPageView: FC<ProviderPageViewProps> = ({
   allProvidersBackLink,
 }) => {
   const {
+    isAvailable,
     headerBgThemeColor,
     title,
     name,
@@ -37,6 +40,7 @@ export const ProviderPageView: FC<ProviderPageViewProps> = ({
     headshot,
     cta,
   } = provider;
+  console.log('is available: ', isAvailable);
   return (
     <div>
       <div className="Provider__Header">
@@ -60,6 +64,17 @@ export const ProviderPageView: FC<ProviderPageViewProps> = ({
             >
               <Theme theme={headerBgThemeColor || ColorTheme.Midnight}>
                 <div className={cn(HeaderTextWrapper)}>
+                  <div className={cn(AvailabilityIndicator)}>
+                    <div
+                      className={cn(
+                        AvailabilityIndicatorDot,
+                        isAvailable ? 'bg-orange-medium' : 'bg-sky-dark',
+                      )}
+                    />
+                    {isAvailable
+                      ? 'Accepting new patients'
+                      : 'Not accepting new patients'}
+                  </div>
                   <p className={cn(HeaderSubtitle)}>{title}</p>
                   <h1 className={cn(HeaderTitle)}>{name}</h1>
                   <RichText
