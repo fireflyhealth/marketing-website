@@ -121,6 +121,7 @@ export const Tabs: FC<TabsProps> = ({ tabs, animated, initialTabKey }) => {
             aria-hidden={tab._key !== activeTab}
             role="tabpanel"
             id={tab._key}
+            {...{ inert: tab._key !== activeTab ? '' : undefined }}
             tabIndex={tab._key === activeTab ? 0 : -1}
             className={cn(
               'fadeUpElement element-focus',

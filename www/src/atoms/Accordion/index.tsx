@@ -8,6 +8,7 @@ type AccordionProps = {
   title: string;
   children: ReactNode;
   isOpen?: boolean;
+  isFocusable?: boolean;
 };
 
 export const Accordion: FC<AccordionProps> = ({
@@ -85,6 +86,7 @@ export const Accordion: FC<AccordionProps> = ({
            * wrapping div, animating from 0px to <some-number>px. */
           height: expandedContentHeight,
         }}
+        {...{ inert: isOpen ? undefined : '' }}
       >
         <div
           ref={innerContentRef}

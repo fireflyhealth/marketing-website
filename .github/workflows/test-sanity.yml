@@ -1,24 +1,24 @@
-name: 'Test Sanity'
-on:
-  workflow_call:
-    inputs:
-      directory:
-        required: true
-        type: string
-jobs:
-  test-sanity:
-    name: Test Sanity Schema
-    runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ${{ inputs.directory }}
-    steps:
-      - uses: actions/checkout@v3
-      - uses: ./.github/workflows/yarn-setup
-      - name: Validate Schema
-        run: yarn sanity schema validate --workspace staging
+# TODO: This is not actually helpful until we can omit draft documents from validation.
+# name: 'Test Sanity'
+# on:
+#   workflow_call:
+#     inputs:
+#       directory:
+#         required: true
+#         type: string
+# jobs:
+#   test-sanity:
+#     name: Test Sanity Schema
+#     runs-on: ubuntu-latest
+#     defaults:
+#       run:
+#         working-directory: ${{ inputs.directory }}
+#     steps:
+#       - uses: actions/checkout@v3
+#       - uses: ./.github/workflows/yarn-setup
+#       - name: Validate Schema
+#         run: yarn sanity schema validate --workspace staging
 
-  # TODO: This is not actually helpful until we can omit draft documents from validation.
   #
   # See:
   # - https://github.com/sanity-io/sanity/issues/5510

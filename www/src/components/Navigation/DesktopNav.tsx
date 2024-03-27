@@ -33,7 +33,11 @@ export const DesktopNav: FC<Props> = ({
           'bg-yellow': getStartedOpen,
         })}
       >
-        <Link className="element-focus p-2 -ml-2" href="/">
+        <Link
+          className="element-focus p-2 -ml-2"
+          href="/"
+          aria-label="Navigate to Firefly homepage"
+        >
           <div className="w-[175px]">
             {getStartedOpen ? <LogotypeMonochrome /> : <LogotypeColor />}
           </div>
@@ -67,7 +71,10 @@ export const DesktopNav: FC<Props> = ({
           )}
         </div>
       </div>
-      <NavCTA globalDoubleNav={globalDoubleNav} isOpen={getStartedOpen} />
+      {/* Wrapping NavCTA with a div controlling it's display property helps remove child links from list of focusable items when it is hidden */}
+      <div className={getStartedOpen ? '' : 'hidden'}>
+        <NavCTA globalDoubleNav={globalDoubleNav} isOpen={getStartedOpen} />
+      </div>
     </nav>
   );
 };

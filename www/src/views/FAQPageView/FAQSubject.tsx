@@ -13,6 +13,7 @@ export type SortedFaqSubject = {
 
 type FAQSubjectProps = {
   faqSubject: SortedFaqSubject;
+  category: string;
 };
 
 export const FAQSubject: FC<FAQSubjectProps> = ({ faqSubject }) => {

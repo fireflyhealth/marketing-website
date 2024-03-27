@@ -51,12 +51,17 @@ export const FAQCategory: FC<FAQCategoryProps> = ({ faqCategory }) => {
 
   return (
     <div className={cn(FAQCategoryWrapper)}>
-      <div className={cn(FAQCategoryButtons)}>
-        <div className="mr-4 pb-4" role="listbox">
+      <div
+        className={cn(FAQCategoryButtons)}
+        aria-label="List of FAQ filters"
+        role="listbox"
+      >
+        <div className="mr-4 pb-4">
           <Button
             variant="outlined"
             active={activeSubject === 'all'}
             onClick={createSubjectButtonHandler('all')}
+            ariaLabel="View all FAQs"
             ariaSelected={activeSubject === 'all'}
             role="option"
             id={getButtonId(category.title, 'All questions')}
@@ -86,6 +91,7 @@ export const FAQCategory: FC<FAQCategoryProps> = ({ faqCategory }) => {
           <FAQSubject
             key={faqSubject.subject.slug.current}
             faqSubject={faqSubject}
+            category={category.slug.current}
           />
         ))}
       </div>
