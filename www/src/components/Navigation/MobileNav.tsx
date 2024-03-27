@@ -1,7 +1,6 @@
 import { FC } from 'react';
 import Link from 'next/link';
 import cn from 'classnames';
-import { useRect } from '@/hooks/useRect';
 import { SimpleIcon } from '@/svgs/SimpleIcon';
 import { useUIProvider } from '@/context/UIProvider';
 import { KeyedArray, NavGroupType, DoubleCta } from '@/types/sanity';
@@ -22,13 +21,8 @@ export const MobileNav: FC<Props> = ({
   globalDoubleNav,
 }) => {
   const { mobileNavOpen, toggleGlobalNav } = useUIProvider();
-  const [mobileNavRect, mobileNavRef] = useRect();
   return (
-    <nav
-      ref={mobileNavRef}
-      className={cn(NavWrapper, 'absolute lg:hidden')}
-      tabIndex={mobileNavRect && mobileNavRect.width > 0 ? 0 : -1}
-    >
+    <nav className={cn(NavWrapper, 'absolute lg:hidden')}>
       <div
         className={cn(
           NavContainer,

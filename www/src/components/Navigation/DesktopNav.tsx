@@ -1,7 +1,6 @@
 import { FC } from 'react';
 import Link from 'next/link';
 import cn from 'classnames';
-import { useRect } from '@/hooks/useRect';
 import { LogotypeColor, LogotypeMonochrome } from '@/svgs/Logotype';
 import { Button } from '@/atoms/Button';
 import { KeyedArray, NavGroupType, DoubleCta } from '@/types/sanity';
@@ -22,18 +21,13 @@ export const DesktopNav: FC<Props> = ({
   globalDoubleNav,
 }) => {
   const { getStartedOpen, setGetStartedOpen } = useUIProvider();
-  const [desktopNavRect, desktopNavRef] = useRect();
 
   const handleCTAClick = () => {
     setGetStartedOpen(!getStartedOpen);
   };
 
   return (
-    <nav
-      ref={desktopNavRef}
-      className={cn(NavWrapper, 'hidden')}
-      tabIndex={desktopNavRect && desktopNavRect.width > 0 ? 0 : -1}
-    >
+    <nav className={cn(NavWrapper, 'hidden')}>
       <div
         className={cn(NavContainer, {
           'bg-yellow': getStartedOpen,
