@@ -204,11 +204,14 @@ export const GenericPage = defineType({
   preview: {
     select: { title: 'title', documentVariantInfo: 'documentVariantInfo' },
     prepare: ({ documentVariantInfo, title }) => {
-      const fullTitle = [documentVariantInfo?.variantOf ? '🅱️' : null, title]
+      const fullTitle = [documentVariantInfo?.variantOf ? '🅱️' : '🅰️', title]
         .filter(Boolean)
         .join(' ');
 
-      return { title: fullTitle };
+      return {
+        title: documentVariantInfo ? fullTitle : title,
+        subtitle: documentVariantInfo ? '🅰️/🅱️' : undefined,
+      };
     },
   },
 });

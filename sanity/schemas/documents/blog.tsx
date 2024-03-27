@@ -183,11 +183,14 @@ export const Blog = defineType({
       documentVariantInfo: 'documentVariantInfo',
     },
     prepare: ({ title, documentVariantInfo }) => {
-      const fullTitle = [documentVariantInfo?.variantOf ? '🅱️' : null, title]
+      const fullTitle = [documentVariantInfo?.variantOf ? '🅱️' : '🅰️', title]
         .filter(Boolean)
         .join(' ');
 
-      return { title: fullTitle };
+      return {
+        title: documentVariantInfo ? fullTitle : title,
+        subtitle: documentVariantInfo ? '🅰️/🅱️' : undefined,
+      };
     },
   },
 });
