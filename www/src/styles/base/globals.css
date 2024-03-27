@@ -524,8 +524,8 @@ svg {
   border-radius: 8px;
 
   [data-whatintent='keyboard'] &:focus {
-    border: 3px solid;
-    border-color: var(--cta-border-color);
+    outline: 3px solid;
+    outline-color: var(--cta-border-color);
   }
 }
 
