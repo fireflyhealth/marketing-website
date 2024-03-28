@@ -31,6 +31,7 @@ import {
   faqPageFragment,
   pageFragment,
   providerPageFragment,
+  providerPageSettingsFragment,
   siteSettingsFragment,
 } from './queries';
 import { blogArticleLinkDataFragment } from './queries/fragments';
@@ -332,21 +333,20 @@ export const createPreviewClient = (previewToken: string) => {
         draftId: string,
       ): Promise<ProviderPagePreviewProps> => {
         const nonDraftId = draftId.replace(/^drafts./, '');
-        const siteSettings = await previewClient.fetch<SiteSettings>(
-          `*[_type == "siteSettings"][0]{${siteSettingsFragment}}`,
-        );
         const provider = await previewClient.fetch<Practitioner>(
           `*[
              _type == "practitioner"
              && (_id == $draftId || _id == $nonDraftId)
-           ]| score(_id in path("drafts.**"))[0]{${providerPageFragment}}`,
+           ]| score(_id in path("drafts.**"))[0]{
+            ${providerPageFragment},
+            "providerPageSettings": *[_type == "providerPageSettings"][0]{${providerPageSettingsFragment}},
+          }`,
           { draftId, nonDraftId },
         );
         return {
           type: 'practitioner',
           viewProps: {
             provider,
-            allProvidersBackLink: siteSettings.allProvidersBackLink,
           },
         };
       },
