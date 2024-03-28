@@ -5,6 +5,7 @@ import {
   ContactPage,
   DownloadPage,
   NotFoundPage,
+  ProviderPageSettings,
 } from './documents/specialPages';
 import { ClientPage } from './documents/clientPage';
 import { BlogArticle } from './documents/blogArticle';
@@ -17,7 +18,6 @@ import { FrequentlyAskedQuestion } from './documents/faq';
 import { FAQPage } from './documents/faqPage';
 import { FAQSubject } from './documents/faqSubject';
 import { FAQCategory } from './documents/faqCategory';
-import { BlogArticleTag } from './documents/blogArticleTag';
 
 /* Headers */
 import { VideoHeader } from './headers/videoHeader';
@@ -107,6 +107,7 @@ export const schemaTypes = [
   DownloadPage,
   ContactPage,
   NotFoundPage,
+  ProviderPageSettings,
   FAQPage,
   ClientPage,
   Blog,

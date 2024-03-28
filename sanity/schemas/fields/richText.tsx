@@ -37,6 +37,20 @@ export const SimpleRichText = defineField({
               },
             ],
           },
+          {
+            name: 'textHighlight',
+            title: 'Highlight',
+            type: 'object',
+            icon: icons.Highlight,
+            fields: [
+              {
+                name: 'textHighlight',
+                title: 'Highlight',
+                type: 'theme',
+                validation: (Rule) => Rule.required(),
+              },
+            ],
+          },
         ],
       },
     },

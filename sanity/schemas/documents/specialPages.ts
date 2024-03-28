@@ -158,3 +158,43 @@ export const NotFoundPage = defineType({
     }),
   ],
 });
+
+// This is not an index page, rather settings to control components that should render on all provider pages
+export const ProviderPageSettings = defineType({
+  name: 'providerPageSettings',
+  type: 'document',
+  title: 'Provider Page Settings',
+  icon: icons.Settings,
+  fields: [
+    defineField({
+      name: 'allProvidersBackLink',
+      title: '`All Providers` back link',
+      description:
+        'Select the page used for the `back` button on the Provider pages.',
+      type: 'reference',
+      to: [{ type: 'genericPage' }, { type: 'subPage' }],
+      options: {
+        filter: '!defined(documentVariantInfo.variantOf)',
+      },
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
+      name: 'pcpBlurb',
+      title: 'Primary Care Provider (PCP) Blurb',
+      type: 'simpleRichText',
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
+      name: 'stories',
+      title: 'Stories from Firefly members',
+      type: 'testimonialBlock',
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
+      name: 'footer',
+      title: 'Footer',
+      type: 'doubleCtaBlock',
+      validation: (Rule) => Rule.required(),
+    }),
+  ],
+});
