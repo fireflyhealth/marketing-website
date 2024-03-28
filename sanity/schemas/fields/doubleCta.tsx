@@ -51,11 +51,19 @@ export const DoubleCta = defineType({
       name: 'ctaOne',
       title: 'CTA One',
       type: 'largeCtaCard',
+      options: {
+        collapsible: true,
+        collapsed: true,
+      },
     }),
     defineField({
       name: 'ctaTwo',
       title: 'CTA Two',
       type: 'largeCtaCard',
+      options: {
+        collapsible: true,
+        collapsed: true,
+      },
     }),
   ],
   preview: {

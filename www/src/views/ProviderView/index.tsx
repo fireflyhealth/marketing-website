@@ -1,8 +1,9 @@
 import React, { FC } from 'react';
 import cn from 'classnames';
-import { LinkableDocumentData, Practitioner } from '@/types/sanity';
+import { Practitioner } from '@/types/sanity';
 import { ContentArea } from '@/components/contentBlocks/ContentArea';
 import { Link } from '@/atoms/Link';
+import { SimpleIcon } from '@/svgs/SimpleIcon';
 import { ColorTheme, Theme } from '@/components/Theme';
 import { RichText } from '@/components/RichText';
 import { CTA } from '@/components/CTA';
@@ -18,18 +19,18 @@ import {
   Qualifications,
   QualificationSection,
   QualificationItem,
+  PCPBlurbWrapper,
 } from './styles';
+import { TestimonialBlock } from '@/components/contentBlocks/TestimonialBlock';
+import { DoubleCTA } from '@/components/DoubleCTA';
 
 export type ProviderPageViewProps = {
   provider: Practitioner;
-  allProvidersBackLink: LinkableDocumentData;
 };
 
-export const ProviderPageView: FC<ProviderPageViewProps> = ({
-  provider,
-  allProvidersBackLink,
-}) => {
+export const ProviderPageView: FC<ProviderPageViewProps> = ({ provider }) => {
   const {
+    providerPageSettings,
     isAvailable,
     headerBgThemeColor,
     title,
@@ -38,17 +39,19 @@ export const ProviderPageView: FC<ProviderPageViewProps> = ({
     education,
     languagesSpoken,
     headshot,
-    cta,
   } = provider;
-  console.log('is available: ', isAvailable);
+  const { allProvidersBackLink, headerCta, pcpBlurb, stories, footer } =
+    providerPageSettings;
+  console.log('provider page settings: ', providerPageSettings);
   return (
     <div>
       <div className="Provider__Header">
         <Link
           link={allProvidersBackLink}
-          className="simple-text-link border-black"
+          className="simple-text-link border-black w-max flex flex-row items-center"
         >
-          {`< All Providers`}
+          <SimpleIcon type="arrow-left" wrapperStyles="w-3 h-3 mr-3" />
+          All Providers
         </Link>
         <div className={cn(Header)}>
           <div
@@ -120,8 +123,7 @@ export const ProviderPageView: FC<ProviderPageViewProps> = ({
                       </div>
                     )}
                   </div>
-                  {/* Add 'Accepting Patients` status */}
-                  {cta && <CTA cta={cta} />}
+                  <CTA cta={headerCta} />
                 </div>
               </Theme>
             </div>
@@ -147,7 +149,24 @@ export const ProviderPageView: FC<ProviderPageViewProps> = ({
           </div>
         </div>
       </div>
+      <div className={cn(PCPBlurbWrapper)}>
+        <RichText content={pcpBlurb} fontSize="font-trust font-size-6" />
+      </div>
       {provider.contentArea && <ContentArea blocks={provider.contentArea} />}
+      <TestimonialBlock testimonialBlock={stories} />
+      <div className="">
+        <Link
+          link={allProvidersBackLink}
+          className="my-24 mx-auto flex flex-row items-center cta transition-all cta--primary lg:w-max"
+        >
+          <SimpleIcon type="arrow-left" wrapperStyles="w-3 h-3 mr-3" />
+          Care team
+        </Link>
+      </div>
+      <Theme theme={ColorTheme.Grey} className="relative p-4 lg:p-12">
+        <div className="full-width-background theme-bg-color" />
+        <DoubleCTA doubleCta={footer} />
+      </Theme>
     </div>
   );
 };

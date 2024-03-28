@@ -14,6 +14,7 @@ import {
   simpleRichTextFragment,
   linkableDocumentFragment,
   ctaFragment,
+  testimonialBlockFragment,
 } from './fragments';
 
 export const siteSettingsFragment = `
@@ -161,6 +162,14 @@ export const blogFragment = `
   articleLayout
 `;
 
+export const providerPageSettingsFragment = `
+  allProvidersBackLink->{${linkableDocumentFragment}},
+  headerCta{${ctaFragment}},
+  pcpBlurb[]{${simpleRichTextFragment}},
+  stories{${contentBlockFragment}},
+  footer{${doubleCtaFragment}}
+`;
+
 export const providerPageFragment = `
   name,
   slug,
@@ -179,7 +188,6 @@ export const providerPageFragment = `
   languagesSpoken,
   blurb,
   headerBgThemeColor,
-  cta{${ctaFragment}},
   contentArea[]{
     ${contentBlockFragment}
   },

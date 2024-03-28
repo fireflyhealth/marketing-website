@@ -132,6 +132,21 @@ const components: Partial<PortableTextReactComponents> = {
         </Link>
       );
     },
+    textHighlight: (props) => {
+      return (
+        <span
+          className={cn({
+            'text-white': props.value.textHighlight === 'white',
+            'text-grey': props.value.textHighlight === 'grey',
+            'text-sienna': props.value.textHighlight === 'sienna',
+            'text-midnight': props.value.textHighlight === 'midnight',
+            'text-sky': props.value.textHighlight === 'sky',
+          })}
+        >
+          {props.children}
+        </span>
+      );
+    },
   },
 };
 

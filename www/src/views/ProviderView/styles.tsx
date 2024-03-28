@@ -25,3 +25,5 @@ export const QualificationSection = [
 ];
 
 export const QualificationItem = ['font-size-8 font-roobert'];
+
+export const PCPBlurbWrapper = ['my-6 lg:my-12'];

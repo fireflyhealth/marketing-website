@@ -42,6 +42,7 @@ import {
   siteSettingsFragment,
   providerPageFragment,
   subPageFragment,
+  providerPageSettingsFragment,
 } from './queries';
 import {
   blogArticleLinkDataFragment,
@@ -389,6 +390,7 @@ export const providerPage = {
           && ${isNotVariantFilter}
         ][0]{
           documentVariantInfo,
+          "providerPageSettings": *[_type == "providerPageSettings"][0]{${providerPageSettingsFragment}},
           ${providerPageFragment}
         }`,
         {

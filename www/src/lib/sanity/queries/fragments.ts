@@ -179,8 +179,9 @@ export const simpleRichTextFragment = `
     _type == "link" => {
       link {
         ${linkFragment}
-      }
+      },
     },
+    _type == "textHighlight" => {...}
   }
 `;
 

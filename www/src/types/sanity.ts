@@ -97,7 +97,6 @@ export type SiteSettings = SanityDocument & {
   globalNav: Navigation;
   globalAnnouncementBanner: AnnouncementBanner;
   globalDoubleCta: DoubleCta;
-  allProvidersBackLink: LinkableDocumentData;
   defaultMetadata: Metadata;
   footer: Footer;
 };
@@ -221,6 +220,14 @@ export type Institution = {
   name: string;
 };
 
+export type ProviderPageSettings = {
+  allProvidersBackLink: LinkableDocumentData;
+  headerCta: CTA;
+  pcpBlurb: SimpleRichText;
+  stories: TestimonialBlock;
+  footer: DoubleCta;
+};
+
 export type Practitioner = SanityDocument & {
   _type: 'practitioner';
   name: string;
@@ -232,12 +239,12 @@ export type Practitioner = SanityDocument & {
   pronouns: string;
   headshot: Maybe<RichImage>;
   renderProviderPage: boolean;
+  providerPageSettings: ProviderPageSettings;
   isAvailable?: Maybe<boolean>;
   education?: Maybe<KeyedArray<Institution>>;
   languagesSpoken: string[];
   blurb: RichText;
   headerBgThemeColor?: Maybe<ColorTheme>;
-  cta?: Maybe<CTA>;
   contentArea?: Maybe<ContentArea>;
   metadata?: Metadata;
 };
@@ -676,7 +683,11 @@ export type RichTextChildBlock = {
   icon?: Maybe<IconBlock>;
   image?: Maybe<RichImage>;
   heading?: Maybe<string>;
-  headingFontSize: 'font-size-6' | 'font-size-5' | 'font-size-4';
+  headingFontSize:
+    | 'font-size-7'
+    | 'font-size-6'
+    | 'font-size-5'
+    | 'font-size-4';
   alignCenter?: Maybe<boolean>;
   body?: Maybe<LimitedRichText>;
 };

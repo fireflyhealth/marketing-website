@@ -178,14 +178,6 @@ export const Practitioner = defineType({
       hidden: ({ parent }) => !parent.renderProviderPage,
     }),
     defineField({
-      name: 'cta',
-      title: 'CTA',
-      type: 'cta',
-      group: 'providerPage',
-      fieldset: 'providerPageFields',
-      hidden: ({ parent }) => !parent.renderProviderPage,
-    }),
-    defineField({
       name: 'contentArea',
       title: 'Content Area',
       type: 'contentArea',

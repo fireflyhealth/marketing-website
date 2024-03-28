@@ -179,6 +179,17 @@ export const ProviderPageSettings = defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
+      name: 'headerCta',
+      title: 'Header Cta',
+      description: 'This CTA will render in the header of all Provider pages.',
+      type: 'cta',
+      options: {
+        collapsible: true,
+        collapsed: true,
+      },
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
       name: 'pcpBlurb',
       title: 'Primary Care Provider (PCP) Blurb',
       type: 'simpleRichText',
@@ -193,7 +204,7 @@ export const ProviderPageSettings = defineType({
     defineField({
       name: 'footer',
       title: 'Footer',
-      type: 'doubleCtaBlock',
+      type: 'doubleCta',
       validation: (Rule) => Rule.required(),
     }),
   ],
