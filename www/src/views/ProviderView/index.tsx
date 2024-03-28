@@ -25,6 +25,7 @@ export const ProviderPageView: FC<ProviderPageViewProps> = ({ provider }) => {
     blurb,
     education,
     languagesSpoken,
+    isAVeteran,
     headshot,
   } = provider;
   const { allProvidersBackLink, headerCta, pcpBlurb, stories, footer } =
@@ -40,6 +41,7 @@ export const ProviderPageView: FC<ProviderPageViewProps> = ({ provider }) => {
         blurb={blurb}
         education={education}
         languagesSpoken={languagesSpoken}
+        isAVeteran={isAVeteran}
         headerCta={headerCta}
         headshot={headshot}
       />

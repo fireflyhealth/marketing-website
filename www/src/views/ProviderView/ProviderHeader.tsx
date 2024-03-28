@@ -39,6 +39,7 @@ type Props = {
   blurb: RichTextType;
   education?: Maybe<KeyedArray<Institution>>;
   languagesSpoken: string[];
+  isAVeteran?: Maybe<boolean>;
   headerCta: CTAType;
   headshot: Maybe<RichImage>;
 };
@@ -52,6 +53,7 @@ export const ProviderHeader: FC<Props> = ({
   blurb,
   education,
   languagesSpoken,
+  isAVeteran,
   headerCta,
   headshot,
 }) => {
@@ -128,6 +130,16 @@ export const ProviderHeader: FC<Props> = ({
                             `, `}
                         </span>
                       ))}
+                    </div>
+                  )}
+                  {isAVeteran && (
+                    <div className={cn(QualificationSection)}>
+                      <BrandedIcon
+                        type="information"
+                        wrapperStyles="w-6 h-6"
+                        iconStyles="text-color-primary"
+                      />
+                      <span className={cn(QualificationItem)}>Veteran</span>
                     </div>
                   )}
                 </div>

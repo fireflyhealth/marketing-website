@@ -186,6 +186,7 @@ export const providerPageFragment = `
     name,
   },
   languagesSpoken,
+  isAVeteran,
   blurb,
   headerBgThemeColor,
   contentArea[]{

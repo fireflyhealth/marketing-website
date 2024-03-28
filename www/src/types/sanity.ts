@@ -243,6 +243,7 @@ export type Practitioner = SanityDocument & {
   isAvailable?: Maybe<boolean>;
   education?: Maybe<KeyedArray<Institution>>;
   languagesSpoken: string[];
+  isAVeteran?: Maybe<boolean>;
   blurb: RichText;
   headerBgThemeColor?: Maybe<ColorTheme>;
   contentArea?: Maybe<ContentArea>;

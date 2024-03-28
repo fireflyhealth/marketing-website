@@ -29,6 +29,7 @@ export const iconTypes = [
   'video-call',
   'education',
   'languages',
+  'information',
 ] as const;
 
 export type IconTypeName = (typeof iconTypes)[number];
@@ -770,6 +771,30 @@ export const BrandedIcon: FC<Props> = ({ type, wrapperStyles, iconStyles }) => {
                   fill="white"
                   transform="translate(0.5 0.5)"
                 />
+              </clipPath>
+            </defs>
+          </svg>
+        );
+      case 'information':
+        return (
+          <svg
+            className={iconStyles}
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <desc>{type}</desc>
+            <g clip-path="url(#clip0_10322_21755)">
+              <path
+                fillRule="evenodd"
+                clipRule="evenodd"
+                d="M12.0001 24.0002C18.6276 24.0002 24.0002 18.6276 24.0002 12.0001C24.0002 5.37264 18.6276 0 12.0001 0C5.37264 0 0 5.37264 0 12.0001C0 18.6276 5.37264 24.0002 12.0001 24.0002ZM14 7C14 8.10457 13.1046 9 12 9C10.8954 9 10 8.10457 10 7C10 5.89543 10.8954 5 12 5C13.1046 5 14 5.89543 14 7ZM10 13C10 11.8954 10.8954 11 12 11C13.1046 11 14 11.8954 14 13V17C14 18.1046 13.1046 19 12 19C10.8954 19 10 18.1046 10 17V13Z"
+                fill="currentColor"
+              />
+            </g>
+            <defs>
+              <clipPath id="clip0_10322_21755">
+                <rect width="24" height="24" fill="currentColor" />
               </clipPath>
             </defs>
           </svg>

@@ -151,6 +151,27 @@ export const Practitioner = defineType({
         }),
     }),
     defineField({
+      name: 'isAVeteran',
+      title: 'Veteran Status',
+      type: 'boolean',
+      initialValue: false,
+      group: 'providerPage',
+      fieldset: 'providerPageFields',
+      hidden: ({ parent }) => !parent.renderProviderPage,
+      validation: (Rule) =>
+        Rule.custom((value, context) => {
+          // @ts-ignore
+          if (
+            context?.parent?.renderProviderPage === true &&
+            value === undefined
+          ) {
+            return 'A blurb about this practitioner is required.';
+          }
+
+          return true;
+        }),
+    }),
+    defineField({
       name: 'blurb',
       title: 'Blurb',
       type: 'simpleRichText',
