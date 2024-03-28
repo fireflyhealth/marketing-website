@@ -4,7 +4,10 @@ import { readOnlyIfNotBaseLang } from '../../lib/readOnlyIfNotBaseLang';
 import localizationSlugField from '../../lib/localizationSlugField';
 import { isUniqueAcrossDocuments } from '../../lib/isUniqueAcrossDocuments';
 import { createDocumentVariantField } from '../../plugins/documentVariants/fields/documentVariant';
-import { cloneWithUniqueSlug } from '../../plugins/documentVariants/utils';
+import {
+  cloneWithUniqueSlug,
+  isVariantDocument,
+} from '../../plugins/documentVariants/utils';
 
 export const BlogArticleTagGroup = defineType({
   name: 'blogArticleTagGroup',
@@ -79,15 +82,7 @@ export const Blog = defineType({
       fieldset: 'content',
       title: 'Featured Article',
       type: 'reference',
-      readOnly: ({ document }) => {
-        if (document && document.documentVariantInfo) {
-          // @ts-ignore
-          if (Boolean(document.documentVariantInfo.variantOf)) {
-            return true;
-          }
-        }
-        return false;
-      },
+      readOnly: ({ document }) => isVariantDocument(document),
       options: {
         filter: ({ document }) => {
           const documentId = document._id.replace(/^drafts\./, '');

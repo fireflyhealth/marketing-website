@@ -5,7 +5,10 @@ import { readOnlyIfNotBaseLang } from '../../lib/readOnlyIfNotBaseLang';
 import localizationSlugField from '../../lib/localizationSlugField';
 import { isUniqueAcrossDocuments } from '../../lib/isUniqueAcrossDocuments';
 import { createDocumentVariantField } from '../../plugins/documentVariants/fields/documentVariant';
-import { cloneWithUniqueSlug } from '../../plugins/documentVariants/utils';
+import {
+  cloneWithUniqueSlug,
+  isVariantDocument,
+} from '../../plugins/documentVariants/utils';
 
 const sharedPageFields = [
   createDocumentVariantField({
@@ -162,6 +165,7 @@ export const GenericPage = defineType({
       title: 'Sub Pages',
       type: 'array',
       group: 'subPages',
+      readOnly: ({ document }) => isVariantDocument(document),
       of: [
         defineArrayMember({
           type: 'reference',
