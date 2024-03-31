@@ -123,3 +123,11 @@ export const defaultContentBlockTypes = [
   { type: 'smallImageCarouselBlock' },
   { type: 'dividerBlock' },
 ];
+
+// TODO: add 'practitionerPhilosophyBlock'
+export const providerPageBlockTypes = [
+  { type: 'columnsBlock' },
+  { type: 'imageGridBlock' },
+  { type: 'testimonialBlock' },
+  { type: 'videoBlock' },
+];

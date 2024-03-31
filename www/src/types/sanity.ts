@@ -740,7 +740,8 @@ export type ContentBlock =
   | TabsBlock
   | RichTextBlock
   | TestimonialBlock
-  | DividerBlock;
+  | DividerBlock
+  | VideoBlock;
 
 export type ContentArea = KeyedArray<ContentBlock>;
 
@@ -987,4 +988,9 @@ export type ContentBlockRichText = {
 export type TestimonialBlock = ContentBlockCommon & {
   _type: 'testimonialBlock';
   testimonials: KeyedArray<QuoteObject>;
+};
+
+export type VideoBlock = ContentBlockCommon & {
+  _type: 'videoBlock';
+  video: Video;
 };

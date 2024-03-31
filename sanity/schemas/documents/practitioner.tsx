@@ -45,12 +45,6 @@ export const Practitioner = defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
-      name: 'title',
-      title: 'Title',
-      type: 'string',
-      description: 'DEPRECATED: use the role field below',
-    }),
-    defineField({
       name: 'role',
       title: 'Role',
       type: 'reference',
@@ -207,7 +201,7 @@ export const Practitioner = defineType({
     defineField({
       name: 'contentArea',
       title: 'Content Area',
-      type: 'contentArea',
+      type: 'providerPageContentArea',
       group: 'providerPage',
       fieldset: 'providerPageFields',
       hidden: ({ parent }) => !parent.renderProviderPage,
@@ -219,6 +213,13 @@ export const Practitioner = defineType({
       group: 'providerPage',
       fieldset: 'providerPageFields',
       hidden: ({ parent }) => !parent.renderProviderPage,
+    }),
+    defineField({
+      name: 'title',
+      title: 'Title',
+      type: 'string',
+      description:
+        'DEPRECATED: use the "role" field to reference a "role description" document.',
     }),
   ],
   preview: {

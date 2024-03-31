@@ -53,6 +53,7 @@ import { CardListBlock } from './blocks/cardListBlock';
 import { TabsBlock, TabsBlockTab } from './blocks/tabsBlock';
 import { TestimonialBlock } from './blocks/testimonalBlock';
 import { DividerBlock } from './blocks/dividerBlock';
+import { VideoBlock } from './blocks/videoBlock';
 
 /* Fields */
 import { Metadata } from './fields/metadata';
@@ -71,7 +72,11 @@ import {
 } from './fields/richText';
 import { LinkWithLabel } from './fields/linkWithLabel';
 import { LabelWithDropdown } from './fields/labelWithDropdown';
-import { ChildContentBlock, ContentArea } from './fields/contentArea';
+import {
+  ChildContentBlock,
+  ContentArea,
+  ProviderPageContentArea,
+} from './fields/contentArea';
 import { NavigationOverrides } from './fields/navigationOverrides';
 import { AnnouncementBanner } from './fields/announcementBanner';
 import { Video } from './fields/video';
@@ -154,6 +159,7 @@ export const schemaTypes = [
   TestimonialBlock,
   /* Divider block does not have heading */
   DividerBlock,
+  VideoBlock,
 
   /* Child blocks (used within other blocks, i.e. 2-up block) */
   CtaCard,
@@ -186,6 +192,7 @@ export const schemaTypes = [
   LinkWithLabel,
   LabelWithDropdown,
   ContentArea,
+  ProviderPageContentArea,
   NavigationOverrides,
   AnnouncementBanner,
   Video,
