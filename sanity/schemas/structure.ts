@@ -204,6 +204,11 @@ export const structure: StructureResolver = async (S, context) => {
           schemaType: 'clientPage',
           icon: icons.Client,
         }),
+        createFilteredDocumentTypeList(S, {
+          title: 'Role Descriptions',
+          schemaType: 'roleDescription',
+          icon: icons.Description,
+        }),
 
         S.divider(),
 

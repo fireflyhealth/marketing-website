@@ -165,8 +165,6 @@ export const blogFragment = `
 export const providerPageSettingsFragment = `
   allProvidersBackLink->{${linkableDocumentFragment}},
   headerCta{${ctaFragment}},
-  pcpBlurb[]{${simpleRichTextFragment}},
-  stories{${contentBlockFragment}},
   footer{${doubleCtaFragment}}
 `;
 
@@ -174,7 +172,7 @@ export const providerPageFragment = `
   name,
   slug,
   qualifications,
-  title,
+  role->{...},
   pronouns,
   headshot {
     ${imageFragment}

@@ -27,14 +27,13 @@ import {
   Qualifications,
   QualificationSection,
   QualificationItem,
-  PCPBlurbWrapper,
 } from './styles';
 
 type Props = {
   allProvidersBackLink: LinkableDocumentData;
   headerBgThemeColor: Maybe<ColorTheme>;
   isAvailable: Maybe<boolean>;
-  title: string;
+  role: string;
   name: string;
   blurb: RichTextType;
   education?: Maybe<KeyedArray<Institution>>;
@@ -48,7 +47,7 @@ export const ProviderHeader: FC<Props> = ({
   allProvidersBackLink,
   headerBgThemeColor,
   isAvailable,
-  title,
+  role,
   name,
   blurb,
   education,
@@ -91,7 +90,7 @@ export const ProviderHeader: FC<Props> = ({
                     ? 'Accepting new patients'
                     : 'Not accepting new patients'}
                 </div>
-                <p className={cn(HeaderSubtitle)}>{title}</p>
+                <p className={cn(HeaderSubtitle)}>{role}</p>
                 <h1 className={cn(HeaderTitle)}>{name}</h1>
                 <RichText content={blurb} fontSize="font-size-8 font-roobert" />
                 <div className={cn(Qualifications)}>

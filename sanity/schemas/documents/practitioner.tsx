@@ -48,7 +48,13 @@ export const Practitioner = defineType({
       name: 'title',
       title: 'Title',
       type: 'string',
-      description: 'i.e. "Primary Care Provider (PCP)"',
+      description: 'DEPRECATED: use the role field below',
+    }),
+    defineField({
+      name: 'role',
+      title: 'Role',
+      type: 'reference',
+      to: [{ type: 'roleDescription' }],
       validation: (Rule) => Rule.required(),
     }),
     defineField({
@@ -160,8 +166,8 @@ export const Practitioner = defineType({
       hidden: ({ parent }) => !parent.renderProviderPage,
       validation: (Rule) =>
         Rule.custom((value, context) => {
-          // @ts-ignore
           if (
+            // @ts-ignore
             context?.parent?.renderProviderPage === true &&
             value === undefined
           ) {

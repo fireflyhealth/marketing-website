@@ -18,6 +18,7 @@ import { FrequentlyAskedQuestion } from './documents/faq';
 import { FAQPage } from './documents/faqPage';
 import { FAQSubject } from './documents/faqSubject';
 import { FAQCategory } from './documents/faqCategory';
+import { RoleDescription } from './documents/roleDescription';
 
 /* Headers */
 import { VideoHeader } from './headers/videoHeader';
@@ -120,6 +121,7 @@ export const schemaTypes = [
   FrequentlyAskedQuestion,
   FAQSubject,
   FAQCategory,
+  RoleDescription,
 
   /* Header Blocks */
   HeaderArea,

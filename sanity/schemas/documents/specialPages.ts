@@ -190,18 +190,6 @@ export const ProviderPageSettings = defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
-      name: 'pcpBlurb',
-      title: 'Primary Care Provider (PCP) Blurb',
-      type: 'simpleRichText',
-      validation: (Rule) => Rule.required(),
-    }),
-    defineField({
-      name: 'stories',
-      title: 'Stories from Firefly members',
-      type: 'testimonialBlock',
-      validation: (Rule) => Rule.required(),
-    }),
-    defineField({
       name: 'footer',
       title: 'Footer',
       type: 'doubleCta',

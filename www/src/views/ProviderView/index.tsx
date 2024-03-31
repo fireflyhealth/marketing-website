@@ -20,7 +20,7 @@ export const ProviderPageView: FC<ProviderPageViewProps> = ({ provider }) => {
     providerPageSettings,
     isAvailable,
     headerBgThemeColor,
-    title,
+    role,
     name,
     blurb,
     education,
@@ -28,15 +28,14 @@ export const ProviderPageView: FC<ProviderPageViewProps> = ({ provider }) => {
     isAVeteran,
     headshot,
   } = provider;
-  const { allProvidersBackLink, headerCta, pcpBlurb, stories, footer } =
-    providerPageSettings;
+  const { allProvidersBackLink, headerCta, footer } = providerPageSettings;
   return (
     <div>
       <ProviderHeader
         allProvidersBackLink={allProvidersBackLink}
         headerBgThemeColor={headerBgThemeColor}
         isAvailable={isAvailable}
-        title={title}
+        role={role.role}
         name={name}
         blurb={blurb}
         education={education}
@@ -46,10 +45,12 @@ export const ProviderPageView: FC<ProviderPageViewProps> = ({ provider }) => {
         headshot={headshot}
       />
       <div className={cn(PCPBlurbWrapper)}>
-        <RichText content={pcpBlurb} fontSize="font-trust font-size-6" />
+        <RichText
+          content={role.description}
+          fontSize="font-trust font-size-6"
+        />
       </div>
       {provider.contentArea && <ContentArea blocks={provider.contentArea} />}
-      <TestimonialBlock testimonialBlock={stories} />
       <div className="">
         <Link
           link={allProvidersBackLink}

@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { PractitionerLinkData } from '@/types/sanity';
 import { SanityImage } from '@/atoms/Image/SanityImage';
-import { Link, MaybeLink } from '@/atoms/Link';
+import { MaybeLink } from '@/atoms/Link';
 import { GenericImage } from '@/atoms/Image/GenericImage';
 import fallbackProfile from '@/assets/images/fallbackProfile.png';
 
@@ -12,6 +12,7 @@ type PractitionerCardProps = {
 export const PractitionerCard: FC<PractitionerCardProps> = ({
   practitioner,
 }) => {
+  console.log('practioner card: ', practitioner);
   return (
     <div className="PractitionerCard">
       <div className="rounded-[1rem] overflow-hidden relative">
@@ -45,7 +46,7 @@ export const PractitionerCard: FC<PractitionerCardProps> = ({
         </span>
       </div>
       <div className="font-size-8 theme-text-color-secondary">
-        {practitioner.title},{' '}
+        {practitioner.role.role},{' '}
         <span className="whitespace-nowrap">{practitioner.pronouns}</span>
       </div>
     </div>

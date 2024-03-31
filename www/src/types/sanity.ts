@@ -223,18 +223,20 @@ export type Institution = {
 export type ProviderPageSettings = {
   allProvidersBackLink: LinkableDocumentData;
   headerCta: CTA;
-  pcpBlurb: SimpleRichText;
-  stories: TestimonialBlock;
   footer: DoubleCta;
+};
+
+export type RoleDescription = {
+  _type: 'roleDescription';
+  role: string;
+  description: SimpleRichText;
 };
 
 export type Practitioner = SanityDocument & {
   _type: 'practitioner';
   name: string;
   slug: Slug;
-  /* i.e. "Nurse Practitioner" */
-  title: string;
-  /* i.e. "PsyD, MSW" */
+  role: RoleDescription;
   qualifications: Maybe<string>;
   pronouns: string;
   headshot: Maybe<RichImage>;
@@ -260,7 +262,7 @@ export type PractitionerLinkData = Pick<
   | 'qualifications'
   | 'headshot'
   | 'pronouns'
-  | 'title'
+  | 'role'
   | '_updatedAt'
   | 'renderProviderPage'
 >;

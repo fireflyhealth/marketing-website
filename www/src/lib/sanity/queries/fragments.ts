@@ -152,7 +152,7 @@ export const linkableDocumentFragment = `
     name,
     slug,
     qualifications,
-    title,
+    role->{...},
     pronouns,
     headshot {
       ${imageFragment}

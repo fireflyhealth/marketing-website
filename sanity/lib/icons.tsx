@@ -48,6 +48,7 @@ import {
   MdPercent,
   MdOutlineViewTimeline,
   MdRateReview,
+  MdOutlineDescription,
 } from 'react-icons/md';
 import { FaUserDoctor } from 'react-icons/fa6';
 import { GoColumns, GoQuote } from 'react-icons/go';
@@ -114,4 +115,5 @@ export const icons = {
   DoubleCta: FiColumns,
   RichText: FiAlignJustify,
   Highlight: FaHighlighter,
+  Description: MdOutlineDescription,
 };
