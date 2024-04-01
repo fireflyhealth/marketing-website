@@ -138,8 +138,8 @@ export const ProviderHeader: FC<Props> = ({
                   )}
                   {isAVeteran && (
                     <div className={cn(QualificationSection)}>
-                      <SimpleIcon
-                        type="plus"
+                      <BrandedIcon
+                        type="information"
                         wrapperStyles="w-6 h-6"
                         iconStyles="theme-text-color-primary"
                       />
