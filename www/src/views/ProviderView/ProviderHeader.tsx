@@ -99,7 +99,7 @@ export const ProviderHeader: FC<Props> = ({
                       <div>
                         <BrandedIcon
                           type="education"
-                          wrapperStyles="min-w-6 min-h-6 w-6 h-6 mr-2 inline-block -mb-1"
+                          wrapperStyles="min-w-6 min-h-6 w-6 h-6 mr-2 inline-block -mb-1.5"
                           iconStyles="text-color-primary"
                         />
                         {education.map((institution, index) => (
@@ -118,12 +118,13 @@ export const ProviderHeader: FC<Props> = ({
                   )}
                   {languagesSpoken && (
                     <div className={cn(QualificationSection)}>
-                      <BrandedIcon
-                        type="languages"
-                        wrapperStyles="w-6 h-6"
-                        iconStyles="text-color-primary"
-                      />
                       <div>
+                        <BrandedIcon
+                          type="languages"
+                          wrapperStyles="min-w-6 min-h-6 w-6 h-6 mr-2 inline-block -mb-1.5"
+                          iconStyles="text-color-primary"
+                        />
+
                         {languagesSpoken.map((language, index) => (
                           <span key={index} className={cn(QualificationItem)}>
                             {language}
