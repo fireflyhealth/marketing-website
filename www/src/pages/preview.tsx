@@ -7,7 +7,6 @@ import { RevalidationTime, Status } from '@/constants';
 import { usePreviewData } from '@/hooks/usePreviewData';
 import { PreviewProps } from '@/lib/sanity/previews';
 import { HomeView } from '@/views/HomeView';
-import { LinkableDocumentType } from '@/types/sanity';
 import { BlogPageView } from '@/views/Blog/BlogPageView';
 import { FAQPageView } from '@/views/FAQPageView';
 import { DownloadPageView } from '@/views/DownloadPageView';
