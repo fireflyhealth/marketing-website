@@ -133,10 +133,10 @@ export const ProviderHeader: FC<Props> = ({
                   )}
                   {isAVeteran && (
                     <div className={cn(QualificationSection)}>
-                      <BrandedIcon
-                        type="information"
+                      <SimpleIcon
+                        type="plus"
                         wrapperStyles="w-6 h-6"
-                        iconStyles="text-color-primary"
+                        iconStyles="theme-text-color-primary"
                       />
                       <span className={cn(QualificationItem)}>Veteran</span>
                     </div>
