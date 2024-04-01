@@ -96,22 +96,24 @@ export const ProviderHeader: FC<Props> = ({
                 <div className={cn(Qualifications)}>
                   {education && (
                     <div className={cn(QualificationSection)}>
-                      <BrandedIcon
-                        type="education"
-                        wrapperStyles="w-6 h-6"
-                        iconStyles="text-color-primary"
-                      />
-                      {education.map((institution, index) => (
-                        <span
-                          key={`${institution._key}-${index}`}
-                          className={cn(QualificationItem)}
-                        >
-                          {institution.name}
-                          {education.length > 0 &&
-                            index < education.length - 1 &&
-                            ` ,`}
-                        </span>
-                      ))}
+                      <div>
+                        <BrandedIcon
+                          type="education"
+                          wrapperStyles="min-w-6 min-h-6 w-6 h-6 mr-2 inline-block -mb-1"
+                          iconStyles="text-color-primary"
+                        />
+                        {education.map((institution, index) => (
+                          <span
+                            key={`${institution._key}-${index}`}
+                            className={cn(QualificationItem)}
+                          >
+                            {institution.name}
+                            {education.length > 0 &&
+                              index < education.length - 1 &&
+                              `, `}
+                          </span>
+                        ))}
+                      </div>
                     </div>
                   )}
                   {languagesSpoken && (
@@ -121,14 +123,16 @@ export const ProviderHeader: FC<Props> = ({
                         wrapperStyles="w-6 h-6"
                         iconStyles="text-color-primary"
                       />
-                      {languagesSpoken.map((language, index) => (
-                        <span key={index} className={cn(QualificationItem)}>
-                          {language}
-                          {languagesSpoken.length > 0 &&
-                            index < languagesSpoken.length - 1 &&
-                            `, `}
-                        </span>
-                      ))}
+                      <div>
+                        {languagesSpoken.map((language, index) => (
+                          <span key={index} className={cn(QualificationItem)}>
+                            {language}
+                            {languagesSpoken.length > 0 &&
+                              index < languagesSpoken.length - 1 &&
+                              `, `}
+                          </span>
+                        ))}
+                      </div>
                     </div>
                   )}
                   {isAVeteran && (

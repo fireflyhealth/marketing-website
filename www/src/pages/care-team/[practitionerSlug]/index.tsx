@@ -5,7 +5,7 @@ import { PageProps } from '@/types/next';
 import { RevalidationTime } from '@/constants';
 
 import * as Sanity from '@/lib/sanity';
-import { LinkableDocumentData, Practitioner } from '@/types/sanity';
+import { Practitioner } from '@/types/sanity';
 import { PageMetadata } from '@/components/Metadata/ProviderMetadata';
 import { ProviderPageView } from '@/views/ProviderView';
 import { QueryConfig } from '@/lib/sanity';
