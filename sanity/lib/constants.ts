@@ -124,7 +124,12 @@ export const defaultContentBlockTypes = [
   { type: 'dividerBlock' },
 ];
 
-// TODO: add 'practitionerPhilosophyBlock'
+/**
+ * An abbreviated list of content blocks
+ * that only appear on Provider pages.
+ *
+ * (These always have a 'header' field)
+ */
 export const providerPageBlockTypes = [
   { type: 'columnsBlock' },
   { type: 'imageGridBlock' },
