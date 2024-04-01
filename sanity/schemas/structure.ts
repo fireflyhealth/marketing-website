@@ -156,7 +156,7 @@ export const structure: StructureResolver = async (S, context) => {
                   schemaType: 'contactPage',
                   icon: icons.Contact,
                 }),
-                createSingletonPageWithPreview(S, {
+                createSingletonPage(S, {
                   title: '404 Page',
                   id: 'notFoundPage',
                   schemaType: 'notFoundPage',
