@@ -123,3 +123,17 @@ export const defaultContentBlockTypes = [
   { type: 'smallImageCarouselBlock' },
   { type: 'dividerBlock' },
 ];
+
+/**
+ * An abbreviated list of content blocks
+ * that only appear on Provider pages.
+ *
+ * (These always have a 'header' field)
+ */
+export const providerPageBlockTypes = [
+  { type: 'columnsBlock' },
+  { type: 'imageGridBlock' },
+  { type: 'testimonialBlock' },
+  { type: 'videoBlock' },
+  { type: 'providerPhilosophyBlock' },
+];

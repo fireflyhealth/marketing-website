@@ -24,8 +24,8 @@ type CreateSingletonPageConfig = {
   icon?: ComponentType | ReactNode;
 };
 
-/* Create a singleton page entry */
-const createSingletonPage = (
+/* Create a singleton page entry with preview */
+const createSingletonPageWithPreview = (
   S: StructureBuilder,
   { title, schemaType, id, icon }: CreateSingletonPageConfig,
 ) =>
@@ -40,6 +40,16 @@ const createSingletonPage = (
         .title(title)
         .views([S.view.form(), S.view.component(PagePreview).title('Preview')]),
     );
+
+/* Create a singleton page entry */
+const createSingletonPage = (
+  S: StructureBuilder,
+  { title, schemaType, id, icon }: CreateSingletonPageConfig,
+) =>
+  S.listItem()
+    .title(title)
+    .icon(icon || null)
+    .child(S.editor().id(id).schemaType(schemaType).id(id).title(title));
 
 type CreateDocumentTypeListConfig = {
   schemaType: string;
@@ -113,7 +123,7 @@ export const structure: StructureResolver = async (S, context) => {
           .title('Navigation')
           .icon(icons.Navigation)
           .child(S.documentTypeList('navigation')),
-        createSingletonPage(S, {
+        createSingletonPageWithPreview(S, {
           title: 'Homepage',
           id: 'homepage',
           schemaType: 'homepage',
@@ -134,19 +144,19 @@ export const structure: StructureResolver = async (S, context) => {
             S.list()
               .title('Special Pages')
               .items([
-                createSingletonPage(S, {
+                createSingletonPageWithPreview(S, {
                   title: 'Download Page',
                   id: 'downloadPage',
                   schemaType: 'downloadPage',
                   icon: icons.Download,
                 }),
-                createSingletonPage(S, {
+                createSingletonPageWithPreview(S, {
                   title: 'Contact Page',
                   id: 'contactPage',
                   schemaType: 'contactPage',
                   icon: icons.Contact,
                 }),
-                createSingletonPage(S, {
+                createSingletonPageWithPreview(S, {
                   title: '404 Page',
                   id: 'notFoundPage',
                   schemaType: 'notFoundPage',
@@ -157,7 +167,7 @@ export const structure: StructureResolver = async (S, context) => {
 
         S.divider(),
 
-        createSingletonPage(S, {
+        createSingletonPageWithPreview(S, {
           title: 'FAQ Page',
           id: 'faqPage',
           schemaType: 'faqPage',
@@ -178,15 +188,26 @@ export const structure: StructureResolver = async (S, context) => {
 
         S.divider(),
 
+        createSingletonPage(S, {
+          title: 'Provider Page Settings',
+          id: 'providerPageSettings',
+          schemaType: 'providerPageSettings',
+          icon: icons.Settings,
+        }),
+        createFilteredDocumentTypeList(S, {
+          title: 'Practitioners',
+          schemaType: 'practitioner',
+          icon: icons.Practitioner,
+        }),
         createFilteredDocumentTypeList(S, {
           title: 'Clients',
           schemaType: 'clientPage',
           icon: icons.Client,
         }),
         createFilteredDocumentTypeList(S, {
-          title: 'Practitioners',
-          schemaType: 'practitioner',
-          icon: icons.Practitioner,
+          title: 'Role Descriptions',
+          schemaType: 'roleDescription',
+          icon: icons.Description,
         }),
 
         S.divider(),

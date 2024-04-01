@@ -32,7 +32,7 @@ import {
   BiGridHorizontal,
   BiCard,
 } from 'react-icons/bi';
-import { FaHubspot, FaQuoteLeft } from 'react-icons/fa';
+import { FaHubspot, FaQuoteLeft, FaHighlighter } from 'react-icons/fa';
 import {
   BsFileBarGraph,
   BsMenuDown,
@@ -48,6 +48,7 @@ import {
   MdPercent,
   MdOutlineViewTimeline,
   MdRateReview,
+  MdOutlineDescription,
 } from 'react-icons/md';
 import { FaUserDoctor } from 'react-icons/fa6';
 import { GoColumns, GoQuote } from 'react-icons/go';
@@ -113,4 +114,6 @@ export const icons = {
   Divider: FiDivideSquare,
   DoubleCta: FiColumns,
   RichText: FiAlignJustify,
+  Highlight: FaHighlighter,
+  Description: MdOutlineDescription,
 };

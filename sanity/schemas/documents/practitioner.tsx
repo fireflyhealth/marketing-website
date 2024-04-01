@@ -45,10 +45,10 @@ export const Practitioner = defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
-      name: 'title',
-      title: 'Title',
-      type: 'string',
-      description: 'i.e. "Primary Care Provider (PCP)"',
+      name: 'role',
+      title: 'Role',
+      type: 'reference',
+      to: [{ type: 'roleDescription' }],
       validation: (Rule) => Rule.required(),
     }),
     defineField({
@@ -79,6 +79,27 @@ export const Practitioner = defineType({
       readOnly: ({ document }) => isVariantDocument(document),
     }),
     defineField({
+      name: 'isAvailable',
+      title: 'Availability Indicator',
+      type: 'boolean',
+      initialValue: false,
+      group: 'providerPage',
+      fieldset: 'providerPageFields',
+      hidden: ({ parent }) => !parent.renderProviderPage,
+      validation: (Rule) =>
+        Rule.custom((value, context) => {
+          if (
+            // @ts-ignore
+            context?.parent?.renderProviderPage === true &&
+            value === undefined
+          ) {
+            return 'Availability Indicator must be toggled on or off.';
+          }
+
+          return true;
+        }),
+    }),
+    defineField({
       name: 'education',
       title: 'Education',
       group: 'providerPage',
@@ -105,6 +126,7 @@ export const Practitioner = defineType({
           },
         }),
       ],
+      hidden: ({ parent }) => !parent.renderProviderPage,
     }),
     defineField({
       name: 'languagesSpoken',
@@ -113,7 +135,41 @@ export const Practitioner = defineType({
       of: [{ type: 'string' }],
       group: 'providerPage',
       fieldset: 'providerPageFields',
-      validation: (Rule) => Rule.required().min(1),
+      hidden: ({ parent }) => !parent.renderProviderPage,
+      validation: (Rule) =>
+        Rule.custom((value, context) => {
+          if (
+            // @ts-ignore
+            context?.parent?.renderProviderPage === true &&
+            // @ts-ignore
+            value.length < 1
+          ) {
+            return 'Language(s) is required (minimum 1).';
+          }
+
+          return true;
+        }),
+    }),
+    defineField({
+      name: 'isAVeteran',
+      title: 'Veteran Status',
+      type: 'boolean',
+      initialValue: false,
+      group: 'providerPage',
+      fieldset: 'providerPageFields',
+      hidden: ({ parent }) => !parent.renderProviderPage,
+      validation: (Rule) =>
+        Rule.custom((value, context) => {
+          if (
+            // @ts-ignore
+            context?.parent?.renderProviderPage === true &&
+            value === undefined
+          ) {
+            return 'A blurb about this practitioner is required.';
+          }
+
+          return true;
+        }),
     }),
     defineField({
       name: 'blurb',
@@ -121,7 +177,16 @@ export const Practitioner = defineType({
       type: 'simpleRichText',
       group: 'providerPage',
       fieldset: 'providerPageFields',
-      validation: (Rule) => Rule.required(),
+      hidden: ({ parent }) => !parent.renderProviderPage,
+      validation: (Rule) =>
+        Rule.custom((value, context) => {
+          // @ts-ignore
+          if (context?.parent?.renderProviderPage === true && !value) {
+            return 'A blurb about this practitioner is required.';
+          }
+
+          return true;
+        }),
     }),
     defineField({
       name: 'headerBgThemeColor',
@@ -134,17 +199,9 @@ export const Practitioner = defineType({
       hidden: ({ parent }) => !parent.renderProviderPage,
     }),
     defineField({
-      name: 'cta',
-      title: 'CTA',
-      type: 'cta',
-      group: 'providerPage',
-      fieldset: 'providerPageFields',
-      hidden: ({ parent }) => !parent.renderProviderPage,
-    }),
-    defineField({
       name: 'contentArea',
       title: 'Content Area',
-      type: 'contentArea',
+      type: 'providerPageContentArea',
       group: 'providerPage',
       fieldset: 'providerPageFields',
       hidden: ({ parent }) => !parent.renderProviderPage,
@@ -156,6 +213,13 @@ export const Practitioner = defineType({
       group: 'providerPage',
       fieldset: 'providerPageFields',
       hidden: ({ parent }) => !parent.renderProviderPage,
+    }),
+    defineField({
+      name: 'title',
+      title: 'Title',
+      type: 'string',
+      description:
+        'DEPRECATED: use the "role" field to reference a "role description" document.',
     }),
   ],
   preview: {

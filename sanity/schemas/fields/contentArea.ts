@@ -1,5 +1,8 @@
 import { defineType } from 'sanity';
-import { defaultContentBlockTypes } from '../../lib/constants';
+import {
+  defaultContentBlockTypes,
+  providerPageBlockTypes,
+} from '../../lib/constants';
 
 /**
  * Content blocks that are used as children within
@@ -26,4 +29,11 @@ export const ContentArea = defineType({
   title: 'Content Area',
   type: 'array',
   of: defaultContentBlockTypes,
+});
+
+export const ProviderPageContentArea = defineType({
+  name: 'providerPageContentArea',
+  title: 'Content Area',
+  type: 'array',
+  of: providerPageBlockTypes,
 });
