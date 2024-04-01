@@ -86,18 +86,6 @@ export const Practitioner = defineType({
       group: 'providerPage',
       fieldset: 'providerPageFields',
       hidden: ({ parent }) => !parent.renderProviderPage,
-      validation: (Rule) =>
-        Rule.custom((value, context) => {
-          if (
-            // @ts-ignore
-            context?.parent?.renderProviderPage === true &&
-            value === undefined
-          ) {
-            return 'Availability Indicator must be toggled on or off.';
-          }
-
-          return true;
-        }),
     }),
     defineField({
       name: 'education',
@@ -158,18 +146,6 @@ export const Practitioner = defineType({
       group: 'providerPage',
       fieldset: 'providerPageFields',
       hidden: ({ parent }) => !parent.renderProviderPage,
-      validation: (Rule) =>
-        Rule.custom((value, context) => {
-          if (
-            // @ts-ignore
-            context?.parent?.renderProviderPage === true &&
-            value === undefined
-          ) {
-            return 'A blurb about this practitioner is required.';
-          }
-
-          return true;
-        }),
     }),
     defineField({
       name: 'blurb',
