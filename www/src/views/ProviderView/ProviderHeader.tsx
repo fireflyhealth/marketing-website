@@ -60,7 +60,7 @@ export const ProviderHeader: FC<Props> = ({
     <div className="Provider__Header">
       <Link
         link={allProvidersBackLink}
-        className="simple-text-link border-black w-max flex flex-row items-center"
+        className="theme-white simple-text-link--with-underline w-max flex flex-row items-center"
       >
         <SimpleIcon type="arrow-left" wrapperStyles="w-3 h-3 mr-3" />
         All Providers
@@ -96,45 +96,50 @@ export const ProviderHeader: FC<Props> = ({
                 <div className={cn(Qualifications)}>
                   {education && (
                     <div className={cn(QualificationSection)}>
-                      <BrandedIcon
-                        type="education"
-                        wrapperStyles="w-6 h-6"
-                        iconStyles="text-color-primary"
-                      />
-                      {education.map((institution, index) => (
-                        <span
-                          key={`${institution._key}-${index}`}
-                          className={cn(QualificationItem)}
-                        >
-                          {institution.name}
-                          {education.length > 0 &&
-                            index < education.length - 1 &&
-                            ` ,`}
-                        </span>
-                      ))}
+                      <div>
+                        <BrandedIcon
+                          type="education"
+                          wrapperStyles="min-w-6 min-h-6 w-6 h-6 mr-2 inline-block -mb-1.5"
+                          iconStyles="text-color-primary"
+                        />
+                        {education.map((institution, index) => (
+                          <span
+                            key={`${institution._key}-${index}`}
+                            className={cn(QualificationItem)}
+                          >
+                            {institution.name}
+                            {education.length > 0 &&
+                              index < education.length - 1 &&
+                              `, `}
+                          </span>
+                        ))}
+                      </div>
                     </div>
                   )}
                   {languagesSpoken && (
                     <div className={cn(QualificationSection)}>
-                      <BrandedIcon
-                        type="languages"
-                        wrapperStyles="w-6 h-6"
-                        iconStyles="text-color-primary"
-                      />
-                      {languagesSpoken.map((language, index) => (
-                        <span key={index} className={cn(QualificationItem)}>
-                          {language}
-                          {languagesSpoken.length > 0 &&
-                            index < languagesSpoken.length - 1 &&
-                            `, `}
-                        </span>
-                      ))}
+                      <div>
+                        <BrandedIcon
+                          type="languages"
+                          wrapperStyles="min-w-6 min-h-6 w-6 h-6 mr-2 inline-block -mb-1.5"
+                          iconStyles="text-color-primary"
+                        />
+
+                        {languagesSpoken.map((language, index) => (
+                          <span key={index} className={cn(QualificationItem)}>
+                            {language}
+                            {languagesSpoken.length > 0 &&
+                              index < languagesSpoken.length - 1 &&
+                              `, `}
+                          </span>
+                        ))}
+                      </div>
                     </div>
                   )}
                   {isAVeteran && (
                     <div className={cn(QualificationSection)}>
-                      <SimpleIcon
-                        type="plus"
+                      <BrandedIcon
+                        type="information"
                         wrapperStyles="w-6 h-6"
                         iconStyles="theme-text-color-primary"
                       />
