@@ -13,8 +13,8 @@ export const NavLinksWrapper = [
 ];
 
 export const NavLinkStyles = [
-  'trust-h3 text-left transition-all',
-  'lg:roobert-body lg:py-3 lg:px-6',
+  'Navigation__link-style font-trust text-left transition-all',
+  'lg:font-roobert lg:py-3 lg:px-6',
 ];
 
 export const NavLinkDropdownWrapper = ['w-full relative'];
