@@ -12,7 +12,6 @@ type PractitionerCardProps = {
 export const PractitionerCard: FC<PractitionerCardProps> = ({
   practitioner,
 }) => {
-  console.log('practioner card: ', practitioner);
   return (
     <div className="PractitionerCard">
       <div className="rounded-[1rem] overflow-hidden relative">

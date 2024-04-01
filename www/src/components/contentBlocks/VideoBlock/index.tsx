@@ -11,11 +11,10 @@ type Props = {
 
 export const VideoBlock: FC<Props> = ({ videoBlock }) => {
   const { header, subnav, video } = videoBlock;
-  console.log('video block: ', videoBlock);
   return (
     <ContentBlockWrapper header={header} id={subnav?.contentBlockId}>
       <div className={cn(Wrapper)}>
-        <Video video={video} posterSizes={['']} />
+        <Video video={video} posterSizes={['65vw, 85vw']} />
       </div>
     </ContentBlockWrapper>
   );

@@ -54,6 +54,7 @@ import { TabsBlock, TabsBlockTab } from './blocks/tabsBlock';
 import { TestimonialBlock } from './blocks/testimonalBlock';
 import { DividerBlock } from './blocks/dividerBlock';
 import { VideoBlock } from './blocks/videoBlock';
+import { ProviderPhilosophyBlock } from './blocks/providerPhilosophyBlock';
 
 /* Fields */
 import { Metadata } from './fields/metadata';
@@ -160,6 +161,7 @@ export const schemaTypes = [
   /* Divider block does not have heading */
   DividerBlock,
   VideoBlock,
+  ProviderPhilosophyBlock,
 
   /* Child blocks (used within other blocks, i.e. 2-up block) */
   CtaCard,

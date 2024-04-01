@@ -130,4 +130,5 @@ export const providerPageBlockTypes = [
   { type: 'imageGridBlock' },
   { type: 'testimonialBlock' },
   { type: 'videoBlock' },
+  { type: 'providerPhilosophyBlock' },
 ];

@@ -741,7 +741,8 @@ export type ContentBlock =
   | RichTextBlock
   | TestimonialBlock
   | DividerBlock
-  | VideoBlock;
+  | VideoBlock
+  | ProviderPhilosophyBlock;
 
 export type ContentArea = KeyedArray<ContentBlock>;
 
@@ -993,4 +994,14 @@ export type TestimonialBlock = ContentBlockCommon & {
 export type VideoBlock = ContentBlockCommon & {
   _type: 'videoBlock';
   video: Video;
+};
+
+export type ProviderPhilosophyBlock = ContentBlockCommon & {
+  _type: 'providerPhilosophyBlock';
+  theme: ColorTheme;
+  icon?: {
+    _type: 'icon';
+    icon: IconTypeName;
+  };
+  quote: string;
 };
