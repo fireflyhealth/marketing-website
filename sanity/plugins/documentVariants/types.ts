@@ -12,6 +12,10 @@ export type DocumentWithSlug = SanityDocument & {
   };
 };
 
+export type DocumentWithVariantInfo = SanityDocument & {
+  documentVariantInfo?: VariantFieldValue;
+};
+
 export type VariantFieldValue = {
   isVariant?: boolean;
   label?: string;

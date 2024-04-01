@@ -1,7 +1,10 @@
 import { defineArrayMember, defineField, defineType } from 'sanity';
 import { icons } from '../../lib/icons';
 import { createDocumentVariantField } from '../../plugins/documentVariants/fields/documentVariant';
-import { cloneWithUniqueSlug } from '../../plugins/documentVariants/utils';
+import {
+  cloneWithUniqueSlug,
+  isVariantDocument,
+} from '../../plugins/documentVariants/utils';
 
 export const Practitioner = defineType({
   name: 'practitioner',
@@ -73,6 +76,7 @@ export const Practitioner = defineType({
       group: 'providerPage',
       fieldset: 'providerPageFields',
       validation: (Rule) => Rule.required(),
+      readOnly: ({ document }) => isVariantDocument(document),
     }),
     defineField({
       name: 'education',

@@ -104,7 +104,7 @@ export const PrimaryDocumentWithVariantInput: FC<VariantFieldInputProps> = (
   props,
 ) => {
   const client = useMemoizedClient({ apiVersion: API_VERSION });
-  const parentDocument = useFormValue([]) as DocumentWithSlug;
+  const parentDocument = useFormValue([]) as DocumentWithVariantInfo;
   const parentDocumentId = parentDocument?._id;
   const variantDocumentId = props.value?.variantDocument?._ref;
   const [confirmDialogOpen, setConfirmDialogOpen] = useState(false);

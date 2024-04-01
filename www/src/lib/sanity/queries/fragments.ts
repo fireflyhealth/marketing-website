@@ -853,3 +853,5 @@ export const navigationOverridesFragment = `
     }
   },
 `;
+
+export const isNotVariantFilter = `!(defined(documentVariantInfo.variantOf))`;

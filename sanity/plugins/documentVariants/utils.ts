@@ -1,5 +1,9 @@
 import speakingurl from 'speakingurl';
-import { DocumentWithSlug, GetCloneData } from './types';
+import {
+  DocumentWithSlug,
+  DocumentWithVariantInfo,
+  GetCloneData,
+} from './types';
 import { VARIANTS_FIELD_LABEL } from './constants';
 /**
  * Use the same default slugify utility used by Sanity's slug field. See:
@@ -46,4 +50,15 @@ export const cloneWithUniqueSlug: GetCloneData = (
       current: [parentDocumentSlug, slugify(VARIANTS_FIELD_LABEL)].join('-'),
     },
   };
+};
+
+/**
+ * Determines if a document is a variant of another document.
+ * Useful for making fields read-only.
+ */
+export const isVariantDocument = (doc?: DocumentWithVariantInfo) => {
+  if (doc?.documentVariantInfo && Boolean(doc.documentVariantInfo.variantOf)) {
+    return true;
+  }
+  return false;
 };
