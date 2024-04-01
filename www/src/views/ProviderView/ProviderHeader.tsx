@@ -60,7 +60,7 @@ export const ProviderHeader: FC<Props> = ({
     <div className="Provider__Header">
       <Link
         link={allProvidersBackLink}
-        className="simple-text-link border-black w-max flex flex-row items-center"
+        className="theme-white simple-text-link--with-underline w-max flex flex-row items-center"
       >
         <SimpleIcon type="arrow-left" wrapperStyles="w-3 h-3 mr-3" />
         All Providers
