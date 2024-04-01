@@ -1,8 +1,8 @@
 import { FC } from 'react';
 import cn from 'classnames';
 import { VideoBlock as VideoBlockType } from '@/types/sanity';
-import { ContentBlockWrapper } from '../ContentBlockWrapper';
 import { Video } from '@/components/Video';
+import { ContentBlockWrapper } from '../ContentBlockWrapper';
 import { Wrapper } from './styles';
 
 type Props = {

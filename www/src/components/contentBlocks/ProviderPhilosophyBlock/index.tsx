@@ -1,10 +1,10 @@
 import { FC } from 'react';
 import cn from 'classnames';
 import { ProviderPhilosophyBlock as ProviderPhilosophyBlockType } from '@/types/sanity';
-import { ContentBlockWrapper } from '../ContentBlockWrapper';
 import { Theme } from '@/components/Theme';
-import { Wrapper, Quote } from './styles';
 import { BrandedIcon } from '@/svgs/BrandedIcon';
+import { ContentBlockWrapper } from '../ContentBlockWrapper';
+import { Wrapper, Quote } from './styles';
 
 type Props = {
   providerPhilosophyBlock: ProviderPhilosophyBlockType;

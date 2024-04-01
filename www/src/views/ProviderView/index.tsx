@@ -6,10 +6,9 @@ import { Link } from '@/atoms/Link';
 import { SimpleIcon } from '@/svgs/SimpleIcon';
 import { ColorTheme, Theme } from '@/components/Theme';
 import { RichText } from '@/components/RichText';
+import { DoubleCTA } from '@/components/DoubleCTA';
 import { ProviderHeader } from './ProviderHeader';
 import { PCPBlurbWrapper } from './styles';
-import { TestimonialBlock } from '@/components/contentBlocks/TestimonialBlock';
-import { DoubleCTA } from '@/components/DoubleCTA';
 
 export type ProviderPageViewProps = {
   provider: Practitioner;
