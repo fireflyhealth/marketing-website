@@ -103,7 +103,7 @@ export const ProviderHeader: FC<Props> = ({
                       />
                       {education.map((institution, index) => (
                         <span
-                          key={institution._key}
+                          key={`${institution._key}-${index}`}
                           className={cn(QualificationItem)}
                         >
                           {institution.name}
