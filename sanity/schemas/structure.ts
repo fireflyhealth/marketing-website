@@ -8,7 +8,6 @@ import { ComponentType, ReactNode } from 'react';
 import { icons } from '../lib/icons';
 import { API_VERSION } from '../lib/constants';
 
-import PagePreview from '../lib/pagePreview';
 import { addProductionDataWarning } from '../lib/warnForProduction';
 
 const isDevelopment: boolean =
@@ -23,23 +22,6 @@ type CreateSingletonPageConfig = {
   schemaType: string;
   icon?: ComponentType | ReactNode;
 };
-
-/* Create a singleton page entry with preview */
-const createSingletonPageWithPreview = (
-  S: StructureBuilder,
-  { title, schemaType, id, icon }: CreateSingletonPageConfig,
-) =>
-  S.listItem()
-    .title(title)
-    .icon(icon || null)
-    .child(
-      S.editor()
-        .id(id)
-        .schemaType(schemaType)
-        .id(id)
-        .title(title)
-        .views([S.view.form(), S.view.component(PagePreview).title('Preview')]),
-    );
 
 /* Create a singleton page entry */
 const createSingletonPage = (
@@ -123,7 +105,7 @@ export const structure: StructureResolver = async (S, context) => {
           .title('Navigation')
           .icon(icons.Navigation)
           .child(S.documentTypeList('navigation')),
-        createSingletonPageWithPreview(S, {
+        createSingletonPage(S, {
           title: 'Homepage',
           id: 'homepage',
           schemaType: 'homepage',
@@ -144,13 +126,13 @@ export const structure: StructureResolver = async (S, context) => {
             S.list()
               .title('Special Pages')
               .items([
-                createSingletonPageWithPreview(S, {
+                createSingletonPage(S, {
                   title: 'Download Page',
                   id: 'downloadPage',
                   schemaType: 'downloadPage',
                   icon: icons.Download,
                 }),
-                createSingletonPageWithPreview(S, {
+                createSingletonPage(S, {
                   title: 'Contact Page',
                   id: 'contactPage',
                   schemaType: 'contactPage',
@@ -167,7 +149,7 @@ export const structure: StructureResolver = async (S, context) => {
 
         S.divider(),
 
-        createSingletonPageWithPreview(S, {
+        createSingletonPage(S, {
           title: 'FAQ Page',
           id: 'faqPage',
           schemaType: 'faqPage',
@@ -289,10 +271,7 @@ export const defaultDocumentNode: DefaultDocumentNodeResolver = (
       'practitioner',
     ].includes(schemaType)
   ) {
-    return S.document().views([
-      S.view.form(),
-      S.view.component(PagePreview).title('Preview'),
-    ]);
+    return S.document().views([S.view.form()]);
   }
 
   return S.document().views([S.view.form()]);
