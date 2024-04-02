@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, useState, useEffect } from 'react';
 import cn from 'classnames';
 
 import * as SanityTypes from '@/types/sanity';
@@ -8,6 +8,14 @@ import { CTA } from '@/components/CTA';
 import { Link } from '@/atoms/Link';
 import { BrandedIcon } from '@/svgs/BrandedIcon';
 import { ResponsiveSanityImage } from '@/atoms/Image/ResponsiveSanityImage';
+import { useGetAnnouncementBannerHeight } from '@/hooks/useGetAnnouncementBannerHeight';
+import { useWindowDimensions } from '@/hooks/useWindowDimensions';
+import {
+  DESKTOP_NAV_HEIGHT,
+  TABLET_NAV_HEIGHT,
+  BREAK_POINTS_MD,
+  BREAK_POINTS_LG,
+} from '@/constants';
 
 import {
   ThemeWrapper,
@@ -35,15 +43,24 @@ import {
 const DualCta: FC<{
   cta: SanityTypes.TextWithDualCtaHeaderCta;
   position: 'top' | 'bottom';
-}> = ({ cta, position }) => {
+  onMouseEnter: () => void;
+  onMouseLeave: () => void;
+  isActive: boolean;
+  isInactive: boolean;
+}> = ({ cta, position, onMouseEnter, onMouseLeave, isActive, isInactive }) => {
   const { image, eyebrow, label, link, ariaLabel, theme } = cta;
   const isTop = position === 'top';
 
   return (
     <Link
-      className={cn(DualCtaStyles, isTop ? DualCtaTop : DualCtaBottom)}
+      className={cn(DualCtaStyles, isTop ? DualCtaTop : DualCtaBottom, {
+        'TextWithDualCtaHeader__cta--active': isActive,
+        'TextWithDualCtaHeader__cta--inactive': isInactive,
+      })}
       link={link}
       ariaLabel={ariaLabel}
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
     >
       <Theme className={cn(DualCtaTheme, 'relative')} theme={theme}>
         <div className={cn(ButtonContentWrapper)}>
@@ -78,9 +95,44 @@ type Props = {
 export const TextWithDualCtaHeader: FC<Props> = ({ textWithDualCtaHeader }) => {
   const { eyebrow, heading, body, theme, ctas, topCta, bottomCta } =
     textWithDualCtaHeader;
+  const [windowHeightWithoutNav, setWindowHeightWithoutNav] =
+    useState<string>('??');
+  const [activeCta, setActiveCta] = useState<'top' | 'bottom' | null>(null);
+
+  const announcementBannerHeight = useGetAnnouncementBannerHeight();
+  const windowDimentions = useWindowDimensions();
+
+  useEffect(() => {
+    const announcementBannerHeightNumber = announcementBannerHeight ?? 0;
+    const windowDimentionHeightNumber = windowDimentions?.height ?? 0;
+    const windowDimentionWidthtNumber = windowDimentions?.width ?? 0;
+
+    if (windowDimentionWidthtNumber >= BREAK_POINTS_LG) {
+      setWindowHeightWithoutNav(
+        `${windowDimentionHeightNumber - DESKTOP_NAV_HEIGHT - announcementBannerHeightNumber}px`,
+      );
+    } else if (windowDimentionWidthtNumber >= BREAK_POINTS_MD) {
+      setWindowHeightWithoutNav(
+        `${windowDimentionHeightNumber - TABLET_NAV_HEIGHT - announcementBannerHeightNumber}px`,
+      );
+    } else {
+      setWindowHeightWithoutNav('unset');
+    }
+  }, [
+    announcementBannerHeight,
+    windowDimentions,
+    DESKTOP_NAV_HEIGHT,
+    TABLET_NAV_HEIGHT,
+  ]);
 
   return (
-    <Theme theme={theme} className={cn(ThemeWrapper)}>
+    <Theme
+      theme={theme}
+      className={cn(ThemeWrapper)}
+      style={{
+        height: windowHeightWithoutNav,
+      }}
+    >
       <div className={cn(Wrapper)}>
         <div className={cn(WarpperInner)}>
           {eyebrow && <p className={cn(Eyebrow)}>{eyebrow}</p>}
@@ -98,8 +150,30 @@ export const TextWithDualCtaHeader: FC<Props> = ({ textWithDualCtaHeader }) => {
         </div>
       </div>
       <div className={cn(DualCtaWrapper)}>
-        <DualCta cta={topCta} position="top" />
-        <DualCta cta={bottomCta} position="bottom" />
+        <DualCta
+          cta={topCta}
+          position="top"
+          onMouseEnter={() => {
+            setActiveCta('top');
+          }}
+          onMouseLeave={() => {
+            setActiveCta(null);
+          }}
+          isActive={activeCta === 'top'}
+          isInactive={activeCta === 'bottom'}
+        />
+        <DualCta
+          cta={bottomCta}
+          position="bottom"
+          onMouseEnter={() => {
+            setActiveCta('bottom');
+          }}
+          onMouseLeave={() => {
+            setActiveCta(null);
+          }}
+          isActive={activeCta === 'bottom'}
+          isInactive={activeCta === 'top'}
+        />
       </div>
     </Theme>
   );

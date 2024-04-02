@@ -1,29 +1,23 @@
 .TextWithDualCtaHeader {
+  min-height: 444px;
+
   &__cta--bottom,
   &__cta--top {
-    border: 3px solid transparent;
-  }
-
-  &__cta--bottom:hover,
-  &__cta--top:hover {
-    height: 288px;
-
-    @screen md {
-      height: 638px;
-    }
+    border: 0px solid transparent;
+    height: 50%;
   }
 
   &__cta--bottom:focus,
   &__cta--top:focus {
-    border-color: var(--cta-border-color);
+    border: 1px solid var(--cta-border-color);
     outline: none;
   }
 
   .TextWithDualCtaHeader__cta-wrapper {
-    min-height: 432px;
+    height: 444px;
 
     @screen md {
-      height: 782px;
+      height: 100%;
     }
 
     img {
@@ -33,8 +27,18 @@
     }
   }
 
-  .TextWithDualCtaHeader__cta-wrapper:hover > a:not(:hover) {
-    height: 132px;
+  .TextWithDualCtaHeader__cta--active {
+    height: 100%;
+  }
+
+  .TextWithDualCtaHeader__cta--inactive {
+    /* 128 (content height) + 24 * 2 (content padding top and bottom) + 24 (spacing between top and bottom cta) */
+    height: 200px;
+
+    @screen md {
+      /* 132 (content height) + 24 * 2 (content padding top and bottom) + 24 (spacing between top and bottom cta) */
+      height: 204px;
+    }
 
     img {
       opacity: 0;
