@@ -9,9 +9,9 @@ const StagingRevalidationTime = {
 
 const ProdRevalidationTime = {
   Always: 1, // as often as possible
-  Often: 300, // 5 minutes
-  Medium: 3600, // 1 hour
-  Rare: 21600, // 6 hours
+  Often: 1, // as often as possible
+  Medium: 1, // as often as possible
+  Rare: 1, // as often as possible
 };
 
 export const RevalidationTime = config.isProd
