@@ -56,32 +56,34 @@ export default function App({ Component, pageProps: allPageProps }: Props) {
         className="overflow-clip lg:overflow-visible"
       >
         <UIProvider>
-          <HubspotProvider strategy="lazyOnload">
-            <AnnouncementBanner
-              announcementBanner={
-                announcementBannerOverride || globalAnnouncementBanner
+          <AnnouncementBanner
+            announcementBanner={
+              announcementBannerOverride || globalAnnouncementBanner
+            }
+          />
+          <div className="container-max-width container-padding">
+            <Navigation
+              navigation={customPageNav || globalNav}
+              showNavCTA={
+                navCTAOverride != undefined ? navCTAOverride : globalNavCTA
               }
+              globalDoubleNav={globalDoubleCta}
             />
-            <div className="container-max-width container-padding">
-              <Navigation
-                navigation={customPageNav || globalNav}
-                showNavCTA={
-                  navCTAOverride != undefined ? navCTAOverride : globalNavCTA
-                }
-                globalDoubleNav={globalDoubleCta}
-              />
+            <HubspotProvider strategy="lazyOnload">
               <main>
                 <Component {...pageProps} />
               </main>
-              <Footer footer={siteSettings.footer} />
-            </div>
-            {config.googleTagManager.id ? (
-              // <GoogleTagManager gtmId={config.googleTagManager.id} />
-              <GtagScript />
-            ) : null}
-          </HubspotProvider>
+            </HubspotProvider>
+            <Footer footer={siteSettings.footer} />
+          </div>
         </UIProvider>
       </Theme>
+
+      {/* Third-party Scripts */}
+      {config.googleTagManager.id ? (
+        // <GoogleTagManager gtmId={config.googleTagManager.id} />
+        <GtagScript />
+      ) : null}
     </>
   );
 }
