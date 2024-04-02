@@ -56,7 +56,7 @@ export default function App({ Component, pageProps: allPageProps }: Props) {
         className="overflow-clip lg:overflow-visible"
       >
         <UIProvider>
-          <HubspotProvider>
+          <HubspotProvider strategy="lazyOnload">
             <AnnouncementBanner
               announcementBanner={
                 announcementBannerOverride || globalAnnouncementBanner
