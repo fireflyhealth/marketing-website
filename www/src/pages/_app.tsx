@@ -2,7 +2,7 @@ import React from 'react';
 import { AppProps } from 'next/app';
 import { HubspotProvider } from 'next-hubspot';
 import { GoogleTagManager } from '@next/third-parties/google';
-import { GtagScript } from '../lib/analytics/scripts';
+import { ABCookieManager } from '@/utils/storage';
 import { AnnouncementBanner } from '@/components/AnnouncementBanner';
 import { Navigation } from '@/components/Navigation';
 import { UIProvider } from '@/context';
@@ -12,10 +12,10 @@ import { ColorTheme, Theme } from '@/components/Theme';
 import { Footer } from '@/components/Footer';
 import '@/lib/datadog';
 import { config } from '@/config';
+import { GtagScript } from '../lib/analytics/scripts';
 import '../styles/fonts.css';
 import '../styles/main.css';
 import 'what-input';
-import { ABCookieManager } from '@/utils/storage';
 
 if (typeof window !== 'undefined' && process.env.NODE_ENV !== 'production') {
   const ReactDOM = require('react-dom');
