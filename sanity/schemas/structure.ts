@@ -32,14 +32,7 @@ const createSingletonPageWithPreview = (
   S.listItem()
     .title(title)
     .icon(icon || null)
-    .child(
-      S.editor()
-        .id(id)
-        .schemaType(schemaType)
-        .id(id)
-        .title(title)
-        .views([S.view.form(), S.view.component(PagePreview).title('Preview')]),
-    );
+    .child(S.editor().id(id).schemaType(schemaType).id(id).title(title));
 
 /* Create a singleton page entry */
 const createSingletonPage = (
@@ -289,10 +282,7 @@ export const defaultDocumentNode: DefaultDocumentNodeResolver = (
       'practitioner',
     ].includes(schemaType)
   ) {
-    return S.document().views([
-      S.view.form(),
-      S.view.component(PagePreview).title('Preview'),
-    ]);
+    return S.document().views([S.view.form()]);
   }
 
   return S.document().views([S.view.form()]);
