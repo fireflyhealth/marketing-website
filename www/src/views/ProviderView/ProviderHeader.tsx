@@ -12,8 +12,7 @@ import {
 import { Link } from '@/atoms/Link';
 import { SimpleIcon } from '@/svgs/SimpleIcon';
 import { BrandedIcon } from '@/svgs/BrandedIcon';
-import { Theme } from '@/components/Theme';
-import { ColorTheme } from '@/components/Theme';
+import { Theme, ColorTheme } from '@/components/Theme';
 import { RichText } from '@/components/RichText';
 import { CTA } from '@/components/CTA';
 import { SanityImage } from '@/atoms/Image/SanityImage';
