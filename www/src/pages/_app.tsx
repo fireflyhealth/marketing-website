@@ -2,6 +2,7 @@ import React from 'react';
 import { AppProps } from 'next/app';
 import { HubspotProvider } from 'next-hubspot';
 import { GoogleTagManager } from '@next/third-parties/google';
+import { GtagScript } from '../lib/analytics/scripts';
 import { AnnouncementBanner } from '@/components/AnnouncementBanner';
 import { Navigation } from '@/components/Navigation';
 import { UIProvider } from '@/context';
@@ -75,7 +76,8 @@ export default function App({ Component, pageProps: allPageProps }: Props) {
               <Footer footer={siteSettings.footer} />
             </div>
             {config.googleTagManager.id ? (
-              <GoogleTagManager gtmId={config.googleTagManager.id} />
+              // <GoogleTagManager gtmId={config.googleTagManager.id} />
+              <GtagScript />
             ) : null}
           </HubspotProvider>
         </UIProvider>
