@@ -16,10 +16,10 @@ const StagingRevalidationTime = {
 
 /* Opt out of caching */
 const ProdRevalidationTime = {
-  Always: 0, // as often as possible
-  Often: 0, // as often as possible
-  Medium: 0, // as often as possible
-  Rare: 0, // as often as possible
+  Always: 1, // as often as possible
+  Often: 1, // as often as possible
+  Medium: 1, // as often as possible
+  Rare: 1, // as often as possible
 };
 
 export const RevalidationTime = config.isProd
