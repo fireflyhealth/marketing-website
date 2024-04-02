@@ -8,7 +8,7 @@ export const config = {
   sanity: {
     projectId: 'xgbrv2vi',
     apiVersion: '2024-01-01',
-    dataset: forceDataset || isProd ? 'production' : 'staging',
+    dataset: process.env.VERCEL_ENV === 'production' ? 'production' : 'staging',
     useCdn: isProd ? true : false,
   },
   metadata: {
