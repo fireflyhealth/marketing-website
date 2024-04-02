@@ -30,7 +30,7 @@ type Props = {
   posterImagePriority?: boolean;
 };
 
-export const Video: FC<Props> = ({
+const Video: FC<Props> = ({
   video,
   posterSizes,
   showTitleCard,
@@ -241,3 +241,9 @@ export const Video: FC<Props> = ({
     </div>
   );
 };
+
+/* 
+  This component is dynamically imported across the app
+  so we have to use a default export in order to do so.
+*/
+export default Video;

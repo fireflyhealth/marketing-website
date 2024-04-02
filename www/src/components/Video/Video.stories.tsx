@@ -1,6 +1,10 @@
 import { Meta, StoryObj } from '@storybook/react';
+import dynamic from 'next/dynamic';
 import { videoExample } from '@/mockData';
-import { Video } from './';
+
+const Video = dynamic(() => import('@/components/Video'), {
+  ssr: false,
+});
 
 const meta = {
   title: 'Components/Video',

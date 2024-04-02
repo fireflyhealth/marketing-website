@@ -15,12 +15,15 @@ import { BarGraph } from '@/components/BarGraph';
 import { BigNumbers } from '../BigNumber';
 import { TwoColumnUnorderedList } from '../TwoColumnUnorderedList';
 import { OverlapDoubleImages } from '../OverlapDoubleImages';
-import { Video } from '../Video';
 import { ArticleRichTextQuote } from '../ArticleRichTextQuote';
 import { RichTextCtaRow } from './RichTextCtaRow';
 import { BigOrderedList } from './BigOrderedList';
 
 const HubspotForm = dynamic(() => import('@/components/HubspotForm'), {
+  ssr: false,
+});
+
+const Video = dynamic(() => import('@/components/Video'), {
   ssr: false,
 });
 
