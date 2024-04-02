@@ -202,7 +202,10 @@ const Video: FC<Props> = ({
               'opacity-0 pointer-events-none': isPlaying,
             })}
           >
-            <button onClick={handleFullscreen}>
+            <button
+              onClick={handleFullscreen}
+              aria-label="Open video in fullscreen"
+            >
               <SimpleIcon
                 type="external-link"
                 wrapperStyles={cn(
