@@ -26,6 +26,12 @@ export const Link: FC<LinkProps> = ({
   linkRef,
   ...props
 }) => {
+  // We should not not have link since we have cms validation for this to block publish
+  // However, for preview, editor does not need to publish (which means the validation is not enforced) so adding checker here.
+  if (!link) {
+    return <>{children}</>;
+  }
+
   if ('externalUrl' in link && link.externalUrl) {
     const url = link.externalUrl;
     const target =
