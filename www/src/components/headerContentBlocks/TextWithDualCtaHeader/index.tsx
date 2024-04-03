@@ -96,7 +96,7 @@ export const TextWithDualCtaHeader: FC<Props> = ({ textWithDualCtaHeader }) => {
   const { eyebrow, heading, body, theme, ctas, topCta, bottomCta } =
     textWithDualCtaHeader;
   const [windowHeightWithoutNav, setWindowHeightWithoutNav] =
-    useState<string>('??');
+    useState<string>('100vh');
   const [activeCta, setActiveCta] = useState<'top' | 'bottom' | null>(null);
 
   const announcementBannerHeight = useGetAnnouncementBannerHeight();
