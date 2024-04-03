@@ -726,3 +726,11 @@ svg {
     }
   }
 }
+
+.Navigation__link-style {
+  @apply font-size-5;
+
+  @screen lg {
+    @apply font-size-8;
+  }
+}
