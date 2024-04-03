@@ -30,7 +30,7 @@ type Props = {
   posterImagePriority?: boolean;
 };
 
-export const Video: FC<Props> = ({
+const Video: FC<Props> = ({
   video,
   posterSizes,
   showTitleCard,
@@ -202,7 +202,10 @@ export const Video: FC<Props> = ({
               'opacity-0 pointer-events-none': isPlaying,
             })}
           >
-            <button onClick={handleFullscreen}>
+            <button
+              onClick={handleFullscreen}
+              aria-label="Open video in fullscreen"
+            >
               <SimpleIcon
                 type="external-link"
                 wrapperStyles={cn(
@@ -241,3 +244,9 @@ export const Video: FC<Props> = ({
     </div>
   );
 };
+
+/* 
+  This component is dynamically imported across the app
+  so we have to use a default export in order to do so.
+*/
+export default Video;

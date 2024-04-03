@@ -1,9 +1,13 @@
 import { FC } from 'react';
+import dynamic from 'next/dynamic';
 import cn from 'classnames';
 import * as SanityTypes from '@/types/sanity';
 import { ColorTheme, Theme } from '@/components/Theme';
-import { Video } from '../../Video';
 import { Wrapper } from './styles';
+
+const Video = dynamic(() => import('@/components/Video'), {
+  ssr: false,
+});
 
 type Props = {
   videoHeader: SanityTypes.VideoHeader;
