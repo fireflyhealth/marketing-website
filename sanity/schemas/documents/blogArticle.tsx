@@ -134,7 +134,7 @@ export const BlogArticle = defineType({
       title: 'Parent Blog',
       type: 'reference',
       options: {
-        filter: 'defined(documentVariantInfo.variantDocument)',
+        filter: '!defined(documentVariantInfo.variantOf)',
       },
       to: [{ type: 'blog' }],
       validation: (Rule) => Rule.required(),
