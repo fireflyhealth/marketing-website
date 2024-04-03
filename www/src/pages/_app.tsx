@@ -2,6 +2,7 @@ import React from 'react';
 import { AppProps } from 'next/app';
 import { HubspotProvider } from 'next-hubspot';
 import { GoogleTagManager } from '@next/third-parties/google';
+import { ABCookieManager } from '@/utils/storage';
 import { AnnouncementBanner } from '@/components/AnnouncementBanner';
 import { Navigation } from '@/components/Navigation';
 import { UIProvider } from '@/context';
@@ -14,7 +15,6 @@ import { config } from '@/config';
 import '../styles/fonts.css';
 import '../styles/main.css';
 import 'what-input';
-import { ABCookieManager } from '@/utils/storage';
 
 if (typeof window !== 'undefined' && process.env.NODE_ENV !== 'production') {
   const ReactDOM = require('react-dom');
@@ -55,31 +55,33 @@ export default function App({ Component, pageProps: allPageProps }: Props) {
         className="overflow-clip lg:overflow-visible"
       >
         <UIProvider>
-          <HubspotProvider>
-            <AnnouncementBanner
-              announcementBanner={
-                announcementBannerOverride || globalAnnouncementBanner
+          <AnnouncementBanner
+            announcementBanner={
+              announcementBannerOverride || globalAnnouncementBanner
+            }
+          />
+          <div className="container-max-width container-padding">
+            <Navigation
+              navigation={customPageNav || globalNav}
+              showNavCTA={
+                navCTAOverride != undefined ? navCTAOverride : globalNavCTA
               }
+              globalDoubleNav={globalDoubleCta}
             />
-            <div className="container-max-width container-padding">
-              <Navigation
-                navigation={customPageNav || globalNav}
-                showNavCTA={
-                  navCTAOverride != undefined ? navCTAOverride : globalNavCTA
-                }
-                globalDoubleNav={globalDoubleCta}
-              />
+            <HubspotProvider strategy="lazyOnload">
               <main>
                 <Component {...pageProps} />
               </main>
-              <Footer footer={siteSettings.footer} />
-            </div>
-            {config.googleTagManager.id ? (
-              <GoogleTagManager gtmId={config.googleTagManager.id} />
-            ) : null}
-          </HubspotProvider>
+            </HubspotProvider>
+            <Footer footer={siteSettings.footer} />
+          </div>
         </UIProvider>
       </Theme>
+
+      {/* Third-party Scripts */}
+      {config.googleTagManager.id ? (
+        <GoogleTagManager gtmId={config.googleTagManager.id} />
+      ) : null}
     </>
   );
 }

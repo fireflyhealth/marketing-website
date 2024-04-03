@@ -135,6 +135,7 @@ export const NavGroup: FC<Props> = ({ navItem, isMobile }) => {
               link={navItem.link}
               onClick={() => setCurrentNavItem(null)}
               className="simple-text-link"
+              ariaLabel={`Navigate to ${navItem.label}`}
             >
               {navItem.link ? (
                 <p>{navItem.label}</p>
@@ -184,6 +185,7 @@ export const NavGroup: FC<Props> = ({ navItem, isMobile }) => {
                     tabindex={isCurrentNavItem ? 0 : -1}
                     linkRef={dropdownLinkRef}
                     className="simple-text-link"
+                    ariaLabel={`Navigate to ${subPage.label}`}
                   >
                     {subPage.label}
                   </Link>
@@ -199,6 +201,7 @@ export const NavGroup: FC<Props> = ({ navItem, isMobile }) => {
           onMouseEnter={handleHeadingMouseEnter}
           onMouseLeave={handleHeadingMouseLeave}
           className="simple-text-link"
+          ariaLabel={`Navigate to ${navItem.label}`}
         >
           {navItem.label}
         </Link>
