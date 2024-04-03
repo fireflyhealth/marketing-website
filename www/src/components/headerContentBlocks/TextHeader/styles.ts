@@ -18,7 +18,7 @@ export const Eyebrow = [
 ];
 
 export const Heading = [
-  'relative theme-text-color-primary trust-h1 text-center z-20',
+  'relative theme-text-color-primary font-trust font-size-2 text-center z-20',
 ];
 
 export const Body = [

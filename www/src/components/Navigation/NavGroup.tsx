@@ -121,9 +121,7 @@ export const NavGroup: FC<Props> = ({ navItem, isMobile }) => {
     : 'Open dropdown menu';
 
   return (
-    <div
-      className={cn(NavLinkStyles, navItemHighlightState, `${navItem.label}`)}
-    >
+    <div className={cn(NavLinkStyles, navItemHighlightState)}>
       {navItem._type === 'labelWithDropdown' ? (
         <div
           onMouseEnter={handleHeadingMouseEnter}
