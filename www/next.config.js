@@ -1,9 +1,14 @@
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',
 });
+
+const isStaticBuild = Boolean(process.env.STATIC_BUILD);
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  output: isStaticBuild ? 'export' : undefined,
   images: {
+    unoptimized: isStaticBuild ? true : undefined,
     remotePatterns: [
       {
         protocol: 'https',
