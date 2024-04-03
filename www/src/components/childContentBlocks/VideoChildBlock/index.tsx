@@ -1,6 +1,10 @@
 import React, { FC } from 'react';
+import dynamic from 'next/dynamic';
 import { VideoChildBlock as VideoChildBlockType } from '@/types/sanity';
-import { Video } from '@/components/Video';
+
+const Video = dynamic(() => import('@/components/Video'), {
+  ssr: false,
+});
 
 type VideoChildBlockProps = {
   videoChildBlock: VideoChildBlockType;

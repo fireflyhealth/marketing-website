@@ -6,7 +6,7 @@
     "../.eslintrc.shared.json"
   ],
   "rules": {
-    "import/no-default-export": "error"
+    "import/no-default-export": "warn"
   },
   "overrides": [
     {

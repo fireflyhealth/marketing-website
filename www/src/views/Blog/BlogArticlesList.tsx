@@ -32,7 +32,11 @@ const BlogArticlesListItem: FC<BlogArticlesListItemProps> = ({ article }) => {
         {formatSanityDate(article.publishDate || article._updatedAt)}
       </div>
       <div className={cn(BlogArticlesListReadMore)}>
-        <Link link={article} className="BlogArticleList__link">
+        <Link
+          link={article}
+          className="BlogArticleList__link"
+          ariaLabel={`Navigate to article: ${article.title}`}
+        >
           <span className="flex flex-row items-center">
             <span>Read More</span>
             <SimpleIcon

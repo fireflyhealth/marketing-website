@@ -11,7 +11,7 @@ type Props = {
   renderInRichtext?: boolean;
 };
 
-export const HubspotForm: FC<Props> = ({ formId, renderInRichtext }) => {
+const HubspotForm: FC<Props> = ({ formId, renderInRichtext }) => {
   // injects Hubspot
   useHubspotForm({
     portalId: '5975513',
@@ -30,3 +30,9 @@ export const HubspotForm: FC<Props> = ({ formId, renderInRichtext }) => {
     </div>
   );
 };
+
+/* 
+  This component is dynamically imported across the app
+  so we have to use a default export in order to do so.
+*/
+export default HubspotForm;
