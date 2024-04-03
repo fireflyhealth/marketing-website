@@ -24,6 +24,7 @@ export const useWindowDimensions = () => {
       }, 150);
     };
     window.addEventListener('resize', debouncedHandleResize);
+    debouncedHandleResize();
     return () => {
       if (timer) clearTimeout(timer);
       window.removeEventListener('resize', debouncedHandleResize);

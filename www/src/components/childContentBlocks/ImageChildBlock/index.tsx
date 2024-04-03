@@ -15,7 +15,7 @@ export const ImageChildBlock: FC<ImageChildBlockProps> = ({
   const { image } = imageChildBlock;
   return (
     <SanityImage
-      sizes={['100vw', '50vw']}
+      sizes={['93vw', '50vw']}
       image={image}
       rounded={false}
       className={cn('rounded-2xl')}

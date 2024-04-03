@@ -1,12 +1,16 @@
 import { FC, useRef } from 'react';
+import dynamic from 'next/dynamic';
 import cn from 'classnames';
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
 import * as SanityTypes from '@/types/sanity';
 import { getColorTheme } from '@/utils/theme';
-import { Video } from '@/components/Video';
 import { Theme } from '@/components/Theme';
 import { SequenceCopy } from './SequenceCopy';
 import { SequenceCardWrapper, VideoWrapper, CopyWrapper } from './styles';
+
+const Video = dynamic(() => import('@/components/Video'), {
+  ssr: false,
+});
 
 type Props = {
   card: SanityTypes.SequenceBlockItem;

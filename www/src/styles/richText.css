@@ -80,4 +80,16 @@
   .TwoColumnUnorderedList li::before {
     top: calc(20px + 0.375em);
   }
+
+  /* Hubspot form styling */
+  #hubspot-form-wrapper {
+    ul,
+    li {
+      padding: 0;
+    }
+
+    ul li:before {
+      content: none;
+    }
+  }
 }
