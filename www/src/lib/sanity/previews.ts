@@ -12,7 +12,6 @@ import {
   Homepage,
   SubPage,
   Practitioner,
-  SiteSettings,
 } from '@/types/sanity';
 import { BlogPageViewProps } from '@/views/Blog/BlogPageView';
 import { FAQPageViewProps } from '@/views/FAQPageView';
@@ -31,7 +30,7 @@ import {
   faqPageFragment,
   pageFragment,
   providerPageFragment,
-  siteSettingsFragment,
+  providerPageSettingsFragment,
 } from './queries';
 import { blogArticleLinkDataFragment } from './queries/fragments';
 
@@ -97,6 +96,7 @@ export type PreviewProps =
 export const createPreviewClient = (previewToken: string) => {
   const previewClient = createClient({
     ...config.sanity,
+    dataset: 'production',
     useCdn: false,
     withCredentials: true,
     token: previewToken,
@@ -126,7 +126,7 @@ export const createPreviewClient = (previewToken: string) => {
           `*[
              _type == "homepage"
              && (_id == $draftId || _id == $nonDraftId)
-           ][0]{${pageFragment}}`,
+           ]| score(_id in path("drafts.**"))[0]{${pageFragment}}`,
           { draftId, nonDraftId },
         );
         return { type: 'homepage', viewProps: { homepage } };
@@ -151,7 +151,7 @@ export const createPreviewClient = (previewToken: string) => {
             `*[
              _type == "blog"
              && (_id == $draftId || _id == $nonDraftId)
-           ][0]{${blogFragment}}`,
+           ]| score(_id in path("drafts.**"))[0]{${blogFragment}}`,
             { draftId, nonDraftId },
           ),
           previewClient.fetch<BlogArticle[]>(
@@ -172,7 +172,7 @@ export const createPreviewClient = (previewToken: string) => {
     clientPage: {
       listen: (draftId: string) => {
         return previewClient.listen(
-          `*[_type == "client" && _id == $draftId][0]`,
+          `*[_type == "clientPage" && _id == $draftId][0]`,
           { draftId },
           { visibility: 'query' },
         );
@@ -183,9 +183,9 @@ export const createPreviewClient = (previewToken: string) => {
         const nonDraftId = draftId.replace(/^drafts./, '');
         const clientPage = await previewClient.fetch<ClientPage>(
           `*[
-             _type == "client"
+             _type == "clientPage"
              && (_id == $draftId || _id == $nonDraftId)
-           ][0]{${blogFragment}}`,
+           ]| score(_id in path("drafts.**"))[0]{${pageFragment}}`,
           { draftId, nonDraftId },
         );
         return { type: 'clientPage', viewProps: { clientPage } };
@@ -205,7 +205,7 @@ export const createPreviewClient = (previewToken: string) => {
           `*[
              _type == "faqPage"
              && (_id == $draftId || _id == $nonDraftId)
-           ][0]{${faqPageFragment}}`,
+           ]| score(_id in path("drafts.**"))[0]{${faqPageFragment}}`,
           { draftId, nonDraftId },
         );
         return { type: 'faqPage', viewProps: { faqPage } };
@@ -214,7 +214,7 @@ export const createPreviewClient = (previewToken: string) => {
     downloadPage: {
       listen: (draftId: string) => {
         return previewClient.listen(
-          `*[_type == "faqPage" && _id == $draftId][0]`,
+          `*[_type == "downloadPage" && _id == $draftId][0]`,
           { draftId },
           { visibility: 'query' },
         );
@@ -227,7 +227,7 @@ export const createPreviewClient = (previewToken: string) => {
           `*[
              _type == "downloadPage"
              && (_id == $draftId || _id == $nonDraftId)
-           ][0]{${downloadPageFragment}}`,
+           ]| score(_id in path("drafts.**"))[0]{${downloadPageFragment}}`,
           { draftId, nonDraftId },
         );
         return { type: 'downloadPage', viewProps: { downloadPage } };
@@ -249,7 +249,7 @@ export const createPreviewClient = (previewToken: string) => {
           `*[
              _type == "contactPage"
              && (_id == $draftId || _id == $nonDraftId)
-           ][0]{${contactPageFragment}}`,
+           ]| score(_id in path("drafts.**"))[0]{${contactPageFragment}}`,
           { draftId, nonDraftId },
         );
         return { type: 'contactPage', viewProps: { contactPage } };
@@ -271,7 +271,7 @@ export const createPreviewClient = (previewToken: string) => {
           `*[
              _type == "blogArticle"
              && (_id == $draftId || _id == $nonDraftId)
-           ][0]{${blogArticleFragment}}`,
+           ]| score(_id in path("drafts.**"))[0]{${blogArticleFragment}}`,
           { draftId, nonDraftId },
         );
         return { type: 'blogArticle', viewProps: { article } };
@@ -293,7 +293,7 @@ export const createPreviewClient = (previewToken: string) => {
           `*[
              _type == "genericPage"
              && (_id == $draftId || _id == $nonDraftId)
-           ][0]{${pageFragment}}`,
+           ]| score(_id in path("drafts.**"))[0]{${pageFragment}}`,
           { draftId, nonDraftId },
         );
         return { type: 'genericPage', viewProps: { page } };
@@ -311,9 +311,9 @@ export const createPreviewClient = (previewToken: string) => {
         const nonDraftId = draftId.replace(/^drafts./, '');
         const page = await previewClient.fetch<SubPage>(
           `*[
-             _type == "genericPage"
+             _type == "subPage"
              && (_id == $draftId || _id == $nonDraftId)
-           ][0]{${pageFragment}}`,
+           ]| score(_id in path("drafts.**"))[0]{${pageFragment}}`,
           { draftId, nonDraftId },
         );
         return { type: 'subPage', viewProps: { page } };
@@ -332,21 +332,20 @@ export const createPreviewClient = (previewToken: string) => {
         draftId: string,
       ): Promise<ProviderPagePreviewProps> => {
         const nonDraftId = draftId.replace(/^drafts./, '');
-        const siteSettings = await previewClient.fetch<SiteSettings>(
-          `*[_type == "siteSettings"][0]{${siteSettingsFragment}}`,
-        );
         const provider = await previewClient.fetch<Practitioner>(
           `*[
              _type == "practitioner"
              && (_id == $draftId || _id == $nonDraftId)
-           ]| score(_id in path("drafts.**"))[0]{${providerPageFragment}}`,
+           ]| score(_id in path("drafts.**"))[0]{
+            ${providerPageFragment},
+            "providerPageSettings": *[_type == "providerPageSettings"][0]{${providerPageSettingsFragment}},
+          }`,
           { draftId, nonDraftId },
         );
         return {
           type: 'practitioner',
           viewProps: {
             provider,
-            allProvidersBackLink: siteSettings.allProvidersBackLink,
           },
         };
       },

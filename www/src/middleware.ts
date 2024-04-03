@@ -28,7 +28,7 @@ export const config = {
   matcher: [
     /* Match all routes except those within this negative lookahead:
      *    ↓   ↓            ↓           ↓           ↓                 */
-    `/((?!api|_next/static|_next/image|favicon.ico|monitoring|faq).*)`,
+    `/((?!api|_next/static|_next/image|favicon.ico|monitoring|faq|preview).*)`,
   ],
 };
 

@@ -1,9 +1,11 @@
 import { defineType, defineField } from 'sanity';
+import { icons } from '../../lib/icons';
 
 export const Video = defineType({
   name: 'video',
   title: 'Video',
   type: 'object',
+  icon: icons.Video,
   fields: [
     defineField({
       name: 'videoLink',
@@ -38,4 +40,15 @@ export const Video = defineType({
       validation: (Rule) => Rule.required(),
     }),
   ],
+  preview: {
+    select: {
+      media: 'posterImage.asset',
+    },
+    prepare: ({ media }) => {
+      return {
+        title: 'Video',
+        media,
+      };
+    },
+  },
 });

@@ -23,8 +23,8 @@ export const FullscreenButton = [
 /* Title Card */
 
 export const TitleCardWrapper = [
-  'theme-bg-color rounded-2xl overflow-hidden mt-4 p-6 md:w-2/3 lg:w-1/2',
-  'md:absolute md:bottom-8 md:left-8 z-20',
+  'hidden theme-bg-color rounded-2xl overflow-hidden mt-4 p-6 md:w-2/3 lg:w-1/2',
+  'md:block md:absolute md:bottom-8 md:left-8 z-20',
 ];
 
 export const ContentWrapper = ['flex flex-col space-y-4 mb-6'];

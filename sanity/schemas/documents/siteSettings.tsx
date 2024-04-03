@@ -37,16 +37,6 @@ export const SiteSettings = defineType({
       group: 'globalNavigation',
     }),
     defineField({
-      name: 'allProvidersBackLink',
-      title: '`All Providers` back link',
-      description:
-        'Select the page used for the `back` button on the Provider pages.',
-      type: 'reference',
-      to: [{ type: 'genericPage' }, { type: 'subPage' }],
-      group: 'globalNavigation',
-      validation: (Rule) => Rule.required(),
-    }),
-    defineField({
       name: 'footer',
       title: 'Footer',
       type: 'object',

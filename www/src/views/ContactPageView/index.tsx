@@ -1,9 +1,9 @@
 import React, { FC } from 'react';
+import dynamic from 'next/dynamic';
 import cn from 'classnames';
 import { ContactPage } from '@/types/sanity';
 import { RichText } from '@/components/RichText';
 import { SanityImage } from '@/atoms/Image/SanityImage';
-import { HubspotForm } from '@/components/HubspotForm';
 import {
   Wrapper,
   HeaderWrapper,
@@ -13,6 +13,10 @@ import {
   BackgroundColor,
   BackgroundImage,
 } from './styles';
+
+const HubspotForm = dynamic(() => import('@/components/HubspotForm'), {
+  ssr: false,
+});
 
 export type ContactPageViewProps = {
   contactPage: ContactPage;

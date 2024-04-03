@@ -97,7 +97,6 @@ export type SiteSettings = SanityDocument & {
   globalNav: Navigation;
   globalAnnouncementBanner: AnnouncementBanner;
   globalDoubleCta: DoubleCta;
-  allProvidersBackLink: LinkableDocumentData;
   defaultMetadata: Metadata;
   footer: Footer;
 };
@@ -221,22 +220,34 @@ export type Institution = {
   name: string;
 };
 
+export type ProviderPageSettings = {
+  allProvidersBackLink: LinkableDocumentData;
+  headerCta: CTA;
+  footer: DoubleCta;
+};
+
+export type RoleDescription = {
+  _type: 'roleDescription';
+  role: string;
+  description: SimpleRichText;
+};
+
 export type Practitioner = SanityDocument & {
   _type: 'practitioner';
   name: string;
   slug: Slug;
-  /* i.e. "Nurse Practitioner" */
-  title: string;
-  /* i.e. "PsyD, MSW" */
+  role: RoleDescription;
   qualifications: Maybe<string>;
   pronouns: string;
   headshot: Maybe<RichImage>;
-  education: KeyedArray<Institution>;
-  languagesSpoken: string[];
-  blurb: RichText;
   renderProviderPage: boolean;
+  providerPageSettings: ProviderPageSettings;
+  isAvailable?: Maybe<boolean>;
+  education?: Maybe<KeyedArray<Institution>>;
+  languagesSpoken: string[];
+  isAVeteran?: Maybe<boolean>;
+  blurb: RichText;
   headerBgThemeColor?: Maybe<ColorTheme>;
-  cta?: Maybe<CTA>;
   contentArea?: Maybe<ContentArea>;
   metadata?: Metadata;
 };
@@ -251,7 +262,7 @@ export type PractitionerLinkData = Pick<
   | 'qualifications'
   | 'headshot'
   | 'pronouns'
-  | 'title'
+  | 'role'
   | '_updatedAt'
   | 'renderProviderPage'
 >;
@@ -675,7 +686,11 @@ export type RichTextChildBlock = {
   icon?: Maybe<IconBlock>;
   image?: Maybe<RichImage>;
   heading?: Maybe<string>;
-  headingFontSize: 'font-size-6' | 'font-size-5' | 'font-size-4';
+  headingFontSize:
+    | 'font-size-7'
+    | 'font-size-6'
+    | 'font-size-5'
+    | 'font-size-4';
   alignCenter?: Maybe<boolean>;
   body?: Maybe<LimitedRichText>;
 };
@@ -725,7 +740,9 @@ export type ContentBlock =
   | TabsBlock
   | RichTextBlock
   | TestimonialBlock
-  | DividerBlock;
+  | DividerBlock
+  | VideoBlock
+  | ProviderPhilosophyBlock;
 
 export type ContentArea = KeyedArray<ContentBlock>;
 
@@ -972,4 +989,19 @@ export type ContentBlockRichText = {
 export type TestimonialBlock = ContentBlockCommon & {
   _type: 'testimonialBlock';
   testimonials: KeyedArray<QuoteObject>;
+};
+
+export type VideoBlock = ContentBlockCommon & {
+  _type: 'videoBlock';
+  video: Video;
+};
+
+export type ProviderPhilosophyBlock = ContentBlockCommon & {
+  _type: 'providerPhilosophyBlock';
+  theme: ColorTheme;
+  icon?: {
+    _type: 'icon';
+    icon: IconTypeName;
+  };
+  quote: string;
 };

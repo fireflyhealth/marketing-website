@@ -5,27 +5,20 @@ import { PageProps } from '@/types/next';
 import { RevalidationTime } from '@/constants';
 
 import * as Sanity from '@/lib/sanity';
-import { LinkableDocumentData, Practitioner } from '@/types/sanity';
+import { Practitioner } from '@/types/sanity';
 import { PageMetadata } from '@/components/Metadata/ProviderMetadata';
 import { ProviderPageView } from '@/views/ProviderView';
 import { QueryConfig } from '@/lib/sanity';
 
 type ProviderPageProps = PageProps & {
   practitioner: Practitioner;
-  allProvidersBackLink: LinkableDocumentData;
 };
 
-const ProviderPage: FC<ProviderPageProps> = ({
-  practitioner,
-  allProvidersBackLink,
-}) => {
+const ProviderPage: FC<ProviderPageProps> = ({ practitioner }) => {
   return (
     <>
       <PageMetadata provider={practitioner} />
-      <ProviderPageView
-        provider={practitioner}
-        allProvidersBackLink={allProvidersBackLink}
-      />
+      <ProviderPageView provider={practitioner} />
     </>
   );
 };
@@ -44,10 +37,9 @@ export const createGetStaticProps =
     }
     const [siteSettings, practitioner] = await Promise.all([
       Sanity.siteSettings.get(),
+
       Sanity.providerPage.get(practitionerSlug, config),
     ]);
-
-    const allProvidersBackLink = siteSettings.allProvidersBackLink;
 
     if (!practitioner) {
       return { notFound: true };
@@ -55,7 +47,6 @@ export const createGetStaticProps =
     return {
       props: {
         practitioner,
-        allProvidersBackLink,
         siteSettings,
       },
       revalidate: RevalidationTime.Medium,

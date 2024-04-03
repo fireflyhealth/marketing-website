@@ -6,7 +6,10 @@ import localizationSlugField from '../../lib/localizationSlugField';
 import { isUniqueAcrossDocuments } from '../../lib/isUniqueAcrossDocuments';
 import { formatSanityDate } from '../../lib/utils';
 import { createDocumentVariantField } from '../../plugins/documentVariants/fields/documentVariant';
-import { cloneWithUniqueSlug } from '../../plugins/documentVariants/utils';
+import {
+  cloneWithUniqueSlug,
+  isVariantDocument,
+} from '../../plugins/documentVariants/utils';
 
 export const BlogArticle = defineType({
   name: 'blogArticle',
@@ -131,10 +134,11 @@ export const BlogArticle = defineType({
       title: 'Parent Blog',
       type: 'reference',
       options: {
-        filter: 'defined(documentVariantInfo.variantDocument)',
+        filter: '!defined(documentVariantInfo.variantOf)',
       },
       to: [{ type: 'blog' }],
       validation: (Rule) => Rule.required(),
+      readOnly: ({ document }) => isVariantDocument(document),
     }),
     defineField({
       name: 'tags',

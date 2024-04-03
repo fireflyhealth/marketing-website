@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+import dynamic from 'next/dynamic';
 import cn from 'classnames';
 import {
   PortableTextComponent,
@@ -10,15 +11,21 @@ import { RichText as RichTextType } from '@/types/sanity';
 import { BrandedIcon } from '@/svgs/BrandedIcon';
 import { Link } from '@/atoms/Link';
 import { SanityImage } from '@/atoms/Image/SanityImage';
-import { HubspotForm } from '@/components/HubspotForm';
 import { BarGraph } from '@/components/BarGraph';
 import { BigNumbers } from '../BigNumber';
 import { TwoColumnUnorderedList } from '../TwoColumnUnorderedList';
 import { OverlapDoubleImages } from '../OverlapDoubleImages';
-import { Video } from '../Video';
 import { ArticleRichTextQuote } from '../ArticleRichTextQuote';
 import { RichTextCtaRow } from './RichTextCtaRow';
 import { BigOrderedList } from './BigOrderedList';
+
+const HubspotForm = dynamic(() => import('@/components/HubspotForm'), {
+  ssr: false,
+});
+
+const Video = dynamic(() => import('@/components/Video'), {
+  ssr: false,
+});
 
 type RichTextProps = {
   content: RichTextType;
@@ -130,6 +137,21 @@ const components: Partial<PortableTextReactComponents> = {
         >
           {props.children}
         </Link>
+      );
+    },
+    textHighlight: (props) => {
+      return (
+        <span
+          className={cn({
+            'text-white': props.value.textHighlight === 'white',
+            'text-grey': props.value.textHighlight === 'grey',
+            'text-sienna': props.value.textHighlight === 'sienna',
+            'text-midnight': props.value.textHighlight === 'midnight',
+            'text-sky': props.value.textHighlight === 'sky',
+          })}
+        >
+          {props.children}
+        </span>
       );
     },
   },

@@ -8,7 +8,6 @@ import { ComponentType, ReactNode } from 'react';
 import { icons } from '../lib/icons';
 import { API_VERSION } from '../lib/constants';
 
-import PagePreview from '../lib/pagePreview';
 import { addProductionDataWarning } from '../lib/warnForProduction';
 
 const isDevelopment: boolean =
@@ -32,14 +31,7 @@ const createSingletonPage = (
   S.listItem()
     .title(title)
     .icon(icon || null)
-    .child(
-      S.editor()
-        .id(id)
-        .schemaType(schemaType)
-        .id(id)
-        .title(title)
-        .views([S.view.form(), S.view.component(PagePreview).title('Preview')]),
-    );
+    .child(S.editor().id(id).schemaType(schemaType).id(id).title(title));
 
 type CreateDocumentTypeListConfig = {
   schemaType: string;
@@ -178,15 +170,26 @@ export const structure: StructureResolver = async (S, context) => {
 
         S.divider(),
 
+        createSingletonPage(S, {
+          title: 'Provider Page Settings',
+          id: 'providerPageSettings',
+          schemaType: 'providerPageSettings',
+          icon: icons.Settings,
+        }),
+        createFilteredDocumentTypeList(S, {
+          title: 'Practitioners',
+          schemaType: 'practitioner',
+          icon: icons.Practitioner,
+        }),
         createFilteredDocumentTypeList(S, {
           title: 'Clients',
           schemaType: 'clientPage',
           icon: icons.Client,
         }),
         createFilteredDocumentTypeList(S, {
-          title: 'Practitioners',
-          schemaType: 'practitioner',
-          icon: icons.Practitioner,
+          title: 'Role Descriptions',
+          schemaType: 'roleDescription',
+          icon: icons.Description,
         }),
 
         S.divider(),
@@ -268,10 +271,7 @@ export const defaultDocumentNode: DefaultDocumentNodeResolver = (
       'practitioner',
     ].includes(schemaType)
   ) {
-    return S.document().views([
-      S.view.form(),
-      S.view.component(PagePreview).title('Preview'),
-    ]);
+    return S.document().views([S.view.form()]);
   }
 
   return S.document().views([S.view.form()]);

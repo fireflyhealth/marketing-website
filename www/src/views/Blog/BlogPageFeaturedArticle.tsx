@@ -50,6 +50,7 @@ export const BlogPageFeaturedArticle: FC<BlogPageFeaturedArticleProps> = ({
               align="left"
               label="Read More"
               variant="secondary"
+              ariaLabel={`Navigate to article: ${article.title}`}
             />
           </div>
         </div>

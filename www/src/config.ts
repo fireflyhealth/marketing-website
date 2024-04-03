@@ -1,5 +1,6 @@
 const isProd =
-  process.env.VERCEL_ENV && process.env.VERCEL_ENV === 'production';
+  process.env.NEXT_PUBLIC_VERCEL_ENV &&
+  process.env.NEXT_PUBLIC_VERCEL_ENV === 'production';
 const forceDataset = process.env.NEXT_PUBLIC_SANITY_DATASET;
 
 export const config = {

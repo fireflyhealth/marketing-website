@@ -5,6 +5,7 @@ import {
   ContactPage,
   DownloadPage,
   NotFoundPage,
+  ProviderPageSettings,
 } from './documents/specialPages';
 import { ClientPage } from './documents/clientPage';
 import { BlogArticle } from './documents/blogArticle';
@@ -17,7 +18,7 @@ import { FrequentlyAskedQuestion } from './documents/faq';
 import { FAQPage } from './documents/faqPage';
 import { FAQSubject } from './documents/faqSubject';
 import { FAQCategory } from './documents/faqCategory';
-import { BlogArticleTag } from './documents/blogArticleTag';
+import { RoleDescription } from './documents/roleDescription';
 
 /* Headers */
 import { VideoHeader } from './headers/videoHeader';
@@ -52,6 +53,8 @@ import { CardListBlock } from './blocks/cardListBlock';
 import { TabsBlock, TabsBlockTab } from './blocks/tabsBlock';
 import { TestimonialBlock } from './blocks/testimonalBlock';
 import { DividerBlock } from './blocks/dividerBlock';
+import { VideoBlock } from './blocks/videoBlock';
+import { ProviderPhilosophyBlock } from './blocks/providerPhilosophyBlock';
 
 /* Fields */
 import { Metadata } from './fields/metadata';
@@ -70,7 +73,11 @@ import {
 } from './fields/richText';
 import { LinkWithLabel } from './fields/linkWithLabel';
 import { LabelWithDropdown } from './fields/labelWithDropdown';
-import { ChildContentBlock, ContentArea } from './fields/contentArea';
+import {
+  ChildContentBlock,
+  ContentArea,
+  ProviderPageContentArea,
+} from './fields/contentArea';
 import { NavigationOverrides } from './fields/navigationOverrides';
 import { AnnouncementBanner } from './fields/announcementBanner';
 import { Video } from './fields/video';
@@ -107,6 +114,7 @@ export const schemaTypes = [
   DownloadPage,
   ContactPage,
   NotFoundPage,
+  ProviderPageSettings,
   FAQPage,
   ClientPage,
   Blog,
@@ -119,6 +127,7 @@ export const schemaTypes = [
   FrequentlyAskedQuestion,
   FAQSubject,
   FAQCategory,
+  RoleDescription,
 
   /* Header Blocks */
   HeaderArea,
@@ -151,6 +160,8 @@ export const schemaTypes = [
   TestimonialBlock,
   /* Divider block does not have heading */
   DividerBlock,
+  VideoBlock,
+  ProviderPhilosophyBlock,
 
   /* Child blocks (used within other blocks, i.e. 2-up block) */
   CtaCard,
@@ -183,6 +194,7 @@ export const schemaTypes = [
   LinkWithLabel,
   LabelWithDropdown,
   ContentArea,
+  ProviderPageContentArea,
   NavigationOverrides,
   AnnouncementBanner,
   Video,

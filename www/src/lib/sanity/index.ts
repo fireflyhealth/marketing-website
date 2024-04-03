@@ -42,9 +42,11 @@ import {
   siteSettingsFragment,
   providerPageFragment,
   subPageFragment,
+  providerPageSettingsFragment,
 } from './queries';
 import {
   blogArticleLinkDataFragment,
+  isNotVariantFilter,
   linkableDocumentFragment,
 } from './queries/fragments';
 
@@ -129,7 +131,11 @@ export const homepage = {
   get: async (config: QueryConfig = {}): Promise<Homepage> => {
     const primaryHomepage =
       await client.fetch<WithDocumentVariantInfo<Homepage> | null>(
-        `*[_type == "homepage" && _id == "${HOMEPAGE_DOCUMENT_ID}"][0] {
+        `*[
+          _type == "homepage"
+          && _id == "${HOMEPAGE_DOCUMENT_ID}"
+          && ${isNotVariantFilter}
+        ][0] {
         documentVariantInfo,
         ${pageFragment}
       }`,
@@ -155,7 +161,11 @@ export const page = {
   ): Promise<GenericPage | null> => {
     const genericPage =
       await client.fetch<WithDocumentVariantInfo<GenericPage> | null>(
-        `*[_type == "genericPage" && slug.current == $slug][0]{
+        `*[
+          _type == "genericPage"
+          && slug.current == $slug
+          && ${isNotVariantFilter}
+        ][0]{
           documentVariantInfo,
           ${pageFragment}
         }`,
@@ -166,7 +176,7 @@ export const page = {
     return withMaybeBContent(genericPage, config, pageFragment);
   },
   getSlugInfo: (): Promise<GenericPage[]> =>
-    client.fetch(`*[_type == "genericPage"]{
+    client.fetch(`*[_type == "genericPage" && ${isNotVariantFilter}]{
         slug,
         subPages[]->{ slug },
       }`),
@@ -182,6 +192,7 @@ export const subPage = {
     const subPage = await client.fetch<WithDocumentVariantInfo<SubPage> | null>(
       `*[_type == "subPage"
           && slug.current == $subpageSlug
+          && ${isNotVariantFilter}
         ]{
           documentVariantInfo,
           ${subPageFragment},
@@ -197,10 +208,14 @@ export const downloadPage = {
   get: async (config: QueryConfig = {}): Promise<DownloadPage | null> => {
     const downloadPage =
       await client.fetch<WithDocumentVariantInfo<DownloadPage> | null>(
-        `*[_type == "downloadPage" && _id == "${DOWNLOAD_DOCUMENT_ID}"][0]{
-        documentVariantInfo,
-        ${downloadPageFragment}
-      }`,
+        `*[
+          _type == "downloadPage"
+          && _id == "${DOWNLOAD_DOCUMENT_ID}"
+          && ${isNotVariantFilter}
+        ][0]{
+          documentVariantInfo,
+          ${downloadPageFragment}
+        }`,
       );
 
     return withMaybeBContent(downloadPage, config, downloadPageFragment);
@@ -211,7 +226,11 @@ export const contactPage = {
   get: async (config: QueryConfig = {}): Promise<ContactPage | null> => {
     const contactPage =
       await client.fetch<WithDocumentVariantInfo<ContactPage> | null>(
-        `*[_type == "contactPage" && _id == "contactPage"][0]{
+        `*[
+          _type == "contactPage"
+          && _id == "contactPage"
+          && ${isNotVariantFilter}
+        ][0]{
           documentVariantInfo,
           ${contactPageFragment}
         }`,
@@ -242,7 +261,11 @@ export const clientPage = {
   ): Promise<ClientPage | null> => {
     const clientPage =
       await client.fetch<WithDocumentVariantInfo<ClientPage> | null>(
-        `*[_type == "clientPage" && slug.current == $clientSlug][0]{
+        `*[
+          _type == "clientPage"
+          && slug.current == $clientSlug
+          && ${isNotVariantFilter}
+        ][0]{
         documentVariantInfo,
         ${pageFragment}
       }`,
@@ -253,9 +276,9 @@ export const clientPage = {
     return withMaybeBContent(clientPage, config, pageFragment);
   },
   getSlugInfo: (): Promise<GenericPage[]> =>
-    client.fetch(`*[_type == "clientPage"]{
-        slug,
-      }`),
+    client.fetch(`*[_type == "clientPage" && ${isNotVariantFilter}]{
+      slug,
+    }`),
 };
 
 /* Blogs */
@@ -266,7 +289,11 @@ export const blog = {
     config: QueryConfig = {},
   ): Promise<Blog | null> => {
     const blog = await client.fetch<WithDocumentVariantInfo<Blog> | null>(
-      `*[_type == "blog" && slug.current == $blogSlug][0]{
+      `*[
+        _type == "blog"
+        && slug.current == $blogSlug
+        && ${isNotVariantFilter}
+      ][0]{
         documentVariantInfo,
         ${blogFragment}
       }`,
@@ -279,7 +306,10 @@ export const blog = {
 
   getSlugInfo: (): Promise<BlogWithArticles[]> =>
     client.fetch(
-      `*[_type == "blog"]{
+      `*[
+          _type == "blog"
+          && ${isNotVariantFilter}
+       ]{
           slug,
           "articles": *[
             _type == "blogArticle"
@@ -306,6 +336,7 @@ export const blog = {
             $tagSlug == null ||
             $tagSlug in tags[]->slug.current
           )
+          && ${isNotVariantFilter}
         ]{
           ${blogArticleLinkDataFragment}
         }[$from..$to]`,
@@ -331,6 +362,7 @@ export const blog = {
           _type == "blogArticle"
           && slug.current == $articleSlug
           && defined(category._ref)
+          && ${isNotVariantFilter}
         ]{
           documentVariantInfo,
           ${blogArticleFragment}
@@ -355,8 +387,10 @@ export const providerPage = {
           _type == "practitioner"
           && slug.current == $practitionerSlug
           && renderProviderPage != false
+          && ${isNotVariantFilter}
         ][0]{
           documentVariantInfo,
+          "providerPageSettings": *[_type == "providerPageSettings"][0]{${providerPageSettingsFragment}},
           ${providerPageFragment}
         }`,
         {
@@ -367,10 +401,10 @@ export const providerPage = {
     return withMaybeBContent(provider, config, blogArticleFragment);
   },
   getSlugInfo: (): Promise<Practitioner[]> =>
-    client.fetch(`*[_type == "practitioner"]{
-        slug,
-        renderProviderPage,
-      }`),
+    client.fetch(`*[_type == "practitioner" && ${isNotVariantFilter}]{
+      slug,
+      renderProviderPage,
+    }`),
 };
 
 /**
