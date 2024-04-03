@@ -96,6 +96,7 @@ export type PreviewProps =
 export const createPreviewClient = (previewToken: string) => {
   const previewClient = createClient({
     ...config.sanity,
+    dataset: 'production',
     useCdn: false,
     withCredentials: true,
     token: previewToken,
