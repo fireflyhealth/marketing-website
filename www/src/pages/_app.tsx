@@ -12,7 +12,6 @@ import { ColorTheme, Theme } from '@/components/Theme';
 import { Footer } from '@/components/Footer';
 import '@/lib/datadog';
 import { config } from '@/config';
-import { GtagScript } from '../lib/analytics/scripts';
 import '../styles/fonts.css';
 import '../styles/main.css';
 import 'what-input';
@@ -81,8 +80,7 @@ export default function App({ Component, pageProps: allPageProps }: Props) {
 
       {/* Third-party Scripts */}
       {config.googleTagManager.id ? (
-        // <GoogleTagManager gtmId={config.googleTagManager.id} />
-        <GtagScript />
+        <GoogleTagManager gtmId={config.googleTagManager.id} />
       ) : null}
     </>
   );
