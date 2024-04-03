@@ -5,6 +5,7 @@ type ThemeProps = {
   theme: ColorTheme;
   className?: string;
   children: React.ReactNode;
+  style?: React.CSSProperties;
 };
 
 export enum ColorTheme {
@@ -15,9 +16,15 @@ export enum ColorTheme {
   Sky = 'sky',
 }
 
-export const Theme: FC<ThemeProps> = ({ theme, children, className }) => {
+export const Theme: FC<ThemeProps> = ({
+  theme,
+  children,
+  className,
+  style,
+}) => {
   return (
     <div
+      style={style}
       className={cn(
         `theme-wrapper theme-${theme}`,
         'theme-text-color-primary',

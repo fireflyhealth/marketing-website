@@ -30,18 +30,18 @@ export const CTAsWrapper = [
 export const CTAWrapper = ['mb-3'];
 
 export const DualCtaWrapper = [
-  'TextWithDualCtaHeader__cta-wrapper flex flex-col md:w-[50%] lg:w-[42%] md:ml-12 space-y-6',
+  'TextWithDualCtaHeader__cta-wrapper flex flex-col justify-between md:w-[50%] lg:w-[42%] md:ml-12 h-full',
 ];
 
 export const DualCta = [
-  'transition-all duration-300 relative h-[210px] md:h-[385px] overflow-hidden rounded-[14px]',
+  'transition-all duration-300 relative overflow-hidden rounded-[14px]',
 ];
 
 export const DualCtaTheme = ['theme-bg-color h-full flex items-end'];
 
-export const DualCtaTop = ['TextWithDualCtaHeader__cta--top'];
+export const DualCtaTop = ['TextWithDualCtaHeader__cta--top mb-3'];
 
-export const DualCtaBottom = ['TextWithDualCtaHeader__cta--bottom'];
+export const DualCtaBottom = ['TextWithDualCtaHeader__cta--bottom mt-3'];
 
 export const DualCtaImage = [
   'absolute inset-0 w-full h-[288px] md:h-[638px] object-cover',
@@ -55,7 +55,7 @@ export const DualCtaImageBottom = [
   'TextWithDualCtaHeader__cta-image--bottom object-bottom',
 ];
 
-export const ButtonContentWrapper = ['z-10 p-6 flex flex-col w-full'];
+export const ButtonContentWrapper = ['z-10 m-6 flex flex-col w-full'];
 
 export const ButtonTextContentWrapper = [
   'flex flex-row items-center w-full justify-between',
