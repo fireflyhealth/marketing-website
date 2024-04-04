@@ -240,6 +240,57 @@ export const MockData = defineType({
           },
           validation: (Rule) => Rule.required(),
         }),
+        defineField({
+          name: 'smallImageCarouselBlock',
+          title: 'Small Image Carousel Block',
+          type: 'smallImageCarouselBlock',
+          validation: (Rule) => Rule.required(),
+          options: {
+            collapsible: true,
+            collapsed: true,
+          },
+        }),
+        defineField({
+          name: 'dividerBlock',
+          title: 'Divider Block',
+          type: 'dividerBlock',
+          validation: (Rule) => Rule.required(),
+          options: {
+            collapsible: true,
+            collapsed: true,
+          },
+        }),
+        defineField({
+          name: 'providerPhilosophyBlock',
+          title: 'Provider Philosophy Block',
+          type: 'providerPhilosophyBlock',
+          validation: (Rule) => Rule.required(),
+          options: {
+            collapsible: true,
+            collapsed: true,
+          },
+        }),
+        defineField({
+          name: 'videoBlock',
+          title: 'Video Block',
+          type: 'videoBlock',
+          validation: (Rule) => Rule.required(),
+          options: {
+            collapsible: true,
+            collapsed: true,
+          },
+        }),
+        // add Nearby Block when its ready
+        // defineField({
+        //   name: 'nearbyBlock',
+        //   title: 'Firefly Nearby Block',
+        //   type: 'nearbyBlock',
+        //   validation: (Rule) => Rule.required(),
+        //   options: {
+        //     collapsible: true,
+        //     collapsed: true,
+        //   },
+        // }),
       ],
     }),
     defineField({

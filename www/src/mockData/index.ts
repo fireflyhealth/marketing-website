@@ -29,6 +29,10 @@ import {
   SimpleRichText,
   RichTextBlock,
   TestimonialBlock,
+  SmallImageCarouselBlock,
+  DividerBlock,
+  ProviderPhilosophyBlock,
+  VideoBlock,
 } from '@/types/sanity';
 import mockData from './mockData.json';
 
@@ -110,3 +114,12 @@ export const testimonialBlockExample = mockData.contentBlockExamples
   .testimonialBlock as TestimonialBlock;
 
 export const faqs = mockData.faqs as FAQ[];
+
+export const smallImageCarouselBlockExample = mockData.contentBlockExamples
+  .smallImageCarouselBlock as SmallImageCarouselBlock;
+
+export const providerPhilosophyBlockExample = mockData.contentBlockExamples
+  .providerPhilosophyBlock as ProviderPhilosophyBlock;
+
+export const videoBlockExample = mockData.contentBlockExamples
+  .videoBlock as VideoBlock;

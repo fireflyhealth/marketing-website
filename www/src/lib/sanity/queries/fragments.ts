@@ -655,7 +655,7 @@ const imageCarouselBlockFragment = `
   }
 `;
 
-const smallImageCarouselBlockFragment = `
+export const smallImageCarouselBlockFragment = `
   images[]{
     ${imageFragment}
   }
