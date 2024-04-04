@@ -23,7 +23,7 @@ const BlogArticlesGridItem: FC<BlogArticlesGridItemProps> = ({ article }) => {
           />
         </div>
         <div className="py-6 font-size-8 theme-text-color-secondary">
-          {formatSanityDate(article.publishDate || article._updatedAt)}
+          {formatSanityDate(article.publishDate)}
         </div>
         <div className="font-size-6 font-trust">{article.title}</div>
       </div>

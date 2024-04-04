@@ -14,7 +14,6 @@ import {
   simpleRichTextFragment,
   linkableDocumentFragment,
   ctaFragment,
-  testimonialBlockFragment,
 } from './fragments';
 
 export const siteSettingsFragment = `
@@ -132,8 +131,6 @@ export const blogArticleFragment = `
   authorName,
   publishDate,
   updatedDate,
-  _createdAt,
-  _updatedAt
 `;
 
 export const blogFragment = `
