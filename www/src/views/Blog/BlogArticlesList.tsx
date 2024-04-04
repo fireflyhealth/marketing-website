@@ -29,7 +29,7 @@ const BlogArticlesListItem: FC<BlogArticlesListItemProps> = ({ article }) => {
         />
       </div>
       <div className={cn(BlogArticlesListDate)}>
-        {formatSanityDate(article.publishDate || article._updatedAt)}
+        {formatSanityDate(article.publishDate)}
       </div>
       <div className={cn(BlogArticlesListReadMore)}>
         <Link

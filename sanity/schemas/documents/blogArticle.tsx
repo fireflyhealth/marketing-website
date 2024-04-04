@@ -49,6 +49,7 @@ export const BlogArticle = defineType({
       options: {
         dateFormat: 'MMMM DD, YYYY',
       },
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'updatedDate',
@@ -197,7 +198,6 @@ export const BlogArticle = defineType({
       documentVariantInfo: 'documentVariantInfo',
       parentBlogTitle: 'category.title',
       title: 'title',
-      _updatedAt: '_updatedAt',
       thumbnail: 'thumbnail',
       publishDate: 'publishDate',
     },
@@ -206,10 +206,9 @@ export const BlogArticle = defineType({
       thumbnail,
       parentBlogTitle,
       title,
-      _updatedAt,
       publishDate,
     }) => {
-      const formattedDate = formatSanityDate(publishDate || _updatedAt);
+      const formattedDate = formatSanityDate(publishDate);
       const parentBlog = parentBlogTitle || '⚠ No parent blog';
       const subtitle = [formattedDate, parentBlog].filter(Boolean).join(' | ');
       const fullTitle = [documentVariantInfo?.variantOf ? '🅱️' : '🅰️', title]

@@ -19,20 +19,10 @@ type Props = {
 };
 
 export const ArticleHeader: FC<Props> = ({ articleHeader }) => {
-  const {
-    tags,
-    title,
-    authorName,
-    publishDate,
-    _createdAt,
-    updatedDate,
-    _updatedAt,
-    articleImage,
-  } = articleHeader;
-  const selectedPublishedDate = publishDate || _createdAt;
-  const selectedUpdatedDate = updatedDate || _updatedAt;
+  const { tags, title, authorName, publishDate, updatedDate, articleImage } =
+    articleHeader;
+  const selectedPublishedDate = publishDate;
   const formattedPublishDate = formatSanityDate(selectedPublishedDate);
-  const formattedUpdatedDate = formatSanityDate(selectedUpdatedDate);
   return (
     <div className={cn(Wrapper)}>
       <div
@@ -50,8 +40,10 @@ export const ArticleHeader: FC<Props> = ({ articleHeader }) => {
           {authorName && <p className={cn(Author)}>by {authorName}</p>}
           <div className={cn(DateWrapper)}>
             <p className={cn(DateStyle)}>Published {formattedPublishDate}</p>
-            {formattedUpdatedDate !== formattedPublishDate && (
-              <p className={cn(DateStyle)}>Updated {formattedUpdatedDate}</p>
+            {updatedDate && (
+              <p className={cn(DateStyle)}>
+                Updated {formatSanityDate(updatedDate)}
+              </p>
             )}
           </div>
         </div>

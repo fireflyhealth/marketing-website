@@ -309,14 +309,8 @@ export type BlogArticleTag = SanityDocument & {
 
 export type BlogArticle = SanityDocument & {
   _type: 'blogArticle';
-  /* Usually this is typed as optional because we do not fetch
-   * the field on most documents, even though this value is always
-   * present in sanity documents. It's required here because we use
-   * it in rendering the publish date of documents. */
-  _updatedAt: string;
-  _createdAt: string;
   title: string;
-  publishDate: Maybe<string>;
+  publishDate: string;
   updatedDate: Maybe<string>;
   articleImage: Maybe<RichImage>;
   authorName: Maybe<string>;
@@ -340,7 +334,6 @@ export type BlogArticleLinkData = Pick<
   | 'thumbnail'
   | 'publishDate'
   | 'blurb'
-  | '_updatedAt'
   | '_updatedAt'
 >;
 

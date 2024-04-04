@@ -78,7 +78,6 @@ export const simpleRichTextFragmentNoLink = `
 `;
 
 export const blogArticleLinkDataFragment = `
-  _updatedAt,
   _type,
   _id,
   slug,
