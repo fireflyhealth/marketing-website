@@ -1,6 +1,8 @@
+const isStaticBuild = Boolean(process.env.STATIC_BUILD);
 const isProd =
-  process.env.NEXT_PUBLIC_VERCEL_ENV &&
-  process.env.NEXT_PUBLIC_VERCEL_ENV === 'production';
+  isStaticBuild ||
+  (process.env.NEXT_PUBLIC_VERCEL_ENV &&
+    process.env.NEXT_PUBLIC_VERCEL_ENV === 'production');
 const forceDataset = process.env.NEXT_PUBLIC_SANITY_DATASET;
 
 export const config = {
