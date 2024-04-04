@@ -3,7 +3,7 @@ import { testimonialBlockExample } from '@/mockData';
 import { TestimonialBlock } from './';
 
 const meta = {
-  title: 'Content Blocks/Testimonial Block',
+  title: 'Content Blocks/Testimonial Carousel Block',
   component: TestimonialBlock,
 } satisfies Meta<typeof TestimonialBlock>;
 
