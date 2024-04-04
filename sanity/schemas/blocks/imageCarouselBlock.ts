@@ -4,7 +4,7 @@ import { requiredBlockFields } from './utils/requiredBlockFields';
 
 export const ImageCarouselBlock = defineType({
   name: 'imageCarouselBlock',
-  title: 'Image Carousel',
+  title: 'Image Carousel Block',
   type: 'object',
   icon: icons.Carousel,
   fields: [
@@ -22,7 +22,7 @@ export const ImageCarouselBlock = defineType({
       header: 'header',
     },
     prepare: ({ header }) => ({
-      title: 'Image carousel block',
+      title: 'Image Carousel Block',
       subtitle: header?.title,
     }),
   },
