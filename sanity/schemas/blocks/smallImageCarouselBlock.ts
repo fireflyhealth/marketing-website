@@ -4,7 +4,7 @@ import { requiredBlockFields } from './utils/requiredBlockFields';
 
 export const SmallImageCarouselBlock = defineType({
   name: 'smallImageCarouselBlock',
-  title: 'small Image Carousel',
+  title: 'Small Image Carousel',
   type: 'object',
   icon: icons.Carousel,
   fields: [

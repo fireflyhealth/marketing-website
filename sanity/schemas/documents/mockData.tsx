@@ -13,6 +13,7 @@ export const MockData = defineType({
   groups: [
     { title: 'Navigation', name: 'navigation' },
     { title: 'Rich Text', name: 'richText' },
+    { title: 'Header Content Blocks', name: 'headerContentBlocks' },
     { title: 'Content Blocks', name: 'contentBlocks' },
     { title: 'Media', name: 'media' },
   ],
@@ -50,6 +51,65 @@ export const MockData = defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
+      group: 'headerContentBlocks',
+      name: 'headerContentBlockExamples',
+      title: 'Header Content Blocks',
+      type: 'object',
+      validation: (Rule) => Rule.required(),
+      fields: [
+        defineField({
+          name: 'simpleTextHeader',
+          type: 'simpleTextHeader',
+          options: {
+            collapsible: true,
+            collapsed: true,
+          },
+          title: 'Simple Text Header',
+          validation: (Rule) => Rule.required(),
+        }),
+        defineField({
+          name: 'textHeader',
+          type: 'textHeader',
+          options: {
+            collapsible: true,
+            collapsed: true,
+          },
+          title: 'Text Header',
+          validation: (Rule) => Rule.required(),
+        }),
+        defineField({
+          name: 'textWithDualCtaHeader',
+          type: 'textWithDualCtaHeader',
+          options: {
+            collapsible: true,
+            collapsed: true,
+          },
+          title: 'Text With Dual CTA Header',
+          validation: (Rule) => Rule.required(),
+        }),
+        // defineField({
+        //   name: 'twoUpHeaderExample',
+        //   title: '2-up Header',
+        //   type: 'twoUpHeader',
+        //   options: {
+        //     collapsible: true,
+        //     collapsed: true,
+        //   },
+        //   validation: (Rule) => Rule.required(),
+        // }),
+        defineField({
+          name: 'videoHeaderExample',
+          title: 'Video Header Example',
+          type: 'videoHeader',
+          options: {
+            collapsible: true,
+            collapsed: true,
+          },
+          validation: (Rule) => Rule.required(),
+        }),
+      ],
+    }),
+    defineField({
       group: 'contentBlocks',
       name: 'contentBlockExamples',
       title: 'Content Blocks',
@@ -75,15 +135,6 @@ export const MockData = defineType({
           },
           title: 'Image Carousel Block',
           validation: (Rule) => Rule.required(),
-        }),
-        defineField({
-          name: 'videoHeaderExample',
-          title: 'Video Header Example',
-          type: 'videoHeader',
-          options: {
-            collapsible: true,
-            collapsed: true,
-          },
         }),
         defineField({
           name: 'doubleCtaBlockExample',
@@ -240,6 +291,57 @@ export const MockData = defineType({
           },
           validation: (Rule) => Rule.required(),
         }),
+        defineField({
+          name: 'smallImageCarouselBlock',
+          title: 'Small Image Carousel Block',
+          type: 'smallImageCarouselBlock',
+          validation: (Rule) => Rule.required(),
+          options: {
+            collapsible: true,
+            collapsed: true,
+          },
+        }),
+        defineField({
+          name: 'dividerBlock',
+          title: 'Divider Block',
+          type: 'dividerBlock',
+          validation: (Rule) => Rule.required(),
+          options: {
+            collapsible: true,
+            collapsed: true,
+          },
+        }),
+        defineField({
+          name: 'providerPhilosophyBlock',
+          title: 'Provider Philosophy Block',
+          type: 'providerPhilosophyBlock',
+          validation: (Rule) => Rule.required(),
+          options: {
+            collapsible: true,
+            collapsed: true,
+          },
+        }),
+        defineField({
+          name: 'videoBlock',
+          title: 'Video Block',
+          type: 'videoBlock',
+          validation: (Rule) => Rule.required(),
+          options: {
+            collapsible: true,
+            collapsed: true,
+          },
+        }),
+        // add Nearby Block when its ready
+        // defineField({
+        //   name: 'nearbyBlock',
+        //   title: 'Firefly Nearby Block',
+        //   type: 'nearbyBlock',
+        //   validation: (Rule) => Rule.required(),
+        //   options: {
+        //     collapsible: true,
+        //     collapsed: true,
+        //   },
+        // }),
       ],
     }),
     defineField({

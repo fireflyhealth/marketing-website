@@ -17,7 +17,7 @@ const Example: FC<ExampleProps> = ({ blocks }) => (
 );
 
 const meta = {
-  title: 'Content Blocks/2-up Blocks',
+  title: 'Content Blocks/2-up Content Blocks',
   component: Example,
 } satisfies Meta<typeof Example>;
 
