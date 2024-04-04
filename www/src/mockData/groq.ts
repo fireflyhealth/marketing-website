@@ -15,6 +15,12 @@ import {
 
 export const mockDataQuery = `
   *[_type == "mockData" && _id == "mockData"]{
+    headerContentBlockExamples{
+      simpleTextHeader{${headerBlockFragment}},
+      textHeader{${headerBlockFragment}},
+      textWithDualCtaHeader{${headerBlockFragment}},
+      videoHeaderExample{${headerBlockFragment}},
+    },
     contentBlockExamples{
       columnsBlocks[]{
         _key,
@@ -43,7 +49,6 @@ export const mockDataQuery = `
         _key,
         ${contentBlockFragment}
       },
-      videoHeaderExample{${headerBlockFragment}},
       smallImageCarouselBlock{${contentBlockFragment}},
       dividerBlock{${contentBlockFragment}},
       providerPhilosophyBlock{${contentBlockFragment}},

@@ -33,6 +33,9 @@ import {
   DividerBlock,
   ProviderPhilosophyBlock,
   VideoBlock,
+  SimpleTextHeader,
+  TextHeader,
+  TextWithDualCtaHeader,
 } from '@/types/sanity';
 import mockData from './mockData.json';
 
@@ -81,9 +84,6 @@ export const responsiveImageSetExample =
   mockData.responsiveImageSet as ResponsiveImageSet;
 export const videoExample = mockData.videoExample as Video;
 
-export const videoHeaderExample = mockData.contentBlockExamples
-  .videoHeaderExample as VideoHeader;
-
 export const imageTextOverlapBlockExample = mockData.contentBlockExamples
   .imageTextOverlapBlock as ImageTextOverlapBlock;
 export const quoteBlock = mockData.contentBlockExamples
@@ -123,3 +123,13 @@ export const providerPhilosophyBlockExample = mockData.contentBlockExamples
 
 export const videoBlockExample = mockData.contentBlockExamples
   .videoBlock as VideoBlock;
+
+/* Header Content Blocks */
+export const simpleTextHeaderExample = mockData.headerContentBlockExamples
+  .simpleTextHeader as SimpleTextHeader;
+export const textHeaderExample = mockData.headerContentBlockExamples
+  .textHeader as TextHeader;
+export const textWithDualCtaHeaderExample = mockData.headerContentBlockExamples
+  .textWithDualCtaHeader as TextWithDualCtaHeader;
+export const videoHeaderExample = mockData.headerContentBlockExamples
+  .videoHeaderExample as VideoHeader;
