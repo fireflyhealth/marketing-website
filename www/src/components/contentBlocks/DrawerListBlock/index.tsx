@@ -13,6 +13,7 @@ import { Theme } from '@/components/Theme';
 import { SanityImage } from '@/atoms/Image/SanityImage';
 import { ResponsiveSanityImage } from '@/atoms/Image/ResponsiveSanityImage';
 import { useWindowDimensions } from '@/hooks/useWindowDimensions';
+import { BREAK_POINTS } from 'tailwind.config';
 import { ContentBlockWrapper } from '../ContentBlockWrapper';
 
 /**
@@ -38,6 +39,8 @@ export const DrawerListItem: FC<DrawerListItemProps> = ({
   index,
   drawerListItem,
 }) => {
+  const { title, body, ctaLink, featuredImage, theme, backgroundImage } =
+    drawerListItem;
   const innerContentRef = useRef<HTMLDivElement>(null);
   const windowDimensions = useWindowDimensions();
   const [expandedContentHeight, setExpandedContentHeight] = useState<
@@ -48,8 +51,9 @@ export const DrawerListItem: FC<DrawerListItemProps> = ({
      * when it first runs. */
     isExpanded ? 'auto' : 0,
   );
-  const { title, body, ctaLink, featuredImage, theme, backgroundImage } =
-    drawerListItem;
+  const [featuredImageHeight, setFeaturedImageHeight] = useState<
+    number | 'auto'
+  >(featuredImage ? featuredImage.asset.metadata.dimensions.height : 0);
   const linkButtonId = filterMaybes([
     'drawer-list-item',
     blockHeaderTitle,
@@ -65,9 +69,26 @@ export const DrawerListItem: FC<DrawerListItemProps> = ({
     const innerContentRefCurrent = innerContentRef.current;
 
     if (isExpanded) {
-      if (!innerContentRefCurrent) return;
+      if (!innerContentRefCurrent || !windowDimensions) return;
+      const innerContentMaxHeight = windowDimensions.height * 0.6 - 140;
       const innerContentHeight = innerContentRefCurrent.offsetHeight;
-      setExpandedContentHeight(innerContentHeight);
+
+      /* We only want to run comparison logic for desktop breakpoints */
+      if (windowDimensions.width >= BREAK_POINTS.MD) {
+        /* Calculate height of inner content.
+         * Set height of inner content to it's true size
+         * if it is less than the 60vh (60% of the viewport height) */
+        const newHeight =
+          innerContentHeight < innerContentMaxHeight
+            ? innerContentHeight
+            : innerContentMaxHeight;
+
+        setExpandedContentHeight(newHeight);
+        setFeaturedImageHeight(newHeight - 48);
+      } else {
+        setExpandedContentHeight(innerContentHeight);
+        setFeaturedImageHeight('auto');
+      }
 
       /* Set tabindex to 0 for all links in the expanded content to be focusable */
       innerContentRefCurrent.querySelectorAll('a').forEach((link) => {
@@ -102,12 +123,13 @@ export const DrawerListItem: FC<DrawerListItemProps> = ({
           <div
             className={cn(
               'DrawerListItem__background',
-              'absolute top-0 left-0 w-full z-[10]',
+              'absolute top-0 left-0 w-full z-[10] h-full',
               /* Items with background images have a min-height of 600px,
                * this height accounts for that plus padding. It must be set
                * explicitly to avoid the position of the background image
                * shifting when the drawer is open. */
-              'h-[600px] md:h-[744px]',
+              // 'h-[600px] md:h-[744px]',
+              Boolean(backgroundImage && !featuredImage) ? 'max-h-[60vh]' : '',
             )}
           >
             <ResponsiveSanityImage
@@ -124,7 +146,7 @@ export const DrawerListItem: FC<DrawerListItemProps> = ({
             className="DrawerListItem__button text-left w-full"
             aria-label={`Expand drawer ${index}: ${title}`}
           >
-            <div className="p-6 md:p-9 lg:p-12">
+            <div className="p-8">
               <h3 className="font-size-5 font-trust leading-[1em]">{title}</h3>
             </div>
           </button>
@@ -149,13 +171,14 @@ export const DrawerListItem: FC<DrawerListItemProps> = ({
               transition: 'opacity 0.3s ease',
             }}
             className={cn(
-              'grid grid-cols-1 gap-12 lg:grid-cols-2',
+              // 'grid grid-cols-1 gap-12 lg:grid-cols-2',
+              'flex flex-col space-y-12 md:flex-row md:space-y-0 md:space-x-12 md:justify-between',
               'p-6 pt-0 relative z-[20]',
               'md:p-9 md:pt-0',
               'lg:p-12 lg:pt-0',
               isExpanded ? '' : 'opacity-0',
-              Boolean(backgroundImage && isExpanded)
-                ? 'min-h-[450px] md:min-h-[600px]'
+              Boolean(backgroundImage && isExpanded && !featuredImage)
+                ? 'min-h-[30vh] lg:min-h-[60vh]'
                 : '',
             )}
           >
@@ -175,7 +198,14 @@ export const DrawerListItem: FC<DrawerListItemProps> = ({
               ) : null}
             </div>
             {featuredImage ? (
-              <SanityImage image={featuredImage} sizes={['100vw', '50vw']} />
+              <SanityImage
+                image={featuredImage}
+                sizes={['100vw', '50vw']}
+                className="w-auto h-auto mx-auto"
+                style={{
+                  maxHeight: `${featuredImageHeight}px`,
+                }}
+              />
             ) : null}
           </div>
         </div>
