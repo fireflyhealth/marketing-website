@@ -1001,8 +1001,8 @@ export type ProviderPhilosophyBlock = ContentBlockCommon & {
 };
 
 type AspectRatio = {
-  figureOne: string;
-  figureTwo: string;
+  figureOne: number;
+  figureTwo: number;
 };
 
 export type NearbyBlock = ContentBlockCommon & {
