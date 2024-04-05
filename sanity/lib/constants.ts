@@ -102,7 +102,6 @@ export const defaultContentBlockTypes = [
   { type: 'cardListBlock' },
   { type: 'columnsBlock' },
   { type: 'dividerBlock' },
-  { type: 'doubleCtaBlock' },
   { type: 'drawerListBlock' },
   { type: 'faqBlock' },
   { type: 'featuredStoriesBlock' },
@@ -119,6 +118,7 @@ export const defaultContentBlockTypes = [
   { type: 'smallImageCarouselBlock' },
   { type: 'tabsBlock' },
   { type: 'testimonialBlock' },
+  { type: 'doubleCtaBlock' },
   { type: 'twoUpBlock' },
 ];
 
