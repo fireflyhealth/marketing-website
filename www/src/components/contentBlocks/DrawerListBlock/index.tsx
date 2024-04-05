@@ -147,7 +147,9 @@ export const DrawerListItem: FC<DrawerListItemProps> = ({
             aria-label={`Expand drawer ${index}: ${title}`}
           >
             <div className="p-8">
-              <h3 className="font-size-5 font-trust leading-[1em]">{title}</h3>
+              <h3 className="font-size-5 font-trust leading-[1em] hover:theme-text-color-secondary transition-colors">
+                {title}
+              </h3>
             </div>
           </button>
         </div>
