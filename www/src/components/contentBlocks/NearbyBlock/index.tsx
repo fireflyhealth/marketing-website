@@ -17,14 +17,6 @@ export const NearbyBlock: FC<Props> = ({ nearbyBlock }) => {
     desktopAspectRatio,
   } = nearbyBlock;
   const windowDimensions = useWindowDimensions();
-
-  const aspectRatio = (windowWidth: number) => {
-    windowWidth > 600 && windowWidth < 800
-      ? `${tabletAspectRatio.figureOne} / ${tabletAspectRatio.figureTwo}`
-      : windowWidth > 800
-        ? `${desktopAspectRatio.figureOne} / ${desktopAspectRatio.figureTwo}`
-        : `${mobileAspectRatio.figureOne} / ${mobileAspectRatio.figureTwo}`;
-  };
   return (
     <ContentBlockWrapper header={header} id={subnav?.contentBlockId}>
       <div
@@ -33,10 +25,28 @@ export const NearbyBlock: FC<Props> = ({ nearbyBlock }) => {
           /* TODO: make calc values variables */
           /* max-height is based on 100% viewport height - top and bottom padding (48px each) - height of header - height of subnav */
           maxHeight: 'calc(100vh - 96px - 54px - 52px)',
-          aspectRatio: `${windowDimensions ? aspectRatio(windowDimensions.width) : '16 / 9'}`,
+          aspectRatio: `${
+            /* First check windowDimensions is defined */
+            windowDimensions
+              ? /* Check if windowDimensions is within tablet breakpoints */
+                windowDimensions.width > 600 && windowDimensions.width < 800
+                ? `${tabletAspectRatio.figureOne} / ${tabletAspectRatio.figureTwo}`
+                : /* Check if windowDimensions is within Desktop breakpoints */
+                  windowDimensions.width > 800
+                  ? `${desktopAspectRatio.figureOne} / ${desktopAspectRatio.figureTwo}`
+                  : /* Return mobile aspect ratio if none of the other breakpoint checks pass */
+                    `${mobileAspectRatio.figureOne} / ${mobileAspectRatio.figureTwo}`
+              : /* Default to 16 / 9 aspect ratio if windowDimensions is not defined */
+                '16 / 9'
+          }`,
         }}
       >
-        <iframe src={mapUrl} width="100%" height="100%" title="My file" />
+        <iframe
+          src={mapUrl}
+          width="100%"
+          height="100%"
+          title="Firefly Mapbox"
+        />
       </div>
     </ContentBlockWrapper>
   );
