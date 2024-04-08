@@ -6,6 +6,7 @@ import { FAQPage as FAQPageType } from '@/types/sanity';
 import { FAQPageView } from '@/views/FAQPageView';
 import * as Sanity from '@/lib/sanity';
 import { FAQMetadata } from '@/components/Metadata/FAQMetadata';
+import { RevalidationTime } from '@/constants';
 
 export type FAQPageProps = PageProps & {
   faqPage: FAQPageType;
@@ -37,6 +38,7 @@ export const getStaticProps: GetStaticProps<FAQPageProps> = async () => {
       siteSettings,
       navigationOverrides: navigationOverrides || null,
     },
+    revalidate: RevalidationTime.Often,
   };
 };
 
