@@ -22,7 +22,7 @@
   },
   "dependencies": {
     "@axe-core/react": "^4.8.5",
-    "@datadog/browser-rum": "^5.13.0",
+    "@datadog/browser-rum": "^5.15.0",
     "@next/third-parties": "^14.1.4",
     "@sanity/client": "^6.11.1",
     "@sentry/nextjs": "^7.93.0",
