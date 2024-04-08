@@ -1,5 +1,5 @@
 :root {
-  --container-lg-padding: 48px;
+  --container-lg-padding: min(3.33vw, 64px);
   --container-md-padding: 36px;
   --container-sm-padding: 16px;
   --grid-margin-lg: min(3.33vw, 64px);
