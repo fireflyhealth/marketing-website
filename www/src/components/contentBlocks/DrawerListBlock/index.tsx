@@ -96,6 +96,9 @@ export const DrawerListItem: FC<DrawerListItemProps> = ({
       });
     } else {
       setExpandedContentHeight(0);
+      setFeaturedImageHeight(
+        featuredImage ? featuredImage.asset.metadata.dimensions.height : 0,
+      );
 
       if (!innerContentRefCurrent) return;
       /* Set tabindex to -1 for all links in the expanded content to not be focusable */
@@ -103,7 +106,7 @@ export const DrawerListItem: FC<DrawerListItemProps> = ({
         link.setAttribute('tabindex', '-1');
       });
     }
-  }, [isExpanded, windowDimensions]);
+  }, [isExpanded, windowDimensions?.width]);
 
   return (
     <Theme theme={theme}>
@@ -172,7 +175,7 @@ export const DrawerListItem: FC<DrawerListItemProps> = ({
               transition: 'opacity 0.3s ease',
             }}
             className={cn(
-              'flex flex-col space-y-12 md:flex-row md:space-y-0 md:space-x-12 md:justify-between',
+              'innerContent flex flex-col space-y-12 md:flex-row md:space-y-0 md:space-x-12 md:justify-between',
               'p-6 pt-0 relative z-[20]',
               'md:p-9 md:pt-0',
               'lg:p-12 lg:pt-0',
@@ -208,14 +211,16 @@ export const DrawerListItem: FC<DrawerListItemProps> = ({
               ) : null}
             </div>
             {featuredImage ? (
-              <div className="md:w-1/2">
+              <div
+                className="md:w-1/2"
+                // style={{
+                //   maxHeight: `${featuredImageHeight}px`,
+                // }}
+              >
                 <SanityImage
                   image={featuredImage}
                   sizes={['100vw', '50vw']}
-                  className="w-auto h-auto mx-auto"
-                  style={{
-                    maxHeight: `${featuredImageHeight}px`,
-                  }}
+                  className="w-auto h-full mx-auto lg:h-[80%]"
                 />
               </div>
             ) : null}
