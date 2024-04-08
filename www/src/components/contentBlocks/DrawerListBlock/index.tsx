@@ -128,7 +128,6 @@ export const DrawerListItem: FC<DrawerListItemProps> = ({
                * this height accounts for that plus padding. It must be set
                * explicitly to avoid the position of the background image
                * shifting when the drawer is open. */
-              // 'h-[600px] md:h-[744px]',
               Boolean(backgroundImage && !featuredImage) ? 'max-h-[60vh]' : '',
             )}
           >
@@ -173,7 +172,6 @@ export const DrawerListItem: FC<DrawerListItemProps> = ({
               transition: 'opacity 0.3s ease',
             }}
             className={cn(
-              // 'grid grid-cols-1 gap-12 lg:grid-cols-2',
               'flex flex-col space-y-12 md:flex-row md:space-y-0 md:space-x-12 md:justify-between',
               'p-6 pt-0 relative z-[20]',
               'md:p-9 md:pt-0',
