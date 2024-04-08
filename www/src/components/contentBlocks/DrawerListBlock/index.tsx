@@ -184,7 +184,17 @@ export const DrawerListItem: FC<DrawerListItemProps> = ({
                 : '',
             )}
           >
-            <div className={cn('DrawerListItem__content')}>
+            <div
+              className={cn(
+                'DrawerListItem__content',
+                'pb-8 overflow-hidden overflow-y-scroll md:w-1/2',
+              )}
+              style={{
+                maxHeight: `${featuredImageHeight && windowDimensions && windowDimensions.width >= BREAK_POINTS.MD ? `${featuredImageHeight}px` : '30vh'}`,
+                WebkitMaskImage: `linear-gradient(to bottom, black 85%, transparent 100%)`,
+                maskImage: `linear-gradient(to bottom, black 85%, transparent 100%)`,
+              }}
+            >
               <RichText fontSize="font-size-8" content={body} />
               {ctaLink ? (
                 <div className="pt-5">
@@ -200,14 +210,16 @@ export const DrawerListItem: FC<DrawerListItemProps> = ({
               ) : null}
             </div>
             {featuredImage ? (
-              <SanityImage
-                image={featuredImage}
-                sizes={['100vw', '50vw']}
-                className="w-auto h-auto mx-auto"
-                style={{
-                  maxHeight: `${featuredImageHeight}px`,
-                }}
-              />
+              <div className="md:w-1/2">
+                <SanityImage
+                  image={featuredImage}
+                  sizes={['100vw', '50vw']}
+                  className="w-auto h-auto mx-auto"
+                  style={{
+                    maxHeight: `${featuredImageHeight}px`,
+                  }}
+                />
+              </div>
             ) : null}
           </div>
         </div>
