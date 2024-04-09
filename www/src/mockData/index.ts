@@ -36,6 +36,7 @@ import {
   SimpleTextHeader,
   TextHeader,
   TextWithDualCtaHeader,
+  NearbyBlock,
 } from '@/types/sanity';
 import mockData from './mockData.json';
 
@@ -123,6 +124,9 @@ export const providerPhilosophyBlockExample = mockData.contentBlockExamples
 
 export const videoBlockExample = mockData.contentBlockExamples
   .videoBlock as VideoBlock;
+
+export const nearbyBlockExample = mockData.contentBlockExamples
+  .nearbyBlockExample as NearbyBlock;
 
 /* Header Content Blocks */
 export const simpleTextHeaderExample = mockData.headerContentBlockExamples

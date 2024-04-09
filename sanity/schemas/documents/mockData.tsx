@@ -331,17 +331,16 @@ export const MockData = defineType({
             collapsed: true,
           },
         }),
-        // add Nearby Block when its ready
-        // defineField({
-        //   name: 'nearbyBlock',
-        //   title: 'Firefly Nearby Block',
-        //   type: 'nearbyBlock',
-        //   validation: (Rule) => Rule.required(),
-        //   options: {
-        //     collapsible: true,
-        //     collapsed: true,
-        //   },
-        // }),
+        defineField({
+          name: 'nearbyBlockExample',
+          title: 'Firefly Nearby Block',
+          type: 'nearbyBlock',
+          validation: (Rule) => Rule.required(),
+          options: {
+            collapsible: true,
+            collapsed: true,
+          },
+        }),
       ],
     }),
     defineField({
