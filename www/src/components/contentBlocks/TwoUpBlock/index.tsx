@@ -33,6 +33,7 @@ export const TwoUpObject: FC<TwoUpObjectProps> = ({
         className={cn(
           'TwoUpBlock',
           `TwoUpBlock--layout-${layout}`,
+          'lg:py-grid-margin-lg',
           mobileReverseBlockOrder
             ? 'TwoUpBlock--mobileReverse'
             : 'TwoUpBlock--mobileNormal',
@@ -83,7 +84,9 @@ export const TwoUpObject: FC<TwoUpObjectProps> = ({
           mobileReverseBlockOrder
             ? 'TwoUpBlock--mobileReverse'
             : 'TwoUpBlock--mobileNormal',
-          theme === ColorTheme.White ? '' : 'rounded-2xl p-6 md:p-12',
+          theme === ColorTheme.White
+            ? 'py-12'
+            : 'rounded-2xl p-6 md:py-12 md:px-grid-margin-lg',
         )}
       >
         <Theme
