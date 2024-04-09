@@ -1,6 +1,7 @@
 import { FC } from 'react';
 import { NearbyBlock as NearbyBlockType } from '@/types/sanity';
 import { useWindowDimensions } from '@/hooks/useWindowDimensions';
+import { BREAK_POINTS_SM, BREAK_POINTS_MD } from '@/constants';
 import { ContentBlockWrapper } from '../ContentBlockWrapper';
 
 type Props = {
@@ -29,10 +30,11 @@ export const NearbyBlock: FC<Props> = ({ nearbyBlock }) => {
             /* First check windowDimensions is defined */
             windowDimensions
               ? /* Check if windowDimensions is within tablet breakpoints */
-                windowDimensions.width > 600 && windowDimensions.width < 800
+                windowDimensions.width > BREAK_POINTS_SM &&
+                windowDimensions.width < BREAK_POINTS_MD
                 ? `${tabletAspectRatio.figureOne} / ${tabletAspectRatio.figureTwo}`
                 : /* Check if windowDimensions is within Desktop breakpoints */
-                  windowDimensions.width > 800
+                  windowDimensions.width > BREAK_POINTS_MD
                   ? `${desktopAspectRatio.figureOne} / ${desktopAspectRatio.figureTwo}`
                   : /* Return mobile aspect ratio if none of the other breakpoint checks pass */
                     `${mobileAspectRatio.figureOne} / ${mobileAspectRatio.figureTwo}`
