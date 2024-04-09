@@ -31,8 +31,8 @@ export const FAQBlock: FC<FAQBlockProps> = ({ faqBlock }) => {
   return (
     <ContentBlockWrapper id={subnav?.contentBlockId} header={header}>
       <div
-        className={cn('pb-4 md:pb-8 lg:pb-12', {
-          'pt-4 md:pt-8 lg:pt-12': !header,
+        className={cn('pb-4 md:pb-grid-margin-lg', {
+          'pt-4 md:pt-grid-margin-lg': !header,
         })}
       >
         <Theme theme={theme || ColorTheme.Sky}>
