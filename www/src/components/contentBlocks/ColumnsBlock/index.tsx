@@ -10,9 +10,13 @@ import { ContentBlockWrapper } from '../ContentBlockWrapper';
 
 type ColumnsObjectProps = {
   columnsObject: ColumnsBlockType | ColumnsObjectType;
+  isTabContent?: boolean;
 };
 
-export const ColumnsObject: FC<ColumnsObjectProps> = ({ columnsObject }) => {
+export const ColumnsObject: FC<ColumnsObjectProps> = ({
+  columnsObject,
+  isTabContent,
+}) => {
   const { theme, columnCount, content } = columnsObject;
   return (
     <Theme theme={theme}>
@@ -24,6 +28,9 @@ export const ColumnsObject: FC<ColumnsObjectProps> = ({ columnsObject }) => {
           theme == ColorTheme.White
             ? ''
             : 'md:px-grid-margin-lg theme-bg-color rounded-xl container-padding-bleed-mobile-only',
+          {
+            'mt-4': isTabContent,
+          },
         )}
       >
         {content.map((content, index) => (

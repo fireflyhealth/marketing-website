@@ -11,11 +11,13 @@ import { ContentBlockWrapper } from '../ContentBlockWrapper';
 type TwoUpObjectProps = {
   twoUpObject: TwoUpObjectType;
   imagePriority?: boolean;
+  isTabContent?: boolean;
 };
 
 export const TwoUpObject: FC<TwoUpObjectProps> = ({
   twoUpObject,
   imagePriority,
+  isTabContent,
 }) => {
   const {
     layout,
@@ -40,6 +42,9 @@ export const TwoUpObject: FC<TwoUpObjectProps> = ({
           mobileReverseBlockOrder
             ? 'TwoUpBlock--mobileReverse'
             : 'TwoUpBlock--mobileNormal',
+          {
+            'TwoUpBlock--tab-content': isTabContent,
+          },
         )}
       >
         <div
@@ -90,6 +95,9 @@ export const TwoUpObject: FC<TwoUpObjectProps> = ({
           theme === ColorTheme.White
             ? 'py-12'
             : 'rounded-2xl p-6 md:py-12 md:px-grid-margin-lg',
+          {
+            'TwoUpBlock--tab-content': isTabContent,
+          },
         )}
       >
         <Theme

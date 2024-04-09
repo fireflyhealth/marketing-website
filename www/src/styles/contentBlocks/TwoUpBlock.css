@@ -166,3 +166,7 @@
     }
   }
 }
+
+.TwoUpBlock--tab-content {
+  margin-top: theme(spacing.4) !important;
+}
