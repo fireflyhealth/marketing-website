@@ -2,6 +2,27 @@ import { defineType, defineField } from 'sanity';
 import { icons } from '../../lib/icons';
 import { requiredBlockFields } from './utils/requiredBlockFields';
 
+const aspectRatio = (breakPoint) =>
+  defineField({
+    name: `${breakPoint}AspectRatio`,
+    title: `${breakPoint.charAt(0).toUpperCase() + breakPoint.slice(1)} Aspect Ratio`,
+    description:
+      'To define a horizontal aspect ratio, the left figure should be greater than the right.  To define a vertical aspect ratio, the figure on the left should be less than the right.',
+    type: 'object',
+    fields: [
+      {
+        name: 'figureOne',
+        title: 'Figure',
+        type: 'number',
+      },
+      {
+        name: 'figureTwo',
+        title: 'Figure',
+        type: 'number',
+      },
+    ],
+  });
+
 export const NearbyBlock = defineType({
   name: 'nearbyBlock',
   title: 'Nearby Block',
@@ -15,63 +36,9 @@ export const NearbyBlock = defineType({
       type: 'url',
       validation: (Rule) => Rule.required(),
     },
-    {
-      name: 'mobileAspectRatio',
-      title: 'Mobile Aspect Ratio',
-      description:
-        'To define a horizontal aspect ratio, the left figure should be greater than the right.  To define a vertical aspect ratio, the figure on the left should be less than the right.',
-      type: 'object',
-      fields: [
-        {
-          name: 'figureOne',
-          title: 'Figure',
-          type: 'number',
-        },
-        {
-          name: 'figureTwo',
-          title: 'Figure',
-          type: 'number',
-        },
-      ],
-    },
-    {
-      name: 'tabletAspectRatio',
-      title: 'Tablet Aspect Ratio',
-      description:
-        'To define a horizontal aspect ratio, the left figure should be greater than the right.  To define a vertical aspect ratio, the figure on the left should be less than the right.',
-      type: 'object',
-      fields: [
-        {
-          name: 'figureOne',
-          title: 'Figure',
-          type: 'number',
-        },
-        {
-          name: 'figureTwo',
-          title: 'Figure',
-          type: 'number',
-        },
-      ],
-    },
-    {
-      name: 'desktopAspectRatio',
-      title: 'Desktop Aspect Ratio',
-      description:
-        'To define a horizontal aspect ratio, the left figure should be greater than the right.  To define a vertical aspect ratio, the figure on the left should be less than the right.',
-      type: 'object',
-      fields: [
-        {
-          name: 'figureOne',
-          title: 'Figure',
-          type: 'number',
-        },
-        {
-          name: 'figureTwo',
-          title: 'Figure',
-          type: 'number',
-        },
-      ],
-    },
+    aspectRatio('mobile'),
+    aspectRatio('tablet'),
+    aspectRatio('desktop'),
   ],
   preview: {
     prepare: () => {
