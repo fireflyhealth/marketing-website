@@ -17,13 +17,13 @@ export const BigNumber: FC<BigNumberProps> = ({ bigNumber }) => {
     <div className="py-6">
       <div className="font-trust">
         {unit && unit.position === 'before' ? (
-          <span className="font-size-6 align-top mr-[0.2em]">
+          <span className="font-size-5 align-top mr-[0.2em]">
             {unit.unitValue}
           </span>
         ) : null}
         <span className="font-size-1">{formattedValue}</span>
         {unit && unit.position === 'after' ? (
-          <span className="font-size-6 align-top ml-[0.2em]">
+          <span className="font-size-5 align-top ml-[0.2em]">
             {unit.unitValue}
           </span>
         ) : null}
