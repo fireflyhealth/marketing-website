@@ -736,3 +736,9 @@ svg {
     @apply font-size-8;
   }
 }
+
+.ImageTextOverlapBlock {
+  .RichText ul {
+    padding: 0;
+  }
+}
