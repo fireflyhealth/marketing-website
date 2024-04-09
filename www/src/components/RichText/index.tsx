@@ -175,7 +175,7 @@ export const RichText: FC<RichTextProps> = ({
         className,
         {
           'flex flex-col items-center text-center': alignCenter,
-          'mt-4': isTabContent,
+          'mt-0': isTabContent,
         },
       )}
     >

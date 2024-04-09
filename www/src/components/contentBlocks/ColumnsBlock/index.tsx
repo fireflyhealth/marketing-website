@@ -29,7 +29,7 @@ export const ColumnsObject: FC<ColumnsObjectProps> = ({
             ? ''
             : 'md:px-grid-margin-lg theme-bg-color rounded-xl container-padding-bleed-mobile-only',
           {
-            'mt-4': isTabContent,
+            'mt-0': isTabContent,
           },
         )}
       >
