@@ -169,4 +169,8 @@
 
 .TwoUpBlock--tab-content {
   margin-top: theme(spacing.4) !important;
+
+  &.TwoUpBlock--layout-overlap-50-50 {
+    padding-top: 0 !important;
+  }
 }
