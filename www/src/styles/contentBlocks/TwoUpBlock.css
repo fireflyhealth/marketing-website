@@ -1,15 +1,16 @@
 .TwoUpBlock {
-  padding-bottom: theme(spacing.6);
-  margin-top: theme(spacing.4);
+  /* removing bottom top padding for header */
+  /* padding-bottom: theme(spacing.6); */
+  /* margin-top: theme(spacing.4); */
 
   @screen md {
-    padding-bottom: theme(spacing.8);
-    margin-top: theme(spacing.0);
+    /* padding-bottom: theme(spacing.8); */
+    /* margin-top: theme(spacing.0); */
   }
 
   @screen lg {
-    padding-bottom: theme(spacing.12);
-    margin-top: theme(spacing.0);
+    /* padding-bottom: theme(spacing.12); */
+    /* margin-top: theme(spacing.0); */
   }
 }
 

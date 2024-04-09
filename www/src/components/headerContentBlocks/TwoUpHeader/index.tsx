@@ -9,7 +9,7 @@ type TwoUpHeaderProps = {
 
 export const TwoUpHeader: FC<TwoUpHeaderProps> = ({ twoUpHeader }) => {
   return (
-    <div className={cn('lg:p-block-wrapper-lg-padding')}>
+    <div className={cn('lg:py-grid-margin-lg')}>
       <TwoUpObject
         imagePriority
         twoUpObject={{
