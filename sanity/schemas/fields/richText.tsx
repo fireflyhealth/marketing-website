@@ -21,7 +21,6 @@ export const SimpleRichText = defineField({
         decorators: [
           { title: 'Bold', value: 'strong' },
           { title: 'Italic', value: 'em' },
-          { title: 'Underline', value: 'underline' },
         ],
         annotations: [
           {
@@ -96,7 +95,6 @@ export const LimitedRichText = defineField({
         decorators: [
           { title: 'Bold', value: 'strong' },
           { title: 'Italic', value: 'em' },
-          { title: 'Underline', value: 'underline' },
         ],
         annotations: [
           {
@@ -162,7 +160,6 @@ export const ContentBlockRichText = defineField({
             decorators: [
               { title: 'Bold', value: 'strong' },
               { title: 'Italic', value: 'em' },
-              { title: 'Underline', value: 'underline' },
             ],
             annotations: [
               {
@@ -227,7 +224,6 @@ export const ArticleRichText = defineField({
         decorators: [
           { title: 'Bold', value: 'strong' },
           { title: 'Italic', value: 'em' },
-          { title: 'Underline', value: 'underline' },
         ],
         annotations: [
           {
