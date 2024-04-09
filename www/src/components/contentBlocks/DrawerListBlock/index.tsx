@@ -104,7 +104,7 @@ export const DrawerListItem: FC<DrawerListItemProps> = ({
     <Theme theme={theme}>
       <div
         className={cn(
-          'DrawerListItem relative rounded-2xl z-[10] overflow-hidden theme-bg-color',
+          'DrawerListItem relative rounded-2xl z-[10] overflow-hidden theme-bg-color group',
           /* All list items except the last have extra padding at the
            * bottom to account for sibling overlap */
           isLast ? '' : 'pb-[2.5rem] md:pb-[3.5rem]',
@@ -141,7 +141,7 @@ export const DrawerListItem: FC<DrawerListItemProps> = ({
             aria-label={`Expand drawer ${index}: ${title}`}
           >
             <div className="p-8">
-              <h3 className="font-size-5 font-trust leading-[1em] hover:theme-text-color-secondary transition-colors">
+              <h3 className="font-size-5 font-trust leading-[1em] group-hover:theme-text-color-secondary transition-colors">
                 {title}
               </h3>
             </div>
@@ -150,7 +150,10 @@ export const DrawerListItem: FC<DrawerListItemProps> = ({
 
         <div
           aria-hidden={!isExpanded}
-          className={cn(isExpanded ? '' : 'pointer-events-none')}
+          className={cn(
+            'group-hover:theme-text-color-secondary',
+            isExpanded ? '' : 'pointer-events-none',
+          )}
           style={{
             transition: 'height 0.3s ease',
             /* We cannot transition between height: 0 and height: auto,
@@ -168,9 +171,7 @@ export const DrawerListItem: FC<DrawerListItemProps> = ({
             }}
             className={cn(
               'innerContent flex flex-col space-y-12 md:flex-row md:space-y-0 md:space-x-12 md:justify-between',
-              'p-6 pt-0 relative z-[20]',
-              'md:p-9 md:pt-0',
-              'lg:p-12 lg:pt-0',
+              'p-8 pt-0 relative z-[20]',
               isExpanded ? '' : 'opacity-0',
               Boolean(backgroundImage && isExpanded && !featuredImage)
                 ? 'min-h-[30vh] lg:min-h-[60vh]'
@@ -180,12 +181,12 @@ export const DrawerListItem: FC<DrawerListItemProps> = ({
             <div
               className={cn(
                 'DrawerListItem__content',
-                'pb-8 overflow-hidden overflow-y-scroll md:w-1/2',
+                'pb-20 overflow-hidden overflow-y-scroll md:w-1/2',
               )}
               style={{
-                maxHeight: `${windowWidth >= BREAK_POINTS.MD ? `${expandedContentHeight - 48}px` : '150px'}`,
-                WebkitMaskImage: `linear-gradient(to bottom, black 80%, transparent 100%)`,
-                maskImage: `linear-gradient(to bottom, black 80%, transparent 100%)`,
+                maxHeight: `${windowWidth >= BREAK_POINTS.MD ? `${expandedContentHeight - 32}px` : '150px'}`,
+                WebkitMaskImage: `linear-gradient(to bottom, black 75%, transparent 100%)`,
+                maskImage: `linear-gradient(to bottom, black 75%, transparent 100%)`,
               }}
             >
               <RichText fontSize="font-size-8" content={body} />
