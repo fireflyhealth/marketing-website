@@ -38,7 +38,7 @@ export const TwoUpObject: FC<TwoUpObjectProps> = ({
         className={cn(
           'TwoUpBlock',
           `TwoUpBlock--layout-${layout}`,
-          'lg:py-grid-margin-lg',
+          'py-8 lg:py-grid-margin-lg',
           mobileReverseBlockOrder
             ? 'TwoUpBlock--mobileReverse'
             : 'TwoUpBlock--mobileNormal',
@@ -58,6 +58,7 @@ export const TwoUpObject: FC<TwoUpObjectProps> = ({
               <ChildContentBlock
                 imagePriority={imagePriority}
                 block={blockOne}
+                blockNumber={2}
               />
             </div>
           </Theme>
@@ -73,6 +74,7 @@ export const TwoUpObject: FC<TwoUpObjectProps> = ({
               <ChildContentBlock
                 imagePriority={imagePriority}
                 block={blockTwo}
+                blockNumber={2}
               />
             </div>
           </Theme>
@@ -107,7 +109,11 @@ export const TwoUpObject: FC<TwoUpObjectProps> = ({
             `TwoUpBlock__child--${blockOne._type}`,
           )}
         >
-          <ChildContentBlock imagePriority={imagePriority} block={blockOne} />
+          <ChildContentBlock
+            imagePriority={imagePriority}
+            block={blockOne}
+            blockNumber={1}
+          />
         </Theme>
         <Theme
           theme={normalLayoutTheme ? normalLayoutTheme : blockTwoTheme}
@@ -116,7 +122,11 @@ export const TwoUpObject: FC<TwoUpObjectProps> = ({
             `TwoUpBlock__child--${blockTwo._type}`,
           )}
         >
-          <ChildContentBlock imagePriority={imagePriority} block={blockTwo} />
+          <ChildContentBlock
+            imagePriority={imagePriority}
+            block={blockTwo}
+            blockNumber={2}
+          />
         </Theme>
       </div>
     </Theme>
