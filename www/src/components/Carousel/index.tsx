@@ -181,8 +181,6 @@ const goToSelfIfActive = (
     // get its left position within its parent (offset)
     const slideElementLeft = slideElement.offsetLeft + parent.offsetLeft;
 
-    /* TODO: ensure slides always fill the container (do not
-     * scroll too far for the final slides) */
     setSlideContainerLeft(-slideElementLeft);
   }
 };
@@ -289,7 +287,6 @@ export const SlideContainer: FC<SlideContainerProps> = ({
         className={cn(
           'h-full flex flex-row',
           slideContainerDragLeft === 0 ? 'transition' : '',
-          isImageCarousel ? 'absolute top-0 left-0' : '',
         )}
         style={{
           transform: `translateX(${slideContainerLeft}px)`,
