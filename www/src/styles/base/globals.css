@@ -413,8 +413,7 @@ svg {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100%;
-  padding: 0 2.5rem;
+  padding: 0 1rem;
 
   @screen md {
     height: 48px;
