@@ -43,17 +43,10 @@ export const DrawerListItem: FC<DrawerListItemProps> = ({
     drawerListItem;
   const innerContentRef = useRef<HTMLDivElement>(null);
   const windowDimensions = useWindowDimensions();
-  const [expandedContentHeight, setExpandedContentHeight] = useState<
-    string | number
-  >(
-    /* Set the initial state to 'auto' if isExpanded is true upon first render.
-     * The effect below will set this to a number (which will match the natural height)
-     * when it first runs. */
-    isExpanded ? 'auto' : 0,
+  const [windowWidth, setWindowWidth] = useState<number>(
+    windowDimensions ? windowDimensions.width : 0,
   );
-  const [featuredImageHeight, setFeaturedImageHeight] = useState<
-    number | 'auto'
-  >(featuredImage ? featuredImage.asset.metadata.dimensions.height : 0);
+  const [expandedContentHeight, setExpandedContentHeight] = useState<number>(0);
   const linkButtonId = filterMaybes([
     'drawer-list-item',
     blockHeaderTitle,
@@ -64,13 +57,17 @@ export const DrawerListItem: FC<DrawerListItemProps> = ({
     .join('-');
 
   useEffect(() => {
+    if (windowDimensions) {
+      setWindowWidth(windowDimensions.width);
+    }
+
     /* Calculate and set the inner content height whenever the element
      * is expanded or when the window is resized. */
     const innerContentRefCurrent = innerContentRef.current;
 
     if (isExpanded) {
       if (!innerContentRefCurrent || !windowDimensions) return;
-      const innerContentMaxHeight = windowDimensions.height * 0.6 - 140;
+      const innerContentMaxHeight = windowDimensions.width * 0.6 - 140;
       const innerContentHeight = innerContentRefCurrent.offsetHeight;
 
       /* We only want to run comparison logic for desktop breakpoints */
@@ -84,10 +81,8 @@ export const DrawerListItem: FC<DrawerListItemProps> = ({
             : innerContentMaxHeight;
 
         setExpandedContentHeight(newHeight);
-        setFeaturedImageHeight(newHeight - 48);
       } else {
         setExpandedContentHeight(innerContentHeight);
-        setFeaturedImageHeight('auto');
       }
 
       /* Set tabindex to 0 for all links in the expanded content to be focusable */
@@ -96,9 +91,6 @@ export const DrawerListItem: FC<DrawerListItemProps> = ({
       });
     } else {
       setExpandedContentHeight(0);
-      setFeaturedImageHeight(
-        featuredImage ? featuredImage.asset.metadata.dimensions.height : 0,
-      );
 
       if (!innerContentRefCurrent) return;
       /* Set tabindex to -1 for all links in the expanded content to not be focusable */
@@ -106,7 +98,7 @@ export const DrawerListItem: FC<DrawerListItemProps> = ({
         link.setAttribute('tabindex', '-1');
       });
     }
-  }, [isExpanded, windowDimensions?.width]);
+  }, [isExpanded, windowDimensions, windowDimensions?.width]);
 
   return (
     <Theme theme={theme}>
@@ -127,11 +119,11 @@ export const DrawerListItem: FC<DrawerListItemProps> = ({
             className={cn(
               'DrawerListItem__background',
               'absolute top-0 left-0 w-full z-[10] h-full',
-              /* Items with background images have a min-height of 600px,
+              /* Items with background images have a min-height of 60vh,
                * this height accounts for that plus padding. It must be set
                * explicitly to avoid the position of the background image
                * shifting when the drawer is open. */
-              Boolean(backgroundImage && !featuredImage) ? 'max-h-[60vh]' : '',
+              Boolean(backgroundImage && !featuredImage) ? 'min-h-[60vh]' : '',
             )}
           >
             <ResponsiveSanityImage
@@ -191,9 +183,9 @@ export const DrawerListItem: FC<DrawerListItemProps> = ({
                 'pb-8 overflow-hidden overflow-y-scroll md:w-1/2',
               )}
               style={{
-                maxHeight: `${featuredImageHeight && windowDimensions && windowDimensions.width >= BREAK_POINTS.MD ? `${featuredImageHeight}px` : '30vh'}`,
-                WebkitMaskImage: `linear-gradient(to bottom, black 85%, transparent 100%)`,
-                maskImage: `linear-gradient(to bottom, black 85%, transparent 100%)`,
+                maxHeight: `${windowWidth >= BREAK_POINTS.MD ? `${expandedContentHeight - 48}px` : '150px'}`,
+                WebkitMaskImage: `linear-gradient(to bottom, black 80%, transparent 100%)`,
+                maskImage: `linear-gradient(to bottom, black 80%, transparent 100%)`,
               }}
             >
               <RichText fontSize="font-size-8" content={body} />
@@ -211,16 +203,11 @@ export const DrawerListItem: FC<DrawerListItemProps> = ({
               ) : null}
             </div>
             {featuredImage ? (
-              <div
-                className="md:w-1/2"
-                // style={{
-                //   maxHeight: `${featuredImageHeight}px`,
-                // }}
-              >
+              <div className="h-full md:w-1/2">
                 <SanityImage
                   image={featuredImage}
                   sizes={['100vw', '50vw']}
-                  className="w-auto h-full mx-auto lg:h-[80%]"
+                  className="w-auto h-auto mx-auto"
                 />
               </div>
             ) : null}
