@@ -1,5 +1,5 @@
 export const ThemeWrapper = [
-  'TextWithDualCtaHeader flex flex-col md:flex-row md:items-center',
+  'TextWithDualCtaHeader flex flex-col md:flex-row md:items-center pb-8',
 ];
 
 export const Wrapper = [
