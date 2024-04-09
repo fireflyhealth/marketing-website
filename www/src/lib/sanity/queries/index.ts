@@ -103,7 +103,6 @@ export const faqPageFragment = `
   slug,
   ${pageSharedFieldsFragment},
   metadata{${metadataFragment}},
-  title,
   "faqs": *[_type == "faq"]{
     ${faqFragment}
   }
