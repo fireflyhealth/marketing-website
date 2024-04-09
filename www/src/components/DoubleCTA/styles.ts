@@ -1,6 +1,6 @@
 export const CTAContainer = [
   'DoubleCTA flex flex-col space-y-3',
-  'md:flex-row md:space-y-0 md:space-x-12',
+  'md:flex-row md:space-y-0 md:space-x-grid-margin-lg',
 ];
 
 export const CTACardWrapper = ['w-full'];

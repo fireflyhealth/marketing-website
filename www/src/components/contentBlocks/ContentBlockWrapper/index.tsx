@@ -91,7 +91,8 @@ export const ContentBlockWrapper: FC<ContentBlockWrapperProps> = ({
       // only add ref if content block has a corresponding subnav item
       ref={id && contentBlockWrapperRef}
       id={id || undefined}
-      className={cn(wrapperPadding ? ContentBlockContainer : '', {
+      className={cn({
+        [`${ContentBlockContainer}`]: wrapperPadding,
         'remove-between-component-margin': removeBetweenComponentMargin,
         'scroll-mt-16 lg:scroll-mt-7': id,
       })}
