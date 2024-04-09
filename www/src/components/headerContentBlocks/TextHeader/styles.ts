@@ -10,7 +10,7 @@ export const WrapperInner = [
   'py-16',
   'flex flex-col justify-center',
   'md:px-[60px] md:py-40',
-  'lg:px-16 lg:pt-40 lg:pb-40 max-w-[1216px] mx-auto',
+  'lg:px-16 lg:pt-40 lg:pb-40 mx-auto',
 ];
 
 export const Eyebrow = [
