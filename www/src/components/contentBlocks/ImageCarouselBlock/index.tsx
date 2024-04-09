@@ -25,7 +25,9 @@ export const ImageCarouselBlock: FC<ImageCarouselBlockProps> = ({
             <div
               key={image._key}
               className={
-                index !== images.length - 1 ? 'h-full mr-4 md:mr-12' : 'h-full'
+                index !== images.length - 1
+                  ? 'h-full mr-grid-margin-sm md:mr-grid-margin-lg'
+                  : 'h-full'
               }
             >
               <SanityImage image={image} sizes={['90vw', '70vw']} />
