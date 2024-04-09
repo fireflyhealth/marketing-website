@@ -26,6 +26,9 @@ export const TwoUpObject: FC<TwoUpObjectProps> = ({
     blockThemes,
   } = twoUpObject;
 
+  const blockOneTheme = blockThemes?.blockOneTheme || ColorTheme.White;
+  const blockTwoTheme = blockThemes?.blockTwoTheme || ColorTheme.White;
+
   if (layout === 'overlap-50-50') {
     /* 50-50 overlap wraps themes around each child block */
     return (
@@ -45,7 +48,7 @@ export const TwoUpObject: FC<TwoUpObjectProps> = ({
             `TwoUpBlock__child--${blockOne._type}`,
           )}
         >
-          <Theme theme={blockThemes?.blockOneTheme || ColorTheme.White}>
+          <Theme theme={blockOneTheme}>
             <div className={cn('theme-bg-color rounded-2xl')}>
               <ChildContentBlock
                 imagePriority={imagePriority}
@@ -60,7 +63,7 @@ export const TwoUpObject: FC<TwoUpObjectProps> = ({
             `TwoUpBlock__child--${blockTwo._type}`,
           )}
         >
-          <Theme theme={blockThemes?.blockTwoTheme || ColorTheme.White}>
+          <Theme theme={blockTwoTheme}>
             <div className={cn('theme-bg-color rounded-2xl')}>
               <ChildContentBlock
                 imagePriority={imagePriority}
@@ -90,11 +93,7 @@ export const TwoUpObject: FC<TwoUpObjectProps> = ({
         )}
       >
         <Theme
-          theme={
-            normalLayoutTheme
-              ? normalLayoutTheme
-              : blockThemes?.blockOneTheme || ColorTheme.White
-          }
+          theme={normalLayoutTheme ? normalLayoutTheme : blockOneTheme}
           className={cn(
             'TwoUpBlock__child theme-bg-color rounded-2xl',
             `TwoUpBlock__child--${blockOne._type}`,
@@ -103,11 +102,7 @@ export const TwoUpObject: FC<TwoUpObjectProps> = ({
           <ChildContentBlock imagePriority={imagePriority} block={blockOne} />
         </Theme>
         <Theme
-          theme={
-            normalLayoutTheme
-              ? normalLayoutTheme
-              : blockThemes?.blockOneTheme || ColorTheme.White
-          }
+          theme={normalLayoutTheme ? normalLayoutTheme : blockTwoTheme}
           className={cn(
             'TwoUpBlock__child theme-bg-color rounded-2xl',
             `TwoUpBlock__child--${blockTwo._type}`,
