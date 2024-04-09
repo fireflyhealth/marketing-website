@@ -16,7 +16,7 @@ import {
 type HeaderContentChildBlockProps = {
   headerContentChildBlock: HeaderContentChildBlockType;
   imagePriority?: boolean;
-  blockNumber: 1 | 2;
+  blockNumber?: 1 | 2;
 };
 
 export const HeaderContentChildBlock: FC<HeaderContentChildBlockProps> = ({

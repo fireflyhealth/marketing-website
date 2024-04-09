@@ -13,7 +13,7 @@ import { HeaderQrCodeChildBlock } from '../HeaderQrCodeChildBlock';
 type ChildContentBlockProps = {
   block: ChildContentBlockType;
   imagePriority?: boolean;
-  blockNumber: 1 | 2;
+  blockNumber?: 1 | 2;
 };
 
 export const ChildContentBlock: FC<ChildContentBlockProps> = ({
