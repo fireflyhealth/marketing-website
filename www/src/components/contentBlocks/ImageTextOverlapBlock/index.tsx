@@ -16,7 +16,12 @@ export const ImageTextOverlapBlock: FC<Props> = ({ imageTextOverlapBlock }) => {
 
   return (
     <ContentBlockWrapper id={subnav?.contentBlockId} header={header}>
-      <div className={cn(Wrapper, 'ImageTextOverlapBlock')}>
+      <div
+        className={cn(
+          Wrapper,
+          'ImageTextOverlapBlock container-padding-bleed--margin-only-mobile-only',
+        )}
+      >
         <div className={cn(ImageWrapper)}>
           <SanityImage image={image} sizes={['100vw, 85vw']} />
         </div>

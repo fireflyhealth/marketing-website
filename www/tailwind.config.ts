@@ -93,6 +93,8 @@ export const config: Config = {
         'container-lg-padding': 'var(--container-lg-padding)',
         'container-md-padding': 'var(--container-md-padding)',
         'container-sm-padding': 'var(--container-sm-padding)',
+        'grid-margin-lg': 'var(--grid-margin-lg)',
+        'grid-margin-sm': 'var(--grid-margin-sm)',
       },
       backgroundImage: {
         'yellow-linear-gradient':

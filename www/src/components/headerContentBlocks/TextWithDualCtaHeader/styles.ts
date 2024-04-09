@@ -1,5 +1,5 @@
 export const ThemeWrapper = [
-  'TextWithDualCtaHeader py-6 lg:py-12 flex flex-col md:flex-row md:items-center',
+  'TextWithDualCtaHeader flex flex-col md:flex-row md:items-center pb-8',
 ];
 
 export const Wrapper = [
@@ -7,7 +7,7 @@ export const Wrapper = [
 ];
 
 export const WarpperInner = [
-  'py-16 md:px-24 md:py-40 lg:px-16 lg:pt-40 lg:pb-12',
+  'py-16 lg:pt-[112px] md:pb-0 md:px-24 lg:px-16 lg:my-grid-margin-lg',
   'flex flex-col justify-center items-center',
 ];
 

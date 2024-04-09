@@ -1,6 +1,6 @@
 /* Featured Article */
 export const FeaturedArticleContainer = [
-  'container-padding-bleed--margin-only-mobile-only',
+  'container-padding-bleed--margin-only-mobile-only my-12',
   'flex flex-col',
   'lg:flex-row',
 ];
@@ -20,7 +20,7 @@ export const FeaturedArticleTextInner = [
 ];
 
 /* Grid & List View wrapper */
-export const BlogPageArticlesWrapper = ['pt-20 pb-12', 'md:pb-18', 'lg:pb-24'];
+export const BlogPageArticlesWrapper = ['pb-12', 'md:pb-18', 'lg:pb-24'];
 
 /* List View */
 export const BlogArticlesListItemWrapper = [
@@ -41,8 +41,8 @@ export const BlogArticlesListReadMore = ['pt-4', 'md:pt-0'];
 /* Grid view */
 export const BlogArticlesGridWrapper = [
   'grid grid-cols-1 gap-y-8',
-  'md:grid-cols-2 md:gap-x-6',
-  'lg:grid-cols-3 lg:gap-x-12 lg:gap-y-12',
+  'md:grid-cols-2 md:gap-x-grid-margin-lg md:gap-y-grid-margin-lg',
+  'lg:grid-cols-3',
 ];
 
 export const BlogArticlesGridItemWrapper = [''];

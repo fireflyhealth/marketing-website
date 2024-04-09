@@ -1,4 +1,8 @@
-export const Wrapper = ['theme-bg-color rounded-xl', 'p-6', 'md:p-12'];
+export const Wrapper = [
+  'theme-bg-color rounded-xl',
+  'p-grid-margin-sm',
+  'md:p-grid-margin-lg',
+];
 
 export const TitleWrapper = ['block', 'md:flex md:flex-row justify-between'];
 

@@ -18,7 +18,7 @@ export const FAQPage = defineType({
       type: 'navigationOverrides',
     }),
     defineField({
-      name: 'headerArea',
+      name: 'header',
       title: 'Header',
       type: 'headerArea',
     }),

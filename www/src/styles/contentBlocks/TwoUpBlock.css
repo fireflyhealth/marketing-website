@@ -1,18 +1,3 @@
-.TwoUpBlock {
-  padding-bottom: theme(spacing.6);
-  margin-top: theme(spacing.4);
-
-  @screen md {
-    padding-bottom: theme(spacing.8);
-    margin-top: theme(spacing.0);
-  }
-
-  @screen lg {
-    padding-bottom: theme(spacing.12);
-    margin-top: theme(spacing.0);
-  }
-}
-
 .TwoUpBlock--layout-normal-50-50,
 .TwoUpBlock--layout-normal-40-60,
 .TwoUpBlock--layout-normal-60-40 {
@@ -52,7 +37,7 @@
   @screen lg {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
-    grid-gap: 3rem;
+    grid-gap: var(--grid-margin-lg);
 
     .TwoUpBlock__child {
       grid-column: span 6;
@@ -179,5 +164,13 @@
         }
       }
     }
+  }
+}
+
+.TwoUpBlock--tab-content {
+  margin-top: theme(spacing.4) !important;
+
+  &.TwoUpBlock--layout-overlap-50-50 {
+    padding-top: 0 !important;
   }
 }

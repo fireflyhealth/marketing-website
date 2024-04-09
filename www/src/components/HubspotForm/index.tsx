@@ -23,7 +23,11 @@ const HubspotForm: FC<Props> = ({ formId, renderInRichtext }) => {
   return (
     <div
       id="hubspot"
-      className={cn(Wrapper, renderInRichtext ? 'theme-grey' : 'theme-white')}
+      className={cn(
+        'HubspotForm',
+        Wrapper,
+        renderInRichtext ? 'theme-grey' : 'theme-white',
+      )}
     >
       {/* Form styling handled in globals.css */}
       <div id="hubspot-form-wrapper" />

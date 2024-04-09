@@ -73,13 +73,14 @@
 
     & > .GenericImage {
       transition: all 500ms ease;
-      border: 3px solid;
+      border: 0px solid;
       border-color: transparent;
     }
 
     [data-whatintent='keyboard'] &:focus {
       & > .GenericImage {
         border-color: var(--cta-border-color);
+        border-width: 3px;
       }
     }
   }

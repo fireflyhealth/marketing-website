@@ -17,11 +17,11 @@ const TabsBlockTab: FC<TabsBlockTabProps> = ({ tabsBlockTab }) => {
   const { content } = tabsBlockTab;
   switch (content._type) {
     case 'twoUpObject':
-      return <TwoUpObject twoUpObject={content} />;
+      return <TwoUpObject twoUpObject={content} isTabContent />;
     case 'columnsObject':
-      return <ColumnsObject columnsObject={content} />;
+      return <ColumnsObject columnsObject={content} isTabContent />;
     case 'contentBlockRichText':
-      return <RichText content={content.body} />;
+      return <RichText content={content.body} isTabContent />;
     default:
       throw new Error(
         // @ts-expect-error

@@ -135,7 +135,9 @@ export const Carousel: FC<CarouselProps> = ({ children, isImageCarousel }) => {
       </SlideContainer>
       {/* Prev/Next component */}
       <div
-        className={cn('pt-12', !isImageCarousel ? 'hidden md:block' : 'block')}
+        className={cn(
+          !isImageCarousel ? 'hidden md:block pt-4' : 'block pt-12',
+        )}
       >
         <PrevButton disabled={currentSlideIndex === 0} goPrev={goPrev}>
           <BrandedIcon type="arrow-left" wrapperStyles="w-12" />
@@ -149,10 +151,7 @@ export const Carousel: FC<CarouselProps> = ({ children, isImageCarousel }) => {
       </div>
       {/* Pagination (dots) component */}
       <div
-        className={cn(
-          'pt-8 pb-4',
-          !isImageCarousel ? 'block md:hidden' : 'hidden',
-        )}
+        className={cn('pt-8', !isImageCarousel ? 'block md:hidden' : 'hidden')}
       >
         <Pagination />
       </div>
