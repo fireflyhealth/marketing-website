@@ -58,7 +58,7 @@ export type GenericImageProps = Omit<NextImageProps, 'alt' | 'sizes'> & {
   /* Almost every image in the Firefly designs have a rounded border.
    * pass in a custom rounded classname to override, or false
    * to disable.
-   * Defaults to 'rounded-lg'. */
+   * Defaults to 'rounded-2xl'. */
   rounded?: string | false;
   priority?: boolean;
 };
@@ -70,7 +70,7 @@ const GenericImageInner: FC<GenericImageProps> = ({
   className: classNameProp,
   width,
   height,
-  rounded = 'rounded-lg',
+  rounded = 'rounded-2xl',
   priority,
   ...nextImageProps
 }) => {
