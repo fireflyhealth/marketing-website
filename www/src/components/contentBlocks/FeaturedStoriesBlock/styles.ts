@@ -1,6 +1,6 @@
 export const FeaturedStoriesGrid = [
   'grid grid-cols-1 gap-y-6',
-  'md:grid md:grid-cols-12 md:gap-y-16 md:gap-x-12',
+  'md:grid md:grid-cols-12 md:gap-y-16 md:gap-x-12 md:mb-16',
 ];
 
 export const FeaturedStoriesCardWrapper = (isWide: boolean) => [
