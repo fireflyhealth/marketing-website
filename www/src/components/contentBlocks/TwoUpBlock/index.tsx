@@ -58,7 +58,6 @@ export const TwoUpObject: FC<TwoUpObjectProps> = ({
               <ChildContentBlock
                 imagePriority={imagePriority}
                 block={blockOne}
-                blockNumber={2}
               />
             </div>
           </Theme>
@@ -74,7 +73,6 @@ export const TwoUpObject: FC<TwoUpObjectProps> = ({
               <ChildContentBlock
                 imagePriority={imagePriority}
                 block={blockTwo}
-                blockNumber={2}
               />
             </div>
           </Theme>
@@ -109,11 +107,7 @@ export const TwoUpObject: FC<TwoUpObjectProps> = ({
             `TwoUpBlock__child--${blockOne._type}`,
           )}
         >
-          <ChildContentBlock
-            imagePriority={imagePriority}
-            block={blockOne}
-            blockNumber={1}
-          />
+          <ChildContentBlock imagePriority={imagePriority} block={blockOne} />
         </Theme>
         <Theme
           theme={normalLayoutTheme ? normalLayoutTheme : blockTwoTheme}
@@ -122,11 +116,7 @@ export const TwoUpObject: FC<TwoUpObjectProps> = ({
             `TwoUpBlock__child--${blockTwo._type}`,
           )}
         >
-          <ChildContentBlock
-            imagePriority={imagePriority}
-            block={blockTwo}
-            blockNumber={2}
-          />
+          <ChildContentBlock imagePriority={imagePriority} block={blockTwo} />
         </Theme>
       </div>
     </Theme>

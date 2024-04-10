@@ -127,17 +127,6 @@
       @screen lg {
         width: calc(50% + 3rem);
       }
-
-      > div {
-        .RichText {
-          padding-bottom: 24px;
-
-          @screen md {
-            padding-right: 34px;
-            padding-bottom: 0;
-          }
-        }
-      }
     }
 
     &:nth-child(2) {
@@ -152,17 +141,6 @@
         width: calc(50% + 3rem);
         margin-top: 0;
         margin-left: -48px;
-      }
-
-      > div {
-        .RichText {
-          padding-top: 24px;
-
-          @screen md {
-            padding-left: 34px;
-            padding-top: 0;
-          }
-        }
       }
     }
 

@@ -13,13 +13,11 @@ import { HeaderQrCodeChildBlock } from '../HeaderQrCodeChildBlock';
 type ChildContentBlockProps = {
   block: ChildContentBlockType;
   imagePriority?: boolean;
-  blockNumber?: 1 | 2;
 };
 
 export const ChildContentBlock: FC<ChildContentBlockProps> = ({
   block,
   imagePriority,
-  blockNumber,
 }) => {
   switch (block._type) {
     case 'imageChildBlock':
@@ -61,7 +59,6 @@ export const ChildContentBlock: FC<ChildContentBlockProps> = ({
     case 'headerContentChildBlock':
       return (
         <HeaderContentChildBlock
-          blockNumber={blockNumber}
           headerContentChildBlock={block}
           imagePriority={imagePriority}
         />

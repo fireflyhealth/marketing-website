@@ -1,5 +1,5 @@
 export const Wrapper = [
-  'text-center flex flex-col items-center justify-center p-4 pt-10 md:p-12 md:pt-24 lg:pt-12',
+  'text-center flex flex-col items-center justify-center p-4 pt-10 pb-8 md:p-12 md:pt-24 lg:pt-12',
 ];
 
 export const Eyebrow = ['font-size-8--cta font-roobert mb-8 md:mb-12'];

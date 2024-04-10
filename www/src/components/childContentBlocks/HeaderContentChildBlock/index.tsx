@@ -16,13 +16,11 @@ import {
 type HeaderContentChildBlockProps = {
   headerContentChildBlock: HeaderContentChildBlockType;
   imagePriority?: boolean;
-  blockNumber?: 1 | 2;
 };
 
 export const HeaderContentChildBlock: FC<HeaderContentChildBlockProps> = ({
   headerContentChildBlock,
   imagePriority,
-  blockNumber,
 }) => {
   const { eyebrow, eyebrowImage, heading, body, cta, size } =
     headerContentChildBlock;
@@ -32,8 +30,6 @@ export const HeaderContentChildBlock: FC<HeaderContentChildBlockProps> = ({
       className={cn(Wrapper, {
         'lg:min-h-[676px]': size === 'small',
         'lg:min-h-[800px]': size === 'large',
-        'lg:pl-24': blockNumber === 2,
-        'lg:pr-24': blockNumber === 1,
       })}
     >
       {eyebrowImage && (
