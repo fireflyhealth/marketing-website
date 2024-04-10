@@ -35,6 +35,7 @@ export const Card: FC<Props> = ({ card }) => {
           {backgroundImage ? (
             <div className={cn(BackgroundImage)}>
               <ResponsiveSanityImage
+                rounded={false}
                 imageSet={backgroundImage}
                 sizes={['100vw']}
               />
