@@ -111,18 +111,26 @@
   }
 
   .TwoUpBlock__child {
-    max-width: 630px;
     margin: 0 auto;
 
     @screen lg {
-      max-width: initial;
       width: calc(50% + 3rem);
+    }
+
+    &:nth-child(1) {
+      width: calc(100% - 24px);
+
+      @screen md {
+        width: calc(100% - 34px);
+      }
+
+      @screen lg {
+        width: calc(50% + 3rem);
+      }
     }
 
     &:nth-child(2) {
       margin-top: -24px;
-      max-width: calc(630px - 48px);
-      width: calc(100% - 24px);
       mix-blend-mode: multiply;
 
       @screen md {
@@ -131,7 +139,6 @@
 
       @screen lg {
         width: calc(50% + 3rem);
-        max-width: initial;
         margin-top: 0;
         margin-left: -48px;
       }
@@ -151,16 +158,48 @@
 
     &--richTextChildBlock {
       .theme-wrapper > div {
-        padding: theme('spacing.16');
+        padding: theme('spacing.8');
 
         @screen md {
-          padding: theme('spacing.24');
+          padding: theme('spacing.12');
           min-height: 100%;
           display: flex;
           flex-direction: column;
           justify-content: center;
           align-items: center;
           min-height: 600px;
+        }
+      }
+    }
+  }
+
+  &.TwoUpBlock--mobileReverse {
+    .TwoUpBlock__child:nth-child(2) {
+      > div {
+        .RichText {
+          padding-bottom: 24px;
+          padding-top: 0;
+
+          @screen md {
+            padding-right: 34px;
+            padding-bottom: 0;
+            padding-left: 0;
+          }
+        }
+      }
+    }
+
+    .TwoUpBlock__child:nth-child(1) {
+      > div {
+        .RichText {
+          padding-top: 24px;
+          padding-bottom: 0;
+
+          @screen md {
+            padding-left: 34px;
+            padding-right: 0;
+            padding-top: 0;
+          }
         }
       }
     }

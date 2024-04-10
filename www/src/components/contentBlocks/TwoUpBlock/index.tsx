@@ -38,7 +38,7 @@ export const TwoUpObject: FC<TwoUpObjectProps> = ({
         className={cn(
           'TwoUpBlock',
           `TwoUpBlock--layout-${layout}`,
-          'lg:py-grid-margin-lg',
+          'py-8 lg:py-grid-margin-lg',
           mobileReverseBlockOrder
             ? 'TwoUpBlock--mobileReverse'
             : 'TwoUpBlock--mobileNormal',
