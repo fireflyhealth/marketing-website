@@ -2,6 +2,19 @@ import { defineField } from 'sanity';
 import { icons } from '../../lib/icons';
 import { richTextToString } from '../../lib/richTextToString';
 
+const SuperIcon = () => (
+  <div>
+    x<sup>2</sup>
+  </div>
+);
+const SuperDecorator = (props) => <sup>{props.children}</sup>;
+const SubIcon = () => (
+  <div>
+    x<sub>2</sub>
+  </div>
+);
+const SubDecorator = (props) => <sub>{props.children}</sub>;
+
 /**
  * A simple rich text field type that does not allow
  * for headings (just bold, italics, links)
@@ -21,6 +34,18 @@ export const SimpleRichText = defineField({
         decorators: [
           { title: 'Bold', value: 'strong' },
           { title: 'Italic', value: 'em' },
+          {
+            title: 'Sub',
+            value: 'sub',
+            icon: SubIcon,
+            component: SubDecorator,
+          },
+          {
+            title: 'Super',
+            value: 'super',
+            icon: SuperIcon,
+            component: SuperDecorator,
+          },
         ],
         annotations: [
           {
@@ -95,6 +120,18 @@ export const LimitedRichText = defineField({
         decorators: [
           { title: 'Bold', value: 'strong' },
           { title: 'Italic', value: 'em' },
+          {
+            title: 'Sub',
+            value: 'sub',
+            icon: SubIcon,
+            component: SubDecorator,
+          },
+          {
+            title: 'Super',
+            value: 'super',
+            icon: SuperIcon,
+            component: SuperDecorator,
+          },
         ],
         annotations: [
           {
@@ -160,6 +197,18 @@ export const ContentBlockRichText = defineField({
             decorators: [
               { title: 'Bold', value: 'strong' },
               { title: 'Italic', value: 'em' },
+              {
+                title: 'Sub',
+                value: 'sub',
+                icon: SubIcon,
+                component: SubDecorator,
+              },
+              {
+                title: 'Super',
+                value: 'super',
+                icon: SuperIcon,
+                component: SuperDecorator,
+              },
             ],
             annotations: [
               {

@@ -155,6 +155,8 @@ const components: Partial<PortableTextReactComponents> = {
         </span>
       );
     },
+    sub: (props) => <sub>{props.children}</sub>,
+    super: (props) => <sup>{props.children}</sup>,
   },
 };
 
