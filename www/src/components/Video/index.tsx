@@ -171,7 +171,9 @@ const Video: FC<Props> = ({
     <div
       ref={videoContainerRef}
       id="video-component"
-      className={cn(OuterVideoWrapper)}
+      className={cn(OuterVideoWrapper, {
+        'flex flex-col md:flex-none': showTitleCard && titleCardProps,
+      })}
     >
       <div className="w-full" style={{ paddingTop: `${aspectRatio * 100}%` }} />
       <div className={cn(VideoWrapper, width ? `${width}` : 'w-full')}>
@@ -215,7 +217,7 @@ const Video: FC<Props> = ({
             </button>
           </div>
         )}
-        {autoplay === false && (
+        {autoplay === false && !showTitleCard && !titleCardProps && (
           <div
             className={cn(PlayButton, 'transition-all', {
               'opacity-0 pointer-events-none': isPlaying,
@@ -235,9 +237,10 @@ const Video: FC<Props> = ({
           eyebrow={titleCardProps.eyebrow}
           heading={titleCardProps.heading}
           body={titleCardProps.body}
+          isPlaying={isPlaying}
           onClick={togglePlay}
           wrapperClassName={cn('transition-all', {
-            'opacity-0 pointer-events-none': isPlaying,
+            'md:opacity-0 md:pointer-events-none': isPlaying,
           })}
         />
       )}
