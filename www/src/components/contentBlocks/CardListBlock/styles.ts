@@ -13,7 +13,7 @@ export const CardItem = [
 ];
 
 export const BackgroundImage = [
-  'DrawerListItem__background absolute top-0 left-0 w-full z-[10] h-[500px]',
+  'DrawerListItem__background absolute -inset-1 z-[10]',
 ];
 
 export const Header = ['relative z-20 flex flex-col space-y-4'];
