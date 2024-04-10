@@ -40,7 +40,13 @@ export const RichTextChildBlock: FC<RichTextChildBlockProps> = ({
           {heading}
         </h3>
       ) : null}
-      {body && <RichText content={body} alignCenter={!!alignCenter} />}
+      {body && (
+        <RichText
+          className={cn('w-full')}
+          content={body}
+          alignCenter={!!alignCenter}
+        />
+      )}
     </div>
   );
 };
