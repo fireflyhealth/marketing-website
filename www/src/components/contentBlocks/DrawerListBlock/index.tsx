@@ -141,7 +141,7 @@ export const DrawerListItem: FC<DrawerListItemProps> = ({
             aria-label={`Expand drawer ${index}: ${title}`}
           >
             <div className="p-8">
-              <h3 className="font-size-5 font-trust leading-[1em] group-hover:theme-text-color-secondary transition-colors">
+              <h3 className="font-size-5 font-trust leading-[1em] group-hover:theme-text-color-decorative transition-colors">
                 {title}
               </h3>
             </div>
@@ -151,7 +151,7 @@ export const DrawerListItem: FC<DrawerListItemProps> = ({
         <div
           aria-hidden={!isExpanded}
           className={cn(
-            'group-hover:theme-text-color-secondary',
+            'group-hover:theme-text-color-decorative',
             isExpanded ? '' : 'pointer-events-none',
           )}
           style={{
