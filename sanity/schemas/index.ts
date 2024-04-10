@@ -55,6 +55,7 @@ import { TestimonialBlock } from './blocks/testimonalBlock';
 import { DividerBlock } from './blocks/dividerBlock';
 import { VideoBlock } from './blocks/videoBlock';
 import { ProviderPhilosophyBlock } from './blocks/providerPhilosophyBlock';
+import { NearbyBlock } from './blocks/nearbyBlock';
 
 /* Fields */
 import { Metadata } from './fields/metadata';
@@ -158,6 +159,7 @@ export const schemaTypes = [
   TabsBlock,
   TabsBlockTab,
   TestimonialBlock,
+  NearbyBlock,
   /* Divider block does not have heading */
   DividerBlock,
   VideoBlock,

@@ -130,7 +130,7 @@ export const FrequentlyAskedQuestion = defineType({
       name: 'answer',
       fieldset: 'question',
       title: 'Answer',
-      type: 'simpleRichText',
+      type: 'limitedRichText',
       validation: (Rule) => Rule.required(),
     }),
     defineField({

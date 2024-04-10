@@ -30,7 +30,7 @@ export const DropdownOuter = [
 
 export const DropdownInner = [
   'mt-8 pl-4 flex flex-col space-y-4',
-  'lg:bg-grey lg:border-grey-medium lg:border lg:rounded-lg lg:p-6',
+  'lg:bg-grey lg:border-grey-medium lg:border lg:rounded-2xl lg:p-6',
 ];
 
 export const SubPageLink = ['roobert-body'];
