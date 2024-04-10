@@ -109,6 +109,7 @@ export const defaultContentBlockTypes = [
   { type: 'imageCarouselBlock' },
   { type: 'imageGridBlock' },
   { type: 'imageTextOverlapBlock' },
+  { type: 'nearbyBlock' },
   { type: 'practitionersBlock' },
   { type: 'quoteBlock' },
   { type: 'reviewBlock' },

@@ -30,6 +30,7 @@ import { DividerBlock } from '../DividerBlock';
 import { SmallImageCarouselBlock } from '../SmallImageCarouselBlock';
 import { VideoBlock } from '../VideoBlock';
 import { ProviderPhilosophyBlock } from '../ProviderPhilosophyBlock';
+import { NearbyBlock } from '../NearbyBlock';
 
 type ContentBlockProps = {
   block: ContentBlockType;
@@ -81,6 +82,8 @@ const ContentBlock: FC<ContentBlockProps> = ({ block }) => {
       return <VideoBlock videoBlock={block} />;
     case 'providerPhilosophyBlock':
       return <ProviderPhilosophyBlock providerPhilosophyBlock={block} />;
+    case 'nearbyBlock':
+      return <NearbyBlock nearbyBlock={block} />;
     default:
       console.warn(
         // @ts-expect-error

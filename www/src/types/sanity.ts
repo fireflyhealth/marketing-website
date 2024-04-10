@@ -735,7 +735,8 @@ export type ContentBlock =
   | TestimonialBlock
   | DividerBlock
   | VideoBlock
-  | ProviderPhilosophyBlock;
+  | ProviderPhilosophyBlock
+  | NearbyBlock;
 
 export type ContentArea = KeyedArray<ContentBlock>;
 
@@ -997,4 +998,17 @@ export type ProviderPhilosophyBlock = ContentBlockCommon & {
     icon: IconTypeName;
   };
   quote: string;
+};
+
+type AspectRatio = {
+  figureOne: number;
+  figureTwo: number;
+};
+
+export type NearbyBlock = ContentBlockCommon & {
+  _type: 'nearbyBlock';
+  mapUrl: 'string';
+  mobileAspectRatio: AspectRatio;
+  tabletAspectRatio: AspectRatio;
+  desktopAspectRatio: AspectRatio;
 };

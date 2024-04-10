@@ -691,6 +691,10 @@ export const providerPhilosophyBlockFragment = `
   ...
 `;
 
+export const nearbyBlockFragment = `
+  ...
+`;
+
 /* Please keep this alphabetized! */
 export const contentBlockFragment = `
   _type,
@@ -718,7 +722,8 @@ export const contentBlockFragment = `
   _type == "testimonialBlock" => {${testimonialBlockFragment}},
   _type == "twoUpBlock" => {${twoUpBlockFragment}},
   _type == "videoBlock" => {${videoBlockFragment}},
-  _type == "providerPhilosophyBlock" => {${providerPhilosophyBlockFragment}}
+  _type == "providerPhilosophyBlock" => {${providerPhilosophyBlockFragment}},
+  _type == "nearbyBlock" => {${nearbyBlockFragment}}
 `;
 
 export const videoHeaderFragment = `

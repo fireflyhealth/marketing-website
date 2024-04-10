@@ -53,6 +53,7 @@ export const mockDataQuery = `
       dividerBlock{${contentBlockFragment}},
       providerPhilosophyBlock{${contentBlockFragment}},
       videoBlock{${contentBlockFragment}},
+      nearbyBlockExample{${contentBlockFragment}},
     },
     navigationExample{
       globalNav->{${navigationFragment}},
