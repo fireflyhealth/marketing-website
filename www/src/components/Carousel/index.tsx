@@ -242,7 +242,6 @@ type SlideContainerProps = CarouselProps & {
 export const SlideContainer: FC<SlideContainerProps> = ({
   children,
   slideInnerRef,
-  minLeft,
   isImageCarousel = false,
 }) => {
   const {
@@ -252,6 +251,10 @@ export const SlideContainer: FC<SlideContainerProps> = ({
     goNext,
     goPrev,
   } = useCarousel();
+
+  const [slideContainerWidth, setSlideContainerWidth] = useState<number>(0);
+  const [innerSlideContainerWidth, setInnerSlideContainerWidth] =
+    useState<number>(0);
 
   const handleTouchOrMouseEvents = (event: HandledEvents) => {
     event.preventDefault();
@@ -280,6 +283,17 @@ export const SlideContainer: FC<SlideContainerProps> = ({
     trackMouse: true,
   });
 
+  useEffect(() => {
+    if (!slideInnerRef.current) return;
+    if (!slideInnerRef.current.parentElement) return;
+
+    setSlideContainerWidth(slideInnerRef.current.parentElement.offsetWidth);
+    setInnerSlideContainerWidth(slideInnerRef.current?.offsetWidth);
+  }, [slideInnerRef.current]);
+
+  const transformSlideContainerLeft =
+    innerSlideContainerWidth > slideContainerWidth;
+
   return (
     <div className={cn('relative w-full', isImageCarousel ? 'h-[45vw]' : '')}>
       {/* Swipe container */}
@@ -289,7 +303,7 @@ export const SlideContainer: FC<SlideContainerProps> = ({
           slideContainerDragLeft === 0 ? 'transition' : '',
         )}
         style={{
-          transform: `translateX(${slideContainerLeft}px)`,
+          transform: `${transformSlideContainerLeft ? `translateX(${slideContainerLeft}px)` : 'unset'}`,
         }}
         {...handlers}
       >
