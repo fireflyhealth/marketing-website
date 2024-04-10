@@ -45,9 +45,10 @@ export const BigNumbers: FC<BigNumbersProps> = ({ bigNumbers }) => {
   return (
     <div className="BigNumbers">
       <div
-        className={cn(
-          `grid grid-cols-1 md:grid-cols-${bigNumberLength} md:gap-4`,
-        )}
+        className={cn(`grid grid-cols-1 md:gap-4`, {
+          'md:grid-cols-1': bigNumberLength === 1,
+          'md:grid-cols-2': bigNumberLength === 2,
+        })}
       >
         {bigNumberItems.map((bigNumber) => (
           <BigNumber key={bigNumber._key} bigNumber={bigNumber} />
