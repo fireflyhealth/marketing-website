@@ -7,6 +7,7 @@ type ResponsiveSanityImageProps = Pick<SanityImageProps, 'sizes'> & {
   imageSet: ResponsiveImageSet;
   className?: string;
   priority?: boolean;
+  rounded?: string | false;
 };
 
 export const ResponsiveSanityImage: FC<ResponsiveSanityImageProps> = ({
@@ -14,6 +15,7 @@ export const ResponsiveSanityImage: FC<ResponsiveSanityImageProps> = ({
   sizes,
   className,
   priority,
+  rounded,
 }) => {
   const { desktop, tablet, mobile } = imageSet;
 
@@ -37,6 +39,7 @@ export const ResponsiveSanityImage: FC<ResponsiveSanityImageProps> = ({
           )}
           fill
           image={mobile}
+          rounded={rounded}
         />
       ) : null}
       {tablet ? (
@@ -59,6 +62,7 @@ export const ResponsiveSanityImage: FC<ResponsiveSanityImageProps> = ({
           )}
           fill
           image={tablet}
+          rounded={rounded}
         />
       ) : null}
       {desktop ? (
@@ -79,6 +83,7 @@ export const ResponsiveSanityImage: FC<ResponsiveSanityImageProps> = ({
                   'block',
           )}
           image={desktop}
+          rounded={rounded}
         />
       ) : null}
     </>

@@ -63,7 +63,7 @@ const DualCta: FC<{
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
     >
-      <Theme className={cn(DualCtaTheme, 'relative')} theme={theme}>
+      <Theme className={cn(DualCtaTheme, 'relative rounded-2xl')} theme={theme}>
         <div className={cn(ButtonContentWrapper)}>
           {eyebrow && <p className={cn(ButtonEyebrow)}>{eyebrow}</p>}
           <div className={cn(ButtonTextContentWrapper)}>
@@ -76,6 +76,7 @@ const DualCta: FC<{
           </div>
         </div>
         <ResponsiveSanityImage
+          rounded={false}
           imageSet={image}
           sizes={['42vw, 50vw, 100vw']}
           className={cn(
