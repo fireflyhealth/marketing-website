@@ -18,6 +18,7 @@ type Props = {
   heading: string;
   body: SanityTypes.RichText;
   onClick: () => void;
+  isPlaying: boolean;
   wrapperClassName?: string;
 };
 
@@ -26,6 +27,7 @@ export const VideoTitleCard: FC<Props> = ({
   heading,
   body,
   onClick,
+  isPlaying,
   wrapperClassName,
 }) => {
   return (
@@ -36,10 +38,13 @@ export const VideoTitleCard: FC<Props> = ({
         <RichText className={cn(Body)} content={body} />
       </div>
       <div className={cn(CTA)}>
-        <SimpleIcon type="play" wrapperStyles="w-4 theme-text-color-primary" />
+        <SimpleIcon
+          type={isPlaying ? 'pause' : 'play'}
+          wrapperStyles="w-4 theme-text-color-primary"
+        />
         <Button
           id="video-title-card-button"
-          label="Play video"
+          label={isPlaying ? 'Pause video' : 'Play video'}
           onClick={onClick}
           variant="textLink"
         />
