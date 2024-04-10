@@ -1,5 +1,11 @@
 import type { Config } from 'tailwindcss';
 
+export const enum BREAK_POINTS {
+  'SM' = 600,
+  'MD' = 800,
+  'LG' = 1220,
+}
+
 export const config: Config = {
   content: [
     './.storybook/**/*.{js,ts,jsx,tsx,mdx}',
@@ -25,9 +31,9 @@ export const config: Config = {
       mono: 'Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace;',
     },
     screens: {
-      sm: '600px',
-      md: '800px',
-      lg: '1200px',
+      sm: `${BREAK_POINTS.SM}px`,
+      md: `${BREAK_POINTS.MD}px`,
+      lg: `${BREAK_POINTS.LG}px`,
     },
     colors: {
       black: '#131D2B',
