@@ -89,7 +89,7 @@ export const FAQPageView: FC<FAQPageViewProps> = ({ faqPage }) => {
   })?.category.slug.current;
 
   return (
-    <div className="p-4 md:p-12">
+    <div>
       <HeaderArea block={faqPage.header} />
       <div>
         <Tabs

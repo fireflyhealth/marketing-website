@@ -63,7 +63,7 @@ export const BlogArticle = defineType({
     }),
     defineField({
       name: 'authorName',
-      title: 'author Name',
+      title: 'Author Name',
       type: 'string',
     }),
     defineField({

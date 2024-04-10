@@ -88,7 +88,7 @@ export const DrawerListItem: FC<DrawerListItemProps> = ({
     <Theme theme={theme}>
       <div
         className={cn(
-          'DrawerListItem relative rounded-lg z-[10] overflow-hidden theme-bg-color',
+          'DrawerListItem relative rounded-2xl z-[10] overflow-hidden theme-bg-color',
           /* All list items except the last have extra padding at the
            * bottom to account for sibling overlap */
           isLast ? '' : 'pb-[2.5rem] md:pb-[3.5rem]',

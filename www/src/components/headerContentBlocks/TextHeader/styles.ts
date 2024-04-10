@@ -10,7 +10,7 @@ export const WrapperInner = [
   'py-16',
   'flex flex-col justify-center',
   'md:px-[60px] md:py-40',
-  'lg:px-16 lg:pt-40 lg:pb-12 max-w-[1216px] mx-auto',
+  'lg:px-16 lg:pt-40 lg:pb-40 mx-auto',
 ];
 
 export const Eyebrow = [
@@ -18,7 +18,7 @@ export const Eyebrow = [
 ];
 
 export const Heading = [
-  'relative theme-text-color-primary font-trust font-size-2 text-center z-20',
+  'relative theme-text-color-primary font-trust font-size-3 text-center z-20',
 ];
 
 export const Body = [

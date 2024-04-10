@@ -50,7 +50,7 @@ export const PractitionersBlock: FC<PractitionersBlockProps> = ({
           data-testid="showMoreButton--desktop"
           className={cn(
             showMoreEnabled === false && practitioners.length > 12
-              ? 'hidden md:block'
+              ? 'hidden md:block mb-12'
               : 'hidden',
           )}
         >
@@ -67,7 +67,7 @@ export const PractitionersBlock: FC<PractitionersBlockProps> = ({
           data-testid="showMoreButton--mobile"
           className={cn(
             showMoreEnabled === false && practitioners.length > 8
-              ? 'md:hidden'
+              ? 'mb-12 md:hidden'
               : 'hidden',
           )}
         >

@@ -1,1 +1,1 @@
-export const Wrapper = ['theme-bg-color rounded-lg', 'p-12'];
+export const Wrapper = ['theme-bg-color rounded-2xl', 'p-12'];

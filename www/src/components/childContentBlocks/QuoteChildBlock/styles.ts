@@ -1,5 +1,5 @@
 export const Wrapper = [
-  'theme-bg-color text-center py-24 px-12  flex flex-col justify-center items-center rounded-lg',
+  'theme-bg-color text-center py-24 px-12  flex flex-col justify-center items-center rounded-2xl',
   'md:px-16 md:min-h-[530px]',
 ];
 

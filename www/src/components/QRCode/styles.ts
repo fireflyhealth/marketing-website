@@ -1,5 +1,5 @@
 export const QrCodeWrapper = [
-  'overflow-hidden text-center w-[275px] bg-white rounded-lg mt-8 md:mt-12',
+  'overflow-hidden text-center w-[275px] bg-white rounded-2xl mt-8 md:mt-12',
 ];
 
 export const QrCodeImage = ['p-2.5 hidden lg:block'];
