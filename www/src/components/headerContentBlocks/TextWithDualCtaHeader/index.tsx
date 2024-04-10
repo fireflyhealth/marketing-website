@@ -38,6 +38,7 @@ import {
   DualCtaTop,
   DualCtaBottom,
   DualCtaTheme,
+  DualCtaWrapperContainer,
 } from './styles';
 
 const DualCta: FC<{
@@ -62,7 +63,7 @@ const DualCta: FC<{
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
     >
-      <Theme className={cn(DualCtaTheme, 'relative')} theme={theme}>
+      <Theme className={cn(DualCtaTheme, 'relative rounded-2xl')} theme={theme}>
         <div className={cn(ButtonContentWrapper)}>
           {eyebrow && <p className={cn(ButtonEyebrow)}>{eyebrow}</p>}
           <div className={cn(ButtonTextContentWrapper)}>
@@ -75,6 +76,7 @@ const DualCta: FC<{
           </div>
         </div>
         <ResponsiveSanityImage
+          rounded={false}
           imageSet={image}
           sizes={['42vw, 50vw, 100vw']}
           className={cn(
@@ -126,13 +128,7 @@ export const TextWithDualCtaHeader: FC<Props> = ({ textWithDualCtaHeader }) => {
   ]);
 
   return (
-    <Theme
-      theme={theme}
-      className={cn(ThemeWrapper)}
-      style={{
-        height: windowHeightWithoutNav,
-      }}
-    >
+    <Theme theme={theme} className={cn(ThemeWrapper)}>
       <div className={cn(Wrapper)}>
         <div className={cn(WarpperInner)}>
           {eyebrow && <p className={cn(Eyebrow)}>{eyebrow}</p>}
@@ -149,31 +145,38 @@ export const TextWithDualCtaHeader: FC<Props> = ({ textWithDualCtaHeader }) => {
           ) : null}
         </div>
       </div>
-      <div className={cn(DualCtaWrapper)}>
-        <DualCta
-          cta={topCta}
-          position="top"
-          onMouseEnter={() => {
-            setActiveCta('top');
-          }}
-          onMouseLeave={() => {
-            setActiveCta(null);
-          }}
-          isActive={activeCta === 'top'}
-          isInactive={activeCta === 'bottom'}
-        />
-        <DualCta
-          cta={bottomCta}
-          position="bottom"
-          onMouseEnter={() => {
-            setActiveCta('bottom');
-          }}
-          onMouseLeave={() => {
-            setActiveCta(null);
-          }}
-          isActive={activeCta === 'bottom'}
-          isInactive={activeCta === 'top'}
-        />
+      <div
+        className={cn(DualCtaWrapperContainer)}
+        style={{
+          height: windowHeightWithoutNav,
+        }}
+      >
+        <div className={cn(DualCtaWrapper)}>
+          <DualCta
+            cta={topCta}
+            position="top"
+            onMouseEnter={() => {
+              setActiveCta('top');
+            }}
+            onMouseLeave={() => {
+              setActiveCta(null);
+            }}
+            isActive={activeCta === 'top'}
+            isInactive={activeCta === 'bottom'}
+          />
+          <DualCta
+            cta={bottomCta}
+            position="bottom"
+            onMouseEnter={() => {
+              setActiveCta('bottom');
+            }}
+            onMouseLeave={() => {
+              setActiveCta(null);
+            }}
+            isActive={activeCta === 'bottom'}
+            isInactive={activeCta === 'top'}
+          />
+        </div>
       </div>
     </Theme>
   );
