@@ -14,7 +14,7 @@ export const BigNumber: FC<BigNumberProps> = ({ bigNumber }) => {
   const { value, unit, description } = bigNumber;
   const formattedValue = value.toLocaleString('en-US');
   return (
-    <div className="py-6">
+    <div className="BigNumber py-6">
       <div className="font-trust">
         {unit && unit.position === 'before' ? (
           <span className="font-size-5 align-top mr-[0.2em]">
@@ -41,9 +41,14 @@ type BigNumbersProps = {
 
 export const BigNumbers: FC<BigNumbersProps> = ({ bigNumbers }) => {
   const bigNumberItems = bigNumbers.bigNumbers;
+  const bigNumberLength = bigNumberItems.length;
   return (
-    <div>
-      <div className="grid grid-cols-1 md:grid-cols-2 md:gap-4">
+    <div className="BigNumbers">
+      <div
+        className={cn(
+          `grid grid-cols-1 md:grid-cols-${bigNumberLength} md:gap-4`,
+        )}
+      >
         {bigNumberItems.map((bigNumber) => (
           <BigNumber key={bigNumber._key} bigNumber={bigNumber} />
         ))}
