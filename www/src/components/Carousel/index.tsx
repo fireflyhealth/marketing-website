@@ -301,16 +301,31 @@ export const SlideContainer: FC<SlideContainerProps> = ({
 
   const handlers = useSwipeable({
     onSwiping: (eventData) => {
-      if (!transformSlideContainerLeft) return;
+      if (
+        windowDimensions &&
+        windowDimensions.width > BREAK_POINTS_MD &&
+        !transformSlideContainerLeft
+      )
+        return;
       const diff = eventData.deltaX;
       setSlideContainerDragLeft(diff);
     },
     onTouchStartOrOnMouseDown: ({ event }) => {
-      if (!transformSlideContainerLeft) return;
+      if (
+        windowDimensions &&
+        windowDimensions.width > BREAK_POINTS_MD &&
+        !transformSlideContainerLeft
+      )
+        return;
       handleTouchOrMouseEvents(event);
     },
     onTouchEndOrOnMouseUp: ({ event }) => {
-      if (!transformSlideContainerLeft) return;
+      if (
+        windowDimensions &&
+        windowDimensions.width > BREAK_POINTS_MD &&
+        !transformSlideContainerLeft
+      )
+        return;
       handleTouchOrMouseEvents(event);
     },
     preventScrollOnSwipe: false,
@@ -338,6 +353,7 @@ export const SlideContainer: FC<SlideContainerProps> = ({
           slideContainerDragLeft === 0 ? 'transition' : '',
         )}
         style={{
+          // transform: `${windowDimensions && windowDimensions.width < BREAK_POINTS_MD ? `translateX(${slideContainerLeft}px)` : transformSlideContainerLeft ? `translateX(${slideContainerLeft}px)` : 'unset'}`,
           transform: `${transformSlideContainerLeft ? `translateX(${slideContainerLeft}px)` : 'unset'}`,
         }}
         {...handlers}
