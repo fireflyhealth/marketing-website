@@ -89,6 +89,7 @@ const commonRichTextBlocks = [
   { name: 'barGraphObject', type: 'barGraphItems', title: 'Bar Graph' },
   { name: 'bigNumbers', type: 'bigNumbers', title: 'Big Numbers' },
   { name: 'richTextCtaRow', type: 'richTextCtaRow', title: 'CTAs' },
+  { name: 'richImage', type: 'richImageWithCaption', title: 'Image' },
   {
     name: 'bigOrderedList',
     type: 'bigOrderedList',
@@ -228,7 +229,6 @@ export const ContentBlockRichText = defineField({
           },
         },
         { name: 'icon', type: 'icon', title: 'Icon' },
-        { name: 'richImage', type: 'richImageWithCaption', title: 'Image' },
         {
           name: 'twoColumnUnorderedList',
           type: 'twoColumnUnorderedList',
@@ -292,7 +292,6 @@ export const ArticleRichText = defineField({
       },
     },
     { name: 'icon', type: 'icon', title: 'Icon' },
-    { name: 'richImage', type: 'richImageWithCaption', title: 'Image' },
     { name: 'form', type: 'hubspotForm', title: 'Form' },
     { name: 'quoteObject', type: 'quoteObject', title: 'Quote' },
     {

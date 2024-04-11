@@ -494,11 +494,12 @@ export type RichText = Array<
   | QuoteObject
   | Video
   | OverlapDoubleImages
+  | RichImage
 >;
 
 export type SimpleRichText = Array<PortableTextBlock>;
 export type LimitedRichText = Array<
-  PortableTextBlock | BigNumbers | RichTextCtaRow
+  PortableTextBlock | BigNumbers | RichTextCtaRow | RichImage
 >;
 
 export type RichTextCtaRow = {
