@@ -25,8 +25,8 @@ export const TestimonialBlock: FC<Props> = ({ testimonialBlock }) => {
               key={quoteObject._key}
               className={cn(
                 index === testimonials.length - 1
-                  ? ''
-                  : 'md:-mr-10 lg:-mr-[38px]',
+                  ? 'mr-grid-margin-sm md:mr-0'
+                  : 'mr-grid-margin-sm md:-mr-10 lg:-mr-[38px]',
               )}
             >
               <TestimonialItem quoteObject={quoteObject} />
