@@ -18,7 +18,6 @@ export const RoleDescription = defineType({
       name: 'description',
       title: 'Description',
       type: 'simpleRichText',
-      validation: (Rule) => Rule.required(),
     }),
   ],
   preview: {
