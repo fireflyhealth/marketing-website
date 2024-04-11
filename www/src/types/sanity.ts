@@ -494,6 +494,7 @@ export type RichText = Array<
   | QuoteObject
   | Video
   | OverlapDoubleImages
+  | RichImage
 >;
 
 export type SimpleRichText = Array<PortableTextBlock>;
