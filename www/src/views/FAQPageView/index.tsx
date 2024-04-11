@@ -24,6 +24,10 @@ const getCategoryGroups = (faqs: FAQ[]): SortedFAQCategory[] => {
   const mappedCategories = faqs.reduce<
     Record<string, { category: FAQCategoryDocument; questions: FAQ[] }>
   >((prevGroups, faq) => {
+    // Skip hidden FAQs
+    if (faq.hiddenOnFaqPage) {
+      return prevGroups;
+    }
     const prevGroupCategoryQuestions =
       prevGroups[faq.category.slug.current]?.questions || [];
     return {
