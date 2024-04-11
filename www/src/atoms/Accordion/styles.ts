@@ -1,4 +1,4 @@
 export const TitleWrapper = [
-  'Accordion__button font-size-7 text-left theme-text-color-primary',
+  'Accordion__button text-left theme-text-color-primary hover:theme-text-color-secondary',
   'w-full flex flex-row justify-between items-center',
 ];

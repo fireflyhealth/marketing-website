@@ -37,26 +37,6 @@
   }
 }
 
-.Accordion {
-  &__button {
-    > div > .icon-wrapper {
-      transition: all 300ms ease;
-    }
-
-    [data-whatintent='keyboard'] &:focus {
-      > div > .icon-wrapper {
-        transform: rotate(180deg);
-      }
-    }
-
-    &:hover {
-      > div > .icon-wrapper {
-        transform: rotate(180deg);
-      }
-    }
-  }
-}
-
 .ColumnsBlock {
   .ChildBlockWrapper {
     height: 100%;
