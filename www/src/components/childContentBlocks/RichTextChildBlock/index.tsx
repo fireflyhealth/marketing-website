@@ -23,7 +23,10 @@ export const RichTextChildBlock: FC<RichTextChildBlockProps> = ({
       })}
     >
       {icon ? (
-        <BrandedIcon type={icon.icon} wrapperStyles="!w-12 pb-5 md:pb-6" />
+        <BrandedIcon
+          type={icon.icon}
+          wrapperStyles="!w-12 !h-12 mb-5 md:mb-6"
+        />
       ) : null}
       {image ? (
         <div className="pb-5 md:pb-6">
