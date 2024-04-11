@@ -14,6 +14,7 @@ import {
   simpleRichTextFragment,
   linkableDocumentFragment,
   ctaFragment,
+  linkFragment,
 } from './fragments';
 
 export const siteSettingsFragment = `
@@ -119,7 +120,10 @@ export const blogArticleFragment = `
   tags[]->{
     _type,
     title,
-    slug
+    slug,
+    link{
+      ${linkFragment}
+    }
   },
   slug,
   navigationOverrides {${navigationOverridesFragment}},

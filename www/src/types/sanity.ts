@@ -306,6 +306,7 @@ export type BlogArticleTag = SanityDocument & {
   _type: 'blogArticleTag';
   title: string;
   slug: Slug;
+  link?: Maybe<Link>;
 };
 
 export type BlogArticle = SanityDocument & {
