@@ -19,24 +19,24 @@ type BlogArticlesListItemProps = {
 
 const BlogArticlesListItem: FC<BlogArticlesListItemProps> = ({ article }) => {
   return (
-    <li className={cn(BlogArticlesListItemWrapper)}>
-      <div className={cn(BlogArticlesListText)}>
-        <div className="font-size-6 font-trust pb-6">{article.title}</div>
-        <RichText
-          fontSize="font-size-8"
-          textColor="theme-text-color-secondary"
-          content={article.blurb}
-        />
-      </div>
-      <div className={cn(BlogArticlesListDate)}>
-        {formatSanityDate(article.publishDate)}
-      </div>
-      <div className={cn(BlogArticlesListReadMore)}>
-        <Link
-          link={article}
-          className="BlogArticleList__link"
-          ariaLabel={`Navigate to article: ${article.title}`}
-        >
+    <li>
+      <Link
+        link={article}
+        className={cn(BlogArticlesListItemWrapper, 'element-focus')}
+        ariaLabel={`Navigate to article: ${article.title}`}
+      >
+        <div className={cn(BlogArticlesListText)}>
+          <div className="font-size-6 font-trust pb-6">{article.title}</div>
+          <RichText
+            fontSize="font-size-8"
+            textColor="theme-text-color-secondary"
+            content={article.blurb}
+          />
+        </div>
+        <div className={cn(BlogArticlesListDate)}>
+          {formatSanityDate(article.publishDate)}
+        </div>
+        <div className={cn(BlogArticlesListReadMore)}>
           <span className="flex flex-row items-center">
             <span>Read More</span>
             <SimpleIcon
@@ -44,8 +44,8 @@ const BlogArticlesListItem: FC<BlogArticlesListItemProps> = ({ article }) => {
               type="arrow-right"
             />
           </span>
-        </Link>
-      </div>
+        </div>
+      </Link>
     </li>
   );
 };
