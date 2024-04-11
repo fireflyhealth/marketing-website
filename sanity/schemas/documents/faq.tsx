@@ -100,6 +100,7 @@ export const FrequentlyAskedQuestion = defineType({
       title: 'Subject',
       type: 'reference',
       to: [{ type: 'faqSubject' }],
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'category',
