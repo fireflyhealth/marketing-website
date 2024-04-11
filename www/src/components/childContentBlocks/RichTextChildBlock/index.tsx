@@ -39,13 +39,13 @@ export const RichTextChildBlock: FC<RichTextChildBlockProps> = ({
         </div>
       ) : null}
       {heading ? (
-        <h3 className={cn('font-trust pb-6', `${headingFontSize}`)}>
+        <h3 className={cn('font-trust pb-5 md:pb-6', `${headingFontSize}`)}>
           {heading}
         </h3>
       ) : null}
       {body && (
         <RichText
-          className={cn('w-full')}
+          className={cn('w-full text-balance')}
           content={body}
           alignCenter={!!alignCenter}
         />
