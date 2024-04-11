@@ -8,19 +8,6 @@ export const HeaderContentChildBlock = defineType({
   icon: icons.HeaderContent,
   fields: [
     defineField({
-      name: 'size',
-      title: 'Size',
-      type: 'string',
-      initialValue: 'small',
-      validation: (Rule) => Rule.required(),
-      options: {
-        list: [
-          { title: 'Small', value: 'small' },
-          { title: 'Large', value: 'large' },
-        ],
-      },
-    }),
-    defineField({
       name: 'eyebrowImage',
       title: 'Eyebrow Image',
       type: 'richImage',
