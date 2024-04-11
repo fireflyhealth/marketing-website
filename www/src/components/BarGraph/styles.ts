@@ -5,7 +5,7 @@ export const Wrapper = [
 
 export const BarItem = [
   'h-1/2',
-  'md:h-full md:flex md:flex-col md:justify-end',
+  'md:h-full md:flex md:flex-col md:justify-end md:w-[50%] md:max-w-[255px]',
 ];
 
 export const TextWrapper = ['mb-2.5 md:mb-4 flex flex-row md:flex-col'];
@@ -21,5 +21,5 @@ export const BarTwoUnit = [
 ];
 
 export const Bar = [
-  'flex flex-col justify-between h-full rounded-md px-3.5 py-3 md:w-[255px]',
+  'flex flex-col justify-between h-full rounded-md px-3.5 py-3 md:w-full',
 ];
