@@ -547,7 +547,7 @@ export const faqFragment = `
   subject->,
   category->,
   answer[]{
-    ${simpleRichTextFragment}
+    ${limitedRichTextFragment}
   }
 `;
 

@@ -498,7 +498,7 @@ export type RichText = Array<
 
 export type SimpleRichText = Array<PortableTextBlock>;
 export type LimitedRichText = Array<
-  PortableTextBlock | BigNumbers | RichTextCtaRow
+  PortableTextBlock | BigNumbers | RichTextCtaRow | RichImage
 >;
 
 export type RichTextCtaRow = {
