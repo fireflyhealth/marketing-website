@@ -8,6 +8,7 @@ import {
   BarTwoUnit,
   Bar,
   Description,
+  TextWrapper,
 } from './styles';
 
 type Props = {
@@ -68,8 +69,11 @@ export const BarGraph: FC<Props> = ({ barGraph }) => {
   return (
     <div className={cn(Wrapper)}>
       <div className={cn(BarItem)}>
-        <div className={cn(BarOneUnit, 'hidden lg:block lg:mb-3')}>
-          {barOne.unit}%
+        <div className={cn(TextWrapper, 'hidden md:block')}>
+          <p className={cn(BarOneUnit)}>{barOne.unit}%</p>
+          <p className={cn(Description, 'theme-text-color-primary')}>
+            {barOne.description}
+          </p>
         </div>
         {/* Tailwind compiles styles at compile time so we use TW classes to show and hide each bar item for mobile and desktop breakpoints. */}
         {/* We set dynamic height and width values inside the style attribute. */}
@@ -79,7 +83,7 @@ export const BarGraph: FC<Props> = ({ barGraph }) => {
         {/* Desktop - controls Height of bar */}
         <div
           ref={barOneRef}
-          className={cn(Bar, 'bg-yellow w-full hidden lg:block')}
+          className={cn(Bar, 'bg-yellow w-full hidden md:block')}
           style={{
             height: `${
               !barOneIsTaller ? `${barHeight}px` : `${barHeightDesktop}px`
@@ -88,37 +92,40 @@ export const BarGraph: FC<Props> = ({ barGraph }) => {
               !barOneIsTaller ? `${minBarHeightDesktop}px` : 'unset'
             }`,
           }}
-        >
-          <p className={cn(Description)}>{barOne.description}</p>
-          <div className={cn(BarOneUnit, 'lg:hidden')}>{barOne.unit}%</div>
-        </div>
+        ></div>
 
         {/* Mobile - controls width of bar */}
+        <div className={cn(TextWrapper, 'md:hidden')}>
+          <div className={cn(BarOneUnit)}>{barOne.unit}%</div>
+          <p className={cn(Description, 'theme-text-color-primary')}>
+            {barOne.description}
+          </p>
+        </div>
         <div
           ref={barOneRef}
-          className={cn(Bar, 'bg-yellow h-full block lg:hidden')}
+          className={cn(Bar, 'bg-yellow h-full block md:hidden')}
           style={{
             width: `${!barOneIsTaller ? `${barWidth}px` : '100%'}`,
             minWidth: `${!barOneIsTaller ? `${minBarWidthMobile}%` : 'unset'}`,
           }}
-        >
-          <p className={cn(Description)}>{barOne.description}</p>
-          <div className={cn(BarOneUnit, 'lg:hidden')}>{barOne.unit}%</div>
-        </div>
+        ></div>
       </div>
       <div className={cn(BarItem)}>
-        <div className={cn(BarTwoUnit, 'hidden lg:block lg:mb-3')}>
-          {barTwo.unit}%
-        </div>
         {/* Tailwind compiles styles at compile time so we use TW classes to show and hide each bar item for mobile and desktop breakpoints. */}
         {/* We set dynamic height and width values inside the style attribute. */}
         {/* Height is set for bar items shown on desktop. */}
         {/* Width is set for bar items shown on mobile. */}
 
         {/* Desktop - controls height of bar */}
+        <div className={cn(TextWrapper, 'hidden md:block')}>
+          <p className={cn(BarTwoUnit)}>{barTwo.unit}%</p>
+          <p className={cn(Description, 'theme-text-color-secondary')}>
+            {barTwo.description}
+          </p>
+        </div>
         <div
           ref={barTwoRef}
-          className={cn(Bar, 'bg-grey-medium w-full hidden lg:block')}
+          className={cn(Bar, 'bg-grey-medium w-full hidden md:block')}
           style={{
             height: `${
               barOneIsTaller ? `${barHeight}px` : `${barHeightDesktop}px`
@@ -127,23 +134,23 @@ export const BarGraph: FC<Props> = ({ barGraph }) => {
               barOneIsTaller ? `${minBarHeightDesktop}px` : 'unset'
             }`,
           }}
-        >
-          <p className={cn(Description, 'opacity-70')}>{barTwo.description}</p>
-          <div className={cn(BarTwoUnit, 'lg:hidden')}>{barTwo.unit}%</div>
-        </div>
+        ></div>
 
         {/* Mobile - controls width of bar */}
+        <div className={cn(TextWrapper, 'md:hidden')}>
+          <div className={cn(BarTwoUnit)}>{barTwo.unit}%</div>
+          <p className={cn(Description, 'theme-text-color-secondary')}>
+            {barTwo.description}
+          </p>
+        </div>
         <div
           ref={barTwoRef}
-          className={cn(Bar, 'bg-grey-medium h-full block lg:hidden')}
+          className={cn(Bar, 'bg-grey-medium h-full block md:hidden')}
           style={{
             width: `${barOneIsTaller ? `${barWidth}px` : '100%'}`,
             minWidth: `${barOneIsTaller ? `${minBarWidthMobile}%` : 'unset'}`,
           }}
-        >
-          <p className={cn(Description, 'opacity-70')}>{barTwo.description}</p>
-          <div className={cn(BarTwoUnit, 'lg:hidden')}>{barTwo.unit}%</div>
-        </div>
+        ></div>
       </div>
     </div>
   );
