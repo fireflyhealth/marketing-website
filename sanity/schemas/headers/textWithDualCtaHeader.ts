@@ -39,11 +39,17 @@ const CtaCardFields = [
     title: 'Link',
     validation: (Rule) => Rule.required(),
   }),
-  defineField({
+  defineType({
     name: 'theme',
     title: 'Theme',
-    type: 'theme',
+    type: 'string',
     initialValue: 'sienna',
+    options: {
+      list: [
+        { title: 'Sienna', value: 'sienna' },
+        { title: 'Midnight', value: 'midnight' },
+      ],
+    },
     validation: (Rule) => Rule.required(),
   }),
 ];
