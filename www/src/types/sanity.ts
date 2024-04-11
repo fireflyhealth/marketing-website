@@ -169,6 +169,7 @@ export type FAQ = SanityDocument & {
   question: string;
   answer: SimpleRichText;
   slug: Slug;
+  hiddenOnFaqPage?: Maybe<boolean>;
 };
 
 /* Properties common to both GenericPage & SubPage */
