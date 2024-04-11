@@ -167,12 +167,6 @@ export const BlogArticle = defineType({
     }),
     /* Content */
     defineField({
-      name: 'header',
-      fieldset: 'content',
-      title: 'Header',
-      type: 'headerArea',
-    }),
-    defineField({
       name: 'deck',
       fieldset: 'content',
       title: 'Deck',
