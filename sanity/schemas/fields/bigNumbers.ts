@@ -39,7 +39,8 @@ export const BigNumber = defineType({
       name: 'value',
       type: 'number',
       title: 'Value',
-      validation: (Rule) => Rule.required(),
+      // value should be limited to 6 digits
+      validation: (Rule) => Rule.lessThan(1000000).required(),
     }),
     defineField({
       name: 'unit',
