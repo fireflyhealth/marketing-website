@@ -98,9 +98,10 @@ export const BigNumber = defineType({
     },
     prepare: ({ unit, value, description }) => {
       const title = getBigNumberPreviewTitle({ unit, value });
+      const subtitle = [title, richTextToString(description)].join(' | ');
       return {
-        title,
-        subtitle: richTextToString(description),
+        title: 'Big Number Block',
+        subtitle,
         icon: icons.Percentage,
       };
     },
@@ -148,10 +149,13 @@ export const BigNumbers = defineType({
         : undefined;
       const lengthSubtitle =
         bigNumbers.length > 1 ? `+ ${bigNumbers.length - 1} more` : undefined;
+      const subtitle = [title, citationSubtitle, lengthSubtitle]
+        .filter(Boolean)
+        .join(' | ');
 
       return {
-        title,
-        subtitle: citationSubtitle || lengthSubtitle,
+        title: 'Big Numbers Block',
+        subtitle,
         icon: icons.Percentage,
       };
     },
