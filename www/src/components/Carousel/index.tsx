@@ -11,7 +11,8 @@ import debounce from 'lodash/debounce';
 import { useSwipeable } from 'react-swipeable';
 import { BrandedIcon } from '@/svgs/BrandedIcon';
 import { WithChildren } from '@/types/sanity';
-import { carouselThreshold } from '@/constants';
+import { BREAK_POINTS_MD, carouselThreshold } from '@/constants';
+import { useWindowDimensions } from '@/hooks/useWindowDimensions';
 
 /**
  * Context
@@ -27,6 +28,8 @@ type ContextValue = {
   setSlideContainerLeft: React.Dispatch<React.SetStateAction<number>>;
   slideContainerDragLeft: number;
   setSlideContainerDragLeft: React.Dispatch<React.SetStateAction<number>>;
+  transformSlideContainerLeft: boolean;
+  setTransformSlideContainerLeft: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 /**
@@ -69,6 +72,7 @@ type CarouselProps = WithChildren & {
 };
 
 export const Carousel: FC<CarouselProps> = ({ children, isImageCarousel }) => {
+  const windowDimensions = useWindowDimensions();
   const slideCount = React.Children.count(children);
   const slideInnerRef = useRef<HTMLDivElement>(null);
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
@@ -78,6 +82,10 @@ export const Carousel: FC<CarouselProps> = ({ children, isImageCarousel }) => {
   /* A temporary value to add or subtract from the left while the user is
    * dragging */
   const [slideContainerDragLeft, setSlideContainerDragLeft] = useState(0);
+  /* A boolean to determine if the container should transform to the
+   * deaired left position. */
+  const [transformSlideContainerLeft, setTransformSlideContainerLeft] =
+    useState(false);
 
   const goPrev = () => {
     if (currentSlideIndex > 0) {
@@ -108,6 +116,19 @@ export const Carousel: FC<CarouselProps> = ({ children, isImageCarousel }) => {
      * place when they stop scrolling. */
     slideContainerDragLeft;
 
+  /* Set the current slide index to 0 when the inner slide container
+   * is less than the width of it's parent container and
+   * the width of the screen is below the MD breakpoint (800px) */
+  useEffect(() => {
+    if (!windowDimensions) return;
+    if (
+      windowDimensions.width > BREAK_POINTS_MD &&
+      !transformSlideContainerLeft
+    ) {
+      setCurrentSlideIndex(0);
+    }
+  }, [windowDimensions, transformSlideContainerLeft]);
+
   return (
     <CarouselContext.Provider
       value={{
@@ -120,6 +141,8 @@ export const Carousel: FC<CarouselProps> = ({ children, isImageCarousel }) => {
         setCurrentSlideIndex,
         goPrev,
         goNext,
+        transformSlideContainerLeft,
+        setTransformSlideContainerLeft,
       }}
     >
       <SlideContainer
@@ -143,7 +166,11 @@ export const Carousel: FC<CarouselProps> = ({ children, isImageCarousel }) => {
           <BrandedIcon type="arrow-left" wrapperStyles="w-12" />
         </PrevButton>
         <NextButton
-          disabled={leftIsBelowMin || currentSlideIndex === slideCount - 1}
+          disabled={
+            !transformSlideContainerLeft ||
+            leftIsBelowMin ||
+            currentSlideIndex === slideCount - 1
+          }
           goNext={goNext}
         >
           <BrandedIcon type="arrow-right" wrapperStyles="w-12" />
@@ -220,13 +247,10 @@ export const Slide: FC<SlideProps> = ({
     <div
       ref={slideElement}
       className={cn(
-        'carousel__slide h-full relative',
+        'carousel__slide h-full relative block',
         // TODO: refactor how non image carousel slides
         // are positioned.
         !isImageCarousel && 'odd:mt-0 even:mt-8 md:even:mt-12',
-        !isImageCarousel && currentSlideIndex != slideIndex
-          ? 'hidden md:block'
-          : '',
       )}
     >
       {children}
@@ -242,7 +266,6 @@ type SlideContainerProps = CarouselProps & {
 export const SlideContainer: FC<SlideContainerProps> = ({
   children,
   slideInnerRef,
-  minLeft,
   isImageCarousel = false,
 }) => {
   const {
@@ -251,7 +274,15 @@ export const SlideContainer: FC<SlideContainerProps> = ({
     setSlideContainerDragLeft,
     goNext,
     goPrev,
+    transformSlideContainerLeft,
+    setTransformSlideContainerLeft,
   } = useCarousel();
+
+  const windowDimensions = useWindowDimensions();
+
+  const [slideContainerWidth, setSlideContainerWidth] = useState<number>(0);
+  const [innerSlideContainerWidth, setInnerSlideContainerWidth] =
+    useState<number>(0);
 
   const handleTouchOrMouseEvents = (event: HandledEvents) => {
     event.preventDefault();
@@ -265,20 +296,40 @@ export const SlideContainer: FC<SlideContainerProps> = ({
     setSlideContainerDragLeft(0);
   };
 
+  const isNotSwipeable =
+    windowDimensions &&
+    windowDimensions.width > BREAK_POINTS_MD &&
+    !transformSlideContainerLeft;
+
   const handlers = useSwipeable({
     onSwiping: (eventData) => {
+      if (isNotSwipeable) return;
       const diff = eventData.deltaX;
       setSlideContainerDragLeft(diff);
     },
     onTouchStartOrOnMouseDown: ({ event }) => {
+      if (isNotSwipeable) return;
       handleTouchOrMouseEvents(event);
     },
     onTouchEndOrOnMouseUp: ({ event }) => {
+      if (isNotSwipeable) return;
       handleTouchOrMouseEvents(event);
     },
     preventScrollOnSwipe: false,
     trackMouse: true,
   });
+
+  useEffect(() => {
+    if (!slideInnerRef.current) return;
+    if (!slideInnerRef.current.parentElement) return;
+
+    setSlideContainerWidth(slideInnerRef.current.parentElement.offsetWidth);
+    setInnerSlideContainerWidth(slideInnerRef.current?.offsetWidth);
+  }, [slideInnerRef, windowDimensions]);
+
+  setTransformSlideContainerLeft(
+    innerSlideContainerWidth > slideContainerWidth,
+  );
 
   return (
     <div className={cn('relative w-full', isImageCarousel ? 'h-[45vw]' : '')}>
@@ -289,7 +340,7 @@ export const SlideContainer: FC<SlideContainerProps> = ({
           slideContainerDragLeft === 0 ? 'transition' : '',
         )}
         style={{
-          transform: `translateX(${slideContainerLeft}px)`,
+          transform: `${transformSlideContainerLeft ? `translateX(${slideContainerLeft}px)` : 'unset'}`,
         }}
         {...handlers}
       >
