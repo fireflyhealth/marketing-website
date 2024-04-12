@@ -9,6 +9,7 @@ export const NavContainer = [
 
 export const NavLinksWrapper = [
   'relative bg-yellow pt-9 p-4 w-full flex flex-col space-y-8',
+  'md:px-9',
   'lg:bg-transparent lg:w-max lg:flex-row lg:space-y-0 lg:p-0 lg:mt-0',
 ];
 

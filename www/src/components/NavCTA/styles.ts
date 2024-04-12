@@ -9,5 +9,6 @@ export const BackgroundColor = [
 
 export const CTAWrapper = [
   'z-navigationCTAContent relative container-max-width px-4',
-  'md:px-12',
+  'md:px-9',
+  'lg:px-12',
 ];
