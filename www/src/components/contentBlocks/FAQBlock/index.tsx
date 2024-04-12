@@ -9,6 +9,7 @@ import { ContentBlockWrapper } from '../ContentBlockWrapper';
 import {
   FAQListItem,
   FAQListWrapper,
+  BlockHeader,
   TitleWrapper,
   Wrapper,
   Description,
@@ -38,7 +39,7 @@ export const FAQBlock: FC<FAQBlockProps> = ({ faqBlock }) => {
         <Theme theme={theme || ColorTheme.Sky}>
           <div className={cn(Wrapper)}>
             <div className={cn(TitleWrapper)}>
-              <h3 className="font-size-5 font-trust">{blockTitle}</h3>
+              <h3 className={cn(BlockHeader)}>{blockTitle}</h3>
               {blockCta ? (
                 <div className="hidden md:block">
                   <CTA cta={blockCta} />
@@ -53,7 +54,10 @@ export const FAQBlock: FC<FAQBlockProps> = ({ faqBlock }) => {
             <div className={cn(FAQListWrapper)}>
               {faqs.map((faq) => (
                 <div key={faq._id} className={cn(FAQListItem)}>
-                  <Accordion title={faq.question}>
+                  <Accordion
+                    title={faq.question}
+                    fontSize="font-size-8--cta md:font-size-7"
+                  >
                     <RichText content={faq.answer} className="font-size-8" />
                   </Accordion>
                 </div>
