@@ -52,6 +52,8 @@ export const getLinkableDocumentPath = (doc: LinkableDocumentData): string => {
       return `/with/${doc.slug.current}`;
     case 'practitioner':
       return `/care-team/${doc.slug.current}`;
+    default:
+      return `The document doesn't exist at: ${doc}`;
   }
 };
 
