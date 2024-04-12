@@ -7,10 +7,10 @@ export const TextContentWrapper = [
 ];
 
 export const Tag = [
-  'mb-12 border-grey-medium border pt-2 pb-2.5 px-5 rounded-[33px]',
+  'mb-12 border-grey-medium border pt-2 pb-2.5 px-5 rounded-[33px] font-size-8 font-trust',
 ];
 
-export const Title = [
+export const Info = [
   'mt-12 font-size-8 font-roobert flex flex-col items-center',
 ];
 

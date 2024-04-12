@@ -273,6 +273,18 @@ export const ArticleRichText = defineField({
         decorators: [
           { title: 'Bold', value: 'strong' },
           { title: 'Italic', value: 'em' },
+          {
+            title: 'Sub',
+            value: 'sub',
+            icon: SubIcon,
+            component: SubDecorator,
+          },
+          {
+            title: 'Super',
+            value: 'super',
+            icon: SuperIcon,
+            component: SuperDecorator,
+          },
         ],
         annotations: [
           {
