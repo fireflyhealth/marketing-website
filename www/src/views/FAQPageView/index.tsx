@@ -93,7 +93,7 @@ export const FAQPageView: FC<FAQPageViewProps> = ({ faqPage }) => {
   })?.category.slug.current;
 
   return (
-    <div>
+    <div className="overflow-clip">
       <HeaderArea block={faqPage.header} />
       <div>
         <Tabs

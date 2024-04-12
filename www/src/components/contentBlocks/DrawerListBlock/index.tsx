@@ -181,7 +181,7 @@ export const DrawerListItem: FC<DrawerListItemProps> = ({
             <div
               className={cn(
                 'DrawerListItem__content',
-                'pb-20 overflow-hidden overflow-y-scroll md:w-1/2',
+                'pb-20 overflow-hidden overflow-y-scroll hide-scrollbar md:w-1/2',
               )}
               style={{
                 maxHeight: `${windowWidth >= BREAK_POINTS.MD ? `${expandedContentHeight - 32}px` : '150px'}`,
