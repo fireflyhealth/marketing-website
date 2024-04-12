@@ -43,12 +43,14 @@ export const ProviderPageView: FC<ProviderPageViewProps> = ({ provider }) => {
         headerCta={headerCta}
         headshot={headshot}
       />
-      <div className={cn(PCPBlurbWrapper)}>
-        <RichText
-          content={role.description}
-          fontSize="font-trust font-size-6"
-        />
-      </div>
+      {role.description && (
+        <div className={cn(PCPBlurbWrapper)}>
+          <RichText
+            content={role.description}
+            fontSize="font-trust font-size-6"
+          />
+        </div>
+      )}
       {provider.contentArea && <ContentArea blocks={provider.contentArea} />}
       <div className="">
         <Link

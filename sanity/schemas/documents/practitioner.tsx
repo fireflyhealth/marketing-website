@@ -190,18 +190,11 @@ export const Practitioner = defineType({
       fieldset: 'providerPageFields',
       hidden: ({ parent }) => !parent.renderProviderPage,
     }),
-    defineField({
-      name: 'title',
-      title: 'Title',
-      type: 'string',
-      description:
-        'DEPRECATED: use the "role" field to reference a "role description" document.',
-    }),
   ],
   preview: {
     select: {
       name: 'name',
-      title: 'title',
+      title: 'role.role',
       qualifications: 'qualifications',
       headshot: 'headshot',
       documentVariantInfo: 'documentVariantInfo',

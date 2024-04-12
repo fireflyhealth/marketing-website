@@ -230,7 +230,7 @@ export type ProviderPageSettings = {
 export type RoleDescription = {
   _type: 'roleDescription';
   role: string;
-  description: SimpleRichText;
+  description?: Maybe<SimpleRichText>;
 };
 
 export type Practitioner = SanityDocument & {
