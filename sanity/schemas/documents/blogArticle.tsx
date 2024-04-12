@@ -162,8 +162,10 @@ export const BlogArticle = defineType({
       name: 'blurb',
       fieldset: 'linking',
       title: 'Blurb',
-      type: 'simpleRichText',
+      type: 'simpleRichTextWithoutLink',
       validation: (Rule) => Rule.required(),
+      description:
+        'This field is not allowing linking on the text since it is used in article list. Whole article list is clickable so we should not have any linked text within it.',
     }),
     /* Content */
     defineField({

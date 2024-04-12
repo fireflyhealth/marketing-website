@@ -21,7 +21,7 @@ export const BigNumber: FC<BigNumberProps> = ({ bigNumber }) => {
             {unit.unitValue}
           </span>
         ) : null}
-        <span className="font-size-1">{formattedValue}</span>
+        <span className="font-size-2">{formattedValue}</span>
         {unit && unit.position === 'after' ? (
           <span className="font-size-5 align-top ml-[0.2em]">
             {unit.unitValue}

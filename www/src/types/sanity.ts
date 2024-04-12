@@ -674,7 +674,6 @@ export type HeaderContentChildBlock = {
   heading: string;
   body: SimpleRichText;
   cta: Maybe<CTA>;
-  size: 'small' | 'large';
 };
 
 export type RichTextChildBlock = {

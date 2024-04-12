@@ -22,10 +22,10 @@ const BlogArticlesGridItem: FC<BlogArticlesGridItemProps> = ({ article }) => {
             aspectRatio={3 / 4}
           />
         </div>
-        <div className="py-6 font-size-8 theme-text-color-secondary">
+        <div className="py-3 font-size-8 theme-text-color-secondary">
           {formatSanityDate(article.publishDate)}
         </div>
-        <div className="font-size-6 font-trust">{article.title}</div>
+        <div className="font-size-7 font-trust">{article.title}</div>
       </div>
     </Link>
   );

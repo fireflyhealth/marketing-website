@@ -81,6 +81,54 @@ export const SimpleRichText = defineField({
   ],
 });
 
+// Some place like "blurb" in a blog article schema should not have link option since whole blurb section will be clickable
+export const SimpleRichTextWithoutLink = defineField({
+  name: 'simpleRichTextWithoutLink',
+  title: 'Rich Text',
+  type: 'array',
+  of: [
+    {
+      type: 'block',
+      styles: [],
+      lists: [],
+      marks: {
+        decorators: [
+          { title: 'Bold', value: 'strong' },
+          { title: 'Italic', value: 'em' },
+          {
+            title: 'Sub',
+            value: 'sub',
+            icon: SubIcon,
+            component: SubDecorator,
+          },
+          {
+            title: 'Super',
+            value: 'super',
+            icon: SuperIcon,
+            component: SuperDecorator,
+          },
+        ],
+        annotations: [
+          {
+            name: 'textHighlight',
+            title: 'Highlight',
+            type: 'object',
+            icon: icons.Highlight,
+            fields: [
+              {
+                name: 'textHighlight',
+                title: 'Highlight',
+                type: 'theme',
+                validation: (Rule) => Rule.required(),
+              },
+            ],
+          },
+        ],
+      },
+    },
+  ],
+});
+
 /**
  * Rich text blocks that are used within ChildBlockRichText
  * and ArticleRichText

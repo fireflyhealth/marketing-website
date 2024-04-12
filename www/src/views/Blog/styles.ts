@@ -32,7 +32,7 @@ export const BlogArticlesListItemWrapper = [
 export const BlogArticlesListText = ['max-w-[650px]'];
 
 export const BlogArticlesListDate = [
-  'pt-6 font-size-8 theme-text-color-secondary',
+  'pt-6 font-size-10 theme-text-color-secondary',
   'md:w-[200px] md:pt-0',
 ];
 
@@ -41,8 +41,8 @@ export const BlogArticlesListReadMore = ['pt-4', 'md:pt-0'];
 /* Grid view */
 export const BlogArticlesGridWrapper = [
   'grid grid-cols-1 gap-y-8',
-  'md:grid-cols-2 md:gap-x-grid-margin-lg md:gap-y-grid-margin-lg',
-  'lg:grid-cols-3',
+  'md:grid-cols-3 md:gap-x-grid-margin-lg md:gap-y-grid-margin-lg',
+  'lg:grid-cols-4',
 ];
 
 export const BlogArticlesGridItemWrapper = [''];

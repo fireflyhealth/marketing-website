@@ -30,7 +30,12 @@
   }
 
   figure.GenericImage {
-    padding: theme(spacing.24) 0;
+    padding: theme(spacing.12) 0;
+  }
+
+  .OverlapDoubleImages {
+    padding-top: theme(spacing.12);
+    padding-bottom: theme(spacing.12);
   }
 
   .RichTextCtaRow {
