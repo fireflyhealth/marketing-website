@@ -52,7 +52,11 @@ export const Card: FC<Props> = ({ card }) => {
           </div>
           {featuredImage ? (
             <div className={cn(ImageWrapper)}>
-              <SanityImage image={featuredImage} sizes={['100vw', '50vw']} />
+              <SanityImage
+                image={featuredImage}
+                sizes={['100vw', '50vw']}
+                className="mx-auto"
+              />
             </div>
           ) : null}
           {ctaLink ? (
