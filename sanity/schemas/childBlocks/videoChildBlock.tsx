@@ -19,7 +19,7 @@ export const VideoChildBlock = defineType({
       video: 'video',
     },
     prepare: ({ video }) => ({
-      title: video?.videoLink || '(empty)',
+      title: 'Video Block',
       media: video?.posterImage,
     }),
   },
