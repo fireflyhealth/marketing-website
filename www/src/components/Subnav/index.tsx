@@ -32,7 +32,11 @@ const SubnavItem: FC<{
       <div
         className={cn(
           SubnavItemCircle,
-          isCurrentContentBlock ? 'Subnav__item-circle--active' : '',
+          currentContentBlock == null
+            ? 'Subnav__item-circle--active'
+            : isCurrentContentBlock
+              ? 'Subnav__item-circle--active'
+              : '',
         )}
       />
       {label}
@@ -48,7 +52,7 @@ export const Subnav: FC<{ subnav?: Maybe<SubnavItemType[]> }> = ({
   }
 
   return (
-    <div className={cn(Wrapper)}>
+    <div className={cn(Wrapper)} id="subnav">
       <div className={cn(InnerWrapper)}>
         {subnav?.map((item) => (
           <SubnavItem key={item.contentBlockId} item={item} />
