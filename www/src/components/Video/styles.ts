@@ -1,14 +1,14 @@
 export const OuterVideoWrapper = ['relative rounded-2xl'];
 
-export const VideoWrapper = [
-  'bg-black rounded-2xl overflow-hidden absolute inset-0 aspect-video',
-];
+export const VideoWrapper = ['rounded-2xl overflow-hidden absolute inset-0'];
 
 export const PosterImage = [
   'absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full z-10',
 ];
 
-export const VideoPlayer = ['video'];
+export const VideoPlayer = [
+  'video relative top-1/2 -translate-y-1/2 rounded-2xl overflow-hidden',
+];
 
 export const PlayButton = [
   'absolute bottom-4 left-4 z-20',
