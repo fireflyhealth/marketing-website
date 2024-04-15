@@ -61,7 +61,7 @@ export const ProviderPageView: FC<ProviderPageViewProps> = ({ provider }) => {
           Care team
         </Link>
       </div>
-      <Theme theme={ColorTheme.Grey} className="relative p-4 lg:p-12">
+      <Theme theme={ColorTheme.Grey} className="relative pt-4 lg:pt-12">
         <div className="full-width-background theme-bg-color" />
         <DoubleCTA doubleCta={footer} />
       </Theme>
