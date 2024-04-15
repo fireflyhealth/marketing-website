@@ -438,9 +438,10 @@ svg {
   &--secondary {
     color: var(--cta-text-color-secondary);
     background-color: var(--cta-bg-color-secondary);
+    border: 1px solid transparent;
 
     &:hover {
-      opacity: 0.7;
+      border: 1px solid var(--text-color-primary);
       background-color: var(--cta-bg-color-secondary);
     }
   }
