@@ -11,8 +11,8 @@ type BigNumberProps = {
 };
 
 export const BigNumber: FC<BigNumberProps> = ({ bigNumber }) => {
-  const { value, unit, description } = bigNumber;
-  const formattedValue = value.toLocaleString('en-US');
+  const { value, valueRange, valueTwo, unit, description } = bigNumber;
+  const formattedValue = (value: number) => value.toLocaleString('en-US');
   return (
     <div className="BigNumber py-6">
       <div className="font-trust">
@@ -21,7 +21,7 @@ export const BigNumber: FC<BigNumberProps> = ({ bigNumber }) => {
             {unit.unitValue}
           </span>
         ) : null}
-        <span className="font-size-2">{formattedValue}</span>
+        <span className="font-size-2">{`${formattedValue(value)}${valueRange && valueTwo ? ` - ${formattedValue(valueTwo)}` : ''}`}</span>
         {unit && unit.position === 'after' ? (
           <span className="font-size-5 align-top ml-[0.2em]">
             {unit.unitValue}
