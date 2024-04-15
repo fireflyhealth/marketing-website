@@ -24,7 +24,7 @@ export const ColumnsObject: FC<ColumnsObjectProps> = ({
         className={cn(
           'grid gap-y-12 py-12',
           getColumnCountClassName(columnCount),
-          'md:gap-y-24 md:gap-x-grid-margin-lg',
+          'md:gap-x-grid-margin-lg',
           theme == ColorTheme.White
             ? ''
             : 'md:px-grid-margin-lg theme-bg-color rounded-xl container-padding-bleed-mobile-only',
