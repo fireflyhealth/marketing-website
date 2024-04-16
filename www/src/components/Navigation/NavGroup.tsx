@@ -1,5 +1,4 @@
 import { FC, useRef, useEffect } from 'react';
-import { useRouter } from 'next/router';
 import cn from 'classnames';
 import { useUIProvider } from '@/context/UIProvider';
 import { SimpleIcon } from '@/svgs/SimpleIcon';
@@ -21,8 +20,6 @@ type Props = {
 
 export const NavGroup: FC<Props> = ({ navItem, isMobile }) => {
   const { currentNavItem, setCurrentNavItem } = useUIProvider();
-
-  const router = useRouter();
 
   const labelWithDropdownRef = useRef<HTMLButtonElement>(null);
   const iconWithDropdownRef = useRef<HTMLButtonElement>(null);
