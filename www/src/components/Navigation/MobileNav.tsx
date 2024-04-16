@@ -50,7 +50,7 @@ export const MobileNav: FC<Props> = ({
           }
         >
           {mobileNavOpen ? (
-            <SimpleIcon type="close" wrapperStyles="w-6 text-yellow-light" />
+            <SimpleIcon type="close" wrapperStyles="w-6 text-black" />
           ) : (
             <SimpleIcon type="menu" wrapperStyles="w-6 text-black" />
           )}
