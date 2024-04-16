@@ -43,6 +43,29 @@ export const BigNumber = defineType({
       validation: (Rule) => Rule.lessThan(1000000).required(),
     }),
     defineField({
+      name: 'valueRange',
+      type: 'boolean',
+      title: 'Value Range',
+      initialValue: false,
+      description:
+        'Toogle this switch to show a range of values (ex. 50 - 60%).',
+    }),
+    defineField({
+      name: 'valueTwo',
+      type: 'number',
+      title: 'Value Two',
+      hidden: ({ parent }) => parent.valueRange === false,
+      validation: (Rule) =>
+        Rule.custom((value, context) => {
+          // @ts-ignore
+          if (context?.parent?.valueRange === true && !value) {
+            return 'The second value is required when creating a value range.';
+          }
+
+          return true;
+        }).lessThan(1000000),
+    }),
+    defineField({
       name: 'unit',
       type: 'object',
       title: 'Unit',
