@@ -1,4 +1,5 @@
 import { FC, useRef, useEffect } from 'react';
+import { useRouter } from 'next/router';
 import cn from 'classnames';
 import { useUIProvider } from '@/context/UIProvider';
 import { SimpleIcon } from '@/svgs/SimpleIcon';
@@ -20,6 +21,8 @@ type Props = {
 
 export const NavGroup: FC<Props> = ({ navItem, isMobile }) => {
   const { currentNavItem, setCurrentNavItem } = useUIProvider();
+
+  const router = useRouter();
 
   const labelWithDropdownRef = useRef<HTMLButtonElement>(null);
   const iconWithDropdownRef = useRef<HTMLButtonElement>(null);
@@ -134,6 +137,7 @@ export const NavGroup: FC<Props> = ({ navItem, isMobile }) => {
               onClick={() => setCurrentNavItem(null)}
               className="simple-text-link"
               ariaLabel={`Navigate to ${navItem.label}`}
+              navItem
             >
               {navItem.link ? (
                 <p>{navItem.label}</p>
@@ -184,6 +188,7 @@ export const NavGroup: FC<Props> = ({ navItem, isMobile }) => {
                     linkRef={dropdownLinkRef}
                     className="simple-text-link"
                     ariaLabel={`Navigate to ${subPage.label}`}
+                    navItem
                   >
                     {subPage.label}
                   </Link>
@@ -200,6 +205,7 @@ export const NavGroup: FC<Props> = ({ navItem, isMobile }) => {
           onMouseLeave={handleHeadingMouseLeave}
           className="simple-text-link"
           ariaLabel={`Navigate to ${navItem.label}`}
+          navItem
         >
           {navItem.label}
         </Link>
