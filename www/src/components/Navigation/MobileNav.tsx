@@ -59,7 +59,7 @@ export const MobileNav: FC<Props> = ({
 
       {mobileNavOpen && (
         <div
-          className="absolute w-full top-[56px] lg:top-[65px]"
+          className="absolute w-full top-[56px] overflow-y-scroll max-h-[100vh] lg:top-[65px]"
           tabIndex={mobileNavOpen ? 0 : -1}
         >
           <div className={cn(NavLinksWrapper)}>

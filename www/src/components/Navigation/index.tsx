@@ -78,7 +78,7 @@ export const Navigation: FC<Props> = ({
   }, [getStartedOpen, setGetStartedOpen, setMobileNavOpen]);
 
   // Lock body scroll when the secondary nav (navCTA/'Get Started') is open
-  useBodyLock(getStartedOpen);
+  useBodyLock(getStartedOpen || mobileNavOpen);
 
   return (
     <>
