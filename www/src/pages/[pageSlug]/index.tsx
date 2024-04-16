@@ -9,6 +9,7 @@ import * as Sanity from '@/lib/sanity';
 import { PageView } from '@/views/PageView';
 import { PageMetadata } from '@/components/Metadata/PageMetadata';
 import { QueryConfig } from '@/lib/sanity';
+import sanityData from '@/lib/sanity/sanityData.json';
 
 export type PageProps = CommonPageProps & {
   page: GenericPage;
@@ -36,10 +37,12 @@ export const createGetStaticProps =
       throw new Error('pageSlug param is not a string');
     }
 
-    const [siteSettings, page] = await Promise.all([
-      Sanity.siteSettings.get(),
-      Sanity.page.get(pageSlug, config),
-    ]);
+    // const [siteSettings, page] = await Promise.all([
+    //   Sanity.siteSettings.get(),
+    //   Sanity.page.get(pageSlug, config),
+    // ]);
+    const siteSettings = sanityData.siteSettings;
+    const page = sanityData.genericPages[pageSlug];
 
     const navigationOverrides = page?.navigationOverrides;
 
@@ -62,7 +65,7 @@ export const createGetStaticProps =
 export const getStaticProps = createGetStaticProps();
 
 export const getStaticPaths: GetStaticPaths<PageParams> = async () => {
-  const pages = await Sanity.page.getSlugInfo();
+  const pages = sanityData.genericPageSlugInfo; //await Sanity.page.getSlugInfo();
   const paths = pages.map((page) => ({
     params: { pageSlug: page.slug.current },
   }));

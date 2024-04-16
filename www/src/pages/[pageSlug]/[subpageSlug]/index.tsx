@@ -4,7 +4,7 @@ import { GetStaticProps, GetStaticPaths } from 'next';
 import { PageProps as CommonPageProps } from '@/types/next';
 import { RevalidationTime } from '@/constants';
 
-import { GenericPage, SubPage } from '@/types/sanity';
+import { GenericPage, GenericPageSlugInfo, SubPage } from '@/types/sanity';
 import * as Sanity from '@/lib/sanity';
 import { PageView } from '@/views/PageView';
 import { PageMetadata } from '@/components/Metadata/PageMetadata';
@@ -64,7 +64,7 @@ export const createGetStaticProps =
 
 export const getStaticProps = createGetStaticProps();
 
-const getSlugParams = (parentPages: GenericPage[]): PageParams[] =>
+const getSlugParams = (parentPages: GenericPageSlugInfo): PageParams[] =>
   parentPages.reduce<PageParams[]>((slugInfoArray, parentPage) => {
     const pageSlug = parentPage.slug.current;
 

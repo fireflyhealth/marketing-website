@@ -8,6 +8,7 @@ import {
   DownloadPage,
   FAQPage,
   GenericPage,
+  GenericPageSlugInfo,
   Homepage,
   SiteSettings,
   NotFoundPage,
@@ -175,7 +176,7 @@ export const page = {
       );
     return withMaybeBContent(genericPage, config, pageFragment);
   },
-  getSlugInfo: (): Promise<GenericPage[]> =>
+  getSlugInfo: (): Promise<GenericPageSlugInfo> =>
     client.fetch(`*[_type == "genericPage" && ${isNotVariantFilter}]{
         slug,
         subPages[]->{ slug },

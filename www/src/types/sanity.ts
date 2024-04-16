@@ -185,6 +185,14 @@ export type GenericPage = GenericPageShared & {
   _type: 'genericPage';
   subPages?: KeyedArray<SubPage>;
 };
+
+export type GenericPageSlug = {
+  slug: Slug;
+  subPages?: { slug: Slug }[];
+};
+
+export type GenericPageSlugInfo = GenericPageSlug[];
+
 export type GenericPageLinkData = Pick<
   GenericPage,
   '_type' | 'slug' | 'title' | '_updatedAt'
