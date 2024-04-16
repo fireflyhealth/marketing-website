@@ -89,7 +89,7 @@ export type NavigationExample = {
 export type SubnavItem = {
   contentBlockId: string;
   label: string;
-  ariaLabel: Maybe<string>;
+  ariaLabel?: Maybe<string>;
 };
 
 export type SiteSettings = SanityDocument & {
@@ -104,7 +104,7 @@ export type SiteSettings = SanityDocument & {
 export type Homepage = SanityDocument &
   PageShared & {
     _type: 'homepage';
-    subnav: Maybe<boolean>;
+    subnav?: Maybe<boolean>;
     content: ContentArea;
   };
 export type HomepageLinkData = Pick<Homepage, '_type' | '_updatedAt'>;
@@ -128,8 +128,8 @@ export type ContactPage = SanityDocument &
     contactForm: {
       formId: string;
     };
-    backgroundColor: Maybe<string>;
-    backgroundImage: Maybe<RichImage>;
+    backgroundColor?: Maybe<string>;
+    backgroundImage?: Maybe<RichImage>;
     metadata?: Metadata;
   };
 export type ContactPageLinkData = Pick<ContactPage, '_type' | '_updatedAt'>;
@@ -177,7 +177,7 @@ type GenericPageShared = SanityDocument &
   PageShared & {
     title: string;
     content: ContentArea;
-    subnav: Maybe<boolean>;
+    subnav?: Maybe<boolean>;
     slug: Slug;
   };
 
@@ -214,7 +214,7 @@ export type ClientPage = SanityDocument &
     _type: 'clientPage';
     clientName: string;
     slug: Slug;
-    subnav: Maybe<boolean>;
+    subnav?: Maybe<boolean>;
     content: ContentArea;
   };
 export type ClientPageLinkData = Pick<
@@ -246,9 +246,9 @@ export type Practitioner = SanityDocument & {
   name: string;
   slug: Slug;
   role: RoleDescription;
-  qualifications: Maybe<string>;
+  qualifications?: Maybe<string>;
   pronouns: string;
-  headshot: Maybe<RichImage>;
+  headshot?: Maybe<RichImage>;
   renderProviderPage: boolean;
   providerPageSettings: ProviderPageSettings;
   isAvailable?: Maybe<boolean>;
@@ -284,10 +284,10 @@ export type Blog = SanityDocument & {
   metadata?: Metadata;
   navigationOverrides?: NavigationOverrides;
   header: HeaderArea;
-  featuredArticle: Maybe<BlogArticle>;
-  contentArea: Maybe<ContentArea>;
+  featuredArticle?: Maybe<BlogArticle>;
+  contentArea?: Maybe<ContentArea>;
   allArticlesLabel: string;
-  blogArticleTagGroups: Maybe<KeyedArray<BlogArticleTagGroup>>;
+  blogArticleTagGroups?: Maybe<KeyedArray<BlogArticleTagGroup>>;
   articleLayout: BlogArticleLayout;
 };
 
@@ -321,17 +321,17 @@ export type BlogArticle = SanityDocument & {
   _type: 'blogArticle';
   title: string;
   publishDate: string;
-  updatedDate: Maybe<string>;
-  articleImage: Maybe<RichImage>;
-  authorName: Maybe<string>;
+  updatedDate?: Maybe<string>;
+  articleImage?: Maybe<RichImage>;
+  authorName?: Maybe<string>;
   thumbnail: RichImage;
   slug: Slug;
   navigationOverrides?: NavigationOverrides;
   category: BlogLinkData;
   metadata?: Metadata;
-  tags: Maybe<BlogArticleTag[]>;
+  tags?: Maybe<BlogArticleTag[]>;
   blurb: SimpleRichText;
-  deck: Maybe<SimpleRichText>;
+  deck?: Maybe<SimpleRichText>;
   content: RichText;
 };
 
@@ -372,10 +372,10 @@ export type NavGroupType = LinkWithLabel | LabelWithDropdown;
 
 export type Footer = {
   mobileCta: CTA;
-  footerNavGroups: Maybe<KeyedArray<{ navItems: KeyedArray<LinkWithLabel> }>>;
-  bottomLinks: Maybe<{
-    leftLinks: Maybe<KeyedArray<LinkWithLabel>>;
-    rightLinks: Maybe<KeyedArray<LinkWithLabel>>;
+  footerNavGroups?: Maybe<KeyedArray<{ navItems: KeyedArray<LinkWithLabel> }>>;
+  bottomLinks?: Maybe<{
+    leftLinks?: Maybe<KeyedArray<LinkWithLabel>>;
+    rightLinks?: Maybe<KeyedArray<LinkWithLabel>>;
   }>;
   qrCode: QrCodeObject;
 };
@@ -390,13 +390,13 @@ export type Slug = {
 };
 
 export type NavigationOverrides = {
-  pageNavigation: Maybe<Navigation>;
-  announcementBanner: Maybe<AnnouncementBanner>;
+  pageNavigation?: Maybe<Navigation>;
+  announcementBanner?: Maybe<AnnouncementBanner>;
 };
 
 export type AnnouncementBanner = {
   _type: 'announcementBanner';
-  text: Maybe<SimpleRichText>;
+  text?: Maybe<SimpleRichText>;
 };
 
 /* An enhanced image field that includes a caption & required alt text */
@@ -409,9 +409,9 @@ export type RichImage = Omit<Image, '_type'> & {
 /* These are all typed as "maybe", but at least one is
  * required in sanity. */
 export type ResponsiveImageSet = {
-  desktop: Maybe<RichImage>;
-  tablet: Maybe<RichImage>;
-  mobile: Maybe<RichImage>;
+  desktop?: Maybe<RichImage>;
+  tablet?: Maybe<RichImage>;
+  mobile?: Maybe<RichImage>;
 };
 
 export type ColorSwatch = {
@@ -540,7 +540,7 @@ export type IconBlock = {
 };
 export type BigNumber = {
   _type: 'bigNumber';
-  unit: Maybe<{
+  unit?: Maybe<{
     unitValue: string;
     position: 'before' | 'after';
   }>;
@@ -551,7 +551,7 @@ export type BigNumber = {
 export type BigNumbers = {
   _type: 'bigNumbers';
   bigNumbers: KeyedArray<BigNumber>;
-  citation: Maybe<SimpleRichText>;
+  citation?: Maybe<SimpleRichText>;
 };
 
 export type TwoColumnUnorderedList = {
@@ -565,7 +565,7 @@ export type BigOrderedList = {
   _key: string;
   listItems: {
     title: string;
-    description: Maybe<SimpleRichText>;
+    description?: Maybe<SimpleRichText>;
   }[];
 };
 export type OverlapDoubleImages = {
@@ -597,9 +597,9 @@ export type VideoHeader = {
 
 export type TextHeader = {
   _type: 'textHeader';
-  eyebrow: Maybe<string>;
+  eyebrow?: Maybe<string>;
   heading: string;
-  body: Maybe<RichText>;
+  body?: Maybe<RichText>;
   theme: ColorTheme;
   ctas: Array<CTA>;
   gradientBackground: boolean;
@@ -607,18 +607,18 @@ export type TextHeader = {
 
 export type TextWithDualCtaHeaderCta = {
   image: ResponsiveImageSet;
-  eyebrow: Maybe<string>;
+  eyebrow?: Maybe<string>;
   label: string;
   link: Link;
-  ariaLabel: Maybe<string>;
+  ariaLabel?: Maybe<string>;
   theme: ColorTheme;
 };
 
 export type TextWithDualCtaHeader = {
   _type: 'textWithDualCtaHeader';
-  eyebrow: Maybe<string>;
+  eyebrow?: Maybe<string>;
   heading: string;
-  body: Maybe<RichText>;
+  body?: Maybe<RichText>;
   theme: ColorTheme;
   ctas: Array<CTA>;
   topCta: TextWithDualCtaHeaderCta;
@@ -628,10 +628,10 @@ export type TextWithDualCtaHeader = {
 export type TwoUpHeader = {
   _type: 'twoUpHeader';
   layout: 'normal-50-50' | 'overlap-50-50';
-  mobileReverseBlockOrder: Maybe<boolean>;
+  mobileReverseBlockOrder?: Maybe<boolean>;
   blockOne: ChildContentBlock;
   blockTwo: ChildContentBlock;
-  blockThemes: Maybe<{
+  blockThemes?: Maybe<{
     blockOneTheme: ColorTheme;
     blockTwoTheme: ColorTheme;
   }>;
@@ -661,27 +661,27 @@ export type ChildContentBlock =
 export type QrCodeObject = {
   _type: 'qrCodeObject';
   qrCodeImage: RichImage;
-  text: Maybe<string>;
-  storeLinks: Maybe<{
-    appStoreLink: Maybe<Link>;
-    playStoreLink: Maybe<Link>;
+  text?: Maybe<string>;
+  storeLinks?: Maybe<{
+    appStoreLink?: Maybe<Link>;
+    playStoreLink?: Maybe<Link>;
   }>;
 };
 
 export type HeaderQrCodeChildBlock = {
   _type: 'headerQrCodeChildBlock';
   heading: string;
-  body: Maybe<SimpleRichText>;
+  body?: Maybe<SimpleRichText>;
   qrCode: QrCodeObject;
 };
 
 export type HeaderContentChildBlock = {
   _type: 'headerContentChildBlock';
-  eyebrow: Maybe<string>;
-  eyebrowImage: Maybe<RichImage>;
+  eyebrow?: Maybe<string>;
+  eyebrowImage?: Maybe<RichImage>;
   heading: string;
   body: SimpleRichText;
-  cta: Maybe<CTA>;
+  cta?: Maybe<CTA>;
 };
 
 export type RichTextChildBlock = {
@@ -715,8 +715,8 @@ export type QuoteChildBlock = {
 
 export type DividerBlock = {
   _type: 'dividerBlock';
-  borderTop: Maybe<boolean>;
-  borderBottom: Maybe<boolean>;
+  borderTop?: Maybe<boolean>;
+  borderBottom?: Maybe<boolean>;
 };
 
 /**
@@ -758,14 +758,14 @@ export type ContentBlockHeader = {
 };
 
 type ContentBlockCommon = {
-  header: Maybe<ContentBlockHeader>;
-  subnav: Maybe<SubnavItem>;
+  header?: Maybe<ContentBlockHeader>;
+  subnav?: Maybe<SubnavItem>;
 };
 
 export type ImageBlock = {
   _type: 'imageBlock';
-  subnav: Maybe<SubnavItem>;
-  header: Maybe<ContentBlockHeader>;
+  subnav?: Maybe<SubnavItem>;
+  header?: Maybe<ContentBlockHeader>;
   alignCenter?: Maybe<boolean>;
   image: RichImage;
 };
@@ -783,7 +783,7 @@ export type SmallImageCarouselBlock = ContentBlockCommon & {
 export type SequenceBlockTextFields = {
   _type: 'sequenceBlockTextFields';
   title: string;
-  bellyButtonText: Maybe<string>;
+  bellyButtonText?: Maybe<string>;
   description: string;
 };
 
@@ -792,7 +792,7 @@ export type SequenceBlockItem = {
   _key: string;
   video: Video;
   copy: SequenceBlockTextFields;
-  theme: Maybe<ColorTheme>;
+  theme?: Maybe<ColorTheme>;
   isHighlighted: boolean;
 };
 
@@ -849,7 +849,7 @@ export type QuoteAttribution = {
 
 export type QuoteObject = {
   _type: 'quoteObject';
-  badgeImage: Maybe<Image>;
+  badgeImage?: Maybe<Image>;
   icon?: Maybe<IconBlock>;
   quote: string;
   eyebrow?: Maybe<string>;
@@ -859,17 +859,17 @@ export type QuoteObject = {
 export type QuoteBlock = ContentBlockCommon & {
   _type: 'quoteBlock';
   quoteObject: QuoteObject;
-  cta: Maybe<CTA>;
+  cta?: Maybe<CTA>;
 };
 
 export type DrawerListItem = {
   _type: 'drawerListItem';
   title: string;
   body: SimpleRichText;
-  ctaLink: Maybe<LinkWithLabel>;
-  featuredImage: Maybe<RichImage>;
+  ctaLink?: Maybe<LinkWithLabel>;
+  featuredImage?: Maybe<RichImage>;
   theme: ColorTheme;
-  backgroundImage: Maybe<ResponsiveImageSet>;
+  backgroundImage?: Maybe<ResponsiveImageSet>;
 };
 
 export type DrawerListBlock = ContentBlockCommon & {
@@ -912,7 +912,7 @@ export type ReviewBlock = ContentBlockCommon & {
   reviewHeading: {
     _type: 'reviewHeading';
     title: string;
-    description: Maybe<SimpleRichText>;
+    description?: Maybe<SimpleRichText>;
   };
   reviews: ReviewItem[];
 };
@@ -932,8 +932,8 @@ export type FAQBlock = ContentBlockCommon & {
   _type: 'faqBlock';
   theme: ColorTheme;
   blockTitle: string;
-  blockDescription: Maybe<SimpleRichText>;
-  blockCta: Maybe<CTA>;
+  blockDescription?: Maybe<SimpleRichText>;
+  blockCta?: Maybe<CTA>;
   faqs: Array<FAQ>;
 };
 

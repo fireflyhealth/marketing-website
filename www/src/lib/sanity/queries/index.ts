@@ -49,6 +49,7 @@ const pageSharedFieldsFragment = `
 
 export const pageFragment = `
   _id,
+  _type,
   title,
   slug,
   ${pageSharedFieldsFragment},

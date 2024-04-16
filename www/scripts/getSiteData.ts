@@ -66,7 +66,25 @@ const main = async () => {
     },
     {},
   );
-  siteData.genericPages = genericPagesObj;
+
+  //get generic b content
+  const genericBPages = await Promise.all(
+    genericPageSlugInfo.map(
+      async ({ slug }) =>
+        await Sanity.page.get(slug.current, { preferBContent: true }),
+    ),
+  );
+  const genericBPagesObj = genericBPages.reduce(
+    (pageObj: { [slug: string]: GenericPage }, page) => {
+      if (page?.slug.current) {
+        pageObj[page.slug.current] = page;
+      }
+      return pageObj;
+    },
+    {},
+  );
+
+  siteData.genericPages = { ...genericPagesObj, ...genericBPagesObj };
   siteData.genericPageSlugInfo = genericPageSlugInfo;
 
   const fileContents = await prettier.format(JSON.stringify(siteData, null), {
