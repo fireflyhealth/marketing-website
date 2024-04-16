@@ -4,7 +4,7 @@ export const NavWrapper = [
 ];
 
 export const NavContainer = [
-  'relative px-4 md:px-9 lg:px-12 transition-all w-full py-4 flex flex-row items-center justify-between',
+  'relative px-4 md:px-9 lg:px-12 w-full py-4 flex flex-row items-center justify-between',
 ];
 
 export const NavLinksWrapper = [
