@@ -27,7 +27,7 @@ export const DesktopNav: FC<Props> = ({
   };
 
   return (
-    <nav className={cn(NavWrapper, 'hidden')}>
+    <nav id="desktop-nav" className={cn(NavWrapper, 'hidden')}>
       <div
         className={cn(NavContainer, {
           'bg-yellow': getStartedOpen,

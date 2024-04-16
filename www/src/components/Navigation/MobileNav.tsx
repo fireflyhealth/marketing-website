@@ -22,7 +22,7 @@ export const MobileNav: FC<Props> = ({
 }) => {
   const { mobileNavOpen, toggleGlobalNav } = useUIProvider();
   return (
-    <nav className={cn(NavWrapper, 'absolute lg:hidden')}>
+    <nav id="mobile-nav" className={cn(NavWrapper, 'absolute lg:hidden')}>
       <div
         className={cn(
           NavContainer,

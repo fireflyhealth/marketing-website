@@ -17,11 +17,11 @@ export const Navigation: FC<Props> = ({
   showNavCTA,
   globalDoubleNav,
 }) => {
-  const { setMobileNavOpen, getStartedOpen, setGetStartedOpen } =
+  const { mobileNavOpen, setMobileNavOpen, getStartedOpen, setGetStartedOpen } =
     useUIProvider();
   const router = useRouter();
 
-  // close globalNav and globalNavDropdown on route change
+  // useEffect to handle closing navCTA/'Get Started' and mobile nav on route change
   useEffect(() => {
     const closeNavDropdowns = () => {
       setMobileNavOpen(false);
@@ -33,6 +33,33 @@ export const Navigation: FC<Props> = ({
     };
   }, [router, setMobileNavOpen, setGetStartedOpen]);
 
+  // useEffect to handle clicking outside of the desktop and mobile navs
+  useEffect(() => {
+    const mobileNav = document.getElementById('mobile-nav');
+    const desktopNav = document.getElementById('desktop-nav');
+
+    const handleClickOutsideNav = (event: MouseEvent) => {
+      const { target } = event;
+
+      // close navCTA/'Get Started' when user clicks outside of nav
+      if (target && getStartedOpen == true) {
+        if (!desktopNav?.contains(target as Element)) {
+          setGetStartedOpen(false);
+        }
+      }
+
+      // close mobile nav when user clicks outside of nav
+      if (target && mobileNavOpen == true) {
+        if (!mobileNav?.contains(target as Element)) {
+          setMobileNavOpen(false);
+        }
+      }
+    };
+
+    document.addEventListener('click', handleClickOutsideNav);
+  }, [getStartedOpen, setGetStartedOpen, mobileNavOpen, setMobileNavOpen]);
+
+  // useEffect to handle keyboard event 'Escape' to close nav
   useEffect(() => {
     // Handle keyboard events (open/close dropdown, select option)
     const handleKeyDown = (event: KeyboardEvent) => {
