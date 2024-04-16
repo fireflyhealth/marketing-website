@@ -1,4 +1,4 @@
-import { FC, useRef, useEffect } from 'react';
+import { FC, useState, useRef, useEffect } from 'react';
 import cn from 'classnames';
 import {
   ContentBlockHeader as ContentBlockHeaderType,

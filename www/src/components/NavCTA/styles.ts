@@ -4,7 +4,7 @@ export const Wrapper = [
 ];
 
 export const BackgroundColor = [
-  'full-width-background bg-yellow-linear-gradient !top-[-1px]',
+  'full-width-background bg-yellow-linear-gradient !top-[-1px] !z-auto',
 ];
 
 export const CTAWrapper = [
