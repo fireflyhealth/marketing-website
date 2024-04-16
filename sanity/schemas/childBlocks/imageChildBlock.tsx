@@ -19,7 +19,7 @@ export const ImageChildBlock = defineType({
       image: 'image',
     },
     prepare: ({ image }) => ({
-      title: image?.altText || '(empty)',
+      title: 'Image Block',
       media: image?.asset,
       subtitle: image?.caption,
     }),

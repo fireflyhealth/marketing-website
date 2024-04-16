@@ -545,6 +545,8 @@ export type BigNumber = {
     position: 'before' | 'after';
   }>;
   value: number;
+  valueRange: Maybe<boolean>;
+  valueTwo: Maybe<number>;
   description: SimpleRichText;
 };
 

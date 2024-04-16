@@ -14,7 +14,8 @@ export const Metadata = defineType({
       name: 'title',
       title: 'Page Title',
       type: 'string',
-      description: 'Title for Browser tab & search result listing',
+      description:
+        'Title for Browser tab & search result listing. Max 50 chars.',
       validation: (Rule) =>
         Rule.max(50).warning(
           'Longer titles may be truncated by search engines',
@@ -24,7 +25,7 @@ export const Metadata = defineType({
       name: 'description',
       title: 'Page Description',
       type: 'text',
-      description: 'Summary for search result listing',
+      description: 'Summary for search result listing. Max 150 chars.',
       rows: 2,
       validation: (Rule) =>
         Rule.max(150).warning(
@@ -36,7 +37,7 @@ export const Metadata = defineType({
       name: 'shareTitle',
       type: 'string',
       description:
-        'TItle used for social sharing cards. If empty, displays the Title field.',
+        'TItle used for social sharing cards. If empty, displays the Title field. Max 50 chars.',
       validation: (Rule) =>
         Rule.max(50).warning('Longer titles may be truncated by social sites'),
     }),
@@ -46,7 +47,7 @@ export const Metadata = defineType({
       type: 'text',
       rows: 3,
       description:
-        'Description for social sharing cards. If empty, displays the Description field',
+        'Description for social sharing cards. If empty, displays the Description field. Max 150 chars.',
       validation: (Rule) =>
         Rule.max(150).warning(
           'Longer descriptions may be truncated by social sites',

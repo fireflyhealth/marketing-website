@@ -61,9 +61,10 @@ const Video: FC<Props> = ({
     const options = {
       url: video.videoLink,
       controls: true,
-      responsive: false,
+      responsive: true,
       muted: true,
       playsinline: true,
+      autopause: true,
     };
 
     const videoPlayer = new Vimeo(videoRef.current, options);
@@ -179,7 +180,7 @@ const Video: FC<Props> = ({
       <div className={cn(VideoWrapper, width ? `${width}` : 'w-full')}>
         <div
           id="video-poster-image"
-          className={cn(PosterImage, 'transition-all', {
+          className={cn(PosterImage, 'transition-all ease-in-out', {
             'opacity-0 pointer-events-none': isPlaying,
           })}
           onLoad={() => {

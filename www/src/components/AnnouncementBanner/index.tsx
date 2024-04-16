@@ -9,6 +9,8 @@ export type Props = {
 };
 
 export const AnnouncementBanner: FC<Props> = ({ announcementBanner }) => {
+  if (!announcementBanner) return;
+
   const { text } = announcementBanner;
 
   return (
