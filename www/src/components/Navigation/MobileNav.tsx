@@ -34,7 +34,7 @@ export const MobileNav: FC<Props> = ({
           className="element-focus p-2 -ml-2 -mt-2"
           aria-label="Navigate to Firefly homepage"
         >
-          <div className="w-[120px] md:w-[175px]">
+          <div className="w-[150px] md:w-[175px]">
             {mobileNavOpen ? <LogotypeMonochrome /> : <LogotypeColor />}
           </div>
         </Link>
