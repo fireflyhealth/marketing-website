@@ -5,8 +5,7 @@ export const HeaderTextWrapper = [
 ];
 
 export const AvailabilityIndicator = [
-  'absolute top-12 left-1/2 -translate-x-1/2 w-max theme-cta-bg-color-secondary rounded-full px-3 py-1 font-roobert font-size-8 flex flex-row items-center',
-  'lg:top-3 lg:left-3 lg:translate-x-0',
+  'absolute top-3 left-3 w-max theme-cta-bg-color-secondary rounded-full px-3 py-1 font-roobert font-size-8 flex flex-row items-center z-10',
 ];
 
 export const AvailabilityIndicatorDot = ['w-4 h-4 rounded-full mr-2'];
