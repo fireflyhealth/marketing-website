@@ -34,6 +34,10 @@ import { PageParams } from '@/pages/[pageSlug]/[subpageSlug]';
 import { PageParams as ArticlePageParams } from '@/pages/blog/[blogSlug]/[articleSlug]';
 import { PAGINATION_PAGE_SIZE } from '@/constants';
 import { config } from '@/config';
+
+import isStaticBuild from '@/utils/isStaticBuild';
+import sanityData from '@/lib/sanity/sanityData.json';
+
 import {
   blogArticleFragment,
   blogFragment,
@@ -51,8 +55,6 @@ import {
   isNotVariantFilter,
   linkableDocumentFragment,
 } from './queries/fragments';
-import sanityData from '@/lib/sanity/sanityData.json';
-import isStaticBuild from '@/utils/isStaticBuild';
 
 export const client = createClient(config.sanity);
 
@@ -85,8 +87,16 @@ export type QueryConfig = {
   generateStaticData?: boolean;
 };
 
-const shouldGetDataFromSanity = (config: QueryConfig) =>
-  config.generateStaticData || !isStaticBuild;
+const shouldGetDataFromSanity = (config: QueryConfig) => {
+  // if generateStaticData is true, we should get data from sanity even if it is static build.
+  // this is used for generating static data
+  if (!!config.generateStaticData) return true;
+
+  // if static build is true, we should not get data from sanity
+  if (!!isStaticBuild) return false;
+
+  return true;
+};
 
 /**
  * Fetches the B content for a document if:
