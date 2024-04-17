@@ -51,7 +51,7 @@ import {
   MdOutlineDescription,
 } from 'react-icons/md';
 import { FaUserDoctor } from 'react-icons/fa6';
-import { GoColumns, GoQuote } from 'react-icons/go';
+import { GoColumns, GoQuote, GoListOrdered } from 'react-icons/go';
 import { RiArchiveDrawerLine } from 'react-icons/ri';
 import { CgViewSplit } from 'react-icons/cg';
 import { VscCaseSensitive } from 'react-icons/vsc';
@@ -117,4 +117,5 @@ export const icons = {
   Highlight: FaHighlighter,
   Description: MdOutlineDescription,
   Map: FaMap,
+  Footnotes: GoListOrdered,
 };
