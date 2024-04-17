@@ -7,18 +7,36 @@ const aspectRatio = (breakPoint) =>
     name: `${breakPoint}AspectRatio`,
     title: `${breakPoint.charAt(0).toUpperCase() + breakPoint.slice(1)} Aspect Ratio`,
     description:
-      'To define a horizontal aspect ratio, the left figure should be greater than the right.  To define a vertical aspect ratio, the figure on the left should be less than the right.',
+      'To define a horizontal aspect ratio, `Figure One` should be greater than `Figure Two`.  To define a vertical aspect ratio, `Figure Two` should be greater than `Figure One`.',
     type: 'object',
     fields: [
       {
         name: 'figureOne',
-        title: 'Figure',
+        title: 'Figure One',
         type: 'number',
+        validation: (Rule) =>
+          Rule.custom((value, context) => {
+            // @ts-ignore
+            if (context?.parent?.figureTwo >= 0 && !value) {
+              return 'Both fields must contain a number to properly set the aspect ratio.';
+            }
+
+            return true;
+          }),
       },
       {
         name: 'figureTwo',
-        title: 'Figure',
+        title: 'Figure Two',
         type: 'number',
+        validation: (Rule) =>
+          Rule.custom((value, context) => {
+            // @ts-ignore
+            if (context?.parent?.figureOne >= 0 && !value) {
+              return 'Both fields must contain a number to properly set the aspect ratio.';
+            }
+
+            return true;
+          }),
       },
     ],
   });

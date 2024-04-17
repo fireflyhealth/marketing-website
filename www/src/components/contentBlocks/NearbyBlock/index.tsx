@@ -32,12 +32,12 @@ export const NearbyBlock: FC<Props> = ({ nearbyBlock }) => {
               ? /* Check if windowDimensions is within tablet breakpoints */
                 windowDimensions.width > BREAK_POINTS_SM &&
                 windowDimensions.width < BREAK_POINTS_MD
-                ? `${tabletAspectRatio.figureOne} / ${tabletAspectRatio.figureTwo}`
+                ? `${tabletAspectRatio?.figureOne} / ${tabletAspectRatio?.figureTwo}`
                 : /* Check if windowDimensions is within Desktop breakpoints */
                   windowDimensions.width > BREAK_POINTS_MD
-                  ? `${desktopAspectRatio.figureOne} / ${desktopAspectRatio.figureTwo}`
+                  ? `${desktopAspectRatio?.figureOne} / ${desktopAspectRatio?.figureTwo}`
                   : /* Return mobile aspect ratio if none of the other breakpoint checks pass */
-                    `${mobileAspectRatio.figureOne} / ${mobileAspectRatio.figureTwo}`
+                    `${mobileAspectRatio?.figureOne} / ${mobileAspectRatio?.figureTwo}`
               : /* Default to 16 / 9 aspect ratio if windowDimensions is not defined */
                 '16 / 9'
           }`,

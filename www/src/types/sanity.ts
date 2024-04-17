@@ -1026,7 +1026,7 @@ type AspectRatio = {
 export type NearbyBlock = ContentBlockCommon & {
   _type: 'nearbyBlock';
   mapUrl: 'string';
-  mobileAspectRatio: AspectRatio;
-  tabletAspectRatio: AspectRatio;
-  desktopAspectRatio: AspectRatio;
+  mobileAspectRatio?: Maybe<AspectRatio>;
+  tabletAspectRatio?: Maybe<AspectRatio>;
+  desktopAspectRatio?: Maybe<AspectRatio>;
 };
