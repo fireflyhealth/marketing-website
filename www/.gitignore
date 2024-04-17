@@ -42,3 +42,7 @@ next-env.d.ts
 # Mock data
 # - run yarn update-mock-data to generate this!
 src/mockData/mockData.json
+
+# Site data
+# - run yarn update-site-data to generate this!
+src/lib/sanity/siteData.json

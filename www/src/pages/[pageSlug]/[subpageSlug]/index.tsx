@@ -4,7 +4,7 @@ import { GetStaticProps, GetStaticPaths } from 'next';
 import { PageProps as CommonPageProps } from '@/types/next';
 import { RevalidationTime } from '@/constants';
 
-import { GenericPage, SubPage } from '@/types/sanity';
+import { SubPage } from '@/types/sanity';
 import * as Sanity from '@/lib/sanity';
 import { PageView } from '@/views/PageView';
 import { PageMetadata } from '@/components/Metadata/PageMetadata';
@@ -14,7 +14,7 @@ export type PageProps = CommonPageProps & {
   subPage: SubPage;
 };
 
-type PageParams = {
+export type PageParams = {
   pageSlug: string;
   subpageSlug: string;
 };
@@ -64,27 +64,11 @@ export const createGetStaticProps =
 
 export const getStaticProps = createGetStaticProps();
 
-const getSlugParams = (parentPages: GenericPage[]): PageParams[] =>
-  parentPages.reduce<PageParams[]>((slugInfoArray, parentPage) => {
-    const pageSlug = parentPage.slug.current;
-
-    if (parentPage.subPages && parentPage.subPages.length > 0) {
-      const subpageSlugs = parentPage.subPages.map(
-        (subPage) => subPage.slug.current,
-      );
-      const subPageInfos = subpageSlugs.map((subpageSlug) => ({
-        pageSlug,
-        subpageSlug,
-      }));
-      return [...slugInfoArray, ...subPageInfos];
-    } else {
-      return slugInfoArray;
-    }
-  }, []);
-
 export const getStaticPaths: GetStaticPaths<PageParams> = async () => {
   const pages = await Sanity.page.getSlugInfo();
-  const paths = getSlugParams(pages).map((params) => ({ params }));
+  const paths = Sanity.subPage
+    .getSlugParams(pages)
+    .map((params) => ({ params }));
 
   return {
     paths,
