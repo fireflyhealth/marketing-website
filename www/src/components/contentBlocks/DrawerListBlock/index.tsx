@@ -13,6 +13,7 @@ import { Theme } from '@/components/Theme';
 import { SanityImage } from '@/atoms/Image/SanityImage';
 import { ResponsiveSanityImage } from '@/atoms/Image/ResponsiveSanityImage';
 import { useWindowDimensions } from '@/hooks/useWindowDimensions';
+import { SimpleIcon } from '@/svgs/SimpleIcon';
 import { BREAK_POINTS } from 'tailwind.config';
 import { ContentBlockWrapper } from '../ContentBlockWrapper';
 
@@ -101,14 +102,21 @@ export const DrawerListItem: FC<DrawerListItemProps> = ({
   }, [isExpanded, windowDimensions, windowDimensions?.width]);
 
   return (
-    <Theme theme={theme}>
+    <Theme
+      theme={theme}
+      className={cn('relative transition-all', {
+        'hover:-translate-y-5': !isExpanded,
+      })}
+      style={{
+        zIndex: `${index}`,
+      }}
+    >
       <div
         className={cn(
-          'DrawerListItem relative rounded-2xl z-[10] overflow-hidden theme-bg-color group',
+          'DrawerListItem relative rounded-2xl z-[10] overflow-hidden theme-bg-color',
           /* All list items except the last have extra padding at the
            * bottom to account for sibling overlap */
           isLast ? '' : 'pb-[2.5rem] md:pb-[3.5rem]',
-          // isLast ? 'pb-6 md:pb-12' : 'pb-16 md:pb-24',
           /* All list items except the first are nudged up to overlap
            * extra bottom padding on the previous card */
           isFirst ? '' : 'mt-[-2.5rem] md:mt-[-3.5rem]',
@@ -140,20 +148,30 @@ export const DrawerListItem: FC<DrawerListItemProps> = ({
             className="DrawerListItem__button text-left w-full"
             aria-label={`Expand drawer ${index}: ${title}`}
           >
-            <div className="p-8">
-              <h3 className="font-size-5 font-trust leading-[1em] group-hover:theme-text-color-secondary transition-colors">
+            <div className="p-8 transition-all flex flex-row justify-between items-center">
+              <h3
+                className={cn(
+                  'font-size-5 font-trust leading-[1em] transition-all',
+                )}
+              >
                 {title}
               </h3>
+              <SimpleIcon
+                type="arrow-down"
+                wrapperStyles={cn(
+                  'w-6 h-6 theme-text-color-primary transition-all ease-in-out duration-300',
+                  {
+                    'rotate-180': !isExpanded,
+                  },
+                )}
+              />
             </div>
           </button>
         </div>
 
         <div
           aria-hidden={!isExpanded}
-          className={cn(
-            'group-hover:theme-text-color-secondary',
-            isExpanded ? '' : 'pointer-events-none',
-          )}
+          className={cn(isExpanded ? '' : 'pointer-events-none')}
           style={{
             transition: 'height 0.3s ease',
             /* We cannot transition between height: 0 and height: auto,
