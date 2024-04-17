@@ -489,7 +489,7 @@ export const blog = {
         )
       : (sanityData?.blogPageSlugInfo as unknown);
 
-    return slugInfo;
+    return slugInfo as BlogWithArticles[];
   },
 
   getBlogArticles: async (
