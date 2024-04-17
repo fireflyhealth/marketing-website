@@ -9,8 +9,8 @@ export const Wrapper = ['lg:py-grid-margin-lg'];
 export const WrapperInner = [
   'py-16',
   'flex flex-col justify-center',
-  'md:px-[60px] md:py-40',
-  'lg:px-16 lg:pt-40 lg:pb-40 mx-auto',
+  'md:px-[60px] md:py-20',
+  'lg:px-16 mx-auto',
 ];
 
 export const Eyebrow = [
