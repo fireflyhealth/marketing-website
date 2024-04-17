@@ -424,16 +424,16 @@ export type SitemapData = {
 
 const SITEMAP_DATA_QUERY = `
 {
-  "homepage": *[_type == "homepage"][0]{${linkableDocumentFragment}},
+  "homepage": *[_type == "homepage" && !(slug.current match "-b-content")][0]{${linkableDocumentFragment}},
   "faqPage": *[_type == "faqPage"][0]{${linkableDocumentFragment}},
-  "contactPage": *[_type == "contactPage"][0]{${linkableDocumentFragment}},
-  "downloadPage": *[_type == "downloadPage"][0]{${linkableDocumentFragment}},
-  "genericPage": *[_type == "genericPage"]{${linkableDocumentFragment}},
-  "subPage": *[_type == "subPage"]{${linkableDocumentFragment}},
-  "blog": *[_type == "blog"]{${linkableDocumentFragment}},
-  "blogArticle": *[_type == "blogArticle"]{${linkableDocumentFragment}},
-  "clientPage": *[_type == "clientPage"]{${linkableDocumentFragment}},
-  "practitioner": *[_type == "practitioner" && renderProviderPage != false]{${linkableDocumentFragment}}
+  "contactPage": *[_type == "contactPage" && !(slug.current match "-b-content")][0]{${linkableDocumentFragment}},
+  "downloadPage": *[_type == "downloadPage" && !(slug.current match "-b-content")][0]{${linkableDocumentFragment}},
+  "genericPage": *[_type == "genericPage" && !(slug.current match "-b-content")]{${linkableDocumentFragment}},
+  "subPage": *[_type == "subPage" && !(slug.current match "-b-content")]{${linkableDocumentFragment}},
+  "blog": *[_type == "blog" && !(slug.current match "-b-content")]{${linkableDocumentFragment}},
+  "blogArticle": *[_type == "blogArticle" && !(slug.current match "-b-content")]{${linkableDocumentFragment}},
+  "clientPage": *[_type == "clientPage" && !(slug.current match "-b-content")]{${linkableDocumentFragment}},
+  "practitioner": *[_type == "practitioner" && renderProviderPage != false && !(slug.current match "-b-content")]{${linkableDocumentFragment}}
 }
 `;
 

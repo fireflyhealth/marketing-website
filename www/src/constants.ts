@@ -7,6 +7,16 @@ const StagingRevalidationTime = {
   Rare: 1,
 };
 
+const StaticBuildRevalidationTime = {
+  /* When making a static build, we cannot use the
+   * 'revalidate' option on our pages. This will disable
+   * them when making a build with STATIC_EXPORT=1 */
+  Always: undefined,
+  Often: undefined,
+  Medium: undefined,
+  Rare: undefined,
+};
+
 // const ProdRevalidationTime = {
 //   Always: 1, // as often as possible
 //   Often: 300, // 5 minutes
@@ -22,9 +32,13 @@ const ProdRevalidationTime = {
   Rare: 1, // as often as possible
 };
 
-export const RevalidationTime = config.isProd
-  ? ProdRevalidationTime
-  : StagingRevalidationTime;
+const isStaticBuild = Boolean(process.env.STATIC_BUILD);
+
+export const RevalidationTime = isStaticBuild
+  ? StaticBuildRevalidationTime
+  : config.isProd
+    ? ProdRevalidationTime
+    : StagingRevalidationTime;
 
 export const carouselThreshold = 25;
 
