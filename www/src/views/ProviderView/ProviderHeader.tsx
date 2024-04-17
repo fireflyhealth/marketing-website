@@ -34,7 +34,7 @@ type Props = {
   isAvailable: Maybe<boolean>;
   role: string;
   name: string;
-  blurb: RichTextType;
+  blurb?: Maybe<RichTextType>;
   education?: Maybe<KeyedArray<Institution>>;
   languagesSpoken: string[];
   isAVeteran?: Maybe<boolean>;
@@ -91,7 +91,12 @@ export const ProviderHeader: FC<Props> = ({
                 </div>
                 <p className={cn(HeaderSubtitle)}>{role}</p>
                 <h1 className={cn(HeaderTitle)}>{name}</h1>
-                <RichText content={blurb} fontSize="font-size-8 font-roobert" />
+                {blurb && (
+                  <RichText
+                    content={blurb}
+                    fontSize="font-size-8 font-roobert"
+                  />
+                )}
                 <div className={cn(Qualifications)}>
                   {education && (
                     <div className={cn(QualificationSection)}>
