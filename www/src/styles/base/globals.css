@@ -373,6 +373,9 @@ img {
   .theme-cta-bg-color-secondary {
     background-color: var(--cta-bg-color-secondary);
   }
+  .theme-cta-border-color {
+    border-color: var(--cta-border-color);
+  }
 }
 
 .theme-icon-overlap {
