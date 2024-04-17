@@ -479,6 +479,11 @@ export type CTA = {
   link: Link;
 };
 
+export type Footnotes = {
+  _type: 'footnotes';
+  footnotes: string[];
+};
+
 /**
  * RichText Blocks
  */
@@ -496,6 +501,7 @@ export type RichText = Array<
   | Video
   | OverlapDoubleImages
   | RichImage
+  | Footnotes
 >;
 
 export type SimpleRichText = Array<PortableTextBlock>;

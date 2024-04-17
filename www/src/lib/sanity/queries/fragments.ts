@@ -340,6 +340,9 @@ export const richTextFragment = `
   _type == "video" => {
     ${videoFragment}
   },
+  _type == "footnotes" => {
+    ...
+  },
   markDefs[]{
     _key,
     _type,

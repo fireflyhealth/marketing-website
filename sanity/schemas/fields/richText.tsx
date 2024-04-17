@@ -365,6 +365,11 @@ export const ArticleRichText = defineField({
       type: 'twoColumnUnorderedList',
       title: '2 Column Unordered List',
     },
+    {
+      name: 'footnotes',
+      type: 'footnotes',
+      title: 'Footnotes',
+    },
     ...commonRichTextBlocks,
   ],
 });

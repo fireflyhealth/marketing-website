@@ -107,6 +107,7 @@ import { ColumnsBlock, ColumnsObject } from './blocks/columnsBlock';
 import { BigOrderedList } from './fields/bigOrderedList';
 import { BlogArticleTag } from './documents/blogArticleTag';
 import { CtaCard } from './fields/ctaCard';
+import { Footnotes } from './fields/footnotes';
 
 export const schemaTypes = [
   /* Document Types */
@@ -221,4 +222,5 @@ export const schemaTypes = [
   Icon,
   BlogArticleTagGroup,
   BigOrderedList,
+  Footnotes,
 ];
