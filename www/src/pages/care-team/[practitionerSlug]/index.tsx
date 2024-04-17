@@ -37,7 +37,6 @@ export const createGetStaticProps =
     }
     const [siteSettings, practitioner] = await Promise.all([
       Sanity.siteSettings.get(),
-
       Sanity.providerPage.get(practitionerSlug, config),
     ]);
 

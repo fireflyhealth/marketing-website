@@ -14,7 +14,7 @@ export type BlogPageProps = PageProps & {
   article: BlogArticle;
 };
 
-type PageParams = {
+export type PageParams = {
   blogSlug: string;
   articleSlug: string;
 };
@@ -64,25 +64,9 @@ export const createGetStaticProps =
 
 export const getStaticProps = createGetStaticProps();
 
-const getSlugParams = (blogs: BlogWithArticles[]): PageParams[] =>
-  blogs.reduce<PageParams[]>((slugInfoArray, blog) => {
-    const blogSlug = blog.slug.current;
-
-    if (blog.articles && blog.articles.length > 0) {
-      const articleSlugs = blog.articles.map((article) => article.slug.current);
-      const articleInfos = articleSlugs.map((articleSlug) => ({
-        blogSlug,
-        articleSlug,
-      }));
-      return [...slugInfoArray, ...articleInfos];
-    } else {
-      return slugInfoArray;
-    }
-  }, []);
-
 export const getStaticPaths: GetStaticPaths<PageParams> = async () => {
   const blogs = await Sanity.blog.getSlugInfo();
-  const paths = getSlugParams(blogs).map((params) => ({ params }));
+  const paths = Sanity.blog.getSlugParams(blogs).map((params) => ({ params }));
 
   return {
     paths,

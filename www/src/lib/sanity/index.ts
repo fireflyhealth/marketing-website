@@ -30,6 +30,8 @@ import {
   Practitioner,
   Maybe,
 } from '@/types/sanity';
+import { PageParams } from '@/pages/[pageSlug]/[subpageSlug]';
+import { PageParams as ArticlePageParams } from '@/pages/blog/[blogSlug]/[articleSlug]';
 import { PAGINATION_PAGE_SIZE } from '@/constants';
 import { config } from '@/config';
 import {
@@ -43,13 +45,14 @@ import {
   siteSettingsFragment,
   providerPageFragment,
   subPageFragment,
-  providerPageSettingsFragment,
 } from './queries';
 import {
   blogArticleLinkDataFragment,
   isNotVariantFilter,
   linkableDocumentFragment,
 } from './queries/fragments';
+import sanityData from '@/lib/sanity/sanityData.json';
+import isStaticBuild from '@/utils/isStaticBuild';
 
 export const client = createClient(config.sanity);
 
@@ -79,7 +82,11 @@ export const getDocumentVariantId = (
 
 export type QueryConfig = {
   preferBContent?: boolean;
+  generateStaticData?: boolean;
 };
+
+const shouldGetDataFromSanity = (config: QueryConfig) =>
+  config.generateStaticData || !isStaticBuild;
 
 /**
  * Fetches the B content for a document if:
@@ -93,64 +100,79 @@ const withMaybeBContent = async <T extends WithDocumentVariantInfo | null>(
   primaryDocument: T,
   config: QueryConfig,
   pageContentFragment: string,
+  staticPageBData: T,
   params: Record<string, any> = {},
 ): Promise<T | null> => {
   if (!primaryDocument) return null;
-  const variantId = getDocumentVariantId(primaryDocument);
-  if (!config.preferBContent || !variantId) return primaryDocument;
-  const bDocument = await client.fetch<T>(
-    `*[
-      _id == $variantId
-      && defined(documentVariantInfo.variantOf)
-      && documentVariantInfo.isActive
-    ]{
-      ${pageContentFragment}
-    }[0]`,
-    { variantId, ...params },
-  );
-  return bDocument || primaryDocument;
+
+  if (shouldGetDataFromSanity(config)) {
+    const variantId = getDocumentVariantId(primaryDocument);
+
+    if (!config.preferBContent || !variantId) return primaryDocument;
+
+    const bDocument = await client.fetch<T>(
+      `*[
+        _id == $variantId
+        && defined(documentVariantInfo.variantOf)
+        && documentVariantInfo.isActive
+      ]{
+        ${pageContentFragment}
+      }[0]`,
+      { variantId, ...params },
+    );
+
+    return bDocument || primaryDocument;
+  } else {
+    return staticPageBData || primaryDocument;
+  }
 };
 
 /* Site Settings & Navigation */
 
 export const siteSettings = {
-  get: async (): Promise<SiteSettings> => {
-    const siteSettings = await client.fetch<SiteSettings | null>(
-      `*[_type == "siteSettings" && _id == "${SITE_SETTINGS_DOCUMENT_ID}"][0]{
+  get: async (config: QueryConfig = {}): Promise<SiteSettings> => {
+    const siteSettings = (await shouldGetDataFromSanity(config))
+      ? client.fetch<SiteSettings | null>(
+          `*[_type == "siteSettings" && _id == "${SITE_SETTINGS_DOCUMENT_ID}"][0]{
         ${siteSettingsFragment}
       }`,
-    );
+        )
+      : (sanityData?.siteSettings as unknown);
+
     if (!siteSettings) {
       throw new Error('Could not fetch site settings');
     }
-    return siteSettings;
+    return siteSettings as SiteSettings;
   },
 };
 
 /* Homepage */
 export const homepage = {
   get: async (config: QueryConfig = {}): Promise<Homepage> => {
-    const primaryHomepage =
-      await client.fetch<WithDocumentVariantInfo<Homepage> | null>(
-        `*[
-          _type == "homepage"
-          && _id == "${HOMEPAGE_DOCUMENT_ID}"
-          && ${isNotVariantFilter}
-        ][0] {
-        documentVariantInfo,
-        ${pageFragment}
-      }`,
-      );
+    const primaryHomepage = shouldGetDataFromSanity(config)
+      ? await client.fetch<WithDocumentVariantInfo<Homepage> | null>(
+          `*[
+            _type == "homepage"
+            && _id == "${HOMEPAGE_DOCUMENT_ID}"
+            && ${isNotVariantFilter}
+          ][0] {
+          documentVariantInfo,
+          ${pageFragment}
+        }`,
+        )
+      : (sanityData?.homePage as unknown);
     const homepage = await withMaybeBContent(
       primaryHomepage,
       config,
       pageFragment,
+      sanityData?.homeBPage as unknown,
     );
 
     if (!homepage) {
       throw new Error('Could not fetch homepage');
     }
-    return homepage;
+
+    return homepage as Homepage;
   },
 };
 
@@ -160,9 +182,13 @@ export const page = {
     slug: string,
     config: QueryConfig = {},
   ): Promise<GenericPage | null> => {
-    const genericPage =
-      await client.fetch<WithDocumentVariantInfo<GenericPage> | null>(
-        `*[
+    const staticGenericPages = sanityData?.genericPages as unknown as {
+      [slug: string]: GenericPage;
+    };
+
+    const genericPage = shouldGetDataFromSanity(config)
+      ? await client.fetch<WithDocumentVariantInfo<GenericPage> | null>(
+          `*[
           _type == "genericPage"
           && slug.current == $slug
           && ${isNotVariantFilter}
@@ -170,17 +196,35 @@ export const page = {
           documentVariantInfo,
           ${pageFragment}
         }`,
-        {
-          slug,
-        },
-      );
-    return withMaybeBContent(genericPage, config, pageFragment);
+          {
+            slug,
+          },
+        )
+      : (staticGenericPages?.[slug] as unknown as GenericPage);
+
+    if (!genericPage) {
+      throw new Error(`Could not fetch ${slug} genericPage`);
+    }
+
+    return withMaybeBContent(
+      genericPage,
+      config,
+      pageFragment,
+      staticGenericPages?.[`${slug}-b-content`],
+    );
   },
-  getSlugInfo: (): Promise<GenericPageSlugInfo> =>
-    client.fetch(`*[_type == "genericPage" && ${isNotVariantFilter}]{
+  getSlugInfo: async (
+    config: QueryConfig = {},
+  ): Promise<GenericPageSlugInfo> => {
+    const slugInfo = shouldGetDataFromSanity(config)
+      ? await client.fetch(`*[_type == "genericPage" && ${isNotVariantFilter}]{
         slug,
         subPages[]->{ slug },
-      }`),
+      }`)
+      : (sanityData?.genericPageSlugInfo as unknown);
+
+    return slugInfo as GenericPageSlugInfo;
+  },
 };
 
 export const subPage = {
@@ -189,27 +233,60 @@ export const subPage = {
     subpageSlug: string,
     config: QueryConfig = {},
   ): Promise<SubPage | null> => {
+    const staticGenericSubPages = sanityData?.genericSubPages as unknown as {
+      [pageSlug: string]: { [subpageSlug: string]: SubPage };
+    };
     const params = { parentSlug, subpageSlug };
-    const subPage = await client.fetch<WithDocumentVariantInfo<SubPage> | null>(
-      `*[_type == "subPage"
+    const subPage = shouldGetDataFromSanity(config)
+      ? await client.fetch<WithDocumentVariantInfo<SubPage> | null>(
+          `*[_type == "subPage"
           && slug.current == $subpageSlug
           && ${isNotVariantFilter}
         ]{
           documentVariantInfo,
           ${subPageFragment},
        }[parentPage != null][0]`,
+          params,
+        )
+      : staticGenericSubPages?.[parentSlug]?.[subpageSlug];
+
+    if (!subPage) {
+      throw new Error(`Could not fetch ${parentSlug} - ${subpageSlug} subPage`);
+    }
+
+    return withMaybeBContent(
+      subPage,
+      config,
+      subPageFragment,
+      staticGenericSubPages?.[parentSlug]?.[`${subpageSlug}-b-content`],
       params,
     );
-    return withMaybeBContent(subPage, config, subPageFragment, params);
   },
+  getSlugParams: (parentPages: GenericPageSlugInfo): PageParams[] =>
+    parentPages.reduce<PageParams[]>((slugInfoArray, parentPage) => {
+      const pageSlug = parentPage.slug.current;
+
+      if (parentPage.subPages && parentPage.subPages.length > 0) {
+        const subpageSlugs = parentPage.subPages.map(
+          (subPage) => subPage.slug.current,
+        );
+        const subPageInfos = subpageSlugs.map((subpageSlug) => ({
+          pageSlug,
+          subpageSlug,
+        }));
+        return [...slugInfoArray, ...subPageInfos];
+      } else {
+        return slugInfoArray;
+      }
+    }, []),
 };
 
 /* Special pages */
 export const downloadPage = {
   get: async (config: QueryConfig = {}): Promise<DownloadPage | null> => {
-    const downloadPage =
-      await client.fetch<WithDocumentVariantInfo<DownloadPage> | null>(
-        `*[
+    const downloadPage = shouldGetDataFromSanity(config)
+      ? await client.fetch<WithDocumentVariantInfo<DownloadPage> | null>(
+          `*[
           _type == "downloadPage"
           && _id == "${DOWNLOAD_DOCUMENT_ID}"
           && ${isNotVariantFilter}
@@ -217,17 +294,27 @@ export const downloadPage = {
           documentVariantInfo,
           ${downloadPageFragment}
         }`,
-      );
+        )
+      : (sanityData?.downloadPage as unknown as DownloadPage);
 
-    return withMaybeBContent(downloadPage, config, downloadPageFragment);
+    if (!downloadPage) {
+      throw new Error('Could not fetch downloadPage');
+    }
+
+    return withMaybeBContent(
+      downloadPage,
+      config,
+      downloadPageFragment,
+      sanityData?.downloadBPage as unknown as DownloadPage,
+    );
   },
 };
 
 export const contactPage = {
   get: async (config: QueryConfig = {}): Promise<ContactPage | null> => {
-    const contactPage =
-      await client.fetch<WithDocumentVariantInfo<ContactPage> | null>(
-        `*[
+    const contactPage = shouldGetDataFromSanity(config)
+      ? await client.fetch<WithDocumentVariantInfo<ContactPage> | null>(
+          `*[
           _type == "contactPage"
           && _id == "contactPage"
           && ${isNotVariantFilter}
@@ -235,23 +322,52 @@ export const contactPage = {
           documentVariantInfo,
           ${contactPageFragment}
         }`,
-      );
-    return withMaybeBContent(contactPage, config, contactPageFragment);
+        )
+      : (sanityData.contactPage as unknown as ContactPage);
+
+    if (!contactPage) {
+      throw new Error('Could not fetch contactPage');
+    }
+
+    return withMaybeBContent(
+      contactPage,
+      config,
+      contactPageFragment,
+      sanityData?.contactBPage as unknown as ContactPage,
+    );
   },
 };
 
 export const notFoundPage = {
-  get: (): Promise<NotFoundPage | null> =>
-    client.fetch(
-      `*[_type == "notFoundPage" && _id == "notFoundPage"][0]{${notFoundPageFragment}}`,
-    ),
+  get: async (config: QueryConfig = {}): Promise<NotFoundPage | null> => {
+    const notFoundPage = shouldGetDataFromSanity(config)
+      ? await client.fetch(
+          `*[_type == "notFoundPage" && _id == "notFoundPage"][0]{${notFoundPageFragment}}`,
+        )
+      : (sanityData?.notFoundPage as unknown as NotFoundPage);
+
+    if (!notFoundPage) {
+      throw new Error('Could not fetch notFoundPage');
+    }
+
+    return notFoundPage;
+  },
 };
 
 export const faqPage = {
-  get: (): Promise<FAQPage | null> =>
-    client.fetch(
-      `*[_type == "faqPage" && _id == "faqPage"][0]{${faqPageFragment}}`,
-    ),
+  get: async (config: QueryConfig = {}): Promise<FAQPage | null> => {
+    const faqPage = shouldGetDataFromSanity(config)
+      ? await client.fetch(
+          `*[_type == "faqPage" && _id == "faqPage"][0]{${faqPageFragment}}`,
+        )
+      : (sanityData?.faqPage as unknown as FAQPage);
+
+    if (!faqPage) {
+      throw new Error('Could not fetch faqPage');
+    }
+
+    return faqPage;
+  },
 };
 
 /* Client Page */
@@ -260,9 +376,13 @@ export const clientPage = {
     clientSlug: string,
     config: QueryConfig = {},
   ): Promise<ClientPage | null> => {
-    const clientPage =
-      await client.fetch<WithDocumentVariantInfo<ClientPage> | null>(
-        `*[
+    const clientPages = sanityData?.clientPages as unknown as {
+      [slug: string]: ClientPage;
+    };
+
+    const clientPage = shouldGetDataFromSanity(config)
+      ? await client.fetch<WithDocumentVariantInfo<ClientPage> | null>(
+          `*[
           _type == "clientPage"
           && slug.current == $clientSlug
           && ${isNotVariantFilter}
@@ -270,16 +390,34 @@ export const clientPage = {
         documentVariantInfo,
         ${pageFragment}
       }`,
-        {
-          clientSlug,
-        },
-      );
-    return withMaybeBContent(clientPage, config, pageFragment);
+          {
+            clientSlug,
+          },
+        )
+      : clientPages[clientSlug];
+
+    if (!clientPage) {
+      throw new Error(`Could not fetch ${clientSlug} clientPage`);
+    }
+
+    return withMaybeBContent(
+      clientPage,
+      config,
+      pageFragment,
+      clientPages?.[`${clientSlug}-b-content`],
+    );
   },
-  getSlugInfo: (): Promise<GenericPage[]> =>
-    client.fetch(`*[_type == "clientPage" && ${isNotVariantFilter}]{
+  getSlugInfo: async (
+    config: QueryConfig = {},
+  ): Promise<GenericPageSlugInfo> => {
+    const slugInfo = shouldGetDataFromSanity(config)
+      ? await client.fetch(`*[_type == "clientPage" && ${isNotVariantFilter}]{
       slug,
-    }`),
+    }`)
+      : (sanityData.clientPageSlugInfo as unknown);
+
+    return slugInfo as GenericPageSlugInfo;
+  },
 };
 
 /* Blogs */
@@ -289,8 +427,12 @@ export const blog = {
     blogSlug: string,
     config: QueryConfig = {},
   ): Promise<Blog | null> => {
-    const blog = await client.fetch<WithDocumentVariantInfo<Blog> | null>(
-      `*[
+    const staticBlogPages = sanityData?.blogPages as unknown as {
+      [slug: string]: Blog;
+    };
+    const blog = shouldGetDataFromSanity(config)
+      ? await client.fetch<WithDocumentVariantInfo<Blog> | null>(
+          `*[
         _type == "blog"
         && slug.current == $blogSlug
         && ${isNotVariantFilter}
@@ -298,16 +440,30 @@ export const blog = {
         documentVariantInfo,
         ${blogFragment}
       }`,
-      {
-        blogSlug,
-      },
+          {
+            blogSlug,
+          },
+        )
+      : staticBlogPages?.[blogSlug];
+
+    if (!blog) {
+      throw new Error(`Could not fetch ${blogSlug} blogPage`);
+    }
+
+    return withMaybeBContent(
+      blog,
+      config,
+      blogFragment,
+      staticBlogPages?.[`${blogSlug}-b-content`],
     );
-    return withMaybeBContent(blog, config, blogFragment);
   },
 
-  getSlugInfo: (): Promise<BlogWithArticles[]> =>
-    client.fetch(
-      `*[
+  getSlugInfo: async (
+    config: QueryConfig = {},
+  ): Promise<BlogWithArticles[]> => {
+    const slugInfo = shouldGetDataFromSanity(config)
+      ? await client.fetch(
+          `*[
           _type == "blog"
           && ${isNotVariantFilter}
        ]{
@@ -315,11 +471,16 @@ export const blog = {
           "articles": *[
             _type == "blogArticle"
             && category._ref == ^._id
+            && ${isNotVariantFilter}
           ] {
             slug
           }
         }`,
-    ),
+        )
+      : (sanityData?.blogPageSlugInfo as unknown);
+
+    return slugInfo;
+  },
 
   getBlogArticles: async (
     blogSlug: string,
@@ -351,15 +512,41 @@ export const blog = {
       articles: slicedArticles,
     };
   },
+  getSlugParams: (blogs: BlogWithArticles[]): ArticlePageParams[] => {
+    const articlePageParams = blogs.reduce<ArticlePageParams[]>(
+      (slugInfoArray, blog) => {
+        const blogSlug = blog.slug.current;
+
+        if (blog.articles && blog.articles.length > 0) {
+          const articleSlugs = blog.articles.map(
+            (article) => article.slug.current,
+          );
+          const articleInfos = articleSlugs.map((articleSlug) => ({
+            blogSlug,
+            articleSlug,
+          }));
+          return [...slugInfoArray, ...articleInfos];
+        } else {
+          return slugInfoArray;
+        }
+      },
+      [],
+    );
+
+    return articlePageParams;
+  },
   getArticle: async (
     blogSlug: string,
     articleSlug: string,
     config: QueryConfig = {},
   ): Promise<BlogArticle | null> => {
+    const staticArticlePages = sanityData?.articlePages as unknown as {
+      [blogSlug: string]: { [articleSlug: string]: BlogArticle };
+    };
     const params = { blogSlug, articleSlug };
-    const article =
-      await client.fetch<WithDocumentVariantInfo<BlogArticle> | null>(
-        `*[
+    const article = shouldGetDataFromSanity(config)
+      ? await client.fetch<WithDocumentVariantInfo<BlogArticle> | null>(
+          `*[
           _type == "blogArticle"
           && slug.current == $articleSlug
           && defined(category._ref)
@@ -368,9 +555,22 @@ export const blog = {
           documentVariantInfo,
           ${blogArticleFragment}
         }[category.slug.current == $blogSlug][0]`,
-        params,
+          params,
+        )
+      : staticArticlePages?.[blogSlug]?.[articleSlug];
+
+    if (!article) {
+      throw new Error(
+        `Could not fetch ${blogSlug} - ${articleSlug} articlePage`,
       );
-    return withMaybeBContent(article, config, blogArticleFragment);
+    }
+
+    return withMaybeBContent(
+      article,
+      config,
+      blogArticleFragment,
+      staticArticlePages?.[blogSlug]?.[`${articleSlug}-b-content`],
+    );
   },
 };
 
@@ -382,30 +582,49 @@ export const providerPage = {
     practitionerSlug: string,
     config: QueryConfig = {},
   ): Promise<Practitioner | null> => {
-    const provider =
-      await client.fetch<WithDocumentVariantInfo<Practitioner> | null>(
-        `*[
+    const staticProviderPages = sanityData?.providerPages as unknown as {
+      [slug: string]: Practitioner;
+    };
+    const provider = shouldGetDataFromSanity(config)
+      ? await client.fetch<WithDocumentVariantInfo<Practitioner> | null>(
+          `*[
           _type == "practitioner"
           && slug.current == $practitionerSlug
           && renderProviderPage != false
           && ${isNotVariantFilter}
         ][0]{
           documentVariantInfo,
-          "providerPageSettings": *[_type == "providerPageSettings"][0]{${providerPageSettingsFragment}},
           ${providerPageFragment}
         }`,
-        {
-          practitionerSlug,
-        },
-      );
+          {
+            practitionerSlug,
+          },
+        )
+      : staticProviderPages?.[practitionerSlug];
 
-    return withMaybeBContent(provider, config, blogArticleFragment);
+    if (!provider) {
+      console.warn(
+        `Could not fetch ${practitionerSlug}. This is likely due to "render provider page" set to false on CMS. Please double check if this is intended decision.`,
+      );
+    }
+
+    return withMaybeBContent(
+      provider,
+      config,
+      providerPageFragment,
+      staticProviderPages?.[`${practitionerSlug}-b-content`],
+    );
   },
-  getSlugInfo: (): Promise<Practitioner[]> =>
-    client.fetch(`*[_type == "practitioner" && ${isNotVariantFilter}]{
+  getSlugInfo: async (config: QueryConfig = {}): Promise<Practitioner[]> => {
+    const slugInfo = shouldGetDataFromSanity(config)
+      ? await client.fetch(`*[_type == "practitioner" && ${isNotVariantFilter}]{
       slug,
       renderProviderPage,
-    }`),
+    }`)
+      : (sanityData?.providerPageSlugInfo as unknown);
+
+    return slugInfo;
+  },
 };
 
 /**

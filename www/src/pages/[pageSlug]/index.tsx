@@ -3,14 +3,12 @@ import React, { FC } from 'react';
 import { GetStaticProps, GetStaticPaths } from 'next';
 import { PageProps as CommonPageProps } from '@/types/next';
 import { RevalidationTime } from '@/constants';
-import isStaticBuild from '@/utils/isStaticBuild';
 
-import { GenericPage, SiteSettings } from '@/types/sanity';
+import { GenericPage } from '@/types/sanity';
 import * as Sanity from '@/lib/sanity';
 import { PageView } from '@/views/PageView';
 import { PageMetadata } from '@/components/Metadata/PageMetadata';
 import { QueryConfig } from '@/lib/sanity';
-import sanityData from '@/lib/sanity/sanityData.json';
 
 export type PageProps = CommonPageProps & {
   page: GenericPage;
@@ -38,25 +36,9 @@ export const createGetStaticProps =
       throw new Error('pageSlug param is not a string');
     }
 
-    const staticGenericPages = sanityData.genericPages as unknown as {
-      [slug: string]: GenericPage;
-    };
-
-    const getStaticContent = () => {
-      if (config?.preferBContent) {
-        const content = staticGenericPages[`${pageSlug}-b-content`];
-
-        return content || staticGenericPages[pageSlug];
-      }
-
-      return staticGenericPages[pageSlug];
-    };
-
     const [siteSettings, page] = await Promise.all([
-      isStaticBuild
-        ? (sanityData.siteSettings as unknown as SiteSettings)
-        : Sanity.siteSettings.get(),
-      isStaticBuild ? getStaticContent() : Sanity.page.get(pageSlug, config),
+      Sanity.siteSettings.get(),
+      Sanity.page.get(pageSlug, config),
     ]);
 
     const navigationOverrides = page?.navigationOverrides;
@@ -80,9 +62,7 @@ export const createGetStaticProps =
 export const getStaticProps = createGetStaticProps();
 
 export const getStaticPaths: GetStaticPaths<PageParams> = async () => {
-  const pages = isStaticBuild
-    ? sanityData.genericPageSlugInfo
-    : await Sanity.page.getSlugInfo();
+  const pages = await Sanity.page.getSlugInfo();
   const paths = pages.map((page) => ({
     params: { pageSlug: page.slug.current },
   }));
