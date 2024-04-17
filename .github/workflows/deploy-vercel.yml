@@ -28,7 +28,7 @@ jobs:
   # Create a preview deployment on PR pushes (not main or prod)
   deploy-preview:
     name: Preview
-    if: github.ref != 'refs/heads/main' && github.ref != 'refs/heads/production'
+    if: github.ref != 'refs/heads/main' && github.ref != 'refs/heads/production' && github.ref != 'refs/heads/cms-updates' 
     runs-on: ubuntu-latest
     outputs:
       preview-url: ${{ steps.vercel.outputs.preview-url }}
@@ -36,6 +36,29 @@ jobs:
       run:
         working-directory: ${{ inputs.directory }}
     steps:
+      - uses: actions/checkout@v3
+      - uses: amondnet/vercel-action@v25
+        id: vercel
+        with:
+          vercel-project-id: ${{ inputs.vercel-project-id }}
+          vercel-org-id: ${{ inputs.vercel-org-id }}
+          scope: ${{ inputs.vercel-org-id }}
+          vercel-token: ${{ secrets.vercel-token }}
+          github-token: ${{ secrets.github-token }}
+
+  deploy-preview-with-static-cms:
+    name: Preview
+    if: github.ref == 'refs/heads/cms-updates' 
+    runs-on: ubuntu-latest
+    outputs:
+      preview-url: ${{ steps.vercel.outputs.preview-url }}
+    defaults:
+      run:
+        working-directory: ${{ inputs.directory }}
+    steps:
+      - uses: ./.github/workflows/yarn-setup
+      - name: set env to static build
+        run: yarn STATIC_BUILD=true
       - uses: actions/checkout@v3
       - uses: amondnet/vercel-action@v25
         id: vercel
