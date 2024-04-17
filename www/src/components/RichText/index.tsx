@@ -16,6 +16,7 @@ import { BigNumbers } from '../BigNumber';
 import { TwoColumnUnorderedList } from '../TwoColumnUnorderedList';
 import { OverlapDoubleImages } from '../OverlapDoubleImages';
 import { ArticleRichTextQuote } from '../ArticleRichTextQuote';
+import { Footnotes } from '../Footnotes';
 import { RichTextCtaRow } from './RichTextCtaRow';
 import { BigOrderedList } from './BigOrderedList';
 
@@ -126,6 +127,9 @@ const components: Partial<PortableTextReactComponents> = {
           <Video video={props.value} posterSizes={['100vw']} />
         </div>
       );
+    },
+    footnotes: (props) => {
+      return <Footnotes footnotes={props.value} />;
     },
   },
   marks: {
