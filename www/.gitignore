@@ -45,4 +45,4 @@ src/mockData/mockData.json
 
 # Site data
 # - run yarn update-site-data to generate this!
-# src/lib/sanity/siteData.json
+src/lib/sanity/siteData.json
