@@ -15,7 +15,7 @@ export const TestimonialBlock: FC<Props> = ({ testimonialBlock }) => {
   return (
     <ContentBlockWrapper header={header} id={subnav?.contentBlockId}>
       <div
-        className={cn('TestimonialBlock mt-8 md:mt-0 pb-16', {
+        className={cn('TestimonialBlock mt-8 md:mt-0 pb-4 md:pb-16', {
           'pt-12': !header,
         })}
       >
@@ -25,8 +25,8 @@ export const TestimonialBlock: FC<Props> = ({ testimonialBlock }) => {
               key={quoteObject._key}
               className={cn(
                 index === testimonials.length - 1
-                  ? ''
-                  : 'md:-mr-10 lg:-mr-[38px]',
+                  ? 'mr-grid-margin-sm md:mr-0'
+                  : 'mr-grid-margin-sm md:-mr-10 lg:-mr-[38px]',
               )}
             >
               <TestimonialItem quoteObject={quoteObject} />

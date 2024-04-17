@@ -24,6 +24,10 @@ const getCategoryGroups = (faqs: FAQ[]): SortedFAQCategory[] => {
   const mappedCategories = faqs.reduce<
     Record<string, { category: FAQCategoryDocument; questions: FAQ[] }>
   >((prevGroups, faq) => {
+    // Skip hidden FAQs
+    if (faq.hiddenOnFaqPage) {
+      return prevGroups;
+    }
     const prevGroupCategoryQuestions =
       prevGroups[faq.category.slug.current]?.questions || [];
     return {
@@ -74,7 +78,6 @@ const getCategoryGroups = (faqs: FAQ[]): SortedFAQCategory[] => {
 export const FAQPageView: FC<FAQPageViewProps> = ({ faqPage }) => {
   const searchParams = useSearchParams();
   const categoryParam = searchParams?.get('category');
-  const faqParam = searchParams?.get('faq');
 
   const faqCategories = useMemo(
     () => getCategoryGroups(faqPage.faqs),
@@ -90,9 +93,8 @@ export const FAQPageView: FC<FAQPageViewProps> = ({ faqPage }) => {
   })?.category.slug.current;
 
   return (
-    <div className="p-4 md:p-12">
+    <div className="overflow-clip">
       <HeaderArea block={faqPage.header} />
-      <h1 className="font-trust font-size-3">{faqPage.title}</h1>
       <div>
         <Tabs
           initialTabKey={initialTabKey}

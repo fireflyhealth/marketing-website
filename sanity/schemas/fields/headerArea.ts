@@ -5,11 +5,11 @@ export const HeaderArea = defineType({
   title: 'Header Area',
   type: 'array',
   of: [
-    { type: 'videoHeader' },
+    { type: 'simpleTextHeader' },
     { type: 'textHeader' },
     { type: 'textWithDualCtaHeader' },
-    { type: 'simpleTextHeader' },
     { type: 'twoUpHeader' },
+    { type: 'videoHeader' },
   ],
   validation: (Rule) =>
     Rule.max(1).error('Ony one header is allowed per page.'),

@@ -10,20 +10,27 @@ import { ContentBlockWrapper } from '../ContentBlockWrapper';
 
 type ColumnsObjectProps = {
   columnsObject: ColumnsBlockType | ColumnsObjectType;
+  isTabContent?: boolean;
 };
 
-export const ColumnsObject: FC<ColumnsObjectProps> = ({ columnsObject }) => {
+export const ColumnsObject: FC<ColumnsObjectProps> = ({
+  columnsObject,
+  isTabContent,
+}) => {
   const { theme, columnCount, content } = columnsObject;
   return (
     <Theme theme={theme}>
       <div
         className={cn(
-          'grid gap-y-12 my-12',
+          'grid gap-y-12 py-12',
           getColumnCountClassName(columnCount),
-          'md:gap-y-24 md:gap-x-12',
+          'md:gap-x-grid-margin-lg',
           theme == ColorTheme.White
             ? ''
-            : 'py-12 md:p-12 theme-bg-color rounded-xl container-padding-bleed-mobile-only',
+            : 'md:px-grid-margin-lg theme-bg-color rounded-xl container-padding-bleed-mobile-only',
+          {
+            'mt-0': isTabContent,
+          },
         )}
       >
         {content.map((content, index) => (
@@ -47,9 +54,9 @@ const getColumnCountClassName = (
     case 4:
       return 'lg:grid-cols-4';
     case 3:
-      return 'lg:grid-cols-3';
+      return 'md:grid-cols-3';
     case 2:
-      return 'lg:grid-cols-2';
+      return 'md:grid-cols-2';
     default:
       // @ts-expect-error
       console.warn(`${columnCount.toString()} is not a valid column count`);

@@ -12,7 +12,7 @@ type FeaturedStoryCardProps = {
 };
 
 export const FeaturedStoryCard: FC<FeaturedStoryCardProps> = ({ story }) => {
-  const { title, thumbnail, _updatedAt, publishDate, slug } = story;
+  const { title, thumbnail, publishDate, slug } = story;
   const linkButtonId = `featuredStoryCard-${slug.current}`;
   return (
     <Theme theme={ColorTheme.Sienna} className="h-full">
@@ -35,7 +35,7 @@ export const FeaturedStoryCard: FC<FeaturedStoryCardProps> = ({ story }) => {
         <div className="p-6 md:p-8">
           <h3 className="font-size-6 font-trust">{title}</h3>
           <div className="py-3 md:py-4 theme-text-color-secondary">
-            {formatSanityDate(publishDate || _updatedAt)}
+            {formatSanityDate(publishDate)}
           </div>
           <LinkButton
             id={linkButtonId}

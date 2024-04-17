@@ -100,6 +100,7 @@ export const FrequentlyAskedQuestion = defineType({
       title: 'Subject',
       type: 'reference',
       to: [{ type: 'faqSubject' }],
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'category',
@@ -130,7 +131,7 @@ export const FrequentlyAskedQuestion = defineType({
       name: 'answer',
       fieldset: 'question',
       title: 'Answer',
-      type: 'simpleRichText',
+      type: 'limitedRichText',
       validation: (Rule) => Rule.required(),
     }),
     defineField({

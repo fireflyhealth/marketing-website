@@ -2,6 +2,19 @@ import { defineField } from 'sanity';
 import { icons } from '../../lib/icons';
 import { richTextToString } from '../../lib/richTextToString';
 
+const SuperIcon = () => (
+  <div>
+    x<sup>2</sup>
+  </div>
+);
+const SuperDecorator = (props) => <sup>{props.children}</sup>;
+const SubIcon = () => (
+  <div>
+    x<sub>2</sub>
+  </div>
+);
+const SubDecorator = (props) => <sub>{props.children}</sub>;
+
 /**
  * A simple rich text field type that does not allow
  * for headings (just bold, italics, links)
@@ -21,7 +34,18 @@ export const SimpleRichText = defineField({
         decorators: [
           { title: 'Bold', value: 'strong' },
           { title: 'Italic', value: 'em' },
-          { title: 'Underline', value: 'underline' },
+          {
+            title: 'Sub',
+            value: 'sub',
+            icon: SubIcon,
+            component: SubDecorator,
+          },
+          {
+            title: 'Super',
+            value: 'super',
+            icon: SuperIcon,
+            component: SuperDecorator,
+          },
         ],
         annotations: [
           {
@@ -57,6 +81,54 @@ export const SimpleRichText = defineField({
   ],
 });
 
+// Some place like "blurb" in a blog article schema should not have link option since whole blurb section will be clickable
+export const SimpleRichTextWithoutLink = defineField({
+  name: 'simpleRichTextWithoutLink',
+  title: 'Rich Text',
+  type: 'array',
+  of: [
+    {
+      type: 'block',
+      styles: [],
+      lists: [],
+      marks: {
+        decorators: [
+          { title: 'Bold', value: 'strong' },
+          { title: 'Italic', value: 'em' },
+          {
+            title: 'Sub',
+            value: 'sub',
+            icon: SubIcon,
+            component: SubDecorator,
+          },
+          {
+            title: 'Super',
+            value: 'super',
+            icon: SuperIcon,
+            component: SuperDecorator,
+          },
+        ],
+        annotations: [
+          {
+            name: 'textHighlight',
+            title: 'Highlight',
+            type: 'object',
+            icon: icons.Highlight,
+            fields: [
+              {
+                name: 'textHighlight',
+                title: 'Highlight',
+                type: 'theme',
+                validation: (Rule) => Rule.required(),
+              },
+            ],
+          },
+        ],
+      },
+    },
+  ],
+});
+
 /**
  * Rich text blocks that are used within ChildBlockRichText
  * and ArticleRichText
@@ -65,6 +137,7 @@ const commonRichTextBlocks = [
   { name: 'barGraphObject', type: 'barGraphItems', title: 'Bar Graph' },
   { name: 'bigNumbers', type: 'bigNumbers', title: 'Big Numbers' },
   { name: 'richTextCtaRow', type: 'richTextCtaRow', title: 'CTAs' },
+  { name: 'richImage', type: 'richImageWithCaption', title: 'Image' },
   {
     name: 'bigOrderedList',
     type: 'bigOrderedList',
@@ -96,7 +169,18 @@ export const LimitedRichText = defineField({
         decorators: [
           { title: 'Bold', value: 'strong' },
           { title: 'Italic', value: 'em' },
-          { title: 'Underline', value: 'underline' },
+          {
+            title: 'Sub',
+            value: 'sub',
+            icon: SubIcon,
+            component: SubDecorator,
+          },
+          {
+            title: 'Super',
+            value: 'super',
+            icon: SuperIcon,
+            component: SuperDecorator,
+          },
         ],
         annotations: [
           {
@@ -162,7 +246,18 @@ export const ContentBlockRichText = defineField({
             decorators: [
               { title: 'Bold', value: 'strong' },
               { title: 'Italic', value: 'em' },
-              { title: 'Underline', value: 'underline' },
+              {
+                title: 'Sub',
+                value: 'sub',
+                icon: SubIcon,
+                component: SubDecorator,
+              },
+              {
+                title: 'Super',
+                value: 'super',
+                icon: SuperIcon,
+                component: SuperDecorator,
+              },
             ],
             annotations: [
               {
@@ -182,7 +277,6 @@ export const ContentBlockRichText = defineField({
           },
         },
         { name: 'icon', type: 'icon', title: 'Icon' },
-        { name: 'richImage', type: 'richImageWithCaption', title: 'Image' },
         {
           name: 'twoColumnUnorderedList',
           type: 'twoColumnUnorderedList',
@@ -227,7 +321,18 @@ export const ArticleRichText = defineField({
         decorators: [
           { title: 'Bold', value: 'strong' },
           { title: 'Italic', value: 'em' },
-          { title: 'Underline', value: 'underline' },
+          {
+            title: 'Sub',
+            value: 'sub',
+            icon: SubIcon,
+            component: SubDecorator,
+          },
+          {
+            title: 'Super',
+            value: 'super',
+            icon: SuperIcon,
+            component: SuperDecorator,
+          },
         ],
         annotations: [
           {
@@ -247,7 +352,6 @@ export const ArticleRichText = defineField({
       },
     },
     { name: 'icon', type: 'icon', title: 'Icon' },
-    { name: 'richImage', type: 'richImageWithCaption', title: 'Image' },
     { name: 'form', type: 'hubspotForm', title: 'Form' },
     { name: 'quoteObject', type: 'quoteObject', title: 'Quote' },
     {

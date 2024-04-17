@@ -22,16 +22,10 @@ export const HeaderContentChildBlock: FC<HeaderContentChildBlockProps> = ({
   headerContentChildBlock,
   imagePriority,
 }) => {
-  const { eyebrow, eyebrowImage, heading, body, cta, size } =
-    headerContentChildBlock;
+  const { eyebrow, eyebrowImage, heading, body, cta } = headerContentChildBlock;
 
   return (
-    <div
-      className={cn(Wrapper, {
-        'lg:min-h-[676px]': size === 'small',
-        'lg:min-h-[800px]': size === 'large',
-      })}
-    >
+    <div className={cn(Wrapper, 'min-h-[40vw]')}>
       {eyebrowImage && (
         <SanityImage
           className={cn(EyebrowImage)}

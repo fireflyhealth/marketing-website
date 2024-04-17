@@ -98,30 +98,28 @@ export const themeOptions = [
  *
  * (These always have a 'header' field)
  */
-
-/* TODO: Would be nice to better organize these for editors.
- * Alphabetically? Grouped by content type? */
 export const defaultContentBlockTypes = [
+  { type: 'cardListBlock' },
+  { type: 'columnsBlock' },
+  { type: 'dividerBlock' },
+  { type: 'drawerListBlock' },
+  { type: 'faqBlock' },
+  { type: 'featuredStoriesBlock' },
   { type: 'imageBlock' },
   { type: 'imageCarouselBlock' },
-  { type: 'doubleCtaBlock' },
-  { type: 'practitionersBlock' },
-  { type: 'twoUpBlock' },
-  { type: 'imageTextOverlapBlock' },
-  { type: 'quoteBlock' },
-  { type: 'drawerListBlock' },
-  { type: 'sequenceBlock' },
-  { type: 'reviewBlock' },
   { type: 'imageGridBlock' },
-  { type: 'faqBlock' },
-  { type: 'cardListBlock' },
-  { type: 'featuredStoriesBlock' },
-  { type: 'columnsBlock' },
+  { type: 'imageTextOverlapBlock' },
+  { type: 'nearbyBlock' },
+  { type: 'practitionersBlock' },
+  { type: 'quoteBlock' },
+  { type: 'reviewBlock' },
   { type: 'richTextBlock' },
+  { type: 'sequenceBlock' },
+  { type: 'smallImageCarouselBlock' },
   { type: 'tabsBlock' },
   { type: 'testimonialBlock' },
-  { type: 'smallImageCarouselBlock' },
-  { type: 'dividerBlock' },
+  { type: 'doubleCtaBlock' },
+  { type: 'twoUpBlock' },
 ];
 
 /**
@@ -133,7 +131,7 @@ export const defaultContentBlockTypes = [
 export const providerPageBlockTypes = [
   { type: 'columnsBlock' },
   { type: 'imageGridBlock' },
+  { type: 'providerPhilosophyBlock' },
   { type: 'testimonialBlock' },
   { type: 'videoBlock' },
-  { type: 'providerPhilosophyBlock' },
 ];

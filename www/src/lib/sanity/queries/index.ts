@@ -14,7 +14,7 @@ import {
   simpleRichTextFragment,
   linkableDocumentFragment,
   ctaFragment,
-  testimonialBlockFragment,
+  linkFragment,
 } from './fragments';
 
 export const siteSettingsFragment = `
@@ -104,7 +104,6 @@ export const faqPageFragment = `
   slug,
   ${pageSharedFieldsFragment},
   metadata{${metadataFragment}},
-  title,
   "faqs": *[_type == "faq"]{
     ${faqFragment}
   }
@@ -121,7 +120,10 @@ export const blogArticleFragment = `
   tags[]->{
     _type,
     title,
-    slug
+    slug,
+    link{
+      ${linkFragment}
+    }
   },
   slug,
   navigationOverrides {${navigationOverridesFragment}},
@@ -132,8 +134,6 @@ export const blogArticleFragment = `
   authorName,
   publishDate,
   updatedDate,
-  _createdAt,
-  _updatedAt
 `;
 
 export const blogFragment = `
@@ -171,6 +171,7 @@ export const providerPageSettingsFragment = `
 export const providerPageFragment = `
   name,
   slug,
+  "providerPageSettings": *[_type == "providerPageSettings"][0]{${providerPageSettingsFragment}},
   qualifications,
   role->{...},
   pronouns,

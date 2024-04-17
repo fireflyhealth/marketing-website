@@ -39,7 +39,31 @@ export const BigNumber = defineType({
       name: 'value',
       type: 'number',
       title: 'Value',
-      validation: (Rule) => Rule.required(),
+      // value should be limited to 6 digits
+      validation: (Rule) => Rule.lessThan(1000000).required(),
+    }),
+    defineField({
+      name: 'valueRange',
+      type: 'boolean',
+      title: 'Value Range',
+      initialValue: false,
+      description:
+        'Toogle this switch to show a range of values (ex. 50 - 60%).',
+    }),
+    defineField({
+      name: 'valueTwo',
+      type: 'number',
+      title: 'Value Two',
+      hidden: ({ parent }) => parent.valueRange === false,
+      validation: (Rule) =>
+        Rule.custom((value, context) => {
+          // @ts-ignore
+          if (context?.parent?.valueRange === true && !value) {
+            return 'The second value is required when creating a value range.';
+          }
+
+          return true;
+        }).lessThan(1000000),
     }),
     defineField({
       name: 'unit',
@@ -97,9 +121,10 @@ export const BigNumber = defineType({
     },
     prepare: ({ unit, value, description }) => {
       const title = getBigNumberPreviewTitle({ unit, value });
+      const subtitle = [title, richTextToString(description)].join(' | ');
       return {
-        title,
-        subtitle: richTextToString(description),
+        title: 'Big Number Block',
+        subtitle,
         icon: icons.Percentage,
       };
     },
@@ -147,10 +172,13 @@ export const BigNumbers = defineType({
         : undefined;
       const lengthSubtitle =
         bigNumbers.length > 1 ? `+ ${bigNumbers.length - 1} more` : undefined;
+      const subtitle = [title, citationSubtitle, lengthSubtitle]
+        .filter(Boolean)
+        .join(' | ');
 
       return {
-        title,
-        subtitle: citationSubtitle || lengthSubtitle,
+        title: 'Big Numbers Block',
+        subtitle,
         icon: icons.Percentage,
       };
     },

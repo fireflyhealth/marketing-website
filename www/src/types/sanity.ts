@@ -169,6 +169,7 @@ export type FAQ = SanityDocument & {
   question: string;
   answer: SimpleRichText;
   slug: Slug;
+  hiddenOnFaqPage?: Maybe<boolean>;
 };
 
 /* Properties common to both GenericPage & SubPage */
@@ -229,7 +230,7 @@ export type ProviderPageSettings = {
 export type RoleDescription = {
   _type: 'roleDescription';
   role: string;
-  description: SimpleRichText;
+  description?: Maybe<SimpleRichText>;
 };
 
 export type Practitioner = SanityDocument & {
@@ -246,7 +247,7 @@ export type Practitioner = SanityDocument & {
   education?: Maybe<KeyedArray<Institution>>;
   languagesSpoken: string[];
   isAVeteran?: Maybe<boolean>;
-  blurb: RichText;
+  blurb?: Maybe<RichText>;
   headerBgThemeColor?: Maybe<ColorTheme>;
   contentArea?: Maybe<ContentArea>;
   metadata?: Metadata;
@@ -305,18 +306,13 @@ export type BlogArticleTag = SanityDocument & {
   _type: 'blogArticleTag';
   title: string;
   slug: Slug;
+  link?: Maybe<Link>;
 };
 
 export type BlogArticle = SanityDocument & {
   _type: 'blogArticle';
-  /* Usually this is typed as optional because we do not fetch
-   * the field on most documents, even though this value is always
-   * present in sanity documents. It's required here because we use
-   * it in rendering the publish date of documents. */
-  _updatedAt: string;
-  _createdAt: string;
   title: string;
-  publishDate: Maybe<string>;
+  publishDate: string;
   updatedDate: Maybe<string>;
   articleImage: Maybe<RichImage>;
   authorName: Maybe<string>;
@@ -340,7 +336,6 @@ export type BlogArticleLinkData = Pick<
   | 'thumbnail'
   | 'publishDate'
   | 'blurb'
-  | '_updatedAt'
   | '_updatedAt'
 >;
 
@@ -500,11 +495,12 @@ export type RichText = Array<
   | QuoteObject
   | Video
   | OverlapDoubleImages
+  | RichImage
 >;
 
 export type SimpleRichText = Array<PortableTextBlock>;
 export type LimitedRichText = Array<
-  PortableTextBlock | BigNumbers | RichTextCtaRow
+  PortableTextBlock | BigNumbers | RichTextCtaRow | RichImage
 >;
 
 export type RichTextCtaRow = {
@@ -541,6 +537,8 @@ export type BigNumber = {
     position: 'before' | 'after';
   }>;
   value: number;
+  valueRange: Maybe<boolean>;
+  valueTwo: Maybe<number>;
   description: SimpleRichText;
 };
 
@@ -678,7 +676,6 @@ export type HeaderContentChildBlock = {
   heading: string;
   body: SimpleRichText;
   cta: Maybe<CTA>;
-  size: 'small' | 'large';
 };
 
 export type RichTextChildBlock = {
@@ -742,7 +739,8 @@ export type ContentBlock =
   | TestimonialBlock
   | DividerBlock
   | VideoBlock
-  | ProviderPhilosophyBlock;
+  | ProviderPhilosophyBlock
+  | NearbyBlock;
 
 export type ContentArea = KeyedArray<ContentBlock>;
 
@@ -1004,4 +1002,17 @@ export type ProviderPhilosophyBlock = ContentBlockCommon & {
     icon: IconTypeName;
   };
   quote: string;
+};
+
+type AspectRatio = {
+  figureOne: number;
+  figureTwo: number;
+};
+
+export type NearbyBlock = ContentBlockCommon & {
+  _type: 'nearbyBlock';
+  mapUrl: 'string';
+  mobileAspectRatio: AspectRatio;
+  tabletAspectRatio: AspectRatio;
+  desktopAspectRatio: AspectRatio;
 };

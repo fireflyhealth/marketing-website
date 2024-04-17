@@ -39,6 +39,7 @@ type RichTextProps = {
   textColor?: string;
   className?: string;
   alignCenter?: boolean;
+  isTabContent?: boolean;
 };
 
 const BlockRenderer: PortableTextComponent<PortableTextBlock> = ({
@@ -154,6 +155,8 @@ const components: Partial<PortableTextReactComponents> = {
         </span>
       );
     },
+    sub: (props) => <sub>{props.children}</sub>,
+    super: (props) => <sup>{props.children}</sup>,
   },
 };
 
@@ -163,6 +166,7 @@ export const RichText: FC<RichTextProps> = ({
   fontSize,
   textColor,
   alignCenter,
+  isTabContent,
 }) => {
   return (
     <div
@@ -172,7 +176,9 @@ export const RichText: FC<RichTextProps> = ({
         fontSize || 'font-size-8',
         className,
         {
-          'flex flex-col items-center text-center': alignCenter,
+          'RichText--align-center flex flex-col items-center text-center':
+            alignCenter,
+          'mt-0': isTabContent,
         },
       )}
     >

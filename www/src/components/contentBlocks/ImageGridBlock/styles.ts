@@ -1,8 +1,12 @@
-export const Wrapper = ['theme-bg-color p-4 rounded-2xl', 'md:p-8', 'lg:p-12'];
+export const Wrapper = [
+  'theme-bg-color p-4 rounded-2xl',
+  'md:p-8',
+  'lg:p-grid-margin-lg',
+];
 
 export const ImagesContainer = [
-  'flex flex-wrap justify-center items-center gap-x-4',
-  'gap-x-8',
+  'grid grid-cols-2 gap-x-4 justify-items-center',
+  'md:grid-cols-4 md:gap-x-8',
   'lg:gap-x-12',
 ];
 

@@ -4,14 +4,14 @@ export const Wrapper = [
   'lg:grid-cols-[500px_1fr]',
 ];
 
-export const Header = ['px-4 py-12 flex-1', 'md:p-0'];
+export const Header = ['py-12 pr-12 md:py-0 lg:pr-grid-margin-lg flex-1'];
 
 export const Title = ['font-trust font-size-4 theme-text-color-primary'];
 
 export const Description = ['mt-5', 'md:mt-6'];
 
 export const Reviews = [
-  'flex flex-col grow space-y-4 px-4 pt-0 pb-4',
+  'flex flex-col grow space-y-4 pt-0 pb-4',
   'md:p-0 md:space-y-6',
 ];
 

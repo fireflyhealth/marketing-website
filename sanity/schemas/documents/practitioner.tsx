@@ -154,15 +154,6 @@ export const Practitioner = defineType({
       group: 'providerPage',
       fieldset: 'providerPageFields',
       hidden: ({ parent }) => !parent.renderProviderPage,
-      validation: (Rule) =>
-        Rule.custom((value, context) => {
-          // @ts-ignore
-          if (context?.parent?.renderProviderPage === true && !value) {
-            return 'A blurb about this practitioner is required.';
-          }
-
-          return true;
-        }),
     }),
     defineField({
       name: 'headerBgThemeColor',
@@ -190,18 +181,11 @@ export const Practitioner = defineType({
       fieldset: 'providerPageFields',
       hidden: ({ parent }) => !parent.renderProviderPage,
     }),
-    defineField({
-      name: 'title',
-      title: 'Title',
-      type: 'string',
-      description:
-        'DEPRECATED: use the "role" field to reference a "role description" document.',
-    }),
   ],
   preview: {
     select: {
       name: 'name',
-      title: 'title',
+      title: 'role.role',
       qualifications: 'qualifications',
       headshot: 'headshot',
       documentVariantInfo: 'documentVariantInfo',

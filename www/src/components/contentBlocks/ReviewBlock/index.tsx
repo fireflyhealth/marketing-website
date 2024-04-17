@@ -30,15 +30,17 @@ export const ReviewBlock: FC<Props> = ({ reviewBlock }) => {
     <ContentBlockWrapper id={subnav?.contentBlockId} header={header}>
       <div className={cn(Wrapper)}>
         <div className={cn(Header)}>
-          <h2 className={cn(Title)}>{reviewHeading.title}</h2>
-          <div className={cn(Description)}>
-            {reviewHeading.description && (
-              <RichText
-                content={reviewHeading.description}
-                fontSize="font-size-8 font-roobert"
-                textColor="theme-text-color-secondary"
-              />
-            )}
+          <div className={cn('lg:sticky lg:top-12')}>
+            <h2 className={cn(Title)}>{reviewHeading.title}</h2>
+            <div className={cn(Description)}>
+              {reviewHeading.description && (
+                <RichText
+                  content={reviewHeading.description}
+                  fontSize="font-size-8 font-roobert"
+                  textColor="theme-text-color-secondary"
+                />
+              )}
+            </div>
           </div>
         </div>
         <div className={cn(Reviews)}>

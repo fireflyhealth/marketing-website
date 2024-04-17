@@ -18,7 +18,7 @@ export const FAQSubject = defineType({
       title: 'Slug',
       type: 'slug',
       options: {
-        source: 'subjectName',
+        source: 'title',
       },
       validation: (Rule) => Rule.required(),
     }),

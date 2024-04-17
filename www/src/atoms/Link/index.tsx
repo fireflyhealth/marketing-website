@@ -1,5 +1,7 @@
 import React, { FC } from 'react';
 import NextLink from 'next/link';
+import { useRouter } from 'next/router';
+import cn from 'classnames';
 import { Link as LinkType, LinkableDocumentData, Maybe } from '@/types/sanity';
 import { getLinkableDocumentPath } from '@/utils/linking';
 
@@ -14,6 +16,7 @@ type LinkProps = {
   className?: string;
   tabindex?: number;
   linkRef?: React.Ref<HTMLAnchorElement>;
+  navItem?: boolean;
 };
 
 export const Link: FC<LinkProps> = ({
@@ -24,8 +27,10 @@ export const Link: FC<LinkProps> = ({
   className,
   tabindex,
   linkRef,
+  navItem,
   ...props
 }) => {
+  const router = useRouter();
   // We should not not have link since we have cms validation for this to block publish
   // However, for preview, editor does not need to publish (which means the validation is not enforced) so adding checker here.
   if (!link) {
@@ -44,7 +49,9 @@ export const Link: FC<LinkProps> = ({
         id={id || undefined}
         aria-label={ariaLabel || undefined}
         target={target}
-        className={className}
+        className={cn(className, {
+          'theme-cta-border-color': navItem && router.asPath.includes(url),
+        })}
         tabIndex={tabindex}
       >
         {children}
@@ -78,7 +85,9 @@ export const Link: FC<LinkProps> = ({
       id={id || undefined}
       aria-label={ariaLabel || undefined}
       href={href}
-      className={className}
+      className={cn(className, {
+        'theme-cta-border-color': navItem && router.asPath.includes(href),
+      })}
       tabIndex={tabindex}
       {...props}
     >

@@ -390,7 +390,6 @@ export const providerPage = {
           && ${isNotVariantFilter}
         ][0]{
           documentVariantInfo,
-          "providerPageSettings": *[_type == "providerPageSettings"][0]{${providerPageSettingsFragment}},
           ${providerPageFragment}
         }`,
         {
@@ -398,7 +397,7 @@ export const providerPage = {
         },
       );
 
-    return withMaybeBContent(provider, config, blogArticleFragment);
+    return withMaybeBContent(provider, config, providerPageFragment);
   },
   getSlugInfo: (): Promise<Practitioner[]> =>
     client.fetch(`*[_type == "practitioner" && ${isNotVariantFilter}]{

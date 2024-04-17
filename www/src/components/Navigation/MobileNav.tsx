@@ -22,7 +22,7 @@ export const MobileNav: FC<Props> = ({
 }) => {
   const { mobileNavOpen, toggleGlobalNav } = useUIProvider();
   return (
-    <nav className={cn(NavWrapper, 'absolute lg:hidden')}>
+    <nav id="mobile-nav" className={cn(NavWrapper, 'absolute lg:hidden')}>
       <div
         className={cn(
           NavContainer,
@@ -34,7 +34,7 @@ export const MobileNav: FC<Props> = ({
           className="element-focus p-2 -ml-2 -mt-2"
           aria-label="Navigate to Firefly homepage"
         >
-          <div className="w-[120px] md:w-[175px]">
+          <div className="w-[150px] md:w-[175px]">
             {mobileNavOpen ? <LogotypeMonochrome /> : <LogotypeColor />}
           </div>
         </Link>
@@ -50,7 +50,7 @@ export const MobileNav: FC<Props> = ({
           }
         >
           {mobileNavOpen ? (
-            <SimpleIcon type="close" wrapperStyles="w-6 text-yellow-light" />
+            <SimpleIcon type="close" wrapperStyles="w-6 text-black" />
           ) : (
             <SimpleIcon type="menu" wrapperStyles="w-6 text-black" />
           )}
@@ -59,7 +59,7 @@ export const MobileNav: FC<Props> = ({
 
       {mobileNavOpen && (
         <div
-          className="absolute w-full top-[56px] lg:top-[65px]"
+          className="absolute w-full top-[56px] overflow-y-scroll max-h-[100vh] lg:top-[65px]"
           tabIndex={mobileNavOpen ? 0 : -1}
         >
           <div className={cn(NavLinksWrapper)}>

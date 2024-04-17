@@ -55,6 +55,7 @@ import { TestimonialBlock } from './blocks/testimonalBlock';
 import { DividerBlock } from './blocks/dividerBlock';
 import { VideoBlock } from './blocks/videoBlock';
 import { ProviderPhilosophyBlock } from './blocks/providerPhilosophyBlock';
+import { NearbyBlock } from './blocks/nearbyBlock';
 
 /* Fields */
 import { Metadata } from './fields/metadata';
@@ -67,6 +68,7 @@ import { Link, LinkableDocument } from './fields/linking';
 import { CTA } from './fields/cta';
 import {
   SimpleRichText,
+  SimpleRichTextWithoutLink,
   ArticleRichText,
   LimitedRichText,
   ContentBlockRichText,
@@ -158,6 +160,7 @@ export const schemaTypes = [
   TabsBlock,
   TabsBlockTab,
   TestimonialBlock,
+  NearbyBlock,
   /* Divider block does not have heading */
   DividerBlock,
   VideoBlock,
@@ -188,6 +191,7 @@ export const schemaTypes = [
   LinkableDocument,
   CTA,
   SimpleRichText,
+  SimpleRichTextWithoutLink,
   LimitedRichText,
   ContentBlockRichText,
   ArticleRichText,

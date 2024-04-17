@@ -3,7 +3,7 @@ import { practitionersBlockExample } from '@/mockData';
 import { PractitionersBlock } from './';
 
 const meta = {
-  title: 'Content Blocks/Practitioners',
+  title: 'Content Blocks/Practitioners Block',
   component: PractitionersBlock,
 } satisfies Meta<typeof PractitionersBlock>;
 

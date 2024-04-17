@@ -1,5 +1,5 @@
 export const ThemeWrapper = [
-  'TextWithDualCtaHeader py-6 lg:py-12 flex flex-col md:flex-row md:items-center',
+  'TextWithDualCtaHeader flex flex-col md:flex-row md:items-center',
 ];
 
 export const Wrapper = [
@@ -7,7 +7,7 @@ export const Wrapper = [
 ];
 
 export const WarpperInner = [
-  'py-16 md:px-24 md:py-40 lg:px-16 lg:pt-40 lg:pb-12',
+  'py-16 md:px-24 lg:px-16 lg:py-grid-margin-lg',
   'flex flex-col justify-center items-center',
 ];
 
@@ -16,7 +16,7 @@ export const Eyebrow = [
 ];
 
 export const Heading = [
-  'theme-text-color-primary font-trust font-size-2 text-center',
+  'theme-text-color-primary font-trust font-size-3 text-center',
 ];
 
 export const Body = [
@@ -29,8 +29,12 @@ export const CTAsWrapper = [
 
 export const CTAWrapper = ['mb-3'];
 
+export const DualCtaWrapperContainer = [
+  'md:w-[50%] lg:w-[42%] md:ml-12 h-full py-4',
+];
+
 export const DualCtaWrapper = [
-  'TextWithDualCtaHeader__cta-wrapper flex flex-col justify-between md:w-[50%] lg:w-[42%] md:ml-12 h-full',
+  'TextWithDualCtaHeader__cta-wrapper flex flex-col justify-between',
 ];
 
 export const DualCta = [

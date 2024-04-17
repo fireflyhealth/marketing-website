@@ -7,12 +7,12 @@ type Props = {
 };
 
 export const DividerBlock: FC<Props> = ({ dividerBlock }) => {
-  const { borderBottom, borderTop } = dividerBlock;
+  const { borderBottom } = dividerBlock;
 
   return (
     <div
       className={cn(
-        'h-24 border-grey-medium container-padding-bleed border-1',
+        'h-12 border-grey-medium border-1 container-padding-bleed--margin-only',
         {
           'border-b': !!borderBottom,
         },

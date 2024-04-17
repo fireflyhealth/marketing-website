@@ -1,4 +1,4 @@
-export const Header = ['mt-12', 'lg:mt-0'];
+export const Header = ['mt-12', 'md:mt-24', 'lg:mt-grid-margin-lg'];
 
 export const HeaderTextWrapper = [
   'relative theme-bg-color rounded-2xl space-y-8 lg:space-y-10 text-center',

@@ -35,6 +35,7 @@ export const Card: FC<Props> = ({ card }) => {
           {backgroundImage ? (
             <div className={cn(BackgroundImage)}>
               <ResponsiveSanityImage
+                rounded={false}
                 imageSet={backgroundImage}
                 sizes={['100vw']}
               />
@@ -51,7 +52,11 @@ export const Card: FC<Props> = ({ card }) => {
           </div>
           {featuredImage ? (
             <div className={cn(ImageWrapper)}>
-              <SanityImage image={featuredImage} sizes={['100vw', '50vw']} />
+              <SanityImage
+                image={featuredImage}
+                sizes={['100vw', '50vw']}
+                className="mx-auto"
+              />
             </div>
           ) : null}
           {ctaLink ? (

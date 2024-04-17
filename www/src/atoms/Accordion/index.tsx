@@ -9,12 +9,14 @@ type AccordionProps = {
   children: ReactNode;
   isOpen?: boolean;
   isFocusable?: boolean;
+  fontSize?: string;
 };
 
 export const Accordion: FC<AccordionProps> = ({
   title,
   children,
   isOpen: parentIsOpen,
+  fontSize,
 }) => {
   const innerContentRef = useRef<HTMLDivElement>(null);
   const windowDimensions = useWindowDimensions();
@@ -66,7 +68,14 @@ export const Accordion: FC<AccordionProps> = ({
       <button
         aria-expanded={isOpen}
         onClick={toggleOpen}
-        className={cn(TitleWrapper, 'element-focus py-4 -mt-4 -mb-4')}
+        className={cn(
+          TitleWrapper,
+          'element-focus py-4 -mt-4 -mb-4',
+          fontSize ? fontSize : 'font-size-7',
+          {
+            'theme-text-color-secondary': isOpen,
+          },
+        )}
       >
         <span className="pr-4">{title}</span>
         <div>
@@ -77,6 +86,7 @@ export const Accordion: FC<AccordionProps> = ({
         </div>
       </button>
       <div
+        className="overflow-y-hidden"
         style={{
           transition: 'height 0.3s ease',
           /* We cannot transition between height: 0 and height: auto,

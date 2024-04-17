@@ -14,6 +14,13 @@ export const BlogArticleTag = defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
+      name: 'link',
+      title: 'Link',
+      type: 'link',
+      description:
+        'Optional. If provided, this link will be used to link tag button on top of article title on article page.',
+    }),
+    defineField({
       name: 'slug',
       title: 'Slug',
       type: 'slug',

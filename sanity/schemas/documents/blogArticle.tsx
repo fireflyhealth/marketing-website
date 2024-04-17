@@ -49,6 +49,7 @@ export const BlogArticle = defineType({
       options: {
         dateFormat: 'MMMM DD, YYYY',
       },
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'updatedDate',
@@ -62,7 +63,7 @@ export const BlogArticle = defineType({
     }),
     defineField({
       name: 'authorName',
-      title: 'author Name',
+      title: 'Author Name',
       type: 'string',
     }),
     defineField({
@@ -161,16 +162,12 @@ export const BlogArticle = defineType({
       name: 'blurb',
       fieldset: 'linking',
       title: 'Blurb',
-      type: 'simpleRichText',
+      type: 'simpleRichTextWithoutLink',
       validation: (Rule) => Rule.required(),
+      description:
+        'This field is not allowing linking on the text since it is used in article list. Whole article list is clickable so we should not have any linked text within it.',
     }),
     /* Content */
-    defineField({
-      name: 'header',
-      fieldset: 'content',
-      title: 'Header',
-      type: 'headerArea',
-    }),
     defineField({
       name: 'deck',
       fieldset: 'content',
@@ -197,7 +194,6 @@ export const BlogArticle = defineType({
       documentVariantInfo: 'documentVariantInfo',
       parentBlogTitle: 'category.title',
       title: 'title',
-      _updatedAt: '_updatedAt',
       thumbnail: 'thumbnail',
       publishDate: 'publishDate',
     },
@@ -206,10 +202,9 @@ export const BlogArticle = defineType({
       thumbnail,
       parentBlogTitle,
       title,
-      _updatedAt,
       publishDate,
     }) => {
-      const formattedDate = formatSanityDate(publishDate || _updatedAt);
+      const formattedDate = formatSanityDate(publishDate);
       const parentBlog = parentBlogTitle || '⚠ No parent blog';
       const subtitle = [formattedDate, parentBlog].filter(Boolean).join(' | ');
       const fullTitle = [documentVariantInfo?.variantOf ? '🅱️' : '🅰️', title]

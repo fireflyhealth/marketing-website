@@ -14,10 +14,10 @@ export const PageTitle = [
 export const ContactForm = ['w-full', 'lg:w-1/2'];
 
 export const BackgroundColor = [
-  '!z-[-2] !-top-[120px] full-width-background',
-  'lg:!-top-[152px]',
+  '!z-[-2] full-width-background',
+  '!-top-[152px] lg:!-top-[152px]',
 ];
 
 export const BackgroundImage = [
-  '!z-0 mt-[38px] -mx-4 -mb-4 lg:m-0 lg:!top-[auto] lg:bottom-0 lg:!h-auto lg:full-width-background',
+  'container-padding-bleed--margin-only !z-0 lg:m-0 lg:!top-[auto] lg:bottom-0 lg:!h-auto lg:full-width-background',
 ];

@@ -13,6 +13,7 @@ import { Theme } from '@/components/Theme';
 import { SanityImage } from '@/atoms/Image/SanityImage';
 import { ResponsiveSanityImage } from '@/atoms/Image/ResponsiveSanityImage';
 import { useWindowDimensions } from '@/hooks/useWindowDimensions';
+import { BREAK_POINTS } from 'tailwind.config';
 import { ContentBlockWrapper } from '../ContentBlockWrapper';
 
 /**
@@ -38,18 +39,14 @@ export const DrawerListItem: FC<DrawerListItemProps> = ({
   index,
   drawerListItem,
 }) => {
-  const innerContentRef = useRef<HTMLDivElement>(null);
-  const windowDimensions = useWindowDimensions();
-  const [expandedContentHeight, setExpandedContentHeight] = useState<
-    string | number
-  >(
-    /* Set the initial state to 'auto' if isExpanded is true upon first render.
-     * The effect below will set this to a number (which will match the natural height)
-     * when it first runs. */
-    isExpanded ? 'auto' : 0,
-  );
   const { title, body, ctaLink, featuredImage, theme, backgroundImage } =
     drawerListItem;
+  const innerContentRef = useRef<HTMLDivElement>(null);
+  const windowDimensions = useWindowDimensions();
+  const [windowWidth, setWindowWidth] = useState<number>(
+    windowDimensions ? windowDimensions.width : 0,
+  );
+  const [expandedContentHeight, setExpandedContentHeight] = useState<number>(0);
   const linkButtonId = filterMaybes([
     'drawer-list-item',
     blockHeaderTitle,
@@ -60,14 +57,33 @@ export const DrawerListItem: FC<DrawerListItemProps> = ({
     .join('-');
 
   useEffect(() => {
+    if (windowDimensions) {
+      setWindowWidth(windowDimensions.width);
+    }
+
     /* Calculate and set the inner content height whenever the element
      * is expanded or when the window is resized. */
     const innerContentRefCurrent = innerContentRef.current;
 
     if (isExpanded) {
-      if (!innerContentRefCurrent) return;
+      if (!innerContentRefCurrent || !windowDimensions) return;
+      const innerContentMaxHeight = windowDimensions.width * 0.6 - 140;
       const innerContentHeight = innerContentRefCurrent.offsetHeight;
-      setExpandedContentHeight(innerContentHeight);
+
+      /* We only want to run comparison logic for desktop breakpoints */
+      if (windowDimensions.width >= BREAK_POINTS.MD) {
+        /* Calculate height of inner content.
+         * Set height of inner content to it's true size
+         * if it is less than the 60vh (60% of the viewport height) */
+        const newHeight =
+          innerContentHeight < innerContentMaxHeight
+            ? innerContentHeight
+            : innerContentMaxHeight;
+
+        setExpandedContentHeight(newHeight);
+      } else {
+        setExpandedContentHeight(innerContentHeight);
+      }
 
       /* Set tabindex to 0 for all links in the expanded content to be focusable */
       innerContentRefCurrent.querySelectorAll('a').forEach((link) => {
@@ -82,13 +98,13 @@ export const DrawerListItem: FC<DrawerListItemProps> = ({
         link.setAttribute('tabindex', '-1');
       });
     }
-  }, [isExpanded, windowDimensions]);
+  }, [isExpanded, windowDimensions, windowDimensions?.width]);
 
   return (
     <Theme theme={theme}>
       <div
         className={cn(
-          'DrawerListItem relative rounded-lg z-[10] overflow-hidden theme-bg-color',
+          'DrawerListItem relative rounded-2xl z-[10] overflow-hidden theme-bg-color group',
           /* All list items except the last have extra padding at the
            * bottom to account for sibling overlap */
           isLast ? '' : 'pb-[2.5rem] md:pb-[3.5rem]',
@@ -102,12 +118,12 @@ export const DrawerListItem: FC<DrawerListItemProps> = ({
           <div
             className={cn(
               'DrawerListItem__background',
-              'absolute top-0 left-0 w-full z-[10]',
-              /* Items with background images have a min-height of 600px,
+              'absolute top-0 left-0 w-full z-[10] h-full',
+              /* Items with background images have a min-height of 60vh,
                * this height accounts for that plus padding. It must be set
                * explicitly to avoid the position of the background image
                * shifting when the drawer is open. */
-              'h-[600px] md:h-[744px]',
+              Boolean(backgroundImage && !featuredImage) ? 'min-h-[60vh]' : '',
             )}
           >
             <ResponsiveSanityImage
@@ -124,15 +140,20 @@ export const DrawerListItem: FC<DrawerListItemProps> = ({
             className="DrawerListItem__button text-left w-full"
             aria-label={`Expand drawer ${index}: ${title}`}
           >
-            <div className="p-6 md:p-9 lg:p-12">
-              <h3 className="font-size-5 font-trust leading-[1em]">{title}</h3>
+            <div className="p-8">
+              <h3 className="font-size-5 font-trust leading-[1em] group-hover:theme-text-color-secondary transition-colors">
+                {title}
+              </h3>
             </div>
           </button>
         </div>
 
         <div
           aria-hidden={!isExpanded}
-          className={cn(isExpanded ? '' : 'pointer-events-none')}
+          className={cn(
+            'group-hover:theme-text-color-secondary',
+            isExpanded ? '' : 'pointer-events-none',
+          )}
           style={{
             transition: 'height 0.3s ease',
             /* We cannot transition between height: 0 and height: auto,
@@ -149,17 +170,25 @@ export const DrawerListItem: FC<DrawerListItemProps> = ({
               transition: 'opacity 0.3s ease',
             }}
             className={cn(
-              'grid grid-cols-1 gap-12 lg:grid-cols-2',
-              'p-6 pt-0 relative z-[20]',
-              'md:p-9 md:pt-0',
-              'lg:p-12 lg:pt-0',
+              'innerContent flex flex-col space-y-12 md:flex-row md:space-y-0 md:space-x-12 md:justify-between',
+              'p-8 pt-0 relative z-[20]',
               isExpanded ? '' : 'opacity-0',
-              Boolean(backgroundImage && isExpanded)
-                ? 'min-h-[450px] md:min-h-[600px]'
+              Boolean(backgroundImage && isExpanded && !featuredImage)
+                ? 'min-h-[30vh] lg:min-h-[60vh]'
                 : '',
             )}
           >
-            <div className={cn('DrawerListItem__content')}>
+            <div
+              className={cn(
+                'DrawerListItem__content',
+                'pb-20 overflow-hidden overflow-y-scroll hide-scrollbar md:w-1/2',
+              )}
+              style={{
+                maxHeight: `${windowWidth >= BREAK_POINTS.MD ? `${expandedContentHeight - 32}px` : '150px'}`,
+                WebkitMaskImage: `linear-gradient(to bottom, black 75%, transparent 100%)`,
+                maskImage: `linear-gradient(to bottom, black 75%, transparent 100%)`,
+              }}
+            >
               <RichText fontSize="font-size-8" content={body} />
               {ctaLink ? (
                 <div className="pt-5">
@@ -175,7 +204,13 @@ export const DrawerListItem: FC<DrawerListItemProps> = ({
               ) : null}
             </div>
             {featuredImage ? (
-              <SanityImage image={featuredImage} sizes={['100vw', '50vw']} />
+              <div className="h-full md:w-1/2">
+                <SanityImage
+                  image={featuredImage}
+                  sizes={['100vw', '50vw']}
+                  className="w-auto h-auto mx-auto"
+                />
+              </div>
             ) : null}
           </div>
         </div>

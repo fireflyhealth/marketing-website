@@ -4,11 +4,12 @@ export const NavWrapper = [
 ];
 
 export const NavContainer = [
-  'relative px-4 md:px-9 lg:px-12 transition-all w-full py-4 flex flex-row items-center justify-between',
+  'relative px-4 md:px-9 lg:px-12 w-full py-4 flex flex-row items-center justify-between',
 ];
 
 export const NavLinksWrapper = [
   'relative bg-yellow pt-9 p-4 w-full flex flex-col space-y-8',
+  'md:px-9',
   'lg:bg-transparent lg:w-max lg:flex-row lg:space-y-0 lg:p-0 lg:mt-0',
 ];
 
@@ -30,7 +31,7 @@ export const DropdownOuter = [
 
 export const DropdownInner = [
   'mt-8 pl-4 flex flex-col space-y-4',
-  'lg:bg-grey lg:border-grey-medium lg:border lg:rounded-lg lg:p-6',
+  'lg:bg-grey lg:border-grey-medium lg:border lg:rounded-2xl lg:p-6',
 ];
 
 export const SubPageLink = ['roobert-body'];

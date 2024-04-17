@@ -43,12 +43,14 @@ export const ProviderPageView: FC<ProviderPageViewProps> = ({ provider }) => {
         headerCta={headerCta}
         headshot={headshot}
       />
-      <div className={cn(PCPBlurbWrapper)}>
-        <RichText
-          content={role.description}
-          fontSize="font-trust font-size-6"
-        />
-      </div>
+      {role.description && (
+        <div className={cn(PCPBlurbWrapper)}>
+          <RichText
+            content={role.description}
+            fontSize="font-trust font-size-6"
+          />
+        </div>
+      )}
       {provider.contentArea && <ContentArea blocks={provider.contentArea} />}
       <div className="">
         <Link
@@ -59,7 +61,7 @@ export const ProviderPageView: FC<ProviderPageViewProps> = ({ provider }) => {
           Care team
         </Link>
       </div>
-      <Theme theme={ColorTheme.Grey} className="relative p-4 lg:p-12">
+      <Theme theme={ColorTheme.Grey} className="relative pt-4 lg:pt-12">
         <div className="full-width-background theme-bg-color" />
         <DoubleCTA doubleCta={footer} />
       </Theme>
