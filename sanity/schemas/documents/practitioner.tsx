@@ -154,15 +154,6 @@ export const Practitioner = defineType({
       group: 'providerPage',
       fieldset: 'providerPageFields',
       hidden: ({ parent }) => !parent.renderProviderPage,
-      validation: (Rule) =>
-        Rule.custom((value, context) => {
-          // @ts-ignore
-          if (context?.parent?.renderProviderPage === true && !value) {
-            return 'A blurb about this practitioner is required.';
-          }
-
-          return true;
-        }),
     }),
     defineField({
       name: 'headerBgThemeColor',

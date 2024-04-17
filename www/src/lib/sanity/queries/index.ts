@@ -171,6 +171,7 @@ export const providerPageSettingsFragment = `
 export const providerPageFragment = `
   name,
   slug,
+  "providerPageSettings": *[_type == "providerPageSettings"][0]{${providerPageSettingsFragment}},
   qualifications,
   role->{...},
   pronouns,
