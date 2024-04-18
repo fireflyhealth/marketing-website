@@ -9,7 +9,8 @@
   "private": true,
   "scripts": {
     "prepare": "husky && yarn workspace firefly-health-website update-mock-data",
-    "test": "cd www && yarn test:all"
+    "test": "cd www && yarn test:all",
+    "update-site-data": "yarn workspace firefly-health-website update-site-data"
   },
   "workspaces": [
     "www",
