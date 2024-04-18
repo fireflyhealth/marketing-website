@@ -1,4 +1,4 @@
-name: Check PR & Deploy
+name: Preview Static CMS
 on:
   workflow_dispatch:
   check_run:
