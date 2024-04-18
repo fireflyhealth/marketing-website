@@ -2,6 +2,7 @@ name: Generate Static CMS
 on:
   workflow_dispatch:
   repository_dispatch:
+    types: [cms-generate-webhook]
 
 jobs:
   Generate-Static-CMS:

@@ -1,5 +1,6 @@
 /* Documents */
 import { Homepage } from './documents/homepage';
+import { Deploy } from './documents/deploy';
 import { GenericPage, SubPage } from './documents/genericPage';
 import {
   ContactPage,
@@ -111,6 +112,7 @@ import { CtaCard } from './fields/ctaCard';
 export const schemaTypes = [
   /* Document Types */
   Homepage,
+  Deploy,
   GenericPage,
   SubPage,
   DownloadPage,

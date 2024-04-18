@@ -241,6 +241,15 @@ export const structure: StructureResolver = async (S, context) => {
                   ),
               ]),
           ),
+
+        S.divider(),
+
+        createSingletonPage(S, {
+          title: 'Deploy',
+          id: 'deploy',
+          schemaType: 'deploy',
+          icon: icons.Deploy,
+        }),
       ].concat(
         isDevelopment
           ? [

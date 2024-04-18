@@ -16,6 +16,7 @@ import {
   GrMenu,
   GrImage,
   GrVideo,
+  GrDeploy,
 } from 'react-icons/gr';
 import { SlSettings } from 'react-icons/sl';
 import {
@@ -103,6 +104,7 @@ export const icons = {
   Columns: BiColumns,
   Tabs: PiTabs,
   Video: GrVideo,
+  Deploy: GrDeploy,
   ImageTextOverlap: BsFiles,
   Testimonial: BsChatSquareQuoteFill,
   Tags: BsTags,
