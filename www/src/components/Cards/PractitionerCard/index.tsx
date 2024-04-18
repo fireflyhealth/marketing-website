@@ -3,7 +3,7 @@ import { PractitionerLinkData } from '@/types/sanity';
 import { SanityImage } from '@/atoms/Image/SanityImage';
 import { MaybeLink } from '@/atoms/Link';
 import { GenericImage } from '@/atoms/Image/GenericImage';
-import fallbackProfile from '@/assets/images/fallbackProfile.png';
+import fallbackProfile from '@/assets/images/fallback-profile.png';
 
 type PractitionerCardProps = {
   practitioner: PractitionerLinkData;
