@@ -26,7 +26,7 @@ export const ImageGridBlock: FC<Props> = ({ imageGridBlock }) => {
             <div className={cn(ImagesContainer)}>
               {images.map((image) => (
                 <div key={image._key} className={cn(ImageWrapper)}>
-                  <SanityImage image={image} sizes={['126px']} width={126} />
+                  <SanityImage image={image} sizes={['252px']} width={126} />
                 </div>
               ))}
             </div>
