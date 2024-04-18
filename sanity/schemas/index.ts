@@ -1,5 +1,6 @@
 /* Documents */
 import { Homepage } from './documents/homepage';
+import { Deploy } from './documents/deploy';
 import { GenericPage, SubPage } from './documents/genericPage';
 import {
   ContactPage,
@@ -112,6 +113,7 @@ import { Footnotes } from './fields/footnotes';
 export const schemaTypes = [
   /* Document Types */
   Homepage,
+  Deploy,
   GenericPage,
   SubPage,
   DownloadPage,
