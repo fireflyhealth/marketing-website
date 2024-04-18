@@ -12,6 +12,8 @@ jobs:
       - uses: ./.github/workflows/yarn-setup
       - name: get latest cms data
         run: yarn update-site-data
+        env:
+          NEXT_PUBLIC_SANITY_DATASET: production
       - name: build
         run: cd www && yarn build
       - name: Create Pull Request
