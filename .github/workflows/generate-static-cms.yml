@@ -12,6 +12,8 @@ jobs:
       - uses: ./.github/workflows/yarn-setup
       - name: get latest cms data
         run: yarn update-site-data
+      - name: build
+        run: cd www && yarn build
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v6
         with:
