@@ -17,6 +17,7 @@
 
     &:hover {
       .Subnav__item-circle {
+        background-color: theme('colors.yellow');
         width: 13px;
         height: 13px;
       }
