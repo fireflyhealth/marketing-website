@@ -3,8 +3,16 @@
 version: 2.1
 orbs:
   node: circleci/node@5
+  aws-cli: circleci/aws-cli@4.0
+  aws-s3: circleci/aws-s3@4.0
+
+workflows:
+  s3-env-vars:
+    jobs:
+      - deploy:
+          context: s3
 jobs:
-  test-node:
+  build:
     # Install node dependencies and run tests
     executor: node/default
     steps:
@@ -14,22 +22,30 @@ jobs:
       - run:
           name: Run tests
           command: yarn test --passWithNoTests
+      - run:
+          name: Run Build Static
+          command: cd www && yarn build:static
+          environment:
+            STATIC_BUILD: true
+
   deploy:
-    # This is an example deploy job, not actually used by the workflow
     docker:
       - image: cimg/base:stable
     steps:
-      # Replace this with steps to deploy to users
-      - run:
-          name: deploy
-          command: '#e.g. ./deploy.sh'
-      - run:
-          name: found github actions config
-          command: ':'
+      - checkout
+      - aws-cli/setup:
+          role_arn: $ROLE_ARN
+      - aws-s3/sync:
+          arguments: |
+            --acl public-read \
+            --cache-control "max-age=86400"
+          from: ./www/out
+          to: $BUCKET_NAME
+
 workflows:
   build-and-test:
     jobs:
-      - test-node
-    # - deploy:
-    #     requires:
-    #       - test-node
+      - build
+      - deploy:
+          requires:
+            - build
