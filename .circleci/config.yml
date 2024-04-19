@@ -4,9 +4,15 @@ orbs:
   aws-cli: circleci/aws-cli@4.0
   aws-s3: circleci/aws-s3@4.0
 
+executors:
+  my-executor:
+    docker:
+      - image: cimg/base:stable
+    working_directory: /www
+
 jobs:
   build:
-    executor: node/default
+    executor: my-executor
     steps:
       - checkout
       - node/install-packages:
@@ -20,23 +26,22 @@ jobs:
           name: Run tests
           command: yarn test --passWithNoTests
       - persist_to_workspace:
-          root: ~/project/www
+          root: out
           paths:
-            - out
+            - *
 
   deploy:
-    docker:
-      - image: cimg/base:stable
+    executor: my-executor
     steps:
       - attach_workspace:
-          at: ~/project/www
+          at: /www/out
       - checkout
       - aws-cli/setup:
           role_arn: ${ROLE_ARN}
       - aws-s3/sync:
           arguments: |
             --acl public-read
-          from: ~/project/www/out
+          from: /www/out/*
           to: ${BUCKET_NAME}
 
 workflows:
