@@ -218,7 +218,7 @@ const Video: FC<Props> = ({
             </button>
           </div>
         )}
-        {autoplay === false && !showTitleCard && !titleCardProps && (
+        {!showTitleCard && !titleCardProps && (
           <div
             className={cn(PlayButton, 'transition-all', {
               'opacity-0 pointer-events-none': isPlaying,
