@@ -40,8 +40,7 @@ export default function App({ Component, pageProps: allPageProps }: Props) {
   const navCTAOverride = navigationOverrides?.pageNavigation?.showNavCTA;
 
   const globalDoubleCta = siteSettings.globalDoubleCta;
-  // eslint-disable-next-line no-console
-  console.log('environment', process.env.NEXT_PUBLIC_VERCEL_ENV);
+
   return (
     <>
       <DefaultMetadata metadata={siteSettings.defaultMetadata} />
