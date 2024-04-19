@@ -12,13 +12,14 @@ jobs:
       - node/install-packages:
           pkg-manager: yarn
       - run:
+        name: Run Build Static
+        command: cd www && yarn build:static
+        environment:
+          STATIC_BUILD: true
+      - run:
           name: Run tests
           command: yarn test --passWithNoTests
-      - run:
-          name: Run Build Static
-          command: cd www && yarn build:static
-          environment:
-            STATIC_BUILD: true
+      
 
   deploy:
     docker:
