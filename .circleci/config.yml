@@ -36,7 +36,7 @@ jobs:
       - aws-s3/sync:
           arguments: |
             --acl public-read
-          from: ~/project/www/out
+          from: /home/circleci/project/www/out
           to: ${BUCKET_NAME}
 
 workflows:
