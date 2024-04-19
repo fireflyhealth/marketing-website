@@ -4,11 +4,6 @@ orbs:
   aws-cli: circleci/aws-cli@4.0
   aws-s3: circleci/aws-s3@4.0
 
-workflows:
-  s3-env-vars:
-    jobs:
-      - deploy:
-          context: s3
 jobs:
   build:
     executor: node/default
@@ -40,7 +35,7 @@ jobs:
           to: $BUCKET_NAME
 
 workflows:
-  build-and-test:
+  build-and-deploy:
     jobs:
       - build
       - deploy:
