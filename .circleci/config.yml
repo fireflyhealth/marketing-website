@@ -20,7 +20,7 @@ jobs:
           name: Run tests
           command: yarn test --passWithNoTests
       - persist_to_workspace:
-          root: ~/www
+          root: ~/project/www
           paths:
             - out
 
@@ -34,7 +34,7 @@ jobs:
       - aws-s3/sync:
           arguments: |
             --acl public-read
-          from: ~/www/out
+          from: ~/project/www/out
           to: ${BUCKET_NAME}
 
 workflows:
