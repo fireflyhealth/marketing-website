@@ -28,12 +28,12 @@ jobs:
       - aws-cli/setup:
           profile_name: firefly-ci
           role_arn: $ROLE_ARN
+          region: $REGION
       - aws-s3/sync:
           arguments: |
             --acl public-read
           from: ./www/out
           profile_name: firefly-ci
-          region: $REGION
           to: $BUCKET_NAME
 
 workflows:
