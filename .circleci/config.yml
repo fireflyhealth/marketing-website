@@ -28,6 +28,8 @@ jobs:
     docker:
       - image: cimg/base:stable
     steps:
+      - attach_workspace:
+          at: ~/project/www
       - checkout
       - aws-cli/setup:
           role_arn: ${ROLE_ARN}
