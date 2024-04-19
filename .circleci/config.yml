@@ -30,8 +30,7 @@ jobs:
           role_arn: $ROLE_ARN
       - aws-s3/sync:
           arguments: |
-            --acl public-read \
-            --cache-control "max-age=86400"
+            --acl public-read
           from: ./www/out
           profile_name: firefly-ci
           to: $BUCKET_NAME
