@@ -15,5 +15,5 @@ export const SubnavItemWrapper = [
 ];
 
 export const SubnavItemCircle = [
-  'Subnav__item-circle transition circle bg-yellow rounded-full mr-1.5',
+  'Subnav__item-circle transition circle rounded-full mr-1.5',
 ];
