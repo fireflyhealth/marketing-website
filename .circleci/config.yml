@@ -28,7 +28,7 @@ jobs:
       - aws-cli/setup:
           profile_name: firefly-ci
           role_arn: $ROLE_ARN
-          region: $REGION
+          region: us-east-2
       - aws-s3/sync:
           arguments: |
             --acl public-read
