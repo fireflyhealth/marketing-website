@@ -33,6 +33,7 @@ jobs:
             --acl public-read
           from: ./www/out
           profile_name: firefly-ci
+          region: $REGION
           to: $BUCKET_NAME
 
 workflows:
