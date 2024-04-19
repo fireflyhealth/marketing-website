@@ -27,7 +27,6 @@ jobs:
       - checkout
       - aws-cli/setup:
           role_arn: ${ROLE_ARN}
-          region: ${REGION}
       - aws-s3/sync:
           arguments: |
             --acl public-read
