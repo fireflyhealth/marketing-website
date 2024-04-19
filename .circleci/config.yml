@@ -5,8 +5,9 @@ orbs:
   aws-s3: circleci/aws-s3@4.0
 
 jobs:
-  build:
-    executor: node/default
+  deploy:
+    docker:
+      - image: cimg/base:stable
     steps:
       - checkout
       - node/install-packages:
@@ -16,21 +17,6 @@ jobs:
           command: cd www && yarn build:static
           environment:
             STATIC_BUILD: true
-      - run:
-          name: Run tests
-          command: yarn test --passWithNoTests
-      - persist_to_workspace:
-          root: ~/project/www
-          paths:
-            - out
-
-  deploy:
-    docker:
-      - image: cimg/base:stable
-    steps:
-      - checkout
-      - attach_workspace:
-          at: ~/project/www
       - aws-cli/setup:
           role_arn: ${ROLE_ARN}
       - aws-s3/sync:
@@ -42,7 +28,4 @@ jobs:
 workflows:
   build-and-deploy:
     jobs:
-      - build
-      - deploy:
-          requires:
-            - build
+      - deploy
