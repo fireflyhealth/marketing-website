@@ -42,7 +42,13 @@ jobs:
 workflows:
   build-and-deploy:
     jobs:
-      - build
+      - build:
+          filters:
+            branches:
+              only: production
       - deploy:
           requires:
             - build
+          filters:
+            branches:
+              only: production
