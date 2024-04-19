@@ -26,12 +26,14 @@ jobs:
     steps:
       - checkout
       - aws-cli/setup:
+          profile_name: firefly-ci
           role_arn: $ROLE_ARN
       - aws-s3/sync:
           arguments: |
             --acl public-read \
             --cache-control "max-age=86400"
           from: ./www/out
+          profile_name: firefly-ci
           to: $BUCKET_NAME
 
 workflows:
