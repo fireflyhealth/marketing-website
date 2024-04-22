@@ -6,7 +6,9 @@
     "../.eslintrc.shared.json"
   ],
   "rules": {
-    "import/no-default-export": "warn"
+    "import/no-default-export": "warn",
+    /* [DISABLE_NEXT_LINK] please see the reason on atoms/link file */
+    "@next/next/no-html-link-for-pages": "warn"
   },
   "overrides": [
     {
@@ -17,7 +19,8 @@
         "testing/mocks/**/*"
       ],
       "rules": {
-        "import/no-default-export": "off"
+        "import/no-default-export": "off",
+        "@next/next/no-html-link-for-pages": "off"
       }
     }
   ]

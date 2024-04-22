@@ -1,5 +1,4 @@
 import React, { FC } from 'react';
-import NextLink from 'next/link';
 import { useRouter } from 'next/router';
 import cn from 'classnames';
 import { Link as LinkType, LinkableDocumentData, Maybe } from '@/types/sanity';
@@ -79,8 +78,10 @@ export const Link: FC<LinkProps> = ({
     );
   }
   const href = getLinkableDocumentPath(documentLink);
+  // [DISABLE_NEXT_LINK] using a tag instead of next link to disable prefetching.
+  // in this way we won't have any prefetching cache issue and we can use ab testing with s3 bucket.
   return (
-    <NextLink
+    <a
       ref={linkRef}
       id={id || undefined}
       aria-label={ariaLabel || undefined}
@@ -92,7 +93,7 @@ export const Link: FC<LinkProps> = ({
       {...props}
     >
       {children}
-    </NextLink>
+    </a>
   );
 };
 
