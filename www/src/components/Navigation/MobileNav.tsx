@@ -1,5 +1,4 @@
 import { FC } from 'react';
-import Link from 'next/link';
 import cn from 'classnames';
 import { SimpleIcon } from '@/svgs/SimpleIcon';
 import { useUIProvider } from '@/context/UIProvider';
@@ -29,7 +28,8 @@ export const MobileNav: FC<Props> = ({
           mobileNavOpen ? 'bg-yellow' : 'bg-transparent',
         )}
       >
-        <Link
+        {/* [DISABLE_NEXT_LINK] please see the reason on atoms/link file */}
+        <a
           href="/"
           className="element-focus p-2 -ml-2 -mt-2"
           aria-label="Navigate to Firefly homepage"
@@ -37,7 +37,7 @@ export const MobileNav: FC<Props> = ({
           <div className="w-[150px] md:w-[175px]">
             {mobileNavOpen ? <LogotypeMonochrome /> : <LogotypeColor />}
           </div>
-        </Link>
+        </a>
 
         {/* menu button only visible on tablet and mobile */}
         <button

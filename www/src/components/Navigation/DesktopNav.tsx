@@ -1,5 +1,4 @@
 import { FC } from 'react';
-import Link from 'next/link';
 import cn from 'classnames';
 import { LogotypeColor, LogotypeMonochrome } from '@/svgs/Logotype';
 import { Button } from '@/atoms/Button';
@@ -33,7 +32,8 @@ export const DesktopNav: FC<Props> = ({
           'bg-yellow': getStartedOpen,
         })}
       >
-        <Link
+        {/* [DISABLE_NEXT_LINK] please see the reason on atoms/link file */}
+        <a
           className="element-focus p-2 -ml-2"
           href="/"
           aria-label="Navigate to Firefly homepage"
@@ -41,7 +41,7 @@ export const DesktopNav: FC<Props> = ({
           <div className="w-[175px]">
             {getStartedOpen ? <LogotypeMonochrome /> : <LogotypeColor />}
           </div>
-        </Link>
+        </a>
 
         <div className={cn(NavLinksWrapper)}>
           {navGroup.map((navItem) => (
