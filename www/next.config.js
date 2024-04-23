@@ -7,6 +7,7 @@ const isStaticBuild = Boolean(process.env.STATIC_BUILD);
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: isStaticBuild ? 'export' : undefined,
+  trailingSlash: true,
   images: {
     unoptimized: isStaticBuild ? true : undefined,
     remotePatterns: [

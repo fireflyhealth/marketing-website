@@ -133,7 +133,10 @@ const withMaybeBContent = async <T extends WithDocumentVariantInfo | null>(
 
     return bDocument || primaryDocument;
   } else {
-    return staticPageBData || primaryDocument;
+    if (config.preferBContent) {
+      return staticPageBData || primaryDocument;
+    }
+    return primaryDocument;
   }
 };
 
