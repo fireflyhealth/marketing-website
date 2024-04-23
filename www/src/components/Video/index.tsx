@@ -177,7 +177,14 @@ const Video: FC<Props> = ({
       })}
     >
       <div className="w-full" style={{ paddingTop: `${aspectRatio * 100}%` }} />
-      <div className={cn(VideoWrapper, width ? `${width}` : 'w-full')}>
+      <div
+        className={cn(VideoWrapper, width ? `${width}` : 'w-full', {
+          'md:!top-0': showTitleCard && titleCardProps,
+        })}
+        style={{
+          top: `${showTitleCard && titleCardProps ? `-${aspectRatio * 100}%` : '0'}`,
+        }}
+      >
         <div
           id="video-poster-image"
           className={cn(PosterImage, 'transition-all ease-in-out', {
