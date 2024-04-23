@@ -16,6 +16,7 @@
     "test:types": "tsc --noEmit",
     "test:jest": "jest",
     "test:watch": "jest --watch",
+    "fix:prettier": "prettier --write ./src",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "update-mock-data": "NEXT_PUBLIC_SANITY_DATASET=production esno ./scripts/getMockData.ts",
