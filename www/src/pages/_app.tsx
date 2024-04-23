@@ -1,7 +1,6 @@
 import React from 'react';
 import { AppProps } from 'next/app';
 import { HubspotProvider } from 'next-hubspot';
-import { GoogleTagManager } from '@next/third-parties/google';
 import { ABCookieManager } from '@/utils/storage';
 import { AnnouncementBanner } from '@/components/AnnouncementBanner';
 import { Navigation } from '@/components/Navigation';
@@ -76,11 +75,6 @@ export default function App({ Component, pageProps: allPageProps }: Props) {
           </div>
         </UIProvider>
       </Theme>
-
-      {/* Third-party Scripts */}
-      {config.googleTagManager.id ? (
-        <GoogleTagManager gtmId={config.googleTagManager.id} />
-      ) : null}
     </>
   );
 }
@@ -90,7 +84,7 @@ export default function App({ Component, pageProps: allPageProps }: Props) {
  */
 
 if (typeof window !== 'undefined') {
-  window.setABCookie = (value?: string) => {
+  (window as any).setABCookie = (value?: string) => {
     if (!value) {
       console.error('You must provide a value of "test" or "control"');
     }
@@ -106,7 +100,7 @@ if (typeof window !== 'undefined') {
     // eslint-disable-next-line no-console
     console.log(`Set AB cookie to ${value}: ${cookieValue}`);
   };
-  window.getABCookie = () =>
+  (window as any).getABCookie = () =>
     // eslint-disable-next-line no-console
     console.log(`Current AB cookie value: ${ABCookieManager.get()}`);
 }
