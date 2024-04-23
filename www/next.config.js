@@ -53,6 +53,16 @@ const nextConfig = {
         permanent: true,
       },
       {
+        source: '/care-team/tyler-mcclintock',
+        destination: '/about/care-team',
+        permanent: true,
+      },
+      {
+        source: '/care-team/yasmin-khan',
+        destination: '/about/care-team',
+        permanent: true,
+      },
+      {
         source: '/leadership',
         destination: '/about/leadership',
         permanent: true,
@@ -91,11 +101,6 @@ const nextConfig = {
         permanent: true,
       },
       {
-        source: '/journeys/:slug*',
-        destination: '/blog/for-members',
-        permanent: true,
-      },
-      {
         source: '/post/:slug*',
         destination: '/blog/for-members',
         permanent: true,
@@ -107,11 +112,6 @@ const nextConfig = {
       },
       {
         source: '/recipe-posts-full/:slug*',
-        destination: '/blog/for-members',
-        permanent: true,
-      },
-      {
-        source: '/rtw/:slug*',
         destination: '/blog/for-members',
         permanent: true,
       },
@@ -224,6 +224,16 @@ const nextConfig = {
         permanent: true,
       },
       // Homepage redirects
+      {
+        source: '/journeys/:slug*',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/rtw/:slug*',
+        destination: '/',
+        permanent: true,
+      },
       {
         source: '/15min-call-confirmation',
         destination: '/',
