@@ -108,9 +108,9 @@ export const LinkButton: FC<LinkButtonProps> = ({
           /* TextLink width should always be auto */
           variant === 'textLink' || width === 'auto' ? 'w-auto' : 'w-full',
         )}
-        id={id}
       >
         <Link
+          id={id}
           className={cn(
             'cta transition-all',
             `cta--${variant}`,

@@ -33,7 +33,7 @@ export const config = {
   googleTagManager: {
     /* the ID should be undefined (or an alternate property ID)
      * for staging so we do not clutter their analytics */
-    id: 'GTM-NDDH54JG',
+    id: 'GTM-PDTZ29Q7',
     ab: {
       cookieName: '_gtm_ab_experiment',
       cookieControlGroupValue: '_gtm_ab_control',
