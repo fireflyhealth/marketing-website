@@ -8,7 +8,7 @@ import { config } from '@/config';
  * be read at request time. Otherwise, prefer localStorage.
  */
 
-class CookieManager<T> {
+export class CookieManager<T> {
   key: string;
   isString: boolean;
 
@@ -26,7 +26,7 @@ class CookieManager<T> {
   get(): T | undefined {
     const value = Cookie.get(this.key);
     if (value) {
-      return this.isString ? JSON.parse(value) : value;
+      return this.isString ? value : JSON.parse(value);
     }
     return undefined;
   }
