@@ -16,45 +16,61 @@ const outputString = output.toString('utf8');
 const sourceFilepaths: string[] = [];
 const targetFilepaths: string[] = [];
 
+function getAbsoluteFilepath(relativeFilepath: string): string {
+  return Path.resolve(sourceDirectory, relativeFilepath);
+}
+
 outputString.split('\n').forEach((line) => {
   if (!line.endsWith('.html') && !line.endsWith('.json')) {
     return;
   }
 
+  const absoluteFilepath = getAbsoluteFilepath(line);
+
   if (line.includes('b-content')) {
-    targetFilepaths.push(line);
+    targetFilepaths.push(absoluteFilepath);
   } else {
-    sourceFilepaths.push(line);
+    sourceFilepaths.push(absoluteFilepath);
   }
 });
 
-sourceFilepaths.forEach((sourceFilepath) => {
-  const parts = sourceFilepath.split('.');
-  const suffix = parts.pop();
-  const segments = parts.join('.').split('/');
-  const lastSegment = segments.pop();
+// foo/bar/baz.html    ->  foo/bar/b-content/baz.html
+// foo/bar/index.html  ->  foo/bar/b-content/index.html
+function getTargetFilepathForSource(sourceFilepath: string): string {
+  const parsedPath = Path.parse(sourceFilepath);
+  const filename = parsedPath.base;
+  const filepath = parsedPath.dir;
 
-  if (lastSegment !== 'index' && lastSegment !== undefined) {
-    segments.push(lastSegment);
-  }
+  return Path.resolve(filepath, './b-content', filename);
+}
 
-  const filepathSansSuffix = segments.join('/');
-  const targetFilepath = `${filepathSansSuffix}/b-content.${suffix}`;
+function sourceFilepathShouldBeCopied(sourceFilepath: string): boolean {
+  const targetFilepath = getTargetFilepathForSource(sourceFilepath);
+  const fileExists = FS.existsSync(targetFilepath);
 
-  if (targetFilepaths.includes(targetFilepath)) {
-    // The b-content file already exists.
-    return;
-  }
+  return !fileExists;
+}
 
-  const resolvedSourceFilepath = Path.resolve(sourceDirectory, sourceFilepath);
-  const resolvedTargetFilepath = Path.resolve(sourceDirectory, targetFilepath);
-  const targetDirectory = Path.resolve(sourceDirectory, filepathSansSuffix);
+function shortenPath(absoluteFilepath: string): string {
+  return absoluteFilepath.replace(sourceDirectory, '');
+}
+
+function copySourceToTarget(sourceFilepath: string): void {
+  const targetFilepath = getTargetFilepathForSource(sourceFilepath);
+  const parsedPath = Path.parse(targetFilepath);
+  const targetDirectory = parsedPath.dir;
 
   if (!FS.existsSync(targetDirectory)) {
     FS.mkdirSync(targetDirectory);
   }
 
-  console.log(`Creating fallback file: ${resolvedTargetFilepath}`);
+  console.log(`Copying from ${shortenPath(sourceFilepath)} to ${shortenPath(targetFilepath)}...`);
 
-  FS.copyFileSync(resolvedSourceFilepath, resolvedTargetFilepath);
+  FS.copyFileSync(sourceFilepath, targetFilepath);
+}
+
+sourceFilepaths.forEach((sourceFilepath) => {
+  if (sourceFilepathShouldBeCopied(sourceFilepath)) {
+    copySourceToTarget(sourceFilepath);
+  }
 });
