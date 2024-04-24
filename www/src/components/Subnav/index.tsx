@@ -33,10 +33,10 @@ const SubnavItem: FC<{
         className={cn(
           SubnavItemCircle,
           currentContentBlock == null
-            ? 'Subnav__item-circle--active'
+            ? 'bg-grey-medium'
             : isCurrentContentBlock
-              ? 'Subnav__item-circle--active'
-              : '',
+              ? 'bg-yellow'
+              : 'bg-grey-medium',
         )}
       />
       {label}

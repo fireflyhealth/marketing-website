@@ -1,4 +1,4 @@
-import { FC, useState, useRef, useEffect } from 'react';
+import { FC, useRef, useEffect } from 'react';
 import cn from 'classnames';
 import {
   ContentBlockHeader as ContentBlockHeaderType,
@@ -7,7 +7,6 @@ import {
 import { CTA } from '@/components/CTA';
 import { RichText } from '@/components/RichText';
 import { useUIProvider } from '@/context/UIProvider';
-import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
 import {
   HeaderWrapper,
   Title,
@@ -73,18 +72,70 @@ export const ContentBlockWrapper: FC<ContentBlockWrapperProps> = ({
 
   const contentBlockWrapperRef = useRef<HTMLDivElement | null>(null);
   const { setCurrentContentBlock } = useUIProvider();
-  const { isIntersecting } = useIntersectionObserver(contentBlockWrapperRef, {
-    threshold: 0.2,
-    rootMargin: '0px 0px -50% 0px',
-  });
 
+  // set current content block based on
+  // top of content block < the middle of the viewport &&
+  // the bottom of the content block is > the middle of the viewport
   useEffect(() => {
     if (!contentBlockWrapperRef.current || !id) return;
 
-    if (isIntersecting && id) {
-      setCurrentContentBlock(id);
-    } else setCurrentContentBlock(null);
-  }, [isIntersecting, id, setCurrentContentBlock]);
+    // create an array of content blocks that have a
+    // corresponding subnav items (denoted by divs with an #id)
+    const contentAreaContainerArray = Array.prototype.slice
+      .call(document.getElementById('content-area')?.children)
+      .filter(
+        (childElement) =>
+          !childElement.id.includes('subnav') && childElement.id,
+      );
+
+    // get index of each child within the contentAreaContainerArray array
+    const contentBlockIndex = contentAreaContainerArray.indexOf(
+      contentBlockWrapperRef.current,
+    );
+
+    /**
+     * This function handles the active and inactive state within the subnav.
+     * Subnav items become active when their corresponding content block crosses
+     * the page threshold (half of the viewport height).  Subnav items remain inactive
+     * when their corresponding content block passes outside of that threshold.
+     */
+    const handleSetCurrentContentBlock = () => {
+      const contentBlockTop =
+        contentBlockWrapperRef.current?.getBoundingClientRect().top;
+      const contentBlockBottom =
+        contentBlockWrapperRef.current?.getBoundingClientRect().bottom;
+      const viewportMiddle = window.innerHeight / 2;
+
+      if (contentBlockTop && contentBlockBottom) {
+        if (
+          contentBlockTop < viewportMiddle &&
+          contentBlockBottom > viewportMiddle
+        ) {
+          setCurrentContentBlock(id);
+        }
+
+        // all subnav items should be inactive when the first content block is
+        // below the threshold of the page (half the height of the viewport) and
+        // when the last content block is above the threshold of the page.
+        if (contentBlockIndex === 0 && contentBlockTop > viewportMiddle) {
+          setCurrentContentBlock(null);
+        }
+
+        if (
+          contentBlockIndex === contentAreaContainerArray.length - 1 &&
+          contentBlockBottom < viewportMiddle
+        ) {
+          setCurrentContentBlock(null);
+        }
+      }
+    };
+
+    document.addEventListener('scroll', handleSetCurrentContentBlock);
+
+    return () => {
+      document.removeEventListener('scroll', handleSetCurrentContentBlock);
+    };
+  }, [contentBlockWrapperRef, id, setCurrentContentBlock]);
 
   return (
     <div

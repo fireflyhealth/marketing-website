@@ -100,7 +100,7 @@ type ContentAreaProps = {
 
 export const ContentArea: FC<ContentAreaProps> = ({ blocks, subNav }) => {
   return (
-    <div className="ContentArea">
+    <div id="content-area" className="ContentArea">
       <Subnav subnav={subNav} />
       {filterMaybes(blocks).map((block) => (
         <ContentBlock block={block} key={block._key} />

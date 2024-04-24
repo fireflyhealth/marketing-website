@@ -9,14 +9,15 @@
 
     .Subnav__item-circle {
       transition: all 200ms;
-      width: 0px;
-      height: 0px;
+      width: 13px;
+      height: 13px;
       max-width: 13px;
       max-height: 13px;
     }
 
     &:hover {
       .Subnav__item-circle {
+        background-color: theme('colors.yellow');
         width: 13px;
         height: 13px;
       }
@@ -30,17 +31,5 @@
 
   &__mobile--avtice {
     transform: translateY(0);
-  }
-
-  .Subnav__item-circle--active {
-    width: 13px;
-    height: 13px;
-  }
-
-  .Subnav__item-circle--active-top {
-    @screen lg {
-      width: 13px;
-      height: 13px;
-    }
   }
 }
