@@ -34,7 +34,9 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The main branch is connected to the staging site: [https://firefly-health-website-sanctucompu.vercel.app/](https://firefly-health-website-sanctucompu.vercel.app/).
 The production branch is connected to the production site: [https://www.fireflyhealth.com/](https://www.fireflyhealth.com/).
 
-Production deployments will trigger a static deployment to Firefly's AWS S3 bucket. All routing and middleware (how we handle A/B testing) will be controled by Firefly in Cloudfront. Sanctuary Computer will use Sentry to monitor any server and client side errors while Firefly will use their own Datadog dashboards for uptime monitoring.
+Production deployments will trigger a static deployment to Firefly's AWS S3 bucket as well as Vercel. All routing and middleware (how we handle A/B testing) will be controled by Firefly in Cloudfront. Sanctuary Computer will use Sentry to monitor any server and client side errors while Firefly will use their own Datadog dashboards for uptime monitoring.
+
+Publishing a document in Sanity will trigger github to create a pull request to the production branch. The data will not live on any other branch. All local Sanity data is included in .gitignore so no need to remove or worry about it causing issues with production data.
 
 ```
   git checkout main
