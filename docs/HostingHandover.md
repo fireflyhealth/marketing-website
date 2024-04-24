@@ -110,7 +110,7 @@ We have setup the sanity.io to trigger github action when editor publishes the c
 - Once the function is created, open it to edit its settings.
 
 - Under the `Build` section below, enter the following function code - you can find code here: `docs/cloudfrontABTestingFunction.js`
-  link of the code: TO_BE_ADDED
+  [link to the code](https://github.com/sanctuarycomputer/firefly-health-website/blob/main/docs/cloudfrontABTestingFunction.js)
 
 - Save your changes.
 
