@@ -14,7 +14,7 @@ export const TitleWrapper = ['block', 'md:flex md:flex-row justify-between'];
 export const Description = ['max-w-[750px]'];
 
 export const FAQListWrapper = [
-  'py-24',
+  'py-12',
   'md:pt-[260px] md:pb-0',
   'lg:pt-[130px]',
 ];
