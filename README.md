@@ -18,8 +18,6 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:
@@ -33,8 +31,12 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 
 ### Deploying to Production
 
-The main branch will be connected to staging site, and production branch will be connected to production site.
-When you push the main branch to production branch, it will trigger build for production. Please make sure to check main (staging site) so that we are not pushing any bug to the production site.
+The main branch is connected to the staging site: [https://firefly-health-website-sanctucompu.vercel.app/](https://firefly-health-website-sanctucompu.vercel.app/).
+The production branch is connected to the production site: [https://www.fireflyhealth.com/](https://www.fireflyhealth.com/).
+
+Production deployments will trigger a static deployment to Firefly's AWS S3 bucket as well as Vercel. All routing and middleware (how we handle A/B testing) will be controled by Firefly in Cloudfront. Sanctuary Computer will use Sentry to monitor any server and client side errors while Firefly will use their own Datadog dashboards for uptime monitoring.
+
+Publishing a document in Sanity will trigger github to create a pull request to the production branch. The data will not live on any other branch. All local Sanity data is included in .gitignore so no need to remove or worry about it causing issues with production data.
 
 ```
   git checkout main
@@ -67,7 +69,7 @@ Categories:
 
 Reference: reference of the issue/ticket. If there is no reference, just add `no-ref`.
 
-Description: description the sums up the issue/ticket in kebab case. The title of the ticket should suffice in most cases.
+Description: description that sums up the issue/ticket in kebab case. The title of the ticket should suffice in most cases.
 
 ### Commit Naming Convention
 
@@ -80,3 +82,9 @@ Overview:
 - BREAKING CHANGE: a commit that has a footer `BREAKING CHANGE`:, or appends a ! after the type/scope, introduces a breaking API change (correlating with MAJOR in Semantic Versioning). A BREAKING CHANGE can be part of commits of any type.
 - types other than `fix:` and `feat:` are allowed, for example @commitlint/config-conventional (based on the Angular convention) recommends `build:`, `chore:`, `ci:`, `docs:`, `style:`, `refactor:`, `perf:`, `test:`, and others.
 - footers other than `BREAKING CHANGE: <description>` may be provided and follow a convention similar to git trailer format.
+
+## Sanity
+
+Read how to get started with Sanity here [Sanity Readme](./sanity/README.md)
+
+For a list of instructions on using Sanity please review the [Operating Manual](https://garden3d.notion.site/Firefly-Operating-Manual-48d437989fad4972bf7511c9902b1206)

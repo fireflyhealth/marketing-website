@@ -5,7 +5,7 @@
 Documents that are eligible for A/B content are configured with a `documentVariantInfo` object field. This field's information includes:
 
 - `documentVariant?: Maybe<SanityReference>` - A primary's document reference to it's B variant.
-- `variantOf?: Maybe<SanityReference>` - A variant document's primary document.
+- `variantOf?: Maybe<SanityReference>` - A variant document's reference to it's primary document.
 - `isActive?: boolean` - A setting that makes this content available for B segment viewers.
 
 ### User Experience
@@ -33,7 +33,7 @@ Some other considerations to be made:
 
 ### Data fetching
 
-All A/B eligible pages have a sibling `b-content.tsx` route. For example:
+All pages have a sibling `b-content.tsx` route. For example:
 
 - `/pages/index.tsx` / `pages/b-content.tsx`
 - `/pages/[blogSlug]/index.tsx` / `pages/[blogSlug]/b-content.tsx`
@@ -60,4 +60,4 @@ For example: when a B segment user visits the URL `/blog/for-members`, they rece
 
 See (middleware.ts)[../www/src/middleware.ts] for more details.
 
-> **Note:** In production, this project is generated statically and deployed to Firefly's S3 account, which sits behind Cloudfront. Since it is serving simple static content, the `middleware.ts` we have here is never run. We retain it here for simpler A/B testing in development, then re-implement the logic in the Cloudfront settings.
+> **Note:** In production, this project is generated statically and deployed to Firefly's S3 account, which sits behind Cloudfront. Since it is serving simple static content, the `middleware.ts` we have here is never run. We retain it here for simpler A/B testing in development, then re-implement the logic in the Cloudfront settings. When exporting to S3, two folders will be generated that will hold the _a_ version of all page routes and another for _b_. This allows Cloudfront to simply point users to the correct version of the site depending on the cookie that is set in the browser (removing any complex page specific logic).

@@ -36,3 +36,15 @@ For example, imagine you are replacing a `type: 'string'` field named `text` pro
   - Make the frontend changes necessary to read this field.
   - Merge your PR
   - Come back later to remove the deprecated `name: 'text', type: 'string'` field.
+
+## Validating documents
+
+Sanity provides a CLI command to validate documents: `sanity documents validate`
+
+Some notes:
+
+- If you have multiple workspaces set up, you need to define which one you want to validate, i.e. `yarn sanity documents validate --workspace staging`
+- You can filter out warnings with `--level error`
+- You can skip the confirmation step with `-y` (this would be helpful in CI, but see the note below)
+
+Ideally, we’d set this up as a CI step within Github Actions, but the issue with this is that it validates draft documents, which would block deployments. Until Sanity has resolved this, validtion commands should be run manually when making Production deployments.
