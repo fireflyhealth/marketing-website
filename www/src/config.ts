@@ -23,10 +23,10 @@ export const config = {
   },
   datadog: {
     rum: {
-      applicationId: '5d5310e3-3910-4f16-886a-c4966e745bea',
-      clientToken: 'pub5e880234ed69e7f5a8e2a4bca62f20dd',
-      service: 'firefly-health',
-      site: 'us5.datadoghq.com',
+      applicationId: process.env.DATADOG_APPLICATION_ID || '',
+      clientToken: process.env.DATADOG_CLIENT_TOKEN || '',
+      service: process.env.DATADOG_SERVICE || '',
+      site: process.env.DATADOG_SITE || '',
     },
   },
   /* TODO: Update this with Firefly's GTM Property ID and AB cookie values. */
