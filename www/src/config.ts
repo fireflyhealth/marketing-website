@@ -40,3 +40,5 @@ export const config = {
     },
   },
 };
+// eslint-disable-next-line no-console
+console.log('test>>>', process.env.DATADOG_APPLICATION_ID);
