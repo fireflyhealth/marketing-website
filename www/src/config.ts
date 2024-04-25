@@ -29,7 +29,6 @@ export const config = {
       site: process.env.DATADOG_SITE || '',
     },
   },
-  /* TODO: Update this with Firefly's GTM Property ID and AB cookie values. */
   googleTagManager: {
     /* the ID should be undefined (or an alternate property ID)
      * for staging so we do not clutter their analytics */

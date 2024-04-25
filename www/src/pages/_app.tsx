@@ -1,5 +1,4 @@
 import React from 'react';
-import Cookie from 'js-cookie';
 import { AppProps } from 'next/app';
 import { GoogleTagManager } from '@next/third-parties/google';
 import { HubspotProvider } from 'next-hubspot';

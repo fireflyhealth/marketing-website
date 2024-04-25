@@ -20,6 +20,12 @@
     },
     "types": ["jest"]
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "./testing/setup.ts"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "./testing/setup.ts",
+    "src/utils/__tests__/mockData.ts"
+  ],
   "exclude": ["node_modules"]
 }
