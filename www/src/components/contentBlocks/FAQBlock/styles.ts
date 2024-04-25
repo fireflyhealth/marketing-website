@@ -13,10 +13,6 @@ export const TitleWrapper = ['block', 'md:flex md:flex-row justify-between'];
 
 export const Description = ['max-w-[750px]'];
 
-export const FAQListWrapper = [
-  'py-12',
-  'md:pt-[260px] md:pb-0',
-  'lg:pt-[130px]',
-];
+export const FAQListWrapper = ['py-12', 'md:pt-16 md:pb-0'];
 
 export const FAQListItem = ['border-t theme-border-color py-4'];
