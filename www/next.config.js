@@ -25,6 +25,12 @@ const nextConfig = {
     formats: ['image/webp'],
     minimumCacheTTL: 60,
   },
+  env: {
+    DATADOG_APPLICATION_ID: process.env.DATADOG_APPLICATION_ID,
+    DATADOG_CLIENT_TOKEN: process.env.DATADOG_CLIENT_TOKEN,
+    DATADOG_SERVICE: process.env.DATADOG_SERVICE,
+    DATADOG_SITE: process.env.DATADOG_SITE,
+  },
   async redirects() {
     return [
       {
