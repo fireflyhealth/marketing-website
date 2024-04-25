@@ -158,3 +158,14 @@ To connect your CircleCI to the Firefly Health website repo and configure it to 
 - [The bucket does not allow ACLs](https://stackoverflow.com/questions/71080354/getting-the-bucket-does-not-allow-acls-error)
 
 - [Circle Ci example](https://circleci.com/developer/orbs/orb/circleci/aws-s3#usage-sync_and_copy_with_oidc)
+
+## Datadog
+
+Add Datadog information to CircleCI "Environment Variables".
+
+- DATADOG_APPLICATION_ID: add application id
+- DATADOG_CLIENT_TOKEN: add client token
+- DATADOG_SERVICE: add service
+- DATADOG_SITE: add site
+
+Please setup datadog dashboard in Firefly datadog account after.
