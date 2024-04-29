@@ -81,6 +81,68 @@ export const SimpleRichText = defineField({
   ],
 });
 
+// Some richText fields like 'Description' within Big Ordered List should allow editors to add images.
+export const SimpleRichTextWithImage = defineField({
+  name: 'simpleRichTextWithImage',
+  title: 'Rich Text',
+  type: 'array',
+  of: [
+    {
+      type: 'block',
+      styles: [],
+      lists: [],
+      marks: {
+        decorators: [
+          { title: 'Bold', value: 'strong' },
+          { title: 'Italic', value: 'em' },
+          {
+            title: 'Sub',
+            value: 'sub',
+            icon: SubIcon,
+            component: SubDecorator,
+          },
+          {
+            title: 'Super',
+            value: 'super',
+            icon: SuperIcon,
+            component: SuperDecorator,
+          },
+        ],
+        annotations: [
+          {
+            name: 'link',
+            type: 'object',
+            title: 'Link',
+            fields: [
+              {
+                name: 'link',
+                type: 'link',
+                title: 'Linked Page, URL, or File',
+                validation: (Rule) => Rule.required(),
+              },
+            ],
+          },
+          {
+            name: 'textHighlight',
+            title: 'Highlight',
+            type: 'object',
+            icon: icons.Highlight,
+            fields: [
+              {
+                name: 'textHighlight',
+                title: 'Highlight',
+                type: 'theme',
+                validation: (Rule) => Rule.required(),
+              },
+            ],
+          },
+        ],
+      },
+    },
+    { name: 'richImage', type: 'richImageWithCaption', title: 'Image' },
+  ],
+});
+
 // Some place like "blurb" in a blog article schema should not have link option since whole blurb section will be clickable
 export const SimpleRichTextWithoutLink = defineField({
   name: 'simpleRichTextWithoutLink',

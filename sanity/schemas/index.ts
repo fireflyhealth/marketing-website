@@ -69,6 +69,7 @@ import { Link, LinkableDocument } from './fields/linking';
 import { CTA } from './fields/cta';
 import {
   SimpleRichText,
+  SimpleRichTextWithImage,
   SimpleRichTextWithoutLink,
   ArticleRichText,
   LimitedRichText,
@@ -194,6 +195,7 @@ export const schemaTypes = [
   LinkableDocument,
   CTA,
   SimpleRichText,
+  SimpleRichTextWithImage,
   SimpleRichTextWithoutLink,
   LimitedRichText,
   ContentBlockRichText,

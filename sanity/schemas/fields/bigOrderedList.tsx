@@ -28,7 +28,7 @@ export const BigOrderedList = defineType({
             defineField({
               name: 'description',
               title: 'Description',
-              type: 'simpleRichText',
+              type: 'simpleRichTextWithImage',
             }),
           ],
         }),

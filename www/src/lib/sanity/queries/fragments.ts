@@ -184,6 +184,23 @@ export const simpleRichTextFragment = `
   }
 `;
 
+export const simpleRichTextWithImageFragment = `
+  ...,
+  _type == "richImage" => {
+    ${imageFragment}
+  },
+  markDefs[]{
+    _key,
+    _type,
+    _type == "link" => {
+      link {
+        ${linkFragment}
+      },
+    },
+    _type == "textHighlight" => {...},
+  }
+`;
+
 export const ctaFragment = `
   ...,
   link{
@@ -327,7 +344,7 @@ export const richTextFragment = `
     listItems[] {
       title,
       description[]{
-        ${simpleRichTextFragment}
+        ${simpleRichTextWithImageFragment}
       }
     }
   },
