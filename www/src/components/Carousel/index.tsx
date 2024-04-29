@@ -396,7 +396,10 @@ export const PrevButton: FC<PrevButtonProps> = ({
 }) => {
   return (
     <button
-      className="element-focus"
+      className={cn(
+        'element-focus',
+        disabled ? 'hover:translate-x-0' : 'hover:-translate-x-[5px]',
+      )}
       disabled={disabled}
       onClick={goPrev}
       aria-label="Go to previous slide"
@@ -417,7 +420,10 @@ export const NextButton: FC<NextButtonProps> = ({
 }) => {
   return (
     <button
-      className="ml-5 element-focus"
+      className={cn(
+        'ml-5 element-focus',
+        disabled ? 'hover:translate-x-0' : 'hover:translate-x-[5px]',
+      )}
       disabled={disabled}
       onClick={goNext}
       aria-label="Go to next slide"
