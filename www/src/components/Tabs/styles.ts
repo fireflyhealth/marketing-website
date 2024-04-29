@@ -1,6 +1,6 @@
 export const TabLabels = [
-  'container-padding-bleed pt-12 px-4 pb-[14px] flex flex-row whitespace-nowrap overflow-x-scroll hide-scrollbar',
-  'md:py-12 md:px-9 lg:px-14',
+  'px-0 pb-[14px] flex flex-row whitespace-nowrap overflow-x-scroll hide-scrollbar',
+  'md:pb-12',
 ];
 export const TabLabel = [
   'font-size-6 font-trust mr-6 font-light',

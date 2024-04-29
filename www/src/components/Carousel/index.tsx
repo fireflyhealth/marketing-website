@@ -30,6 +30,8 @@ type ContextValue = {
   setSlideContainerDragLeft: React.Dispatch<React.SetStateAction<number>>;
   transformSlideContainerLeft: boolean;
   setTransformSlideContainerLeft: React.Dispatch<React.SetStateAction<boolean>>;
+  slideContainerHeight: number;
+  setSlideContainerHeight: React.Dispatch<React.SetStateAction<number>>;
 };
 
 /**
@@ -86,6 +88,7 @@ export const Carousel: FC<CarouselProps> = ({ children, isImageCarousel }) => {
    * deaired left position. */
   const [transformSlideContainerLeft, setTransformSlideContainerLeft] =
     useState(false);
+  const [slideContainerHeight, setSlideContainerHeight] = useState<number>(100); // 100 represents 100%
 
   const goPrev = () => {
     if (currentSlideIndex > 0) {
@@ -143,6 +146,8 @@ export const Carousel: FC<CarouselProps> = ({ children, isImageCarousel }) => {
         goNext,
         transformSlideContainerLeft,
         setTransformSlideContainerLeft,
+        slideContainerHeight,
+        setSlideContainerHeight,
       }}
     >
       <SlideContainer
@@ -159,7 +164,7 @@ export const Carousel: FC<CarouselProps> = ({ children, isImageCarousel }) => {
       {/* Prev/Next component */}
       <div
         className={cn(
-          !isImageCarousel ? 'hidden md:block pt-4' : 'block pt-12',
+          !isImageCarousel ? 'hidden md:block pt-4 md:pt-16' : 'block pt-12',
         )}
       >
         <PrevButton disabled={currentSlideIndex === 0} goPrev={goPrev}>
@@ -248,9 +253,7 @@ export const Slide: FC<SlideProps> = ({
       ref={slideElement}
       className={cn(
         'carousel__slide h-full relative block',
-        // TODO: refactor how non image carousel slides
-        // are positioned.
-        !isImageCarousel && 'odd:mt-0 even:mt-8 md:even:mt-12',
+        !isImageCarousel && 'flex odd:mt-0 even:mt-8 md:even:mt-12',
       )}
     >
       {children}
@@ -345,7 +348,13 @@ export const SlideContainer: FC<SlideContainerProps> = ({
         {...handlers}
       >
         {/* Slide container inner div */}
-        <div ref={slideInnerRef} className="h-full flex flex-row">
+        <div
+          ref={slideInnerRef}
+          className="h-full flex flex-row"
+          style={{
+            height: `${!isImageCarousel && windowDimensions && windowDimensions.width > BREAK_POINTS_MD ? `${slideInnerRef.current?.clientHeight}px` : 'auto'}`,
+          }}
+        >
           {children}
         </div>
       </div>
@@ -387,7 +396,10 @@ export const PrevButton: FC<PrevButtonProps> = ({
 }) => {
   return (
     <button
-      className="element-focus"
+      className={cn(
+        'element-focus',
+        disabled ? 'hover:translate-x-0' : 'hover:-translate-x-[5px]',
+      )}
       disabled={disabled}
       onClick={goPrev}
       aria-label="Go to previous slide"
@@ -408,7 +420,10 @@ export const NextButton: FC<NextButtonProps> = ({
 }) => {
   return (
     <button
-      className="ml-5 element-focus"
+      className={cn(
+        'ml-5 element-focus',
+        disabled ? 'hover:translate-x-0' : 'hover:translate-x-[5px]',
+      )}
       disabled={disabled}
       onClick={goNext}
       aria-label="Go to next slide"

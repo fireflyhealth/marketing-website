@@ -24,6 +24,11 @@ main {
   -webkit-font-smoothing: antialiased;
 }
 
+::selection {
+  background-color: theme('colors.yellow');
+  color: theme('colors.black');
+}
+
 .ContentArea {
   /* Add spacing between components  */
   > div + div {
