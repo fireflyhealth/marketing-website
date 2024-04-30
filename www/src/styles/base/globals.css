@@ -4,6 +4,28 @@
   --container-sm-padding: 16px;
   --grid-margin-lg: min(3.33vw, 64px);
   --grid-margin-sm: 16px;
+
+  --navy-500: #071f3e;
+  --blue-700-accessible: #0059cd;
+  --black: black;
+  --white: white;
+  --green-800-accessible: #066d69;
+  --gold: #ffd714;
+  --yellow: #ffd714;
+  --grey-light: #fafafa;
+  --grey-500-accessible: #697077;
+  --orange: #ff7f29;
+  --grey-400: #878d96;
+  --green-tint: #ccf3e9;
+  --red: #ff0400;
+  --purple: #6a1ee4;
+  --yellow-tint: #fff7d0;
+  --orange-tint: #ffe5d4;
+  --blue-tint: #cce7fb;
+  --purple-tint: #e1d2fa;
+  --grey-medium: #fafafa;
+  --grey-dark: #ddd;
+  --section-color: #f2f4f8;
 }
 
 html {
