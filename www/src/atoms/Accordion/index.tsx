@@ -10,6 +10,8 @@ type AccordionProps = {
   isOpen?: boolean;
   isFocusable?: boolean;
   fontSize?: string;
+  isArrowIcon?: boolean;
+  textOverride?: string;
 };
 
 export const Accordion: FC<AccordionProps> = ({
@@ -17,6 +19,8 @@ export const Accordion: FC<AccordionProps> = ({
   children,
   isOpen: parentIsOpen,
   fontSize,
+  isArrowIcon = true,
+  textOverride = false,
 }) => {
   const innerContentRef = useRef<HTMLDivElement>(null);
   const windowDimensions = useWindowDimensions();
@@ -72,17 +76,27 @@ export const Accordion: FC<AccordionProps> = ({
           TitleWrapper,
           'element-focus py-4 -mt-4 -mb-4',
           fontSize ? fontSize : 'font-size-7',
-          {
-            'theme-text-color-secondary': isOpen,
-          },
+          textOverride
+            ? textOverride
+            : isOpen
+            ? 'theme-text-color-secondary'
+            : 'theme-text-color-primary hover:theme-text-color-secondary',
         )}
       >
         <span className="pr-4">{title}</span>
         <div>
-          <SimpleIcon
-            type={isOpen ? 'arrow-up' : 'arrow-down'}
-            iconStyles="theme-icon-overlap"
-          />
+          {isArrowIcon ? (
+            <SimpleIcon
+              type={isOpen ? 'arrow-up' : 'arrow-down'}
+              iconStyles="theme-icon-overlap"
+            />
+          ) : (
+            <SimpleIcon
+              type="plus"
+              wrapperStyles={cn('duration-100', isOpen ? 'rotate-45' : '')}
+              iconStyles="text-white w-4 h-4"
+            />
+          )}
         </div>
       </button>
       <div

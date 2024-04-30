@@ -1,12 +1,17 @@
+import { useState } from 'react';
+import cn from 'classnames';
 import { GetStaticProps } from 'next';
 import Image from 'next/image';
 import Head from 'next/head';
 import Script from 'next/script';
+import ReactPlayer from 'react-player';
 import { RevalidationTime } from '@/constants';
 import * as Sanity from '@/lib/sanity';
 import { QueryConfig } from '@/lib/sanity';
+import { Accordion } from '@/atoms/Accordion';
 
 import heroImage from './images/about-hero-1.jpg';
+import JPMCLogo from './images/648235e6145ec6158ef046bb_JPM white.svg';
 import fireflyLogoLight from './images/FF_primary_light_180x29.svg';
 import iconAlwaysOn from './images/icon-always-on.svg';
 import iconConvenience from './images/icon-convenience.svg';
@@ -14,8 +19,12 @@ import iconSpecialist from './images/icon-Specialists.svg';
 import iconTime from './images/icon-time.svg';
 import careTeamGraphic from './images/careTeam_graphic-1.png';
 import memberCareNetwork from './images/member-network-care-options.png';
+import stepOne from './images/1---home.png';
+import stepTwo from './images/2---pick-team.png';
+import stepThree from './images/3---book-a-visit.png';
 
 const JPMCLandingPage = () => {
+  const [currentStep, setCurrentStep] = useState<number>(1);
   return (
     <>
       <Head>
@@ -63,7 +72,7 @@ const JPMCLandingPage = () => {
         />
         <link href="images/webclip.png" rel="apple-touch-icon" />
       </Head>
-      <body id="JPMCLandingPage" className="container-padding-bleed">
+      <body id="JPMCLandingPage" className="container-padding-bleed p-0">
         <main className="main-wrapper">
           <div className="animation-load-first-group">
             <section className="section-fullbleed-partner-hero is-landing-page">
@@ -88,6 +97,13 @@ const JPMCLandingPage = () => {
                       <div className="animation-first"></div>
                       <div className="fullbleed-hero_logo-container">
                         <Image
+                          src={JPMCLogo}
+                          loading="lazy"
+                          alt="Firefly Health Logo"
+                          id="w-node-_195fe602-e137-05f9-c763-ac59a7af45e3-d1ed5f6f"
+                          className="fullbleed-hero_content-logo-firefly"
+                        />
+                        <Image
                           src={fireflyLogoLight}
                           loading="lazy"
                           alt="Firefly Health Logo"
@@ -96,21 +112,17 @@ const JPMCLandingPage = () => {
                         />
                       </div>
                       <div className="animation-second">
-                        <h1 className="text-fullbleed-hero-heading w-dyn-bind-empty"></h1>
+                        <h1 className="text-fullbleed-hero-heading w-dyn-bind-empty">
+                          Your care team. Anytime. Anywhere.
+                        </h1>
                       </div>
                       <div className="animation-third">
                         <div className="margin-top margin-small">
-                          <p className="text-size-medium text-color-white text-color-blue-mobile w-dyn-bind-empty"></p>
-                        </div>
-                        <div className="margin-top margin-medium max-width-small">
                           <p className="text-size-medium text-color-white text-color-blue-mobile">
-                            <strong>Download the Firefly app today to </strong>
-                            <a
-                              href="#next-steps"
-                              className="text-style-link text-color-white"
-                            >
-                              <strong>get started</strong>
-                            </a>
+                            No matter what your health concerns or questions,
+                            Firefly is here for all of it 24/7. With chat and
+                            video visits, you have complete care right at your
+                            fingertips.
                           </p>
                         </div>
                         <div className="margin-top margin-small">
@@ -119,7 +131,9 @@ const JPMCLandingPage = () => {
                             <a
                               href="#"
                               className="button button-size-large w-button"
-                            ></a>
+                            >
+                              Sign up today
+                            </a>
                             <a
                               href="#video-section"
                               className="button button-size-large w-button"
@@ -255,18 +269,19 @@ const JPMCLandingPage = () => {
                             id="b2161cb5-ef3c-c6ce-cec0-7face87e9759-video"
                             autoPlay={true}
                             loop={true}
-                            // style={{"background-image:url(&quot;videos/BCBS_user_flow_v2-crop-poster-00001.jpg&quot;)"}}
                             muted={true}
                             playsInline={true}
                             data-wf-ignore="true"
                             data-object-fit="cover"
                           >
                             <source
-                              src="videos/BCBS_user_flow_v2-crop-transcode.mp4"
+                              src="/videos/BCBS_user_flow_v2-crop-transcode.mp4"
+                              type="video/mp4"
                               data-wf-ignore="true"
                             />
                             <source
-                              src="videos/BCBS_user_flow_v2-crop-transcode.webm"
+                              src="/videos/BCBS_user_flow_v2-crop-transcode.webm"
+                              type="video/webm"
                               data-wf-ignore="true"
                             />
                           </video>
@@ -484,30 +499,6 @@ const JPMCLandingPage = () => {
                   </div>
                 </div>
               </div>
-              {/* <section className="section-care-pass-how background-color-lightgrey">
-                  <div className="page-padding-5">
-                    <div className="container-large-4">
-                      <div className="padding-vertical padding-large">
-                        <div className="w-layout-grid _50-50_component">
-                          <div className="_50-50_content">
-                            <div className="animation-first">
-                              <div className="max-width-small">
-                                <h2>Yes, you can still get in-person care</h2>
-                              </div>
-                              <div className="margin-top-5 margin-small">
-                                <div className="text-size-medium-10">When you need hands-on primary care, like listening to your heart or lungs, we have you covered. We guide you to one of our urgent care partners and work together to support you. <br><br>And for specialists, imaging, and labs? We’re happy to work with your current providers or connect you with one of our partners.</div>
-                              </div>
-                            </div>
-                          </div>
-                          <div className="_50-50_image-wrapper">
-                            <div className="animation-second">
-                              <img src="images/member-network-care-options.png" loading="lazy" sizes="100vw" srcset="images/member-network-care-options-p-500.png 500w, images/member-network-care-options.png 700w" alt="Member network care options" className="future-coworkers_image"></div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </section> */}
             </section>
             <section className="section_three-step-guide">
               <div className="padding-global">
@@ -540,7 +531,11 @@ const JPMCLandingPage = () => {
                         >
                           <a
                             data-w-tab="Tab 1"
-                            className="layout28_tabs-link w-inline-block w-tab-link w--current"
+                            className={cn(
+                              'layout28_tabs-link w-inline-block w-tab-link',
+                              currentStep === 1 ? 'w--current' : '',
+                            )}
+                            onClick={() => setCurrentStep(1)}
                           >
                             <div className="margin-bottom-7 margin-xsmall">
                               <h3 className="heading-small">
@@ -554,7 +549,11 @@ const JPMCLandingPage = () => {
                           </a>
                           <a
                             data-w-tab="Tab 2"
-                            className="layout28_tabs-link w-inline-block w-tab-link"
+                            className={cn(
+                              'layout28_tabs-link w-inline-block w-tab-link',
+                              currentStep === 2 ? 'w--current' : '',
+                            )}
+                            onClick={() => setCurrentStep(2)}
                           >
                             <div className="margin-bottom-7 margin-xsmall">
                               <h3 className="heading-small">
@@ -568,7 +567,11 @@ const JPMCLandingPage = () => {
                           </a>
                           <a
                             data-w-tab="Tab 3"
-                            className="layout28_tabs-link w-inline-block w-tab-link"
+                            className={cn(
+                              'layout28_tabs-link w-inline-block w-tab-link',
+                              currentStep === 3 ? 'w--current' : '',
+                            )}
+                            onClick={() => setCurrentStep(3)}
                           >
                             <div className="margin-bottom-7 margin-xsmall">
                               <h3 className="heading-small">
@@ -581,38 +584,50 @@ const JPMCLandingPage = () => {
                         <div className="w-tab-content">
                           <div
                             data-w-tab="Tab 1"
-                            className="w-tab-pane w--tab-active"
+                            className={cn(
+                              'w-tab-pane',
+                              currentStep === 1 ? 'w--tab-active' : 'hidden',
+                            )}
                           >
                             <div className="layout28_image-wrapper">
-                              {/* TODO: get image from Shaly */}
-                              {/* <Image
-                                  alt=""
-                                  loading="lazy"
-                                  src="images/1---home.png"
-                                  className="three-step-guide_image"
-                                /> */}
+                              <Image
+                                alt=""
+                                loading="lazy"
+                                src={stepOne}
+                                className="three-step-guide_image"
+                              />
                             </div>
                           </div>
-                          <div data-w-tab="Tab 2" className="w-tab-pane">
+                          <div
+                            data-w-tab="Tab 2"
+                            className={cn(
+                              'w-tab-pane',
+                              currentStep === 2 ? 'w--tab-active' : 'hidden',
+                            )}
+                          >
                             <div className="layout28_image-wrapper">
-                              {/* TODO: get image from Shaly */}
-                              {/* <Image
-                                  alt=""
-                                  loading="lazy"
-                                  src="images/2---pick-team.png"
-                                  className="three-step-guide_image"
-                                /> */}
+                              <Image
+                                alt=""
+                                loading="lazy"
+                                src={stepTwo}
+                                className="three-step-guide_image"
+                              />
                             </div>
                           </div>
-                          <div data-w-tab="Tab 3" className="w-tab-pane">
+                          <div
+                            data-w-tab="Tab 3"
+                            className={cn(
+                              'w-tab-pane',
+                              currentStep === 3 ? 'w--tab-active' : 'hidden',
+                            )}
+                          >
                             <div className="layout28_image-wrapper">
-                              {/* TODO: get image from Shaly */}
-                              {/* <Image
-                                  alt=""
-                                  loading="lazy"
-                                  src="images/3---book-a-visit.png"
-                                  className="three-step-guide_image"
-                                /> */}
+                              <Image
+                                alt=""
+                                loading="lazy"
+                                src={stepThree}
+                                className="three-step-guide_image"
+                              />
                             </div>
                           </div>
                         </div>
@@ -811,7 +826,7 @@ const JPMCLandingPage = () => {
                     <div className="animation-first">
                       <div className="text-align-center">
                         <div className="padding-vertical padding-large">
-                          <h2 className="text-color-white">
+                          <h2 className="text-color-white !text-white">
                             Frequently asked questions
                           </h2>
                         </div>
@@ -820,41 +835,149 @@ const JPMCLandingPage = () => {
                   </div>
                   <div className="container-medium">
                     <div className="animation-second">
-                      <div className="accordion-faq_component is-single-coloumn">
-                        <div className="accordion_column">
-                          <div className="w-dyn-list">
-                            <div role="list" className="w-dyn-items">
-                              <div role="listitem" className="w-dyn-item">
-                                <div className="accordion_item background-color-gradient-blue-green">
-                                  <div className="accordion_question-wrapper">
-                                    <h2 className="text-size-medium text-font-sansserif text-color-white w-dyn-bind-empty"></h2>
-                                    <div className="accordion-icon text-color-white w-embed">
-                                      <svg
-                                        height="100%"
-                                        viewBox="0 0 14 14"
-                                        fill="none"
-                                        xmlns="http://www.w3.org/2000/svg"
-                                      >
-                                        <path
-                                          d="M14 8H8V14H6V8H0V6H6V0H8V6H14V8Z"
-                                          fill="currentcolor"
-                                        ></path>
-                                      </svg>
-                                    </div>
-                                  </div>
-                                  <div className="accordion_content-wrapper">
-                                    <div className="padding-vertical-faqs">
-                                      <div className="text-rich-text-white w-dyn-bind-empty w-richtext"></div>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                            <div className="w-dyn-empty">
-                              <div>No items found.</div>
-                            </div>
+                      <div className="border-b-[1px] border-white p-6">
+                        <Accordion
+                          title="Can I still see my current primary care provider (PCP)?"
+                          isArrowIcon={false}
+                          textOverride="!text-white"
+                        >
+                          <div className="text-rich-text-white w-dyn-bind-empty w-richtext">
+                            No, because your Firefly care team becomes your new
+                            PCP. We’ll help get your medical records from your
+                            current doctor. You can keep your specialists
+                            though.
                           </div>
-                        </div>
+                        </Accordion>
+                      </div>
+                      <div className="border-b-[1px] border-white p-6">
+                        <Accordion
+                          title="What are the benefits of virtual care?"
+                          isArrowIcon={false}
+                          textOverride="!text-white"
+                        >
+                          <div className="text-rich-text-white w-dyn-bind-empty w-richtext">
+                            Your virtual Firefly care team is available on
+                            demand by video and chat whenever you’re sick, need
+                            to ask a one-off question, or have a health concern.
+                            Most primary care services can be done virtually
+                            with your Firefly care team through easy-to-schedule
+                            primary care appointments available at the touch of
+                            a button, right from your smartphone. There may be
+                            instances where you need primary care services that
+                            can only be done in-person. In these cases, your
+                            care team will help guide you to a partner facility
+                            that can address your specific primary care needs —
+                            free of charge. These partner facilities make up
+                            Firefly’s in-person primary care network which is
+                            included at no additional cost when clinically
+                            needed (e.g. strep test, checking your vitals).
+                            <br />
+                            <br />
+                            Going virtual means you avoid a lot of hassle. Like
+                            waiting weeks for an appointment, juggling time off
+                            from work, or other things that get in the way of
+                            seeing your doctor. With no rushed office visits,
+                            you can easily fit your appointments around your
+                            schedule.
+                            <br />
+                            <br />
+                            Firefly’s virtual care teams offer care wherever and
+                            whenever you need it through an easy to navigate
+                            app. Firefly takes the best features of in-person
+                            primary care and builds on them to give you care
+                            that is focused on “the whole you” and care that
+                            adapts to your schedule.
+                          </div>
+                        </Accordion>
+                      </div>
+                      <div className="border-b-[1px] border-white p-6">
+                        <Accordion
+                          title="Where are the In-Person Primary Care Network locations?"
+                          isArrowIcon={false}
+                          textOverride="!text-white"
+                        >
+                          <div className="text-rich-text-white w-dyn-bind-empty w-richtext">
+                            To learn more about the availability of these
+                            locations in Houston, you can explore the In-Person
+                            Primary Care Network locations through the link
+                            below:
+                            <br />
+                            <br />
+                            Download locations (PDF)
+                          </div>
+                        </Accordion>
+                      </div>
+                      <div className="border-b-[1px] border-white p-6">
+                        <Accordion
+                          title="What health issues can Firefly treat virtually?"
+                          isArrowIcon={false}
+                          textOverride="!text-white"
+                        >
+                          <div className="text-rich-text-white w-dyn-bind-empty w-richtext">
+                            Firefly can handle most primary care needs
+                            virtually, including:
+                            <ul className="list-disc list-outside">
+                              <li className="!text-white">
+                                Chronic conditions:They have advanced approaches
+                                to managing your chronic conditions such as
+                                asthma, diabetes or high blood pressure.
+                              </li>
+                              <li className="!text-white">
+                                Acute concerns: They’re great for common
+                                ailments like back pain, stomach flu, headaches,
+                                sinus infections, and more.
+                              </li>
+                              <li className="!text-white">
+                                Health coaching: They’ll help you be your best
+                                self by supporting long-term health goals such
+                                as managing your weight, quitting smoking, or
+                                sleeping better.
+                              </li>
+                              <li className="!text-white">
+                                Women’s health: From birth control counseling to
+                                menstrual cycle concerns, they proactively
+                                manage women’s health needs.
+                              </li>
+                              <li className="!text-white">
+                                Behavioral health: As a Firefly member, you’ll
+                                have the option to work with a licensed
+                                behavioral health specialist to assess concerns
+                                such as depression or anxiety, provide support,
+                                and monitor your progress along the way.
+                              </li>
+                            </ul>
+                          </div>
+                        </Accordion>
+                      </div>
+                      <div className="border-b-[1px] border-white p-6">
+                        <Accordion
+                          title="What should I do in an emergency?"
+                          isArrowIcon={false}
+                          textOverride="!text-white"
+                        >
+                          <div className="text-rich-text-white w-dyn-bind-empty w-richtext">
+                            If you have a life-threatening emergency, call 911.
+                            <br />
+                            <br />
+                            If it’s not life threatening, message your Firefly
+                            care team weekdays from 7 a.m. to 7 p.m. ET. If it’s
+                            after hours, tap the After-Hours Emergency banner in
+                            the app to contact us. The on-call Firefly provider
+                            will call you within 30 minutes.
+                          </div>
+                        </Accordion>
+                      </div>
+                      <div className="border-b-[1px] border-white p-6">
+                        <Accordion
+                          title="Can my kids use Firefly?"
+                          isArrowIcon={false}
+                          textOverride="!text-white"
+                        >
+                          <div className="text-rich-text-white w-dyn-bind-empty w-richtext">
+                            Only JMPC medical plan enrolled members 18 and older
+                            can sign up for Firefly.
+                          </div>
+                        </Accordion>
                       </div>
                     </div>
                   </div>
