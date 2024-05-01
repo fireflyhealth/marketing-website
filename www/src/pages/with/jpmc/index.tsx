@@ -748,39 +748,6 @@ const JPMCLandingPage = () => {
                       </div>
                     </div>
                   </Carousel>
-
-                  {/* <div className="testimonial7_arrow hide-mobile-landscape w-slider-arrow-left">
-                    <div className="testimonial7_arrow-icon w-embed">
-                      <svg
-                        width="100%"
-                        height="100%"
-                        viewBox="0 0 16 16"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M3.31066 8.75001L9.03033 14.4697L7.96967 15.5303L0.439339 8.00001L7.96967 0.469676L9.03033 1.53034L3.31066 7.25001L15.5 7.25L15.5 8.75L3.31066 8.75001Z"
-                          fill="currentColor"
-                        ></path>
-                      </svg>
-                    </div>
-                  </div>
-                  <div className="testimonial7_arrow w-slider-arrow-right">
-                    <div className="testimonial7_arrow-icon hide-mobile-landscape w-embed">
-                      <svg
-                        width="100%"
-                        height="100%"
-                        viewBox="0 0 16 16"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M12.6893 7.25L6.96967 1.53033L8.03033 0.469666L15.5607 8L8.03033 15.5303L6.96967 14.4697L12.6893 8.75H0.5V7.25H12.6893Z"
-                          fill="currentColor"
-                        ></path>
-                      </svg>
-                    </div>
-                  </div> */}
                   <div className="testimonial7_slide-nav w-slider-nav w-slider-nav-invert w-round"></div>
                 </div>
               </div>
