@@ -9,10 +9,13 @@ import { RevalidationTime } from '@/constants';
 import * as Sanity from '@/lib/sanity';
 import { QueryConfig } from '@/lib/sanity';
 import { Accordion } from '@/atoms/Accordion';
+import { Carousel } from '@/components/Carousel';
 
 import heroImage from './images/about-hero-1.jpg';
 import JPMCLogo from './images/648235e6145ec6158ef046bb_JPM white.svg';
+import JPMCLogoDark from './images/6482332a7a23fd2a558d29c8_JPM_grey.svg';
 import fireflyLogoLight from './images/FF_primary_light_180x29.svg';
+import fireflyLogoDark from './images/FF_primary_dark_180x29.svg';
 import iconAlwaysOn from './images/icon-always-on.svg';
 import iconConvenience from './images/icon-convenience.svg';
 import iconSpecialist from './images/icon-Specialists.svg';
@@ -101,24 +104,38 @@ const JPMCLandingPage = () => {
                           loading="lazy"
                           alt="Firefly Health Logo"
                           id="w-node-_195fe602-e137-05f9-c763-ac59a7af45e3-d1ed5f6f"
-                          className="fullbleed-hero_content-logo-firefly"
+                          className="fullbleed-hero_content-logo !hidden md:!block"
+                        />
+                        <Image
+                          src={JPMCLogoDark}
+                          loading="lazy"
+                          alt="Firefly Health Logo"
+                          id="w-node-_195fe602-e137-05f9-c763-ac59a7af45e3-d1ed5f6f"
+                          className="fullbleed-hero_content-logo-mobile md:!hidden"
                         />
                         <Image
                           src={fireflyLogoLight}
                           loading="lazy"
                           alt="Firefly Health Logo"
                           id="w-node-_195fe602-e137-05f9-c763-ac59a7af45e3-d1ed5f6f"
-                          className="fullbleed-hero_content-logo-firefly"
+                          className="fullbleed-hero_content-logo-firefly !hidden md:!block"
+                        />
+                        <Image
+                          src={fireflyLogoDark}
+                          loading="lazy"
+                          alt="Firefly Health Logo"
+                          id="w-node-_195fe602-e137-05f9-c763-ac59a7af45e3-d1ed5f6f"
+                          className="fullbleed-hero_content-logo-firefly-mobile block md:!hidden"
                         />
                       </div>
                       <div className="animation-second">
-                        <h1 className="text-fullbleed-hero-heading w-dyn-bind-empty">
+                        <h1 className="text-fullbleed-hero-heading w-dyn-bind-empty md:!text-white">
                           Your care team. Anytime. Anywhere.
                         </h1>
                       </div>
                       <div className="animation-third">
                         <div className="margin-top margin-small">
-                          <p className="text-size-medium text-color-white text-color-blue-mobile">
+                          <p className="text-size-medium text-color-white text-color-blue-mobile md:!text-white">
                             No matter what your health concerns or questions,
                             Firefly is here for all of it 24/7. With chat and
                             video visits, you have complete care right at your
@@ -126,17 +143,16 @@ const JPMCLandingPage = () => {
                           </p>
                         </div>
                         <div className="margin-top margin-small">
-                          <p className="bcbs_hero-text-disclaimer w-dyn-bind-empty"></p>
                           <div className="button-group">
                             <a
                               href="#"
-                              className="button button-size-large w-button"
+                              className="button button-size-large w-button md:!w-1/2"
                             >
                               Sign up today
                             </a>
                             <a
                               href="#video-section"
-                              className="button button-size-large w-button"
+                              className="button button-size-large w-button md:!w-1/2"
                             >
                               Watch a video
                             </a>
@@ -639,146 +655,133 @@ const JPMCLandingPage = () => {
             </section>
             <div className="padding-global">
               <div className="container-large">
-                <div className="padding-section-large">
-                  <div
-                    data-delay="4000"
-                    data-animation="slide"
-                    className="testimonial7_component w-slider"
-                    data-autoplay="false"
-                    data-easing="ease"
-                    data-hide-arrows="false"
-                    data-disable-swipe="false"
-                    data-autoplay-limit="0"
-                    data-nav-spacing="3"
-                    data-duration="500"
-                    data-infinite="true"
-                  >
-                    <div className="testimonial7_mask w-slider-mask">
-                      <div className="testimonial7_slide w-slide">
-                        <div className="testimonial7_content">
-                          <div
-                            style={{ paddingTop: '56.27659574468085%' }}
-                            className="video-firefly-difference w-video w-embed"
-                          >
-                            <iframe
-                              className="embedly-embed"
-                              src="https://cdn.embedly.com/widgets/media.html?src=https%3A%2F%2Fplayer.vimeo.com%2Fvideo%2F933426171%3Fapp_id%3D122963&dntp=1&display_name=Vimeo&url=http%3A%2F%2Fvimeo.com%2F933426171&image=https%3A%2F%2Fi.vimeocdn.com%2Fvideo%2F1831874578-8edeab35ff8cd66ea3b97379704d16091c2d8b0fd314fe15fae6ece1cc8ad034-d_1280&key=96f1f04c5f4143bcb0f2e68c87d65feb&type=text%2Fhtml&schema=vimeo"
-                              width="940"
-                              height="529"
-                              scrolling="no"
-                              allowFullScreen={true}
-                              title="Meet Firefly Health: Virtual Primary Care for JPMC employees"
-                            ></iframe>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="testimonial7_slide w-slide">
-                        <div className="testimonial7_content">
-                          <div
-                            style={{ paddingTop: '56.27659574468085%' }}
-                            className="video-firefly-difference w-video w-embed"
-                          >
-                            <iframe
-                              className="embedly-embed"
-                              src="https://cdn.embedly.com/widgets/media.html?src=https%3A%2F%2Fplayer.vimeo.com%2Fvideo%2F933470542%3Fapp_id%3D122963&dntp=1&display_name=Vimeo&url=https%3A%2F%2Fvimeo.com%2F933470542&image=https%3A%2F%2Fi.vimeocdn.com%2Fvideo%2F1831942319-c3489258cc00649aa37cb86c2e7e8b666cb554dcb1881ddf5fff2a1e8832138b-d_1280&key=96f1f04c5f4143bcb0f2e68c87d65feb&type=text%2Fhtml&schema=vimeo"
-                              width="940"
-                              height="529"
-                              scrolling="no"
-                              allowFullScreen={true}
-                              title="Your first video visit with Firefly Health"
-                            ></iframe>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="testimonial7_slide w-slide">
-                        <div className="testimonial7_content">
-                          <div
-                            style={{ paddingTop: '56.27659574468085%' }}
-                            className="video-firefly-difference w-video w-embed"
-                          >
-                            <iframe
-                              className="embedly-embed"
-                              src="https://cdn.embedly.com/widgets/media.html?src=https%3A%2F%2Fplayer.vimeo.com%2Fvideo%2F933474325%3Fapp_id%3D122963&dntp=1&display_name=Vimeo&url=https%3A%2F%2Fvimeo.com%2F933474325&image=http%3A%2F%2Fi.vimeocdn.com%2Fvideo%2F1831946453-6f0ff2cc0160ca095e48a895c8a815857caac3440567a1af0b263612ed9a495c-d_1280&key=96f1f04c5f4143bcb0f2e68c87d65feb&type=text%2Fhtml&schema=vimeo"
-                              width="940"
-                              height="529"
-                              scrolling="no"
-                              allowFullScreen={true}
-                              title="Anytime, anywhere care with Firefly's care team"
-                            ></iframe>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="testimonial7_slide w-slide">
-                        <div className="testimonial7_content">
-                          <div
-                            style={{ paddingTop: '56.27659574468085%' }}
-                            className="video-firefly-difference w-video w-embed"
-                          >
-                            <iframe
-                              className="embedly-embed"
-                              src="https://cdn.embedly.com/widgets/media.html?src=https%3A%2F%2Fplayer.vimeo.com%2Fvideo%2F933477210%3Fapp_id%3D122963&dntp=1&display_name=Vimeo&url=https%3A%2F%2Fvimeo.com%2F933477210&image=https%3A%2F%2Fi.vimeocdn.com%2Fvideo%2F1831951355-34f7b39a77b65995bf6dc50dd66a69b2481e9eafe1c071b5e32f09f0294e8018-d_1280&key=96f1f04c5f4143bcb0f2e68c87d65feb&type=text%2Fhtml&schema=vimeo"
-                              width="940"
-                              height="529"
-                              scrolling="no"
-                              allowFullScreen={true}
-                              title="Getting in-person care with Firefly"
-                            ></iframe>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="testimonial7_slide w-slide">
-                        <div className="testimonial7_content">
-                          <div
-                            style={{ paddingTop: '56.27659574468085%' }}
-                            className="video-firefly-difference w-video w-embed"
-                          >
-                            <iframe
-                              className="embedly-embed"
-                              src="https://cdn.embedly.com/widgets/media.html?src=https%3A%2F%2Fplayer.vimeo.com%2Fvideo%2F933480433%3Fapp_id%3D122963&dntp=1&display_name=Vimeo&url=https%3A%2F%2Fvimeo.com%2F933480433&image=https%3A%2F%2Fi.vimeocdn.com%2Fvideo%2F1831956870-c921240f1df09716359c6f516ab7552c8d513aa64353cd63260fc784fe57e48c-d_1280&key=c4e54deccf4d4ec997a64902e9a30300&type=text%2Fhtml&schema=vimeo"
-                              width="940"
-                              height="529"
-                              scrolling="no"
-                              allowFullScreen={true}
-                              title="Access a Behavioral Health Specialist"
-                            ></iframe>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="testimonial7_arrow hide-mobile-landscape w-slider-arrow-left">
-                      <div className="testimonial7_arrow-icon w-embed">
-                        <svg
-                          width="100%"
-                          height="100%"
-                          viewBox="0 0 16 16"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
+                <div className="padding-section-large relative">
+                  <Carousel isSingleSlideCarousel>
+                    <div className="testimonial7_slide w-slide">
+                      <div className="testimonial7_content">
+                        <div
+                          // style={{ paddingTop: '56.27659574468085%' }}
+                          className="video-firefly-difference w-video w-embed w-full"
                         >
-                          <path
-                            d="M3.31066 8.75001L9.03033 14.4697L7.96967 15.5303L0.439339 8.00001L7.96967 0.469676L9.03033 1.53034L3.31066 7.25001L15.5 7.25L15.5 8.75L3.31066 8.75001Z"
-                            fill="currentColor"
-                          ></path>
-                        </svg>
+                          <iframe
+                            className="embedly-embed aspect-video h-full mx-auto w-2/3 md:w-full md:max-w-[768px]"
+                            src="https://cdn.embedly.com/widgets/media.html?src=https%3A%2F%2Fplayer.vimeo.com%2Fvideo%2F933426171%3Fapp_id%3D122963&dntp=1&display_name=Vimeo&url=http%3A%2F%2Fvimeo.com%2F933426171&image=https%3A%2F%2Fi.vimeocdn.com%2Fvideo%2F1831874578-8edeab35ff8cd66ea3b97379704d16091c2d8b0fd314fe15fae6ece1cc8ad034-d_1280&key=96f1f04c5f4143bcb0f2e68c87d65feb&type=text%2Fhtml&schema=vimeo"
+                            width="940"
+                            height="529"
+                            scrolling="no"
+                            allowFullScreen={true}
+                            title="Meet Firefly Health: Virtual Primary Care for JPMC employees"
+                          ></iframe>
+                        </div>
                       </div>
                     </div>
-                    <div className="testimonial7_arrow w-slider-arrow-right">
-                      <div className="testimonial7_arrow-icon hide-mobile-landscape w-embed">
-                        <svg
-                          width="100%"
-                          height="100%"
-                          viewBox="0 0 16 16"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
+                    <div className="testimonial7_slide w-slide">
+                      <div className="testimonial7_content">
+                        <div
+                          // style={{ paddingTop: '56.27659574468085%' }}
+                          className="video-firefly-difference w-video w-embed w-full"
                         >
-                          <path
-                            d="M12.6893 7.25L6.96967 1.53033L8.03033 0.469666L15.5607 8L8.03033 15.5303L6.96967 14.4697L12.6893 8.75H0.5V7.25H12.6893Z"
-                            fill="currentColor"
-                          ></path>
-                        </svg>
+                          <iframe
+                            className="embedly-embed aspect-video h-full mx-auto w-2/3 md:w-full md:max-w-[768px]"
+                            src="https://cdn.embedly.com/widgets/media.html?src=https%3A%2F%2Fplayer.vimeo.com%2Fvideo%2F933470542%3Fapp_id%3D122963&dntp=1&display_name=Vimeo&url=https%3A%2F%2Fvimeo.com%2F933470542&image=https%3A%2F%2Fi.vimeocdn.com%2Fvideo%2F1831942319-c3489258cc00649aa37cb86c2e7e8b666cb554dcb1881ddf5fff2a1e8832138b-d_1280&key=96f1f04c5f4143bcb0f2e68c87d65feb&type=text%2Fhtml&schema=vimeo"
+                            width="940"
+                            height="529"
+                            scrolling="no"
+                            allowFullScreen={true}
+                            title="Your first video visit with Firefly Health"
+                          ></iframe>
+                        </div>
                       </div>
                     </div>
-                    <div className="testimonial7_slide-nav w-slider-nav w-slider-nav-invert w-round"></div>
+                    <div className="testimonial7_slide w-slide">
+                      <div className="testimonial7_content">
+                        <div
+                          // style={{ paddingTop: '56.27659574468085%' }}
+                          className="video-firefly-difference w-video w-embed w-full"
+                        >
+                          <iframe
+                            className="embedly-embed aspect-video h-full mx-auto w-2/3 md:w-full md:max-w-[768px]"
+                            src="https://cdn.embedly.com/widgets/media.html?src=https%3A%2F%2Fplayer.vimeo.com%2Fvideo%2F933474325%3Fapp_id%3D122963&dntp=1&display_name=Vimeo&url=https%3A%2F%2Fvimeo.com%2F933474325&image=http%3A%2F%2Fi.vimeocdn.com%2Fvideo%2F1831946453-6f0ff2cc0160ca095e48a895c8a815857caac3440567a1af0b263612ed9a495c-d_1280&key=96f1f04c5f4143bcb0f2e68c87d65feb&type=text%2Fhtml&schema=vimeo"
+                            width="940"
+                            height="529"
+                            scrolling="no"
+                            allowFullScreen={true}
+                            title="Anytime, anywhere care with Firefly's care team"
+                          ></iframe>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="testimonial7_slide w-slide">
+                      <div className="testimonial7_content">
+                        <div
+                          // style={{ paddingTop: '56.27659574468085%' }}
+                          className="video-firefly-difference w-video w-embed w-full"
+                        >
+                          <iframe
+                            className="embedly-embed aspect-video h-full mx-auto w-2/3 md:w-full md:max-w-[768px]"
+                            src="https://cdn.embedly.com/widgets/media.html?src=https%3A%2F%2Fplayer.vimeo.com%2Fvideo%2F933477210%3Fapp_id%3D122963&dntp=1&display_name=Vimeo&url=https%3A%2F%2Fvimeo.com%2F933477210&image=https%3A%2F%2Fi.vimeocdn.com%2Fvideo%2F1831951355-34f7b39a77b65995bf6dc50dd66a69b2481e9eafe1c071b5e32f09f0294e8018-d_1280&key=96f1f04c5f4143bcb0f2e68c87d65feb&type=text%2Fhtml&schema=vimeo"
+                            width="940"
+                            height="529"
+                            scrolling="no"
+                            allowFullScreen={true}
+                            title="Getting in-person care with Firefly"
+                          ></iframe>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="testimonial7_slide w-slide">
+                      <div className="testimonial7_content">
+                        <div
+                          // style={{ paddingTop: '56.27659574468085%' }}
+                          className="video-firefly-difference w-video w-embed w-full"
+                        >
+                          <iframe
+                            className="embedly-embed aspect-video h-full mx-auto w-2/3 md:w-full md:max-w-[768px]"
+                            src="https://cdn.embedly.com/widgets/media.html?src=https%3A%2F%2Fplayer.vimeo.com%2Fvideo%2F933480433%3Fapp_id%3D122963&dntp=1&display_name=Vimeo&url=https%3A%2F%2Fvimeo.com%2F933480433&image=https%3A%2F%2Fi.vimeocdn.com%2Fvideo%2F1831956870-c921240f1df09716359c6f516ab7552c8d513aa64353cd63260fc784fe57e48c-d_1280&key=c4e54deccf4d4ec997a64902e9a30300&type=text%2Fhtml&schema=vimeo"
+                            width="940"
+                            height="529"
+                            scrolling="no"
+                            allowFullScreen={true}
+                            title="Access a Behavioral Health Specialist"
+                          ></iframe>
+                        </div>
+                      </div>
+                    </div>
+                  </Carousel>
+
+                  {/* <div className="testimonial7_arrow hide-mobile-landscape w-slider-arrow-left">
+                    <div className="testimonial7_arrow-icon w-embed">
+                      <svg
+                        width="100%"
+                        height="100%"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M3.31066 8.75001L9.03033 14.4697L7.96967 15.5303L0.439339 8.00001L7.96967 0.469676L9.03033 1.53034L3.31066 7.25001L15.5 7.25L15.5 8.75L3.31066 8.75001Z"
+                          fill="currentColor"
+                        ></path>
+                      </svg>
+                    </div>
                   </div>
+                  <div className="testimonial7_arrow w-slider-arrow-right">
+                    <div className="testimonial7_arrow-icon hide-mobile-landscape w-embed">
+                      <svg
+                        width="100%"
+                        height="100%"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M12.6893 7.25L6.96967 1.53033L8.03033 0.469666L15.5607 8L8.03033 15.5303L6.96967 14.4697L12.6893 8.75H0.5V7.25H12.6893Z"
+                          fill="currentColor"
+                        ></path>
+                      </svg>
+                    </div>
+                  </div> */}
+                  <div className="testimonial7_slide-nav w-slider-nav w-slider-nav-invert w-round"></div>
                 </div>
               </div>
             </div>
@@ -791,7 +794,7 @@ const JPMCLandingPage = () => {
                     <div className="container-medium">
                       <div className="animation-first">
                         <div className="text-align-center">
-                          <h2 className="text-color-white">
+                          <h2 className="!text-white">
                             Get started with Firefly Health
                           </h2>
                           <div className="margin-top margin-small">

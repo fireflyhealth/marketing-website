@@ -32,6 +32,8 @@ type ContextValue = {
   setTransformSlideContainerLeft: React.Dispatch<React.SetStateAction<boolean>>;
   slideContainerHeight: number;
   setSlideContainerHeight: React.Dispatch<React.SetStateAction<number>>;
+  carouselContainerWidth: number;
+  setCarouselContainerWidth: React.Dispatch<React.SetStateAction<number>>;
 };
 
 /**
@@ -69,11 +71,17 @@ const getMinLeft = (innerElement: HTMLDivElement | null): number => {
  * Main component
  */
 type CarouselProps = WithChildren & {
-  /** isImageCarousel handles styles for image carousels */
+  /** isImageCarousel handles styling/functionality for image carousels */
   isImageCarousel?: boolean;
+  /* isSingleSlideCarousel handles styling/functionality for single slide carousel */
+  isSingleSlideCarousel?: boolean;
 };
 
-export const Carousel: FC<CarouselProps> = ({ children, isImageCarousel }) => {
+export const Carousel: FC<CarouselProps> = ({
+  children,
+  isImageCarousel,
+  isSingleSlideCarousel,
+}) => {
   const windowDimensions = useWindowDimensions();
   const slideCount = React.Children.count(children);
   const slideInnerRef = useRef<HTMLDivElement>(null);
@@ -89,6 +97,7 @@ export const Carousel: FC<CarouselProps> = ({ children, isImageCarousel }) => {
   const [transformSlideContainerLeft, setTransformSlideContainerLeft] =
     useState(false);
   const [slideContainerHeight, setSlideContainerHeight] = useState<number>(100); // 100 represents 100%
+  const [carouselContainerWidth, setCarouselContainerWidth] = useState(0);
 
   const goPrev = () => {
     if (currentSlideIndex > 0) {
@@ -148,15 +157,22 @@ export const Carousel: FC<CarouselProps> = ({ children, isImageCarousel }) => {
         setTransformSlideContainerLeft,
         slideContainerHeight,
         setSlideContainerHeight,
+        carouselContainerWidth,
+        setCarouselContainerWidth,
       }}
     >
       <SlideContainer
         slideInnerRef={slideInnerRef}
         minLeft={minLeft}
         isImageCarousel={isImageCarousel}
+        isSingleSlideCarousel={isSingleSlideCarousel}
       >
         {React.Children.map(children, (child, index) => (
-          <Slide slideIndex={index} isImageCarousel={isImageCarousel}>
+          <Slide
+            slideIndex={index}
+            isImageCarousel={isImageCarousel}
+            isSingleSlideCarousel={isSingleSlideCarousel}
+          >
             {child}
           </Slide>
         ))}
@@ -164,7 +180,33 @@ export const Carousel: FC<CarouselProps> = ({ children, isImageCarousel }) => {
       {/* Prev/Next component */}
       <div
         className={cn(
-          !isImageCarousel ? 'hidden md:block pt-4 md:pt-16' : 'block pt-12',
+          isSingleSlideCarousel
+            ? 'hidden'
+            : !isImageCarousel
+              ? 'hidden md:block pt-4 md:pt-16'
+              : 'block pt-12',
+        )}
+      >
+        <PrevButton disabled={currentSlideIndex === 0} goPrev={goPrev}>
+          <BrandedIcon type="arrow-left" wrapperStyles="w-12" />
+        </PrevButton>
+        <NextButton
+          disabled={
+            !transformSlideContainerLeft ||
+            leftIsBelowMin ||
+            currentSlideIndex === slideCount - 1
+          }
+          goNext={goNext}
+        >
+          <BrandedIcon type="arrow-right" wrapperStyles="w-12" />
+        </NextButton>
+      </div>
+      {/* Single Slide Carousel pagination arrows */}
+      <div
+        className={cn(
+          isSingleSlideCarousel
+            ? 'absolute top-1/2 -translate-y-1/2 w-full flex flex-row justify-between'
+            : 'hidden',
         )}
       >
         <PrevButton disabled={currentSlideIndex === 0} goPrev={goPrev}>
@@ -183,7 +225,14 @@ export const Carousel: FC<CarouselProps> = ({ children, isImageCarousel }) => {
       </div>
       {/* Pagination (dots) component */}
       <div
-        className={cn('pt-8', !isImageCarousel ? 'block md:hidden' : 'hidden')}
+        className={cn(
+          'pt-8',
+          isSingleSlideCarousel
+            ? 'block'
+            : !isImageCarousel
+              ? 'block md:hidden'
+              : 'hidden',
+        )}
       >
         <Pagination />
       </div>
@@ -198,6 +247,7 @@ export const Carousel: FC<CarouselProps> = ({ children, isImageCarousel }) => {
 type SlideProps = WithChildren & {
   slideIndex: number;
   isImageCarousel?: boolean;
+  isSingleSlideCarousel?: boolean;
 };
 
 const goToSelfIfActive = (
@@ -221,8 +271,10 @@ export const Slide: FC<SlideProps> = ({
   children,
   slideIndex,
   isImageCarousel = false,
+  isSingleSlideCarousel = false,
 }) => {
-  const { setSlideContainerLeft, currentSlideIndex } = useCarousel();
+  const { setSlideContainerLeft, currentSlideIndex, carouselContainerWidth } =
+    useCarousel();
   const [windowSize, setWindowSize] = useState(
     typeof window !== 'undefined' ? window.innerWidth : 1000,
   );
@@ -253,8 +305,17 @@ export const Slide: FC<SlideProps> = ({
       ref={slideElement}
       className={cn(
         'carousel__slide h-full relative block',
-        !isImageCarousel && 'flex odd:mt-0 even:mt-8 md:even:mt-12',
+        !isImageCarousel &&
+          !isSingleSlideCarousel &&
+          'flex odd:mt-0 even:mt-8 md:even:mt-12',
       )}
+      style={{
+        width: `${
+          isSingleSlideCarousel && carouselContainerWidth
+            ? `${carouselContainerWidth}px`
+            : 'auto'
+        }`,
+      }}
     >
       {children}
     </div>
@@ -270,6 +331,7 @@ export const SlideContainer: FC<SlideContainerProps> = ({
   children,
   slideInnerRef,
   isImageCarousel = false,
+  isSingleSlideCarousel = false,
 }) => {
   const {
     slideContainerLeft,
@@ -279,7 +341,10 @@ export const SlideContainer: FC<SlideContainerProps> = ({
     goPrev,
     transformSlideContainerLeft,
     setTransformSlideContainerLeft,
+    setCarouselContainerWidth,
   } = useCarousel();
+
+  const carouselContainerRef = useRef<HTMLDivElement>(null);
 
   const windowDimensions = useWindowDimensions();
 
@@ -330,20 +395,38 @@ export const SlideContainer: FC<SlideContainerProps> = ({
     setInnerSlideContainerWidth(slideInnerRef.current?.offsetWidth);
   }, [slideInnerRef, windowDimensions]);
 
+  useEffect(() => {
+    if (!carouselContainerRef.current) return;
+
+    setCarouselContainerWidth(carouselContainerRef.current.clientWidth);
+  }, [windowDimensions, setCarouselContainerWidth]);
+
   setTransformSlideContainerLeft(
     innerSlideContainerWidth > slideContainerWidth,
   );
 
   return (
-    <div className={cn('relative w-full', isImageCarousel ? 'h-[45vw]' : '')}>
+    <div
+      ref={carouselContainerRef}
+      className={cn(
+        'relative w-full',
+        isImageCarousel && 'h-[45vw]',
+        isSingleSlideCarousel && 'overflow-hidden',
+      )}
+    >
       {/* Swipe container */}
       <div
         className={cn(
-          'h-full flex flex-row',
+          'h-full',
+          'flex flex-row',
           slideContainerDragLeft === 0 ? 'transition' : '',
         )}
         style={{
-          transform: `${transformSlideContainerLeft ? `translateX(${slideContainerLeft}px)` : 'unset'}`,
+          transform: `${
+            transformSlideContainerLeft
+              ? `translateX(${slideContainerLeft}px)`
+              : 'unset'
+          }`,
         }}
         {...handlers}
       >
