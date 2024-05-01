@@ -1,17 +1,12 @@
-import { useState } from 'react';
+import { FC, useState } from 'react';
 import cn from 'classnames';
-import { GetStaticProps } from 'next';
 import Image from 'next/image';
 import Head from 'next/head';
 import Script from 'next/script';
-import ReactPlayer from 'react-player';
-import { RevalidationTime } from '@/constants';
-import * as Sanity from '@/lib/sanity';
-import { QueryConfig } from '@/lib/sanity';
 import { Accordion } from '@/atoms/Accordion';
 import { Carousel } from '@/components/Carousel';
+import { FileAsset, RichImage } from '@/types/sanity';
 
-import heroImage from './images/about-hero-1.jpg';
 import JPMCLogo from './images/648235e6145ec6158ef046bb_JPM white.svg';
 import JPMCLogoDark from './images/6482332a7a23fd2a558d29c8_JPM_grey.svg';
 import fireflyLogoLight from './images/FF_primary_light_180x29.svg';
@@ -26,7 +21,17 @@ import stepOne from './images/1---home.png';
 import stepTwo from './images/2---pick-team.png';
 import stepThree from './images/3---book-a-visit.png';
 
-const JPMCLandingPage = () => {
+type Props = {
+  jpmcUserFlowVideo: FileAsset;
+  heroImage: RichImage;
+  document: FileAsset;
+};
+
+export const JPMCVIew: FC<Props> = ({
+  jpmcUserFlowVideo,
+  heroImage,
+  document,
+}) => {
   const [currentStep, setCurrentStep] = useState<number>(1);
   return (
     <>
@@ -75,22 +80,19 @@ const JPMCLandingPage = () => {
         />
         <link href="images/webclip.png" rel="apple-touch-icon" />
       </Head>
-      <body id="JPMCLandingPage" className="container-padding-bleed p-0">
+      <body
+        id="JPMCLandingPage"
+        className="container-padding-bleed p-0 overflow-visible"
+      >
         <main className="main-wrapper">
           <div className="animation-load-first-group">
             <section className="section-fullbleed-partner-hero is-landing-page">
-              <div className="w-layout-grid fullbleed-partner-hero_component">
+              <div className="w-layout-grid fullbleed-partner-hero_component relative">
                 <div
                   id="w-node-_487a207e-5780-cc7b-b5ba-453d2b29275e-d1ed5f6f"
-                  className="plan-hero_bg-image-wrapper relative"
-                >
-                  <Image
-                    src={heroImage}
-                    loading="lazy"
-                    alt=""
-                    className="absolute left-0 top-0 object-cover z-[-1] h-full w-full"
-                  />
-                </div>
+                  className="full-width-background plan-hero_bg-image-wrapper relative"
+                  style={{ backgroundImage: `url(${heroImage.asset.url})` }}
+                />
                 <div
                   id="w-node-_832af8b2-30eb-4536-a4a5-89cbe90c6455-d1ed5f6f"
                   className="page-padding"
@@ -145,7 +147,8 @@ const JPMCLandingPage = () => {
                         <div className="margin-top margin-small">
                           <div className="button-group">
                             <a
-                              href="#"
+                              href="https://members.firefly.health/signup/name/jpmc?__hstc=252151062.47674a4132cb4b01dbe02bd48a59ff3b.1712252519733.1714413294344.1714491221475.12&__hssc=252151062.1.1714491221475&__hsfp=1245837078"
+                              target="_blank"
                               className="button button-size-large w-button md:!w-1/2"
                             >
                               Sign up today
@@ -291,15 +294,15 @@ const JPMCLandingPage = () => {
                             data-object-fit="cover"
                           >
                             <source
-                              src="/videos/BCBS_user_flow_v2-crop-transcode.mp4"
-                              type="video/mp4"
-                              data-wf-ignore="true"
-                            />
-                            <source
-                              src="/videos/BCBS_user_flow_v2-crop-transcode.webm"
+                              src={jpmcUserFlowVideo.asset.url}
                               type="video/webm"
                               data-wf-ignore="true"
                             />
+                            {/* <source
+                              src="/videos/BCBS_user_flow_v2-crop-transcode.webm"
+                              type="video/webm"
+                              data-wf-ignore="true"
+                            /> */}
                           </video>
                         </div>
                       </div>
@@ -308,7 +311,8 @@ const JPMCLandingPage = () => {
                 </div>
               </div>
             </section>
-            <div className="section-team-approach background-color-lightgrey">
+            <div className="section-team-approach background-color-lightgrey relative">
+              <div className="full-width-background bg-[#fafafa]" />
               <div className="padding-vertical padding-large">
                 <div className="page-padding">
                   <div className="container-medium">
@@ -414,7 +418,8 @@ const JPMCLandingPage = () => {
                           <div className="text-align-center">
                             <div className="margin-top margin-medium">
                               <a
-                                href="#"
+                                href="https://members.firefly.health/signup/name/jpmc?__hstc=252151062.47674a4132cb4b01dbe02bd48a59ff3b.1712252519733.1714413294344.1714491221475.12&__hssc=252151062.1.1714491221475&__hsfp=1245837078"
+                                target="_blank"
                                 className="button button-size-large w-button"
                               >
                                 Sign up today
@@ -454,7 +459,10 @@ const JPMCLandingPage = () => {
                                 additional cost and is made up of:
                                 <br />
                               </p>
-                              <ul role="list">
+                              <ul
+                                role="list"
+                                className="list-disc list-outside"
+                              >
                                 <li>
                                   Urgent care centers managed by Next Level
                                   Urgent Care{' '}
@@ -490,7 +498,7 @@ const JPMCLandingPage = () => {
                               </p>
                               <p>
                                 ‍
-                                <a href="documents/Firefly-In-person-network-facilities-near-you.pdf">
+                                <a href={document.asset.url} target="_blank">
                                   <strong>Download locations (PDF)</strong>
                                 </a>
                               </p>
@@ -653,7 +661,7 @@ const JPMCLandingPage = () => {
                 </div>
               </div>
             </section>
-            <div className="padding-global">
+            <div id="video-section" className="padding-global">
               <div className="container-large">
                 <div className="padding-section-large relative">
                   <Carousel isSingleSlideCarousel>
@@ -754,7 +762,8 @@ const JPMCLandingPage = () => {
             </div>
           </div>
           <div className="animation-load-third-group">
-            <section className="section-get-started">
+            <section className="relative">
+              <div className="full-width-background section-get-started" />
               <div className="padding-vertical padding-huge">
                 <div className="page-padding">
                   <div className="padding-vertical padding-large">
@@ -776,7 +785,8 @@ const JPMCLandingPage = () => {
                         <div className="text-align-center">
                           <div className="margin-top margin-medium">
                             <a
-                              href="#Contact-Form"
+                              href="https://members.firefly.health/signup/name/jpmc?__hstc=252151062.47674a4132cb4b01dbe02bd48a59ff3b.1712252519733.1714413294344.1714491221475.12&__hssc=252151062.1.1714491221475&__hsfp=1245837078"
+                              target="_blank"
                               className="button button-size-large w-button"
                             >
                               Sign up!
@@ -789,7 +799,8 @@ const JPMCLandingPage = () => {
                 </div>
               </div>
             </section>
-            <div id="FAQ-blue" className="background-color-gradient-blue-green">
+            <div id="FAQ-blue" className="relative">
+              <div className="full-width-background background-color-gradient-blue-green" />
               <div className="padding-vertical padding-large">
                 <div className="page-padding">
                   <div className="container-medium">
@@ -961,24 +972,3 @@ const JPMCLandingPage = () => {
     </>
   );
 };
-
-export const createGetStaticProps =
-  (config?: QueryConfig): GetStaticProps =>
-  async () => {
-    const [siteSettings] = await Promise.all([Sanity.siteSettings.get()]);
-
-    if (!siteSettings) {
-      throw new Error('Could not fetch site settings from Sanity');
-    }
-
-    return {
-      props: {
-        siteSettings,
-        navigationOverrides: null,
-      },
-      revalidate: RevalidationTime.Medium,
-    };
-  };
-export const getStaticProps = createGetStaticProps();
-
-export default JPMCLandingPage;

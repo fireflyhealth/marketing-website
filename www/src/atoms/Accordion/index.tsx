@@ -79,8 +79,8 @@ export const Accordion: FC<AccordionProps> = ({
           textOverride
             ? textOverride
             : isOpen
-            ? 'theme-text-color-secondary'
-            : 'theme-text-color-primary hover:theme-text-color-secondary',
+              ? 'theme-text-color-secondary'
+              : 'theme-text-color-primary hover:theme-text-color-secondary',
         )}
       >
         <span className="pr-4">{title}</span>

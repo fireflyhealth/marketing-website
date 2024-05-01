@@ -38,7 +38,6 @@
     "next-sitemap": "^4.2.3",
     "react": "^18",
     "react-dom": "^18",
-    "react-player": "^2.16.0",
     "react-swipeable": "^7.0.1",
     "what-input": "^5.2.12"
   },

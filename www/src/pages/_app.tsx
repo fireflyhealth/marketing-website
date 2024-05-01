@@ -69,7 +69,7 @@ export default function App({ Component, pageProps: allPageProps }: Props) {
             />
             <HubspotProvider strategy="lazyOnload">
               <main>
-                <Component {...pageProps} />
+                <Component {...allPageProps} />
               </main>
             </HubspotProvider>
             <Footer footer={siteSettings.footer} />

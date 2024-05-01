@@ -81,14 +81,6 @@ export const Link = defineType({
       name: 'externalUrl',
       title: 'External URL',
       type: 'url',
-      hidden: (ctx) => {
-        /* Hide this option when adding links to a Navigation document */
-        if (ctx.document?._type == 'navigation') {
-          return true;
-        }
-        return false;
-      },
-
       validation: (Rule) => {
         return validateOnlyOne(Rule as Rule).uri({
           scheme: ['http', 'https', 'mailto', 'tel'],

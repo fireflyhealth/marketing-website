@@ -1,4 +1,4 @@
-import JPMCLandingPage, { createGetStaticProps } from './';
+import JPMCLandingPage, { createGetStaticProps } from '.';
 
 export const getStaticProps = createGetStaticProps({ preferBContent: true });
 

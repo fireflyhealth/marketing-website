@@ -137,7 +137,9 @@
 
   #JPMCLandingPage {
     body {
-      font-family: Source Sans Pro, sans-serif;
+      font-family:
+        Source Sans Pro,
+        sans-serif;
       font-size: 1rem;
       line-height: 1.5;
     }
@@ -169,7 +171,9 @@
       color: var(--navy-500);
       margin-top: 0;
       margin-bottom: 0;
-      font-family: Source Sans Pro, sans-serif;
+      font-family:
+        Source Sans Pro,
+        sans-serif;
       font-size: 2.25rem;
       font-weight: 600;
       line-height: 1.25;
@@ -180,7 +184,9 @@
       color: var(--navy-500);
       margin-top: 0;
       margin-bottom: 0;
-      font-family: Source Sans Pro, sans-serif;
+      font-family:
+        Source Sans Pro,
+        sans-serif;
       font-size: 1.75rem;
       font-weight: 600;
       line-height: 1.5;
@@ -198,7 +204,9 @@
     p {
       color: var(--navy-500);
       margin-bottom: 0;
-      font-family: Source Sans Pro, sans-serif;
+      font-family:
+        Source Sans Pro,
+        sans-serif;
       font-size: 1rem;
       line-height: 1.5;
     }
@@ -206,7 +214,9 @@
     a {
       color: var(--blue-700-accessible);
       width: 100%;
-      font-family: Source Sans Pro, sans-serif;
+      font-family:
+        Source Sans Pro,
+        sans-serif;
       font-weight: 500;
       text-decoration: none;
     }
@@ -261,7 +271,9 @@
       max-width: 600px;
       margin-bottom: 10px;
       padding: 10px 20px;
-      font-family: Source Sans Pro, sans-serif;
+      font-family:
+        Source Sans Pro,
+        sans-serif;
       font-size: 18px;
       font-style: italic;
       font-weight: 400;
@@ -392,7 +404,9 @@
     max-width: none;
     margin-top: 10px;
     margin-bottom: 10px;
-    font-family: Source Sans Pro, sans-serif;
+    font-family:
+      Source Sans Pro,
+      sans-serif;
     font-size: 26px;
     font-weight: 600;
     line-height: 30px;
@@ -505,7 +519,9 @@
   .f02_text {
     color: var(--black);
     text-transform: uppercase;
-    font-family: Source Sans Pro, sans-serif;
+    font-family:
+      Source Sans Pro,
+      sans-serif;
     font-size: 14px;
     font-weight: 300;
   }
@@ -525,7 +541,9 @@
     border-radius: 40px;
     min-width: 120px;
     min-height: 48px;
-    font-family: Source Sans Pro, sans-serif;
+    font-family:
+      Source Sans Pro,
+      sans-serif;
     font-size: 15px;
     font-weight: 600;
   }
@@ -540,7 +558,9 @@
     margin-bottom: 0;
     margin-right: 10px;
     padding-left: 20px;
-    font-family: Source Sans Pro, sans-serif;
+    font-family:
+      Source Sans Pro,
+      sans-serif;
     font-size: 13px;
     font-weight: 400;
   }
@@ -1172,7 +1192,9 @@
     text-transform: uppercase;
     margin-bottom: 12px;
     margin-left: 1px;
-    font-family: Source Sans Pro, sans-serif;
+    font-family:
+      Source Sans Pro,
+      sans-serif;
     font-size: 14px;
     font-weight: 400;
     text-decoration: none;
@@ -1206,7 +1228,9 @@
     width: 25%;
     min-height: 180px;
     margin-top: 40px;
-    font-family: Source Sans Pro, sans-serif;
+    font-family:
+      Source Sans Pro,
+      sans-serif;
     display: flex;
   }
 
@@ -1700,7 +1724,9 @@
   .fe05_text.fe05_text_left {
     color: var(--navy-500);
     text-align: left;
-    font-family: Source Sans Pro, sans-serif;
+    font-family:
+      Source Sans Pro,
+      sans-serif;
   }
 
   .fe06_row {
@@ -1766,7 +1792,9 @@
     object-fit: fill;
     max-width: 770px;
     margin: 6px auto 10px;
-    font-family: Source Sans Pro, sans-serif;
+    font-family:
+      Source Sans Pro,
+      sans-serif;
     font-size: 20px;
     font-weight: 400;
     line-height: 30px;
@@ -2145,7 +2173,9 @@
     max-width: none;
     margin-bottom: 0;
     padding-right: 0;
-    font-family: Source Sans Pro, sans-serif;
+    font-family:
+      Source Sans Pro,
+      sans-serif;
     font-size: 16px;
     font-weight: 400;
     line-height: 25px;
@@ -2156,7 +2186,9 @@
     margin-bottom: 0;
     padding-bottom: 40px;
     padding-right: 40px;
-    font-family: Source Sans Pro, sans-serif;
+    font-family:
+      Source Sans Pro,
+      sans-serif;
   }
 
   .paragraph_text.call_out_spacing.new_section {
@@ -2173,7 +2205,9 @@
 
   .paragraph_text.modifier_dark {
     color: var(--navy-500);
-    font-family: Source Sans Pro, sans-serif;
+    font-family:
+      Source Sans Pro,
+      sans-serif;
   }
 
   .paragraph_text.modifier_dark.center {
@@ -2317,7 +2351,9 @@
     text-align: left;
     max-width: none;
     margin: 6px 0 0;
-    font-family: Source Sans Pro, sans-serif;
+    font-family:
+      Source Sans Pro,
+      sans-serif;
     font-size: 1.2rem;
     font-weight: 400;
     line-height: 1.7rem;
@@ -2413,7 +2449,9 @@
     letter-spacing: 0;
     text-transform: uppercase;
     margin-bottom: 8px;
-    font-family: Source Sans Pro, sans-serif;
+    font-family:
+      Source Sans Pro,
+      sans-serif;
     font-size: 18px;
     font-weight: 600;
     line-height: 20px;
@@ -2452,7 +2490,9 @@
     color: var(--navy-500);
     margin-top: 5px;
     margin-bottom: 5px;
-    font-family: Source Sans Pro, sans-serif;
+    font-family:
+      Source Sans Pro,
+      sans-serif;
     font-size: 1rem;
     font-weight: 400;
     line-height: 24px;
@@ -2591,7 +2631,9 @@
     text-transform: uppercase;
     max-width: 500px;
     margin: 0 auto;
-    font-family: Source Sans Pro, sans-serif;
+    font-family:
+      Source Sans Pro,
+      sans-serif;
     font-size: 18px;
     font-weight: 600;
     line-height: 20px;
@@ -3008,7 +3050,9 @@
     max-width: 700px;
     margin-top: 20px;
     margin-bottom: 10px;
-    font-family: Source Sans Pro, sans-serif;
+    font-family:
+      Source Sans Pro,
+      sans-serif;
     font-size: 16px;
     line-height: 25px;
   }
@@ -3322,7 +3366,9 @@
     width: auto;
     margin-right: 10px;
     padding: 10px 5px;
-    font-family: Source Sans Pro, sans-serif;
+    font-family:
+      Source Sans Pro,
+      sans-serif;
     font-size: 15px;
     font-weight: 600;
     text-decoration: none;
@@ -3674,7 +3720,9 @@
     text-align: center;
     margin-top: 20px;
     margin-bottom: 20px;
-    font-family: Source Sans Pro, sans-serif;
+    font-family:
+      Source Sans Pro,
+      sans-serif;
   }
 
   .f10 {
@@ -3996,7 +4044,9 @@
     color: var(--navy-500);
     margin-top: 0;
     margin-bottom: 0;
-    font-family: Source Sans Pro, sans-serif;
+    font-family:
+      Source Sans Pro,
+      sans-serif;
     font-size: 18px;
     font-weight: 600;
   }
@@ -4005,13 +4055,17 @@
     color: var(--navy-500);
     letter-spacing: 0;
     object-fit: fill;
-    font-family: Source Sans Pro, sans-serif;
+    font-family:
+      Source Sans Pro,
+      sans-serif;
   }
 
   .faq_paragraph.teeny-spacer {
     color: var(--navy-500);
     margin-bottom: 20px;
-    font-family: Source Sans Pro, sans-serif;
+    font-family:
+      Source Sans Pro,
+      sans-serif;
   }
 
   .faq03_title_wrap {
@@ -4497,7 +4551,9 @@
   .f12_legal_left {
     flex: 1;
     align-items: center;
-    font-family: Source Sans Pro, sans-serif;
+    font-family:
+      Source Sans Pro,
+      sans-serif;
     display: flex;
   }
 
@@ -4505,7 +4561,9 @@
     color: #e6e9ec;
     width: auto;
     margin-right: 25px;
-    font-family: Source Sans Pro, sans-serif;
+    font-family:
+      Source Sans Pro,
+      sans-serif;
     font-size: 14px;
     font-weight: 400;
     text-decoration: none;
@@ -4519,7 +4577,9 @@
     color: rgba(255, 255, 255, 0.5);
     flex: none;
     margin-right: 30px;
-    font-family: Source Sans Pro, sans-serif;
+    font-family:
+      Source Sans Pro,
+      sans-serif;
     font-size: 14px;
     font-weight: 400;
   }
@@ -4587,7 +4647,9 @@
 
   .form12_field_long::placeholder {
     color: rgba(0, 0, 55, 0.1);
-    font-family: Varela Round, sans-serif;
+    font-family:
+      Varela Round,
+      sans-serif;
   }
 
   .form12_block {
@@ -4621,7 +4683,9 @@
 
   .contact-form-field::placeholder {
     color: rgba(0, 0, 55, 0.1);
-    font-family: Varela Round, sans-serif;
+    font-family:
+      Varela Round,
+      sans-serif;
   }
 
   .contact-form-field.form12_field_long {
@@ -4649,7 +4713,9 @@
     color: var(--navy-500);
     background-color: #fff;
     padding-left: 6px;
-    font-family: Source Sans Pro, sans-serif;
+    font-family:
+      Source Sans Pro,
+      sans-serif;
     font-weight: 600;
     position: relative;
     top: 10px;
@@ -4714,7 +4780,9 @@
   .paragraph.modifier_left {
     color: var(--navy-500);
     text-align: left;
-    font-family: Source Sans Pro, sans-serif;
+    font-family:
+      Source Sans Pro,
+      sans-serif;
   }
 
   .lil-spacer {
@@ -4746,7 +4814,9 @@
   .post_author_name {
     color: var(--navy-500);
     margin-right: 10px;
-    font-family: Source Sans Pro, sans-serif;
+    font-family:
+      Source Sans Pro,
+      sans-serif;
     font-size: 15px;
     font-weight: 600;
   }
@@ -4755,7 +4825,9 @@
     color: var(--navy-500);
     margin-top: 6px;
     margin-bottom: 20px;
-    font-family: Source Sans Pro, sans-serif;
+    font-family:
+      Source Sans Pro,
+      sans-serif;
   }
 
   .collection-list-4 {
@@ -4786,7 +4858,9 @@
     color: rgba(235, 236, 240, 0.74);
     text-align: left;
     margin-bottom: 12px;
-    font-family: Source Sans Pro, sans-serif;
+    font-family:
+      Source Sans Pro,
+      sans-serif;
     font-size: 14px;
     font-weight: 400;
     line-height: 20px;
@@ -4794,7 +4868,9 @@
 
   .footer-link {
     color: #f5f7fd;
-    font-family: Source Sans Pro, sans-serif;
+    font-family:
+      Source Sans Pro,
+      sans-serif;
   }
 
   .link_nounderline {
@@ -5176,7 +5252,9 @@
   .button_secondary_card-interior {
     color: var(--navy-500);
     text-align: center;
-    font-family: Source Sans Pro, sans-serif;
+    font-family:
+      Source Sans Pro,
+      sans-serif;
     font-size: 16px;
   }
 
@@ -5210,7 +5288,9 @@
     margin-left: 10px;
     padding-left: 25px;
     padding-right: 25px;
-    font-family: Source Sans Pro, sans-serif;
+    font-family:
+      Source Sans Pro,
+      sans-serif;
     font-size: 15px;
     font-weight: 600;
     text-decoration: none;
@@ -5261,7 +5341,9 @@
 
   .link-21 {
     color: var(--navy-500);
-    font-family: Source Sans Pro, sans-serif;
+    font-family:
+      Source Sans Pro,
+      sans-serif;
   }
 
   .link-22 {
@@ -5374,7 +5456,9 @@
     border-left-color: #cdd2d8;
     border-radius: 0;
     margin-bottom: 30px;
-    font-family: Source Sans Pro, sans-serif;
+    font-family:
+      Source Sans Pro,
+      sans-serif;
     font-size: 20px;
     line-height: 30px;
   }
@@ -5455,7 +5539,9 @@
     margin-left: 0;
     padding-left: 25px;
     padding-right: 25px;
-    font-family: Source Sans Pro, sans-serif;
+    font-family:
+      Source Sans Pro,
+      sans-serif;
     font-size: 15px;
     font-weight: 600;
     text-decoration: none;
@@ -5547,7 +5633,9 @@
     margin-bottom: 10px;
     margin-left: 0;
     padding: 4px 15px;
-    font-family: Source Sans Pro, sans-serif;
+    font-family:
+      Source Sans Pro,
+      sans-serif;
     font-size: 11px;
     font-weight: 700;
     display: none;
@@ -5600,7 +5688,9 @@
     border: 2px #fff;
     border-radius: 45px;
     padding: 20px 45px;
-    font-family: Source Sans Pro, sans-serif;
+    font-family:
+      Source Sans Pro,
+      sans-serif;
     font-size: 20px;
     font-weight: 600;
     transition: background-color 0.22s;
@@ -5670,7 +5760,9 @@
 
   .bold-text-18.free-consultation-calendly {
     color: #fff;
-    font-family: Source Sans Pro, sans-serif;
+    font-family:
+      Source Sans Pro,
+      sans-serif;
     font-size: 12px;
     text-decoration: none;
   }
@@ -5710,7 +5802,9 @@
     margin-right: 10px;
     padding-left: 25px;
     padding-right: 25px;
-    font-family: Source Sans Pro, sans-serif;
+    font-family:
+      Source Sans Pro,
+      sans-serif;
     font-size: 15px;
     font-weight: 600;
     text-decoration: none;
@@ -5877,7 +5971,9 @@
     margin-top: 2px;
     margin-bottom: 0;
     margin-left: 10px;
-    font-family: Source Sans Pro, sans-serif;
+    font-family:
+      Source Sans Pro,
+      sans-serif;
     font-size: 18px;
     font-weight: 500;
     line-height: 32px;
@@ -5930,7 +6026,9 @@
 
   .text-block-51 {
     color: var(--navy-500);
-    font-family: Source Sans Pro, sans-serif;
+    font-family:
+      Source Sans Pro,
+      sans-serif;
     font-weight: 700;
   }
 
@@ -5938,12 +6036,16 @@
   .paragraph-25,
   .paragraph-26 {
     color: var(--navy-500);
-    font-family: Source Sans Pro, sans-serif;
+    font-family:
+      Source Sans Pro,
+      sans-serif;
   }
 
   .bold-text-21 {
     color: #fff;
-    font-family: Source Sans Pro, sans-serif;
+    font-family:
+      Source Sans Pro,
+      sans-serif;
   }
 
   .bold-text-22 {
@@ -5973,7 +6075,9 @@
     max-width: none;
     margin: 1rem 10px 1rem 0;
     padding: 0.75rem 2.5rem;
-    font-family: Source Sans Pro, sans-serif;
+    font-family:
+      Source Sans Pro,
+      sans-serif;
     font-size: 15px;
     font-weight: 600;
     text-decoration: none;
@@ -6009,7 +6113,9 @@
     width: auto;
     padding-top: 9px;
     padding-bottom: 9px;
-    font-family: Source Sans Pro, sans-serif;
+    font-family:
+      Source Sans Pro,
+      sans-serif;
     font-weight: 600;
     line-height: 20px;
   }
@@ -6035,7 +6141,9 @@
     border: 2px #fff;
     border-radius: 45px;
     padding: 20px 45px;
-    font-family: Source Sans Pro, sans-serif;
+    font-family:
+      Source Sans Pro,
+      sans-serif;
     font-size: 20px;
     font-weight: 600;
     transition: background-color 0.22s;
@@ -6658,7 +6766,9 @@
     text-align: left;
     padding-top: 12px;
     padding-bottom: 10px;
-    font-family: Source Sans Pro, sans-serif;
+    font-family:
+      Source Sans Pro,
+      sans-serif;
     font-size: 16px;
   }
 
@@ -6669,14 +6779,18 @@
   .testimonial-quote.slider {
     text-align: center;
     padding-bottom: 5px;
-    font-family: Source Sans Pro, sans-serif;
+    font-family:
+      Source Sans Pro,
+      sans-serif;
     font-size: 20px;
     line-height: 26px;
   }
 
   .testimonial_name {
     color: var(--navy-500);
-    font-family: Source Sans Pro, sans-serif;
+    font-family:
+      Source Sans Pro,
+      sans-serif;
     font-size: 16px;
     font-weight: 600;
     line-height: 26px;
@@ -6685,7 +6799,9 @@
 
   .testimonial_title {
     color: var(--navy-500);
-    font-family: Source Sans Pro, sans-serif;
+    font-family:
+      Source Sans Pro,
+      sans-serif;
     font-size: 13px;
     font-weight: 600;
   }
@@ -6850,7 +6966,9 @@
     max-width: 480px;
     margin-top: 0;
     margin-bottom: 10px;
-    font-family: Source Sans Pro, sans-serif;
+    font-family:
+      Source Sans Pro,
+      sans-serif;
     font-size: 28px;
     font-style: normal;
     font-weight: 600;
@@ -7107,7 +7225,9 @@
     text-align: left;
     max-width: none;
     margin: 6px 0 10px;
-    font-family: Source Sans Pro, sans-serif;
+    font-family:
+      Source Sans Pro,
+      sans-serif;
     font-size: 20px;
     font-weight: 400;
     line-height: 30px;
@@ -7297,7 +7417,9 @@
     text-transform: capitalize;
     max-width: 500px;
     margin: 0 auto;
-    font-family: Source Sans Pro, sans-serif;
+    font-family:
+      Source Sans Pro,
+      sans-serif;
     font-size: 16px;
     font-weight: 600;
     line-height: 20px;
@@ -7472,7 +7594,9 @@
     margin-top: 0;
     margin-bottom: 0;
     padding-bottom: 4px;
-    font-family: Source Sans Pro, sans-serif;
+    font-family:
+      Source Sans Pro,
+      sans-serif;
     font-size: 20px;
     font-weight: 600;
     line-height: 26px;
@@ -7633,7 +7757,9 @@
     color: rgba(255, 255, 255, 0.5);
     flex: none;
     margin-right: 20px;
-    font-family: Source Sans Pro, sans-serif;
+    font-family:
+      Source Sans Pro,
+      sans-serif;
     font-size: 14px;
     font-weight: 400;
   }
@@ -7657,7 +7783,9 @@
     background-color: rgba(255, 255, 255, 0);
     /* background-image: url('../images/hero-weight-loss_1866x786.png'),
     linear-gradient(#f5f7fd, #f5f7fd); */
-    background-position: 50%, 0 0;
+    background-position:
+      50%,
+      0 0;
     background-size: cover, auto;
     justify-content: center;
     align-items: center;
@@ -7705,7 +7833,9 @@
     background-color: rgba(255, 255, 255, 0);
     /* background-image: url('../images/BCBS_LandingPage_Header_1866x786_V2.jpg'),
     linear-gradient(rgba(7, 31, 62, 0.36), rgba(7, 31, 62, 0.36)); */
-    background-position: 50%, 0 0;
+    background-position:
+      50%,
+      0 0;
     background-size: cover, auto;
     justify-content: center;
     align-items: center;
@@ -7760,7 +7890,9 @@
     text-align: left;
     max-width: 900px;
     margin: 6px 0 10px;
-    font-family: Source Sans Pro, sans-serif;
+    font-family:
+      Source Sans Pro,
+      sans-serif;
     font-size: 20px;
     font-weight: 400;
     line-height: 30px;
@@ -7934,7 +8066,9 @@
     letter-spacing: 0;
     text-transform: uppercase;
     margin-bottom: 8px;
-    font-family: Source Sans Pro, sans-serif;
+    font-family:
+      Source Sans Pro,
+      sans-serif;
     font-size: 18px;
     font-weight: 600;
     line-height: 20px;
@@ -7958,7 +8092,9 @@
     max-width: none;
     margin: 6px 0 10px;
     padding-bottom: 20px;
-    font-family: Source Sans Pro, sans-serif;
+    font-family:
+      Source Sans Pro,
+      sans-serif;
     font-size: 20px;
     font-weight: 400;
     line-height: 30px;
@@ -8238,7 +8374,9 @@
     color: #e6e9ec;
     width: auto;
     margin-right: 25px;
-    font-family: Source Sans Pro, sans-serif;
+    font-family:
+      Source Sans Pro,
+      sans-serif;
     font-size: 14px;
     font-weight: 400;
     text-decoration: none;
@@ -8472,7 +8610,9 @@
 
   .meet-your-care-team_section-2-content-name {
     text-transform: none;
-    font-family: Source Sans Pro, sans-serif;
+    font-family:
+      Source Sans Pro,
+      sans-serif;
     font-size: 36px;
     font-style: normal;
     font-weight: 400;
@@ -8518,7 +8658,9 @@
 
   .meet-your-care-team_section-3-content-name {
     text-transform: none;
-    font-family: Source Sans Pro, sans-serif;
+    font-family:
+      Source Sans Pro,
+      sans-serif;
     font-size: 36px;
     font-style: normal;
     font-weight: 400;
@@ -8537,7 +8679,9 @@
     text-align: center;
     margin-top: 0;
     margin-bottom: 15px;
-    font-family: Source Sans Pro, sans-serif;
+    font-family:
+      Source Sans Pro,
+      sans-serif;
     font-size: 26px;
     font-weight: 600;
     line-height: 30px;
@@ -8873,7 +9017,9 @@
     max-width: 480px;
     margin-top: 0;
     margin-bottom: 10px;
-    font-family: Source Sans Pro, sans-serif;
+    font-family:
+      Source Sans Pro,
+      sans-serif;
     font-size: 28px;
     font-style: normal;
     font-weight: 600;
@@ -9015,7 +9161,9 @@
     color: #fff;
     align-self: flex-start;
     padding-bottom: 12px;
-    font-family: Source Sans Pro, sans-serif;
+    font-family:
+      Source Sans Pro,
+      sans-serif;
     font-size: 26px;
     font-weight: 600;
     line-height: 30px;
@@ -9075,7 +9223,9 @@
     text-transform: capitalize;
     margin-top: 0;
     margin-bottom: 10px;
-    font-family: Source Sans Pro, sans-serif;
+    font-family:
+      Source Sans Pro,
+      sans-serif;
     font-size: 18px;
     font-weight: 600;
     line-height: 20px;
@@ -9101,7 +9251,9 @@
     text-transform: capitalize;
     margin-top: 0;
     margin-bottom: 0;
-    font-family: Source Sans Pro, sans-serif;
+    font-family:
+      Source Sans Pro,
+      sans-serif;
     font-size: 28px;
   }
 
@@ -9194,7 +9346,9 @@
     max-width: 480px;
     margin-top: 0;
     margin-bottom: 10px;
-    font-family: Source Sans Pro, sans-serif;
+    font-family:
+      Source Sans Pro,
+      sans-serif;
     font-size: 18px;
     font-weight: 600;
     line-height: 20px;
@@ -9285,7 +9439,9 @@
     text-align: left;
     padding-top: 12px;
     padding-bottom: 10px;
-    font-family: Source Sans Pro, sans-serif;
+    font-family:
+      Source Sans Pro,
+      sans-serif;
     font-size: 16px;
   }
 
@@ -9310,7 +9466,9 @@
 
   .press_date {
     color: var(--navy-500);
-    font-family: Source Sans Pro, sans-serif;
+    font-family:
+      Source Sans Pro,
+      sans-serif;
     font-size: 13px;
     font-weight: 600;
   }
@@ -9325,7 +9483,9 @@
 
   .press_cta {
     color: var(--navy-500);
-    font-family: Source Sans Pro, sans-serif;
+    font-family:
+      Source Sans Pro,
+      sans-serif;
     font-size: 13px;
     font-weight: 600;
   }
@@ -9776,7 +9936,9 @@
     width: auto;
     margin-right: 10px;
     padding: 10px 5px;
-    font-family: Source Sans Pro, sans-serif;
+    font-family:
+      Source Sans Pro,
+      sans-serif;
     font-size: 15px;
     font-weight: 600;
     text-decoration: none;
@@ -9865,7 +10027,9 @@
     margin-left: 0;
     padding-left: 25px;
     padding-right: 25px;
-    font-family: Source Sans Pro, sans-serif;
+    font-family:
+      Source Sans Pro,
+      sans-serif;
     font-size: 15px;
     font-weight: 600;
     text-decoration: none;
@@ -9937,7 +10101,9 @@
     width: auto;
     margin-right: 10px;
     padding: 10px 5px;
-    font-family: Source Sans Pro, sans-serif;
+    font-family:
+      Source Sans Pro,
+      sans-serif;
     font-size: 15px;
     font-weight: 600;
     text-decoration: none;
@@ -10127,7 +10293,8 @@
   .dropdown-wrapper {
     background-color: #fff;
     border-radius: 10px;
-    box-shadow: 4px -19px 35px rgba(32, 53, 90, 0.08),
+    box-shadow:
+      4px -19px 35px rgba(32, 53, 90, 0.08),
       11px 11px 30px -10px rgba(32, 53, 90, 0.15);
   }
 
@@ -10137,7 +10304,8 @@
     min-width: 300px;
     max-height: 100vh;
     left: -97px;
-    box-shadow: 0 50px 25px -50px rgba(32, 53, 90, 0.15),
+    box-shadow:
+      0 50px 25px -50px rgba(32, 53, 90, 0.15),
       8px 18px 60px 4px rgba(0, 0, 0, 0.13);
   }
 
@@ -10361,7 +10529,9 @@
     letter-spacing: 0;
     text-transform: uppercase;
     margin-bottom: 8px;
-    font-family: Source Sans Pro, sans-serif;
+    font-family:
+      Source Sans Pro,
+      sans-serif;
     font-size: 18px;
     font-weight: 600;
     line-height: 20px;
@@ -10527,7 +10697,9 @@
   .heading-small {
     text-transform: none;
     margin-bottom: 5px;
-    font-family: Source Sans Pro, sans-serif;
+    font-family:
+      Source Sans Pro,
+      sans-serif;
     font-size: 1.6rem;
     font-weight: 600;
     line-height: 1.1;
@@ -10828,7 +11000,9 @@
   }
 
   .heading-medium {
-    font-family: Source Sans Pro, sans-serif;
+    font-family:
+      Source Sans Pro,
+      sans-serif;
     font-size: 2.25rem;
     font-weight: 600;
     line-height: 1.2;
@@ -11199,7 +11373,9 @@
     margin-bottom: 0;
     padding: 0.5rem 1.5rem;
     font-size: 1rem;
-    transition: background-color 0.25s, border-color 0.25s;
+    transition:
+      background-color 0.25s,
+      border-color 0.25s;
   }
 
   .form-input:focus {
@@ -11238,7 +11414,9 @@
   }
 
   .heading-xsmall {
-    font-family: Source Sans Pro, sans-serif;
+    font-family:
+      Source Sans Pro,
+      sans-serif;
     font-size: 1.25rem;
     font-weight: 600;
     line-height: 1.2;
@@ -11441,7 +11619,9 @@
   }
 
   .text-size-medium.text-font-sansserif {
-    font-family: Source Sans Pro, sans-serif;
+    font-family:
+      Source Sans Pro,
+      sans-serif;
     font-size: 1.4rem;
     font-weight: 600;
   }
@@ -11708,7 +11888,9 @@
   .home-hero_background {
     /* background-image: linear-gradient(rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05)),
     url('../images/Employer_Hero-1.jpg'); */
-    background-position: 0 0, 50%;
+    background-position:
+      0 0,
+      50%;
     background-size: auto, cover;
     justify-content: flex-start;
     align-items: center;
@@ -11754,7 +11936,9 @@
     text-transform: none;
     margin-top: 0;
     margin-bottom: 0.5rem;
-    font-family: Source Sans Pro, sans-serif;
+    font-family:
+      Source Sans Pro,
+      sans-serif;
     font-size: 1.75rem;
     font-weight: 600;
     line-height: 1.35;
@@ -11957,7 +12141,6 @@
   }
 
   .plan-hero_bg-image-wrapper {
-    /* background-image: url(?: {1,}|)\(['|"](.*)['|"]\); */
     background-position: 50% 0;
     background-size: cover;
   }
@@ -12202,7 +12385,8 @@
     border-radius: 10px;
     padding: 1rem 1rem 2rem;
     display: flex;
-    box-shadow: 11px 11px 30px -10px rgba(0, 0, 0, 0.18),
+    box-shadow:
+      11px 11px 30px -10px rgba(0, 0, 0, 0.18),
       0 -19px 35px rgba(0, 0, 0, 0.07);
   }
 
@@ -12392,7 +12576,9 @@
     justify-content: space-between;
     align-items: center;
     padding: 1.5rem;
-    font-family: Source Sans Pro, sans-serif;
+    font-family:
+      Source Sans Pro,
+      sans-serif;
     display: flex;
   }
 
@@ -14922,7 +15108,9 @@
   .heading-small-5 {
     text-transform: none;
     margin-bottom: 5px;
-    font-family: Source Sans Pro, sans-serif;
+    font-family:
+      Source Sans Pro,
+      sans-serif;
     font-size: 1.6rem;
     font-weight: 600;
     line-height: 1.1;
@@ -14974,7 +15162,9 @@
   .heading-small-7 {
     text-transform: none;
     margin-bottom: 5px;
-    font-family: Source Sans Pro, sans-serif;
+    font-family:
+      Source Sans Pro,
+      sans-serif;
     font-size: 1.6rem;
     font-weight: 600;
     line-height: 1.1;
@@ -15096,7 +15286,9 @@
   .heading-small-8 {
     text-transform: none;
     margin-bottom: 5px;
-    font-family: Source Sans Pro, sans-serif;
+    font-family:
+      Source Sans Pro,
+      sans-serif;
     font-size: 1.6rem;
     font-weight: 600;
     line-height: 1.1;
@@ -15111,7 +15303,9 @@
   .heading-small-9 {
     text-transform: none;
     margin-bottom: 5px;
-    font-family: Source Sans Pro, sans-serif;
+    font-family:
+      Source Sans Pro,
+      sans-serif;
     font-size: 1.6rem;
     font-weight: 600;
     line-height: 1.1;
@@ -16750,7 +16944,9 @@
         rgba(80, 7, 120, 0.5)
       ),
       url('../images/hero-weight-loss_1866x786.png'); */
-      background-position: 0 0, 50%;
+      background-position:
+        0 0,
+        50%;
       background-size: auto, cover;
       padding-top: 30px;
       padding-bottom: 30px;
@@ -17570,7 +17766,9 @@
     }
 
     .text-rich-text h5 {
-      font-family: Source Sans Pro, sans-serif;
+      font-family:
+        Source Sans Pro,
+        sans-serif;
     }
 
     .fs-styleguide-icon-row {
@@ -17597,7 +17795,9 @@
     .home-hero_background {
       /* background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
       url('../images/Employer_Hero-1.jpg'); */
-      background-position: 0 0, 50%;
+      background-position:
+        0 0,
+        50%;
       background-size: auto, cover;
     }
 
@@ -17606,7 +17806,9 @@
     }
 
     .text-rich-text-posts h5 {
-      font-family: Source Sans Pro, sans-serif;
+      font-family:
+        Source Sans Pro,
+        sans-serif;
     }
 
     .section-fullbleed-hero {
@@ -18239,7 +18441,9 @@
     }
 
     .text-rich-text-white h5 {
-      font-family: Source Sans Pro, sans-serif;
+      font-family:
+        Source Sans Pro,
+        sans-serif;
     }
 
     .three-video-guide_list {
@@ -19352,7 +19556,9 @@
         rgba(80, 7, 120, 0.5)
       ),
       url('../images/hero-weight-loss_1866x786.png'); */
-      background-position: 0 0, 50%;
+      background-position:
+        0 0,
+        50%;
       background-size: auto, cover;
       padding-top: 30px;
       padding-bottom: 30px;
@@ -19366,7 +19572,9 @@
     .hero_lp_container_anthem {
       /* background-image: url('../images/BCBS_LandingPage_Header_1866x786_V2.jpg'),
       linear-gradient(rgba(3, 84, 90, 0.45), rgba(3, 84, 90, 0.45)); */
-      background-position: 100%, 0 0;
+      background-position:
+        100%,
+        0 0;
       background-size: cover, auto;
       padding-top: 30px;
       padding-bottom: 30px;
@@ -19393,7 +19601,9 @@
     .hero_lp_container_anthem_bcbs {
       /* background-image: url('../images/BCBS_LandingPage_Header_1866x786-1.jpg'),
       linear-gradient(rgba(3, 84, 90, 0.45), rgba(3, 84, 90, 0.45)); */
-      background-position: 50%, 0 0;
+      background-position:
+        50%,
+        0 0;
       background-size: cover, auto;
       padding-top: 30px;
       padding-bottom: 30px;
@@ -23077,7 +23287,9 @@
     .hero_lp_container_anthem {
       /* background-image: url('../images/BCBS_LandingPage_Header_1866x786_V2.jpg'),
       linear-gradient(rgba(3, 84, 90, 0.5), rgba(3, 84, 90, 0.5)); */
-      background-position: 80%, 0 0;
+      background-position:
+        80%,
+        0 0;
       background-size: cover, auto;
       padding: 30px 3% 10px;
     }
@@ -23115,7 +23327,9 @@
     .hero_lp_container_anthem_bcbs {
       /* background-image: url('../images/BCBS_LandingPage_Header_1866x786-1.jpg'),
       linear-gradient(rgba(3, 84, 90, 0.5), rgba(3, 84, 90, 0.5)); */
-      background-position: 70%, 0 0;
+      background-position:
+        70%,
+        0 0;
       background-size: cover, auto;
       padding: 30px 3% 10px;
     }
@@ -23991,7 +24205,9 @@
     .home-hero_background {
       /* background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
       url('../images/Employer_Hero-1.jpg'); */
-      background-position: 0 0, 0%;
+      background-position:
+        0 0,
+        0%;
     }
 
     .fullbleed-hero_content {
