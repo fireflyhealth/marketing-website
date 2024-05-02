@@ -19,6 +19,11 @@ export const SiteSettings = defineType({
       title: 'Metadata',
       icon: icons.Metadata,
     },
+    {
+      name: 'jpmcPage',
+      title: 'Original JPMC Page',
+      icon: icons.Client,
+    },
   ],
   fields: [
     defineField({
@@ -117,11 +122,13 @@ export const SiteSettings = defineType({
       name: 'showOriginalJPMCPage',
       title: 'Show original JPMC client page',
       type: 'boolean',
+      group: 'jpmcPage',
     }),
     defineField({
       name: 'jpmcHeroImage',
       title: 'JPMC Hero Image',
       type: 'richImage',
+      group: 'jpmcPage',
     }),
     defineField({
       name: 'jpmcDocument',
@@ -139,6 +146,7 @@ export const SiteSettings = defineType({
 
           return true;
         }),
+      group: 'jpmcPage',
     }),
     defineField({
       name: 'jpmcUserFlowVideo',
@@ -156,6 +164,7 @@ export const SiteSettings = defineType({
 
           return true;
         }),
+      group: 'jpmcPage',
     }),
     defineField({
       name: 'defaultMetadata',
