@@ -34,6 +34,10 @@ export const siteSettingsFragment = `
   footer {
     ${footerFragment}
   },
+  showOriginalJPMCPage,
+  jpmcUserFlowVideo{asset->{...}},
+  jpmcHeroImage{${imageFragment}},
+  jpmcDocument{asset->{...}},
   defaultMetadata {${metadataFragment}}
 `;
 

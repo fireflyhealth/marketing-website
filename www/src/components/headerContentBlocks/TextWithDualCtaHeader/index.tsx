@@ -111,11 +111,19 @@ export const TextWithDualCtaHeader: FC<Props> = ({ textWithDualCtaHeader }) => {
 
     if (windowDimentionWidthtNumber >= BREAK_POINTS_LG) {
       setWindowHeightWithoutNav(
-        `${windowDimentionHeightNumber - DESKTOP_NAV_HEIGHT - announcementBannerHeightNumber}px`,
+        `${
+          windowDimentionHeightNumber -
+          DESKTOP_NAV_HEIGHT -
+          announcementBannerHeightNumber
+        }px`,
       );
     } else if (windowDimentionWidthtNumber >= BREAK_POINTS_MD) {
       setWindowHeightWithoutNav(
-        `${windowDimentionHeightNumber - TABLET_NAV_HEIGHT - announcementBannerHeightNumber}px`,
+        `${
+          windowDimentionHeightNumber -
+          TABLET_NAV_HEIGHT -
+          announcementBannerHeightNumber
+        }px`,
       );
     } else {
       setWindowHeightWithoutNav('unset');

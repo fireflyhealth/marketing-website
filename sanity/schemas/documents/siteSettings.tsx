@@ -1,4 +1,6 @@
 import { defineArrayMember, defineField, defineType } from 'sanity';
+import { getExtension } from '@sanity/asset-utils';
+
 import { icons } from '../../lib/icons';
 
 export const SiteSettings = defineType({
@@ -16,6 +18,11 @@ export const SiteSettings = defineType({
       name: 'metadata',
       title: 'Metadata',
       icon: icons.Metadata,
+    },
+    {
+      name: 'jpmcPage',
+      title: 'Original JPMC Page',
+      icon: icons.Client,
     },
   ],
   fields: [
@@ -110,6 +117,54 @@ export const SiteSettings = defineType({
           validation: (Rule) => Rule.required(),
         }),
       ],
+    }),
+    defineField({
+      name: 'showOriginalJPMCPage',
+      title: 'Show original JPMC client page',
+      type: 'boolean',
+      group: 'jpmcPage',
+    }),
+    defineField({
+      name: 'jpmcHeroImage',
+      title: 'JPMC Hero Image',
+      type: 'richImage',
+      group: 'jpmcPage',
+    }),
+    defineField({
+      name: 'jpmcDocument',
+      title: 'JPMC Document',
+      type: 'file',
+      validation: (Rule) =>
+        Rule.custom((value) => {
+          if (!value || !value.asset) return true;
+
+          const fileType = getExtension(value.asset._ref);
+
+          if (fileType != 'pdf') {
+            return 'File must be a pdf file type.';
+          }
+
+          return true;
+        }),
+      group: 'jpmcPage',
+    }),
+    defineField({
+      name: 'jpmcUserFlowVideo',
+      title: 'JPMC user flow video',
+      type: 'file',
+      validation: (Rule) =>
+        Rule.custom((value) => {
+          if (!value || !value.asset) return true;
+
+          const fileType = getExtension(value.asset._ref);
+
+          if (fileType != 'mp4' && fileType != 'webm') {
+            return 'File must be an mp4 or webm file type.';
+          }
+
+          return true;
+        }),
+      group: 'jpmcPage',
     }),
     defineField({
       name: 'defaultMetadata',

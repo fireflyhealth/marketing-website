@@ -26,7 +26,9 @@ const initialTabKeyIsValid = (
 
   if (!isValid) {
     console.error(
-      `Tab key "${initialTabKey}" is invalid. Available keys: ${tabKeys.join(', ')}`,
+      `Tab key "${initialTabKey}" is invalid. Available keys: ${tabKeys.join(
+        ', ',
+      )}`,
     );
   }
 

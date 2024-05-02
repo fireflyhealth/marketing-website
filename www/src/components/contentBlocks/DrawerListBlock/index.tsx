@@ -202,7 +202,11 @@ export const DrawerListItem: FC<DrawerListItemProps> = ({
                 'pb-20 overflow-hidden overflow-y-scroll hide-scrollbar md:w-1/2',
               )}
               style={{
-                maxHeight: `${windowWidth >= BREAK_POINTS.MD ? `${expandedContentHeight - 32}px` : '150px'}`,
+                maxHeight: `${
+                  windowWidth >= BREAK_POINTS.MD
+                    ? `${expandedContentHeight - 32}px`
+                    : '150px'
+                }`,
                 WebkitMaskImage: `linear-gradient(to bottom, black 75%, transparent 100%)`,
                 maskImage: `linear-gradient(to bottom, black 75%, transparent 100%)`,
               }}

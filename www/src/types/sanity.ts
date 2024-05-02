@@ -30,7 +30,7 @@ interface SanityDocument {
   _updatedAt?: string;
 }
 
-type FileAsset = {
+export type FileAsset = {
   asset: {
     _type: 'sanity.fileAsset';
     _id: string;
@@ -98,6 +98,10 @@ export type SiteSettings = SanityDocument & {
   globalAnnouncementBanner: AnnouncementBanner;
   globalDoubleCta: DoubleCta;
   defaultMetadata: Metadata;
+  showOriginalJPMCPage: boolean;
+  jpmcHeroImage: RichImage;
+  jpmcUserFlowVideo: FileAsset;
+  jpmcDocument: FileAsset;
   footer: Footer;
 };
 

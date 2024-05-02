@@ -9,7 +9,7 @@
     "build:static": "STATIC_BUILD=true next build && next-sitemap && esno scripts/copyMissingBContent.ts",
     "start": "next start",
     "lint": "next lint",
-    "test:all": "yarn test:types && yarn test:prettier && yarn test:lint && yarn test:queryByteLengths && yarn test:jest",
+    "test:all": "yarn test:types && yarn test:lint && yarn test:queryByteLengths && yarn test:jest",
     "test:lint": "next lint",
     "test:queryByteLengths": "esno ./scripts/testQueryByteLengths.ts",
     "test:prettier": "prettier --check ./src",

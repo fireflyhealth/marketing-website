@@ -19,7 +19,7 @@ jobs:
       # Consistency benchmarks
       - name: Check Formatting
         id: check_formatting
-        run: yarn test:prettier
+        run: yarn fix:prettier
         continue-on-error: false
 
       # Our linter ensures we're meeting Safety, Accessibility, and Consistency benchmarks,

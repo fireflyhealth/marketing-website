@@ -47,8 +47,8 @@ const main = () => {
         byteLength > SANITY_MAX
           ? '🔴'
           : byteLength > SANITY_MAX * 0.85
-            ? '🟡'
-            : '🟢';
+          ? '🟡'
+          : '🟢';
 
       return [
         ...prev,

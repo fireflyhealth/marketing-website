@@ -1,11 +1,13 @@
 import React, { FC } from 'react';
 
 import { GetStaticProps, GetStaticPaths } from 'next';
+import { useRouter } from 'next/router';
 import { PageProps } from '@/types/next';
 import { RevalidationTime } from '@/constants';
 
-import { ClientPage as ClientPageType } from '@/types/sanity';
+import { ClientPage as ClientPageType, SiteSettings } from '@/types/sanity';
 import { ClientPageView } from '@/views/ClientPageView';
+import { JPMCVIew } from '@/views/JPMCView';
 import * as Sanity from '@/lib/sanity';
 import { ClientMetadata } from '@/components/Metadata/ClientMetadata';
 import { QueryConfig } from '@/lib/sanity';
@@ -18,11 +20,29 @@ type ClientPageParams = {
   clientSlug: string;
 };
 
-const ClientPage: FC<ClientPageProps> = ({ clientPage }) => {
+const ClientPage: FC<ClientPageProps> = ({ siteSettings, clientPage }) => {
+  const {
+    showOriginalJPMCPage,
+    jpmcHeroImage,
+    jpmcDocument,
+    jpmcUserFlowVideo,
+  } = siteSettings;
+  const router = useRouter();
+  const isJPMCPage = router.asPath === '/with/jpmc/';
   return (
     <>
-      <ClientMetadata clientPage={clientPage} />
-      <ClientPageView clientPage={clientPage} />
+      {showOriginalJPMCPage && isJPMCPage ? (
+        <JPMCVIew
+          jpmcUserFlowVideo={jpmcUserFlowVideo}
+          heroImage={jpmcHeroImage}
+          document={jpmcDocument}
+        />
+      ) : (
+        <>
+          <ClientMetadata clientPage={clientPage} />
+          <ClientPageView clientPage={clientPage} />
+        </>
+      )}
     </>
   );
 };
