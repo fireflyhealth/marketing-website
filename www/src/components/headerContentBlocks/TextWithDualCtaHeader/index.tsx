@@ -100,6 +100,7 @@ export const TextWithDualCtaHeader: FC<Props> = ({ textWithDualCtaHeader }) => {
   const [windowHeightWithoutNav, setWindowHeightWithoutNav] =
     useState<string>('100vh');
   const [activeCta, setActiveCta] = useState<'top' | 'bottom' | null>(null);
+  const [animateIn, setAnimateIn] = useState<boolean>(false);
 
   const announcementBannerHeight = useGetAnnouncementBannerHeight();
   const windowDimentions = useWindowDimensions();
@@ -135,9 +136,19 @@ export const TextWithDualCtaHeader: FC<Props> = ({ textWithDualCtaHeader }) => {
     TABLET_NAV_HEIGHT,
   ]);
 
+  useEffect(() => {
+    setAnimateIn(true);
+  }, [animateIn, setAnimateIn]);
+
   return (
     <Theme theme={theme} className={cn(ThemeWrapper)}>
-      <div className={cn(Wrapper)}>
+      <div
+        className={cn(
+          Wrapper,
+          'fadeUpElement',
+          animateIn ? 'fadeUpElement--animated' : 'fadeUpElement--inactive',
+        )}
+      >
         <div className={cn(WarpperInner)}>
           {eyebrow && <p className={cn(Eyebrow)}>{eyebrow}</p>}
           <h1 className={cn(Heading)}>{heading}</h1>
@@ -154,7 +165,11 @@ export const TextWithDualCtaHeader: FC<Props> = ({ textWithDualCtaHeader }) => {
         </div>
       </div>
       <div
-        className={cn(DualCtaWrapperContainer)}
+        className={cn(
+          'fadeUpElement',
+          animateIn ? 'fadeUpElement--animated' : 'fadeUpElement--inactive',
+          DualCtaWrapperContainer,
+        )}
         style={{
           height: windowHeightWithoutNav,
         }}

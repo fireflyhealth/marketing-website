@@ -30,7 +30,7 @@ export const CTAsWrapper = [
 export const CTAWrapper = ['mb-3'];
 
 export const DualCtaWrapperContainer = [
-  'md:w-[50%] lg:w-[42%] md:ml-12 h-full py-4',
+  'md:w-[50%] lg:w-[42%] md:ml-12 h-[100vh] py-4',
 ];
 
 export const DualCtaWrapper = [

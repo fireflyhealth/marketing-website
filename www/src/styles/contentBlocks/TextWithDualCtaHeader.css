@@ -1,5 +1,13 @@
 .TextWithDualCtaHeader {
-  min-height: 444px;
+  min-height: calc(100vh - 68.8px);
+
+  @screen md {
+    min-height: calc(100vh - 73px);
+  }
+
+  @screen lg {
+    min-height: calc(100vh - 82.2px);
+  }
 
   &__cta--bottom,
   &__cta--top {
