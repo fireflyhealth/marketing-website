@@ -90,7 +90,7 @@ export const JPMCVIew: FC<Props> = ({
               <div className="w-layout-grid fullbleed-partner-hero_component relative">
                 <div
                   id="w-node-_487a207e-5780-cc7b-b5ba-453d2b29275e-d1ed5f6f"
-                  className="full-width-background plan-hero_bg-image-wrapper relative"
+                  className="md:full-width-background plan-hero_bg-image-wrapper relative"
                   style={{ backgroundImage: `url(${heroImage.asset.url})` }}
                 />
                 <div
