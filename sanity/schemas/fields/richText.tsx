@@ -29,7 +29,6 @@ export const SimpleRichText = defineField({
     {
       type: 'block',
       styles: [],
-      lists: [],
       marks: {
         decorators: [
           { title: 'Bold', value: 'strong' },
@@ -90,7 +89,10 @@ export const SimpleRichTextWithImage = defineField({
     {
       type: 'block',
       styles: [],
-      lists: [],
+      lists: [
+        { title: 'Bullet', value: 'bullet' },
+        { title: 'Numbered', value: 'number' },
+      ],
       marks: {
         decorators: [
           { title: 'Bold', value: 'strong' },
