@@ -141,7 +141,7 @@ export const SiteSettings = defineType({
           const fileType = getExtension(value.asset._ref);
 
           if (fileType != 'pdf') {
-            return 'File must be an mp4 or webm filt type.';
+            return 'File must be a pdf file type.';
           }
 
           return true;
@@ -159,7 +159,7 @@ export const SiteSettings = defineType({
           const fileType = getExtension(value.asset._ref);
 
           if (fileType != 'mp4' && fileType != 'webm') {
-            return 'File must be an mp4 or webm filt type.';
+            return 'File must be an mp4 or webm file type.';
           }
 
           return true;
