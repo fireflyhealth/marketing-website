@@ -143,6 +143,7 @@ export const SanityImage: FC<SanityImageProps> = ({
   return (
     <GenericImage
       src={src}
+      sizes={''}
       alt={image.altText}
       caption={caption}
       width={imageWidth}
