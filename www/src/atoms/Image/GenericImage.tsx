@@ -1,7 +1,6 @@
 import React, { FC } from 'react';
 import cx from 'classnames';
-import Image from 'next-export-optimize-images/image';
-import ImageProps from 'next-export-optimize-images/image';
+import NextImage, { ImageProps as NextImageProps } from 'next/image';
 import { Maybe } from '@/types/sanity';
 
 /**
@@ -39,7 +38,7 @@ const parseSizes = (sizes: string[]): string => {
   return result;
 };
 
-export type GenericImageProps = Omit<ImageProps, 'alt' | 'sizes'> & {
+export type GenericImageProps = Omit<NextImageProps, 'alt' | 'sizes'> & {
   alt?: string;
   caption?: Maybe<string>;
   className?: string;
@@ -99,7 +98,7 @@ const GenericImageInner: FC<GenericImageProps> = ({
         : undefined;
     return (
       <div className={cx('relative', className)} style={wrapperStyles}>
-        <Image
+        <NextImage
           alt={nextImageProps.alt || ''}
           {...nextImageProps}
           className="object-center object-cover"
@@ -115,7 +114,7 @@ const GenericImageInner: FC<GenericImageProps> = ({
 
   if (nextImageProps.fill) {
     return (
-      <Image
+      <NextImage
         className={cx(className, 'object-cover object-center')}
         alt={nextImageProps.alt || ''}
         sizes={sizesString}
@@ -142,7 +141,7 @@ const GenericImageInner: FC<GenericImageProps> = ({
   }
 
   return (
-    <Image
+    <NextImage
       className={className}
       alt={nextImageProps.alt || ''}
       width={width}

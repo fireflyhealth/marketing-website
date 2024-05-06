@@ -1,6 +1,6 @@
 import { FC, useState } from 'react';
 import cn from 'classnames';
-import Image from 'next-export-optimize-images/image';
+import Image from 'next/image';
 import Head from 'next/head';
 import Script from 'next/script';
 import { Accordion } from '@/atoms/Accordion';
