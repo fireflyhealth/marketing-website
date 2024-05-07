@@ -62,7 +62,7 @@ export const ArticleHeader: FC<Props> = ({ articleHeader }) => {
         })}
       >
         <ArticleTag tags={tags} />
-        <h1 className={cn('font-size-3 font-trust')}>{title}</h1>
+        <h1 className={cn('font-size-4 font-trust')}>{title}</h1>
         <div className={cn(Info)}>
           {authorName && <p className={cn(Author)}>by {authorName}</p>}
           <div className={cn(DateWrapper)}>
