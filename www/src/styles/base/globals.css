@@ -4,7 +4,11 @@
   --container-sm-padding: 16px;
   --grid-margin-lg: min(3.33vw, 64px);
   --grid-margin-sm: 16px;
+  --nav-height-desktop: 82.2px;
+  --nav-height-tablet: 73px;
+  --nav-height-mobile: 68.8px;
 
+  /* Webflow root values */
   --navy-500: #071f3e;
   --blue-700-accessible: #0059cd;
   --black: black;
