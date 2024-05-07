@@ -9,7 +9,7 @@ const nextConfig = {
   output: isStaticBuild ? 'export' : undefined,
   trailingSlash: true,
   images: {
-    unoptimized: isStaticBuild ? true : undefined,
+    unoptimized: true,
     remotePatterns: [
       {
         protocol: 'https',

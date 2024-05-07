@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import cx from 'classnames';
-import NextImage, { ImageProps as NextImageProps } from 'next/image';
+import { ImageProps as NextImageProps } from 'next/image';
 import { Maybe } from '@/types/sanity';
 
 /**
@@ -39,6 +39,7 @@ const parseSizes = (sizes: string[]): string => {
 };
 
 export type GenericImageProps = Omit<NextImageProps, 'alt' | 'sizes'> & {
+  srcSet?: string;
   alt?: string;
   caption?: Maybe<string>;
   className?: string;
@@ -64,6 +65,7 @@ export type GenericImageProps = Omit<NextImageProps, 'alt' | 'sizes'> & {
 };
 
 const GenericImageInner: FC<GenericImageProps> = ({
+  srcSet,
   sizes,
   aspectRatio,
   caption,
@@ -74,7 +76,11 @@ const GenericImageInner: FC<GenericImageProps> = ({
   priority,
   ...nextImageProps
 }) => {
+  const { src } = nextImageProps;
+  if (typeof src != 'string') return;
+
   const sizesString = Array.isArray(sizes) ? parseSizes(sizes) : sizes;
+
   /* common class name */
   const className = cx(
     'GenericImage',
@@ -98,14 +104,14 @@ const GenericImageInner: FC<GenericImageProps> = ({
         : undefined;
     return (
       <div className={cx('relative', className)} style={wrapperStyles}>
-        <NextImage
+        <img
           alt={nextImageProps.alt || ''}
-          {...nextImageProps}
+          src={src}
+          sizes={sizesString}
+          srcSet={srcSet}
           className="object-center object-cover"
           style={imageStyles}
-          fill
-          sizes={sizesString}
-          priority={priority}
+          fetchPriority={priority ? 'high' : 'low'}
           loading={!priority ? 'lazy' : undefined}
         />
       </div>
@@ -114,13 +120,14 @@ const GenericImageInner: FC<GenericImageProps> = ({
 
   if (nextImageProps.fill) {
     return (
-      <NextImage
+      <img
         className={cx(className, 'object-cover object-center')}
-        alt={nextImageProps.alt || ''}
+        src={src}
         sizes={sizesString}
-        priority={priority}
+        srcSet={srcSet}
+        alt={nextImageProps.alt || ''}
+        fetchPriority={priority ? 'high' : 'low'}
         loading={!priority ? 'lazy' : undefined}
-        {...nextImageProps}
       />
     );
   }
@@ -141,15 +148,16 @@ const GenericImageInner: FC<GenericImageProps> = ({
   }
 
   return (
-    <NextImage
+    <img
       className={className}
+      src={src}
+      sizes={sizesString}
+      srcSet={srcSet}
       alt={nextImageProps.alt || ''}
       width={width}
       height={height}
-      sizes={sizesString}
-      priority={priority}
+      fetchPriority={priority ? 'high' : 'low'}
       loading={!priority ? 'lazy' : undefined}
-      {...nextImageProps}
     />
   );
 };
