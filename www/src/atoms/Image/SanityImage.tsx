@@ -31,7 +31,7 @@ export const getSrcSet = (image: SanityImageType | RichImage) =>
   srcSetBreakpoints
     .map(
       (breakpoint) =>
-        `${imageBuilder.image(image).width(breakpoint).quality(75).url()} ${breakpoint}w`,
+        `${imageBuilder.image(image).width(breakpoint).quality(75).format('webp').url()} ${breakpoint}w`,
     )
     .toString();
 
