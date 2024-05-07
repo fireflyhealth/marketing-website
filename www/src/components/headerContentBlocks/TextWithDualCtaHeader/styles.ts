@@ -30,7 +30,7 @@ export const CTAsWrapper = [
 export const CTAWrapper = ['mb-3'];
 
 export const DualCtaWrapperContainer = [
-  'md:w-[50%] lg:w-[42%] md:ml-12 h-full py-4',
+  'md:w-[50%] lg:w-[42%] md:ml-12 h-[100vh] py-4',
 ];
 
 export const DualCtaWrapper = [
@@ -47,9 +47,7 @@ export const DualCtaTop = ['TextWithDualCtaHeader__cta--top mb-3'];
 
 export const DualCtaBottom = ['TextWithDualCtaHeader__cta--bottom mt-3'];
 
-export const DualCtaImage = [
-  'absolute inset-0 w-full h-[288px] md:h-[638px] object-cover',
-];
+export const DualCtaImage = ['absolute inset-0 w-full h-full object-cover'];
 
 export const DualCtaImageTop = [
   'TextWithDualCtaHeader__cta-image--top object-top',
