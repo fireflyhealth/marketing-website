@@ -135,6 +135,7 @@ export const DrawerListItem: FC<DrawerListItemProps> = ({
             )}
           >
             <ResponsiveSanityImage
+              className="DrawerList_Background_Img w-full h-full"
               imageSet={backgroundImage}
               sizes={['100vw']}
             />
