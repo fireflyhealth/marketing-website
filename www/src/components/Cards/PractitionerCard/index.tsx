@@ -38,9 +38,9 @@ export const PractitionerCard: FC<PractitionerCardProps> = ({
           )}
         </MaybeLink>
       </div>
-      <div className="font-trust font-size-6 pt-4">
+      <div className="font-trust font-size-7 pt-4">
         {practitioner.name}{' '}
-        <span className="font-roobert font-size-7 ml-[0.1em]">
+        <span className="font-roobert font-size-8 ml-[0.1em]">
           {practitioner.qualifications}
         </span>
       </div>
