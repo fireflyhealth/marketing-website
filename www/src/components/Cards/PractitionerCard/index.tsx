@@ -46,7 +46,7 @@ export const PractitionerCard: FC<PractitionerCardProps> = ({
       </div>
       <div className="font-size-8 theme-text-color-secondary">
         {practitioner.role.role},{' '}
-        <span className="whitespace-nowrap">{practitioner.pronouns}</span>
+        <span className="whitespace-normal">{practitioner.pronouns}</span>
       </div>
     </div>
   );
