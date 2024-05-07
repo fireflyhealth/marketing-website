@@ -47,9 +47,7 @@ export const DualCtaTop = ['TextWithDualCtaHeader__cta--top mb-3'];
 
 export const DualCtaBottom = ['TextWithDualCtaHeader__cta--bottom mt-3'];
 
-export const DualCtaImage = [
-  'absolute inset-0 w-full h-[288px] md:h-[638px] object-cover',
-];
+export const DualCtaImage = ['absolute inset-0 w-full h-full object-cover'];
 
 export const DualCtaImageTop = [
   'TextWithDualCtaHeader__cta-image--top object-top',
