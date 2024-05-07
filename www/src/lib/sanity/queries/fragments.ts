@@ -6,6 +6,7 @@ export const imageFragment = `
     _id,
     _type,
     url,
+    mimeType,
     metadata {
       lqip,
       dimensions {

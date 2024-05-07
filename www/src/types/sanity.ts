@@ -453,6 +453,7 @@ export type Image = {
   asset: {
     _id: string;
     url: string;
+    mimeType: string;
     metadata: {
       lqip: string;
       dimensions: ImageDimensions;
