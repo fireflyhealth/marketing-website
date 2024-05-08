@@ -45,7 +45,7 @@ export const RichTextChildBlock: FC<RichTextChildBlockProps> = ({
       ) : null}
       {body && (
         <RichText
-          className={cn('w-full text-balance')}
+          className={cn('w-full text-wrap')}
           content={body}
           alignCenter={!!alignCenter}
         />

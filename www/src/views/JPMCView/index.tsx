@@ -276,35 +276,21 @@ export const JPMCVIew: FC<Props> = ({
                         id="w-node-b2161cb5-ef3c-c6ce-cec0-7face87e9758-d1ed5f6f"
                         className="app-demo_video-wrapper"
                       >
-                        <div
-                          data-poster-url="videos/BCBS_user_flow_v2-crop-poster-00001.jpg"
-                          data-video-urls="videos/BCBS_user_flow_v2-crop-transcode.mp4,videos/BCBS_user_flow_v2-crop-transcode.webm"
-                          data-autoplay="true"
-                          data-loop="true"
-                          data-wf-ignore="true"
+                        <video
+                          id="b2161cb5-ef3c-c6ce-cec0-7face87e9759-video"
                           className="app-demo_video w-background-video w-background-video-atom"
+                          autoPlay
+                          loop
+                          muted
+                          playsInline
+                          data-wf-ignore="true"
+                          data-object-fit="cover"
                         >
-                          <video
-                            id="b2161cb5-ef3c-c6ce-cec0-7face87e9759-video"
-                            autoPlay={true}
-                            loop={true}
-                            muted={true}
-                            playsInline={true}
-                            data-wf-ignore="true"
-                            data-object-fit="cover"
-                          >
-                            <source
-                              src={jpmcUserFlowVideo.asset.url}
-                              type="video/webm"
-                              data-wf-ignore="true"
-                            />
-                            {/* <source
-                              src="/videos/BCBS_user_flow_v2-crop-transcode.webm"
-                              type="video/webm"
-                              data-wf-ignore="true"
-                            /> */}
-                          </video>
-                        </div>
+                          <source
+                            src={jpmcUserFlowVideo.asset.url}
+                            type="video/mp4"
+                          />
+                        </video>
                       </div>
                     </div>
                   </div>

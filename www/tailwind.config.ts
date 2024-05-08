@@ -101,6 +101,9 @@ export const config: Config = {
         'container-sm-padding': 'var(--container-sm-padding)',
         'grid-margin-lg': 'var(--grid-margin-lg)',
         'grid-margin-sm': 'var(--grid-margin-sm)',
+        vhMinusNavDesktop: 'calc(100vh - var(--nav-height-desktop))',
+        vhMinusNavTablet: 'calc(100vh - var(--nav-height-tablet))',
+        vhMinusNavMobile: 'calc(100vh - var(--nav-height-mobile))',
       },
       backgroundImage: {
         'yellow-linear-gradient':

@@ -46,7 +46,6 @@ export const SequenceCard: FC<Props> = ({ card }) => {
                 <Video
                   video={video}
                   posterSizes={['90vw, 40vw']}
-                  autoplay
                   isHighlighted
                 />
               </div>
@@ -70,7 +69,7 @@ export const SequenceCard: FC<Props> = ({ card }) => {
               isIntersectingOnce ? '' : 'fadeUpElement--inactive',
             )}
           >
-            <Video video={video} posterSizes={['90vw, 40vw']} autoplay />
+            <Video video={video} posterSizes={['90vw, 40vw']} />
           </div>
           <div
             className={cn(
