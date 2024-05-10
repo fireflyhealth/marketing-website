@@ -1,6 +1,5 @@
 import React, { FC } from 'react';
 import { GetStaticProps } from 'next';
-import { notFound } from 'next/navigation';
 
 import { PageProps } from '@/types/next';
 import { FAQPage as FAQPageType } from '@/types/sanity';
@@ -31,7 +30,7 @@ export const getStaticProps: GetStaticProps<FAQPageProps> = async () => {
   const navigationOverrides = faqPage?.navigationOverrides;
 
   if (!faqPage) {
-    return notFound();
+    return { notFound: true };
   }
   return {
     props: {
