@@ -13,7 +13,9 @@ export const getSubnavItems = (
       return acc;
     }
 
-    if (!!cur.subnav) {
+    /* Only include contet blocks that have a subnav label and content block ID */
+    /* Some content blocks make use of the content block ID for in-page linking but do not require a subnav item. */
+    if (!!cur.subnav && !!cur.subnav.label && !!cur.subnav.contentBlockId) {
       return acc.concat([cur.subnav]);
     }
     return acc;

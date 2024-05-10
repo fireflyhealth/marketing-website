@@ -11,12 +11,13 @@ const validateOnlyOne = (Rule: Rule) =>
       (parent as any)?.documentLink,
       (parent as any)?.externalUrl,
       (parent as any)?.file,
+      (parent as any)?.anchor,
     ].filter(Boolean);
     if (fieldsWithValues.length === 0) {
-      return 'Required: You must provide either a linked page, external URL, or file.';
+      return 'Required: You must provide either a linked page, external URL, file, or anchor.';
     }
     if (fieldsWithValues.length > 1) {
-      return 'You must provide only one of: a linked page, external URL, or file.';
+      return 'You must provide only one of: a linked page, external URL, file, or anchor.';
     }
 
     return true;
@@ -81,6 +82,19 @@ export const Link = defineType({
       name: 'externalUrl',
       title: 'External URL',
       type: 'url',
+      hidden: ({ parent, value }) => {
+        /* Hide this option when adding links to a Navigation document */
+        if (
+          !value &&
+          (!!parent?.documentLink ||
+            !!parent?.externalUrl ||
+            !!parent?.file ||
+            !!parent?.anchor)
+        ) {
+          return true;
+        }
+        return false;
+      },
       validation: (Rule) => {
         return validateOnlyOne(Rule as Rule).uri({
           scheme: ['http', 'https', 'mailto', 'tel'],
@@ -92,15 +106,35 @@ export const Link = defineType({
       name: 'documentLink',
       title: 'Linked Page',
       type: 'linkableDocument',
+      hidden: ({ parent, value }) => {
+        /* Hide this option when adding links to a Navigation document */
+        if (
+          !value &&
+          (!!parent?.documentLink ||
+            !!parent?.externalUrl ||
+            !!parent?.file ||
+            !!parent?.anchor)
+        ) {
+          return true;
+        }
+        return false;
+      },
       validation: (Rule) => [validateOnlyOne, validateNotOrphanedSubpage],
     }),
 
     defineField({
       name: 'file',
       title: 'Linked File',
-      hidden: (ctx) => {
+      hidden: ({ document, parent, value }) => {
         /* Hide this option when adding links to a Navigation document */
-        if (ctx.document?._type == 'navigation') {
+        if (
+          document?._type == 'navigation' ||
+          (!value &&
+            (!!parent?.documentLink ||
+              !!parent?.externalUrl ||
+              !!parent?.file ||
+              !!parent?.anchor))
+        ) {
           return true;
         }
         return false;
@@ -108,6 +142,37 @@ export const Link = defineType({
       type: 'file',
       // @ts-ignore
       validation: validateOnlyOne,
+    }),
+
+    defineField({
+      name: 'anchor',
+      title: 'In-Page Link',
+      description:
+        'Enter the "Content Block ID" from any content block on this page to scroll to it by clicking this link.',
+      type: 'string',
+      hidden: ({ document, parent, value }) => {
+        /* Hide this option when adding links to a Navigation document */
+        if (
+          document?._type == 'navigation' ||
+          (!value &&
+            (!!parent?.documentLink || !!parent?.externalUrl || !!parent?.file))
+        ) {
+          return true;
+        }
+        return false;
+      },
+      validation: (Rule) => {
+        return validateOnlyOne(Rule as Rule).custom((value?: string) => {
+          if (!value) return true;
+          if (value.startsWith('#')) {
+            return `Don't include the "#", just the ID`;
+          }
+          if (value.match(/[a-z\-]+/)?.[0] !== value) {
+            return `Only lowercase letters and hyphens are allowed`;
+          }
+          return true;
+        });
+      },
     }),
   ],
 });

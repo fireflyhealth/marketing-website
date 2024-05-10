@@ -95,13 +95,18 @@ const ContentBlock: FC<ContentBlockProps> = ({ block }) => {
 
 type ContentAreaProps = {
   blocks: KeyedArray<ContentBlockType>;
+  renderSubnav: boolean;
   subNav?: Maybe<SubnavItem[]>;
 };
 
-export const ContentArea: FC<ContentAreaProps> = ({ blocks, subNav }) => {
+export const ContentArea: FC<ContentAreaProps> = ({
+  blocks,
+  renderSubnav,
+  subNav,
+}) => {
   return (
     <div id="content-area" className="ContentArea">
-      <Subnav subnav={subNav} />
+      <Subnav renderSubnav={renderSubnav} subnav={subNav} />
       {filterMaybes(blocks).map((block) => (
         <ContentBlock block={block} key={block._key} />
       ))}
