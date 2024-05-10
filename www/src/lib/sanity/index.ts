@@ -152,9 +152,6 @@ export const siteSettings = {
         )
       : (sanityData?.siteSettings as unknown);
 
-    if (!siteSettings) {
-      throw new Error('Could not fetch site settings');
-    }
     return siteSettings as SiteSettings;
   },
 };
@@ -180,10 +177,6 @@ export const homepage = {
       pageFragment,
       sanityData?.homeBPage as unknown,
     );
-
-    if (!homepage) {
-      throw new Error('Could not fetch homepage');
-    }
 
     return homepage as Homepage;
   },
@@ -214,10 +207,6 @@ export const page = {
           },
         )
       : (staticGenericPages?.[slug] as unknown as GenericPage);
-
-    if (!genericPage) {
-      throw new Error(`Could not fetch ${slug} genericPage`);
-    }
 
     return withMaybeBContent(
       genericPage,
@@ -263,10 +252,6 @@ export const subPage = {
         )
       : staticGenericSubPages?.[parentSlug]?.[subpageSlug];
 
-    if (!subPage) {
-      throw new Error(`Could not fetch ${parentSlug} - ${subpageSlug} subPage`);
-    }
-
     return withMaybeBContent(
       subPage,
       config,
@@ -310,10 +295,6 @@ export const downloadPage = {
         )
       : (sanityData?.downloadPage as unknown as DownloadPage);
 
-    if (!downloadPage) {
-      throw new Error('Could not fetch downloadPage');
-    }
-
     return withMaybeBContent(
       downloadPage,
       config,
@@ -338,10 +319,6 @@ export const contactPage = {
         )
       : (sanityData.contactPage as unknown as ContactPage);
 
-    if (!contactPage) {
-      throw new Error('Could not fetch contactPage');
-    }
-
     return withMaybeBContent(
       contactPage,
       config,
@@ -359,10 +336,6 @@ export const notFoundPage = {
         )
       : (sanityData?.notFoundPage as unknown as NotFoundPage);
 
-    if (!notFoundPage) {
-      throw new Error('Could not fetch notFoundPage');
-    }
-
     return notFoundPage;
   },
 };
@@ -374,10 +347,6 @@ export const faqPage = {
           `*[_type == "faqPage" && _id == "faqPage"][0]{${faqPageFragment}}`,
         )
       : (sanityData?.faqPage as unknown as FAQPage);
-
-    if (!faqPage) {
-      throw new Error('Could not fetch faqPage');
-    }
 
     return faqPage;
   },
@@ -408,10 +377,6 @@ export const clientPage = {
           },
         )
       : clientPages[clientSlug];
-
-    if (!clientPage) {
-      throw new Error(`Could not fetch ${clientSlug} clientPage`);
-    }
 
     return withMaybeBContent(
       clientPage,
@@ -458,10 +423,6 @@ export const blog = {
           },
         )
       : staticBlogPages?.[blogSlug];
-
-    if (!blog) {
-      throw new Error(`Could not fetch ${blogSlug} blogPage`);
-    }
 
     return withMaybeBContent(
       blog,
@@ -571,12 +532,6 @@ export const blog = {
           params,
         )
       : staticArticlePages?.[blogSlug]?.[articleSlug];
-
-    if (!article) {
-      throw new Error(
-        `Could not fetch ${blogSlug} - ${articleSlug} articlePage`,
-      );
-    }
 
     return withMaybeBContent(
       article,
