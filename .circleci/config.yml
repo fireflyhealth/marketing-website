@@ -32,23 +32,18 @@ jobs:
       - attach_workspace:
           at: ~/project/www
       - aws-cli/setup:
-          role_arn: ${ROLE_ARN}
+          role_arn: arn:aws:iam::905418149376:role/CircleCI
       - aws-s3/sync:
-          arguments: |
-            --acl public-read
           from: /home/circleci/project/www/out
-          to: ${BUCKET_NAME}
+          to: s3://marketing-website-assets-905418149376
 
 workflows:
   build-and-deploy:
     jobs:
       - build:
-          filters:
-            branches:
-              only: production
       - deploy:
           requires:
             - build
           filters:
             branches:
-              only: production
+              only: main
