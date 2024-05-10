@@ -1,6 +1,7 @@
 import React, { FC } from 'react';
 
 import { GetStaticProps, GetStaticPaths } from 'next';
+import { notFound } from 'next/navigation';
 import { PageProps as CommonPageProps } from '@/types/next';
 import { RevalidationTime } from '@/constants';
 
@@ -44,9 +45,7 @@ export const createGetStaticProps =
     const navigationOverrides = page?.navigationOverrides;
 
     if (!page) {
-      return {
-        notFound: true,
-      };
+      return notFound();
     }
 
     return {
