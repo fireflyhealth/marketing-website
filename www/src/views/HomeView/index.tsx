@@ -15,7 +15,11 @@ export const HomeView: FC<HomeViewProps> = ({ homepage }) => {
   return (
     <div>
       <HeaderArea block={homepage.header} />
-      <ContentArea blocks={homepage.content} subNav={subnavItems} />
+      <ContentArea
+        blocks={homepage.content}
+        renderSubnav={homepage.subnav ? homepage.subnav : false}
+        subNav={subnavItems}
+      />
     </div>
   );
 };

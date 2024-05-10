@@ -21,7 +21,7 @@ export const NotFoundPageView: FC<NotFoundPageViewProps> = ({
   return (
     <div className={cn(Wrapper)}>
       <HeaderArea block={notFoundPage.header} />
-      <ContentArea blocks={notFoundPage.content} />
+      <ContentArea renderSubnav={false} blocks={notFoundPage.content} />
       <div className={cn(DecorativeImageWrapperContainer)}>
         <div className={cn(DecorativeImageWrapper)}>
           <div className={cn(Image)}>
