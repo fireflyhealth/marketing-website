@@ -15,6 +15,10 @@ jobs:
           name: Run Build Static
           command: cd www && yarn build:static
           environment:
+            DATADOG_APPLICATION_ID: 67b751ad-00be-4e09-87d7-fb4a7df1e134
+            DATADOG_CLIENT_TOKEN: pub8348e62acc94288326c75164f1833c28
+            DATADOG_SERVICE: marketing-website
+            DATADOG_SITE: datadoghq.com
             STATIC_BUILD: true
       - run:
           name: Run tests
