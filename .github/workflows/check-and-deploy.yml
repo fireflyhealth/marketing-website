@@ -21,20 +21,6 @@ jobs:
   #     directory: 'sanity'
 
   # removed test-sanity from 'needs'
-  deploy-web:
-    name: Deploy Vercel
-    needs: [benchmark-web]
-    uses: ./.github/workflows/deploy-vercel.yml
-    secrets:
-      vercel-token: ${{ secrets.VERCEL_TOKEN }}
-      github-token: ${{ secrets.GITHUB_TOKEN }}
-    with:
-      vercel-project-id: ${{ vars.VERCEL_PROJECT_ID }}
-      vercel-storybook-project-id: ${{ vars.VERCEL_STORYBOOK_PROJECT_ID }}
-      vercel-org-id: ${{ vars.VERCEL_ORG_ID }}
-      directory: 'www'
-
-  # removed test-sanity from 'needs'
   deploy-cms:
     name: Deploy CMS
     if: github.ref == 'refs/heads/production'
