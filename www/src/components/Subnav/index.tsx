@@ -44,10 +44,11 @@ const SubnavItem: FC<{
   );
 };
 
-export const Subnav: FC<{ subnav?: Maybe<SubnavItemType[]> }> = ({
-  subnav,
-}) => {
-  if (!subnav || subnav.length === 0) {
+export const Subnav: FC<{
+  renderSubnav: boolean;
+  subnav?: Maybe<SubnavItemType[]>;
+}> = ({ renderSubnav, subnav }) => {
+  if (!renderSubnav || !subnav || (subnav && subnav.length === 0)) {
     return null;
   }
 

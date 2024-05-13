@@ -93,11 +93,6 @@ const nextConfig = {
       },
       // For Members blog redirects
       {
-        source: '/clinical-guidance/:slug*',
-        destination: '/blog/for-members',
-        permanent: true,
-      },
-      {
         source: '/dose-of-clinical/:slug*',
         destination: '/blog/for-members',
         permanent: true,
@@ -133,12 +128,17 @@ const nextConfig = {
         permanent: true,
       },
       {
-        source: '/clinical-guidance',
+        source: '/dose-of-clinical',
         destination: '/blog/for-members',
         permanent: true,
       },
       {
-        source: '/dose-of-clinical',
+        source: '/healthy-you',
+        destination: '/blog/for-members',
+        permanent: true,
+      },
+      {
+        source: '/from-our-care-team',
         destination: '/blog/for-members',
         permanent: true,
       },
@@ -150,6 +150,144 @@ const nextConfig = {
       {
         source: '/real-recipes',
         destination: '/blog/for-members',
+        permanent: true,
+      },
+      // Clinical Guidance blog redirects
+      {
+        source: '/clinical-guidance/:slug*',
+        destination: '/blog/clinical-guidance/:slug*',
+        permanent: true,
+      },
+      {
+        source: '/clinical-guidance',
+        destination: '/blog/clinical-guidance',
+        permanent: true,
+      },
+      {
+        source: '/clinical-guidance/adhd-agreement',
+        destination: '/blog/clinical-guidance/adhd-medication-guidelines/',
+        permanent: true,
+      },
+      {
+        source: '/clinical-guidance/visit',
+        destination: '/blog/clinical-guidance/annual-wellness-visit-q-and-a',
+        permanent: true,
+      },
+      {
+        source: '/clinical-guidance/high-blood-pressure',
+        destination: '/blog/clinical-guidance/high-blood-pressure-not-for-long',
+        permanent: true,
+      },
+      {
+        source: '/clinical-guidance/bonedensity',
+        destination: '/blog/clinical-guidance/bone-density-q-and-a',
+        permanent: true,
+      },
+      {
+        source: '/post/breast-cancer-q-a',
+        destination: '/blog/clinical-guidance/breast-cancer-q-and-a',
+        permanent: true,
+      },
+      {
+        source: '/post/cervical-cancer-q-a',
+        destination: '/blog/clinical-guidance/cervical-cancer-q-and-a',
+        permanent: true,
+      },
+      {
+        source: '/clinical-guidance/cold-treating',
+        destination: '/blog/clinical-guidance/treating-the-common-cold',
+        permanent: true,
+      },
+      {
+        source: '/clinical-guidance/covid',
+        destination: '/blog/clinical-guidance/you-re-due-for-a-covid-vaccine',
+        permanent: true,
+      },
+      {
+        source: '/clinical-guidance/covid-vaccine',
+        destination:
+          '/blog/clinical-guidance/common-questions-about-the-covid-vaccine',
+        permanent: true,
+      },
+      {
+        source: '/clinical-guidance/flu',
+        destination: '/blog/clinical-guidance/you-re-due-for-a-flu-vaccine',
+        permanent: true,
+      },
+      {
+        source: '/clinical-guidance/labcorp',
+        destination:
+          '/blog/clinical-guidance/you-have-labs-to-complete-at-labcorp',
+        permanent: true,
+      },
+      {
+        source: '/clinical-guidance/quest',
+        destination:
+          '/blog/clinical-guidance/you-have-labs-to-complete-at-quest',
+        permanent: true,
+      },
+      {
+        source: '/clinical-guidance/lungcancer',
+        destination: '/blog/clinical-guidance/lung-cancer-q-and-a',
+        permanent: true,
+      },
+      {
+        source: '/clinical-guidance/cholesterol-food',
+        destination:
+          '/blog/clinical-guidance/heart-healthy-foods-for-lower-cholesterol',
+        permanent: true,
+      },
+      {
+        source: '/clinical-guidance/pneumonia',
+        destination:
+          '/blog/clinical-guidance/you-re-due-for-a-pneumonia-vaccine',
+        permanent: true,
+      },
+      {
+        source: '/clinical-guidance/poison-ivy',
+        destination:
+          '/blog/clinical-guidance/common-questions-about-poison-ivy',
+        permanent: true,
+      },
+      {
+        source: '/clinical-guidance/pregnancy',
+        destination: '/blog/clinical-guidance/having-a-healthy-pregnancy',
+        permanent: true,
+      },
+      {
+        source: '/clinical-guidance/shingles',
+        destination: '/blog/clinical-guidance/having-a-healthy-pregnancy',
+        permanent: true,
+      },
+      {
+        source: '/clinical-guidance/prostatecancer',
+        destination:
+          '/blog/clinical-guidance/you-re-due-for-the-shingles-vaccine',
+        permanent: true,
+      },
+      {
+        source: '/clinical-guidance/rsv',
+        destination: '/blog/clinical-guidance/you-re-due-for-an-rsv-vaccine',
+        permanent: true,
+      },
+      {
+        source: '/clinical-guidance/tetanus',
+        destination: '/blog/clinical-guidance/you-re-due-for-a-tetanus-booster',
+        permanent: true,
+      },
+      {
+        source: '/clinical-guidance/healthy-weight-management',
+        destination: '/blog/clinical-guidance/weight-management-with-saxenda',
+        permanent: true,
+      },
+      {
+        source: '/clinical-guidance/wegovy',
+        destination: '/blog/clinical-guidance/weight-management-with-wegovy',
+        permanent: true,
+      },
+      {
+        source: '/clinical-guidance/contrave',
+        destination: '/blog/clinical-guidance/weight-management-with-contrave',
         permanent: true,
       },
       // FAQ redirects
@@ -180,7 +318,7 @@ const nextConfig = {
       },
       {
         source: '/prior-authorization',
-        destination: '/faq',
+        destination: '/providers',
         permanent: true,
       },
       {
@@ -222,7 +360,7 @@ const nextConfig = {
       // Generic page redirects
       {
         source: '/care',
-        destination: '/how-it-works',
+        destination: '/individuals',
         permanent: true,
       },
       {
@@ -268,17 +406,7 @@ const nextConfig = {
       },
       {
         source: '/carriers',
-        destination: '/',
-        permanent: true,
-      },
-      {
-        source: '/from-our-care-team',
-        destination: '/',
-        permanent: true,
-      },
-      {
-        source: '/healthy-you',
-        destination: '/',
+        destination: '/health-plans',
         permanent: true,
       },
       {

@@ -71,6 +71,20 @@ export const Link: FC<LinkProps> = ({
       </a>
     );
   }
+  if ('anchor' in link && link.anchor) {
+    return (
+      <a
+        ref={linkRef}
+        href={`#${link.anchor}`}
+        id={id || undefined}
+        aria-label={ariaLabel || undefined}
+        className={className}
+        tabIndex={tabindex}
+      >
+        {children}
+      </a>
+    );
+  }
   const documentLink = link._type == 'link' ? link.documentLink : link;
   if (!documentLink) {
     throw new Error(

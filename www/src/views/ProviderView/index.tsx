@@ -51,7 +51,9 @@ export const ProviderPageView: FC<ProviderPageViewProps> = ({ provider }) => {
           />
         </div>
       )}
-      {provider.contentArea && <ContentArea blocks={provider.contentArea} />}
+      {provider.contentArea && (
+        <ContentArea renderSubnav={false} blocks={provider.contentArea} />
+      )}
       <div className="">
         <Link
           link={allProvidersBackLink}

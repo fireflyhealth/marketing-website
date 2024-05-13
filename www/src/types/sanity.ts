@@ -481,6 +481,7 @@ export type Link = {
   documentLink?: Maybe<LinkableDocumentData>;
   externalUrl?: Maybe<string>;
   file?: Maybe<FileAsset>;
+  anchor?: Maybe<string>;
 };
 
 export type CTA = {
