@@ -111,7 +111,6 @@ const GenericImageInner: FC<GenericImageProps> = ({
           srcSet={srcSet}
           className="object-center object-cover"
           style={imageStyles}
-          fetchPriority={priority ? 'high' : 'low'}
           loading={!priority ? 'lazy' : undefined}
         />
       </div>
@@ -126,7 +125,6 @@ const GenericImageInner: FC<GenericImageProps> = ({
         sizes={sizesString}
         srcSet={srcSet}
         alt={nextImageProps.alt || ''}
-        fetchPriority={priority ? 'high' : 'low'}
         loading={!priority ? 'lazy' : undefined}
       />
     );
@@ -156,7 +154,6 @@ const GenericImageInner: FC<GenericImageProps> = ({
       alt={nextImageProps.alt || ''}
       width={width}
       height={height}
-      fetchPriority={priority ? 'high' : 'low'}
       loading={!priority ? 'lazy' : undefined}
     />
   );
