@@ -43,7 +43,7 @@
   },
   "devDependencies": {
     "@next/bundle-analyzer": "^14.2.3",
-    "@portabletext/types": "^2.0.8",
+    "@portabletext/types": "^2.0.13",
     "@storybook/addon-essentials": "^7.6.7",
     "@storybook/addon-interactions": "^7.6.7",
     "@storybook/addon-links": "^7.6.7",
