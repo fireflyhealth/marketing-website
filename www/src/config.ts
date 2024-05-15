@@ -1,9 +1,8 @@
-const isStaticBuild = Boolean(process.env.STATIC_BUILD);
+const isStaticBuild = process.env.NEXT_PUBLIC_STATIC_BUILD;
 const isProd =
   isStaticBuild ||
   (process.env.NEXT_PUBLIC_VERCEL_ENV &&
     process.env.NEXT_PUBLIC_VERCEL_ENV === 'production');
-const forceDataset = process.env.NEXT_PUBLIC_SANITY_DATASET;
 
 export const config = {
   /* Will be true only on production deployments */
@@ -11,7 +10,10 @@ export const config = {
   sanity: {
     projectId: 'xgbrv2vi',
     apiVersion: '2024-01-01',
-    dataset: forceDataset || isProd ? 'production' : 'staging',
+    dataset:
+      process.env.NEXT_PUBLIC_FORCE_DATASET || isProd
+        ? 'production'
+        : 'staging',
     useCdn: isProd ? true : false,
   },
   metadata: {
