@@ -5,6 +5,8 @@ const COOKIE_NAME = '_gtm_ab_experiment';
 const CONTROL_GROUP = '_gtm_ab_control';
 // The name to use for the B experiment group.
 const EXPERIMENT_GROUP = '_gtm_ab_test';
+// The parameter to append to the querystring after AB bucketing users.
+const REDIRECTED_PARAM = 'redirected';
 
 // Static mappings between old URL's and their new targets.
 // This doesn't include redirects from pages with dynamic path components.
@@ -14,7 +16,7 @@ const STATIC_REDIRECT_MAP = {
   '/about-us': '/about',
   '/services': '/about',
   '/care-team': '/about/care-team',
-  '/care-team/tyler-mcclintock': '/about/care-team'
+  '/care-team/tyler-mcclintock': '/about/care-team',
   '/care-team/yasmin-khan':  '/about/care-team',
   '/leadership':  '/about/leadership',
   '/articles':  '/blog/newsroom',
@@ -157,6 +159,43 @@ function getExplicitRedirectUri(request) {
   }
 }
 
+function userWasAlreadyRedirected(request) {
+  return request.querystring[REDIRECTED_PARAM] !== undefined;
+}
+
+// Determines the URL to redirect the user to when the AB testing cookie
+// is applied. Will add a ?redirected=true query parameter to the URL
+// to prevent infinite redirects.
+function getCookieRedirectUri(request) {
+  const params = [];
+
+  let hasPreexistingRedirectedParam = false;
+
+  Object.keys(request.querystring).forEach((key) => {
+    const value = request.querystring[key];
+
+    if (key === REDIRECTED_PARAM) {
+      hasPreexistingRedirectedParam = true;
+    }
+
+    if (value.multiValue) {
+      value.multiValue.forEach((entry) => {
+        params.push(`${key}=${entry.value}`)
+      });
+    } else {
+      params.push(`${key}=${value}`);
+    }
+  });
+
+  if (!hasPreexistingRedirectedParam) {
+    params.push(`${REDIRECTED_PARAM}=true`);
+  }
+
+  const querystring = params.join('&');
+
+  return `${request.uri}?${querystring}`;
+}
+
 // Cloudfront will automagically pick up the last function declaration
 // and use that as the function to evaluate for each incoming request.
 async function handler(event) {
@@ -182,9 +221,11 @@ async function handler(event) {
   }
 
   const group = getExistingGroup(request);
+  const alreadyRedirected = userWasAlreadyRedirected(request);
 
-  if (group === undefined) {
+  if (group === undefined && !alreadyRedirected) {
     const newGroup = getRandomGroup();
+    const cookieRedirectUri = getCookieRedirectUri(request);
 
     // If the user hasn't yet been assigned an experiment group,
     // assign a random group, serve them a 302 Found with the cookie set,
@@ -202,7 +243,7 @@ async function handler(event) {
           value: 'no-store',
         },
         location: {
-          value: request.uri,
+          value: cookieRedirectUri,
         },
       },
     };
