@@ -149,6 +149,11 @@ function getExplicitRedirectUri(request) {
     return undefined;
   }
 
+  // We can bail out of redirect logic for static files:
+  if (request.uri.includes('.')) {
+    return undefined;
+  }
+
   // First check if this redirect is statically mapped.
   // Normalize by removing trailing slash.
   const staticUri = STATIC_REDIRECT_MAP[removeTrailingSlash(request.uri)];
@@ -164,7 +169,9 @@ function getExplicitRedirectUri(request) {
   // Now we need to check whether the source URL is a dynamic path.
   // Each of the mappings below uses a first-segment/:dynamic-slug* pattern.
 
-  const firstSegment = request.uri.slice(1).split('/').shift();
+  const segments = request.uri.slice(1).split('/');
+  const firstSegment = segments.shift();
+  const remainder = segments.join('/');
 
   switch (firstSegment) {
     case 'dose-of-clinical':
@@ -181,9 +188,11 @@ function getExplicitRedirectUri(request) {
     case 'rtw':
       return '/';
 
-    // TODO: dynamic path remappings for
-    // /business-resources/:slug* -> /blog/for-businesses/:slug*
-    // /clinical-guidance/:slug*  ->  /blog/clinical-guidance/:slug*
+    case 'business-resources':
+      return `/blog/for-businesses/${remainder}`;
+
+    case 'clinical-guidance':
+      return `/blog/clinical-guidance/${remainder}`;
 
     default:
       return undefined;
