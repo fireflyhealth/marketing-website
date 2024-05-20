@@ -95,6 +95,14 @@ export const LinkButton: FC<LinkButtonProps> = ({
   disabled,
   width = 'full',
 }) => {
+  // Throw an error if the link that gets passed to this component
+  // is not destructured properly.
+  if (
+    'documentLink' in link &&
+    link.documentLink?._type.includes('linkableDocument')
+  ) {
+    throw Error(`Cannot destructure ${link} of '${label}'`);
+  }
   return (
     <div
       className={cn('flex', {
