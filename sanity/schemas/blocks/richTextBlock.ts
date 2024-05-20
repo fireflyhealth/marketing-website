@@ -1,6 +1,6 @@
 import { defineType, defineField } from 'sanity';
-import { requiredBlockFields } from './utils/requiredBlockFields';
 import { icons } from '../../lib/icons';
+import { requiredBlockFields } from './utils/requiredBlockFields';
 
 export const RichTextBlock = defineType({
   name: 'richTextBlock',
