@@ -4,8 +4,8 @@ import { QrCodeObject, Link as LinkType, Maybe } from '@/types/sanity';
 import { SanityImage } from '@/atoms/Image/SanityImage';
 import { GenericImage } from '@/atoms/Image/GenericImage';
 import { Link } from '@/atoms/Link';
-import googlePlayStoreBadge from '@/assets/images/google-play-store-badge.png';
-import appStoreBadge from '@/assets/images/app-store-badge.png';
+import googlePlayStoreBadge from '../../assets/images/google-play-store-badge.png';
+import appStoreBadge from '../../assets/images/app-store-badge.png';
 import {
   QrCodeSmallImageLink,
   QrCodeWrapper,
@@ -21,11 +21,12 @@ const StoreImage: FC<{
   const isAppStore = store === 'appStore';
   const image = isAppStore ? appStoreBadge : googlePlayStoreBadge;
   return (
-    <GenericImage
-      aspectRatio={image.height / image.width}
-      src={image}
+    <img
+      src={image.src}
+      width={image.width}
+      height={image.height}
       alt={isAppStore ? 'App store image' : 'Google play store image'}
-      sizes={['135px']}
+      sizes={'135px'}
     />
   );
 };
