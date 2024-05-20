@@ -119,7 +119,7 @@ export const linkableDocumentFragment = `
   _type,
   _type == "homepage" => {},
   _type == "downloadPage" => {},
-  _type == "contactPage" => {},
+  _ref == "contactPage" => {},
   _type == "faqPage" => {},
   _type == "genericPage" => {
     slug,
@@ -526,6 +526,7 @@ export const quoteBlockFragment = `
  * into single objects in the result. */
 const twoUpObjectFragment = `
   ...,
+  header{${contentBlockHeaderFragment}},
   blockOne {
     ${childContentBlockFragment}
   }[0],
@@ -586,6 +587,7 @@ export const sequenceBlockFragment = `
 
 export const columnsObjectFragment = `
   ...,
+  header{${contentBlockHeaderFragment}},
   content[]{
     _key,
     ${childContentBlockFragment}

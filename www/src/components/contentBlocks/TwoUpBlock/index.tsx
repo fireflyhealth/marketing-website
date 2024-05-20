@@ -128,11 +128,9 @@ type TwoUpBlockProps = {
 };
 
 export const TwoUpBlock: FC<TwoUpBlockProps> = ({ twoUpBlock }) => {
+  const { subnav, header } = twoUpBlock;
   return (
-    <ContentBlockWrapper
-      header={twoUpBlock.header}
-      id={twoUpBlock.subnav?.contentBlockId}
-    >
+    <ContentBlockWrapper header={header} id={subnav?.contentBlockId}>
       <TwoUpObject
         twoUpObject={{
           ...twoUpBlock,
