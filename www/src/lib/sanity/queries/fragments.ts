@@ -288,6 +288,14 @@ export const limitedRichTextFragment = `
   _type == "richImage" => {
     ${imageFragment}
   },
+  _type == "bigOrderedList" => {
+    listItems[] {
+      title,
+      description[]{
+        ${simpleRichTextWithImageFragment}
+      }
+    }
+  },
   markDefs[]{
     _key,
     _type,
