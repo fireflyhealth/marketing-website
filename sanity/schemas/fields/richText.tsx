@@ -33,6 +33,7 @@ export const SimpleRichText = defineField({
         decorators: [
           { title: 'Bold', value: 'strong' },
           { title: 'Italic', value: 'em' },
+          { title: 'Underline', value: 'underline' },
           {
             title: 'Sub',
             value: 'sub',
