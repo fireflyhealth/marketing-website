@@ -28,7 +28,7 @@ const ClientPage: FC<ClientPageProps> = ({ siteSettings, clientPage }) => {
     jpmcUserFlowVideo,
   } = siteSettings;
   const router = useRouter();
-  const isJPMCPage = router.asPath === '/with/jpmc/';
+  const isJPMCPage = router.asPath.startsWith('/with/jpmc');
   return (
     <>
       {showOriginalJPMCPage && isJPMCPage ? (
