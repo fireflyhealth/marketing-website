@@ -120,6 +120,7 @@ export const defaultContentBlockTypes = [
   { type: 'testimonialBlock' },
   { type: 'doubleCtaBlock' },
   { type: 'twoUpBlock' },
+  { type: 'hubspotFormBlock' },
 ];
 
 /**

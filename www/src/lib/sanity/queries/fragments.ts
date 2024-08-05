@@ -726,6 +726,13 @@ export const nearbyBlockFragment = `
   ...
 `;
 
+export const hubspotFormBlockFragment = `
+  form {
+    _type,
+    formId
+  }
+`;
+
 /* Please keep this alphabetized! */
 export const contentBlockFragment = `
   _type,
@@ -754,7 +761,8 @@ export const contentBlockFragment = `
   _type == "twoUpBlock" => {${twoUpBlockFragment}},
   _type == "videoBlock" => {${videoBlockFragment}},
   _type == "providerPhilosophyBlock" => {${providerPhilosophyBlockFragment}},
-  _type == "nearbyBlock" => {${nearbyBlockFragment}}
+  _type == "nearbyBlock" => {${nearbyBlockFragment}},
+  _type == "hubspotFormBlock" => {${hubspotFormBlockFragment}}
 `;
 
 export const videoHeaderFragment = `

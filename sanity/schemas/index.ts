@@ -57,6 +57,7 @@ import { DividerBlock } from './blocks/dividerBlock';
 import { VideoBlock } from './blocks/videoBlock';
 import { ProviderPhilosophyBlock } from './blocks/providerPhilosophyBlock';
 import { NearbyBlock } from './blocks/nearbyBlock';
+import { HubspotFormBlock } from './blocks/hubspotFormBlock';
 
 /* Fields */
 import { Metadata } from './fields/metadata';
@@ -169,6 +170,7 @@ export const schemaTypes = [
   DividerBlock,
   VideoBlock,
   ProviderPhilosophyBlock,
+  HubspotFormBlock,
 
   /* Child blocks (used within other blocks, i.e. 2-up block) */
   CtaCard,
