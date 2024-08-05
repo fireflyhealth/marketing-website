@@ -28,7 +28,7 @@
     "@datadog/browser-rum": "^5.15.0",
     "@next/third-parties": "^14.1.4",
     "@sanity/client": "^6.11.1",
-    "@sentry/nextjs": "^7.109.0",
+    "@sentry/nextjs": "^8.22.0",
     "@types/vimeo__player": "^2.18.3",
     "@vimeo/player": "^2.21.0",
     "js-cookie": "^3.0.5",
