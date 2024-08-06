@@ -31,6 +31,7 @@ import { SmallImageCarouselBlock } from '../SmallImageCarouselBlock';
 import { VideoBlock } from '../VideoBlock';
 import { ProviderPhilosophyBlock } from '../ProviderPhilosophyBlock';
 import { NearbyBlock } from '../NearbyBlock';
+import { HubspotFormBlock } from '../HubspotFormBlock';
 
 type ContentBlockProps = {
   block: ContentBlockType;
@@ -84,6 +85,8 @@ const ContentBlock: FC<ContentBlockProps> = ({ block }) => {
       return <ProviderPhilosophyBlock providerPhilosophyBlock={block} />;
     case 'nearbyBlock':
       return <NearbyBlock nearbyBlock={block} />;
+    case 'hubspotFormBlock':
+      return <HubspotFormBlock hubspotFormBlock={block} />;
     default:
       console.warn(
         // @ts-expect-error

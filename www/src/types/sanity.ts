@@ -760,7 +760,8 @@ export type ContentBlock =
   | DividerBlock
   | VideoBlock
   | ProviderPhilosophyBlock
-  | NearbyBlock;
+  | NearbyBlock
+  | HubspotFormBlock;
 
 export type ContentArea = KeyedArray<ContentBlock>;
 
@@ -1035,4 +1036,9 @@ export type NearbyBlock = ContentBlockCommon & {
   mobileAspectRatio?: Maybe<AspectRatio>;
   tabletAspectRatio?: Maybe<AspectRatio>;
   desktopAspectRatio?: Maybe<AspectRatio>;
+};
+
+export type HubspotFormBlock = ContentBlockCommon & {
+  _type: 'hubspotFormBlock';
+  form: HubspotForm;
 };
