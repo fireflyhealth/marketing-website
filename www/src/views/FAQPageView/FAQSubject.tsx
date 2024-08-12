@@ -35,7 +35,7 @@ export const FAQSubject: FC<FAQSubjectProps> = ({ faqSubject }) => {
 
   return (
     <div className="pb-12">
-      <h3 className="font-size-7 pb-6">{subject.title}</h3>
+      <h3 className="font-size-6 pb-6">{subject.title}</h3>
       <div>
         {questions.map((question) => (
           <div
