@@ -136,6 +136,7 @@ const components: Partial<PortableTextReactComponents> = {
     link: (props) => {
       return (
         <Link
+          className="break-all"
           link={props.value.link}
           id={props.value.id || undefined}
           ariaLabel={props.value.ariaLabel || undefined}
