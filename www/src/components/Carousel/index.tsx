@@ -410,7 +410,7 @@ export const SlideContainer: FC<SlideContainerProps> = ({
       ref={carouselContainerRef}
       className={cn(
         'relative w-full',
-        isImageCarousel && 'h-[45vw]',
+        isImageCarousel && 'h-[45vw] max-h-[50vh]',
         isSingleSlideCarousel && 'overflow-hidden',
       )}
     >
