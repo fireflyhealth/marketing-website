@@ -19,7 +19,6 @@ type BlogArticlesListItemProps = {
 };
 
 const BlogArticlesListItem: FC<BlogArticlesListItemProps> = ({ article }) => {
-  console.log(article);
   return (
     <li className="my-8 md:my-0">
       <Link
