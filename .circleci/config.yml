@@ -33,6 +33,19 @@ jobs:
       - image: cimg/base:stable
     environment:
       AWS_DEFAULT_REGION: us-east-2
+    parameters:
+      s3-uri:
+        type: enum
+        enum: [
+          "s3://marketing-website-assets-905418149376-stg", # staging
+          "s3://marketing-website-assets-905418149376",     # production
+        ]
+      cloudfront-distribution-id:
+        type: enum
+        enum: [
+          "E1DEC4PZRVMULZ", # staging
+          "E2KP9J5JTG1DGX", # production
+        ]
     steps:
       - checkout
       - attach_workspace:
@@ -43,10 +56,10 @@ jobs:
           arguments: |
             --delete
           from: /home/circleci/project/www/out
-          to: s3://marketing-website-assets-905418149376
+          to: << parameters.s3-uri >>
       - run:
           name: Deploy to CloudFront
-          command: aws cloudfront create-invalidation --distribution-id E2KP9J5JTG1DGX --paths "/*"
+          command: aws cloudfront create-invalidation --distribution-id << parameters.cloudfront-distribution-id >> --paths "/*"
           environment:
             # CloudFront's CreateInvalidation API occasionally has a high error
             # rate, so we increase the number of attempted retries to
@@ -58,8 +71,20 @@ workflows:
     jobs:
       - build
       - deploy:
+          name: deploy-staging
           requires:
             - build
           filters:
             branches:
               only: main
+          s3-uri: s3://marketing-website-assets-905418149376-stg
+          cloudfront-distribution-id: E1DEC4PZRVMULZ
+      - deploy:
+          name: deploy-production
+          requires:
+            - build
+          filters:
+            branches:
+              only: main
+          s3-uri: s3://marketing-website-assets-905418149376
+          cloudfront-distribution-id: E2KP9J5JTG1DGX
