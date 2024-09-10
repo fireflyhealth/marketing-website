@@ -24,9 +24,9 @@ export const BlogPageArticlesWrapper = ['pb-12', 'md:pb-18', 'lg:pb-24'];
 
 /* List View */
 export const BlogArticlesListItemWrapper = [
-  'border-t theme-border-color',
+  'border-t theme-border-color rounded-none',
   'py-8',
-  'md:grid md:grid-cols-[1fr_180px_125px] md:gap-x-2',
+  'md:grid md:grid-cols-[1fr_2fr_180px_125px] md:gap-x-2',
 ];
 
 export const BlogArticlesListText = ['max-w-[650px]'];

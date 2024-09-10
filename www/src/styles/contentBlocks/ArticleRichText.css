@@ -26,7 +26,11 @@
   }
 
   blockquote {
-    padding: theme(spacing.24) 0;
+    padding: theme(spacing.2) 0;
+
+    @screen md {
+      padding: theme(spacing.8) 0;
+    }
   }
 
   figure.GenericImage {

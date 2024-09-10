@@ -739,6 +739,24 @@ svg {
     }
   }
 
+  .hs-form-field ~ .hs-form-field {
+    margin-top: 12px;
+  }
+
+  .hs-firstname {
+    width: calc(50% - 6px);
+    margin-right: 6px;
+  }
+
+  .hs-lastname {
+    width: calc(50% - 6px);
+    margin-left: 6px;
+  }
+
+  .hs-button {
+    margin-top: 28px !important;
+  }
+
   .submitted-message {
     padding: 172px 14px;
     color: var(--text-color-decorative);

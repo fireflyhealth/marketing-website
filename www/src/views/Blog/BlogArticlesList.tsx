@@ -4,6 +4,7 @@ import { BlogArticleLinkData } from '@/types/sanity';
 import { formatSanityDate } from '@/utils/text';
 import { RichText } from '@/components/RichText';
 import { Link } from '@/atoms/Link';
+import { SanityImage } from '@/atoms/Image/SanityImage';
 import { SimpleIcon } from '@/svgs/SimpleIcon';
 import { BlogArticlesSharedProps } from './shared';
 import {
@@ -19,12 +20,19 @@ type BlogArticlesListItemProps = {
 
 const BlogArticlesListItem: FC<BlogArticlesListItemProps> = ({ article }) => {
   return (
-    <li>
+    <li className="my-8 md:my-0">
       <Link
         link={article}
         className={cn(BlogArticlesListItemWrapper, 'element-focus')}
         ariaLabel={`Navigate to article: ${article.title}`}
       >
+        <div className="pr-6 pb-4 md:pb-0">
+          <SanityImage
+            image={article.thumbnail}
+            sizes={['100vw', '50vw', '35vw']}
+            aspectRatio={3 / 4}
+          />
+        </div>
         <div className={cn(BlogArticlesListText)}>
           <div className="font-size-6 font-trust pb-6">{article.title}</div>
           <RichText
