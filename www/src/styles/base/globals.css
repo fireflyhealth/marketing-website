@@ -327,8 +327,8 @@ img {
   --cta-bg-color-secondary: theme('colors.sienna-dark');
   --cta-border-color: theme('colors.yellow-light');
 
-  --icon-base: theme('colors.yellow');
-  --icon-overlap: theme('colors.orange');
+  --icon-base: theme('colors.sienna-light');
+  --icon-overlap: theme('colors.sienna-lightest');
 }
 
 .theme-midnight {
