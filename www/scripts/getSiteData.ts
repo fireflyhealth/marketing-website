@@ -350,6 +350,7 @@ const getProviderPages = async () => {
   const providerPageSlugInfo = await Sanity.providerPage.getSlugInfo({
     generateStaticData: true,
   });
+
   const providerPages = await Promise.all(
     providerPageSlugInfo.map(
       async ({ slug }) =>
@@ -391,6 +392,33 @@ const getProviderPages = async () => {
     providerPages: { ...providerPagesObj, ...providerBPagesObj },
     providerPageSlugInfo: providerPageSlugInfo,
   };
+};
+
+const standardizeNode = (node: any): any => {
+  switch (typeof node) {
+    case 'object':
+      break;
+    default:
+      return node;
+  }
+
+  if (node === null) {
+    return node;
+  }
+
+  if (Array.isArray(node)) {
+    return node.map(standardizeNode);
+  }
+
+  const result: Record<string, any> = {};
+
+  Object.keys(node).sort().forEach((key) => {
+    const childNode = node[key];
+
+    result[key] = standardizeNode(childNode);
+  });
+
+  return result;
 };
 
 const main = async () => {
@@ -457,9 +485,11 @@ const main = async () => {
     ...providerPageData,
   };
 
+  const standardizedData = standardizeNode(siteData);
+
   // write to file
-  const fileContents = await prettier.format(JSON.stringify(siteData, null), {
-    parser: 'json',
+  const fileContents = await prettier.format(JSON.stringify(standardizedData), {
+    parser: 'json'
   });
 
   fs.writeFileSync(jsonFilePath, fileContents, 'utf8');
