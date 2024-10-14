@@ -30,8 +30,6 @@ const nextConfig = {
     DATADOG_CLIENT_TOKEN: process.env.DATADOG_CLIENT_TOKEN,
     DATADOG_SERVICE: process.env.DATADOG_SERVICE,
     DATADOG_SITE: process.env.DATADOG_SITE,
-    NEXT_PUBLIC_STATIC_BUILD: Boolean(process.env.STATIC_BUILD),
-    NEXT_PUBLIC_FORCE_DATASET: process.env.NEXT_PUBLIC_SANITY_DATASET,
   },
   async redirects() {
     return [
