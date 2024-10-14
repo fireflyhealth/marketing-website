@@ -5,21 +5,46 @@ orbs:
   aws-s3: circleci/aws-s3@4.0
 
 jobs:
-  build:
+  build-staging:
     executor: node/default
     steps:
       - checkout
       - node/install-packages:
           pkg-manager: yarn
       - run:
-          name: Run Build Static
-          command: cd www && yarn build:static
+          name: Run Build Static Staging
+          command: cd www && yarn build:static-staging
           environment:
             DATADOG_APPLICATION_ID: 67b751ad-00be-4e09-87d7-fb4a7df1e134
             DATADOG_CLIENT_TOKEN: pub8348e62acc94288326c75164f1833c28
             DATADOG_SERVICE: marketing-website
             DATADOG_SITE: datadoghq.com
             STATIC_BUILD: true
+            NEXT_PUBLIC_ENV: staging
+      - run:
+          name: Run tests
+          command: yarn test --passWithNoTests
+      - persist_to_workspace:
+          root: ~/project/www
+          paths:
+            - out
+
+  build-production:
+    executor: node/default
+    steps:
+      - checkout
+      - node/install-packages:
+          pkg-manager: yarn
+      - run:
+          name: Run Build Static Production
+          command: cd www && yarn build:static-production
+          environment:
+            DATADOG_APPLICATION_ID: 67b751ad-00be-4e09-87d7-fb4a7df1e134
+            DATADOG_CLIENT_TOKEN: pub8348e62acc94288326c75164f1833c28
+            DATADOG_SERVICE: marketing-website
+            DATADOG_SITE: datadoghq.com
+            STATIC_BUILD: true
+            NEXT_PUBLIC_ENV: production
       - run:
           name: Run tests
           command: yarn test --passWithNoTests
@@ -37,15 +62,15 @@ jobs:
       s3-uri:
         type: enum
         enum: [
-          "s3://marketing-website-assets-905418149376-stg", # staging
-          "s3://marketing-website-assets-905418149376",     # production
-        ]
+            's3://marketing-website-assets-905418149376-stg', # staging
+            's3://marketing-website-assets-905418149376', # production
+          ]
       cloudfront-distribution-id:
         type: enum
         enum: [
-          "E1DEC4PZRVMULZ", # staging
-          "E2KP9J5JTG1DGX", # production
-        ]
+            'E1DEC4PZRVMULZ', # staging
+            'E2KP9J5JTG1DGX', # production
+          ]
     steps:
       - checkout
       - attach_workspace:
@@ -73,7 +98,7 @@ workflows:
       - deploy:
           name: deploy-staging
           requires:
-            - build
+            - build-staging
           filters:
             branches:
               only: main
@@ -82,9 +107,9 @@ workflows:
       - deploy:
           name: deploy-production
           requires:
-            - build
+            - build-production
           filters:
             branches:
-              only: main
+              only: production
           s3-uri: s3://marketing-website-assets-905418149376
           cloudfront-distribution-id: E2KP9J5JTG1DGX
