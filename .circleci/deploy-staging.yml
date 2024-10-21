@@ -5,7 +5,7 @@ orbs:
   aws-s3: circleci/aws-s3@4.0
 
 jobs:
-  build-staging:
+  build:
     executor: node/default
     steps:
       - checkout
@@ -36,15 +36,12 @@ jobs:
       AWS_DEFAULT_REGION: us-east-2
     parameters:
       s3-uri:
-        type: enum
-        enum: [
-            's3://marketing-website-assets-905418149376-stg', # staging
-          ]
+        type: string
+        default: 's3://marketing-website-assets-905418149376-stg'
       cloudfront-distribution-id:
-        type: enum
-        enum: [
-            'E1DEC4PZRVMULZ', # staging
-          ]
+        type: string
+        default: 'E1DEC4PZRVMULZ'
+
     steps:
       - checkout
       - attach_workspace:
@@ -68,13 +65,14 @@ jobs:
 workflows:
   build-and-deploy:
     jobs:
-      - build
-      - deploy:
-          name: deploy-staging
-          requires:
-            - build-staging
+      - build:
           filters:
             branches:
               only: main
-          s3-uri: s3://marketing-website-assets-905418149376-stg
-          cloudfront-distribution-id: E1DEC4PZRVMULZ
+      - deploy:
+          name: deploy
+          requires:
+            - build
+          filters:
+            branches:
+              only: main

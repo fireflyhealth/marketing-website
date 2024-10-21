@@ -92,9 +92,12 @@ jobs:
             AWS_MAX_ATTEMPTS: 10
 
 workflows:
-  build-and-deploy:
+  build-and-deploy-staging:
     jobs:
-      - build
+      - build-staging:
+          filters:
+            branches:
+              only: main
       - deploy:
           name: deploy-staging
           requires:
@@ -104,6 +107,13 @@ workflows:
               only: main
           s3-uri: s3://marketing-website-assets-905418149376-stg
           cloudfront-distribution-id: E1DEC4PZRVMULZ
+
+  build-and-deploy-production:
+    jobs:
+      - build-production:
+          filters:
+            branches:
+              only: production
       - deploy:
           name: deploy-production
           requires:
@@ -111,5 +121,9 @@ workflows:
           filters:
             branches:
               only: production
-          s3-uri: s3://marketing-website-assets-905418149376
-          cloudfront-distribution-id: E2KP9J5JTG1DGX
+          # for testing, we are using the staging bucket and distribution
+          # once we check this is working properly, change it to production
+          s3-uri: s3://marketing-website-assets-905418149376-stg
+          cloudfront-distribution-id: E1DEC4PZRVMULZ
+          # s3-uri: s3://marketing-website-assets-905418149376
+          # cloudfront-distribution-id: E2KP9J5JTG1DGX
