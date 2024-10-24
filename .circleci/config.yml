@@ -89,21 +89,21 @@ workflows:
   build-and-deploy:
     jobs:
       - build:
-        name: build-staging
-        filters:
-          branches:
-            only: main
-        env: staging
-        is_indexing_allowed: false
-        is_local_cms_data_enabled: true
+          name: build-staging
+          filters:
+            branches:
+              only: main
+          env: staging
+          is_indexing_allowed: false
+          is_local_cms_data_enabled: true
       - build:
-        name: build-production
-        filters:
-          branches:
-            only: main
-        env: production
-        is_indexing_allowed: true
-        is_local_cms_data_enabled: false
+          name: build-production
+          filters:
+            branches:
+              only: main
+          env: production
+          is_indexing_allowed: true
+          is_local_cms_data_enabled: false
       - deploy:
           name: deploy-staging
           requires:
