@@ -147,13 +147,6 @@ export const JPMCVIew: FC<Props> = ({
                         <div className="margin-top margin-small">
                           <div className="button-group">
                             <a
-                              href="https://members.firefly.health/signup/name/jpmc?__hstc=252151062.47674a4132cb4b01dbe02bd48a59ff3b.1712252519733.1714413294344.1714491221475.12&__hssc=252151062.1.1714491221475&__hsfp=1245837078"
-                              target="_blank"
-                              className="button button-size-large w-button !w-1/2"
-                            >
-                              Sign up today
-                            </a>
-                            <a
                               href="#video-section"
                               className="button button-size-large w-button !w-1/2"
                             >
@@ -391,25 +384,6 @@ export const JPMCVIew: FC<Props> = ({
                                 assess your concerns, create a plan, and check
                                 your progress along the way.
                               </p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="container-medium">
-                    <div className="animation-third">
-                      <div className="text-align-center">
-                        <div className="margin-top margin-small">
-                          <div className="text-align-center">
-                            <div className="margin-top margin-medium">
-                              <a
-                                href="https://members.firefly.health/signup/name/jpmc?__hstc=252151062.47674a4132cb4b01dbe02bd48a59ff3b.1712252519733.1714413294344.1714491221475.12&__hssc=252151062.1.1714491221475&__hsfp=1245837078"
-                                target="_blank"
-                                className="button button-size-large w-button"
-                              >
-                                Sign up today
-                              </a>
                             </div>
                           </div>
                         </div>
@@ -764,19 +738,6 @@ export const JPMCVIew: FC<Props> = ({
                               Sign up online and get our app, choose your care
                               team, and book your first visit.
                             </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="animation-second">
-                        <div className="text-align-center">
-                          <div className="margin-top margin-medium">
-                            <a
-                              href="https://members.firefly.health/signup/name/jpmc?__hstc=252151062.47674a4132cb4b01dbe02bd48a59ff3b.1712252519733.1714413294344.1714491221475.12&__hssc=252151062.1.1714491221475&__hsfp=1245837078"
-                              target="_blank"
-                              className="button button-size-large w-button"
-                            >
-                              Sign up!
-                            </a>
                           </div>
                         </div>
                       </div>
