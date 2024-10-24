@@ -4,21 +4,11 @@ on:
   push:
     branches:
       - main
-      - production
 
 jobs:
-  # TODO: This is not actually helpful until we can omit draft documents from validation.
-  # test-sanity:
-  #   name: Test Sanity
-  #   uses: ./.github/workflows/test-sanity.yml
-  #   with:
-  #     directory: 'sanity'
-
-  # removed test-sanity from 'needs'
   deploy-cms:
     name: Deploy CMS
-    if: github.ref == 'refs/heads/production'
-    # needs: [test-sanity]
+    if: github.ref == 'refs/heads/main'
     uses: ./.github/workflows/deploy-sanity.yml
     secrets:
       sanity-auth-token: ${{ secrets.SANITY_DEPLOY_TOKEN }}

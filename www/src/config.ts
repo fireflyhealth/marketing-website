@@ -1,8 +1,6 @@
-const isStaticBuild = process.env.NEXT_PUBLIC_STATIC_BUILD;
-const isProd =
-  isStaticBuild ||
-  (process.env.NEXT_PUBLIC_VERCEL_ENV &&
-    process.env.NEXT_PUBLIC_VERCEL_ENV === 'production');
+export const isStaticBuild = Boolean(process.env.NEXT_PUBLIC_STATIC_BUILD);
+export const appEnv = process.env.NEXT_PUBLIC_ENV;
+export const isProd = appEnv === 'production';
 
 export const config = {
   /* Will be true only on production deployments */
@@ -11,9 +9,8 @@ export const config = {
     projectId: 'xgbrv2vi',
     apiVersion: '2024-01-01',
     dataset:
-      process.env.NEXT_PUBLIC_FORCE_DATASET || isProd
-        ? 'production'
-        : 'staging',
+      process.env.NEXT_PUBLIC_FORCE_DATASET ||
+      (appEnv === 'development' ? 'staging' : 'production'),
     useCdn: isProd ? true : false,
   },
   metadata: {
@@ -42,5 +39,3 @@ export const config = {
     },
   },
 };
-// eslint-disable-next-line no-console
-console.log('test>>>', process.env.DATADOG_APPLICATION_ID);

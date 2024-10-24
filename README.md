@@ -32,6 +32,9 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 ### Deploying to Production
 
 The main branch is connected to the staging site: [https://firefly-health-website-sanctucompu.vercel.app/](https://firefly-health-website-sanctucompu.vercel.app/).
+
+The main branch will trigger deployment to Firefly's staging AWS S3 bucket, using the latest CMS data during the build.
+
 The production branch is connected to the production site: [https://www.fireflyhealth.com/](https://www.fireflyhealth.com/).
 
 Production deployments will trigger a static deployment to Firefly's AWS S3 bucket as well as Vercel. All routing and middleware (how we handle A/B testing) will be controled by Firefly in Cloudfront. Sanctuary Computer will use Sentry to monitor any server and client side errors while Firefly will use their own Datadog dashboards for uptime monitoring.
