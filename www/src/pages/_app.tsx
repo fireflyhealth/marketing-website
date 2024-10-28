@@ -40,7 +40,20 @@ export default function App({ Component, pageProps: allPageProps }: Props) {
   const navCTAOverride = navigationOverrides?.pageNavigation?.showNavCTA;
 
   const globalDoubleCta = siteSettings.globalDoubleCta;
-
+  // eslint-disable-next-line
+  console.log(
+    'NEXT_PUBLIC_IS_INDEXING_ALLOWED',
+    process.env.NEXT_PUBLIC_IS_INDEXING_ALLOWED,
+  );
+  // eslint-disable-next-line
+  console.log(
+    'NEXT_PUBLIC_IS_LOCAL_CMS_DATA_ENABLED',
+    process.env.NEXT_PUBLIC_IS_LOCAL_CMS_DATA_ENABLED,
+  );
+  // eslint-disable-next-line
+  console.log('NEXT_PUBLIC_ENV', process.env.NEXT_PUBLIC_ENV);
+  // eslint-disable-next-line
+  console.log('NEXT_PUBLIC_STATIC_BUILD', process.env.NEXT_PUBLIC_STATIC_BUILD);
   return (
     <>
       <DefaultMetadata metadata={siteSettings.defaultMetadata} />
