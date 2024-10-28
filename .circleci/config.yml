@@ -7,6 +7,19 @@ orbs:
 jobs:
   build-staging:
     executor: node/default
+    parameters:
+      env:
+        type: enum
+        description: controls the environment to build for
+        enum: ['staging', 'production']
+      is_indexing_allowed:
+        type: boolean
+        description: Controls whether site crawling is enabled. When set to false a no-index tag is added to the site.
+        default: false
+      is_local_cms_data_enabled:
+        type: boolean
+        description: Controls whether the site is loaded using checked in config/ local data.
+        default: true
     steps:
       - checkout
       - node/install-packages:
@@ -20,31 +33,9 @@ jobs:
             DATADOG_SERVICE: marketing-website
             DATADOG_SITE: datadoghq.com
             STATIC_BUILD: true
-            NEXT_PUBLIC_ENV: staging
-      - run:
-          name: Run tests
-          command: yarn test --passWithNoTests
-      - persist_to_workspace:
-          root: ~/project/www
-          paths:
-            - out
-
-  build-production:
-    executor: node/default
-    steps:
-      - checkout
-      - node/install-packages:
-          pkg-manager: yarn
-      - run:
-          name: Run Build Static Production
-          command: cd www && yarn build:static-production
-          environment:
-            DATADOG_APPLICATION_ID: 67b751ad-00be-4e09-87d7-fb4a7df1e134
-            DATADOG_CLIENT_TOKEN: pub8348e62acc94288326c75164f1833c28
-            DATADOG_SERVICE: marketing-website
-            DATADOG_SITE: datadoghq.com
-            STATIC_BUILD: true
-            NEXT_PUBLIC_ENV: production
+            NEXT_PUBLIC_ENV: << parameters.env >>
+            IS_INDEXING_ALLOWED: << parameters.is_indexing_allowed >>
+            IS_LOCAL_CMS_DATA_ENABLED: << parameters.is_local_cms_data_enabled >>
       - run:
           name: Run tests
           command: yarn test --passWithNoTests
@@ -94,10 +85,22 @@ jobs:
 workflows:
   build-and-deploy-staging:
     jobs:
-      - build-staging:
+      - build:
+          name: build-staging
           filters:
             branches:
               only: main
+          env: staging
+          is_indexing_allowed: false
+          is_local_cms_data_enabled: true
+      - build:
+          name: build-production
+          filters:
+            branches:
+              only: main
+          env: production
+          is_indexing_allowed: true
+          is_local_cms_data_enabled: false
       - deploy:
           name: deploy-staging
           requires:
