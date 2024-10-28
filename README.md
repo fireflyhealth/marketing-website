@@ -31,7 +31,7 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 
 ### Deploying to Production
 
-The main branch is connected to the staging site: [https://firefly-health-website-sanctucompu.vercel.app/](https://firefly-health-website-sanctucompu.vercel.app/).
+The main branch is connected to the staging site: [https://www.website.marketing.i.firefly.health/](https://www.website.marketing.i.firefly.health/).
 
 The main branch will trigger deployment to Firefly's staging AWS S3 bucket, using the latest CMS data during the build.
 

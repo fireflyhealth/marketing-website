@@ -1,17 +1,20 @@
 export const isStaticBuild = Boolean(process.env.NEXT_PUBLIC_STATIC_BUILD);
 export const appEnv = process.env.NEXT_PUBLIC_ENV;
-export const isProd = appEnv === 'production';
+export const isIndexingAllowed =
+  process.env.NEXT_PUBLIC_INDEXING_ALLOWED === 'true';
+export const isLocalCmsDataEnabled =
+  process.env.NEXT_PUBLIC_IS_LOCAL_CMS_DATA_ENABLED === 'true';
 
 export const config = {
   /* Will be true only on production deployments */
-  isProd,
+  isProd: appEnv === 'production',
   sanity: {
     projectId: 'xgbrv2vi',
     apiVersion: '2024-01-01',
     dataset:
       process.env.NEXT_PUBLIC_FORCE_DATASET ||
       (appEnv === 'development' ? 'staging' : 'production'),
-    useCdn: isProd ? true : false,
+    useCdn: appEnv === 'development' ? true : false,
   },
   metadata: {
     siteName: 'Firefly ',

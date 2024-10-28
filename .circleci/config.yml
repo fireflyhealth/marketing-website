@@ -5,7 +5,7 @@ orbs:
   aws-s3: circleci/aws-s3@4.0
 
 jobs:
-  build-staging:
+  build:
     executor: node/default
     parameters:
       env:
@@ -25,8 +25,8 @@ jobs:
       - node/install-packages:
           pkg-manager: yarn
       - run:
-          name: Run Build Static Staging
-          command: cd www && yarn build:static-staging
+          name: Run Build Static
+          command: cd www && NEXT_PUBLIC_IS_INDEXING_ALLOWED=<< parameters.is_indexing_allowed >> NEXT_PUBLIC_IS_LOCAL_CMS_DATA_ENABLED=<< parameters.is_local_cms_data_enabled >> yarn build:static
           environment:
             DATADOG_APPLICATION_ID: 67b751ad-00be-4e09-87d7-fb4a7df1e134
             DATADOG_CLIENT_TOKEN: pub8348e62acc94288326c75164f1833c28
@@ -34,8 +34,6 @@ jobs:
             DATADOG_SITE: datadoghq.com
             STATIC_BUILD: true
             NEXT_PUBLIC_ENV: << parameters.env >>
-            IS_INDEXING_ALLOWED: << parameters.is_indexing_allowed >>
-            IS_LOCAL_CMS_DATA_ENABLED: << parameters.is_local_cms_data_enabled >>
       - run:
           name: Run tests
           command: yarn test --passWithNoTests
@@ -83,7 +81,7 @@ jobs:
             AWS_MAX_ATTEMPTS: 10
 
 workflows:
-  build-and-deploy-staging:
+  build-and-deploy:
     jobs:
       - build:
           name: build-staging
@@ -92,15 +90,15 @@ workflows:
               only: main
           env: staging
           is_indexing_allowed: false
-          is_local_cms_data_enabled: true
+          is_local_cms_data_enabled: false
       - build:
           name: build-production
           filters:
             branches:
-              only: main
+              only: production
           env: production
           is_indexing_allowed: true
-          is_local_cms_data_enabled: false
+          is_local_cms_data_enabled: true
       - deploy:
           name: deploy-staging
           requires:
@@ -110,13 +108,6 @@ workflows:
               only: main
           s3-uri: s3://marketing-website-assets-905418149376-stg
           cloudfront-distribution-id: E1DEC4PZRVMULZ
-
-  build-and-deploy-production:
-    jobs:
-      - build-production:
-          filters:
-            branches:
-              only: production
       - deploy:
           name: deploy-production
           requires:
@@ -124,9 +115,5 @@ workflows:
           filters:
             branches:
               only: production
-          # for testing, we are using the staging bucket and distribution
-          # once we check this is working properly, change it to production
-          s3-uri: s3://marketing-website-assets-905418149376-stg
-          cloudfront-distribution-id: E1DEC4PZRVMULZ
-          # s3-uri: s3://marketing-website-assets-905418149376
-          # cloudfront-distribution-id: E2KP9J5JTG1DGX
+          s3-uri: s3://marketing-website-assets-905418149376
+          cloudfront-distribution-id: E2KP9J5JTG1DGX

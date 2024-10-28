@@ -33,7 +33,7 @@ import {
 import { PageParams } from '@/pages/[pageSlug]/[subpageSlug]';
 import { PageParams as ArticlePageParams } from '@/pages/blog/[blogSlug]/[articleSlug]';
 import { PAGINATION_PAGE_SIZE } from '@/constants';
-import { config, isProd } from '@/config';
+import { config, isLocalCmsDataEnabled } from '@/config';
 
 import isStaticBuild from '@/utils/isStaticBuild';
 import sanityData from '@/lib/sanity/sanityData.json';
@@ -93,7 +93,7 @@ const shouldGetDataFromSanity = (config: QueryConfig) => {
   if (!!config.generateStaticData) return true;
 
   // if static build is true and build is production, we should not get data from sanity. We should use local CMS data.
-  if (!!isStaticBuild && isProd) return false;
+  if (!!isStaticBuild && isLocalCmsDataEnabled) return false;
 
   return true;
 };

@@ -4,11 +4,12 @@ on:
   push:
     branches:
       - main
+      - production
 
 jobs:
   deploy-cms:
     name: Deploy CMS
-    if: github.ref == 'refs/heads/main'
+    if: github.ref == 'refs/heads/production'
     uses: ./.github/workflows/deploy-sanity.yml
     secrets:
       sanity-auth-token: ${{ secrets.SANITY_DEPLOY_TOKEN }}

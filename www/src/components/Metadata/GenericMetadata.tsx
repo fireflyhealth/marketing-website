@@ -6,7 +6,7 @@ import { Metadata } from '@/types/sanity';
 import { config } from '@/config';
 import { imageBuilder } from '@/lib/sanity';
 
-import { isProd } from '@/config';
+import { isIndexingAllowed } from '@/config';
 
 type GenericMetadataProps = Metadata & {
   noIndex?: boolean;
@@ -37,7 +37,7 @@ export const GenericMetadata: FC<GenericMetadataProps> = ({
      * https://nextjs.org/docs/pages/api-reference/components/head#avoid-duplicated-tags
      */
     <Head>
-      {(noIndex || !isProd) && (
+      {(noIndex || !isIndexingAllowed) && (
         <meta key="robots-noindex" name="robots" content="noindex" />
       )}
       <title key="title">{title || config.metadata.defaultTitle}</title>

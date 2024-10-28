@@ -8,8 +8,6 @@
     "build": "next build",
     "build:analyze": "ANALYZE=true next build",
     "build:static": "STATIC_BUILD=true next build && next-sitemap && esno scripts/copyMissingBContent.ts",
-    "build:static-staging": "NEXT_PUBLIC_ENV=staging yarn build:static",
-    "build:static-production": "NEXT_PUBLIC_ENV=production yarn build:static",
     "lint": "next lint",
     "test:all": "yarn test:prettier && yarn test:types && yarn test:lint && yarn test:queryByteLengths && yarn test:jest",
     "test:lint": "next lint",
