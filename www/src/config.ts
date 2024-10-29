@@ -1,4 +1,4 @@
-export const isStaticBuild = Boolean(process.env.NEXT_PUBLIC_STATIC_BUILD);
+export const isStaticBuild = process.env.NEXT_PUBLIC_STATIC_BUILD === 'true';
 export const appEnv = process.env.NEXT_PUBLIC_ENV;
 export const isIndexingAllowed =
   process.env.NEXT_PUBLIC_INDEXING_ALLOWED === 'true';

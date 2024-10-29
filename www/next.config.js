@@ -2,11 +2,10 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',
 });
 
-const isStaticBuild = Boolean(process.env.STATIC_BUILD);
-
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: isStaticBuild ? 'export' : undefined,
+  output:
+    process.env.NEXT_PUBLIC_STATIC_BUILD === 'true' ? 'export' : undefined,
   trailingSlash: true,
   images: {
     unoptimized: true,

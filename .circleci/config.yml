@@ -32,7 +32,6 @@ jobs:
             DATADOG_CLIENT_TOKEN: pub8348e62acc94288326c75164f1833c28
             DATADOG_SERVICE: marketing-website
             DATADOG_SITE: datadoghq.com
-            STATIC_BUILD: true
             NEXT_PUBLIC_ENV: << parameters.env >>
       - run:
           name: Run tests
