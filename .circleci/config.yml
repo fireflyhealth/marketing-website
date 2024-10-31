@@ -76,6 +76,9 @@ jobs:
             --delete
           from: /home/circleci/project/www/out
           to: << parameters.s3-uri >>
+      - aws-s3/copy:
+          from: s3://firefly-lucian-prod/network/geojson/partners.geojson
+          to: /home/circleci/project/www/out/partners.geojson
       - run:
           name: Deploy to CloudFront
           command: aws cloudfront create-invalidation --distribution-id << parameters.cloudfront-distribution-id >> --paths "/*"
