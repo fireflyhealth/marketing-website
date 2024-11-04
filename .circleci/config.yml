@@ -94,7 +94,7 @@ workflows:
           name: build-production
           filters:
             branches:
-              only: production
+              only: main
           env: production
           is_indexing_allowed: true
           is_local_cms_data_enabled: true
@@ -113,6 +113,6 @@ workflows:
             - build-production
           filters:
             branches:
-              only: production
+              only: main
           s3-uri: s3://marketing-website-assets-905418149376
           cloudfront-distribution-id: E2KP9J5JTG1DGX
