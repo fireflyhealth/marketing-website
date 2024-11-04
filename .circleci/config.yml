@@ -70,7 +70,12 @@ jobs:
       - attach_workspace:
           at: ~/project/www
       - aws-cli/setup:
-          role_arn: arn:aws:iam::905418149376:role/CircleCI
+          role_arn: arn:aws:iam::710710518144:role/CircleCI  # Role to access root account s3 bucket for geojson
+      - aws-s3/copy:
+          from: s3://fireflyhealth-prod/network/geojson/partners.geojson
+          to: /home/circleci/project/www/out/partners.geojson
+      - aws-cli/setup:
+          role_arn: arn:aws:iam::905418149376:role/CircleCI  # Role to access marketing account to upload build
       - aws-s3/sync:
           arguments: |
             --delete
