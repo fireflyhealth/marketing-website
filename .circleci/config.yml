@@ -7,7 +7,7 @@ orbs:
 jobs:
   deploy-cms:
     docker:
-      - image: cimg/base:stable
+      - image: cimg/node:21.1.0 # update this on add staging branch
     steps:
       - checkout
       - node/install-packages:
