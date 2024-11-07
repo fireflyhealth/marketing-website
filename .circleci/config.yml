@@ -14,8 +14,8 @@ jobs:
           pkg-manager: yarn
       - run:
           name: Deploy Sanity CMS
-          command: cd sanity && SANITY_AUTH_TOKEN="${SANITY_AUTH_TOKEN}" yarn deploy
-          working_directory: ~/project/www
+          command: SANITY_AUTH_TOKEN="${SANITY_AUTH_TOKEN}" yarn deploy
+          working_directory: ~/project/sanity
 
   build:
     executor: node/default
