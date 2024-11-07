@@ -94,15 +94,15 @@ jobs:
 workflows:
   build-and-deploy:
     jobs:
-      # - deploy-cms:
-      #     name: deploy-cms-schema-update
-      #     filters:
-      #       branches:
-      #         only: test-build-deploy
+      - deploy-cms:
+          name: deploy-cms-schema-update
+          filters:
+            branches:
+              only: test-build-deploy
       - build:
           name: build-staging
-          # requires:
-          #   - deploy-cms-schema-update
+          requires:
+            - deploy-cms-schema-update
           filters:
             branches:
               only: test-build-deploy
