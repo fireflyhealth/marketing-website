@@ -109,29 +109,29 @@ workflows:
           env: staging
           is_indexing_allowed: false
           is_local_cms_data_enabled: false
-      - build:
-          name: build-production
-          filters:
-            branches:
-              only: production
-          env: production
-          is_indexing_allowed: true
-          is_local_cms_data_enabled: true
+      # - build:
+      #     name: build-production
+      #     filters:
+      #       branches:
+      #         only: main
+      #     env: production
+      #     is_indexing_allowed: true
+      #     is_local_cms_data_enabled: true
       - deploy:
           name: deploy-staging
           requires:
             - build-staging
           filters:
             branches:
-              only: main
+              only: main # TODO: update this to "test-build-deploy" branch to test
           s3-uri: s3://marketing-website-assets-905418149376-stg
           cloudfront-distribution-id: E1DEC4PZRVMULZ
-      - deploy:
-          name: deploy-production
-          requires:
-            - build-production
-          filters:
-            branches:
-              only: production
-          s3-uri: s3://marketing-website-assets-905418149376
-          cloudfront-distribution-id: E2KP9J5JTG1DGX
+      # - deploy:
+      #     name: deploy-production
+      #     requires:
+      #       - build-production
+      #     filters:
+      #       branches:
+      #         only: main # TODO: update this to "test-build-deploy" branch to test
+      #     s3-uri: s3://marketing-website-assets-905418149376-stg #staging environment
+      #     cloudfront-distribution-id: E1DEC4PZRVMULZ #staging environment

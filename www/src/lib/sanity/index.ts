@@ -86,7 +86,7 @@ export type QueryConfig = {
   generateStaticData?: boolean;
 };
 
-const shouldGetDataFromSanity = (config: QueryConfig) => {
+export const shouldGetDataFromSanity = (config: QueryConfig) => {
   // if generateStaticData is true, we should get data from sanity even if it is static build.
   // this is used for generating static data
   if (!!config.generateStaticData) return true;
@@ -158,6 +158,7 @@ export const siteSettings = {
 /* Homepage */
 export const homepage = {
   get: async (config: QueryConfig = {}): Promise<Homepage> => {
+    console.log('shouldGetDataFromSanity', shouldGetDataFromSanity(config));
     const primaryHomepage = shouldGetDataFromSanity(config)
       ? await client.fetch<WithDocumentVariantInfo<Homepage> | null>(
           `*[

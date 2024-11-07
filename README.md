@@ -86,6 +86,10 @@ Overview:
 - types other than `fix:` and `feat:` are allowed, for example @commitlint/config-conventional (based on the Angular convention) recommends `build:`, `chore:`, `ci:`, `docs:`, `style:`, `refactor:`, `perf:`, `test:`, and others.
 - footers other than `BREAKING CHANGE: <description>` may be provided and follow a convention similar to git trailer format.
 
+### Before Making Pull Request
+
+Before submitting a pull request, the team must thoroughly review all pages to ensure there are no issues. Additionally, the site should be tested locally using the production dataset, particularly when making updates to the CMS schema, to confirm compatibility and functionality in the production environment.
+
 ## Sanity
 
 Read how to get started with Sanity here [Sanity Readme](./sanity/README.md)

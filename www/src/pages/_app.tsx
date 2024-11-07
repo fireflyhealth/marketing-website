@@ -40,6 +40,16 @@ export default function App({ Component, pageProps: allPageProps }: Props) {
   const navCTAOverride = navigationOverrides?.pageNavigation?.showNavCTA;
 
   const globalDoubleCta = siteSettings.globalDoubleCta;
+  console.log('NEXT_PUBLIC_ENV', process.env.NEXT_PUBLIC_ENV);
+  console.log(
+    'NEXT_PUBLIC_IS_INDEXING_ALLOWED',
+    process.env.NEXT_PUBLIC_IS_INDEXING_ALLOWED,
+  );
+  console.log(
+    'NEXT_PUBLIC_IS_LOCAL_CMS_DATA_ENABLED',
+    process.env.NEXT_PUBLIC_IS_LOCAL_CMS_DATA_ENABLED,
+  );
+  console.log('NEXT_PUBLIC_STATIC_BUILD', process.env.NEXT_PUBLIC_STATIC_BUILD);
 
   return (
     <>
