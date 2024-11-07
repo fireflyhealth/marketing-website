@@ -158,6 +158,7 @@ export const siteSettings = {
 /* Homepage */
 export const homepage = {
   get: async (config: QueryConfig = {}): Promise<Homepage> => {
+    // eslint-disable-next-line no-console
     console.log('shouldGetDataFromSanity', shouldGetDataFromSanity(config));
     const primaryHomepage = shouldGetDataFromSanity(config)
       ? await client.fetch<WithDocumentVariantInfo<Homepage> | null>(
