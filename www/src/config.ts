@@ -1,7 +1,7 @@
 export const isStaticBuild = process.env.NEXT_PUBLIC_STATIC_BUILD === 'true';
 export const appEnv = process.env.NEXT_PUBLIC_ENV;
 export const isIndexingAllowed =
-  process.env.NEXT_PUBLIC_INDEXING_ALLOWED === 'true';
+  process.env.NEXT_PUBLIC_IS_INDEXING_ALLOWED === 'true';
 export const isLocalCmsDataEnabled =
   process.env.NEXT_PUBLIC_IS_LOCAL_CMS_DATA_ENABLED === 'true';
 
