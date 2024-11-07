@@ -5,6 +5,18 @@ orbs:
   aws-s3: circleci/aws-s3@4.0
 
 jobs:
+  deploy-cms:
+    docker:
+      - image: cimg/base:stable
+    steps:
+      - checkout
+      - node/install-packages:
+          pkg-manager: yarn
+      - run:
+          name: Deploy Sanity CMS
+          command: SANITY_AUTH_TOKEN="${SANITY_AUTH_TOKEN}" yarn deploy
+          working_directory: ~/project/sanity
+
   build:
     executor: node/default
     parameters:
@@ -82,8 +94,15 @@ jobs:
 workflows:
   build-and-deploy:
     jobs:
+      - deploy-cms:
+          name: deploy-cms-schema-update
+          filters:
+            branches:
+              only: main
       - build:
           name: build-staging
+          requires:
+            - deploy-cms-schema-update
           filters:
             branches:
               only: main
