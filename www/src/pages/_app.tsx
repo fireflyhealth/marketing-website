@@ -15,6 +15,11 @@ import { config } from '@/config';
 import '../styles/fonts.css';
 import '../styles/main.css';
 import 'what-input';
+import {
+  isIndexingAllowed,
+  isLocalCmsDataEnabled,
+  isStaticBuild,
+} from '@/config';
 
 if (typeof window !== 'undefined' && process.env.NODE_ENV !== 'production') {
   const ReactDOM = require('react-dom');
@@ -42,14 +47,23 @@ export default function App({ Component, pageProps: allPageProps }: Props) {
   const globalDoubleCta = siteSettings.globalDoubleCta;
   console.log('NEXT_PUBLIC_ENV', process.env.NEXT_PUBLIC_ENV);
   console.log(
-    'NEXT_PUBLIC_IS_INDEXING_ALLOWED',
+    'NEXT_PUBLIC_IS_INDEXING_ALLOWED: ',
     process.env.NEXT_PUBLIC_IS_INDEXING_ALLOWED,
+    ', isIndexingAllowed: ',
+    isIndexingAllowed,
   );
   console.log(
-    'NEXT_PUBLIC_IS_LOCAL_CMS_DATA_ENABLED',
+    'NEXT_PUBLIC_IS_LOCAL_CMS_DATA_ENABLED: ',
     process.env.NEXT_PUBLIC_IS_LOCAL_CMS_DATA_ENABLED,
+    ', isLocalCmsDataEnabled: ',
+    isLocalCmsDataEnabled,
   );
-  console.log('NEXT_PUBLIC_STATIC_BUILD', process.env.NEXT_PUBLIC_STATIC_BUILD);
+  console.log(
+    'NEXT_PUBLIC_STATIC_BUILD: ',
+    process.env.NEXT_PUBLIC_STATIC_BUILD,
+    ', isStaticBuild',
+    isStaticBuild,
+  );
 
   return (
     <>
