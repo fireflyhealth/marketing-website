@@ -31,7 +31,10 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 
 ### Deploying to Production
 
-The main branch is connected to the staging site: [https://firefly-health-website-sanctucompu.vercel.app/](https://firefly-health-website-sanctucompu.vercel.app/).
+The main branch is connected to the staging site: [https://www.website.marketing.i.firefly.health/](https://www.website.marketing.i.firefly.health/).
+
+The main branch will trigger deployment to Firefly's staging AWS S3 bucket, using the latest CMS data during the build.
+
 The production branch is connected to the production site: [https://www.fireflyhealth.com/](https://www.fireflyhealth.com/).
 
 Production deployments will trigger a static deployment to Firefly's AWS S3 bucket as well as Vercel. All routing and middleware (how we handle A/B testing) will be controled by Firefly in Cloudfront. Sanctuary Computer will use Sentry to monitor any server and client side errors while Firefly will use their own Datadog dashboards for uptime monitoring.
@@ -82,6 +85,10 @@ Overview:
 - BREAKING CHANGE: a commit that has a footer `BREAKING CHANGE`:, or appends a ! after the type/scope, introduces a breaking API change (correlating with MAJOR in Semantic Versioning). A BREAKING CHANGE can be part of commits of any type.
 - types other than `fix:` and `feat:` are allowed, for example @commitlint/config-conventional (based on the Angular convention) recommends `build:`, `chore:`, `ci:`, `docs:`, `style:`, `refactor:`, `perf:`, `test:`, and others.
 - footers other than `BREAKING CHANGE: <description>` may be provided and follow a convention similar to git trailer format.
+
+### Before Making Pull Request
+
+Before submitting a pull request, the team must thoroughly review all pages to ensure there are no issues. Additionally, the site should be tested locally using the production dataset, particularly when making updates to the CMS schema, to confirm compatibility and functionality in the production environment.
 
 ## Sanity
 

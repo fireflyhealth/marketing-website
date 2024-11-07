@@ -5,16 +5,25 @@ orbs:
   aws-s3: circleci/aws-s3@4.0
 
 jobs:
+  deploy-cms:
+    docker:
+      - image: cimg/node:21.1.0
+    steps:
+      - checkout
+      - node/install-packages:
+          pkg-manager: yarn
+      - run:
+          name: Deploy Sanity CMS
+          command: SANITY_AUTH_TOKEN="${SANITY_AUTH_TOKEN}" yarn deploy
+          working_directory: ~/project/sanity
+
   build:
     executor: node/default
     parameters:
       env:
         type: enum
         description: controls the environment to build for
-        enum: [
-          "staging",
-          "production",
-        ]
+        enum: ['staging', 'production']
       is_indexing_allowed:
         type: boolean
         description: Controls whether site crawling is enabled. When set to false a no-index tag is added to the site.
@@ -29,16 +38,13 @@ jobs:
           pkg-manager: yarn
       - run:
           name: Run Build Static
-          command: cd www && yarn build:static
+          command: cd www && NEXT_PUBLIC_IS_INDEXING_ALLOWED=<< parameters.is_indexing_allowed >> NEXT_PUBLIC_IS_LOCAL_CMS_DATA_ENABLED=<< parameters.is_local_cms_data_enabled >> yarn build:static
           environment:
             DATADOG_APPLICATION_ID: 67b751ad-00be-4e09-87d7-fb4a7df1e134
             DATADOG_CLIENT_TOKEN: pub8348e62acc94288326c75164f1833c28
             DATADOG_SERVICE: marketing-website
             DATADOG_SITE: datadoghq.com
-            STATIC_BUILD: true
             NEXT_PUBLIC_ENV: << parameters.env >>
-            IS_INDEXING_ALLOWED: << parameters.is_indexing_allowed >>
-            IS_LOCAL_CMS_DATA_ENABLED: << parameters.is_local_cms_data_enabled >>
       - run:
           name: Run tests
           command: yarn test --passWithNoTests
@@ -56,15 +62,15 @@ jobs:
       s3-uri:
         type: enum
         enum: [
-          "s3://marketing-website-assets-905418149376-stg", # staging
-          "s3://marketing-website-assets-905418149376",     # production
-        ]
+            's3://marketing-website-assets-905418149376-stg', # staging
+            's3://marketing-website-assets-905418149376', # production
+          ]
       cloudfront-distribution-id:
         type: enum
         enum: [
-          "E1DEC4PZRVMULZ", # staging
-          "E2KP9J5JTG1DGX", # production
-        ]
+            'E1DEC4PZRVMULZ', # staging
+            'E2KP9J5JTG1DGX', # production
+          ]
     steps:
       - checkout
       - attach_workspace:
@@ -93,14 +99,21 @@ jobs:
 workflows:
   build-and-deploy:
     jobs:
+      - deploy-cms:
+          name: deploy-cms-schema-update
+          filters:
+            branches:
+              only: main
       - build:
           name: build-staging
+          requires:
+            - deploy-cms-schema-update
           filters:
             branches:
               only: main
           env: staging
           is_indexing_allowed: false
-          is_local_cms_data_enabled: true
+          is_local_cms_data_enabled: false
       - build:
           name: build-production
           filters:
@@ -108,7 +121,7 @@ workflows:
               only: main
           env: production
           is_indexing_allowed: true
-          is_local_cms_data_enabled: false
+          is_local_cms_data_enabled: true
       - deploy:
           name: deploy-staging
           requires:

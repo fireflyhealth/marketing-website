@@ -2,11 +2,10 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',
 });
 
-const isStaticBuild = Boolean(process.env.STATIC_BUILD);
-
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: isStaticBuild ? 'export' : undefined,
+  output:
+    process.env.NEXT_PUBLIC_STATIC_BUILD === 'true' ? 'export' : undefined,
   trailingSlash: true,
   images: {
     unoptimized: true,
@@ -30,8 +29,6 @@ const nextConfig = {
     DATADOG_CLIENT_TOKEN: process.env.DATADOG_CLIENT_TOKEN,
     DATADOG_SERVICE: process.env.DATADOG_SERVICE,
     DATADOG_SITE: process.env.DATADOG_SITE,
-    NEXT_PUBLIC_STATIC_BUILD: Boolean(process.env.STATIC_BUILD),
-    NEXT_PUBLIC_FORCE_DATASET: process.env.NEXT_PUBLIC_SANITY_DATASET,
   },
   async redirects() {
     return [

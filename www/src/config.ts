@@ -1,20 +1,20 @@
-const isStaticBuild = process.env.NEXT_PUBLIC_STATIC_BUILD;
-const isProd =
-  isStaticBuild ||
-  (process.env.NEXT_PUBLIC_VERCEL_ENV &&
-    process.env.NEXT_PUBLIC_VERCEL_ENV === 'production');
+export const isStaticBuild = process.env.NEXT_PUBLIC_STATIC_BUILD === 'true';
+export const appEnv = process.env.NEXT_PUBLIC_ENV;
+export const isIndexingAllowed =
+  process.env.NEXT_PUBLIC_IS_INDEXING_ALLOWED === 'true';
+export const isLocalCmsDataEnabled =
+  process.env.NEXT_PUBLIC_IS_LOCAL_CMS_DATA_ENABLED === 'true';
 
 export const config = {
   /* Will be true only on production deployments */
-  isProd,
+  isProd: appEnv === 'production',
   sanity: {
     projectId: 'xgbrv2vi',
     apiVersion: '2024-01-01',
     dataset:
-      process.env.NEXT_PUBLIC_FORCE_DATASET || isProd
-        ? 'production'
-        : 'staging',
-    useCdn: isProd ? true : false,
+      process.env.NEXT_PUBLIC_FORCE_DATASET ||
+      (appEnv === 'development' ? 'staging' : 'production'),
+    useCdn: appEnv === 'development' ? true : false,
   },
   metadata: {
     siteName: 'Firefly ',
@@ -42,5 +42,3 @@ export const config = {
     },
   },
 };
-// eslint-disable-next-line no-console
-console.log('test>>>', process.env.DATADOG_APPLICATION_ID);

@@ -6,6 +6,8 @@ import { Metadata } from '@/types/sanity';
 import { config } from '@/config';
 import { imageBuilder } from '@/lib/sanity';
 
+import { isIndexingAllowed } from '@/config';
+
 type GenericMetadataProps = Metadata & {
   noIndex?: boolean;
   children?: React.ReactNode;
@@ -35,7 +37,9 @@ export const GenericMetadata: FC<GenericMetadataProps> = ({
      * https://nextjs.org/docs/pages/api-reference/components/head#avoid-duplicated-tags
      */
     <Head>
-      {noIndex && <meta key="robots-noindex" name="robots" content="noindex" />}
+      {(noIndex || !isIndexingAllowed) && (
+        <meta key="robots-noindex" name="robots" content="noindex" />
+      )}
       <title key="title">{title || config.metadata.defaultTitle}</title>
       {/* TODO: Add Locale tags. See: https://ogp.me/#optional */}
       {description ? (
