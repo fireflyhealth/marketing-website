@@ -280,6 +280,8 @@ export type PractitionerLinkData = Pick<
   | 'renderProviderPage'
 >;
 
+export type ArticleSortOrder = 'sortAutomatically' | 'sortManually';
+
 /* Blogs */
 export type Blog = SanityDocument & {
   _type: 'blog';
@@ -289,6 +291,8 @@ export type Blog = SanityDocument & {
   navigationOverrides?: NavigationOverrides;
   header: HeaderArea;
   featuredArticle?: Maybe<BlogArticle>;
+  articleSortOrder: ArticleSortOrder;
+  manuallySortedArticleList?: Maybe<BlogArticleLinkData[]>;
   contentArea?: Maybe<ContentArea>;
   allArticlesLabel: string;
   blogArticleTagGroups?: Maybe<KeyedArray<BlogArticleTagGroup>>;

@@ -151,6 +151,8 @@ export const blogFragment = `
   featuredArticle->{
     ${blogArticleLinkDataFragment}
   },
+  articleSortOrder,
+  manuallySortedArticleList[]->{${blogArticleLinkDataFragment}},
   contentArea[]{
     ${contentBlockFragment}
   },

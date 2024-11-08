@@ -2,6 +2,7 @@ import React, { FC, useRef } from 'react';
 import cn from 'classnames';
 import {
   Blog,
+  ArticleSortOrder,
   BlogArticleLayout,
   BlogArticlePagination,
   BlogArticleTagGroup,
@@ -19,6 +20,7 @@ type BlogPageArticlesInnerProps = {
   goPrev: () => Promise<void>;
   articleLayout: BlogArticleLayout;
   paginationStatus: Status;
+  sortOrder: ArticleSortOrder;
 };
 
 /* The inner UI, which does not deal with fetching the data itself.
@@ -29,6 +31,7 @@ export const BlogPageArticlesInner: FC<BlogPageArticlesInnerProps> = ({
   goPrev,
   articleLayout,
   paginationStatus,
+  sortOrder,
 }) => {
   const blogArticlesRef = useRef<HTMLDivElement>(null);
   const scrollToArticlesTop = () => {
@@ -75,7 +78,7 @@ export const BlogPageArticlesInner: FC<BlogPageArticlesInnerProps> = ({
         {articleLayout === 'list' ? (
           <BlogArticlesList currentPage={currentPage} />
         ) : (
-          <BlogArticlesGrid currentPage={currentPage} />
+          <BlogArticlesGrid sortOrder={sortOrder} currentPage={currentPage} />
         )}
       </div>
       {hasMultiplePages ? (
@@ -134,6 +137,7 @@ export const BlogPageArticles: FC<BlogPageArticlesProps> = ({
       currentPage={currentPage}
       goNext={goNext}
       goPrev={goPrev}
+      sortOrder={blog.articleSortOrder}
     />
   );
 };

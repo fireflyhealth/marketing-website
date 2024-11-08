@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import cn from 'classnames';
-import { BlogArticleLinkData } from '@/types/sanity';
+import { ArticleSortOrder, BlogArticleLinkData } from '@/types/sanity';
 import { SanityImage } from '@/atoms/Image/SanityImage';
 import { formatSanityDate } from '@/utils/text';
 import { Link } from '@/atoms/Link';
@@ -31,12 +31,13 @@ const BlogArticlesGridItem: FC<BlogArticlesGridItemProps> = ({ article }) => {
   );
 };
 
-export const BlogArticlesGrid: FC<BlogArticlesSharedProps> = ({
-  currentPage,
-}) => {
+export const BlogArticlesGrid: FC<
+  BlogArticlesSharedProps & { sortOrder: ArticleSortOrder }
+> = ({ currentPage, sortOrder }) => {
   /** TODO: Maybe add skeletons here. However, users will only see an empty state
    * if they switch to an article tab *very quickly* after initial load. */
   if (!currentPage) return null;
+  // const sortedArticles = sortArticles(sortOrder, currentPage.articles);
   return (
     <div className={cn(BlogArticlesGridWrapper)}>
       {currentPage.articles.map((article) => (
