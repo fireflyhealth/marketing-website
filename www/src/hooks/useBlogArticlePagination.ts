@@ -2,6 +2,7 @@ import { useCallback, useEffect, useReducer } from 'react';
 import { Status } from '@/constants';
 import * as sanity from '@/lib/sanity';
 import {
+  ArticleSortOrder,
   BlogArticlePagination,
   BlogArticleTagGroup,
   Maybe,
@@ -92,6 +93,7 @@ const reducer = (prevState: State, action: Action): State => {
 
 export const useBlogArticlePagination = (
   blogSlug: string,
+  sortOrder: ArticleSortOrder,
   initialPage: Maybe<BlogArticlePagination>,
   articleTag: Maybe<BlogArticleTagGroup>,
 ): ReturnValue => {
@@ -106,11 +108,13 @@ export const useBlogArticlePagination = (
   const fetchPage = useCallback(
     async (pageNumber: number) => {
       dispatch({ type: 'setPending' });
-      const fetchedNextPage = await sanity.blog.getBlogArticles(
-        blogSlug,
-        pageNumber,
-        tagSlug,
-      );
+      const fetchedNextPage =
+        sortOrder == 'sortManually'
+          ? await sanity.blog.getManuallySortedBlogArticles(
+              blogSlug,
+              pageNumber,
+            )
+          : await sanity.blog.getBlogArticles(blogSlug, pageNumber, tagSlug);
 
       dispatch({ type: 'goNext', nextPage: fetchedNextPage });
     },

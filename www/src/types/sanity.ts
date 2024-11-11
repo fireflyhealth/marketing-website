@@ -280,7 +280,7 @@ export type PractitionerLinkData = Pick<
   | 'renderProviderPage'
 >;
 
-export type ArticleSortOrder = 'sortAutomatically' | 'sortManually';
+export type ArticleSortOrder = 'sortAutomatically' | 'sortManually' | undefined;
 
 /* Blogs */
 export type Blog = SanityDocument & {
@@ -353,6 +353,7 @@ export type BlogArticleLinkData = Pick<
   | 'publishDate'
   | 'blurb'
   | '_updatedAt'
+  | 'tags'
 >;
 
 /* Blog article pagination */
@@ -360,6 +361,14 @@ export type BlogArticlePagination = {
   page: number;
   hasNextPage: boolean;
   articles: BlogArticleLinkData[];
+};
+
+export type ManuallySortedBlogArticlePagination = {
+  page: number;
+  hasNextPage: boolean;
+  articles: {
+    manuallySortedArticleList: BlogArticleLinkData[];
+  }[];
 };
 
 /* Navigation */

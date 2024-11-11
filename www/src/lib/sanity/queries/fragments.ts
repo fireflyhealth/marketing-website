@@ -95,6 +95,12 @@ export const blogArticleLinkDataFragment = `
     _type,
     slug,
     title
+  },
+  tags[]->{
+    title,
+    slug {
+      current
+    }
   }
 `;
 

@@ -6,6 +6,7 @@ import {
   BlogArticleLayout,
   BlogArticlePagination,
   BlogArticleTagGroup,
+  BlogArticleLinkData,
   Maybe,
 } from '@/types/sanity';
 import { Status } from '@/constants';
@@ -21,6 +22,8 @@ type BlogPageArticlesInnerProps = {
   articleLayout: BlogArticleLayout;
   paginationStatus: Status;
   sortOrder: ArticleSortOrder;
+  manuallySortedArticleList?: Maybe<BlogArticleLinkData[]>;
+  articleTag?: Maybe<BlogArticleTagGroup>;
 };
 
 /* The inner UI, which does not deal with fetching the data itself.
@@ -32,6 +35,8 @@ export const BlogPageArticlesInner: FC<BlogPageArticlesInnerProps> = ({
   articleLayout,
   paginationStatus,
   sortOrder,
+  manuallySortedArticleList,
+  articleTag,
 }) => {
   const blogArticlesRef = useRef<HTMLDivElement>(null);
   const scrollToArticlesTop = () => {
@@ -78,7 +83,12 @@ export const BlogPageArticlesInner: FC<BlogPageArticlesInnerProps> = ({
         {articleLayout === 'list' ? (
           <BlogArticlesList currentPage={currentPage} />
         ) : (
-          <BlogArticlesGrid sortOrder={sortOrder} currentPage={currentPage} />
+          <BlogArticlesGrid
+            currentPage={currentPage}
+            articleTag={articleTag}
+            sortOrder={sortOrder}
+            manuallySortedArticleList={manuallySortedArticleList}
+          />
         )}
       </div>
       {hasMultiplePages ? (
@@ -126,10 +136,13 @@ export const BlogPageArticles: FC<BlogPageArticlesProps> = ({
 }) => {
   const { state, goNext, goPrev } = useBlogArticlePagination(
     blog.slug.current,
+    blog.articleSortOrder,
     initialArticlesPage,
     articleTag,
   );
   const { currentPage } = state;
+
+  if (!currentPage) return;
   return (
     <BlogPageArticlesInner
       paginationStatus={state.status}
@@ -138,6 +151,8 @@ export const BlogPageArticles: FC<BlogPageArticlesProps> = ({
       goNext={goNext}
       goPrev={goPrev}
       sortOrder={blog.articleSortOrder}
+      manuallySortedArticleList={blog.manuallySortedArticleList}
+      articleTag={articleTag}
     />
   );
 };

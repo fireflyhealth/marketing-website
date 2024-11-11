@@ -53,6 +53,7 @@ describe('BlogPageArticles', () => {
     const { queryByText } = render(
       <BlogPageArticlesInner
         articleLayout="list"
+        sortOrder="sortAutomatically"
         paginationStatus={Status.Idle}
         goNext={goNext}
         goPrev={goPrev}
@@ -70,6 +71,7 @@ describe('BlogPageArticles', () => {
     const { rerender, getByText } = render(
       <BlogPageArticlesInner
         articleLayout="list"
+        sortOrder="sortAutomatically"
         paginationStatus={Status.Idle}
         goNext={goNext}
         goPrev={goPrev}
@@ -93,6 +95,7 @@ describe('BlogPageArticles', () => {
     rerender(
       <BlogPageArticlesInner
         articleLayout="list"
+        sortOrder="sortAutomatically"
         paginationStatus={Status.Pending}
         goNext={goNext}
         goPrev={goPrev}
@@ -110,6 +113,7 @@ describe('BlogPageArticles', () => {
     rerender(
       <BlogPageArticlesInner
         articleLayout="list"
+        sortOrder="sortAutomatically"
         paginationStatus={Status.Fulfilled}
         goNext={goNext}
         goPrev={goPrev}
