@@ -84,6 +84,7 @@ export const blogArticleLinkDataFragment = `
   slug,
   title,
   publishDate,
+  updatedDate,
   _updatedAt,
   thumbnail{
     ${imageFragment}

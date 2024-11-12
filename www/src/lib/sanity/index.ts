@@ -474,7 +474,7 @@ export const blog = {
       $tagSlug in tags[]->slug.current
     )
     && ${isNotVariantFilter}
-  ] | order(_updatedAt desc) | order(publishDate desc) {
+  ] | order(updatedDate desc) | order(_updatedAt desc) | order(publishDate desc) {
     ${blogArticleLinkDataFragment}
   }[$from..$to]`,
       { blogSlug, from, to, tagSlug: tagSlug || null },
