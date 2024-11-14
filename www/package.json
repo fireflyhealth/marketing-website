@@ -7,7 +7,7 @@
     "start": "next start",
     "build": "next build",
     "build:analyze": "ANALYZE=true next build",
-    "build:static": "NEXT_PUBLIC_STATIC_BUILD=true next build && next-sitemap && esno scripts/copyMissingBContent.ts",
+    "build:static": "NEXT_PUBLIC_STATIC_BUILD=true next build && esno scripts/copyMissingBContent.ts",
     "lint": "next lint",
     "test:all": "yarn test:prettier && yarn test:types && yarn test:lint && yarn test:queryByteLengths && yarn test:jest",
     "test:lint": "next lint",

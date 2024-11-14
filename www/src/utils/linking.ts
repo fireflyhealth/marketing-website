@@ -57,6 +57,35 @@ export const getLinkableDocumentPath = (doc: LinkableDocumentData): string => {
   }
 };
 
+export const urlForDocument = (doc: LinkableDocumentData): string => {
+  const BASE_URL =
+    process.env.NODE_ENV === 'development'
+      ? 'http://localhost:3000'
+      : 'https://www.fireflyhealth.com';
+  switch (doc._type) {
+    case 'homepage':
+      return BASE_URL;
+    case 'faqPage':
+      return `${BASE_URL}/faq`;
+    case 'contactPage':
+      return `${BASE_URL}/contact`;
+    case 'downloadPage':
+      return `${BASE_URL}/download`;
+    case 'genericPage':
+      return `${BASE_URL}/${doc.slug.current}`;
+    case 'subPage':
+      return `${BASE_URL}/${doc.parentPage.slug.current}/${doc.slug.current}`;
+    case 'blog':
+      return `${BASE_URL}/blog/${doc.slug.current}`;
+    case 'blogArticle':
+      return `${BASE_URL}/blog/${doc.category.slug.current}/${doc.slug.current}`;
+    case 'clientPage':
+      return `${BASE_URL}/with/${doc.slug.current}`;
+    case 'practitioner':
+      return `${BASE_URL}/care-team/${doc.slug.current}`;
+  }
+};
+
 /* Returns the full production URL for a linkable document */
 export const getLinkableDocumentProductionUrl = (
   doc: LinkableDocumentData,

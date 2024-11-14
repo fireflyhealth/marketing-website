@@ -626,7 +626,7 @@ const SITEMAP_DATA_QUERY = `
 `;
 
 export const Sitemap = {
-  get(): Promise<SitemapData | null> {
+  get(): Promise<SitemapData> {
     return client.fetch(SITEMAP_DATA_QUERY);
   },
 };
