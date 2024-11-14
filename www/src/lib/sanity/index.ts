@@ -501,10 +501,12 @@ export const blog = {
             && slug.current == $blogSlug
             && ${isNotVariantFilter}
           ][0]{
-            documentVariantInfo,
+            documentVariantInfo{
+              variantOf{...}
+            },
             manuallySortedArticleList[]->{
               ${blogArticleLinkDataFragment}
-            }
+            },
           }[$from..$to]`,
       { blogSlug, from, to },
     );
