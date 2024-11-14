@@ -34,6 +34,11 @@ export const BlogArticle = defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
+      name: 'eyebrow',
+      title: 'Eyebrow',
+      type: 'string',
+    }),
+    defineField({
       name: 'articleImage',
       title: 'Article Image',
       description:
