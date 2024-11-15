@@ -22,7 +22,7 @@ export const FeaturedStoryCard: FC<FeaturedStoryCardProps> = ({ story }) => {
             <SanityImage rounded={false} image={thumbnail} sizes={['100vw']} />
           </Link>
         </div>
-        <div className="hidden md:block flex-grow relative md:h-[430px]">
+        <div className="hidden md:block flex-grow relative md:h-[260px]">
           <Link className="element-focus" link={story} tabindex={-1}>
             <SanityImage
               rounded={false}
@@ -34,8 +34,8 @@ export const FeaturedStoryCard: FC<FeaturedStoryCardProps> = ({ story }) => {
           </Link>
         </div>
         <div className="p-6 md:p-8">
-          <h3 className="font-size-6 font-trust">{title}</h3>
-          <div className="py-3 md:py-4 theme-text-color-secondary">
+          <h3 className="font-size-7 font-trust">{title}</h3>
+          <div className="font-size-9 py-3 md:py-4 theme-text-color-secondary">
             {formatSanityDate(publishDate)}
           </div>
           <LinkButton

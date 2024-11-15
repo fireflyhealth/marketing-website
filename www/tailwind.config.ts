@@ -64,6 +64,10 @@ export const config: Config = {
       transparent: 'transparent',
     },
     extend: {
+      gridTemplateColumns: {
+        // Simple 16 column grid
+        '16': 'repeat(16, minmax(0, 1fr))',
+      },
       spacing: {
         '0': '0rem', // 0px
         '0.5': '0.125rem', // 2px
