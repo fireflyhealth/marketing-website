@@ -29,6 +29,7 @@ export const FeaturedStoryCard: FC<FeaturedStoryCardProps> = ({ story }) => {
               image={thumbnail}
               fill
               sizes={['100vw', '60vw']}
+              className="h-full w-full"
             />
           </Link>
         </div>
