@@ -151,7 +151,6 @@ export const BlogPageArticles: FC<BlogPageArticlesProps> = ({
       goNext={goNext}
       goPrev={goPrev}
       sortOrder={blog.articleSortOrder}
-      manuallySortedArticleList={blog.manuallySortedArticleList}
       articleTag={articleTag}
     />
   );

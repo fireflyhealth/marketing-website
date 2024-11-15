@@ -292,11 +292,14 @@ export type Blog = SanityDocument & {
   header: HeaderArea;
   featuredArticle?: Maybe<BlogArticle>;
   articleSortOrder: ArticleSortOrder;
-  manuallySortedArticleList?: Maybe<BlogArticleLinkData[]>;
   contentArea?: Maybe<ContentArea>;
   allArticlesLabel: string;
   blogArticleTagGroups?: Maybe<KeyedArray<BlogArticleTagGroup>>;
   articleLayout: BlogArticleLayout;
+};
+
+export type ManuallySortedBlogArticle = {
+  manuallySortedArticleList?: Maybe<BlogArticleLinkData[]>;
 };
 
 /* Used when generating slug params. For

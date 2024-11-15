@@ -29,8 +29,7 @@ import {
   PractitionerLinkData,
   Practitioner,
   Maybe,
-  ArticleSortOrder,
-  ManuallySortedBlogArticlePagination,
+  ManuallySortedBlogArticle,
 } from '@/types/sanity';
 import { PageParams } from '@/pages/[pageSlug]/[subpageSlug]';
 import { PageParams as ArticlePageParams } from '@/pages/blog/[blogSlug]/[articleSlug]';
@@ -495,34 +494,25 @@ export const blog = {
     const from = page * PAGINATION_PAGE_SIZE;
     /* Overfetch by 1 to see if there are additional pages */
     const to = from + PAGINATION_PAGE_SIZE + 1;
-    const articles = await client.fetch<Blog>(
+
+    const blog = await client.fetch<ManuallySortedBlogArticle>(
       `*[
             _type == "blog"
             && slug.current == $blogSlug
             && ${isNotVariantFilter}
           ][0]{
-            documentVariantInfo{
-              variantOf{...}
-            },
-            manuallySortedArticleList[]->{
+            manuallySortedArticleList[][$from..$to]->{
               ${blogArticleLinkDataFragment}
             },
-          }[$from..$to]`,
+          }`,
       { blogSlug, from, to },
     );
+    const articles = blog?.manuallySortedArticleList || [];
     /* Slice off the possible over-fetched article */
-    const slicedArticles = articles?.manuallySortedArticleList?.slice(
-      0,
-      PAGINATION_PAGE_SIZE,
-    );
+    const slicedArticles = articles.slice(0, PAGINATION_PAGE_SIZE);
     return {
       page,
-      hasNextPage:
-        articles &&
-        articles.manuallySortedArticleList &&
-        articles.manuallySortedArticleList?.length > PAGINATION_PAGE_SIZE
-          ? true
-          : false,
+      hasNextPage: articles.length > PAGINATION_PAGE_SIZE ? true : false,
       articles: slicedArticles ? slicedArticles : [],
     };
   },

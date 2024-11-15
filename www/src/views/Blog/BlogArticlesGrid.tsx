@@ -46,6 +46,7 @@ export const BlogArticlesGrid: FC<
   /** TODO: Maybe add skeletons here. However, users will only see an empty state
    * if they switch to an article tab *very quickly* after initial load. */
   if (!currentPage) return null;
+
   return (
     <div className={cn(BlogArticlesGridWrapper)}>
       {currentPage.articles.map((article) => (
