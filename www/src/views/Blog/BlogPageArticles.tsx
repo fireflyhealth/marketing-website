@@ -83,12 +83,7 @@ export const BlogPageArticlesInner: FC<BlogPageArticlesInnerProps> = ({
         {articleLayout === 'list' ? (
           <BlogArticlesList currentPage={currentPage} />
         ) : (
-          <BlogArticlesGrid
-            currentPage={currentPage}
-            articleTag={articleTag}
-            sortOrder={sortOrder}
-            manuallySortedArticleList={manuallySortedArticleList}
-          />
+          <BlogArticlesGrid currentPage={currentPage} />
         )}
       </div>
       {hasMultiplePages ? (
@@ -143,6 +138,7 @@ export const BlogPageArticles: FC<BlogPageArticlesProps> = ({
   const { currentPage } = state;
 
   if (!currentPage) return;
+
   return (
     <BlogPageArticlesInner
       paginationStatus={state.status}

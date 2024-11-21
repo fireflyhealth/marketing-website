@@ -19,6 +19,7 @@ export const BlogPageView: FC<BlogPageViewProps> = ({
 }) => {
   const { header, featuredArticle, contentArea } = blog;
   const blogArticleTagGroups = blog.blogArticleTagGroups || [];
+
   return (
     <div>
       <HeaderArea block={header} />
@@ -47,7 +48,7 @@ export const BlogPageView: FC<BlogPageViewProps> = ({
             },
             ...blogArticleTagGroups.map((tagGroup) => ({
               _key: tagGroup._key,
-              label: tagGroup.tag.title,
+              label: tagGroup.title || tagGroup.tag.title,
               children: (
                 <BlogPageArticles
                   blog={blog}

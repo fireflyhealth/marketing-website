@@ -36,13 +36,9 @@ const BlogArticlesGridItem: FC<BlogArticlesGridItemProps> = ({ article }) => {
   );
 };
 
-export const BlogArticlesGrid: FC<
-  BlogArticlesSharedProps & {
-    sortOrder: ArticleSortOrder;
-    articleTag: Maybe<BlogArticleTagGroup>;
-    manuallySortedArticleList?: Maybe<BlogArticleLinkData[]>;
-  }
-> = ({ currentPage }) => {
+export const BlogArticlesGrid: FC<BlogArticlesSharedProps> = ({
+  currentPage,
+}) => {
   /** TODO: Maybe add skeletons here. However, users will only see an empty state
    * if they switch to an article tab *very quickly* after initial load. */
   if (!currentPage) return null;

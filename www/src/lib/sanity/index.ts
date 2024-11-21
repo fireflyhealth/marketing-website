@@ -490,6 +490,7 @@ export const blog = {
   getManuallySortedBlogArticles: async (
     blogSlug: string,
     page: number = 0,
+    tagSlug?: string,
   ): Promise<BlogArticlePagination> => {
     const from = page * PAGINATION_PAGE_SIZE;
     /* Overfetch by 1 to see if there are additional pages */
@@ -501,11 +502,11 @@ export const blog = {
             && slug.current == $blogSlug
             && ${isNotVariantFilter}
           ][0]{
-            manuallySortedArticleList[][$from..$to]->{
+            manuallySortedArticleList[$tagSlug == null || $tagSlug in @->tags[]-> slug.current][$from..$to] -> {
               ${blogArticleLinkDataFragment}
-            },
+            }
           }`,
-      { blogSlug, from, to },
+      { blogSlug, from, to, tagSlug: tagSlug || null },
     );
     const articles = blog?.manuallySortedArticleList || [];
     /* Slice off the possible over-fetched article */

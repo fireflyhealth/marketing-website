@@ -113,6 +113,7 @@ export const useBlogArticlePagination = (
           ? await sanity.blog.getManuallySortedBlogArticles(
               blogSlug,
               pageNumber,
+              tagSlug,
             )
           : await sanity.blog.getBlogArticles(blogSlug, pageNumber, tagSlug);
 
