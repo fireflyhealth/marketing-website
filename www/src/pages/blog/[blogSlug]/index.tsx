@@ -37,11 +37,15 @@ export const createGetStaticProps =
       throw new Error('blogSlug param is not a string');
     }
 
-    const [siteSettings, blog, initialArticlesPage] = await Promise.all([
+    const [siteSettings, blog] = await Promise.all([
       Sanity.siteSettings.get(),
       Sanity.blog.get(blogSlug, config),
-      Sanity.blog.getBlogArticles(blogSlug),
     ]);
+
+    const initialArticlesPage =
+      blog?.articleSortOrder == 'sortManually'
+        ? await Sanity.blog.getManuallySortedBlogArticles(blogSlug)
+        : await Sanity.blog.getBlogArticles(blogSlug);
 
     const navigationOverrides = blog?.navigationOverrides;
 

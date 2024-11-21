@@ -29,6 +29,7 @@ import {
   PractitionerLinkData,
   Practitioner,
   Maybe,
+  ManuallySortedBlogArticle,
 } from '@/types/sanity';
 import { PageParams } from '@/pages/[pageSlug]/[subpageSlug]';
 import { PageParams as ArticlePageParams } from '@/pages/blog/[blogSlug]/[articleSlug]';
@@ -465,16 +466,16 @@ export const blog = {
     const to = from + PAGINATION_PAGE_SIZE + 1;
     const articles = await client.fetch<BlogArticle[]>(
       `*[
-          _type == "blogArticle"
-          && category->slug.current == $blogSlug
-          && (
-            $tagSlug == null ||
-            $tagSlug in tags[]->slug.current
-          )
-          && ${isNotVariantFilter}
-        ]{
-          ${blogArticleLinkDataFragment}
-        }[$from..$to]`,
+    _type == "blogArticle"
+    && category->slug.current == $blogSlug
+    && (
+      $tagSlug == null ||
+      $tagSlug in tags[]->slug.current
+    )
+    && ${isNotVariantFilter}
+  ] | order(updatedDate desc) | order(_updatedAt desc) | order(publishDate desc) {
+    ${blogArticleLinkDataFragment}
+  }[$from..$to]`,
       { blogSlug, from, to, tagSlug: tagSlug || null },
     );
     /* Slice off the possible over-fetched article */
@@ -485,6 +486,38 @@ export const blog = {
       articles: slicedArticles,
     };
   },
+
+  getManuallySortedBlogArticles: async (
+    blogSlug: string,
+    page: number = 0,
+    tagSlug?: string,
+  ): Promise<BlogArticlePagination> => {
+    const from = page * PAGINATION_PAGE_SIZE;
+    /* Overfetch by 1 to see if there are additional pages */
+    const to = from + PAGINATION_PAGE_SIZE + 1;
+
+    const blog = await client.fetch<ManuallySortedBlogArticle>(
+      `*[
+            _type == "blog"
+            && slug.current == $blogSlug
+            && ${isNotVariantFilter}
+          ][0]{
+            manuallySortedArticleList[$tagSlug == null || $tagSlug in @->tags[]-> slug.current][$from..$to] -> {
+              ${blogArticleLinkDataFragment}
+            }
+          }`,
+      { blogSlug, from, to, tagSlug: tagSlug || null },
+    );
+    const articles = blog?.manuallySortedArticleList || [];
+    /* Slice off the possible over-fetched article */
+    const slicedArticles = articles.slice(0, PAGINATION_PAGE_SIZE);
+    return {
+      page,
+      hasNextPage: articles.length > PAGINATION_PAGE_SIZE ? true : false,
+      articles: slicedArticles ? slicedArticles : [],
+    };
+  },
+
   getSlugParams: (blogs: BlogWithArticles[]): ArticlePageParams[] => {
     const articlePageParams = blogs.reduce<ArticlePageParams[]>(
       (slugInfoArray, blog) => {

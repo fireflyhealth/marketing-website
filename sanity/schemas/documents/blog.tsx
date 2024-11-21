@@ -1,4 +1,4 @@
-import { defineArrayMember, defineField, defineType } from 'sanity';
+import { Reference, defineArrayMember, defineField, defineType } from 'sanity';
 import { icons } from '../../lib/icons';
 import { readOnlyIfNotBaseLang } from '../../lib/readOnlyIfNotBaseLang';
 import localizationSlugField from '../../lib/localizationSlugField';
@@ -165,6 +165,98 @@ export const Blog = defineType({
           { title: 'List', value: 'list' },
         ],
       },
+    }),
+    defineField({
+      name: 'articleSortOrder',
+      title: 'Sort Order',
+      type: 'string',
+      fieldset: 'content',
+      options: {
+        list: [
+          { title: 'Manually', value: 'sortManually' },
+          {
+            title: 'Automatically by last updated',
+            value: 'sortAutomatically',
+          },
+        ],
+      },
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
+      name: 'manuallySortedArticleList',
+      title: 'Article list (sorted manually)',
+      fieldset: 'content',
+      type: 'array',
+      of: [
+        {
+          type: 'reference',
+          options: {
+            filter: ({ document }) => {
+              const documentId = document._id.replace(/^drafts\./, '');
+              return {
+                filter: [
+                  'category->_id == $id',
+                  '&& !defined(documentVariantInfo.variantOf)',
+                ].join(''),
+                params: { id: documentId },
+              };
+            },
+          },
+          to: [{ type: 'blogArticle' }],
+          validation: (Rule) =>
+            Rule.custom(async (value: Reference, context) => {
+              /* Not required */
+              const document = context.document;
+              if (!value || !document) return true;
+
+              /* If there is a reference, validate that it is assigned
+               * to the current blog.
+               *
+               * The filter in the above options.filter configuration will
+               * ensure that the selected article will be within this blog,
+               * but it is possible that the article's category could be
+               * changed and it would no longer be valid. */
+              const client = context.getClient({ apiVersion: '2024-01-01' });
+              const article = await client.fetch(
+                `*[_type == "blogArticle" && _id == $id]{
+                  documentVariantInfo,
+                  category->{
+                    _id,
+                    title
+                  }
+                }[0]`,
+                { id: value._ref },
+              );
+              const variantOf: string | undefined =
+                // @ts-ignore
+                document?.documentVariantInfo?.variantOf?._ref;
+
+              if (
+                article.category._id ===
+                  document._id.replace(/^drafts\./, '') ||
+                (variantOf && article.category._id === variantOf)
+              ) {
+                return true;
+              }
+              return `Featured articles must be assigned to this blog. The linked article is assigned to the "${article.category.title}" blog.`;
+            }),
+        },
+      ],
+      hidden: ({ parent }) =>
+        !parent.articleSortOrder ||
+        parent.articleSortOrder == 'sortAutomatically',
+      validation: (Rule) =>
+        Rule.custom((value, context) => {
+          if (
+            // @ts-ignore
+            context?.parent?.articleSortOrder == 'sortManually' &&
+            !value
+          ) {
+            return 'Add an article first to manually sort list of articles.';
+          }
+
+          return true;
+        }),
     }),
     defineField({
       name: 'metadata',

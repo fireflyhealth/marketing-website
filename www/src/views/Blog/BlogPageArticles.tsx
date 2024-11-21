@@ -2,9 +2,11 @@ import React, { FC, useRef } from 'react';
 import cn from 'classnames';
 import {
   Blog,
+  ArticleSortOrder,
   BlogArticleLayout,
   BlogArticlePagination,
   BlogArticleTagGroup,
+  BlogArticleLinkData,
   Maybe,
 } from '@/types/sanity';
 import { Status } from '@/constants';
@@ -19,6 +21,9 @@ type BlogPageArticlesInnerProps = {
   goPrev: () => Promise<void>;
   articleLayout: BlogArticleLayout;
   paginationStatus: Status;
+  sortOrder: ArticleSortOrder;
+  manuallySortedArticleList?: Maybe<BlogArticleLinkData[]>;
+  articleTag?: Maybe<BlogArticleTagGroup>;
 };
 
 /* The inner UI, which does not deal with fetching the data itself.
@@ -29,6 +34,9 @@ export const BlogPageArticlesInner: FC<BlogPageArticlesInnerProps> = ({
   goPrev,
   articleLayout,
   paginationStatus,
+  sortOrder,
+  manuallySortedArticleList,
+  articleTag,
 }) => {
   const blogArticlesRef = useRef<HTMLDivElement>(null);
   const scrollToArticlesTop = () => {
@@ -123,10 +131,14 @@ export const BlogPageArticles: FC<BlogPageArticlesProps> = ({
 }) => {
   const { state, goNext, goPrev } = useBlogArticlePagination(
     blog.slug.current,
+    blog.articleSortOrder,
     initialArticlesPage,
     articleTag,
   );
   const { currentPage } = state;
+
+  if (!currentPage) return;
+
   return (
     <BlogPageArticlesInner
       paginationStatus={state.status}
@@ -134,6 +146,8 @@ export const BlogPageArticles: FC<BlogPageArticlesProps> = ({
       currentPage={currentPage}
       goNext={goNext}
       goPrev={goPrev}
+      sortOrder={blog.articleSortOrder}
+      articleTag={articleTag}
     />
   );
 };

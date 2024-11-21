@@ -1,6 +1,11 @@
 import React, { FC } from 'react';
 import cn from 'classnames';
-import { BlogArticleLinkData } from '@/types/sanity';
+import {
+  Maybe,
+  ArticleSortOrder,
+  BlogArticleLinkData,
+  BlogArticleTagGroup,
+} from '@/types/sanity';
 import { SanityImage } from '@/atoms/Image/SanityImage';
 import { formatSanityDate } from '@/utils/text';
 import { Link } from '@/atoms/Link';
@@ -37,6 +42,7 @@ export const BlogArticlesGrid: FC<BlogArticlesSharedProps> = ({
   /** TODO: Maybe add skeletons here. However, users will only see an empty state
    * if they switch to an article tab *very quickly* after initial load. */
   if (!currentPage) return null;
+
   return (
     <div className={cn(BlogArticlesGridWrapper)}>
       {currentPage.articles.map((article) => (

@@ -280,6 +280,8 @@ export type PractitionerLinkData = Pick<
   | 'renderProviderPage'
 >;
 
+export type ArticleSortOrder = 'sortAutomatically' | 'sortManually' | undefined;
+
 /* Blogs */
 export type Blog = SanityDocument & {
   _type: 'blog';
@@ -289,10 +291,15 @@ export type Blog = SanityDocument & {
   navigationOverrides?: NavigationOverrides;
   header: HeaderArea;
   featuredArticle?: Maybe<BlogArticle>;
+  articleSortOrder: ArticleSortOrder;
   contentArea?: Maybe<ContentArea>;
   allArticlesLabel: string;
   blogArticleTagGroups?: Maybe<KeyedArray<BlogArticleTagGroup>>;
   articleLayout: BlogArticleLayout;
+};
+
+export type ManuallySortedBlogArticle = {
+  manuallySortedArticleList?: Maybe<BlogArticleLinkData[]>;
 };
 
 /* Used when generating slug params. For
@@ -349,6 +356,7 @@ export type BlogArticleLinkData = Pick<
   | 'publishDate'
   | 'blurb'
   | '_updatedAt'
+  | 'tags'
 >;
 
 /* Blog article pagination */
@@ -356,6 +364,14 @@ export type BlogArticlePagination = {
   page: number;
   hasNextPage: boolean;
   articles: BlogArticleLinkData[];
+};
+
+export type ManuallySortedBlogArticlePagination = {
+  page: number;
+  hasNextPage: boolean;
+  articles: {
+    manuallySortedArticleList: BlogArticleLinkData[];
+  }[];
 };
 
 /* Navigation */
