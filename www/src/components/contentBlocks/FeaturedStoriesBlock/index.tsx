@@ -21,11 +21,7 @@ export const FeaturedStoriesBlock: FC<FeaturedStoriesBlockProps> = ({
           <div
             key={story.slug.current}
             className={cn(
-              FeaturedStoriesCardWrapper(
-                /* isWide? */
-                /* Every 2nd & 3rd */
-                index % 4 === 0 || index % 4 === 5,
-              ),
+              FeaturedStoriesCardWrapper(index % 4 === 0 || index % 4 === 5),
             )}
           >
             <FeaturedStoryCard story={story} />
