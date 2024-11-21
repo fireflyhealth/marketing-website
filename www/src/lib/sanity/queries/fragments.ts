@@ -98,6 +98,8 @@ export const blogArticleLinkDataFragment = `
     title
   },
   tags[]->{
+    _type,
+    _id,
     title,
     slug {
       current
