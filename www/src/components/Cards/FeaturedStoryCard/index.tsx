@@ -19,7 +19,12 @@ export const FeaturedStoryCard: FC<FeaturedStoryCardProps> = ({ story }) => {
       <div className="theme-bg-color rounded-xl h-full overflow-hidden flex flex-col">
         <div className="md:hidden">
           <Link link={story}>
-            <SanityImage rounded={false} image={thumbnail} sizes={['100vw']} />
+            <SanityImage
+              rounded={false}
+              image={thumbnail}
+              sizes={['100vw']}
+              noCaption={true}
+            />
           </Link>
         </div>
         <div className="hidden md:block flex-grow relative md:h-[260px]">
@@ -30,6 +35,7 @@ export const FeaturedStoryCard: FC<FeaturedStoryCardProps> = ({ story }) => {
               fill
               sizes={['100vw', '60vw']}
               className="h-full w-full"
+              noCaption={true}
             />
           </Link>
         </div>

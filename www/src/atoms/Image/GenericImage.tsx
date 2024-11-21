@@ -43,6 +43,7 @@ export type GenericImageProps = Omit<NextImageProps, 'alt' | 'sizes'> & {
   alt?: string;
   caption?: Maybe<string>;
   className?: string;
+  noCaption?: boolean;
   /* A standard sizes string, i.e.:
    *
    * "(max-width: 600px) 100vw, (max-width: 768px) 80vw, (max-width: 1024px) 50vw, 25vw"
@@ -159,15 +160,21 @@ const GenericImageInner: FC<GenericImageProps> = ({
   );
 };
 
-export const GenericImage: FC<GenericImageProps> = ({ caption, ...props }) => {
+export const GenericImage: FC<GenericImageProps> = ({
+  caption,
+  noCaption = false,
+  ...props
+}) => {
   /* If the provided image has a caption, wrap it in a <figure> tag. */
   if (caption) {
     return (
       <figure className="GenericImage">
         <GenericImageInner {...props} />
-        <figcaption className="left-0 pt-4 font-size-10 text-color-secondary">
-          {caption}
-        </figcaption>
+        {!noCaption ? (
+          <figcaption className="left-0 pt-4 font-size-10 text-color-secondary">
+            {caption}
+          </figcaption>
+        ) : null}
       </figure>
     );
   }

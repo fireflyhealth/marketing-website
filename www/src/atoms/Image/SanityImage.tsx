@@ -15,6 +15,7 @@ export type SanityImageProps = Omit<
   image: SanityImageType | RichImage;
   width?: number;
   height?: number;
+  noCaption?: boolean;
 };
 
 const getAspectRatioFromCrop = (
@@ -123,6 +124,7 @@ export const SanityImage: FC<SanityImageProps> = ({
   width,
   height,
   aspectRatio,
+  noCaption,
   ...genericImageProps
 }) => {
   const { priority } = genericImageProps;
@@ -186,6 +188,7 @@ export const SanityImage: FC<SanityImageProps> = ({
       aspectRatio={aspectRatio}
       placeholder="blur"
       blurDataURL={image.asset.metadata.lqip}
+      noCaption={noCaption}
       {...genericImageProps}
     />
   );
