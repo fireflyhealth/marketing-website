@@ -324,7 +324,7 @@ export type BlogArticleTag = SanityDocument & {
 export type BlogArticle = SanityDocument & {
   _type: 'blogArticle';
   title: string;
-  eyebrow: string;
+  eyebrow: Maybe<string>;
   publishDate: string;
   updatedDate?: Maybe<string>;
   articleImage?: Maybe<RichImage>;
