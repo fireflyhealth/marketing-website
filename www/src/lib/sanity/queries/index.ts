@@ -117,6 +117,7 @@ export const faqPageFragment = `
 export const blogArticleFragment = `
   _id,
   title,
+  eyebrow,
   category->{
     _type,
     title,

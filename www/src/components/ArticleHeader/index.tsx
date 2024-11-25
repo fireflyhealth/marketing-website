@@ -50,8 +50,15 @@ const ArticleTag = ({
 };
 
 export const ArticleHeader: FC<Props> = ({ articleHeader }) => {
-  const { tags, title, authorName, publishDate, updatedDate, articleImage } =
-    articleHeader;
+  const {
+    tags,
+    title,
+    eyebrow,
+    authorName,
+    publishDate,
+    updatedDate,
+    articleImage,
+  } = articleHeader;
   const selectedPublishedDate = publishDate;
   const formattedPublishDate = formatSanityDate(selectedPublishedDate);
   return (
@@ -62,6 +69,9 @@ export const ArticleHeader: FC<Props> = ({ articleHeader }) => {
         })}
       >
         <ArticleTag tags={tags} />
+        {eyebrow && (
+          <p className="font-size-8--cta font-roobert mb-6">{eyebrow}</p>
+        )}
         <h1 className={cn('font-size-4 font-trust')}>{title}</h1>
         <div className={cn(Info)}>
           {authorName && <p className={cn(Author)}>by {authorName}</p>}

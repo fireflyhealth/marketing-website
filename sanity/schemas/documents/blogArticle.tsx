@@ -28,17 +28,22 @@ export const BlogArticle = defineType({
       },
     }),
     defineField({
-      name: 'title',
-      title: 'Title',
-      type: 'string',
-      validation: (Rule) => Rule.required(),
-    }),
-    defineField({
       name: 'articleImage',
       title: 'Article Image',
       description:
         'Used in article header if image is provided. Otherwise, article header will render without image.',
       type: 'richImage',
+    }),
+    defineField({
+      name: 'eyebrow',
+      title: 'Eyebrow',
+      type: 'string',
+    }),
+    defineField({
+      name: 'title',
+      title: 'Title',
+      type: 'string',
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'publishDate',
