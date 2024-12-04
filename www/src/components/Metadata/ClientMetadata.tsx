@@ -5,13 +5,10 @@ import { GenericMetadata } from './GenericMetadata';
 
 type ClientMetadataProps = {
   metadata?: Metadata;
-  clientPage: ClientPage;
 };
 
-export const ClientMetadata: FC<ClientMetadataProps> = ({
-  metadata,
-  clientPage,
-}) => {
-  // TODO: add sensible metadata fallbacks from page content
-  return <GenericMetadata {...metadata} />;
+export const ClientMetadata: FC<ClientMetadataProps> = ({ metadata }) => {
+  // Client page should not show up in search results.
+  // So we set noIndex to true.
+  return <GenericMetadata {...metadata} noIndex={true} />;
 };

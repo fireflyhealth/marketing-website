@@ -36,6 +36,7 @@ export const JPMCVIew: FC<Props> = ({
   return (
     <>
       <Head>
+        <meta key="robots-noindex" name="robots" content="noindex" />
         <meta charSet="utf-8" />
         <title>
           Digital-first Primary Care | JPMorgan Chase and Firefly Health

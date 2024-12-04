@@ -39,7 +39,7 @@ const ClientPage: FC<ClientPageProps> = ({ siteSettings, clientPage }) => {
         />
       ) : (
         <>
-          <ClientMetadata clientPage={clientPage} />
+          <ClientMetadata />
           <ClientPageView clientPage={clientPage} />
         </>
       )}
