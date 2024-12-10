@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Firefly Health</title>
+    <meta
+      name="viewport"
+      content="initial-scale=1,maximum-scale=1,user-scalable=no"
+    />
+    <link
+      href="https://api.mapbox.com/mapbox-gl-js/v3.7.0/mapbox-gl.css"
+      rel="stylesheet"
+    />
+    <script src="https://api.mapbox.com/mapbox-gl-js/v3.7.0/mapbox-gl.js"></script>
+    <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.css"
+      type="text/css"
+    />
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: "Trust 1A", "Arial", sans-serif;
+      }
+      #map {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        width: 100%;
+      }
+      .mapboxgl-popup {
+        max-width: 400px;
+        font: 12px/20px "Helvetica Neue", Arial, Helvetica, sans-serif;
+        padding-bottom: 10px;
+      }
+      .mapboxgl-popup,
+      img {
+        max-width: 100%;
+      }
+      .mapboxgl-popup-content {
+        border-radius: 10px;
+      }
+      .mapboxgl-popup-content img {
+        background-color: rgba(255, 255, 255, 1);
+      }
+      .mapboxgl-popup-content a {
+        line-height: 2em;
+        color: #feffd6;
+      }
+      .mapboxgl-popup-content h2,
+      p {
+        margin-bottom: 5px;
+      } /* Styles for blue popup */
+      .blue-popup .mapboxgl-popup-content {
+        color: #feffd6;
+        background: #131d2b;
+      }
+      .blue-popup .mapboxgl-popup-tip {
+        border-top-color: #131d2b;
+      }
+      .blue-popup .mapboxgl-popup-anchor-bottom .mapboxgl-popup-tip {
+        border-top-color: #131d2b;
+      }
+      .blue-popup .mapboxgl-popup-anchor-top .mapboxgl-popup-tip {
+        border-bottom-color: #131d2b;
+      }
+      .blue-popup .mapboxgl-popup-anchor-left .mapboxgl-popup-tip {
+        border-right-color: #131d2b;
+      }
+      .blue-popup .mapboxgl-popup-anchor-right .mapboxgl-popup-tip {
+        border-left-color: #131d2b;
+      }
+      .blue-popup .mapboxgl-popup-anchor-top-left .mapboxgl-popup-tip {
+        border-bottom-color: #131d2b;
+      }
+      .blue-popup .mapboxgl-popup-anchor-top-right .mapboxgl-popup-tip {
+        border-bottom-color: #131d2b;
+      }
+      .blue-popup .mapboxgl-popup-anchor-bottom-left .mapboxgl-popup-tip {
+        border-top-color: #131d2b;
+      }
+      .blue-popup .mapboxgl-popup-anchor-bottom-right .mapboxgl-popup-tip {
+        border-top-color: #131d2b;
+      }
+      /* Styles for brown popup */
+      .brown-popup .mapboxgl-popup-content {
+        color: #feffd6;
+        background: #7d320c;
+      }
+      .brown-popup .mapboxgl-popup-tip {
+        border-top-color: #7d320c;
+      }
+      .brown-popup .mapboxgl-popup-anchor-bottom .mapboxgl-popup-tip {
+        border-top-color: #7d320c;
+      }
+      .brown-popup .mapboxgl-popup-anchor-top .mapboxgl-popup-tip {
+        border-bottom-color: #7d320c;
+      }
+      .brown-popup .mapboxgl-popup-anchor-left .mapboxgl-popup-tip {
+        border-right-color: #7d320c;
+      }
+      .brown-popup .mapboxgl-popup-anchor-right .mapboxgl-popup-tip {
+        border-left-color: #7d320c;
+      }
+      .brown-popup .mapboxgl-popup-anchor-top-left .mapboxgl-popup-tip {
+        border-bottom-color: #7d320c;
+      }
+      .brown-popup .mapboxgl-popup-anchor-top-right .mapboxgl-popup-tip {
+        border-bottom-color: #7d320c;
+      }
+      .brown-popup .mapboxgl-popup-anchor-bottom-left .mapboxgl-popup-tip {
+        border-top-color: #7d320c;
+      }
+      .brown-popup .mapboxgl-popup-anchor-bottom-right .mapboxgl-popup-tip {
+        border-top-color: #7d320c;
+      }
+      /* Styles for zip popup */
+      .zip-popup .mapboxgl-popup-content {
+        color: #feffd6;
+        background: #064827;
+      }
+      .zip-popup .mapboxgl-popup-tip {
+        border-top-color: #064827;
+      }
+      .zip-popup .mapboxgl-popup-anchor-bottom .mapboxgl-popup-tip {
+        border-top-color: #064827;
+      }
+      .zip-popup .mapboxgl-popup-anchor-top .mapboxgl-popup-tip {
+        border-bottom-color: #064827;
+      }
+      .zip-popup .mapboxgl-popup-anchor-left .mapboxgl-popup-tip {
+        border-right-color: #064827;
+      }
+      .zip-popup .mapboxgl-popup-anchor-right .mapboxgl-popup-tip {
+        border-left-color: #064827;
+      }
+      .zip-popup .mapboxgl-popup-anchor-top-left .mapboxgl-popup-tip {
+        border-bottom-color: #064827;
+      }
+      .zip-popup .mapboxgl-popup-anchor-top-right .mapboxgl-popup-tip {
+        border-bottom-color: #064827;
+      }
+      .zip-popup .mapboxgl-popup-anchor-bottom-left .mapboxgl-popup-tip {
+        border-top-color: #064827;
+      }
+      .zip-popup .mapboxgl-popup-anchor-bottom-right .mapboxgl-popup-tip {
+        border-top-color: #0b4303;
+      }
+      #legend {
+        color: #575958;
+        font-size: small;
+        line-height: 2.5em;
+        position: fixed;
+        bottom: 20px;
+        width: 160px;
+        background-color: #f3f5f4;
+        padding: 20px;
+        margin: 10px;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        border-radius: 2%;
+      }
+      #legend h3 {
+        margin-top: 0;
+      }
+      #legend .heading {
+        font-size: 1em;
+        display: inline-block;
+        margin-left: 10px;
+      }
+      #legend img {
+        display: none;
+      }
+      .hide {
+        clip: rect(0 0 0 0);
+        height: 1px;
+        margin: -1px;
+        padding: 0;
+        position: absolute;
+        width: 1px;
+      }
+      label {
+        display: inline-block;
+        position: relative;
+        cursor: pointer;
+        outline: none;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        padding: 2px;
+        width: 25.2px;
+        height: 8px;
+        border-radius: 12px;
+        background: #bcbcbc;
+        transition: box-shadow 0.4s;
+      }
+      label:after {
+        display: block;
+        position: absolute;
+        content: "";
+        top: 0;
+        left: 0;
+        bottom: 0;
+        margin: auto 0;
+        width: 15px;
+        height: 15px;
+        background: #fff;
+        border-radius: 50%;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        transition: background 0.4s, left 0.4s, height 0.2s, width 0.2s;
+      }
+      input:checked + label {
+        box-shadow: inset 0 0 0 48px tint(#1663c7, 50%);
+      }
+      label:active:after,
+      input:checked + label:active:after {
+        height: 10.9090909091;
+        width: 14.4px;
+      }
+      input:checked + label.labs:after {
+        left: calc(100% - 15px);
+        background: #131d2b;
+      }
+      input:checked + label.care:after {
+        left: calc(100% - 15px);
+        background: #7d320c;
+      }
+      input:checked + label.zip:after {
+        left: calc(100% - 15px);
+        background: #ffd714;
+      }
+      .geocoder {
+        position: fixed;
+        z-index: 1;
+        width: 200px;
+        margin: 10px;
+        right: 1px;
+      }
+      .mapboxgl-ctrl-geocoder {
+        min-width: 100%;
+      }
+      .mapboxgl-ctrl-geocoder--input {
+        border-radius: 5px;
+        /* padding: 10px; */
+        font-size: 0.75em;
+        height: 32px;
+      }
+      .mapboxgl-ctrl-geocoder--icon-search {
+        position: absolute;
+        top: 8px;
+        left: 12px;
+        width: 20px;
+        height: 20px;
+      }
+
+      .locate {
+        background-color: #7d320c;
+        color: #feffd6;
+        border: none;
+        border-radius: 5px;
+        padding: 10px;
+        cursor: pointer;
+      }
+      .close {
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        position: absolute;
+        top: 0;
+        right: 0;
+      }
+      .superscript {
+        vertical-align: super;
+        font-size: smaller;
+      }
+      /* media queries for mobile */
+      @media only screen and (max-width: 600px) {
+        #legend {
+          width: 12%;
+        }
+        #legend .heading {
+          display: none;
+        }
+        #legend hr {
+          display: none;
+        }
+        #legend img {
+          display: block;
+          width: 20px;
+          height: 20px;
+          position: absolute;
+          right: 2px;
+          top: 2px;
+        }
+        .geocoder {
+          width: 50%;
+        }
+        #legend .close {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="map"></div>
+    <div id="geocoder" class="geocoder"></div>
+    <div id="legend">
+      <!-- add the arrow button to expand the legend and show the text -->
+      <img
+        src="./img/arrow-open.png"
+        alt="open legend"
+        id="arrow-open"
+        class="open"
+      />
+      <img
+        src="./img/arrow-close.png"
+        alt="close legend"
+        id="arrow-close"
+        class="close"
+      />
+      <div>
+        <input class="hide" id="toggle-care" type="checkbox" checked="true" />
+        <label for="toggle-care" class="care"></label>
+        <span class="heading">Urgent/Retail Care</span>
+      </div>
+      <div>
+        <input class="hide" id="toggle-zip" type="checkbox" checked="true" />
+        <label for="toggle-zip" class="zip"></label>
+        <span class="heading">In-home Services</span>
+      </div>
+      <hr />
+      <div>
+        <input class="hide" id="toggle-labs" type="checkbox" checked="true" />
+        <label for="toggle-labs" class="labs"></label>
+        <span class="heading">Labs<span class="superscript">*</span></span>
+      </div>
+    </div>
+    <script>
+      mapboxgl.accessToken =
+        "pk.eyJ1IjoiZmlyZWZseWhlYWx0aCIsImEiOiJjbHE1ZXAwNDUwMHhlMmxqc2tmMGV6cjRtIn0.dTlIXwpuOO1XJaK8tNihPw";
+      const map = new mapboxgl.Map({
+        container: "map",
+        style: "mapbox://styles/fireflyhealth/clusmz8xj000i01rd3gtv2pmw",
+        zoom: 5,
+        // center new INDIANA
+        center: [-85.981108, 40.36902669],
+        cooperativeGestures: true,
+      });
+      // remove the scroll zoom
+
+      // Add geolocate control to the map.
+      map.addControl(
+        new mapboxgl.GeolocateControl({
+          positionOptions: {
+            enableHighAccuracy: true,
+          },
+          // When active the map will receive updates to the device's location as it changes.
+          trackUserLocation: true,
+        }),
+        "top-left"
+      );
+      function geolocate() {
+        if (!navigator.geolocation) {
+          alert("Geolocation is not available");
+        } else {
+          navigator.geolocation.getCurrentPosition((position) => {
+            const { coords } = position;
+            map.flyTo({
+              center: [coords.longitude, coords.latitude],
+              zoom: 10,
+            });
+            // create a new orange marker #FF7F29 at the location of the user
+            new mapboxgl.Marker({ color: "#FF7F29" })
+              .setLngLat([coords.longitude, coords.latitude])
+              .addTo(map);
+          });
+        }
+      }
+
+      // Add the control to the map.
+      const geocoder = new MapboxGeocoder({
+        accessToken: mapboxgl.accessToken,
+        mapboxgl: mapboxgl,
+        countries: "us", // limit results to US
+        placeholder: "zip code",
+        types: "postcode",
+        // add a custom marker to the geocoder result with a custom icon and size
+        marker: {
+          color: "#FF7F29",
+          size: "small",
+        },
+      });
+      document.getElementById("geocoder").appendChild(geocoder.onAdd(map));
+
+      geocoder.on("result", (e) => {
+        var geocodingResult = e.result.text;
+        map.setFilter("zip-outline", ["==", "ZCTA5CE20", geocodingResult]);
+        map.setLayoutProperty("zip-outline", "visibility", "visible");
+      });
+
+      // Fetch the GeoJSON from whatever linestring you have for now. Later, use an API to fetch the data.
+      async function fetchGeoJSON() {
+        const response = await fetch("./partners/partners.geojson");
+        const data = await response.json();
+        return data;
+      }
+
+      map.on("load", () => {
+        fetchGeoJSON().then((data) => {
+          // Add the Labs data
+          map.addSource("labs-source", {
+            type: "geojson",
+            data: data,
+          });
+          map.addLayer(
+            {
+              id: "labs-layer",
+              type: "circle",
+              source: "labs-source",
+              paint: {
+                // Make circles larger as the user zooms from z4 to z22.
+                "circle-radius": {
+                  base: 1,
+                  stops: [
+                    [4, 2],
+                    [8, 6],
+                    [14, 12],
+                    [18, 14],
+                    [22, 18],
+                  ],
+                },
+                "circle-color": "#131D2B",
+                "circle-stroke-color": "#6396d8",
+                "circle-stroke-width": {
+                  base: 1,
+                  stops: [
+                    [4, 0.1],
+                    [8, 1],
+                    [22, 2],
+                  ],
+                },
+              },
+              filter: ["==", "PartnerType", "Lab"],
+            },
+            "poi-label"
+          );
+
+          // Add the Urgent/Retail Care data
+          map.addSource("care-source", {
+            type: "geojson",
+            data: data,
+          });
+          map.addLayer(
+            {
+              id: "care-layer",
+              type: "circle",
+              source: "care-source",
+              paint: {
+                // Make circles larger as the user zooms from z4 to z22.
+                "circle-radius": {
+                  base: 1,
+                  stops: [
+                    [4, 2],
+                    [8, 6],
+                    [14, 12],
+                    [18, 14],
+                    [22, 18],
+                  ],
+                },
+                "circle-color": "#7D320C",
+                "circle-stroke-color": "#FEFFD6",
+                "circle-stroke-width": {
+                  base: 1,
+                  stops: [
+                    [4, 0.1],
+                    [8, 1],
+                    [22, 2],
+                  ],
+                },
+              },
+              filter: ["==", "PartnerType", "Urgent/Retail Care"],
+            },
+            // Place polygons under labels
+            "poi-label"
+          );
+
+          // Add the ZIP CODES data
+          map.addSource("in-home-source", {
+            type: "geojson",
+            data: data,
+          });
+          map.addLayer(
+            {
+              id: "in-home-layer",
+              type: "circle",
+              source: "in-home-source",
+              layout: {
+                visibility: "none",
+              },
+              filter: ["==", "PartnerType", "In Home Services"],
+            },
+            "poi-label"
+          );
+
+          const filteredFeatures = data.features.filter(
+            (feature) => feature.properties["PartnerType"] == "In Home Services"
+          );
+          const zipCodes = [
+            ...new Set(
+              // data.features.map((feature) => String(feature.properties.ZipCode))
+              filteredFeatures.map((feature) =>
+                String(feature.properties.ZipCode)
+              )
+            ),
+          ];
+          // Filter expression to match ZCTA5CE20 properties
+          const matchExpression = [
+            "match",
+            ["get", "ZCTA5CE20"],
+            zipCodes,
+            true,
+            false,
+          ];
+          map.addSource("us_zipcodes", {
+            type: "vector",
+            url: "mapbox://fireflyhealth.tl_2024_us_zcta520",
+          });
+          map.addLayer(
+            {
+              id: "zip-layer",
+              type: "fill",
+              source: "us_zipcodes",
+              "source-layer": "tl_2024_us_zcta520",
+              paint: {
+                "fill-color": "#ffd714",
+                "fill-opacity": 0.5,
+              },
+              filter: matchExpression,
+            },
+            "water-point-label"
+          );
+          map.addLayer(
+            {
+              id: "zip-outline",
+              type: "line",
+              source: "us_zipcodes",
+              "source-layer": "tl_2024_us_zcta520",
+              paint: {
+                "line-color": "#c4a000",
+                "line-opacity": 1,
+                "line-width": 3,
+              },
+              layout: {
+                visibility: "none",
+                "line-cap": "round",
+                "line-join": "round",
+              },
+            },
+            "water-point-label"
+          );
+        });
+
+        document
+          .getElementById("toggle-care")
+          .addEventListener("change", (e) => {
+            map.setLayoutProperty(
+              "care-layer",
+              "visibility",
+              e.target.checked ? "visible" : "none"
+            );
+          });
+        // when the labs checkbox is clicked, toggle the visibility of the labs layer
+        document
+          .getElementById("toggle-labs")
+          .addEventListener("change", (e) => {
+            map.setLayoutProperty(
+              "labs-layer",
+              "visibility",
+              e.target.checked ? "visible" : "none"
+            );
+          });
+        // when the labs checkbox is clicked, toggle the visibility of the zip layer
+        document
+          .getElementById("toggle-zip")
+          .addEventListener("change", (e) => {
+            map.setLayoutProperty(
+              "zip-layer",
+              "visibility",
+              e.target.checked ? "visible" : "none"
+            );
+          });
+      });
+
+      // Popups on hover (click for mobile)
+      // Create a popup, but don't add it to the map yet.
+      const carePopup = new mapboxgl.Popup({
+        closeButton: false,
+        closeOnClick: true,
+      });
+      const labPopup = new mapboxgl.Popup({
+        closeButton: false,
+        closeOnClick: true,
+      });
+      map.on("click", "care-layer", (e) => {
+        map.getCanvas().style.cursor = "pointer";
+        const coordinates = e.features[0].geometry.coordinates.slice();
+        const description =
+          "<strong>Urgent/Retail Care</strong><br>" +
+          e.features[0].properties["Address"];
+        while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+          coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+        }
+        carePopup.addClassName("brown-popup");
+        carePopup.setLngLat(coordinates).setHTML(description).addTo(map);
+      });
+      map.on("click", "labs-layer", (e) => {
+        map.getCanvas().style.cursor = "pointer";
+        const coordinates = e.features[0].geometry.coordinates.slice();
+        const description =
+          "<strong>Lab</strong><br>" + e.features[0].properties["Address"];
+        while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+          coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+        }
+        labPopup.addClassName("blue-popup");
+        labPopup.setLngLat(coordinates).setHTML(description).addTo(map);
+      });
+
+      // in-home-layer popup
+      // map.on("click", "in-home-layer", (e) => {
+      //   map.getCanvas().style.cursor = "pointer";
+      //   const coordinates = e.features[0].geometry.coordinates.slice();
+      //   const description =
+      //     "<strong>In-home Services</strong><br>" +
+      //     e.features[0].properties["Address"];
+      //   while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+      //     coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+      //   }
+      //   // zipPopup.addClassName("zip-popup");
+      //   // zipPopup.setLngLat(coordinates).setHTML(description).addTo(map);
+      // });
+
+      // map.on("click", "zip-layer", (e) => {
+      //   map.getCanvas().style.cursor = "pointer";
+      //   const coordinates = e.lngLat;
+      //   const description =
+      //     "<strong>Zip Code</strong><br>" +
+      //     e.features[0].properties["ZCTA5CE20"];
+      //   while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+      //     coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+      //   }
+      //   zipPopup.addClassName("zip-popup");
+      //   zipPopup.setLngLat(coordinates).setHTML(description).addTo(map);
+      // });
+      map.on("mouseleave", "care-layer", () => {
+        map.getCanvas().style.cursor = "";
+        carePopup.removeClassName("blue-popup");
+      });
+      map.on("mouseleave", "labs-layer", () => {
+        map.getCanvas().style.cursor = "";
+        labPopup.removeClassName("brown-popup");
+      });
+      map.on("mouseleave", "zip-layer", () => {
+        map.getCanvas().style.cursor = "";
+        labPopup.removeClassName("zip-popup");
+      });
+
+      // open the legend when the arrow-open is clicked and then hides the arrow-open and shows the arrow-close image
+      function openLegend() {
+        document.getElementById("legend").style.width = "160px";
+        document.getElementById("arrow-open").style.display = "none";
+        document.getElementById("arrow-close").style.display = "block";
+        // display all the headings in the legend when the legend is opened
+        document.querySelectorAll(".heading").forEach((heading) => {
+          heading.style.display = "inline-block";
+        });
+      }
+      // add an event listener to the arrow-open image that calls the openLegend function when clicked
+      document
+        .getElementById("arrow-open")
+        .addEventListener("click", openLegend);
+      // write a function that closes the legend when the arrow-close is clicked and then hides the arrow-close and shows the arrow-open image
+      function closeLegend() {
+        document.getElementById("legend").style.width = "12%";
+        document.getElementById("arrow-open").style.display = "block";
+        document.getElementById("arrow-close").style.display = "none";
+        // hide all the headings in the legend when the legend is closed
+        document.querySelectorAll(".heading").forEach((heading) => {
+          heading.style.display = "none";
+        });
+      }
+      // add an event listener to the arrow-close image that calls the closeLegend function when clicked
+      document
+        .getElementById("arrow-close")
+        .addEventListener("click", closeLegend);
+    </script>
+  </body>
+</html>
